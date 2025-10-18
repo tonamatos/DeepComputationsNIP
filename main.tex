@@ -58,7 +58,7 @@ pdfkeywords={}
 %--------Meta Data: Fill in your info------
 \title{Deep computations and NIP}
 
-\author{
+\author[Dueñez, Iovino, Matos-Wiederhold, Salvetti, Tall]{
 Eduardo Dueñez$^{1}$ \qquad
 José Iovino$^{1}$ \qquad
 Tonatiuh Matos-Wiederhold$^{2}$ \qquad
@@ -363,7 +363,7 @@ Given a Hausdorff space $X$ and a measurable space $(Y,\Sigma)$, we say that $f:
 The previous lemma says that a transition map is universally measurable if and only if it is universally measurable on all its features. In other words, we can check measurability of a transition just by checking measurability in all its features. We will denote by $M_r(X,\mathbb{R}^\mathcal{P})$ the collection of all universally measurable functions $f:X\rightarrow\mathbb{R}^\mathcal{P}$ (with respect to the cylinder $\sigma$-algebra), endowed with the topology of pointwise convergence.
 
 \begin{defn}
-    Let $(L,\mathcal P,\Gamma)$ be a CCS. We say that a transition $f:L\rightarrow L$ is \textbf{universally measurable shard-definable} if and only if there exists $\tilde f:\mathcal{L}_{sh}\rightarrow \mathcal{L}_{sh}$ extending $f$ such that for every sizer $r_\bullet$ there is a sizer $s_\bullet$ such that the restriction $\tilde f|_{\mathcal{L}[r_{\bullet}]}:\mathcal{L}[r_\bullet]\rightarrow\mathcal{L}[s_\bullet]$ is universally measurable, i.e. $\pi_P\circ \tilde f|_{\mathcal{L}[r_{\bullet}]}:\mathcal{L}[r_\bullet]\rightarrow [-s_P,s_P]$ is $\mu$-measurable for every Radon probability measure $\mu$ on $\mathcal{L}[r_\bullet]$.
+    Let $(L,\mathcal P,\Gamma)$ be a CCS. We say that a transition $f:L\rightarrow L$ is \emph{universally measurable shard-definable} if and only if there exists $\tilde f:\mathcal{L}_{sh}\rightarrow \mathcal{L}_{sh}$ extending $f$ such that for every sizer $r_\bullet$ there is a sizer $s_\bullet$ such that the restriction $\tilde f|_{\mathcal{L}[r_{\bullet}]}:\mathcal{L}[r_\bullet]\rightarrow\mathcal{L}[s_\bullet]$ is universally measurable, i.e. $\pi_P\circ \tilde f|_{\mathcal{L}[r_{\bullet}]}:\mathcal{L}[r_\bullet]\rightarrow [-s_P,s_P]$ is $\mu$-measurable for every Radon probability measure $\mu$ on $\mathcal{L}[r_\bullet]$.
 \end{defn}
 
 We will need the following result about NIP and universally measurable functions:
@@ -400,23 +400,25 @@ Under the same assumptions of the previous Theorem, suppose that every deep comp
 
 \subsection{Talagrand stability and definability by universally measurable functions}
 
-There is another notion closely related to NIP, introduced by Talagrand while studying Pettis integration. Suppose that $X$ is a compact Hausdorff space and $A\subseteq \mathbb{R}^X$. Let $\mu$ be a Radon measure on $X$. Given a $\mu$-measurable set $E\subseteq X$, a positive integer $k$ and real numbers $\alpha<\beta$. we write:
+There is another notion closely related to NIP, introduced by Talagrand in \cite{talagrand1984pettis} while studying Pettis integration. Suppose that $X$ is a compact Hausdorff space and $A\subseteq \mathbb{R}^X$. Let $\mu$ be a Radon measure on $X$. Given a $\mu$-measurable set $E\subseteq X$, a positive integer $k$ and real numbers $\alpha<\beta$. we write:
 
 $$D_k(A,E,\alpha,\beta)=\bigcup_{f\in A}\{x\in E^{2k}:f(x_{2i})\leq\alpha, \hspace{1mm} f(x_{2i+1})\geq\beta \hspace{1mm}{\text{ for all }i<k} \}$$
 
-We say that $A$ is Talagrand $\mu$-stable if and only if for every $\mu$-measurable set $E\subseteq X$ of positive measure and for every $\alpha<\beta$ there is $k\geq 1$ such that $(\mu^{2k})^*(D_k(A,E,\alpha,\beta))<(\mu(E))^{2k}$. 
+We say that $A$ is \emph{Talagrand $\mu$-stable} if and only if for every $\mu$-measurable set $E\subseteq X$ of positive measure and for every $\alpha<\beta$ there is $k\geq 1$ such that $(\mu^{2k})^*(D_k(A,E,\alpha,\beta))<(\mu(E))^{2k}$. Notice that we work with the outer measure because it is not necessarily true that the sets $D_k(A,E,\alpha,\beta)$ are $\mu$-measurable. This is certainly the case when $A$ is a countable set of continuous (or $\mu$-measurable) functions. 
+
+The following lemma establishes that Talagrand stability is a way to ensure that deep computations are definable by measurable functions. We include the proof for the reader's convenience.
 
 \begin{lem}
     If $A$ is Talagrand $\mu$-stable, then $\overline{A}$ is also Talagrand $\mu$-stable and $\overline{A}\subseteq\mathcal{L}^0(X,\mu)$.
 \end{lem}
 
-We say that $A$ is universally Talagrand stable if $A$ is Talagrand $\mu$-stable for every Radon measure $\mu$ on $X$. A similar argument as before, yields the following:
+We say that $A$ is \emph{universally Talagrand stable} if $A$ is Talagrand $\mu$-stable for every Radon measure $\mu$ on $X$. A similar argument as before, yields the following:
 
 \begin{thm}
     Let $(L,\mathcal P,\Gamma)$ be a CCS satisfying the Extendibility Axiom. If $\pi_P\circ\Delta|_{L[r_\bullet]}$ is universally Talagrand stable for all $P\in\mathcal{P}$ and all sizers $r_{\bullet}$, then every deep computation is universally measurable sh-definable.
 \end{thm}
 
-It is then natural to ask, what is the relationship between Talagrand stability and the NIP? We know that Fremlin' Dichotomy imply:
+It is then natural to ask: what is the relationship between Talagrand stability and the NIP? We know that Fremlin's Dichotomy imply:
 
 \begin{lem}
     Let $X$ be a compact Hausdorff space and $A\subseteq C(X)$ be pointwise bounded. If $A$ is universally Talagrand stable, then $A$ has the NIP.
@@ -428,11 +430,11 @@ It is then natural to ask, what is the relationship between Talagrand stability 
 
 There is a delicate point in this question, as it may be sensitive to set-theoretic axioms (even assuming countability of $A$).
 
-\begin{thm}[Talagrand]
+\begin{thm}[Talagrand, Theorem 9-3-1(a) in \cite{talagrand1984pettis}]
     Let $X$ be a compact Hausdorff space and $A\subseteq M_r(X)$ be countable and pointwise bounded. Assume that $[0,1]$ is not the union of $<\mathfrak{c}$ closed measure zero sets. If $A$ has the NIP, then $A$ is universally Talagrand stable.
 \end{thm}
 
-\begin{thm}[Fremlin, Shelah]
+\begin{thm}[Fremlin, Shelah, \cite{fremlin1993pointwise}]
     It is consistent that there exists a countable pointwise bounded set of Lebesgue measurable functions with the NIP which is not Talagrand stable with respect to Lebesgue measure.
 \end{thm}
 
