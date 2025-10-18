@@ -12,13 +12,13 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Install Tectonic manually
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y tectonic
+      - name: Compile LaTeX document
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: main.tex
 
-      - name: Compile PDF
-        run: tectonic main.tex --keep-intermediates
+      - name: Rename output to paper.pdf
+        run: mv main.pdf paper.pdf
 
       - name: Deploy PDF to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
@@ -26,4 +26,3 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages
           publish_dir: .
-          allow_empty_commit: false
