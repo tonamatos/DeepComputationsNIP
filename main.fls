@@ -265,6 +265,8 @@ INPUT /opt/texlive/texdir/texmf-dist/tex/latex/euler/euler.sty
 INPUT /opt/texlive/texdir/texmf-dist/tex/latex/euler/euler.sty
 INPUT /opt/texlive/texdir/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytrees.code.tex
 INPUT /opt/texlive/texdir/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytrees.code.tex
+INPUT /opt/texlive/texdir/texmf-dist/tex/latex/lineno/lineno.sty
+INPUT /opt/texlive/texdir/texmf-dist/tex/latex/lineno/lineno.sty
 INPUT /opt/texlive/texdir/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 INPUT /opt/texlive/texdir/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 INPUT ./main.aux
@@ -340,6 +342,7 @@ INPUT /opt/texlive/texdir/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 INPUT /opt/texlive/texdir/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 INPUT /opt/texlive/texdir/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 INPUT /opt/texlive/texdir/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm
+INPUT /opt/texlive/texdir/texmf-dist/fonts/tfm/public/cm/cmss8.tfm
 INPUT /opt/texlive/texdir/texmf-dist/fonts/tfm/public/cm/cmcsc10.tfm
 INPUT /opt/texlive/texdir/texmf-dist/fonts/tfm/public/cm/cmti8.tfm
 INPUT /opt/texlive/texdir/texmf-dist/fonts/tfm/public/cm/cmcsc10.tfm
@@ -391,6 +394,7 @@ INPUT /opt/texlive/texdir/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb
 INPUT /opt/texlive/texdir/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb
 INPUT /opt/texlive/texdir/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb
 INPUT /opt/texlive/texdir/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb
+INPUT /opt/texlive/texdir/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb
 INPUT /opt/texlive/texdir/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
 INPUT /opt/texlive/texdir/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb
 INPUT /opt/texlive/texdir/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb
