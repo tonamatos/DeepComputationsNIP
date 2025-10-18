@@ -3,46 +3,46 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: main.aux
 The style file: alpha.bst
 Database file #1: bib.bib
-Warning--I didn't find a database entry for "simon2015nip"
-You've used 14 entries,
+Warning--can't use both volume and number fields in talagrand1984pettis
+You've used 21 entries,
             2543 wiz_defined-function locations,
-            657 strings with 6589 characters,
-and the built_in function-call counts, 5381 in all, are:
-= -- 535
-> -- 217
-< -- 13
-+ -- 71
-- -- 69
-* -- 379
-:= -- 886
-add.period$ -- 46
-call.type$ -- 14
-change.case$ -- 77
-chr.to.int$ -- 14
-cite$ -- 14
-duplicate$ -- 235
-empty$ -- 413
-format.name$ -- 89
-if$ -- 1106
+            700 strings with 7418 characters,
+and the built_in function-call counts, 7570 in all, are:
+= -- 742
+> -- 284
+< -- 21
++ -- 91
+- -- 87
+* -- 525
+:= -- 1245
+add.period$ -- 69
+call.type$ -- 21
+change.case$ -- 108
+chr.to.int$ -- 21
+cite$ -- 22
+duplicate$ -- 346
+empty$ -- 600
+format.name$ -- 120
+if$ -- 1550
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 18
-newline$ -- 74
-num.names$ -- 44
-pop$ -- 77
+missing$ -- 30
+newline$ -- 111
+num.names$ -- 65
+pop$ -- 119
 preamble$ -- 1
-purify$ -- 95
+purify$ -- 138
 quote$ -- 0
-skip$ -- 182
+skip$ -- 256
 stack$ -- 0
-substring$ -- 302
-swap$ -- 39
-text.length$ -- 13
-text.prefix$ -- 6
+substring$ -- 403
+swap$ -- 51
+text.length$ -- 21
+text.prefix$ -- 12
 top$ -- 0
-type$ -- 96
-warning$ -- 0
-while$ -- 51
-width$ -- 18
-write$ -- 186
+type$ -- 132
+warning$ -- 1
+while$ -- 70
+width$ -- 25
+write$ -- 282
 (There was 1 warning)

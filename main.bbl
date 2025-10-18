@@ -28,6 +28,27 @@ Gabriel Debs.
 \newblock In {\em Recent Progress in General Topology III}, pages 205--227.
   Springer, 2013.
 
+\bibitem[Fre00]{fremlin2000vol1}
+David~H. Fremlin.
+\newblock {\em Measure Theory, Volume 1: The Irreducible Minimum}.
+\newblock Torres Fremlin, Colchester, UK, 2000.
+\newblock Second edition 2011.
+
+\bibitem[Fre01]{fremlin2001vol2}
+David~H. Fremlin.
+\newblock {\em Measure Theory, Volume 2: Broad Foundations}.
+\newblock Torres Fremlin, Colchester, UK, 2001.
+
+\bibitem[Fre03]{fremlin2003vol4}
+David~H. Fremlin.
+\newblock {\em Measure Theory, Volume 4: Topological Measure Spaces}.
+\newblock Torres Fremlin, Colchester, UK, 2003.
+
+\bibitem[FS93]{fremlin1993pointwise}
+David~H. Fremlin and Saharon Shelah.
+\newblock Pointwise compact and stable sets of measurable functions.
+\newblock {\em Journal of Symbolic Logic}, 58(2):435--455, 1993.
+
 \bibitem[GM22]{glasner2022tame}
 Eli Glasner and Michael Megrelishvili.
 \newblock Todorcević' trichotomy and a hierarchy in the class of tame
@@ -62,6 +83,24 @@ Saharon Shelah.
 \newblock {\em Unstable Theories}, volume 187 of {\em Studies in Logic and the
   Foundations of Mathematics}.
 \newblock North-Holland, 1978.
+
+\bibitem[Sim15]{simon2015nip}
+Pierre Simon.
+\newblock {\em A Guide to NIP Theories}, volume~44 of {\em Lecture Notes in
+  Logic}.
+\newblock Cambridge University Press, 2015.
+
+\bibitem[Tal84]{talagrand1984pettis}
+Michel Talagrand.
+\newblock {\em Pettis Integral and Measure Theory}, volume~51 of {\em Memoirs
+  of the American Mathematical Society}.
+\newblock American Mathematical Society, Providence, RI, USA, 1984.
+\newblock Includes bibliography (pp. 220–224) and index.
+
+\bibitem[Tal87]{talagrand1987glivenko}
+Michel Talagrand.
+\newblock The glivenko-cantelli problem.
+\newblock {\em The Annals of Probability}, 15(3):837--870, 1987.
 
 \bibitem[Tka11]{tkachuk2011cp}
 Vladimir~V. Tkachuk.

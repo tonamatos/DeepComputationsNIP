@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.10.2)  18 OCT 2025 15:34
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.10.2)  18 OCT 2025 17:22
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -964,21 +964,9 @@ s; reported on input line 78.
 
 [1{/opt/texlive/texdir/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 
-
-Overfull \hbox (152.82549pt too wide) has occurred while \output is active
-[]  \OT1/cmr/m/n/7 EDUARDO DUE[]NEZ$[]$  JOS[]E IOVINO$[]$  TONATIUH MATOS-WIED
-ERHOLD$[]$  LUCIANO SALVETTI$[]$  FRANKLIN D. TALL$[]$  
- []
-
 [2]
 
 [3]
-
-
-Overfull \hbox (152.82549pt too wide) has occurred while \output is active
-[]  \OT1/cmr/m/n/7 EDUARDO DUE[]NEZ$[]$  JOS[]E IOVINO$[]$  TONATIUH MATOS-WIED
-ERHOLD$[]$  LUCIANO SALVETTI$[]$  FRANKLIN D. TALL$[]$  
- []
 
 [4]
 
@@ -989,49 +977,23 @@ LaTeX Font Warning: Font shape `OT1/cmr/b/up' undefined
 
 [5]
 
-
-Overfull \hbox (152.82549pt too wide) has occurred while \output is active
-[]  \OT1/cmr/m/n/7 EDUARDO DUE[]NEZ$[]$  JOS[]E IOVINO$[]$  TONATIUH MATOS-WIED
-ERHOLD$[]$  LUCIANO SALVETTI$[]$  FRANKLIN D. TALL$[]$  
- []
-
 [6]
 
 [7]
-
-
-Overfull \hbox (152.82549pt too wide) has occurred while \output is active
-[]  \OT1/cmr/m/n/7 EDUARDO DUE[]NEZ$[]$  JOS[]E IOVINO$[]$  TONATIUH MATOS-WIED
-ERHOLD$[]$  LUCIANO SALVETTI$[]$  FRANKLIN D. TALL$[]$  
- []
 
 [8]
 
 [9]
 
-
-Overfull \hbox (152.82549pt too wide) has occurred while \output is active
-[]  \OT1/cmr/m/n/7 EDUARDO DUE[]NEZ$[]$  JOS[]E IOVINO$[]$  TONATIUH MATOS-WIED
-ERHOLD$[]$  LUCIANO SALVETTI$[]$  FRANKLIN D. TALL$[]$  
- []
-
 [10]
-
-LaTeX Warning: Citation `simon2015nip' on page 11 undefined on input line 379.
-
-
 
 [11]
 
+[12] (./main.bbl
 
-Overfull \hbox (152.82549pt too wide) has occurred while \output is active
-[]  \OT1/cmr/m/n/7 EDUARDO DUE[]NEZ$[]$  JOS[]E IOVINO$[]$  TONATIUH MATOS-WIED
-ERHOLD$[]$  LUCIANO SALVETTI$[]$  FRANKLIN D. TALL$[]$  
- []
+[13])
 
-[12] (./main.bbl)
-
-[13] (./main.aux)
+[14] (./main.aux)
  ***********
 LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2025-09-02>
@@ -1041,19 +1003,16 @@ L3 programming layer <2025-09-02>
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 
-LaTeX Warning: There were undefined references.
-
-
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 22D1AE22F36564B91EDB379816FFBC0A;2563.
  ) 
 Here is how much of TeX's memory you used:
- 31015 strings out of 467748
- 727087 string characters out of 5429049
+ 31030 strings out of 467748
+ 727377 string characters out of 5429049
  1265502 words of memory out of 5000000
- 58974 multiletter control sequences out of 15000+600000
+ 58981 multiletter control sequences out of 15000+600000
  643595 words of font info for 106 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
  99i,12n,101p,1685b,1249s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1082,10 +1041,10 @@ texmf-dist/fonts/type1/public/amsfonts/euler/eusm7.pfb></opt/texlive/texdir/tex
 mf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></opt/texlive/texdir/tex
 mf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></opt/texlive/texdir/tex
 mf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on main.pdf (13 pages, 327219 bytes).
+Output written on main.pdf (14 pages, 327215 bytes).
 PDF statistics:
- 340 PDF objects out of 1000 (max. 8388607)
- 270 compressed objects within 3 object streams
- 67 named destinations out of 1000 (max. 500000)
+ 357 PDF objects out of 1000 (max. 8388607)
+ 286 compressed objects within 3 object streams
+ 75 named destinations out of 1000 (max. 500000)
  85 words of extra memory for PDF output out of 10000 (max. 10000000)
 
