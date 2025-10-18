@@ -12,8 +12,10 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Install Tectonic (modern LaTeX engine)
-        uses: tectonic-typesetting/setup-tectonic@v1
+      - name: Install Tectonic manually
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y tectonic
 
       - name: Compile PDF
         run: tectonic main.tex --keep-intermediates
