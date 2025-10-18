@@ -1,0 +1,27 @@
+name: Build and Deploy LaTeX PDF
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Tectonic (modern LaTeX engine)
+        uses: tectonic-typesetting/setup-tectonic@v2
+
+      - name: Compile PDF
+        run: tectonic main.tex --keep-intermediates
+
+      - name: Deploy PDF to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: .
+          allow_empty_commit: false
