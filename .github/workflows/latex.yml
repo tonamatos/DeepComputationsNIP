@@ -13,7 +13,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Install Tectonic (modern LaTeX engine)
-        uses: tectonic-typesetting/setup-tectonic@v2
+        uses: tectonic-typesetting/setup-tectonic@v1
 
       - name: Compile PDF
         run: tectonic main.tex --keep-intermediates
