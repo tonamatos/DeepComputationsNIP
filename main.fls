@@ -382,6 +382,7 @@ INPUT /opt/texlive/texdir/texmf-dist/fonts/tfm/public/cm/cmmi9.tfm
 INPUT ./main.bbl
 INPUT ./main.bbl
 INPUT main.bbl
+INPUT /opt/texlive/texdir/texmf-dist/fonts/tfm/public/cm/cmb10.tfm
 INPUT main.aux
 INPUT ./main.out
 INPUT ./main.out

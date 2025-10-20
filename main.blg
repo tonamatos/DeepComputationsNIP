@@ -3,46 +3,47 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: main.aux
 The style file: alpha.bst
 Database file #1: bib.bib
+Warning--I didn't find a database entry for "hamel2021cp"
 Warning--can't use both volume and number fields in talagrand1984pettis
-You've used 21 entries,
+You've used 20 entries,
             2543 wiz_defined-function locations,
-            700 strings with 7418 characters,
-and the built_in function-call counts, 7570 in all, are:
-= -- 742
-> -- 284
+            698 strings with 7394 characters,
+and the built_in function-call counts, 7249 in all, are:
+= -- 710
+> -- 265
 < -- 21
-+ -- 91
-- -- 87
-* -- 525
-:= -- 1245
-add.period$ -- 69
-call.type$ -- 21
-change.case$ -- 108
-chr.to.int$ -- 21
-cite$ -- 22
-duplicate$ -- 346
-empty$ -- 600
-format.name$ -- 120
-if$ -- 1550
++ -- 85
+- -- 81
+* -- 506
+:= -- 1187
+add.period$ -- 66
+call.type$ -- 20
+change.case$ -- 102
+chr.to.int$ -- 20
+cite$ -- 21
+duplicate$ -- 333
+empty$ -- 580
+format.name$ -- 113
+if$ -- 1487
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 30
-newline$ -- 111
-num.names$ -- 65
-pop$ -- 119
+missing$ -- 29
+newline$ -- 106
+num.names$ -- 62
+pop$ -- 114
 preamble$ -- 1
-purify$ -- 138
+purify$ -- 131
 quote$ -- 0
-skip$ -- 256
+skip$ -- 243
 stack$ -- 0
-substring$ -- 403
-swap$ -- 51
+substring$ -- 396
+swap$ -- 50
 text.length$ -- 21
 text.prefix$ -- 12
 top$ -- 0
-type$ -- 132
+type$ -- 124
 warning$ -- 1
-while$ -- 70
-width$ -- 25
-write$ -- 282
-(There was 1 warning)
+while$ -- 67
+width$ -- 24
+write$ -- 270
+(There were 2 warnings)
