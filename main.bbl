@@ -12,6 +12,13 @@ Spiros~A. Argyros, Pandelis Dodos, and Vassilis Kanellopoulos.
   applications.
 \newblock {\em Dissertationes Mathematicae}, 449:1--55, 2008.
 
+\bibitem[Arh95]{arhangelskii1995general}
+A.~V. Arhangel'skii.
+\newblock {\em General Topology III: Paracompactness, Function Spaces,
+  Descriptive Theory}, volume~51 of {\em Encyclopaedia of Mathematical
+  Sciences}.
+\newblock Springer-Verlag, Berlin, Heidelberg, 1995.
+
 \bibitem[BD19]{bendavid2019understanding}
 Shai Ben-David.
 \newblock Understanding machine learning through the lens of model theory.
@@ -79,11 +86,16 @@ Saharon Shelah.
   Foundations of Mathematics}.
 \newblock North-Holland, 1978.
 
-\bibitem[Sim15]{simon2015nip}
+\bibitem[Sim15a]{simon2015nip}
 Pierre Simon.
 \newblock {\em A Guide to NIP Theories}, volume~44 of {\em Lecture Notes in
   Logic}.
 \newblock Cambridge University Press, 2015.
+
+\bibitem[Sim15b]{Simon_2015_RosenthalNIP}
+Pierre Simon.
+\newblock Rosenthal compacta and nip formulas.
+\newblock {\em Fundamenta Mathematicae}, 231(1):81--92, 2015.
 
 \bibitem[Tal84]{talagrand1984pettis}
 Michel Talagrand.
