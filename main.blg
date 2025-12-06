@@ -4,45 +4,45 @@ The top-level auxiliary file: main.aux
 The style file: alpha.bst
 Database file #1: bib.bib
 Warning--can't use both volume and number fields in talagrand1984pettis
-You've used 21 entries,
+You've used 22 entries,
             2543 wiz_defined-function locations,
-            703 strings with 7469 characters,
-and the built_in function-call counts, 7480 in all, are:
-= -- 733
-> -- 262
-< -- 23
-+ -- 84
-- -- 79
-* -- 519
-:= -- 1222
-add.period$ -- 69
-call.type$ -- 21
-change.case$ -- 106
-chr.to.int$ -- 20
-cite$ -- 22
-duplicate$ -- 350
-empty$ -- 605
-format.name$ -- 114
-if$ -- 1535
+            711 strings with 7691 characters,
+and the built_in function-call counts, 7826 in all, are:
+= -- 768
+> -- 270
+< -- 24
++ -- 86
+- -- 81
+* -- 545
+:= -- 1277
+add.period$ -- 72
+call.type$ -- 22
+change.case$ -- 111
+chr.to.int$ -- 21
+cite$ -- 23
+duplicate$ -- 365
+empty$ -- 635
+format.name$ -- 118
+if$ -- 1607
 int.to.chr$ -- 2
 int.to.str$ -- 0
-missing$ -- 31
-newline$ -- 111
-num.names$ -- 65
-pop$ -- 121
+missing$ -- 32
+newline$ -- 116
+num.names$ -- 68
+pop$ -- 124
 preamble$ -- 1
-purify$ -- 136
+purify$ -- 142
 quote$ -- 0
-skip$ -- 250
+skip$ -- 261
 stack$ -- 0
-substring$ -- 404
-swap$ -- 51
-text.length$ -- 23
-text.prefix$ -- 14
+substring$ -- 432
+swap$ -- 52
+text.length$ -- 24
+text.prefix$ -- 15
 top$ -- 0
-type$ -- 128
+type$ -- 136
 warning$ -- 1
-while$ -- 69
-width$ -- 25
-write$ -- 284
+while$ -- 72
+width$ -- 26
+write$ -- 297
 (There was 1 warning)

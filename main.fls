@@ -383,6 +383,8 @@ INPUT ./main.out
 INPUT /opt/texlive/texdir/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 INPUT /opt/texlive/texdir/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb
 INPUT /opt/texlive/texdir/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
+INPUT /opt/texlive/texdir/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb
+INPUT /opt/texlive/texdir/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb
 INPUT /opt/texlive/texdir/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb
 INPUT /opt/texlive/texdir/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb
 INPUT /opt/texlive/texdir/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb
