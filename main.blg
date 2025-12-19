@@ -3,68 +3,46 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: main.aux
 The style file: alpha.bst
 Database file #1: bib.bib
-"{" immediately follows a field name---line 50 of file bib.bib
- : @book
- :      {VC:1974,
-I'm skipping whatever remains of this entry
-Illegal end of database file---line 335 of file bib.bib
- : }
- :  
-I'm skipping whatever remains of this entry
-Warning--I didn't find a database entry for "VC:1974"
-Warning--I didn't find a database entry for "alva2024approximability"
-Warning--I didn't find a database entry for "argyros2008rosenthal"
-Warning--I didn't find a database entry for "Simon_2015_RosenthalNIP"
-Warning--I didn't find a database entry for "shelah1978unstable"
-Warning--I didn't find a database entry for "bendavid2019understanding"
-Warning--I didn't find a database entry for "hamel2023cp"
-Warning--I didn't find a database entry for "tkachuk2011cp"
-Warning--I didn't find a database entry for "Todorcevic_1997_TopicsTop"
-Warning--I didn't find a database entry for "debs2013rosenthal"
-Warning--I didn't find a database entry for "glasner2022tame"
-Warning--I didn't find a database entry for "talagrand1984pettis"
-Warning--I didn't find a database entry for "fremlin2003vol4"
-Warning--I didn't find a database entry for "fremlin1993pointwise"
-Warning--empty journal in VC:1971
-You've used 9 entries,
+Warning--can't use both volume and number fields in talagrand1984pettis
+You've used 30 entries,
             2543 wiz_defined-function locations,
-            645 strings with 6358 characters,
-and the built_in function-call counts, 3392 in all, are:
-= -- 345
-> -- 140
-< -- 7
-+ -- 47
-- -- 46
-* -- 248
-:= -- 576
-add.period$ -- 28
-call.type$ -- 9
-change.case$ -- 53
-chr.to.int$ -- 9
-cite$ -- 10
-duplicate$ -- 130
-empty$ -- 240
-format.name$ -- 60
-if$ -- 676
-int.to.chr$ -- 1
+            766 strings with 8965 characters,
+and the built_in function-call counts, 10658 in all, are:
+= -- 1056
+> -- 396
+< -- 29
++ -- 128
+- -- 122
+* -- 750
+:= -- 1761
+add.period$ -- 97
+call.type$ -- 30
+change.case$ -- 157
+chr.to.int$ -- 29
+cite$ -- 31
+duplicate$ -- 474
+empty$ -- 835
+format.name$ -- 171
+if$ -- 2165
+int.to.chr$ -- 2
 int.to.str$ -- 0
-missing$ -- 8
-newline$ -- 49
-num.names$ -- 27
-pop$ -- 43
+missing$ -- 40
+newline$ -- 157
+num.names$ -- 92
+pop$ -- 164
 preamble$ -- 1
-purify$ -- 62
+purify$ -- 197
 quote$ -- 0
-skip$ -- 99
+skip$ -- 341
 stack$ -- 0
-substring$ -- 217
-swap$ -- 15
-text.length$ -- 7
-text.prefix$ -- 5
+substring$ -- 595
+swap$ -- 60
+text.length$ -- 29
+text.prefix$ -- 19
 top$ -- 0
-type$ -- 68
+type$ -- 192
 warning$ -- 1
-while$ -- 33
-width$ -- 14
-write$ -- 118
-(There were 2 error messages)
+while$ -- 100
+width$ -- 36
+write$ -- 401
+(There was 1 warning)
