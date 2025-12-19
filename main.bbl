@@ -27,6 +27,17 @@ J.~Bourgain, D.~H. Fremlin, and M.~Talagrand.
 \newblock Pointwise compact sets of {Baire}-measurable functions.
 \newblock {\em American Journal of Mathematics}, 100(4):845--886, 1978.
 
+\bibitem[BKK]{Bai:2019}
+Shaojie Bai, J.~Zico Kolter, and Vladlen Koltun.
+\newblock Deep equilibrium models.
+\newblock Preprint. https://arxiv.org/abs/1909.01377,
+  https://implicit-layers-tutorial.org/.
+
+\bibitem[CRBD]{Chen:2018}
+Ricky T.~Q. Chen, Yulia Rubanova, Jesse Bettencourt, and David Duvenaud.
+\newblock Neural ordinary differential equations.
+\newblock Preprint. https://arxiv.org/abs/1806.07366.
+
 \bibitem[Deb13]{debs2013rosenthal}
 Gabriel Debs.
 \newblock Descriptive aspects of {Rosenthal} compacta.
@@ -61,6 +72,12 @@ Eli Glasner and Michael Megrelishvili.
 \newblock {\em Transactions of the American Mathematical Society},
   375(7):4513--4548, 2022.
 
+\bibitem[Gro52]{Grothendieck:1952}
+A.~Grothendieck.
+\newblock Crit\`eres de compacit\'{e} dans les espaces fonctionnels
+  g\'{e}n\'{e}raux.
+\newblock {\em Amer. J. Math.}, 74:168--186, 1952.
+
 \bibitem[HT23]{hamel2023cp}
 Clovis Hamel and Franklin~D. Tall.
 \newblock {$C_p$}-theory for model theorists.
@@ -79,11 +96,23 @@ Karim Khanaki.
   topological properties of function spaces.
 \newblock {\em Mathematical Logic Quarterly}, 66(2):136--149, 2020.
 
+\bibitem[She71]{Shelah:1971}
+Saharon Shelah.
+\newblock Stability, the f.c.p., and superstability; model theoretic properties
+  of formulas in first order theory.
+\newblock {\em Ann. Math. Logic}, 3(3):271--362, 1971.
+
 \bibitem[She78]{shelah1978unstable}
 Saharon Shelah.
 \newblock {\em Unstable Theories}, volume 187 of {\em Studies in Logic and the
   Foundations of Mathematics}.
 \newblock North-Holland, 1978.
+
+\bibitem[She90]{Shelah:1990}
+Saharon Shelah.
+\newblock {\em Classification theory and the number of nonisomorphic models},
+  volume~92 of {\em Studies in Logic and the Foundations of Mathematics}.
+\newblock North-Holland Publishing Co., Amsterdam, second edition, 1990.
 
 \bibitem[Sim15a]{simon2015nip}
 Pierre Simon.
@@ -124,5 +153,12 @@ Stevo Todorcevic.
 \newblock Compact subsets of the first {Baire} class.
 \newblock {\em Journal of the American Mathematical Society}, 12(4):1179--1212,
   1999.
+
+\bibitem[VC15]{VC:1971}
+V.~N. Vapnik and A.~Ya. Chervonenkis.
+\newblock On the uniform convergence of relative frequencies of events to their
+  probabilities.
+\newblock pages 11--30, 2015.
+\newblock Reprint of Theor. Probability Appl. {\bf 16} (1971), 264--280.
 
 \end{thebibliography}

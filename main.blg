@@ -3,46 +3,52 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: main.aux
 The style file: alpha.bst
 Database file #1: bib.bib
+"{" immediately follows a field name---line 50 of file bib.bib
+ : @book
+ :      {VC:1974,
+I'm skipping whatever remains of this entry
+Warning--I didn't find a database entry for "VC:1974"
 Warning--can't use both volume and number fields in talagrand1984pettis
-You've used 22 entries,
+Warning--empty journal in VC:1971
+You've used 28 entries,
             2543 wiz_defined-function locations,
-            711 strings with 7691 characters,
-and the built_in function-call counts, 7826 in all, are:
-= -- 768
-> -- 270
-< -- 24
-+ -- 86
-- -- 81
-* -- 545
-:= -- 1277
-add.period$ -- 72
-call.type$ -- 22
-change.case$ -- 111
-chr.to.int$ -- 21
-cite$ -- 23
-duplicate$ -- 365
-empty$ -- 635
-format.name$ -- 118
-if$ -- 1607
+            754 strings with 8734 characters,
+and the built_in function-call counts, 10002 in all, are:
+= -- 992
+> -- 369
+< -- 29
++ -- 119
+- -- 114
+* -- 696
+:= -- 1645
+add.period$ -- 91
+call.type$ -- 28
+change.case$ -- 147
+chr.to.int$ -- 27
+cite$ -- 30
+duplicate$ -- 451
+empty$ -- 780
+format.name$ -- 160
+if$ -- 2040
 int.to.chr$ -- 2
 int.to.str$ -- 0
-missing$ -- 32
-newline$ -- 116
-num.names$ -- 68
-pop$ -- 124
+missing$ -- 37
+newline$ -- 147
+num.names$ -- 86
+pop$ -- 157
 preamble$ -- 1
-purify$ -- 142
+purify$ -- 184
 quote$ -- 0
-skip$ -- 261
+skip$ -- 328
 stack$ -- 0
-substring$ -- 432
-swap$ -- 52
-text.length$ -- 24
-text.prefix$ -- 15
+substring$ -- 548
+swap$ -- 64
+text.length$ -- 29
+text.prefix$ -- 18
 top$ -- 0
-type$ -- 136
-warning$ -- 1
-while$ -- 72
-width$ -- 26
-write$ -- 297
-(There was 1 warning)
+type$ -- 180
+warning$ -- 2
+while$ -- 94
+width$ -- 33
+write$ -- 374
+(There was 1 error message)
