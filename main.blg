@@ -7,48 +7,64 @@ Database file #1: bib.bib
  : @book
  :      {VC:1974,
 I'm skipping whatever remains of this entry
+Illegal end of database file---line 335 of file bib.bib
+ : }
+ :  
+I'm skipping whatever remains of this entry
 Warning--I didn't find a database entry for "VC:1974"
-Warning--can't use both volume and number fields in talagrand1984pettis
+Warning--I didn't find a database entry for "alva2024approximability"
+Warning--I didn't find a database entry for "argyros2008rosenthal"
+Warning--I didn't find a database entry for "Simon_2015_RosenthalNIP"
+Warning--I didn't find a database entry for "shelah1978unstable"
+Warning--I didn't find a database entry for "bendavid2019understanding"
+Warning--I didn't find a database entry for "hamel2023cp"
+Warning--I didn't find a database entry for "tkachuk2011cp"
+Warning--I didn't find a database entry for "Todorcevic_1997_TopicsTop"
+Warning--I didn't find a database entry for "debs2013rosenthal"
+Warning--I didn't find a database entry for "glasner2022tame"
+Warning--I didn't find a database entry for "talagrand1984pettis"
+Warning--I didn't find a database entry for "fremlin2003vol4"
+Warning--I didn't find a database entry for "fremlin1993pointwise"
 Warning--empty journal in VC:1971
-You've used 28 entries,
+You've used 9 entries,
             2543 wiz_defined-function locations,
-            754 strings with 8734 characters,
-and the built_in function-call counts, 10002 in all, are:
-= -- 992
-> -- 369
-< -- 29
-+ -- 119
-- -- 114
-* -- 696
-:= -- 1645
-add.period$ -- 91
-call.type$ -- 28
-change.case$ -- 147
-chr.to.int$ -- 27
-cite$ -- 30
-duplicate$ -- 451
-empty$ -- 780
-format.name$ -- 160
-if$ -- 2040
-int.to.chr$ -- 2
+            645 strings with 6358 characters,
+and the built_in function-call counts, 3392 in all, are:
+= -- 345
+> -- 140
+< -- 7
++ -- 47
+- -- 46
+* -- 248
+:= -- 576
+add.period$ -- 28
+call.type$ -- 9
+change.case$ -- 53
+chr.to.int$ -- 9
+cite$ -- 10
+duplicate$ -- 130
+empty$ -- 240
+format.name$ -- 60
+if$ -- 676
+int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 37
-newline$ -- 147
-num.names$ -- 86
-pop$ -- 157
+missing$ -- 8
+newline$ -- 49
+num.names$ -- 27
+pop$ -- 43
 preamble$ -- 1
-purify$ -- 184
+purify$ -- 62
 quote$ -- 0
-skip$ -- 328
+skip$ -- 99
 stack$ -- 0
-substring$ -- 548
-swap$ -- 64
-text.length$ -- 29
-text.prefix$ -- 18
+substring$ -- 217
+swap$ -- 15
+text.length$ -- 7
+text.prefix$ -- 5
 top$ -- 0
-type$ -- 180
-warning$ -- 2
-while$ -- 94
-width$ -- 33
-write$ -- 374
-(There was 1 error message)
+type$ -- 68
+warning$ -- 1
+while$ -- 33
+width$ -- 14
+write$ -- 118
+(There were 2 error messages)

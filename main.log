@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.7.13)  19 DEC 2025 14:22
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.7.13)  19 DEC 2025 14:39
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -986,19 +986,111 @@ s; reported on input line 81.
 
 LaTeX Warning: Citation `VC:1974' on page 1 undefined on input line 91.
 
+
+LaTeX Warning: Citation `alva2024approximability' on page 1 undefined on input 
+line 94.
+
 [1{/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 
-LaTeX Warning: Citation `VC:1974' on page 2 undefined on input line 100.
+LaTeX Warning: Citation `alva2024approximability' on page 2 undefined on input 
+line 96.
 
-[2] [3]
-Underfull \vbox (badness 5077) has occurred while \output is active []
 
- [4]
-[5] [6] [7] [8] [9]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+LaTeX Warning: Citation `argyros2008rosenthal' on page 2 undefined on input lin
+e 100.
 
- [10]
-[11] [12]
+[2]
+
+LaTeX Warning: Citation `Simon_2015_RosenthalNIP' on page 3 undefined on input 
+line 117.
+
+
+LaTeX Warning: Citation `shelah1978unstable' on page 3 undefined on input line 
+121.
+
+
+LaTeX Warning: Citation `bendavid2019understanding' on page 3 undefined on inpu
+t line 123.
+
+[3]
+
+LaTeX Warning: Citation `alva2024approximability' on page 4 undefined on input 
+line 137.
+
+[4]
+
+LaTeX Warning: Citation `hamel2023cp' on page 5 undefined on input line 148.
+
+
+LaTeX Warning: Citation `tkachuk2011cp' on page 5 undefined on input line 148.
+
+
+LaTeX Warning: Citation `Todorcevic_1997_TopicsTop' on page 5 undefined on inpu
+t line 154.
+
+[5]
+
+LaTeX Warning: Citation `Todorcevic_1997_TopicsTop' on page 6 undefined on inpu
+t line 191.
+
+[6] [7] [8]
+
+LaTeX Warning: Citation `alva2024approximability' on page 9 undefined on input 
+line 293.
+
+
+LaTeX Warning: Citation `alva2024approximability' on page 9 undefined on input 
+line 293.
+
+
+LaTeX Warning: Citation `alva2024approximability' on page 9 undefined on input 
+line 299.
+
+[9]
+
+LaTeX Warning: Citation `alva2024approximability' on page 10 undefined on input
+ line 301.
+
+
+LaTeX Warning: Citation `alva2024approximability' on page 10 undefined on input
+ line 303.
+
+
+LaTeX Warning: Citation `alva2024approximability' on page 10 undefined on input
+ line 305.
+
+
+LaTeX Warning: Citation `alva2024approximability' on page 10 undefined on input
+ line 307.
+
+[10]
+
+LaTeX Warning: Citation `debs2013rosenthal' on page 11 undefined on input line 
+325.
+
+
+LaTeX Warning: Citation `argyros2008rosenthal' on page 11 undefined on input li
+ne 328.
+
+
+LaTeX Warning: Citation `glasner2022tame' on page 11 undefined on input line 32
+8.
+
+
+LaTeX Warning: Citation `debs2013rosenthal' on page 11 undefined on input line 
+330.
+
+[11]
+
+LaTeX Warning: Citation `argyros2008rosenthal' on page 12 undefined on input li
+ne 366.
+
+[12]
+
+LaTeX Warning: Citation `argyros2008rosenthal' on page 13 undefined on input li
+ne 412.
+
+
 Overfull \hbox (9.10255pt too wide) in paragraph at lines 412--413
 []\OT1/cmr/m/up/10 Notice that in the sep-a-ra-ble ex-am-ples dis-cussed be-for
 e ($[]\U/euf/m/n/10 (\U/eur/m/n/10 2[]\U/euf/m/n/10 )$\OT1/cmr/m/up/10 , $\U/eu
@@ -1007,13 +1099,47 @@ r/m/n/10 S\U/euf/m/n/10 (\U/eur/m/n/10 2[]\U/euf/m/n/10 )$ \OT1/cmr/m/up/10 and
  ))$\OT1/cmr/m/up/10 )
  []
 
-[13] [14] [15] [16] [17] [18] (./main.bbl [19]
-Underfull \hbox (badness 1776) in paragraph at lines 136--139
-[]\OT1/cmr/m/up/8 Michel Ta-la-grand. The Glivenko-Cantelli prob-lem. \OT1/cmr/
-m/it/8 The An-nals of Prob-a-bil-ity\OT1/cmr/m/up/8 ,
- []
 
-) [20] (./main.aux)
+LaTeX Warning: Citation `argyros2008rosenthal' on page 13 undefined on input li
+ne 418.
+
+
+LaTeX Warning: Citation `argyros2008rosenthal' on page 13 undefined on input li
+ne 418.
+
+[13]
+
+LaTeX Warning: Citation `argyros2008rosenthal' on page 14 undefined on input li
+ne 430.
+
+[14] [15]
+
+LaTeX Warning: Citation `talagrand1984pettis' on page 16 undefined on input lin
+e 485.
+
+
+LaTeX Warning: Citation `fremlin2003vol4' on page 16 undefined on input line 49
+8.
+
+
+LaTeX Warning: Citation `fremlin2003vol4' on page 16 undefined on input line 50
+9.
+
+[16]
+
+LaTeX Warning: Citation `talagrand1984pettis' on page 17 undefined on input lin
+e 547.
+
+
+LaTeX Warning: Citation `fremlin1993pointwise' on page 17 undefined on input li
+ne 551.
+
+[17]
+
+LaTeX Warning: Citation `fremlin2003vol4' on page 18 undefined on input line 56
+7.
+
+(./main.bbl [18]) [19] (./main.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
@@ -1024,10 +1150,10 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 2550E3C439315A2E1312BB217BC8F912;2560.
  ) 
 Here is how much of TeX's memory you used:
- 30911 strings out of 478268
- 729877 string characters out of 5846347
- 1145026 words of memory out of 5000000
- 48336 multiletter control sequences out of 15000+600000
+ 30871 strings out of 478268
+ 729011 string characters out of 5846347
+ 1143026 words of memory out of 5000000
+ 48316 multiletter control sequences out of 15000+600000
  484192 words of font info for 91 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
  99i,12n,94p,1989b,1252s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1060,10 +1186,10 @@ e/2022/texmf-dist/fonts/type1/public/amsfonts/euler/eusm7.pfb></usr/local/texli
 ve/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/t
 exlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/loc
 al/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on main.pdf (20 pages, 398292 bytes).
+Output written on main.pdf (19 pages, 388435 bytes).
 PDF statistics:
- 458 PDF objects out of 1000 (max. 8388607)
- 374 compressed objects within 4 object streams
- 106 named destinations out of 1000 (max. 500000)
+ 399 PDF objects out of 1000 (max. 8388607)
+ 316 compressed objects within 4 object streams
+ 86 named destinations out of 1000 (max. 500000)
  93 words of extra memory for PDF output out of 10000 (max. 10000000)
 
