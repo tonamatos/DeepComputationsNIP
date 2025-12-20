@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.7.13)  19 DEC 2025 22:07
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.7.13)  20 DEC 2025 05:19
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -984,15 +984,18 @@ Class amsart Warning: Abstract should precede \maketitle in AMS document classe
 s; reported on input line 81.
 
 [1{/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-Underfull \vbox (badness 1824) has occurred while \output is active []
-
- [2]
-[3] [4] [5] [6] [7] [8] [9]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
+ [2]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [3]
+[4] [5] [6] [7] [8] [9]
+Underfull \vbox (badness 1092) has occurred while \output is active []
+
  [10]
-[11] [12]
-Overfull \hbox (9.10255pt too wide) in paragraph at lines 412--413
+[11] [12] [13]
+Overfull \hbox (9.10255pt too wide) in paragraph at lines 416--417
 []\OT1/cmr/m/up/10 Notice that in the sep-a-ra-ble ex-am-ples dis-cussed be-for
 e ($[]\U/euf/m/n/10 (\U/eur/m/n/10 2[]\U/euf/m/n/10 )$\OT1/cmr/m/up/10 , $\U/eu
 r/m/n/10 S\U/euf/m/n/10 (\U/eur/m/n/10 2[]\U/euf/m/n/10 )$ \OT1/cmr/m/up/10 and
@@ -1000,7 +1003,7 @@ r/m/n/10 S\U/euf/m/n/10 (\U/eur/m/n/10 2[]\U/euf/m/n/10 )$ \OT1/cmr/m/up/10 and
  ))$\OT1/cmr/m/up/10 )
  []
 
-[13] [14] [15] [16] [17] [18] (./main.bbl [19]
+[14] [15] [16] [17] [18] (./main.bbl [19]
 Underfull \hbox (badness 1776) in paragraph at lines 136--139
 []\OT1/cmr/m/up/8 Michel Ta-la-grand. The Glivenko-Cantelli prob-lem. \OT1/cmr/
 m/it/8 The An-nals of Prob-a-bil-ity\OT1/cmr/m/up/8 ,
@@ -1017,12 +1020,12 @@ Underfull \hbox (badness 1648) in paragraph at lines 158--161
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 2550E3C439315A2E1312BB217BC8F912;2560.
+(rerunfilecheck)             Checksum: 7E141634E511322CA174C4317B64F7A4;2613.
  ) 
 Here is how much of TeX's memory you used:
  30913 strings out of 478268
  729978 string characters out of 5846347
- 1145026 words of memory out of 5000000
+ 1145025 words of memory out of 5000000
  48337 multiletter control sequences out of 15000+600000
  483883 words of font info for 90 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
@@ -1055,7 +1058,7 @@ ive/2022/texmf-dist/fonts/type1/public/amsfonts/euler/eusm7.pfb></usr/local/tex
 live/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local
 /texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/l
 ocal/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on main.pdf (20 pages, 393373 bytes).
+Output written on main.pdf (20 pages, 394573 bytes).
 PDF statistics:
  456 PDF objects out of 1000 (max. 8388607)
  374 compressed objects within 4 object streams
