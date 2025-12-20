@@ -96,6 +96,13 @@ Karim Khanaki.
   topological properties of function spaces.
 \newblock {\em Mathematical Logic Quarterly}, 66(2):136--149, 2020.
 
+\bibitem[RPK19]{Raissi-Perdikaris-Karniadakis:2019}
+M.~Raissi, P.~Perdikaris, and G.~E. Karniadakis.
+\newblock Physics-informed neural networks: a deep learning framework for
+  solving forward and inverse problems involving nonlinear partial differential
+  equations.
+\newblock {\em J. Comput. Phys.}, 378:686--707, 2019.
+
 \bibitem[She71]{Shelah:1971}
 Saharon Shelah.
 \newblock Stability, the f.c.p., and superstability; model theoretic properties
