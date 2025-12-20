@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.7.13)  20 DEC 2025 05:19
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.7.13)  20 DEC 2025 05:56
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -987,15 +987,12 @@ s; reported on input line 81.
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [2]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [3]
-[4] [5] [6] [7] [8] [9]
+[3] [4] [5] [6] [7] [8] [9]
 Underfull \vbox (badness 1092) has occurred while \output is active []
 
  [10]
 [11] [12] [13]
-Overfull \hbox (9.10255pt too wide) in paragraph at lines 416--417
+Overfull \hbox (9.10255pt too wide) in paragraph at lines 418--419
 []\OT1/cmr/m/up/10 Notice that in the sep-a-ra-ble ex-am-ples dis-cussed be-for
 e ($[]\U/euf/m/n/10 (\U/eur/m/n/10 2[]\U/euf/m/n/10 )$\OT1/cmr/m/up/10 , $\U/eu
 r/m/n/10 S\U/euf/m/n/10 (\U/eur/m/n/10 2[]\U/euf/m/n/10 )$ \OT1/cmr/m/up/10 and
@@ -1058,10 +1055,10 @@ ive/2022/texmf-dist/fonts/type1/public/amsfonts/euler/eusm7.pfb></usr/local/tex
 live/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local
 /texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/l
 ocal/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on main.pdf (20 pages, 394573 bytes).
+Output written on main.pdf (20 pages, 394843 bytes).
 PDF statistics:
- 456 PDF objects out of 1000 (max. 8388607)
- 374 compressed objects within 4 object streams
+ 457 PDF objects out of 1000 (max. 8388607)
+ 375 compressed objects within 4 object streams
  108 named destinations out of 1000 (max. 500000)
  93 words of extra memory for PDF output out of 10000 (max. 10000000)
 
