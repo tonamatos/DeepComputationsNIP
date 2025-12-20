@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.7.13)  20 DEC 2025 08:35
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.7.13)  20 DEC 2025 09:52
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -987,10 +987,7 @@ s; reported on input line 81.
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [2]
-Underfull \vbox (badness 4792) has occurred while \output is active []
-
- [3]
-[4] [5] [6] [7] [8] [9] [10] [11] [12]
+[3] [4] [5] [6] [7] [8] [9] [10] [11] [12]
 Underfull \vbox (badness 7869) has occurred while \output is active []
 
  [13]
@@ -1025,7 +1022,7 @@ Underfull \hbox (badness 1648) in paragraph at lines 165--168
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 7E141634E511322CA174C4317B64F7A4;2613.
+(rerunfilecheck)             Checksum: A5377598AC70C526D607B37320C60D9A;2689.
  ) 
 Here is how much of TeX's memory you used:
  30916 strings out of 478268
@@ -1063,7 +1060,7 @@ ive/2022/texmf-dist/fonts/type1/public/amsfonts/euler/eusm7.pfb></usr/local/tex
 live/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local
 /texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/l
 ocal/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on main.pdf (21 pages, 396290 bytes).
+Output written on main.pdf (21 pages, 396053 bytes).
 PDF statistics:
  466 PDF objects out of 1000 (max. 8388607)
  383 compressed objects within 4 object streams
