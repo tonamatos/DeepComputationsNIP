@@ -17,6 +17,12 @@ A.~V. Arkhangel'skii.
 \newblock {\em Topological Function Spaces}.
 \newblock Springer, New York, 1st edition, 1991.
 
+\bibitem[Bai99]{Baire1899thesis}
+Ren\'e Baire.
+\newblock {\em Sur les fonctions de variables r\'eelles}.
+\newblock Bernardoni de C.\ Rebeschini \& Company, Milan, 1899.
+\newblock Th\`ese, Facult\'e des Sciences de Paris, no.\ 977.
+
 \bibitem[BD19]{bendavid2019understanding}
 Shai Ben-David.
 \newblock Understanding machine learning through the lens of model theory.
@@ -78,6 +84,12 @@ Karim Khanaki.
 \newblock Stability, nip, and nsop; model theoretic properties of formulas via
   topological properties of function spaces.
 \newblock {\em Mathematical Logic Quarterly}, 66(2):136--149, 2020.
+
+\bibitem[Las92]{laskowski1992vapnik}
+Michael~C. Laskowski.
+\newblock Vapnik-chervonenkis classes of definable sets.
+\newblock {\em Journal of the London Mathematical Society}, 45(2):377--384,
+  April 1992.
 
 \bibitem[She78]{shelah1978unstable}
 Saharon Shelah.
