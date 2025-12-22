@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.7.13)  22 DEC 2025 17:06
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.7.13)  22 DEC 2025 17:20
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1052,7 +1052,7 @@ Underfull \hbox (badness 1648) in paragraph at lines 165--168
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 51F523EE3FEE02D6647164F5BACEAD73;2795.
+(rerunfilecheck)             Checksum: 33CEB565AC07071CC5DB711478BF051D;2664.
  ) 
 Here is how much of TeX's memory you used:
  30699 strings out of 478268
@@ -1090,7 +1090,7 @@ ive/2022/texmf-dist/fonts/type1/public/amsfonts/euler/eusm7.pfb></usr/local/tex
 live/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local
 /texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/l
 ocal/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on main.pdf (19 pages, 382621 bytes).
+Output written on main.pdf (19 pages, 382383 bytes).
 PDF statistics:
  457 PDF objects out of 1000 (max. 8388607)
  376 compressed objects within 4 object streams

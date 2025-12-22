@@ -102,7 +102,7 @@ In \cite{alva2024approximability}, we proved a new ``tame vs wild'' (i.e., polyn
 
 We prove a new ``tame vs wild'' Ramsey-theoretic dichotomy for complexity of general deep computations by invoking a famous paper by Bourgain, Fremlin and Talagrand from the late 70s~\cite{BFT_1978_PCompactBaire}, and  a new trichotomy for the class of ``tame'' deep computations by invoking an equally celebrated result of Todorčević, from the late 90s, for  functions of the first Baire class~\cite{Todorcevic_1999_CompactSubsetsBaire}.
 
-Todorčević’s trichotomy regards \emph{Rosenthal compacta}; these  are special classes of  topological spaces, defined as compact spaces that can be embedded (homeomorphically identified as a subset) within the space of Baire class 1 functions on some Polish (separable, complete metric) space, under the pointwise convergence topology. Rosenthal compacta  exhibit  ``topological tameness," meaning they behave in relatively controlled ways, and since the late 70's, they have played a crucial role for understanding complexity of structures of functional analysis, especially, Banach spaces. Todorčević’s trichotomy has been utilized to settle longstanding problems in topological dynamics and topological entriopy~\cite{glasner2022tame}.
+Todorčević’s trichotomy regards \emph{Rosenthal compacta}; these  are special classes of  topological spaces, defined as compact spaces that can be embedded (homeomorphically identified as a subset) within the space of Baire class 1 functions on some Polish (separable, complete metric) space, under the pointwise convergence topology. Rosenthal compacta  exhibit  ``topological tameness," meaning they behave in relatively controlled ways, and since the late 70's, they have played a crucial role for understanding complexity of structures of functional analysis, especially, Banach spaces. Todorčević’s trichotomy has been utilized to settle longstanding problems in topological dynamics and topological entropy~\cite{glasner2022tame}.
 
 Through our Rosetta stone, Rosenthal compacta in topology correspond to the important concept of  ``No Independence Property" (known as ``NIP’’) in model theory, identified by Shelah~\cite{Shelah:1971,Shelah:1990}, and to the concept of  Probably Approximately Correct learning (known as ``PAC learnability'') in statistical learning theory identified by Valiant~\cite{Valiant:1984}. 
 
@@ -312,7 +312,7 @@ Given $A\subseteq Y^X$ and $K\subseteq X$ we write $A|_K:=\{f|_K:f\in A\}$, i.e.
     $$(\mathcal{P}\times K)\cap\bigcap_{n\in I}\hat{f_n}^{-1}(-\infty,a]\cap\bigcap_{n\notin I}\hat{f_n}^{-1}[b,\infty)=\emptyset$$
     Hence,
     $$K\cap\bigcap_{n\in I}(\pi_P\circ f_n)^{-1}(-\infty,a]\cap\bigcap_{n\notin I}(\pi_P\circ f_n)^{-1}[b,\infty)=\emptyset$$
-    By the compactness of $K%, there are finite $E\subseteq I$ and $F\subseteq\mathbb{N}\backslash I$ such that
+    By the compactness of $K$, there are finite $E\subseteq I$ and $F\subseteq\mathbb{N}\backslash I$ such that
     $$K\cap\bigcap_{n\in E}(\pi_P\circ f_n)^{-1}(-\infty,a]\cap\bigcap_{n\in F}(\pi_P\circ f_n)^{-1}[b,\infty)=\emptyset$$
     Thus, $\pi_P\circ A|_L$ has the NIP.
 
@@ -339,7 +339,7 @@ Lastly, a simple but significant result that helps understand the operation of r
     This contradicts (i).
 \end{proof}
 
-\section{NIP in the context of Compositional Computation Structures}
+\section{NIP in the context of Computation}
 
 In this section, we study what the NIP tell us in the context of deep computations as defined in \cite{alva2024approximability}. We say a structure $(L,\mathcal P,\Gamma)$ is a \emph{Compositional Computation Structure} (CCS) if $L\subseteq\mathbb R^\mathcal P$ is a subspace of $\mathbb{R}^\mathcal{P}$, with the pointwise convergence topology, and $\Gamma\subseteq L^L$ is a semigroup under composition. The motivation for CCS comes from (continuous) model theory, where $\mathcal{P}$ is a fixed collection of predicates and $L$ is a (real-valued) structure. Every point in $L$ is identified with its ``type", which is the tuple of all values the point takes on the predicates from $\mathcal{P}$, i.e., an element of $\mathbb{R}^\mathcal{P}$. In this context, elements of $\mathcal{P}$ are called \emph{features}. In the discrete model theory framework, one views the space of complete-types as a sort of compactification of the structure $L$. In this context, we don't want to consider only points in $L$ (realized types) but in its closure $\overline{L}$ (possibly unrealized types). The problem is that the closure $\overline{L}$ is not necessarily compact, an assumption that turns out to be very useful in the context of continuous model theory. To bypass this problem in a framework for deep computations, Alva, Dueñez, Iovino and Walton introduced in \cite{alva2024approximability} the concept of \emph{shards}, which essentially consists in covering (a large fragment) of the space $\overline{L}$ by compact, and hence pointwise-bounded, subspaces (shards). We shall give the formal definition next.
 
