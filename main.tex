@@ -154,9 +154,15 @@ In this section we give preliminaries from general topology and function space t
 
 Recall that a subset of a topological space is $F_\sigma$ if it is a countable union of closed  sets, and $G_\delta$ if it is a countable intersection of closed sets. Note that in a metrizable space, every open set is $F_\sigma$; equivalently, every closed set is $G_\delta$.
 
-A \emph{Polish space} is a separable and completely metrizable topological space. The most important examples are the reals $\mathbb R$, the Cantor space $2^\mathbb N$ (the set of all infinite binary sequences, endowed with the product topology), and the Baire space $\mathbb N^\mathbb N$ (the set of all infinite sequences of naturals, also with the product topology). Countable products of Polish spaces are Polish; this includes spaces like $\mathbb R^\mathbb N$, the space of sequences of real numbers. A subspace of a Polish space is itself Polish if and only if it is a $G_\delta$-set, that is, it can be written as the intersection of a countable family of open subsets; in particular, closed subsets and open subsets of Polish spaces are also Polish spaces.
+A \emph{Polish space} is a separable and completely metrizable topological space. The most important examples are the reals $\mathbb R$, the Cantor space $2^\mathbb N$ (the set of all infinite binary sequences, endowed with the product topology), and the Baire space $\mathbb N^\mathbb N$ (the set of all infinite sequences of naturals, also with the product topology). Countable products of Polish spaces are Polish; this includes spaces like $\mathbb R^\mathbb N$, the space of sequences of real numbers. 
 
 In this paper, we shall discuss  subspaces, and so there is a pertinent subtlety of the definitions worth mentioning: \emph{completely metrizable space} is not the same as \emph{complete metric space}; for an illustrative example, the interval $(0,1)$ with  the metric inherited from the reals not complete, but it is Polish since that is homeomorphic to the real line. Being Polish is a topological property.
+
+The folllowing result is a cornerstone of descriptive set theory, closely tied to the work of Wacław Sierpiński and Kazimierz Kuratowski, with proofs often attributed to or built upon their foundations and formalized later, notably involving Stefan Mazurkiewicz's work on complete metric spaces.
+
+\begin{fact}
+A subset \(A\) of a Polish space \(X\) is itself Polish in the subspace topology if and only if it is a  $G_{\delta }$ set. n particular, closed subsets and open subsets of Polish spaces are also Polish spaces.
+\end{fact}
 
 Given two topological spaces $X$ and $Y$ we denote by $C_p(X,Y)$ the set of all continuous functions $f:X\rightarrow Y$ endowed with the topology of pointwise convergence. When $Y=\mathbb{R}$, we denote this collection simply as $C_p(X)$.
  A natural question is, how do topological properties of $X$ translate to $C_p(X)$ and vice versa? These questions, and in general the study of these spaces, are the concern of $C_p$-theory, an active field of research in general topology which was pioneered by A. V. Arhangel’skiĭ and his students in the 1970's and 1980's. This field has found many applications in model theory and functional analysis. Recent surveys on the topics include \cite{hamel2023cp} and \cite{tkachuk2011cp}.
