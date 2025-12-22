@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.7.13)  21 DEC 2025 19:20
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.7.13)  21 DEC 2025 19:31
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -991,14 +991,226 @@ LaTeX Font Warning: Font shape `OT1/cmr/m/up' undefined
 Class amsart Warning: Abstract should precede \maketitle in AMS document classe
 s; reported on input line 81.
 
+
+LaTeX Warning: Citation `Chen:2018' on page 1 undefined on input line 91.
+
+
+LaTeX Warning: Citation `Raissi-Perdikaris-Karniadakis:2019' on page 1 undefine
+d on input line 91.
+
+
+LaTeX Warning: Citation `Bai:2019' on page 1 undefined on input line 91.
+
+
+LaTeX Warning: Citation `Todorcevic_1999_CompactSubsetsBaire' on page 1 undefin
+ed on input line 93.
+
+
+LaTeX Warning: Citation `Shelah:1990' on page 1 undefined on input line 93.
+
+
+LaTeX Warning: Citation `Vapnik-Chervonenkis:1974' on page 1 undefined on input
+ line 93.
+
+
+LaTeX Warning: Citation `Vapnik-Chervonenkis:1971' on page 1 undefined on input
+ line 93.
+
 [1{/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+
+LaTeX Warning: Citation `alva2024approximability' on page 2 undefined on input 
+line 96.
+
+
+LaTeX Warning: Citation `Bai:2019' on page 2 undefined on input line 96.
+
+
+LaTeX Warning: Citation `alva2024approximability' on page 2 undefined on input 
+line 98.
+
+
+LaTeX Warning: Citation `Grothendieck:1952' on page 2 undefined on input line 9
+8.
+
+
+LaTeX Warning: Citation `BFT_1978_PCompactBaire' on page 2 undefined on input l
+ine 102.
+
+
+LaTeX Warning: Citation `Todorcevic_1999_CompactSubsetsBaire' on page 2 undefin
+ed on input line 102.
+
+
+LaTeX Warning: Citation `glasner2022tame' on page 2 undefined on input line 104
+.
+
+
+LaTeX Warning: Citation `Shelah:1971' on page 2 undefined on input line 106.
+
+
+LaTeX Warning: Citation `Shelah:1990' on page 2 undefined on input line 106.
+
+
+LaTeX Warning: Citation `Valiant:1984' on page 2 undefined on input line 106.
+
+
+LaTeX Warning: Citation `argyros2008rosenthal' on page 2 undefined on input lin
+e 108.
+
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [2]
-Excluding 'comment' comment. [3] [4] [5] [6] [7] [8] [9] [10]
-Underfull \vbox (badness 7869) has occurred while \output is active []
 
- [11]
+LaTeX Warning: Reference `sec:prelim' on page 3 undefined on input line 111.
+
+Excluding 'comment' comment.
+
+LaTeX Warning: Citation `hamel2023cp' on page 3 undefined on input line 168.
+
+
+LaTeX Warning: Citation `tkachuk2011cp' on page 3 undefined on input line 168.
+
+[3]
+
+LaTeX Warning: Citation `Todorcevic_1997_TopicsTop' on page 4 undefined on inpu
+t line 174.
+
+
+LaTeX Warning: Reference `baire' on page 4 undefined on input line 210.
+
+
+LaTeX Warning: Reference `baire' on page 4 undefined on input line 212.
+
+[4]
+
+LaTeX Warning: Citation `Todorcevic_1997_TopicsTop' on page 5 undefined on inpu
+t line 219.
+
+
+LaTeX Warning: Citation `BFT_1978_PCompactBaire' on page 5 undefined on input l
+ine 229.
+
+[5]
+
+LaTeX Warning: Reference `baire 1 and projections' on page 6 undefined on input
+ line 258.
+
+
+LaTeX Warning: Reference `baire 1 and projections' on page 6 undefined on input
+ line 261.
+
+
+LaTeX Warning: Reference `BFT' on page 6 undefined on input line 276.
+
+[6]
+
+LaTeX Warning: Reference `homeo' on page 7 undefined on input line 288.
+
+
+LaTeX Warning: Reference `BFT' on page 7 undefined on input line 288.
+
+
+LaTeX Warning: Reference `baire 1 and projections' on page 7 undefined on input
+ line 296.
+
+
+LaTeX Warning: Reference `BFT' on page 7 undefined on input line 296.
+
+
+LaTeX Warning: Citation `alva2024approximability' on page 7 undefined on input 
+line 321.
+
+
+LaTeX Warning: Citation `alva2024approximability' on page 7 undefined on input 
+line 321.
+
+[7]
+
+LaTeX Warning: Citation `alva2024approximability' on page 8 undefined on input 
+line 327.
+
+
+LaTeX Warning: Citation `alva2024approximability' on page 8 undefined on input 
+line 329.
+
+[8]
+
+LaTeX Warning: Citation `alva2024approximability' on page 9 undefined on input 
+line 331.
+
+
+LaTeX Warning: Citation `alva2024approximability' on page 9 undefined on input 
+line 333.
+
+
+LaTeX Warning: Citation `alva2024approximability' on page 9 undefined on input 
+line 335.
+
+
+LaTeX Warning: Reference `Generalized BFT' on page 9 undefined on input line 35
+3.
+
+
+LaTeX Warning: Reference `NIP and closure' on page 9 undefined on input line 35
+3.
+
+
+LaTeX Warning: Citation `BFT_1978_PCompactBaire' on page 9 undefined on input l
+ine 353.
+
+
+LaTeX Warning: Citation `debs2013rosenthal' on page 9 undefined on input line 3
+53.
+
+[9]
+
+LaTeX Warning: Reference `nip-baire1def' on page 10 undefined on input line 356
+.
+
+
+LaTeX Warning: Citation `Todorcevic_1999_CompactSubsetsBaire' on page 10 undefi
+ned on input line 356.
+
+
+LaTeX Warning: Citation `argyros2008rosenthal' on page 10 undefined on input li
+ne 356.
+
+
+LaTeX Warning: Citation `glasner2022tame' on page 10 undefined on input line 35
+6.
+
+
+LaTeX Warning: Citation `debs2013rosenthal' on page 10 undefined on input line 
+358.
+
+
+LaTeX Warning: Reference `nip-baire1def' on page 10 undefined on input line 361
+.
+
+
+LaTeX Warning: Citation `Todorcevic_1999_CompactSubsetsBaire' on page 10 undefi
+ned on input line 369.
+
+[10]
+
+LaTeX Warning: Citation `Todorcevic_1999_CompactSubsetsBaire' on page 11 undefi
+ned on input line 391.
+
+
+LaTeX Warning: Citation `Todorcevic_1999_CompactSubsetsBaire' on page 11 undefi
+ned on input line 394.
+
+
+LaTeX Warning: Citation `argyros2008rosenthal' on page 11 undefined on input li
+ne 394.
+
+[11]
+
+LaTeX Warning: Citation `argyros2008rosenthal' on page 12 undefined on input li
+ne 440.
+
+
 Overfull \hbox (9.10255pt too wide) in paragraph at lines 440--441
 []\OT1/cmr/m/up/10 Notice that in the sep-a-ra-ble ex-am-ples dis-cussed be-for
 e ($[]\U/euf/m/n/10 (\U/eur/m/n/10 2[]\U/euf/m/n/10 )$\OT1/cmr/m/up/10 , $\U/eu
@@ -1007,36 +1219,126 @@ r/m/n/10 S\U/euf/m/n/10 (\U/eur/m/n/10 2[]\U/euf/m/n/10 )$ \OT1/cmr/m/up/10 and
  ))$\OT1/cmr/m/up/10 )
  []
 
-[12] [13] [14] [15] [16] (./main.bbl
-Underfull \vbox (badness 4819) has occurred while \output is active []
 
- [17]
+LaTeX Warning: Citation `argyros2008rosenthal' on page 12 undefined on input li
+ne 446.
+
+
+LaTeX Warning: Citation `argyros2008rosenthal' on page 12 undefined on input li
+ne 446.
+
+
+LaTeX Warning: Citation `argyros2008rosenthal' on page 12 undefined on input li
+ne 458.
+
+[12]
+
+LaTeX Warning: Reference `Generalized BFT' on page 13 undefined on input line 4
+64.
+
+
+LaTeX Warning: Citation `BFT_1978_PCompactBaire' on page 13 undefined on input 
+line 464.
+
+
+LaTeX Warning: Citation `BFT_1978_PCompactBaire' on page 13 undefined on input 
+line 464.
+
+
+LaTeX Warning: Citation `BFT_1978_PCompactBaire' on page 13 undefined on input 
+line 466.
+
+[13]
+
+LaTeX Warning: Citation `BFT_1978_PCompactBaire' on page 14 undefined on input 
+line 488.
+
+
+LaTeX Warning: Reference `BFT' on page 14 undefined on input line 497.
+
+
+LaTeX Warning: Reference `BFT' on page 14 undefined on input line 504.
+
+
+LaTeX Warning: Reference `NIP and closure' on page 14 undefined on input line 5
+04.
+
+
+LaTeX Warning: Citation `talagrand1984pettis' on page 14 undefined on input lin
+e 513.
+
+[14]
+
+LaTeX Warning: Citation `fremlin2003vol4' on page 15 undefined on input line 52
+6.
+
+
+LaTeX Warning: Citation `fremlin2003vol4' on page 15 undefined on input line 53
+7.
+
+
+LaTeX Warning: Reference `BFT-2F' on page 15 undefined on input line 545.
+
+
+LaTeX Warning: Reference `BFT-2F' on page 15 undefined on input line 558.
+
+[15]
+
+LaTeX Warning: Reference `BFT-2F' on page 16 undefined on input line 566.
+
+
+LaTeX Warning: Citation `talagrand1984pettis' on page 16 undefined on input lin
+e 575.
+
+
+LaTeX Warning: Citation `fremlin1993pointwise' on page 16 undefined on input li
+ne 579.
+
+[16]
+
+LaTeX Warning: Citation `fremlin2003vol4' on page 17 undefined on input line 59
+5.
+
+
+LaTeX Warning: Reference `lemma:coordinated_univ_meas' on page 17 undefined on 
+input line 599.
+
+(./main.bbl [17]
 Underfull \hbox (badness 1776) in paragraph at lines 143--146
 []\OT1/cmr/m/up/8 Michel Ta-la-grand. The Glivenko-Cantelli prob-lem. \OT1/cmr/
 m/it/8 The An-nals of Prob-a-bil-ity\OT1/cmr/m/up/8 ,
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [18]
 Underfull \hbox (badness 1648) in paragraph at lines 165--168
 []\OT1/cmr/m/up/8 Leslie G. Valiant. A the-ory of the learn-able. \OT1/cmr/m/it
 /8 Com-mu-ni-ca-tions of the ACM\OT1/cmr/m/up/8 ,
  []
 
-) [19] (./main.aux)
+) [18] (./main.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: B9F1B980942506D98A2B280C50557CDB;2448.
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+
+Package rerunfilecheck Warning: File `main.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `main.out':
+(rerunfilecheck)             Before: D41D8CD98F00B204E9800998ECF8427E;0
+(rerunfilecheck)             After:  B9F1B980942506D98A2B280C50557CDB;2448.
  ) 
 Here is how much of TeX's memory you used:
- 31001 strings out of 478268
- 731963 string characters out of 5846347
- 1144536 words of memory out of 5000000
- 48420 multiletter control sequences out of 15000+600000
+ 30990 strings out of 478268
+ 731833 string characters out of 5846347
+ 1146536 words of memory out of 5000000
+ 48410 multiletter control sequences out of 15000+600000
  483883 words of font info for 90 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
  99i,12n,94p,1700b,1252s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1068,10 +1370,10 @@ ive/2022/texmf-dist/fonts/type1/public/amsfonts/euler/eusm7.pfb></usr/local/tex
 live/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local
 /texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/l
 ocal/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on main.pdf (19 pages, 380930 bytes).
+Output written on main.pdf (18 pages, 377510 bytes).
 PDF statistics:
- 446 PDF objects out of 1000 (max. 8388607)
- 365 compressed objects within 4 object streams
- 106 named destinations out of 1000 (max. 500000)
- 85 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 336 PDF objects out of 1000 (max. 8388607)
+ 257 compressed objects within 3 object streams
+ 105 named destinations out of 1000 (max. 500000)
+ 13 words of extra memory for PDF output out of 10000 (max. 10000000)
 
