@@ -1,6 +1,7 @@
 \documentclass[psamsfonts]{amsart}
 \usepackage[utf8]{inputenc}
 \usepackage{amsfonts, comment, enumerate}
+\usepackage[mathcal]{eucal}
 \usepackage[hidelinks]{hyperref}
 \hypersetup{
 pdftitle={Complexity of deep computations via topology of function spaces}
@@ -14,7 +15,6 @@ pdfkeywords={}
 \usepackage{pdflscape}
 \usepackage{pgfplots}
 \usepackage{mathrsfs}
-\usepackage{enumitem}
 \usepackage{euler}
 \usepackage{tikz}
 \usetikzlibrary{trees}
@@ -28,6 +28,7 @@ pdfkeywords={}
 \newtheorem*{claim}{Claim}
 \newtheorem{fact}[thm]{Fact}
 \newtheorem{ppty}[thm]{Property}
+
 
 \theoremstyle{definition}
 \newtheorem{defn}[thm]{Definition}
@@ -158,7 +159,7 @@ A \emph{Polish space} is a separable and completely metrizable topological space
 
 In this paper, we shall discuss  subspaces, and so there is a pertinent subtlety of the definitions worth mentioning: \emph{completely metrizable space} is not the same as \emph{complete metric space}; for an illustrative example, the interval $(0,1)$ with  the metric inherited from the reals not complete, but it is Polish since that is homeomorphic to the real line. Being Polish is a topological property.
 
-The folllowing result is a cornerstone of descriptive set theory, closely tied to the work of Wacław Sierpiński and Kazimierz Kuratowski, with proofs often attributed to or built upon their foundations and formalized later, notably involving Stefan Mazurkiewicz's work on complete metric spaces.
+The following result is a cornerstone of descriptive set theory, closely tied to the work of Wacław Sierpiński and Kazimierz Kuratowski, with proofs often built upon their foundations and formalized later, notably, involving Stefan Mazurkiewicz's work on complete metric spaces.
 
 \begin{fact}
 A subset \(A\) of a Polish space \(X\) is itself Polish in the subspace topology if and only if it is a  $G_{\delta }$ set. n particular, closed subsets and open subsets of Polish spaces are also Polish spaces.
@@ -214,64 +215,86 @@ A subset $L$ of a topological space $X$ is \emph{relatively compact} in $X$ if t
     (iii)$\Rightarrow$(i) Suppose that $\overline A\subseteq B_1(X)$. Then $\overline{A}\cap B_1(X)=\overline A$ is a closed subset of $\prod_{x\in X}[-M_x,M_x]$; Tychonoff's theorem states that the product of compact spaces is always compact, and since closed subsets of compact spaces are compact, $\overline A$ must be compact, as desired.
 \end{proof}
 
-\subsection{From Rosenthal's dichotomy to NIP}
+\subsection{From Rosenthal's dichotomy to Shelah's NIP}
 
 The fundamental idea that connects the rich theory here presented to real-valued computations is the concept of an \emph{approximation}. In the reals, points of closure from some subset can always be approximated by points inside the set, via a convergent sequence. For more complicated spaces, such as $C_p(X)$, this fails in remarkable  ways. To see an example, consider the Cantor space $X=2^\mathbb N$, and for each $n\in\mathbb{N}$ define $p_n:X\to\{0,1\}$ by  $p_n(x)=x(n)$ for each $x\in X$. Then $p_n$ is continuous for each $n$,  but one can show (see Chapter~1.1 of \cite{Todorcevic_1997_TopicsTop} for details) that the only continuous functions in the closure of $\{p_n\}_{n\in\mathbb N}$ are the functions $p_n$ themselves; moreover, none of the subsequences of $\{p_n\}_{n\in\mathbb N}$ converge. In some sense, this example is the worst possible scenario for convergence. The topological space obtained from this closure is well-known: it is the \emph{Stone-Čech compactification} of the discrete space of natural numbers, or $\beta\mathbb N$ for short, and it is an important object of study in general topology.
 
-\begin{thm}[Rosenthal's Dichotomy]
+The following theorem,  established by Haskell Rosenthal in 1974,  is fundamental  in functional analysis, and describes a sharp division in the behavior of sequences within a Banach space:
+
+\begin{thm}[Rosenthal's Dichotomy, 1974]
     If $X$ is Polish and $\{f_n\}\subseteq C_p(X)$ is pointwise bounded, then either $\{f_n\}_{n\in\mathbb N}$ contains a convergent subsequence or a subsequence whose closure (in $\mathbb R^X$) is homeomorphic to $\beta\mathbb N$.
 \end{thm}
 
-In other words, a pointwise bounded set of continuous functions will either contain a subsequence that converges or a subsequence whose closure is essentially the same as the example mentioned in the previous paragraphs (the worst possible scenario). Note that in the preceding example, the functions are trivially pointwise bounded in $\mathbb R^X$ as the functions can only take values $0$ and $1$.
+In other words, a pointwise bounded set of continuous functions  either contains a convergent subsequence, or a subsequence whose closure is essentially the same as the example mentioned in the previous paragraphs (the ``wildest'' possible scenario). Note that in the preceding example, the functions are trivially pointwise bounded in $\mathbb R^X$ as the functions can only take values $0$ and $1$.
 
-If we intend to generalize our results from $C_p(X)$ to the bigger space $B_1(X)$, we find a similar dichotomy. Either every point of closure of the set of functions will be a Baire class 1 function, or there is a sequence inside the set that behaves in the worst possible way (which in this context, is the IP!). The theorem is usually not phrased as a dichotomy but rather as an equivalence (with the NIP instead):
+As we go from $C_p(X)$ to the larger space $B_1(X)$, we find a similar dichotomy. Either every point of closure of the set of functions will be a Baire class 1 function, or there is a sequence inside the set that behaves in the wildest possible way. The theorem is usually not phrased as a dichotomy but rather as an equivalence:
 
 \begin{thm}[Bourgain-Fremlin-Talagrand, Theorem 4G in \cite{BFT_1978_PCompactBaire}]\label{BFT}
     Let $X$ be a Polish space and $A\subseteq C_p(X)$ be pointwise bounded. The following are equivalent:
-    \begin{itemize}
-        \item [(i)] $A$ is relatively compact in $B_1(X)$, i.e., $\overline{A}\subseteq B_1(X)$.
-        \item [(ii)] For every $\{f_n\}_{n\in\mathbb N}\subseteq A$ and for every $a<b$ there is $I\subseteq\mathbb{N}$ such that
+    \begin{enumerate}[(i)]
+        \item $A$ is relatively compact in $B_1(X)$, i.e., $\overline{A}\subseteq B_1(X)$.
+        \item For every $\{f_n\}_{n\in\mathbb N}\subseteq A$ and every $a<b$ there is $I\subseteq\mathbb{N}$ such that
 $$\bigcap_{n\in I}f_n^{-1}(-\infty,a]\cap\bigcap_{n\notin I}f_n^{-1}[b,\infty)=\emptyset.$$
-    \end{itemize}
+    \end{enumerate}
 \end{thm}
 
-Our goal now is to characterize relatively compact subsets of $B_1(X,Y)$ when $Y=\mathbb{R}^\mathcal{P}$ with $\mathcal{P}$ countable. Given $P\in\mathcal{P}$ we denote the \emph{projection map} onto the $P$-coordinate by $\pi_P:\mathbb{R}^\mathcal{P}\rightarrow\mathbb{R}$. From a high-level topological interpretation, the subsequent lemma states that, in this context, the spaces $\mathbb R$ and $\mathbb R^\mathcal P$ are really not that different, and that if we understand the Baire class 1 functions of one space, then we also understand the functions of both. In fact, $\mathbb R$ and any other Polish space is embeddable as a closed subspace of $\mathbb R^\mathcal P$.
+
+\begin{defn}
+    We shall say that a set $A\subseteq \mathbb{R}^X$ has the \emph{Independence Property}, or IP for short, if it satisfies the following condition:
+    There exists  every $\{f_n\}_{n\in\mathbb N}\subseteq A$ and  $a<b$ such that for every pair of disjoint sets $E,F\subseteq\mathbb{N}$, we have
+    \[
+    \bigcap_{n\in E}f_n^{-1}(-\infty,a]\cap\bigcap_{n\in F}f_n^{-1}[b,\infty)\neq\emptyset.
+    \]
+    If $A$ satisfies the negation of this condition, we will say that \emph{$A$ satisfies NIP}, or that  has the NIP.
+\end{defn}
+
+\begin{rem}
+Note that if $X$ is compact and $A\subseteq C_p(X)$, then $A$ has the NIP if and only if for every $\{f_n\}_{n\in\mathbb N}\subseteq A$ and for every $a<b$ there is $I\subseteq\mathbb{N}$ such that
+$$\bigcap_{n\in I}f_n^{-1}(-\infty,a]\cap\bigcap_{n\notin I}f_n^{-1}[b,\infty)=\emptyset.$$
+\end{rem}
+
+
+
+The Independence Property was first isolated by Saharon Shelah in model theory as a dividing line between theories whose models are analyzable, or ``tame'' (corresponding to NIP) theories of models are ``unclassifiable" or ``wild" ((corresponding to IP). See~\cite{Shelah:1971,Shelah:1990}.
+
+\subsection{The special case $Y=\mathbb{R}^\mathcal{P}$ with $\mathcal{P}$ countable.}
+
+Our goal now is to characterize relatively compact subsets of $B_1(X,Y)$ for the particular case when $Y=\mathbb{R}^\mathcal{P}$ with $\mathcal{P}$ countable. Given $P\in\mathcal{P}$ we denote the projection map onto the $P$-coordinate by $\pi_P:\mathbb{R}^\mathcal{P}\rightarrow\mathbb{R}$. From a high-level topological interpretation, the subsequent lemma states that, in this context, the spaces $\mathbb R$ and $\mathbb R^\mathcal P$ are really not that different, and that if we understand the Baire class 1 functions of one space, then we also understand the functions of both. 
+%In fact, $\mathbb R$ and any other Polish space is embeddable as a closed subspace of $\mathbb R^\mathcal P$.
 
 \begin{lem}\label{baire 1 and projections}
     Let $X$ be a Polish space and $\mathcal{P}$ be a countable set. Then, $f\in B_1(X,\mathbb{R}^\mathcal{P})$ if and only if $\pi_P\circ f\in B_1(X)$ for all $P\in\mathcal{P}$.
 \end{lem}
 
 \begin{proof}
-    Only one implication needs a proof. Suppose that $\pi_P\circ f\in B_1(X)$ for all $P\in\mathcal{P}$. Let $V$ be a basic open subset of $\mathbb{R}^\mathcal{P}$. That is, there exists a finite $\mathcal{P}'\subseteq\mathcal{P}$ such that $V=\bigcap_{P\in\mathcal{P}'}\pi_P^{-1}[U_P]$ where $U_P$ is open in $\mathbb{R}$. Finally, 
+    Only one implication needs a proof. Suppose that $\pi_P\circ f\in B_1(X)$ for all $P\in\mathcal{P}$. Let $V$ be a basic open subset of $\mathbb{R}^\mathcal{P}$. That is, there exists a finite $\mathcal{P}'\subseteq\mathcal{P}$ such that $V=\bigcap_{P\in\mathcal{P}'}\pi_P^{-1}[U_P]$ where $U_P$ is open in $\mathbb{R}$. Then, 
     $$f^{-1}[V]=\bigcap_{P\in\mathcal{P}'}(\pi_P\circ f)^{-1}[U_P]$$ is an $F_\sigma$ set. Since $\mathcal{P}$ is countable, $\mathbb{R}^\mathcal{P}$ is second countable so every open set $U$ in $\mathbb{R}^\mathcal{P}$ is a countable union of basic open sets. Hence, $f^{-1}[U]$ is $F_\sigma$.
 \end{proof}
 
-Below we consider $\mathcal P$ with the discrete topology. For each $f:X\rightarrow\mathbb{R}^\mathcal{P}$ denote $\hat f(P,x):=\pi_P\circ f(x)$ for all $(P,x)\in\mathcal{P}\times X$. Similarly, for each $g:\mathcal{P}\times X\rightarrow\mathbb{R}$ denote $\check g(x)(P):=g(P,x)$. Given $A\subseteq (\mathbb{R}^\mathcal{P})^X$, we denote $\hat A$ as the set of all $\hat f$ such that $f\in A$.
 
-The map $\left(\mathbb R^\mathcal P\right)^X\to\mathbb R^{\mathcal P\times X}$ given by $f\mapsto\hat f$ is a homeomorphism and its inverse is given by $g\mapsto\check g$.
+
+Below we consider $\mathcal P$ with the discrete topology. For each $f:X\rightarrow\mathbb{R}^\mathcal{P}$ denote $\hat f(P,x):=\pi_P\circ f(x)$ for all $(P,x)\in\mathcal{P}\times X$. Similarly, for each $g:\mathcal{P}\times X\rightarrow\mathbb{R}$ denote $\check g(x)(P):=g(P,x)$. Given $A\subseteq (\mathbb{R}^\mathcal{P})^X$, we denote $\hat A$ as the set of all $\hat f$ such that $f\in A$. Note that the map $\left(\mathbb R^\mathcal P\right)^X\to\mathbb R^{\mathcal P\times X}$ given by $f\mapsto\hat f$ is a homeomorphism and its inverse is given by $g\mapsto\check g$.
 
 \begin{lem}\label{homeo}
     Let $X$ be a Polish space and $\mathcal{P}$ be countable. Then, $f\in B_1(X,\mathbb R^\mathcal P)$ if and only if $\hat f\in B_1(\mathcal P\times X)$.
 \end{lem}
 
 \begin{proof}
-    ($\Rightarrow$) Given an open set of reals $U$, we have that for every $P\in\mathcal P$, $f^{-1}[\pi_P^{-1}[U]]$ is $F_\sigma$ by Lemma~\ref{baire 1 and projections}. Given that $\mathcal P$ is a discrete countable space, we observe that
+    ($\Rightarrow$) By Lemma~\ref{baire 1 and projections}, g iven an open set of reals $U$, we have  $f^{-1}[\pi_P^{-1}[U]]$ is $F_\sigma$ for every $P\in\mathcal P$. Given that $\mathcal P$ is a discrete countable space, we observe that
     $$\hat f^{-1}[U]=\bigcup_{P\in\mathcal P}\left(\{P\}\times f^{-1}[\pi_P^{-1}[U]]\right)
-    $$ is also an $F_\sigma$ set.
+    $$ is an $F_\sigma$ as well.
+    
     ($\Leftarrow$) By lemma \ref{baire 1 and projections} it suffices to show that $\pi_P\circ f\in B_1(X)$ for all $P\in\mathcal{P}$. Fix an open $U\subseteq\mathbb{R}$. Write $\hat{f}^{-1}[U]=\bigcup_{n\in\mathbb{N}}F_n$ where $F_n$ is closed in $\mathcal{P}\times X$. Then,
     $$(\pi_P\circ f)^{-1}[U]=\bigcup_{n\in\mathbb{N}}\{x\in X:(P,x)\in F_n\}$$
     which is $F_\sigma$.
 \end{proof}
 
-We now direct our attention to a notion of the NIP that is more general than the one from the introduction. It can be interpreted as a sort of continuous version of the one presented in the preceding section.
-
-\begin{defn}
-    We say that $A\subseteq \mathbb{R}^X$ has the \emph{Non-Independence Property} (NIP) if and only if for every $\{f_n\}_{n\in\mathbb N}\subseteq A$ and for every $a<b$ there are finite disjoint sets $E,F\subseteq\mathbb{N}$ such that
-    $$\bigcap_{n\in E}f_n^{-1}(-\infty,a]\cap\bigcap_{n\in F}f_n^{-1}[b,\infty)=\emptyset.$$
-\end{defn}
-
-Note that if $X$ is compact and $A\subseteq C_p(X)$, then $A$ has the NIP if and only if for every $\{f_n\}_{n\in\mathbb N}\subseteq A$ and for every $a<b$ there is $I\subseteq\mathbb{N}$ such that
-$$\bigcap_{n\in I}f_n^{-1}(-\infty,a]\cap\bigcap_{n\notin I}f_n^{-1}[b,\infty)=\emptyset.$$
+%We now direct our attention to a notion of the NIP that is more general than the one from the introduction. It can be interpreted as a sort of continuous version of the one presented in the preceding section.
+%
+%
+%
+%Note that if $X$ is compact and $A\subseteq C_p(X)$, then $A$ has the NIP if and only if for every $\{f_n\}_{n\in\mathbb N}\subseteq A$ and for every $a<b$ there is $I\subseteq\mathbb{N}$ such that
+%$$\bigcap_{n\in I}f_n^{-1}(-\infty,a]\cap\bigcap_{n\notin I}f_n^{-1}[b,\infty)=\emptyset.$$
 
 Given $A\subseteq Y^X$ and $K\subseteq X$ we write $A|_K:=\{f|_K:f\in A\}$, i.e., the set of all restrictions of functions in $A$ to $K$. The following Theorem is a slightly more general version of Theorem \ref{BFT}.
 
@@ -285,11 +308,11 @@ Given $A\subseteq Y^X$ and $K\subseteq X$ we write $A|_K:=\{f|_K:f\in A\}$, i.e.
 \end{thm}
 
 \begin{proof}
-    (1)$\Rightarrow$(2). Let $P\in\mathcal{P}$. Fix $\{f_n\}_{n\in\mathbb N}\subseteq A$ and $a<b$. By (1) we have that $\overline{A|_K}\subseteq B_1(K,\mathbb{R}^\mathcal{P})$. Applying the homeomorphism $f\mapsto \hat{f}$ and using lemma \ref{homeo} we get $\overline{\hat{A}|_{\mathcal{P}\times K}}\subseteq B_1(\mathcal{P}\times K)$. By Theorem \ref{BFT}, there is $I\subseteq\mathbb{N}$ such that
+    (1)$\Rightarrow$(2). Let $P\in\mathcal{P}$. Fix $\{f_n\}_{n\in\mathbb N}\subseteq A$ and $a<b$. By (1), we have $\overline{A|_K}\subseteq B_1(K,\mathbb{R}^\mathcal{P})$. Applying the homeomorphism $f\mapsto \hat{f}$ and using lemma \ref{homeo} we get $\overline{\hat{A}|_{\mathcal{P}\times K}}\subseteq B_1(\mathcal{P}\times K)$. By Theorem \ref{BFT}, there is $I\subseteq\mathbb{N}$ such that
     $$(\mathcal{P}\times K)\cap\bigcap_{n\in I}\hat{f_n}^{-1}(-\infty,a]\cap\bigcap_{n\notin I}\hat{f_n}^{-1}[b,\infty)=\emptyset$$
     Hence,
     $$K\cap\bigcap_{n\in I}(\pi_P\circ f_n)^{-1}(-\infty,a]\cap\bigcap_{n\notin I}(\pi_P\circ f_n)^{-1}[b,\infty)=\emptyset$$
-    By compactness, there are finite $E\subseteq I$ and $F\subseteq\mathbb{N}\backslash I$ such that
+    By the compactness of $K%, there are finite $E\subseteq I$ and $F\subseteq\mathbb{N}\backslash I$ such that
     $$K\cap\bigcap_{n\in E}(\pi_P\circ f_n)^{-1}(-\infty,a]\cap\bigcap_{n\in F}(\pi_P\circ f_n)^{-1}[b,\infty)=\emptyset$$
     Thus, $\pi_P\circ A|_L$ has the NIP.
 
