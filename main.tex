@@ -203,11 +203,11 @@ A subset $L$ of a topological space $X$ is \emph{relatively compact} in $X$ if t
 \end{lem}
 
 \begin{proof}
-    By definition, being pointwise bounded means that there is, for each $x\in X$, $M_x>0$ such that, for every $f\in A$, $|f(x)|\leq M_x$.
+    Since $A$ is pointwise bounded, for each $x\in X$, fic $M_x>0$ such that $|f(x)|\leq M_x$ for every $f\in A$.
 
     (i)$\Rightarrow$(ii) holds in general. 
 
-    (ii)$\Rightarrow$(iii) Assume that $A$ is relatively countably compact in $B_1(X)$ and that $f\in\overline A\setminus B_1(X)$. By Fact \ref{baire}, there are countable $D_0,D_1\subseteq X$ with $\overline {D_0}=\overline{D_1}$, and $a<b$ such that $D_0\subseteq f^{-1}(-\infty,a]$ and $D_1\subseteq f^{-1}[b,\infty)$. We claim that there is a sequence $\{f_n\}_{n\in\mathbb N}\subseteq A$ such that for all $x\in D_0\cup D_1$, $\lim_{n\to\infty}f_n(x)=f(x)$. Indeed, use the countability to enumerate $D_0\cup D_1$ as $\{x_n\}_{n\in\mathbb N}$. Then find, for each positive $n$, $f_n\in A$ with $|f_n(x_i)-f(x_i)|<\frac1n$ for all $i\leq n$. The claim follows.
+    (ii)$\Rightarrow$(iii) Assume that $A$ is relatively countably compact in $B_1(X)$ and that $f\in\overline A\setminus B_1(X)$. By Fact \ref{baire}, there are countable $D_0,D_1\subseteq X$ with $\overline {D_0}=\overline{D_1}$, and $a<b$ such that $D_0\subseteq f^{-1}(-\infty,a]$ and $D_1\subseteq f^{-1}[b,\infty)$. We claim that there is a sequence $\{f_n\}_{n\in\mathbb N}\subseteq A$ such that $\lim_{n\to\infty}f_n(x)=f(x)$ for all $x\in D_0\cup D_1$. Indeed, use the countability to enumerate $D_0\cup D_1$ as $\{x_n\}_{n\in\mathbb N}$. Then for each positive $n$ find  $f_n\in A$ with $|f_n(x_i)-f(x_i)|<\frac1n$ for all $i\leq n$. The claim follows.
 
     By relative countable compactness of $A$, there is an accumulation point $g\in B_1(X)$ of $\{f_n\}_{n\in\mathbb N}$. It is straightforward to show that since $f$ and $g$ agree on $D_0\cup D_1$, $g$ does not have a point of continuity on the closed set $\overline{D_0}=\overline{D_1}$, which contradicts Fact~\ref{baire}.
 
