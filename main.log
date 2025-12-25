@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.7.13)  24 DEC 2025 22:14
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.7.13)  24 DEC 2025 22:39
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -999,42 +999,42 @@ Excluding 'comment' comment. [3] [4] [5]
 
 Package amsmath Warning: Foreign command \atopwithdelims;
 (amsmath)                \frac or \genfrac should be used instead
-(amsmath)                 on input line 293.
+(amsmath)                 on input line 296.
 
 [6]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 297.
+(hyperref)                removing `math shift' on input line 300.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 297.
+(hyperref)                removing `superscript' on input line 300.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 297.
+(hyperref)                removing `math shift' on input line 300.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 297.
+(hyperref)                removing `math shift' on input line 300.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 297.
+(hyperref)                removing `math shift' on input line 300.
 
-
-Overfull \hbox (4.6111pt too wide) in paragraph at lines 337--338
+[7]
+Overfull \hbox (4.6111pt too wide) in paragraph at lines 340--341
 [][]\OT1/cmr/bx/n/10 Theorem 2.11. []\OT1/cmr/m/it/10 As-sume that $\U/eus/m/n/
 10 P$ \OT1/cmr/m/it/10 is count-able, $\U/eur/m/n/10 X$ \OT1/cmr/m/it/10 is a P
 ol-ish space, and $\U/eur/m/n/10 A \OMS/cmsy/m/n/10 ^^R \U/eur/m/n/10 C[]\U/euf
 /m/n/10 (\U/eur/m/n/10 X; \U/msb/m/n/10 R[]\U/euf/m/n/10 )$
  []
 
-[7] [8] [9] [10] [11]
+[8] [9] [10] [11]
 Underfull \vbox (badness 7869) has occurred while \output is active []
 
  [12]
-Overfull \hbox (9.10255pt too wide) in paragraph at lines 498--499
+Overfull \hbox (9.10255pt too wide) in paragraph at lines 501--502
 []\OT1/cmr/m/up/10 Notice that in the sep-a-ra-ble ex-am-ples dis-cussed be-for
 e ($[]\U/euf/m/n/10 (\U/eur/m/n/10 2[]\U/euf/m/n/10 )$\OT1/cmr/m/up/10 , $\U/eu
 r/m/n/10 S\U/euf/m/n/10 (\U/eur/m/n/10 2[]\U/euf/m/n/10 )$ \OT1/cmr/m/up/10 and
@@ -1106,7 +1106,7 @@ ive/2022/texmf-dist/fonts/type1/public/amsfonts/euler/eusm7.pfb></usr/local/tex
 live/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local
 /texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/l
 ocal/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on main.pdf (20 pages, 390477 bytes).
+Output written on main.pdf (20 pages, 391119 bytes).
 PDF statistics:
  484 PDF objects out of 1000 (max. 8388607)
  401 compressed objects within 5 object streams
