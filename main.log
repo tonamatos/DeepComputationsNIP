@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.7.13)  24 DEC 2025 22:42
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.7.13)  25 DEC 2025 15:08
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -995,46 +995,46 @@ s; reported on input line 82.
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [2]
-Excluding 'comment' comment. [3] [4] [5]
+Excluding 'comment' comment. [3] [4] [5] [6]
 
 Package amsmath Warning: Foreign command \atopwithdelims;
 (amsmath)                \frac or \genfrac should be used instead
-(amsmath)                 on input line 296.
-
-[6]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 300.
+(amsmath)                 on input line 300.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 300.
+(hyperref)                removing `math shift' on input line 304.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 300.
+(hyperref)                removing `subscript' on input line 304.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 300.
+(hyperref)                removing `superscript' on input line 304.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 300.
+(hyperref)                removing `math shift' on input line 304.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 304.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 304.
 
 [7]
-Overfull \hbox (4.6111pt too wide) in paragraph at lines 340--341
+Overfull \hbox (4.6111pt too wide) in paragraph at lines 344--345
 [][]\OT1/cmr/bx/n/10 Theorem 2.11. []\OT1/cmr/m/it/10 As-sume that $\U/eus/m/n/
 10 P$ \OT1/cmr/m/it/10 is count-able, $\U/eur/m/n/10 X$ \OT1/cmr/m/it/10 is a P
 ol-ish space, and $\U/eur/m/n/10 A \OMS/cmsy/m/n/10 ^^R \U/eur/m/n/10 C[]\U/euf
 /m/n/10 (\U/eur/m/n/10 X; \U/msb/m/n/10 R[]\U/euf/m/n/10 )$
  []
 
-[8] [9] [10] [11]
-Underfull \vbox (badness 7869) has occurred while \output is active []
-
- [12]
-Overfull \hbox (9.10255pt too wide) in paragraph at lines 501--502
+[8] [9] [10] [11] [12]
+Overfull \hbox (9.10255pt too wide) in paragraph at lines 507--508
 []\OT1/cmr/m/up/10 Notice that in the sep-a-ra-ble ex-am-ples dis-cussed be-for
 e ($[]\U/euf/m/n/10 (\U/eur/m/n/10 2[]\U/euf/m/n/10 )$\OT1/cmr/m/up/10 , $\U/eu
 r/m/n/10 S\U/euf/m/n/10 (\U/eur/m/n/10 2[]\U/euf/m/n/10 )$ \OT1/cmr/m/up/10 and
@@ -1042,20 +1042,17 @@ r/m/n/10 S\U/euf/m/n/10 (\U/eur/m/n/10 2[]\U/euf/m/n/10 )$ \OT1/cmr/m/up/10 and
  ))$\OT1/cmr/m/up/10 )
  []
 
-[13] [14] [15] [16] [17] (./main.bbl
-Underfull \vbox (badness 4819) has occurred while \output is active []
-
- [18]
+[13] [14] [15] [16] [17] (./main.bbl [18]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [19]
-Underfull \hbox (badness 1776) in paragraph at lines 154--157
+Underfull \hbox (badness 1776) in paragraph at lines 159--162
 []\OT1/cmr/m/up/8 Michel Ta-la-grand. The Glivenko-Cantelli prob-lem. \OT1/cmr/
 m/it/8 The An-nals of Prob-a-bil-ity\OT1/cmr/m/up/8 ,
  []
 
 
-Underfull \hbox (badness 1648) in paragraph at lines 176--179
+Underfull \hbox (badness 1648) in paragraph at lines 181--184
 []\OT1/cmr/m/up/8 Leslie G. Valiant. A the-ory of the learn-able. \OT1/cmr/m/it
 /8 Com-mu-ni-ca-tions of the ACM\OT1/cmr/m/up/8 ,
  []
@@ -1068,13 +1065,13 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 47AB369254FE36CBF443D81CC83731DC;3000.
+(rerunfilecheck)             Checksum: BFC87E87032C0EE875D7663660063A74;3037.
  ) 
 Here is how much of TeX's memory you used:
- 30711 strings out of 478268
- 726964 string characters out of 5846347
- 1144640 words of memory out of 5000000
- 48119 multiletter control sequences out of 15000+600000
+ 30714 strings out of 478268
+ 727012 string characters out of 5846347
+ 1145640 words of memory out of 5000000
+ 48121 multiletter control sequences out of 15000+600000
  483883 words of font info for 90 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
  99i,12n,94p,1700b,1249s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1106,10 +1103,10 @@ ive/2022/texmf-dist/fonts/type1/public/amsfonts/euler/eusm7.pfb></usr/local/tex
 live/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local
 /texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/l
 ocal/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on main.pdf (20 pages, 391268 bytes).
+Output written on main.pdf (20 pages, 392382 bytes).
 PDF statistics:
- 487 PDF objects out of 1000 (max. 8388607)
- 404 compressed objects within 5 object streams
- 118 named destinations out of 1000 (max. 500000)
+ 490 PDF objects out of 1000 (max. 8388607)
+ 407 compressed objects within 5 object streams
+ 119 named destinations out of 1000 (max. 500000)
  101 words of extra memory for PDF output out of 10000 (max. 10000000)
 

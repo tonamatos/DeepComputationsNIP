@@ -57,7 +57,7 @@ pdfkeywords={}
 %\bibliographystyle{plain}
 
 %--------Meta Data: Fill in your info------
-\title{Complexity of deep computations\\ via topology of function spaces}
+\title[Complexity of deep computations via topology of function spaces]{Complexity of deep computations\\ via topology of function spaces}
 
 \author[Dueñez, Iovino, Matos-Wiederhold, Salvetti, Tall]{
 Eduardo Dueñez$^{1}$ \qquad
@@ -222,13 +222,17 @@ The fundamental idea that connects the rich theory here presented to real-valued
 
 The following theorem,  established by Haskell Rosenthal in 1974,  is fundamental  in functional analysis, and describes a sharp division in the behavior of sequences within a Banach space:
 
-\begin{thm}[Rosenthal's Dichotomy, 1974]
+\begin{thm}[Rosenthal's Dichotomy, \cite{Rosenthal:1974}]
+\label{T:Rosenthal}
     If $X$ is Polish and $\{f_n\}\subseteq C_p(X)$ is pointwise bounded, then either $\{f_n\}_{n\in\mathbb N}$ contains a convergent subsequence or a subsequence whose closure (in $\mathbb R^X$) is homeomorphic to $\beta\mathbb N$.
 \end{thm}
 
 In other words, a pointwise bounded set of continuous functions  either contains a convergent subsequence, or a subsequence whose closure is essentially the same as the example mentioned in the previous paragraphs (the ``wildest'' possible scenario). Note that in the preceding example, the functions are trivially pointwise bounded in $\mathbb R^X$ as the functions can only take values $0$ and $1$.
 
-As we go from $C_p(X)$ to the larger space $B_1(X)$, we find a similar dichotomy. Either every point of closure of the set of functions will be a Baire class 1 function, or there is a sequence inside the set that behaves in the wildest possible way. The theorem is usually not phrased as a dichotomy but rather as an equivalence:
+
+The genesis of Theorem~\ref{T:Rosenthal} was Rosenthal's $\ell_1$ theorem, which states that the only reason why Banach space can fail to have an isomorphic copy of  $\ell_1$  (the space of absolutely summable sequences) is the presence of a bounded sequence  with no weakly Cauchy subsequence. The theorem is famous for connecting diverse areas of mathematics:  Banach space geometry, Ramsey theory, set theory, and topology of function spaces.
+
+As we transition from $C_p(X)$ to the larger space $B_1(X)$, we find a similar dichotomy. Either every point of closure of the set of functions will be a Baire class 1 function, or there is a sequence inside the set that behaves in the wildest possible way. The theorem is usually not phrased as a dichotomy but rather as an equivalence:
 
 \begin{thm}[The BFT Dichotomy. Bourgain-Fremlin-Talagrand, {\cite[Theorem 4G]{BFT_1978_PCompactBaire}}]
 \label{BFT}
@@ -279,9 +283,9 @@ The Independence Property was first isolated by Saharon Shelah in model theory a
 
 \subsection{A universal polynomial vs exponential dichotomy}
 
-The particular case of the BSF Dichotomy (Theorem~\ref{BFT}) when $A$ consists of $\{0,1\}$-valued (i.e., $\{\text{Yes},\text{No}\}$-valued strings was discovered independently, around 1971-1972 in many foundational contexts related to polynomial (``tame") vs exponential (``wild'') complexity:  In model theory by Saharon Shelah~\cite{Shelah:1971},\cite{Shelah:1990}, in combinatorics by Norbert Sauer~\cite{Sauer:1972} and Shelah~\cite{Shelah:1972,Shelah:1990}, and in statistical learning, by Vladimir Vapnik and Alexey Chervonenkis~\cite{Vapnik-Chervonenkis:1971, Vapnik-Chervonenkis:1974}.
+The particular case of the BSF Dichotomy (Theorem~\ref{BFT}) when $A$ consists of $\{0,1\}$-valued (i.e., $\{\text{Yes},\text{No}\}$-valued) strings was discovered independently, around 1971-1972 in many foundational contexts related to polynomial (``tame") vs exponential (``wild'') complexity:  In model theory, by Saharon Shelah~\cite{Shelah:1971},\cite{Shelah:1990},in  combinatorics, by Norbert Sauer~\cite{Sauer:1972},  and Shelah~\cite{Shelah:1972,Shelah:1990}, and in statistical learning, by Vladimir Vapnik and Alexey Chervonenkis~\cite{Vapnik-Chervonenkis:1971, Vapnik-Chervonenkis:1974}.
 
-Saharon Shelah's classification theory is a foundational program in mathematical logic devised to categorize first-order theories based on the complexity and structure of their models. A theory $T$ is considered classifiable in Shelah's sense if the number of non-isomorphic models of $T$ of a given cardinality can be described by a bounded number of numerical invariants. In contrast, a theory $T$ is unclassifiable if the number of models of $T$ of a given cardinality is the maximum possible number. This number is directly impacted by the number of ``types'' over  of parameters in models of $T$; a controlled number of types is a characteristic of a classifiable theory. 
+Shelah's classification theory is a foundational program in mathematical logic devised to categorize first-order theories based on the complexity and structure of their models. A theory $T$ is considered classifiable in Shelah's sense if the number of non-isomorphic models of $T$ of a given cardinality can be described by a bounded number of numerical invariants. In contrast, a theory $T$ is unclassifiable if the number of models of $T$ of a given cardinality is the maximum possible number. This number is directly impacted by the number of ``types'' over  of parameters in models of $T$; a controlled number of types is a characteristic of a classifiable theory. 
 
 In Shelah's classification program~\cite{Shelah:1990}, theories without the independence property (called NIP theories, or dependent theories) have a well-behaved, ``tame" structure; the number of types over a set of parameters of size $\kappa$ of such a theory is of polynomially or similar ``slow" growth on $\kappa$. Theories with the Independence Property  (called IP theories), in contrast, are considered ``intractable" or ``wild''. A theory with the independence property produces the maximum possible number of types over a set of parameters;  for a set of parameters of cardinality $\kappa$, the theory will have $2^{2^{\kappa}}$-many distinct types.
 
@@ -292,10 +296,10 @@ or there exists $N\in\mathbb{N}$ such that  $A\subseteq S$ with $|A|\ge N$, one 
 \]
 for every $A\subseteq S$ such that $|A|\ge N$(yielding polynomial complexity). This answered a question of Erd\H{o}s.
 
-Readers familiar with statistical learning may recognize the Sauer-Shelah lemma as the dichotomy discovered and proved slightly (1971) earlier by Vapknis and Chervonenkis~\cite{Vapnik-Chervonenkis:1971, Vapnik-Chervonenkis:1974} to address the problem of uniform convergence in statistics. The integer $N$ given by the preceding paragraph, when it exists, is called the \emph{VC-dimension} of $\mathscr{F}$.  This is a core concept in machine learning.
- The lemma provides upper bounds on the number of data points (sample size $m$) needed to learn a concept class with VC dimension $d$ by showing this number grows polynomially with \(m\) and \(d\) (namely, $\sum _{i=0}^{d}{m \choose i}\approx O(m^{d})$), not exponentially.
+Readers familiar with statistical learning may recognize the Sauer-Shelah lemma as the dichotomy discovered and proved slightly  earlier (1971) by Vapknis and Chervonenkis~\cite{Vapnik-Chervonenkis:1971, Vapnik-Chervonenkis:1974} to address the problem of uniform convergence in statistics. The least integer $N$ given by the preceding paragraph, when it exists, is called the \emph{VC-dimension} of $\mathscr{F}$.  This is a core concept in machine learning. If such an integer $N$ does not exist, we say that the VC-dimension of $\mathscr{F}$ is infinite.
+ The lemma provides upper bounds on the number of data points (sample size $m$) needed to learn a concept class with VC dimension $d\in\mathbb{N}$ by showing this number grows polynomially with $m$ and $d$ (namely, $\sum _{i=0}^{d}{m \choose i}\approx O(m^{d})$), not exponentially.  The Fundamental Theorem of Statistical Learning states that a hypothesis class is PAC-learnable (PAC stands for ``Probably Approximately Correct'') if and only if its VC dimension is finite.
 
-\subsection{The special case $Y=\mathbb{R}^\mathcal{P}$ with $\mathcal{P}$ countable.}
+\subsection{The special case $B_1(X,\mathbb{R}^\mathcal{P})$   with $\mathcal{P}$ countable.}
 
 Our goal now is to characterize relatively compact subsets of $B_1(X,Y)$ for the particular case when $Y=\mathbb{R}^\mathcal{P}$ with $\mathcal{P}$ countable. Given $P\in\mathcal{P}$ we denote the projection map onto the $P$-coordinate by $\pi_P:\mathbb{R}^\mathcal{P}\rightarrow\mathbb{R}$. From a high-level topological interpretation, the subsequent lemma states that, in this context, the spaces $\mathbb R$ and $\mathbb R^\mathcal P$ are really not that different, and that if we understand the Baire class 1 functions of one space, then we also understand the functions of both. 
 %In fact, $\mathbb R$ and any other Polish space is embeddable as a closed subspace of $\mathbb R^\mathcal P$.
@@ -377,7 +381,9 @@ Lastly, a simple but significant result that helps understand the operation of r
     This contradicts (i).
 \end{proof}
 
-\section{NIP in the context of Computation}
+\section{Compositional computation structures.}
+
+
 
 In this section, we study what the NIP tell us in the context of deep computations as defined in \cite{alva2024approximability}. We say a structure $(L,\mathcal P,\Gamma)$ is a \emph{Compositional Computation Structure} (CCS) if $L\subseteq\mathbb R^\mathcal P$ is a subspace of $\mathbb{R}^\mathcal{P}$, with the pointwise convergence topology, and $\Gamma\subseteq L^L$ is a semigroup under composition. The motivation for CCS comes from (continuous) model theory, where $\mathcal{P}$ is a fixed collection of predicates and $L$ is a (real-valued) structure. Every point in $L$ is identified with its ``type", which is the tuple of all values the point takes on the predicates from $\mathcal{P}$, i.e., an element of $\mathbb{R}^\mathcal{P}$. In this context, elements of $\mathcal{P}$ are called \emph{features}. In the discrete model theory framework, one views the space of complete-types as a sort of compactification of the structure $L$. In this context, we don't want to consider only points in $L$ (realized types) but in its closure $\overline{L}$ (possibly unrealized types). The problem is that the closure $\overline{L}$ is not necessarily compact, an assumption that turns out to be very useful in the context of continuous model theory. To bypass this problem in a framework for deep computations, Alva, Dueñez, Iovino and Walton introduced in \cite{alva2024approximability} the concept of \emph{shards}, which essentially consists in covering (a large fragment) of the space $\overline{L}$ by compact, and hence pointwise-bounded, subspaces (shards). We shall give the formal definition next.
 

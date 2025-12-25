@@ -96,6 +96,11 @@ Karim Khanaki.
   topological properties of function spaces.
 \newblock {\em Mathematical Logic Quarterly}, 66(2):136--149, 2020.
 
+\bibitem[Ros74]{Rosenthal:1974}
+Haskell~P. Rosenthal.
+\newblock A characterization of {B}anach spaces containing {$l\sp{1}$}.
+\newblock {\em Proc. Nat. Acad. Sci. U.S.A.}, 71:2411--2413, 1974.
+
 \bibitem[RPK19]{Raissi-Perdikaris-Karniadakis:2019}
 M.~Raissi, P.~Perdikaris, and G.~E. Karniadakis.
 \newblock Physics-informed neural networks: a deep learning framework for
