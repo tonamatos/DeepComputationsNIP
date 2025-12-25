@@ -103,11 +103,22 @@ M.~Raissi, P.~Perdikaris, and G.~E. Karniadakis.
   equations.
 \newblock {\em J. Comput. Phys.}, 378:686--707, 2019.
 
+\bibitem[Sau72]{Sauer:1972}
+N.~Sauer.
+\newblock On the density of families of sets.
+\newblock {\em J. Combinatorial Theory Ser. A}, 13:145--147, 1972.
+
 \bibitem[She71]{Shelah:1971}
 Saharon Shelah.
 \newblock Stability, the f.c.p., and superstability; model theoretic properties
   of formulas in first order theory.
 \newblock {\em Ann. Math. Logic}, 3(3):271--362, 1971.
+
+\bibitem[She72]{Shelah:1972}
+Saharon Shelah.
+\newblock A combinatorial problem; stability and order for models and theories
+  in infinitary languages.
+\newblock {\em Pacific J. Math.}, 41:247--261, 1972.
 
 \bibitem[She78]{shelah1978unstable}
 Saharon Shelah.
@@ -179,5 +190,11 @@ Vladimir~N Vapnik and Alexey~Ya Chervonenkis.
 \newblock Nauka, Moscow, 1974.
 \newblock German Translation: Theorie der Zeichenerkennung, Akademie-Verlag,
   Berlin, 1979.
+
+\bibitem[WYP22]{MR4337814}
+Sifan Wang, Xinling Yu, and Paris Perdikaris.
+\newblock When and why {PINN}s fail to train: a neural tangent kernel
+  perspective.
+\newblock {\em J. Comput. Phys.}, 449:Paper No. 110768, 28, 2022.
 
 \end{thebibliography}

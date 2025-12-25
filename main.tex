@@ -80,7 +80,8 @@ $^{2}$Department of Mathematics, University of Toronto\\
 }
 
 \begin{abstract}
-This paper revisits and extends a bridge between functional analysis and model theory, emphasizing its relevance to the theoretical foundations of machine learning. We show that the compactness behavior of families of Baire class 1 functions mirrors the learnability conditions in the sense of \emph{Probably Approximately Correct} (PAC) learning, and that the failure of compactness corresponds to the presence of infinite \emph{Vapnik-Chervonenkis} (VC) dimension. From this perspective, Rosenthal compacta emerge as the natural topological counterpart of PAC-learnable concept classes, while NIP vs. IP structures capture the precise boundary between analytical regularity and combinatorial intractability. These parallels suggest a unified framework linking compactness, definability, and learnability, exemplifying how the topology of function spaces encodes the algorithmic and epistemic limits of prediction.
+We study complexity of deep computations. We use topology of function spaces, specifically, the classification Rosenthal compacta, to identify new complexity classes.  We use the language of model theory, specifically,  the concept of  independence from Shelah's classification theory,  to translate between topology and computation.
+%This paper revisits and extends a bridge between functional analysis and model theory, emphasizing its relevance to the theoretical foundations of machine learning. We show that the compactness behavior of families of Baire class 1 Bourgain-Fremlyn-Talagrand dichotomyfunctions mirrors the learnability conditions in the sense of \emph{Probably Approximately Correct} (PAC) learning, and that the failure of compactness corresponds to the presence of infinite \emph{Vapnik-Chervonenkis} (VC) dimension. From this perspective, Rosenthal compacta emerge as the natural topological counterpart of PAC-learnable concept classes, while NIP vs. IP structures capture the precise boundary between analytical regularity and combinatorial intractability. These parallels suggest a unified framework linking compactness, definability, and learnability, exemplifying how the topology of function spaces encodes the algorithmic and epistemic limits of prediction.
 \end{abstract}
 
 \maketitle
@@ -229,7 +230,8 @@ In other words, a pointwise bounded set of continuous functions  either contains
 
 As we go from $C_p(X)$ to the larger space $B_1(X)$, we find a similar dichotomy. Either every point of closure of the set of functions will be a Baire class 1 function, or there is a sequence inside the set that behaves in the wildest possible way. The theorem is usually not phrased as a dichotomy but rather as an equivalence:
 
-\begin{thm}[Bourgain-Fremlin-Talagrand, Theorem 4G in \cite{BFT_1978_PCompactBaire}]\label{BFT}
+\begin{thm}[The BFT Dichotomy. Bourgain-Fremlin-Talagrand, {\cite[Theorem 4G]{BFT_1978_PCompactBaire}}]
+\label{BFT}
     Let $X$ be a Polish space and $A\subseteq C_p(X)$ be pointwise bounded. The following are equivalent:
     \begin{enumerate}[(i)]
         \item $A$ is relatively compact in $B_1(X)$, i.e., $\overline{A}\subseteq B_1(X)$.
@@ -237,6 +239,7 @@ As we go from $C_p(X)$ to the larger space $B_1(X)$, we find a similar dichotomy
 $$\bigcap_{n\in I}f_n^{-1}(-\infty,a]\cap\bigcap_{n\notin I}f_n^{-1}[b,\infty)=\emptyset.$$
     \end{enumerate}
 \end{thm}
+
 
 
 \begin{defn}
@@ -254,8 +257,40 @@ $$\bigcap_{n\in I}f_n^{-1}(-\infty,a]\cap\bigcap_{n\notin I}f_n^{-1}[b,\infty)=\
 \end{rem}
 
 
+To summarize, the particular case of Theorem~\ref{BFT} when for $X$ compact can be stated in the following way:
 
-The Independence Property was first isolated by Saharon Shelah in model theory as a dividing line between theories whose models are analyzable, or ``tame'' (corresponding to NIP) theories of models are ``unclassifiable" or ``wild" ((corresponding to IP). See~\cite{Shelah:1971,Shelah:1990}.
+
+\begin{thm}
+\label{BFT}
+    Let $X$ be a compact Polish space. Then, for every pointwise bounded  $A\subseteq C_p(X)$, one and exactly one of the following two conditions must hold:
+        \begin{enumerate}[(i)]
+        \item $\overline{A}\subseteq B_1(X)$.
+        \item $A$ has $NIP$.
+    \end{enumerate}
+\end{thm}
+
+
+
+
+
+
+The Independence Property was first isolated by Saharon Shelah in model theory as a dividing line between theories whose models are ``tame'' (corresponding to NIP) theories of models are ``wild" (corresponding to IP). See~\cite[Definition 4.1]{Shelah:1971},\cite{Shelah:1990}. 
+
+
+\subsection{A universal polynomial vs exponential dichotomy}
+
+The particular case of the BSF Dichotomy (Theorem~\ref{BFT}) when $A$ consists of $\{0,1\}$-valued (i.e., $\{\text{Yes},\text{No}\}$-valued strings was discovered independently, around 1971-1972 in many foundational contexts related to polynomial (``tame") vs exponential (``wild'') complexity:  In model theory by Shelah~\cite{Shelah:1971},\cite{Shelah:1990}, combinatorics by Norbert Sauer~\cite{Sauer:1972} and Shelah~\cite{Shelah:1972,Shelah:1990} in model theory, by Saharon Shelah, and in statistical Vladimir Vapnik and Alexey Chervonenkis. 
+
+Saharon Shelah's classification theory is a foundational program in mathematical logic devised to categorize first-order theories based on the complexity and structure of their models. A theory $T$ is considered classifiable in Shelah's sense if the number of non-isomorphic models of $T$ of a given cardinality can be described by a bounded number of numerical invariants. In contrast, a theory $T$ is unclassifiable if the number of models of $T$ of a given cardinality is the maximum possible number. This number is directly impacted by the number of ``types'' over  of parameters in models of $T$; a controlled number of types is a characteristic of a classifiable theory. 
+
+In Shelah's classification program~\cite{Shelah:1990}, theories without the independence property (called NIP theories, or dependent theories) have a well-behaved, ``tame" structure; the number of types over a set of parameters of size $\kappa$ of such a theory is bounded (e.g., polynomially or similar ``slow" growth). Theories with the Independence Property  (called IP theories), in contrast, are considered ``intractable" or ``wild''. A theory with the independence property produces the maximum possible number of types over a set of parameters;  (for a set of parameters of cardinality $\kappa$, the theory will have $2^{2^{\kappa}}$-many distinct types.) 
+
+ Sauer~\cite{Sauer:1972} and Shelah~\cite{Shelah:1972} proved the following: If $\mathscr{F}=\{S_0,S_1,\dots\}$ is a family of subsets of some infinite set $S$, then either for every $n\in\mathbb{N}$, there is a set $A\subseteq S$ with $|A|=n$ such that $|\{S_i\cap A): i\in\mathbb{N}\}|=2^n$ (yielding exponential complexity),
+or there exists $N\in\mathbb{N}$ such that  $A\subseteq S$ with $|A|\ge N$, one has
+$|\{S_i\cap A): i\in\mathbb{N}\}| \le \sum_{i=0}^{N-1} \binom{|A|}{i} =|A|^N$ for every $A\subseteq S$ such that $|A|\ge N$(yielding polynomial complexity). This answered a question of Erd\H{o}s.
+
+Readers familiar with statistical learning and VC-dimenasion VC (a core concept in machine learnin) may recognize the Sauer-Shelah lemma as the dichotomy discovered and proved slightly earlier by Vapknis and Chrvonenkis~\cite{Vapnik-Chervonenkis:1974} to address the problem of uniform convergence in statistics.
+ The lemma provides upper bounds on the number of data points (sample size $m$ needed to learn a concept class with VC dimension $d$ by showing this number grows polynomially with \(m\) and \(d\) (namely, $\sum _{i=0}^{d}{m \choose i}\approx O(m^{d})$), not exponentially.
 
 \subsection{The special case $Y=\mathbb{R}^\mathcal{P}$ with $\mathcal{P}$ countable.}
 
