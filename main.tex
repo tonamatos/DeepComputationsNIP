@@ -466,9 +466,9 @@ Under what conditions are deep computations Baire class 1, and thus well-behaved
     Since $\mathcal{P}$ is countable, $\mathcal{L}[r_\bullet]\subseteq\mathbb{R}^\mathcal{P}$ is Polish. Also, the Extendibility Axiom implies that $\pi_P\circ \tilde\Delta|_{\mathcal{L}[r_\bullet]}$ is a pointwise bounded set of continuous functions for all $P\in\mathcal{P}$. Hence, Theorem \ref{Generalized BFT} and Lemma \ref{NIP and closure} prove the equivalence of (1) and (2). If (1) holds and $f\in\overline{\Delta}$, then write $f=\mathcal{U}{\rm lim}_i \gamma_i$ as an ultralimit. Define $\tilde f:=\mathcal{U}{\rm lim}_i \tilde\gamma_i$. Hence, for all $r_\bullet\in R$ we have $\tilde f|_{\mathcal{L}[r_\bullet]}\in\overline{\tilde\Delta|_{\mathcal{L}[r_\bullet]}}\subseteq B_1(\mathcal L[r_\bullet],\mathcal L[r_\bullet])$. That every deep computation is a pointwise limit of a countable sequence of computations follows from the fact that for a Polish space $X$ every compact subset of $B_1(X)$ is Fréchet-Urysohn (that is, a space where topological closures coincide with sequential closures, see Theorem 3F in \cite{BFT_1978_PCompactBaire} or Theorem 4.1 in \cite{debs2013rosenthal}).
 \end{proof}
 
-\subsection{The Todorčević trichotomy, the  Argyros-Dodos-Kanellopoulos heptachotomy, the Glasner-Megrelishvili tameness tameness, and levels of PAC learnability}
+\subsection{The Todorčević trichotomy  and levels of PAC learnability}
 
-Given a countable set $\Delta$ of computations satisfying the NIP on features and shards (condition (2) of Theorem \ref{nip-baire1def}) we have that $\overline{\tilde\Delta_{\mathcal{L}[r_\bullet]}}$ (for a fixed sizer $r_\bullet$) is a separable \textit{Rosenthal compactum} (compact subset of $B_1(P\times\mathcal{L}[r_\bullet])$. The work of Todorčević (\cite{Todorcevic_1999_CompactSubsetsBaire}) and Argyros, Dodos, Kanellopoulos (\cite{argyros2008rosenthal}) culminates in a trichotomy theorem for separable Rosenthal Compacta. In this section, inspired by the work of Glasner and Megrelishvili (\cite{glasner2022tame}), we are interested to see how this classification allows us obtain different levels of PAC-learnability (NIP).
+Given a countable set $\Delta$ of computations satisfying the NIP on features and shards (condition (2) of Theorem \ref{nip-baire1def}) we have that $\overline{\tilde\Delta_{\mathcal{L}[r_\bullet]}}$ (for a fixed sizer $r_\bullet$) is a separable \textit{Rosenthal compactum} (compact subset of $B_1(P\times\mathcal{L}[r_\bullet])$. The work of Todorčević (\cite{Todorcevic_1999_CompactSubsetsBaire}) and Argyros, Dodos, Kanellopoulos (\cite{argyros2008rosenthal}) culminates in a trichotomy theorem for separable Rosenthal Compacta. In this section, inspired by the work of Glasner and Megrelishvili (\cite{glasner2022tame}), we study ways in which this classification allows us obtain different levels of PAC-learnability (NIP).
 
 
 
@@ -483,8 +483,13 @@ Recall that a topological space $X$ is \emph{hereditarily separable} (HS) if eve
     \end{itemize}
 \end{defn}
 
-Observe that $NIP_3 \Rightarrow NIP_2\Rightarrow NIP_1\Rightarrow NIP$. A natural question that would continue this work is to find examples of CCS that separate these levels of NIP. In \cite{Todorcevic_1999_CompactSubsetsBaire}, Todorčević isolates 3 canonical examples of Rosenthal compacta that witness the failure of the converse implications above. We now present some separable and non-separable examples of Rosenthal compacta:
+Observe that $NIP_3 \Rightarrow NIP_2\Rightarrow NIP_1\Rightarrow NIP$. A natural question that would continue this work is to find examples of CCS that separate these levels of NIP. In \cite{Todorcevic_1999_CompactSubsetsBaire}, Todorčević isolates 3 canonical examples of Rosenthal compacta that witness the failure of the converse implications above. 
 
+We now present some separable and non-separable examples of Rosenthal compacta:
+
+\begin{exmps}
+\label{E:Rosenthal comacta}
+\hfill
 \begin{enumerate}
     \item \emph{Alexandroff compactification of a discrete space of size continuum}. For each $a\in 2^\mathbb{N}$ consider the map $\delta_a:2^\mathbb{N}\rightarrow\mathbb{R}$ given by $\delta_a(x)=1$ if $x=a$ and $\delta_a(x)=0$ otherwise. Let $A(2^\mathbb{N})=\{\delta_a:a\in 2^\mathbb{N}\}\cup\{0\}$, where $0$ is the zero map. Notice that $A(2^\mathbb{N})$ is a compact subset of $B_1(2^\mathbb{N})$, in fact $\{\delta_a:a\in 2^\mathbb{N}\}$ is a discrete subspace of $B_1(2^\mathbb{N})$ and its pointwise closure is precisely $A(2^\mathbb{N})$. Hence, this is a Rosenthal compactum which is not first countable. Notice that this space is also not separable.
     \item \emph{Extended Alexandroff compactification}. For each finite binary sequence $s\in 2^{<\mathbb{N}}$, let $v_s:2^\mathbb{N}\rightarrow\mathbb{R}$ be given by $v_s(x)=1$ if $x$ extends $s$ and $v_s(x)=0$ otherwise. Let $\hat{A}(2^\mathbb{N})$ be the pointwise closure of $\{v_s:s\in2^{<\mathbb{N}}\}$, i.e., $\hat{A}(2^\mathbb{N})=A(2^\mathbb{N})\cup\{v_s:s\in 2^{<\mathbb{N}}\}$. Note that this space is a separable Rosenthal compactum which is not first countable.
@@ -508,13 +513,18 @@ Observe that $NIP_3 \Rightarrow NIP_2\Rightarrow NIP_1\Rightarrow NIP$. A natura
     Let $\hat{D}(S(2^\mathbb{N}))$ be the pointwise closure of the set $\{h_t:t\in 2^{<\mathbb{N}}\}$. Hence, $\hat{D}(S(2^\mathbb{N}))$ is a separable first countable Rosenthal compactum which is not hereditarily separable. In fact, it contains an uncountable discrete subspace (see Theorem 5 in \cite{Todorcevic_1999_CompactSubsetsBaire}).
 \end{enumerate}
 
+\end{exmps}
+
 \begin{thm}[Todorčević's Trichotomy, \cite{Todorcevic_1999_CompactSubsetsBaire}, Theorem 3 in \cite{argyros2008rosenthal}]
     Let $K$ be a separable Rosenthal Compactum.
-    \begin{itemize}
-        \item [(i)] If $K$ is hereditarily separable but non-metrizable, then $S(2^\mathbb{N})$ embeds into $K$.
-        \item [(ii)] If $K$ is first countable but not hereditarily separable, then either $D(2^\mathbb{N})$ or $\hat{D}(S(2^\mathbb{N}))$ embeds into $K$.
-        \item [(iii)] If $K$ is not first countable, then $A(2^\mathbb{N})$ embeds into $K$.
-    \end{itemize}
+    \begin{enumerate} [(i)] 
+        \item 
+        If $K$ is hereditarily separable but non-metrizable, then $S(2^\mathbb{N})$ embeds into $K$.
+        \item 
+        If $K$ is first countable but not hereditarily separable, then either $D(2^\mathbb{N})$ or $\hat{D}(S(2^\mathbb{N}))$ embeds into $K$.
+        \item
+         If $K$ is not first countable, then $A(2^\mathbb{N})$ embeds into $K$.
+    \end{enumerate}
 \end{thm}
 
 We thus have the following classification:
@@ -542,25 +552,39 @@ We thus have the following classification:
 \end{tikzpicture}
 \end{center}
 
-Lastly, the definitions provided here for $NIP_i$ ($i=1,2,3$) are topological.
+The definitions provided here for $NIP_i$ ($i=1,2,3$) are topological. This raises the following question:
 
 \begin{question}
     Is there a non-topological characterization for $NIP_i$, $i=1,2,3$?
 \end{question}
 
-More can be said about the nature of the embeddings in Todorčević's Trichotomy. For an arbitrary separable Rosenthal compactum $K$, there is typically more than one countable dense subset of $K$. We can view a separable Rosenthal compactum as the accumulation points of a countable family of pointwise bounded real-valued functions. The choice of the countable families is not important when a bijection between them can be lifted to a homeomorphism of their closures. To be more precise:
+
+\subsection{The Argyros-Dodos-Kanellopoulos heptachotomy, and approximability of deep computation by minimal classes}
+
+%More can be said about the nature of the embeddings in Todorčević's Trichotomy. For an arbitrary separable Rosenthal compactum $K$, there is typically more than one countable dense subset of $K$. We can view a separable Rosenthal compactum as the accumulation points of a countable family of pointwise bounded real-valued functions. The choice of the countable families is not important when a bijection between them can be lifted to a homeomorphism of their closures. To be more precise:
+
+
+
+In the three separable three cases given in \ref{E:Rosenthal comacta}, namely, ($\hat{A}(2^\mathbb{N})$, $S(2^\mathbb{N})$ and $\hat{D}(S(2^\mathbb{N}))$), the countable dense subsets are indexed by the binary tree $2^{<\mathbb{N}}$. This choice of index is useful for two reasons:
+\begin{enumerate}
+\item
+Our emphasis is computational. Elements of $2^{<\mathbb{N}}$ represent finite bitstrings, i.e.,  standard computations, while Rosenthal compacta represent deep computations, i.e., limits of finite computations. Mathematically, deep computations are pointwise limits of standard computations; however, computationally, we are interested in the manner (and the efficiency) in which the approximations can occur.
+\item
+The Ramsey theory of perfect subsets of the Cantor space $2^\mathbb{N}$ can be imported to analyze the behavior of the accumulation points. Since $2^{<\mathbb{N}}$ is countable, we can always choose this index for the countable dense subsets. This is done in \cite{argyros2008rosenthal}.
+\end{enumerate}
 
 \begin{defn}
-    Given a Polish space $X$, a countable set $I$ and two pointwise bounded families $\{f_i:i\in I\}\subseteq\mathbb{R}^X$, $\{g_i:i\in I\}\subseteq\mathbb{R}^X$ indexed by $I$. We say that $\{f_i:i\in\ I\}$ and $\{g_i:i\in I\}$ are \emph{equivalent} if and only if the map $f_i\mapsto g_i$ is extended to a homeomorphism from $\overline{\{f_i:i\in I\}}$ to $\overline{\{g_i:i\in I\}}$.
+Let $X$ be a Polish space.
+
+\begin{enumerate}
+\item
+If  $I$ is a countable and l$\{f_i:i\in I\}\subseteq\mathbb{R}^X$, $\{g_i:i\in I\}\subseteq\mathbb{R}^X$  are two pointwise families by  $I$. We say that $\{f_i:i\in\ I\}$ and $\{g_i:i\in I\}$ are \emph{equivalent} if and only if the map $f_i\mapsto g_i$ is extended to a homeomorphism from $\overline{\{f_i:i\in I\}}$ to $\overline{\{g_i:i\in I\}}$.
+\item
+If $\{f_t:t\in 2^{<\mathbb{N}}\}$ is a pointwise bounded family, we say that $\{f_t:t\in 2^{<\mathbb{N}}\}$ is \emph{minimal} if and only if for every dyadic subtree $\{s_t:t\in 2^{<\mathbb{N}}\}$ of $2^{<\mathbb{N}}$, $\{f_{s_t}:t\in 2^{<\mathbb{N}}\}$ is equivalent to $\{f_t:t\in 2^{<\mathbb{N}}\}$.
+ \end{enumerate}
 \end{defn}
 
-Notice that in the separable examples discussed before ($\hat{A}(2^\mathbb{N})$, $S(2^\mathbb{N})$ and $\hat{D}(S(2^\mathbb{N}))$) the countable dense subsets are indexed by the binary tree $2^{<\mathbb{N}}$. This choice of index is useful because the Ramsey theory of perfect subsets of the Cantor space $2^\mathbb{N}$ can be imported to analyze the behavior of the accumulation points. Since $2^{<\mathbb{N}}$ is countable, we can always choose this index for the countable dense subsets. This is done in \cite{argyros2008rosenthal}.
-
-\begin{defn}
-    Given a Polish space $X$ and a pointwise bounded family $\{f_t:t\in 2^{<\mathbb{N}}\}$. We say that $\{f_t:t\in 2^{<\mathbb{N}}\}$ is \emph{minimal} if and only if for every dyadic subtree $\{s_t:t\in 2^{<\mathbb{N}}\}$ of $2^{<\mathbb{N}}$, $\{f_{s_t}:t\in 2^{<\mathbb{N}}\}$ is equivalent to $\{f_t:t\in 2^{<\mathbb{N}}\}$.
-\end{defn}
-
-One of the main results in \cite{argyros2008rosenthal} is that there are (up to equivalence) seven minimal families of Rosenthal compacta and that for every relatively compact $\{f_t:t\in 2^{<\mathbb{N}}\}\subseteq B_1(X)$ there is a dyadic subtree $\{s_t:t\in 2^{<\mathbb{N}}\}$ such that $\{f_{s_t}:t\in 2^{<\mathbb{N}}\}$ is equivalent to one of the minimal families. We shall describe the minimal families next. We will follow the same notation as in \cite{argyros2008rosenthal}. For any node $t\in 2^{<\mathbb{N}}$, we denote by $t^\frown 0^{\infty}$ ($t^\frown 1^{\infty}$) the infinite binary sequence starting with $t$ and ending in $0$'s ($1$'s). Fix a regular dyadic subtree $R=\{s_t:t\in 2^{<\mathbb{N}}\}$ of $2^{<\mathbb{N}}$ (i.e., a dyadic subtree such that every level of $R$ is contained in a level of $2^{<\mathbb{N}}$) with the property that for all $s,s'\in R$, $s^\frown 0^{\infty}\neq s'^\frown 0^\infty$ and $s^\frown 1^{\infty}\neq s'^\frown 1^\infty$. Given $t\in 2^{<\mathbb{N}}$, let $v_t$ be the characteristic function of the set $\{x\in 2^\mathbb{N}:x \text{ extends } t\}$. Let $<$ be the lexicographic order in $2^\mathbb{N}$. Given $a\in 2^{\mathbb{N}}$, let $f^+_a:2^{\mathbb{N}}\rightarrow\{0,1\}$ be the characteristic function of $\{x\in 2^{\mathbb{N}}:a\leq x\}$ and let $f^-_a:2^{\mathbb{N}}\rightarrow\{0,1\}$ be the characteristic function of $\{x\in 2^{\mathbb{N}}:a<x\}$. Given two maps $f,g:2^{\mathbb{N}}\rightarrow\mathbb{R}$ we denote by $(f,g):2^{\mathbb{N}}\sqcup 2^{\mathbb{N}}\rightarrow\mathbb{R}$ the function which is $f$ on the first copy of $2^{\mathbb{N}}$ and $g$ on the second copy of $2^{\mathbb{N}}$.
+One of the main results in \cite{argyros2008rosenthal} is that, up to equivalence,  there are  seven minimal families of Rosenthal compacta and that for every relatively compact $\{f_t:t\in 2^{<\mathbb{N}}\}\subseteq B_1(X)$ there is a dyadic subtree $\{s_t:t\in 2^{<\mathbb{N}}\}$ such that $\{f_{s_t}:t\in 2^{<\mathbb{N}}\}$ is equivalent to one of the minimal families. We shall describe the minimal families next. We follow the same notation as in \cite{argyros2008rosenthal}. For any node $t\in 2^{<\mathbb{N}}$, let us denote by $t^\frown 0^{\infty}$ ($t^\frown 1^{\infty}$) the infinite binary sequence starting with $t$ and continuing will all $0$'s (respectively, all $1$'s). Fix a regular dyadic subtree $R=\{s_t:t\in 2^{<\mathbb{N}}\}$ of $2^{<\mathbb{N}}$ (i.e., a dyadic subtree such that every level of $R$ is contained in a level of $2^{<\mathbb{N}}$) with the property that for all $s,s'\in R$, $s^\frown 0^{\infty}\neq s'^\frown 0^\infty$ and $s^\frown 1^{\infty}\neq s'^\frown 1^\infty$. Given $t\in 2^{<\mathbb{N}}$, let $v_t$ be the characteristic function of the set $\{x\in 2^\mathbb{N}:x \text{ extends } t\}$. Let $<$ be the lexicographic order in $2^\mathbb{N}$. Given $a\in 2^{\mathbb{N}}$, let $f^+_a:2^{\mathbb{N}}\rightarrow\{0,1\}$ be the characteristic function of $\{x\in 2^{\mathbb{N}}:a\leq x\}$ and let $f^-_a:2^{\mathbb{N}}\rightarrow\{0,1\}$ be the characteristic function of $\{x\in 2^{\mathbb{N}}:a<x\}$. Given two maps $f,g:2^{\mathbb{N}}\rightarrow\mathbb{R}$ we denote by $(f,g):2^{\mathbb{N}}\sqcup 2^{\mathbb{N}}\rightarrow\mathbb{R}$ the function which is $f$ on the first copy of $2^{\mathbb{N}}$ and $g$ on the second copy of $2^{\mathbb{N}}$.
 
 \begin{enumerate}
     \item $D_1=\{\frac{1}{|t|+1}v_t:t\in 2^{<\mathbb{N}}\}$. This is discrete in $\overline{D_1}=A(2^{\mathbb{N}})$. 
