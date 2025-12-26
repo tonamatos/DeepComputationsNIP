@@ -408,6 +408,7 @@ In this section, we connect function spaces with computation. We start by summar
 In \cite{alva2024approximability} , the authors introdiced the following definition. A \emph{computation states structure} is a pair $(L,\mathcal{P})$, where $L$ is a set whose elements we call \emph{states} and $\mathcal{P}$ is a collection of real-valued function on $L$ that we call predicates. Intuitively, $L$ is the set of states of a computation,  and each state $v\in L$ is uniquely characterized by the indexed family $(P(v))_{P\in \mathcal{P}}$. We call this indexed family the \emph{type} of $v$. For each $P\in \mathcal{P}$, we call real value $P(v)$ the $P$-th \emph{feature} of~$v$. A typical case will be when $L=\mathbb{R}^\omega$ or $L=\mathbb{R}^n$ for some $n<\omega$ and there is a predicate $P_i(v) = v_i$ for each of the coordinates $v_i$ of~$v$. We shall identify each state with its type.
 
 \begin{defn}
+\label{D:CCS}
 A  \emph{Compositional Computation Structure} (CCS) is a triple  $(L,\mathcal{P},\Gamma)$, where
 \begin{itemize}
 \item
@@ -434,7 +435,13 @@ The $r_{\bullet}$-type-shard is defined as $\mathcal{L}[r_\bullet]=\overline{L[r
 
 Suppose that a transition map $f: L\to \mathcal L$ can be extended continuously to a map $\mathcal L\to\mathcal L$. Then, the Stone-Weierstrass theorem implies that the feature $\pi_P\circ f$ (here $P$ is a fixed predicate, and the feature is hence continuous) can be uniformly approximated by polynomials on the compact set $\mathcal L[r_\bullet]$. Theorem~2.2 in \cite{alva2024approximability} formalizes the converse of this fact, in the sense that transitions maps that are not continuously extendable in this fashion cannot be obtained from simple constructions involving predicates. Under this framework, the features $\pi_P\circ f$ of such transitions $f$ are not approximable by polynomials, and so they are understood as ``non-computable'' since, again, we expect the operations computers carry out to be determined by elementary algebra corresponding to polynomials (namely addition and multiplication). Therefore it is crucial we assume some extendibility conditions.
 
-We say that the CCS $(L,\mathcal P,\Gamma)$ satisfies the \emph{Extendibility Axiom} if for all $\gamma\in \Gamma$, there is $\tilde\gamma:\mathcal L_{sh}\to\mathcal L_{sh}$ such that for every sizer $r_{\bullet}$ there is an $s_\bullet$ such that $\tilde\gamma|_{\mathcal L[r_\bullet]}:\mathcal L[r_\bullet]\to\mathcal L[s_\bullet]$ is continuous. For a deeper discussion about this axiom, we refer the reader to \cite{alva2024approximability}.
+\begin{defn}
+\label{D:extendibility axiom}
+We say that a CCS $(L,\mathcal P,\Gamma)$ satisfies the \emph{Extendibility Axiom} if for all $\gamma\in \Gamma$, there is $\tilde\gamma:\mathcal L_{sh}\to\mathcal L_{sh}$ such that for every sizer $r_{\bullet}$ there is an $s_\bullet$ such that $\tilde\gamma|_{\mathcal L[r_\bullet]}:\mathcal L[r_\bullet]\to\mathcal L[s_\bullet]$ is continuous. 
+\end{defn}
+
+For a deeper discussion about this axiom, we refer the reader to \cite{alva2024approximability}.
+
 
 A collection $R$ of sizers is called \emph{exhaustive} if $\mathcal{L}_{sh}=\bigcup_{r_{\bullet}\in R}\mathcal{L}[r_\bullet]$. We say that $\Delta\subseteq\Gamma$ is \emph{$R$-confined} if $\gamma|_{L[r_\bullet]}:L[r_\bullet]\to L[r_\bullet]$ for every $r_\bullet\in R$ and $\gamma\in \Delta$. Elements in $\Delta$ are called \emph{real-valued computations} (in this article we will refer to them simply as \emph{computations}) and elements in $\overline{\Delta}\subseteq \mathcal L_{sh}^L$ are called (real-valued) \emph{deep computations} or \emph{ultracomputations}. By $\tilde{\Delta}$ we denote the set of all extensions $\tilde\gamma$ for $\gamma\in\Delta$. For a more complete description of this framework, we refer the reader to \cite{alva2024approximability}.
 
@@ -445,7 +452,7 @@ A collection $R$ of sizers is called \emph{exhaustive} if $\mathcal{L}_{sh}=\big
 Under what conditions are deep computations Baire class 1, and thus well-behaved according to our framework, on type-shards? The followiing Theorem says that, under the assumption that $\mathcal{P}$ is countable, the space of deep computations is a Rosenthal compactum (when restricted to shards) if and only if the set of computations has the NIP, feature by feature. Hence, we can import the theory of Rosenthal compacta into this framework of deep computations.
 
 \begin{thm}\label{nip-baire1def}
-    Let $(L,\mathcal P,\Gamma)$ be a CCS satisfying the Extendibility Axiom with $\mathcal{P}$ countable. Let $R$ be an exhaustive collection of sizers. Let $\Delta\subseteq\Gamma$ be $R$-confined. The following are equivalent.
+    Let $(L,\mathcal P,\Gamma)$ be a compositional computational structure (Definition~\ref{D:CCS}) satisfying the Extendibility Axiom (Definition~\ref{D:extendibility axiom}) with $\mathcal{P}$ countable. Let $R$ be an exhaustive collection of sizers. Let $\Delta\subseteq\Gamma$ be $R$-confined. The following are equivalent.
 
     \begin{enumerate}
         \item $\overline{\tilde\Delta|_{\mathcal{L}[r_\bullet]}}\subseteq B_1(\mathcal L[r_\bullet],\mathcal L[r_\bullet])$ for all $r_\bullet\in R$.
@@ -461,11 +468,11 @@ Under what conditions are deep computations Baire class 1, and thus well-behaved
 
 \subsection{The Todorčević trichotomy, the  Argyros-Dodos-Kanellopoulos heptachotomy, the Glasner-Megrelishvili tameness tameness, and levels of PAC learnability}
 
-Given a countable set $\Delta$ of computations satisfying the NIP on features and shards (condition (2) of Theorem \ref{nip-baire1def}) we have that $\overline{\tilde\Delta_{\mathcal{L}[r_\bullet]}}$ (for a fixed sizer $r_\bullet$) is a separable \textit{Rosenthal compactum} (compact subset of $B_1(P\times\mathcal{L}[r_\bullet])$. The work of Todorčević (\cite{Todorcevic_1999_CompactSubsetsBaire}) and Argyros, Dodos, Kanellopoulos (\cite{argyros2008rosenthal}) culminates in a trichotomy theorem for separable Rosenthal Compacta. Inspired by the work of Glasner and Megrelishvili (\cite{glasner2022tame}), we are interested to see how this allows us to classify and obtain different levels of PAC-learnability (NIP).
+Given a countable set $\Delta$ of computations satisfying the NIP on features and shards (condition (2) of Theorem \ref{nip-baire1def}) we have that $\overline{\tilde\Delta_{\mathcal{L}[r_\bullet]}}$ (for a fixed sizer $r_\bullet$) is a separable \textit{Rosenthal compactum} (compact subset of $B_1(P\times\mathcal{L}[r_\bullet])$. The work of Todorčević (\cite{Todorcevic_1999_CompactSubsetsBaire}) and Argyros, Dodos, Kanellopoulos (\cite{argyros2008rosenthal}) culminates in a trichotomy theorem for separable Rosenthal Compacta. In this section, inspired by the work of Glasner and Megrelishvili (\cite{glasner2022tame}), we are interested to see how this classification allows us obtain different levels of PAC-learnability (NIP).
 
 
 
-Recall that a topological space $X$ is \emph{hereditarily separable} (HS) if every subspace is separable and that $X$ is \emph{first countable} if every point in $X$ has a countable local basis. Every separable metrizable space is hereditarily separable and it is a result of R. Pol that every hereditarily separable Rosenthal compactum is first countable (see section 10 in \cite{debs2013rosenthal}). This suggests the following definition:
+Recall that a topological space $X$ is \emph{hereditarily separable} (HS) if every subspace is separable and that $X$ is \emph{first countable} if every point in $X$ has a countable local basis. Every separable metrizable space is hereditarily separable and it is a result of R. Pol that every hereditarily separable Rosenthal compactum is first countable (see section 10 of \cite{debs2013rosenthal}). This suggests the following definition:
 
 \begin{defn}
     Let $(L,\mathcal{P},\Gamma)$ be a CCS satisfying the Extendibility Axiom and $R$ be an exhaustive collection of sizers. Let $\Delta\subseteq\Gamma$ be an $R$-confined countable set of computations satisfying the NIP on shards and features (condition (2) in Theorem \ref{nip-baire1def}). We say that $\Delta$ is:
@@ -541,7 +548,7 @@ Lastly, the definitions provided here for $NIP_i$ ($i=1,2,3$) are topological.
     Is there a non-topological characterization for $NIP_i$, $i=1,2,3$?
 \end{question}
 
-More can be said about the nature of the embeddings in Todorčević's Trichotomy. Given a separable Rosenthal compactum $K$, there is typically more than one countable dense subset of $K$. We can view a separable Rosenthal compactum as the accumulation points of a countable family of pointwise bounded real-valued functions. The choice of the countable families is not important when a bijection between them can be lifted to a homeomorphism of their closures. To be more precise:
+More can be said about the nature of the embeddings in Todorčević's Trichotomy. For an arbitrary separable Rosenthal compactum $K$, there is typically more than one countable dense subset of $K$. We can view a separable Rosenthal compactum as the accumulation points of a countable family of pointwise bounded real-valued functions. The choice of the countable families is not important when a bijection between them can be lifted to a homeomorphism of their closures. To be more precise:
 
 \begin{defn}
     Given a Polish space $X$, a countable set $I$ and two pointwise bounded families $\{f_i:i\in I\}\subseteq\mathbb{R}^X$, $\{g_i:i\in I\}\subseteq\mathbb{R}^X$ indexed by $I$. We say that $\{f_i:i\in\ I\}$ and $\{g_i:i\in I\}$ are \emph{equivalent} if and only if the map $f_i\mapsto g_i$ is extended to a homeomorphism from $\overline{\{f_i:i\in I\}}$ to $\overline{\{g_i:i\in I\}}$.
