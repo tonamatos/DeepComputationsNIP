@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.7.13)  26 DEC 2025 17:00
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.7.13)  26 DEC 2025 17:54
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1033,12 +1033,8 @@ ol-ish space, and $\U/eur/m/n/10 A \OMS/cmsy/m/n/10 ^^R \U/eur/m/n/10 C[]\U/euf
 /m/n/10 (\U/eur/m/n/10 X; \U/msb/m/n/10 R[]\U/euf/m/n/10 )$
  []
 
-[8] [9] [10] [11] [12] [13] [14]
-
-LaTeX Warning: Citation `Pap:2002' on page 15 undefined on input line 611.
-
-[15] [16] [17] [18] (./main.bbl [19]
-Underfull \hbox (badness 1776) in paragraph at lines 164--167
+[8] [9] [10] [11] [12] [13] [14] [15] [16] [17] [18] (./main.bbl [19]
+Underfull \hbox (badness 1776) in paragraph at lines 169--172
 []\OT1/cmr/m/up/8 Michel Ta-la-grand. The Glivenko-Cantelli prob-lem. \OT1/cmr/
 m/it/8 The An-nals of Prob-a-bil-ity\OT1/cmr/m/up/8 ,
  []
@@ -1047,7 +1043,7 @@ m/it/8 The An-nals of Prob-a-bil-ity\OT1/cmr/m/up/8 ,
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [20]
-Underfull \hbox (badness 1648) in paragraph at lines 186--189
+Underfull \hbox (badness 1648) in paragraph at lines 191--194
 []\OT1/cmr/m/up/8 Leslie G. Valiant. A the-ory of the learn-able. \OT1/cmr/m/it
 /8 Com-mu-ni-ca-tions of the ACM\OT1/cmr/m/up/8 ,
  []
@@ -1057,19 +1053,16 @@ Underfull \hbox (badness 1648) in paragraph at lines 186--189
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 
-LaTeX Warning: There were undefined references.
-
-
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 629DA641A263D6D6B710A57D65C8B91B;4509.
  ) 
 Here is how much of TeX's memory you used:
- 30744 strings out of 478268
- 727352 string characters out of 5846347
+ 30746 strings out of 478268
+ 727375 string characters out of 5846347
  1145640 words of memory out of 5000000
- 48132 multiletter control sequences out of 15000+600000
+ 48133 multiletter control sequences out of 15000+600000
  484260 words of font info for 91 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
  99i,12n,94p,1729b,1249s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1103,10 +1096,10 @@ ive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/
 texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/lo
 cal/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr
 /local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb>
-Output written on main.pdf (21 pages, 412190 bytes).
+Output written on main.pdf (21 pages, 412546 bytes).
 PDF statistics:
- 537 PDF objects out of 1000 (max. 8388607)
- 451 compressed objects within 5 object streams
- 137 named destinations out of 1000 (max. 500000)
+ 539 PDF objects out of 1000 (max. 8388607)
+ 453 compressed objects within 5 object streams
+ 138 named destinations out of 1000 (max. 500000)
  133 words of extra memory for PDF output out of 10000 (max. 10000000)
 
