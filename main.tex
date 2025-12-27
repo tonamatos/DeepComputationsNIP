@@ -652,20 +652,20 @@ Theorem~\ref{BFT} immediately yields the following.
 \end{thm}
 
 \begin{proof}
-    By the Extendibility Axiom, Theorem \ref{BFT} and lemma \ref{NIP and closure} we have that $\overline{\pi_P\circ\tilde\Delta|_{\mathcal{L}[r_\bullet]}}\subseteq M_r(\mathcal{L}[r_\bullet])$ for all $r_\bullet\in R$ and $P\in\mathcal{P}$. Let $f\in\overline{\Delta}$ be a deep computation. Write $f=\mathcal{U}\lim_i\gamma_i$ as an ultralimit of computations in $\Delta$. Define $\tilde f:=\mathcal{U}\lim_i\tilde\gamma_i$. Then, for all $r_\bullet\in R$ and $P\in\mathcal{P}$ $\pi_P \circ \tilde\gamma_i|_{\mathcal{L}[r_\bullet]}\in M_r(\mathcal{L}[r_\bullet])$ for all $i$ so $\pi_P \circ f|_{\mathcal{L}[r_\bullet]}\in \overline{\pi_P\circ\tilde\Delta|_{\mathcal{L}[r_\bullet]}}\subseteq M_r(\mathcal{L}[r_\bullet])$.
+    By the Extendibility Axiom, Theorem \ref{BFT} and lemma \ref{NIP and closure} we have that $\overline{\pi_P\circ\tilde\Delta|_{\mathcal{L}[r_\bullet]}}\subseteq M_r(\mathcal{L}[r_\bullet])$ for all $r_\bullet\in R$ and $P\in\mathcal{P}$. Let $f\in\overline{\Delta}$ be a deep computation. Write $f=\mathcal{U}\lim_i\gamma_i$ as an ultralimit of computations in $\Delta$. Define $\tilde f:=\mathcal{U}\lim_i\tilde\gamma_i$. Then, for all $r_\bullet\in R$ and $P\in\mathcal{P}$ $\pi_P \circ \tilde\gamma_i|_{\mathcal{L}[r_\bullet]}\in M_r(\mathcal{L}[r_\bullet])$ for all $i$, so $\pi_P \circ f|_{\mathcal{L}[r_\bullet]}\in \overline{\pi_P\circ\tilde\Delta|_{\mathcal{L}[r_\bullet]}}\subseteq M_r(\mathcal{L}[r_\bullet])$.
 \end{proof}
 
 \begin{question}
 Under the same assumptions of the previous Theorem, suppose that every deep computation of $\Delta$ is universally measurable shard-definable. Must $\pi_P\circ\Delta|_{L[r_\bullet]}$ have the NIP for all $P\in\mathcal{P}$ and all $r_{\bullet}\in R$?
 \end{question}
 
-\subsection{NIP and universal Talagrand stability}
+\subsection{Talagrand stability, NIP, and definability of deep computations}
 
 There is another notion closely related to NIP, introduced by Talagrand in \cite{talagrand1984pettis} while studying Pettis integration. Suppose that $X$ is a compact Hausdorff space and $A\subseteq \mathbb{R}^X$. Let $\mu$ be a Radon probability measure on $X$. Given a $\mu$-measurable set $E\subseteq X$, a positive integer $k$ and real numbers $a<b$. we write:
 
 $$D_k(A,E,a,b)=\bigcup_{f\in A}\{x\in E^{2k}:f(x_{2i})\leq a, \hspace{1mm} f(x_{2i+1})\geq b \hspace{1mm}{\text{ for all }i<k} \}$$
 
-We say that $A$ is \emph{Talagrand $\mu$-stable} if and only if for every $\mu$-measurable set $E\subseteq X$ of positive measure and for every $a<b$ there is $k\geq 1$ such that $(\mu^{2k})^*(D_k(A,E,a,b))<(\mu(E))^{2k}$. Notice that we work with the outer measure because it is not necessarily true that the sets $D_k(A,E,a,b)$ are $\mu$-measurable. This is certainly the case when $A$ is a countable set of continuous (or $\mu$-measurable) functions. 
+We say that $A$ is \emph{Talagrand $\mu$-stable} if and only if for every $\mu$-measurable set $E\subseteq X$ of positive measure and for every $a<b$ there is $k\geq 1$ such that $(\mu^{2k})^*(D_k(A,E,a,b))<(\mu(E))^{2k}$. Notice that we work with the outer measure $\mu*$  because it is not necessarily true that the sets $D_k(A,E,a,b)$ are $\mu$-measurable. This is certainly the case when $A$ is a countable set of continuous (or $\mu$-measurable) functions. 
 
 The following lemma establishes that Talagrand stability is a way to ensure that deep computations are definable by measurable functions. We include the proof for the reader's convenience.
 
