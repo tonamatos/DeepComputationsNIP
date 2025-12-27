@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.7.13)  26 DEC 2025 22:35
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.7.13)  27 DEC 2025 16:10
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1033,8 +1033,13 @@ ol-ish space, and $\U/eur/m/n/10 A \OMS/cmsy/m/n/10 ^^R \U/eur/m/n/10 C[]\U/euf
 /m/n/10 (\U/eur/m/n/10 X; \U/msb/m/n/10 R[]\U/euf/m/n/10 )$
  []
 
-[8] [9] [10] [11] [12] [13] [14] [15]
-Overfull \hbox (4.03436pt too wide) in paragraph at lines 664--665
+[8] [9] [10]
+
+LaTeX Warning: Reference `D:extendability axiom' on page 11 undefined on input 
+line 457.
+
+[11] [12] [13] [14] [15]
+Overfull \hbox (4.03436pt too wide) in paragraph at lines 666--667
  \OT1/cmr/m/up/10 4.5.\OT1/cmr/bx/n/10 Talagrand sta-bil-ity, NIP, and de-fin-a
 bil-ity of deep com-pu-ta-tions.[][] \OT1/cmr/m/up/10 There
  []
@@ -1059,16 +1064,19 @@ Underfull \hbox (badness 1648) in paragraph at lines 191--194
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 
+LaTeX Warning: There were undefined references.
+
+
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: A5F7217FD418DCF94A46D85001E514B1;4419.
  ) 
 Here is how much of TeX's memory you used:
- 30743 strings out of 478268
- 727330 string characters out of 5846347
+ 30744 strings out of 478268
+ 727353 string characters out of 5846347
  1145640 words of memory out of 5000000
- 48131 multiletter control sequences out of 15000+600000
+ 48132 multiletter control sequences out of 15000+600000
  483883 words of font info for 90 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
  99i,12n,94p,1729b,1249s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1100,10 +1108,10 @@ ive/2022/texmf-dist/fonts/type1/public/amsfonts/euler/eusm7.pfb></usr/local/tex
 live/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local
 /texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/l
 ocal/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on main.pdf (21 pages, 398537 bytes).
+Output written on main.pdf (21 pages, 398715 bytes).
 PDF statistics:
- 533 PDF objects out of 1000 (max. 8388607)
- 449 compressed objects within 5 object streams
+ 532 PDF objects out of 1000 (max. 8388607)
+ 448 compressed objects within 5 object streams
  138 named destinations out of 1000 (max. 500000)
  133 words of extra memory for PDF output out of 10000 (max. 10000000)
 

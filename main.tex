@@ -296,7 +296,7 @@ or there exists $N\in\mathbb{N}$ such that  $A\subseteq S$ with $|A|\ge N$, one 
 \[
 |\{S_i\cap A): i\in\mathbb{N}\}| \le \sum_{i=0}^{N-1} \binom{|A|}{i} \approx O(|A|^N)
 \]
-for every $A\subseteq S$ such that $|A|\ge N$(yielding polynomial complexity). This answered a question of Erd\H{o}s.
+for every $A\subseteq S$ such that $|A|\ge N$ (yielding polynomial complexity). This answered a question of Erd\H{o}s.
 
 
  \item[In machine learning]
@@ -431,13 +431,15 @@ L[r_\bullet]=L\cap\prod_{P\in\mathcal{P}}[-r_P,r_P].
 
 For an illustrative example, we can frame Newton's polynomial root approximation method in the context of a CCS (see Example~5.6 of \cite{alva2024approximability} for details) as follows. Begin by considering the extended complex numbers $\hat{\mathbb{C}}:=\mathbb{C}\cup\{\infty\}$ with the usual Riemann sphere topology that makes it into a compact space (where unbounded sequences converge to $\infty$). In fact, not only is this space compact but it is covered by the shard given by the sizer $(1,1,1)$ (the unit sphere is contained in the cube $[-1,1]^3$). The space $\hat{\mathbb{C}}$ is homeomorphic to the usual unit sphere $S^2:=\{(x,y,z):x^2+y^2+z^2=1\}$ of $\mathbb R^3$, by means of the stereographic projection and its inverse $\hat{\mathbb{C}}\to S^2$. This function is regarded as a triple of predicates $x,y,z:\hat{\mathbb{C}}\to[-1,1]$ where each will map an extended complex number to its corresponding real coordinate on the cube $[-1,1]^3$. Now fix the cubic complex polynomial $p(s):=s^3-1$, and consider the map which performs one step in Newton's method at a particular (extended) complex number $s$, for finding a root of $p$, $\gamma_p:\hat{\mathbb{C}}\to\hat{\mathbb{C}}$. The explicit inner workings of $\gamma_p$ are irrelevant for this example, except for the fact that it is a continuous mapping. It follows that $(S^2,\{x,y,z\},\{\gamma_p^k:k\in\mathbb N\})$ is a CCS. The idea is that repeated applications of $\gamma_p(s), \gamma_p\circ\gamma_p(s), \gamma_p\circ\gamma_p\circ\gamma_p(s),\dots$ would approximate a root of $p$ provided $s$ was a good enough initial guess.
 
-The $r_{\bullet}$-type-shard is defined as $\mathcal{L}[r_\bullet]=\overline{L[r_\bullet]}$ and $\mathcal{L}_{sh}$ is the union of all type-shards. Notice that $\mathcal{L}_{sh}$ is not necessarily equal to $\mathcal{L}=\overline{L}$, unless $\mathcal{P}$ is countable (see \cite{alva2024approximability}). A \emph{transition} is a map $f:L\rightarrow L$, in particular, every element in the semigroup $\Gamma$ is a transition (these are called \emph{realized computations}). In practice, one would like to work with ``definable'' computations, i.e., ones that can be described by a computer. In this topological framework, being continuous is an expected requirement. However, as in the case of complete-types in model theory, we will work with ``unrealized computations'', i.e., maps $f:\mathcal{L}_{sh}\rightarrow\mathcal{L}_{sh}$. Note that continuity of a computation does not imply that it can be continuously extended to $\mathcal{L}_{sh}$.
+For a sizer  $r_{\bullet}$, the \emph{$r_{\bullet}$-type shard} is defined as $\mathcal{L}[r_\bullet]=\overline{L[r_\bullet]}$ and $\mathcal{L}_{sh}$ is the union of all type-shards. Notice that $\mathcal{L}_{sh}$ is not necessarily equal to $\mathcal{L}=\overline{L}$, unless $\mathcal{P}$ is countable (see \cite{alva2024approximability}). A \emph{transition} is a map $f:L\rightarrow L$. In particular, every element in the semigroup $\Gamma$ is a transition (these are called \emph{realized computations}).
 
-Suppose that a transition map $f: L\to \mathcal L$ can be extended continuously to a map $\mathcal L\to\mathcal L$. Then, the Stone-Weierstrass theorem implies that the feature $\pi_P\circ f$ (here $P$ is a fixed predicate, and the feature is hence continuous) can be uniformly approximated by polynomials on the compact set $\mathcal L[r_\bullet]$. Theorem~2.2 in \cite{alva2024approximability} formalizes the converse of this fact, in the sense that transitions maps that are not continuously extendable in this fashion cannot be obtained from simple constructions involving predicates. Under this framework, the features $\pi_P\circ f$ of such transitions $f$ are not approximable by polynomials, and so they are understood as ``non-computable'' since, again, we expect the operations computers carry out to be determined by elementary algebra corresponding to polynomials (namely addition and multiplication). Therefore it is crucial we assume some extendibility conditions.
+ In practice, one would like to work with ``definable'' computations, i.e., ones that can be executed by a computer. In this topological framework, being continuous is an expected requirement. However, as in the case of complete-types in model theory, we will work with ``unrealized computations'', i.e., maps $f:\mathcal{L}_{sh}\rightarrow\mathcal{L}_{sh}$. Note that continuity of a computation does not imply that it can be continuously extended to $\mathcal{L}_{sh}$.
+
+Suppose that a transition map $f: L\to \mathcal L$ can be extended continuously to a map $\mathcal L\to\mathcal L$. Then, the Stone-Weierstrass theorem implies that the feature $\pi_P\circ f$ (here $P$ is a fixed predicate, and the feature is hence continuous) can be uniformly approximated by polynomials on the compact set $\mathcal L[r_\bullet]$. Theorem~2.2 in \cite{alva2024approximability} formalizes the converse of this fact, in the sense that transitions maps that are not continuously extendable in this fashion cannot be obtained from simple constructions involving predicates. Under this framework, the features $\pi_P\circ f$ of such transitions $f$ are not approximable by polynomials, and so they are understood as ``non-computable'' since, again, we expect the operations computers carry out to be determined by elementary algebra corresponding to polynomials (namely addition and multiplication). Therefore it is crucial we assume some extendability conditions.
 
 \begin{defn}
-\label{D:extendibility axiom}
-We say that a CCS $(L,\mathcal P,\Gamma)$ satisfies the \emph{Extendibility Axiom} if for all $\gamma\in \Gamma$, there is $\tilde\gamma:\mathcal L_{sh}\to\mathcal L_{sh}$ such that for every sizer $r_{\bullet}$ there is an $s_\bullet$ such that $\tilde\gamma|_{\mathcal L[r_\bullet]}:\mathcal L[r_\bullet]\to\mathcal L[s_\bullet]$ is continuous. 
+\label{D:extendability axiom}
+We say that a CCS $(L,\mathcal P,\Gamma)$ satisfies the \emph{Extendability Axiom} if for all $\gamma\in \Gamma$, there is $\tilde\gamma:\mathcal L_{sh}\to\mathcal L_{sh}$ such that for every sizer $r_{\bullet}$ there is an $s_\bullet$ such that $\tilde\gamma|_{\mathcal L[r_\bullet]}:\mathcal L[r_\bullet]\to\mathcal L[s_\bullet]$ is continuous. 
 \end{defn}
 
 For a deeper discussion about this axiom, we refer the reader to \cite{alva2024approximability}.
@@ -452,7 +454,7 @@ A collection $R$ of sizers is called \emph{exhaustive} if $\mathcal{L}_{sh}=\big
 Under what conditions are deep computations Baire class 1, and thus well-behaved according to our framework, on type-shards? The followiing Theorem says that, under the assumption that $\mathcal{P}$ is countable, the space of deep computations is a Rosenthal compactum (when restricted to shards) if and only if the set of computations has the NIP, feature by feature. Hence, we can import the theory of Rosenthal compacta into this framework of deep computations.
 
 \begin{thm}\label{nip-baire1def}
-    Let $(L,\mathcal P,\Gamma)$ be a compositional computational structure (Definition~\ref{D:CCS}) satisfying the Extendibility Axiom (Definition~\ref{D:extendibility axiom}) with $\mathcal{P}$ countable. Let $R$ be an exhaustive collection of sizers. Let $\Delta\subseteq\Gamma$ be $R$-confined. The following are equivalent.
+    Let $(L,\mathcal P,\Gamma)$ be a compositional computational structure (Definition~\ref{D:CCS}) satisfying the Extendability Axiom (Definition~\ref{D:extendability axiom}) with $\mathcal{P}$ countable. Let $R$ be an exhaustive collection of sizers. Let $\Delta\subseteq\Gamma$ be $R$-confined. The following are equivalent.
 
     \begin{enumerate}
         \item $\overline{\tilde\Delta|_{\mathcal{L}[r_\bullet]}}\subseteq B_1(\mathcal L[r_\bullet],\mathcal L[r_\bullet])$ for all $r_\bullet\in R$.
@@ -463,7 +465,7 @@ Under what conditions are deep computations Baire class 1, and thus well-behaved
 \end{thm}
 
 \begin{proof}
-    Since $\mathcal{P}$ is countable, $\mathcal{L}[r_\bullet]\subseteq\mathbb{R}^\mathcal{P}$ is Polish. Also, the Extendibility Axiom implies that $\pi_P\circ \tilde\Delta|_{\mathcal{L}[r_\bullet]}$ is a pointwise bounded set of continuous functions for all $P\in\mathcal{P}$. Hence, Theorem \ref{Generalized BFT} and Lemma \ref{NIP and closure} prove the equivalence of (1) and (2). If (1) holds and $f\in\overline{\Delta}$, then write $f=\mathcal{U}{\rm lim}_i \gamma_i$ as an ultralimit. Define $\tilde f:=\mathcal{U}{\rm lim}_i \tilde\gamma_i$. Hence, for all $r_\bullet\in R$ we have $\tilde f|_{\mathcal{L}[r_\bullet]}\in\overline{\tilde\Delta|_{\mathcal{L}[r_\bullet]}}\subseteq B_1(\mathcal L[r_\bullet],\mathcal L[r_\bullet])$. That every deep computation is a pointwise limit of a countable sequence of computations follows from the fact that for a Polish space $X$ every compact subset of $B_1(X)$ is Fréchet-Urysohn (that is, a space where topological closures coincide with sequential closures, see Theorem 3F in \cite{BFT_1978_PCompactBaire} or Theorem 4.1 in \cite{debs2013rosenthal}).
+    Since $\mathcal{P}$ is countable, $\mathcal{L}[r_\bullet]\subseteq\mathbb{R}^\mathcal{P}$ is Polish. Also, the Extendability Axiom implies that $\pi_P\circ \tilde\Delta|_{\mathcal{L}[r_\bullet]}$ is a pointwise bounded set of continuous functions for all $P\in\mathcal{P}$. Hence, Theorem \ref{Generalized BFT} and Lemma \ref{NIP and closure} prove the equivalence of (1) and (2). If (1) holds and $f\in\overline{\Delta}$, then write $f=\mathcal{U}{\rm lim}_i \gamma_i$ as an ultralimit. Define $\tilde f:=\mathcal{U}{\rm lim}_i \tilde\gamma_i$. Hence, for all $r_\bullet\in R$ we have $\tilde f|_{\mathcal{L}[r_\bullet]}\in\overline{\tilde\Delta|_{\mathcal{L}[r_\bullet]}}\subseteq B_1(\mathcal L[r_\bullet],\mathcal L[r_\bullet])$. That every deep computation is a pointwise limit of a countable sequence of computations follows from the fact that for a Polish space $X$ every compact subset of $B_1(X)$ is Fréchet-Urysohn (that is, a space where topological closures coincide with sequential closures, see Theorem 3F in \cite{BFT_1978_PCompactBaire} or Theorem 4.1 in \cite{debs2013rosenthal}).
 \end{proof}
 
 \subsection{The Todorčević trichotomy  and levels of PAC learnability}
@@ -475,7 +477,7 @@ Given a countable set $\Delta$ of computations satisfying the NIP on features an
 Recall that a topological space $X$ is \emph{hereditarily separable} (HS) if every subspace is separable and that $X$ is \emph{first countable} if every point in $X$ has a countable local basis. Every separable metrizable space is hereditarily separable and it is a result of R. Pol that every hereditarily separable Rosenthal compactum is first countable (see section 10 of \cite{debs2013rosenthal}). This suggests the following definition:
 
 \begin{defn}
-    Let $(L,\mathcal{P},\Gamma)$ be a CCS satisfying the Extendibility Axiom and $R$ be an exhaustive collection of sizers. Let $\Delta\subseteq\Gamma$ be an $R$-confined countable set of computations satisfying the NIP on shards and features (condition (2) in Theorem \ref{nip-baire1def}). We say that $\Delta$ is:
+    Let $(L,\mathcal{P},\Gamma)$ be a CCS satisfying the Extendability Axiom and $R$ be an exhaustive collection of sizers. Let $\Delta\subseteq\Gamma$ be an $R$-confined countable set of computations satisfying the NIP on shards and features (condition (2) in Theorem \ref{nip-baire1def}). We say that $\Delta$ is:
     \begin{itemize}
         \item [(i)] $NIP_1$ if $\overline{\tilde\Delta|_{\mathcal{L}[r_\bullet]}}$ is first countable for every $r_\bullet\in R$.
         \item [(ii)] $NIP_2$ if $\overline{\tilde\Delta|_{\mathcal{L}[r_\bullet]}}$ is hereditarily separable for every $r_\bullet\in R$.
@@ -483,7 +485,7 @@ Recall that a topological space $X$ is \emph{hereditarily separable} (HS) if eve
     \end{itemize}
 \end{defn}
 
-Observe that $NIP_3 \Rightarrow NIP_2\Rightarrow NIP_1\Rightarrow NIP$. A natural question that would continue this work is to find examples of CCS that separate these levels of NIP. In \cite{Todorcevic_1999_CompactSubsetsBaire}, Todorčević isolates 3 canonical examples of Rosenthal compacta that witness the failure of the converse implications above. 
+Observe that $NIP_3 \Rightarrow NIP_2\Rightarrow NIP_1\Rightarrow NIP$. A natural question that would continue this work is to find examples of CCS that separate these levels of NIP. In \cite{Todorcevic_1999_CompactSubsetsBaire}, Todorčević isolates three canonical examples of Rosenthal compacta that witness the failure of the converse implications above. 
 
 We now present some separable and non-separable examples of Rosenthal compacta:
 
@@ -648,11 +650,11 @@ We will need the following result about NIP and universally measurable functions
 Theorem~\ref{BFT} immediately yields the following.
 
 \begin{thm}
-    Let $(L,\mathcal P,\Gamma)$ be a CCS satisfying the Extendibility Axiom. Let $R$ be an exhaustive collection of sizers. Let $\Delta\subseteq\Gamma$ be $R$-confined. If $\pi_P\circ\Delta|_{L[r_\bullet]}$ has the NIP for all $P\in\mathcal{P}$ and all $r_{\bullet}\in R$, then every deep computation is universally measurable shard-definable.
+    Let $(L,\mathcal P,\Gamma)$ be a CCS satisfying the Extendability Axiom. Let $R$ be an exhaustive collection of sizers. Let $\Delta\subseteq\Gamma$ be $R$-confined. If $\pi_P\circ\Delta|_{L[r_\bullet]}$ has the NIP for all $P\in\mathcal{P}$ and all $r_{\bullet}\in R$, then every deep computation is universally measurable shard-definable.
 \end{thm}
 
 \begin{proof}
-    By the Extendibility Axiom, Theorem \ref{BFT} and lemma \ref{NIP and closure} we have that $\overline{\pi_P\circ\tilde\Delta|_{\mathcal{L}[r_\bullet]}}\subseteq M_r(\mathcal{L}[r_\bullet])$ for all $r_\bullet\in R$ and $P\in\mathcal{P}$. Let $f\in\overline{\Delta}$ be a deep computation. Write $f=\mathcal{U}\lim_i\gamma_i$ as an ultralimit of computations in $\Delta$. Define $\tilde f:=\mathcal{U}\lim_i\tilde\gamma_i$. Then, for all $r_\bullet\in R$ and $P\in\mathcal{P}$ $\pi_P \circ \tilde\gamma_i|_{\mathcal{L}[r_\bullet]}\in M_r(\mathcal{L}[r_\bullet])$ for all $i$, so $\pi_P \circ f|_{\mathcal{L}[r_\bullet]}\in \overline{\pi_P\circ\tilde\Delta|_{\mathcal{L}[r_\bullet]}}\subseteq M_r(\mathcal{L}[r_\bullet])$.
+    By the Extendability Axiom, Theorem \ref{BFT} and lemma \ref{NIP and closure} we have that $\overline{\pi_P\circ\tilde\Delta|_{\mathcal{L}[r_\bullet]}}\subseteq M_r(\mathcal{L}[r_\bullet])$ for all $r_\bullet\in R$ and $P\in\mathcal{P}$. Let $f\in\overline{\Delta}$ be a deep computation. Write $f=\mathcal{U}\lim_i\gamma_i$ as an ultralimit of computations in $\Delta$. Define $\tilde f:=\mathcal{U}\lim_i\tilde\gamma_i$. Then, for all $r_\bullet\in R$ and $P\in\mathcal{P}$ $\pi_P \circ \tilde\gamma_i|_{\mathcal{L}[r_\bullet]}\in M_r(\mathcal{L}[r_\bullet])$ for all $i$, so $\pi_P \circ f|_{\mathcal{L}[r_\bullet]}\in \overline{\pi_P\circ\tilde\Delta|_{\mathcal{L}[r_\bullet]}}\subseteq M_r(\mathcal{L}[r_\bullet])$.
 \end{proof}
 
 \begin{question}
@@ -680,7 +682,7 @@ The following lemma establishes that Talagrand stability is a way to ensure that
 We say that $A$ is \emph{universally Talagrand stable} if $A$ is Talagrand $\mu$-stable for every Radon probability measure $\mu$ on $X$. A similar argument as before, yields the following:
 
 \begin{thm}
-    Let $(L,\mathcal P,\Gamma)$ be a CCS satisfying the Extendibility Axiom. If $\pi_P\circ\Delta|_{L[r_\bullet]}$ is universally Talagrand stable for all $P\in\mathcal{P}$ and all sizers $r_{\bullet}$, then every deep computation is universally measurable sh-definable.
+    Let $(L,\mathcal P,\Gamma)$ be a CCS satisfying the Extendability Axiom. If $\pi_P\circ\Delta|_{L[r_\bullet]}$ is universally Talagrand stable for all $P\in\mathcal{P}$ and all sizers $r_{\bullet}$, then every deep computation is universally measurable sh-definable.
 \end{thm}
 
 It is then natural to ask: what is the relationship between Talagrand stability and the NIP? The following dichotomy will be useful.
