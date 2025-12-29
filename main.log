@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.7.13)  29 DEC 2025 08:03
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.7.13)  29 DEC 2025 08:13
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1039,7 +1039,12 @@ ol-ish space, and $\U/eur/m/n/10 A \OMS/cmsy/m/n/10 ^^R \U/eur/m/n/10 C[]\U/euf
 /m/n/10 (\U/eur/m/n/10 X; \U/msb/m/n/10 R[]\U/euf/m/n/10 )$
  []
 
-[8] [9] [10] [11] [12] [13] [14] [15] [16] [17] [18]
+[8] [9] [10] [11] [12] [13] [14] [15] [16] [17]
+
+LaTeX Warning: Reference `T:Fremlins dichotomy' on page 18 undefined on input l
+ine 734.
+
+[18]
 Underfull \vbox (badness 7558) has occurred while \output is active []
 
  [19]
@@ -1060,16 +1065,19 @@ Underfull \hbox (badness 1648) in paragraph at lines 191--194
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 
+LaTeX Warning: There were undefined references.
+
+
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: A4FBE1A2C1A7F3414F8A8E1DBCB1CF3C;4650.
  ) 
 Here is how much of TeX's memory you used:
- 30747 strings out of 478268
- 727409 string characters out of 5846347
+ 30749 strings out of 478268
+ 727454 string characters out of 5846347
  1145639 words of memory out of 5000000
- 48133 multiletter control sequences out of 15000+600000
+ 48135 multiletter control sequences out of 15000+600000
  483883 words of font info for 90 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
  99i,12n,94p,1729b,1249s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1101,7 +1109,7 @@ ive/2022/texmf-dist/fonts/type1/public/amsfonts/euler/eusm7.pfb></usr/local/tex
 live/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local
 /texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/l
 ocal/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on main.pdf (21 pages, 400292 bytes).
+Output written on main.pdf (21 pages, 400503 bytes).
 PDF statistics:
  537 PDF objects out of 1000 (max. 8388607)
  453 compressed objects within 5 object streams
