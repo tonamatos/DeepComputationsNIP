@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.7.13)  29 DEC 2025 08:13
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.7.13)  29 DEC 2025 10:10
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1001,54 +1001,63 @@ s; reported on input line 82.
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [2]
-Excluding 'comment' comment. [3] [4] [5] [6]
+(./main.toc)
+\tf@toc=\write6
+\openout6 = `main.toc'.
+
+ Excluding 'comment' comment. [3] [4] [5]
+Overfull \hbox (15.13966pt too wide) in paragraph at lines 287--288
+[]\OT1/cmr/m/up/10 ], and in sta-tis-ti-cal learn-ing, by Vladimir Vap-nik and 
+Alexey Cher-vo-nenkis [[],
+ []
+
+[6]
 
 Package amsmath Warning: Foreign command \atopwithdelims;
 (amsmath)                \frac or \genfrac should be used instead
-(amsmath)                 on input line 304.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 323.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 323.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 323.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 323.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 323.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 323.
+(amsmath)                 on input line 308.
 
 [7]
-Overfull \hbox (4.6111pt too wide) in paragraph at lines 364--365
-[][]\OT1/cmr/bx/n/10 Theorem 2.12. []\OT1/cmr/m/it/10 As-sume that $\U/eus/m/n/
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 327.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 327.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `superscript' on input line 327.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 327.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 327.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 327.
+
+[8]
+Overfull \hbox (4.6111pt too wide) in paragraph at lines 368--369
+[][]\OT1/cmr/bx/n/10 Theorem 1.12. []\OT1/cmr/m/it/10 As-sume that $\U/eus/m/n/
 10 P$ \OT1/cmr/m/it/10 is count-able, $\U/eur/m/n/10 X$ \OT1/cmr/m/it/10 is a P
 ol-ish space, and $\U/eur/m/n/10 A \OMS/cmsy/m/n/10 ^^R \U/eur/m/n/10 C[]\U/euf
 /m/n/10 (\U/eur/m/n/10 X; \U/msb/m/n/10 R[]\U/euf/m/n/10 )$
  []
 
-[8] [9] [10] [11] [12] [13] [14] [15] [16] [17]
+[9] [10] [11] [12] [13] [14] [15] [16] [17]
+Overfull \hbox (1.2pt too wide) in paragraph at lines 699--701
+\OT1/cmr/m/up/10 where $\U/eur/m/n/10 ^^V\OMS/cmsy/m/n/10 ^^C$ \OT1/cmr/m/up/10
+ de-notes the outer mea-sure (we work with outer since the sets $\U/eur/m/n/10 
+D[]\U/euf/m/n/10 (\U/eur/m/n/10 A; E; a; b\U/euf/m/n/10 )$
+ []
 
-LaTeX Warning: Reference `T:Fremlins dichotomy' on page 18 undefined on input l
-ine 734.
-
-[18]
-Underfull \vbox (badness 7558) has occurred while \output is active []
-
- [19]
-(./main.bbl [20]
+[18] Excluding 'comment' comment. (./main.bbl [19]
 Underfull \hbox (badness 1776) in paragraph at lines 169--172
 []\OT1/cmr/m/up/8 Michel Ta-la-grand. The Glivenko-Cantelli prob-lem. \OT1/cmr/
 m/it/8 The An-nals of Prob-a-bil-ity\OT1/cmr/m/up/8 ,
@@ -1060,59 +1069,146 @@ Underfull \hbox (badness 1648) in paragraph at lines 191--194
 /8 Com-mu-ni-ca-tions of the ACM\OT1/cmr/m/up/8 ,
  []
 
-) [21] (./main.aux)
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [20])
+[21] (./main.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 
-LaTeX Warning: There were undefined references.
-
-
 LaTeX Warning: There were multiply-defined labels.
 
-Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: A4FBE1A2C1A7F3414F8A8E1DBCB1CF3C;4650.
+
+Package rerunfilecheck Warning: File `main.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `main.out':
+(rerunfilecheck)             Before: 499B62702540712B2649042BFC3010F6;4755
+(rerunfilecheck)             After:  DF2EFE161A64C41371B6E0C404F27B5D;4755.
  ) 
 Here is how much of TeX's memory you used:
- 30749 strings out of 478268
- 727454 string characters out of 5846347
- 1145639 words of memory out of 5000000
- 48135 multiletter control sequences out of 15000+600000
+ 30773 strings out of 478268
+ 727686 string characters out of 5846347
+ 1148640 words of memory out of 5000000
+ 48136 multiletter control sequences out of 15000+600000
  483883 words of font info for 90 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
  99i,12n,94p,1729b,1249s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
-></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb
-></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb>
-</usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></
-usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></us
-r/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/
-local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/loc
-al/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/
-texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/tex
-live/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texliv
-e/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/texlive/
-2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2
-022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/202
-2/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2022/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2022/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/local/texlive/2022/tex
-mf-dist/fonts/type1/public/amsfonts/euler/euex10.pfb></usr/local/texlive/2022/t
-exmf-dist/fonts/type1/public/amsfonts/euler/euex7.pfb></usr/local/texlive/2022/
-texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/local/texlive/202
-2/texmf-dist/fonts/type1/public/amsfonts/euler/eufm7.pfb></usr/local/texlive/20
-22/texmf-dist/fonts/type1/public/amsfonts/euler/eurm10.pfb></usr/local/texlive/
-2022/texmf-dist/fonts/type1/public/amsfonts/euler/eurm5.pfb></usr/local/texlive
-/2022/texmf-dist/fonts/type1/public/amsfonts/euler/eurm7.pfb></usr/local/texliv
-e/2022/texmf-dist/fonts/type1/public/amsfonts/euler/eusm10.pfb></usr/local/texl
-ive/2022/texmf-dist/fonts/type1/public/amsfonts/euler/eusm7.pfb></usr/local/tex
-live/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local
-/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/l
-ocal/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on main.pdf (21 pages, 400503 bytes).
+
+pdfTeX warning (dest): name{thm.4.16} has been referenced but does not exist, r
+eplaced by a fixed one
+
+
+pdfTeX warning (dest): name{thm.4.11} has been referenced but does not exist, r
+eplaced by a fixed one
+
+
+pdfTeX warning (dest): name{thm.4.3} has been referenced but does not exist, re
+placed by a fixed one
+
+
+pdfTeX warning (dest): name{thm.4.1} has been referenced but does not exist, re
+placed by a fixed one
+
+
+pdfTeX warning (dest): name{thm.2.13} has been referenced but does not exist, r
+eplaced by a fixed one
+
+
+pdfTeX warning (dest): name{thm.2.12} has been referenced but does not exist, r
+eplaced by a fixed one
+
+
+pdfTeX warning (dest): name{thm.2.11} has been referenced but does not exist, r
+eplaced by a fixed one
+
+
+pdfTeX warning (dest): name{thm.2.10} has been referenced but does not exist, r
+eplaced by a fixed one
+
+
+pdfTeX warning (dest): name{thm.2.8} has been referenced but does not exist, re
+placed by a fixed one
+
+
+pdfTeX warning (dest): name{thm.2.4} has been referenced but does not exist, re
+placed by a fixed one
+
+
+pdfTeX warning (dest): name{subsection.4.5} has been referenced but does not ex
+ist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsection.4.4} has been referenced but does not ex
+ist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsection.4.3} has been referenced but does not ex
+ist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsection.4.2} has been referenced but does not ex
+ist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsection.4.1} has been referenced but does not ex
+ist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{section.4} has been referenced but does not exist, 
+replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsection.2.4} has been referenced but does not ex
+ist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsection.2.3} has been referenced but does not ex
+ist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsection.2.2} has been referenced but does not ex
+ist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsection.2.1} has been referenced but does not ex
+ist, replaced by a fixed one
+
+</usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><
+/usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><
+/usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></
+usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></us
+r/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/
+local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/lo
+cal/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local
+/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/te
+xlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texli
+ve/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/
+2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/texlive/20
+22/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/202
+2/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2022/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2022/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2022/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/local/texlive/2022/texmf
+-dist/fonts/type1/public/amsfonts/euler/euex10.pfb></usr/local/texlive/2022/tex
+mf-dist/fonts/type1/public/amsfonts/euler/euex7.pfb></usr/local/texlive/2022/te
+xmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/local/texlive/2022/
+texmf-dist/fonts/type1/public/amsfonts/euler/eufm7.pfb></usr/local/texlive/2022
+/texmf-dist/fonts/type1/public/amsfonts/euler/eurm10.pfb></usr/local/texlive/20
+22/texmf-dist/fonts/type1/public/amsfonts/euler/eurm5.pfb></usr/local/texlive/2
+022/texmf-dist/fonts/type1/public/amsfonts/euler/eurm7.pfb></usr/local/texlive/
+2022/texmf-dist/fonts/type1/public/amsfonts/euler/eusm10.pfb></usr/local/texliv
+e/2022/texmf-dist/fonts/type1/public/amsfonts/euler/eusm7.pfb></usr/local/texli
+ve/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/t
+exlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/loc
+al/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
+Output written on main.pdf (21 pages, 395177 bytes).
 PDF statistics:
- 537 PDF objects out of 1000 (max. 8388607)
- 453 compressed objects within 5 object streams
- 140 named destinations out of 1000 (max. 500000)
- 133 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 580 PDF objects out of 1000 (max. 8388607)
+ 496 compressed objects within 5 object streams
+ 160 named destinations out of 1000 (max. 500000)
+ 125 words of extra memory for PDF output out of 10000 (max. 10000000)
 

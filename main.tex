@@ -86,6 +86,8 @@ We study complexity of deep computations. We use topology of function spaces, sp
 
 \maketitle
 
+\setcounter{section}{-1}
+
 
 \section{Introduction}
 
@@ -114,6 +116,8 @@ We believe that the results presented in this paper show practitioners of comput
 
 
 Throughout the paper, we focus on classical computation; however, by refining the model-theoretic tools, the results presented here can be extended to quantum computation and open quantum systems. This extension will be addressed in a forthcoming paper.
+
+\tableofcontents
 
 \begin{comment}
 
@@ -149,7 +153,7 @@ In this work, we study the corresponding notions of NIP (and hence PAC-learnabil
 
 \end{comment}
 
-\section{General topological preliminaries}
+\section{General topological preliminaries: From continuity to Baire class 1}
 \label{sec:prelim}
 
 In this section we give preliminaries from general topology and function space theory. We include some of the proofs for completeness, but the reader familiar with these topics may skip them.
@@ -278,7 +282,7 @@ To summarize, the particular case of Theorem~\ref{BFT} when for $X$ compact can 
 The Independence Property was first isolated by Saharon Shelah in model theory as a dividing line between theories whose models are ``tame'' (corresponding to NIP) theories of models are ``wild" (corresponding to IP). See~\cite[Definition 4.1]{Shelah:1971},\cite{Shelah:1990}. 
 
 
-\subsection{NIP as universal polynomial vs exponential dividing line}
+\subsection{NIP as universal dividing line between polynomial and exponential complexity}
 
 The particular case of the BSF Dichotomy (Theorem~\ref{BFT}) when $A$ consists of $\{0,1\}$-valued (i.e., $\{\text{Yes},\text{No}\}$-valued) strings was discovered independently, around 1971-1972 in many foundational contexts related to polynomial (``tame") vs exponential (``wild'') complexity:  In model theory, by Saharon Shelah~\cite{Shelah:1971},\cite{Shelah:1990},in  combinatorics, by Norbert Sauer~\cite{Sauer:1972},  and Shelah~\cite{Shelah:1972,Shelah:1990}, and in statistical learning, by Vladimir Vapnik and Alexey Chervonenkis~\cite{Vapnik-Chervonenkis:1971, Vapnik-Chervonenkis:1974}.
 
@@ -405,7 +409,7 @@ Lastly, a simple but significant result that helps understand the operation of r
 
 In this section, we connect function spaces with computation. We start by summarizing some basic concepts from \cite{alva2024approximability}.
 
-In \cite{alva2024approximability} , the authors introdiced the following definition. A \emph{computation states structure} is a pair $(L,\mathcal{P})$, where $L$ is a set whose elements we call \emph{states} and $\mathcal{P}$ is a collection of real-valued function on $L$ that we call predicates. Intuitively, $L$ is the set of states of a computation,  and each state $v\in L$ is uniquely characterized by the indexed family $(P(v))_{P\in \mathcal{P}}$. We call this indexed family the \emph{type} of $v$. For each $P\in \mathcal{P}$, we call real value $P(v)$ the $P$-th \emph{feature} of~$v$. A typical case will be when $L=\mathbb{R}^\omega$ or $L=\mathbb{R}^n$ for some $n<\omega$ and there is a predicate $P_i(v) = v_i$ for each of the coordinates $v_i$ of~$v$. We shall identify each state with its type.
+In \cite{alva2024approximability} , the authors introdiced the following definition. A \emph{computation states structure} is a pair $(L,\mathcal{P})$, where $L$ is a set whose elements we call \emph{states} and $\mathcal{P}$ is a collection of real-valued function on $L$ that we call predicates. Intuitively, $L$ is the set of states of a computation,  and each state $v\in L$ is uniquely characterized by the indexed family $(P(v))_{P\in \mathcal{P}}$. We call this indexed family the \emph{type} of $v$. For each $P\in \mathcal{P}$, we call real value $P(v)$ the $P$-th \emph{feature} of~$v$. A typical case will be when $L=\mathbb{R}^\mathbb{N}$ or $L=\mathbb{R}^n$ for some $n\in\mathbb{N}$ and there is a predicate $P_i(v) = v_i$ for each of the coordinates $v_i$ of~$v$. We shall identify each state with its type.
 
 \begin{defn}
 \label{D:CCS}
@@ -449,7 +453,7 @@ A collection $R$ of sizers is called \emph{exhaustive} if $\mathcal{L}_{sh}=\big
 
 \section{Classifying deep computations}
 
-\subsection{NIP and Baire-1 definability of deep computations}
+\subsection{NIP, Rosenthal compacta, and deep computations}
 
 Under what conditions are deep computations Baire class 1, and thus well-behaved according to our framework, on type-shards? The followiing Theorem says that, under the assumption that $\mathcal{P}$ is countable, the space of deep computations is a Rosenthal compactum (when restricted to shards) if and only if the set of computations has the NIP, feature by feature. Hence, we can import the theory of Rosenthal compacta into this framework of deep computations.
 
@@ -689,7 +693,11 @@ There is another notion closely related to NIP, introduced by Talagrand in \cite
 
 $$D_k(A,E,a,b)=\bigcup_{f\in A}\{x\in E^{2k}:f(x_{2i})\leq a, \hspace{1mm} f(x_{2i+1})\geq b \hspace{1mm}{\text{ for all }i<k} \}$$
 
-We say that $A$ is \emph{Talagrand $\mu$-stable} if and only if for every $\mu$-measurable set $E\subseteq X$ of positive measure and for every $a<b$ there is $k\geq 1$ such that $(\mu^{2k})^*(D_k(A,E,a,b))<(\mu(E))^{2k}$. Notice that we work with the outer measure $\mu*$  because it is not necessarily true that the sets $D_k(A,E,a,b)$ are $\mu$-measurable. This is certainly the case when $A$ is a countable set of continuous (or $\mu$-measurable) functions. 
+We say that $A$ is \emph{Talagrand $\mu$-stable} if and only if for every $\mu$-measurable set $E\subseteq X$ of positive measure and for every $a<b$ there is $k\geq 1$ such that
+\[
+(\mu^{2k})^*(D_k(A,E,a,b))<(\mu(E))^{2k},
+\]
+where $\mu*$ denotes the outer measure (we work with outer since the sets $D_k(A,E,a,b)$ need not be $\mu$-measurable). This is certainly the case when $A$ is a countable set of continuous (or $\mu$-measurable) functions. 
 
 The following lemma establishes that Talagrand stability is a way to ensure that deep computations are definable by measurable functions. We include the proof for the reader's convenience.
 
@@ -701,7 +709,7 @@ The following lemma establishes that Talagrand stability is a way to ensure that
     First, observe that a subset of a $\mu$-stable set is $\mu$-stable. To show that $\overline{A}$ is $\mu$-stable, observe that $D_k(\overline{A},E,a,b)\subseteq D_k(A,E,a',b')$ where $a<a'<b'<b$ and $E$ is a $\mu$-measurable set with positive measure. It suffices to show that $\overline{A}\subseteq \mathscr{M}^0(X,\mu)$. Suppose that there exists $f\in\overline{A}$ such that $f\notin \mathscr{M}^0(X,\mu)$. By a characterization of measurable functions (see 413G in \cite{fremlin2003vol4}), there exists a $\mu$-measurable set $E$ of positive measure and $a<b$ such that $\mu^*(P)=\mu^*(Q)=\mu(E)$ where $P=\{x\in E: f(x)\leq a\}$ and $Q=\{x\in E: f(x)\geq b\}$. Then, for any $k\geq 1$: $(P\times Q)^k\subseteq D_k(\{f\},E,a,b)$ so $(\mu^{2k})^*(D_k(\{f\},E,a,b))=(\mu^*(P)\mu^*(Q))^k=(\mu(E))^{2k}$. Thus, $\{f\}$ is not $\mu$-stable, but we argued before that a subset of a $\mu$-stable set must be $\mu$-stable.
 \end{proof}
 
-We say that $A$ is \emph{universally Talagrand stable} if $A$ is Talagrand $\mu$-stable for every Radon probability measure $\mu$ on $X$. A similar argument as before, yields the following:
+We say that $A$ is \emph{universally Talagrand stable} if $A$ is Talagrand $\mu$-stable for every Radon probability measure $\mu$ on $X$. An argument similar to the proof of~\ref{BFT-2F}, yields the following:
 
 \begin{thm}
     Let $(L,\mathcal P,\Gamma)$ be a CCS satisfying the Extendability Axiom. If $\pi_P\circ\Delta|_{L[r_\bullet]}$ is universally Talagrand stable for all $P\in\mathcal{P}$ and all sizers $r_{\bullet}$, then every deep computation is universally essentially computable.
@@ -734,19 +742,21 @@ The preceding lemma can be considered as a measure-theoretic version of Rosentha
     Notice that the equivalence $(i)$-$(iii)$ is Theorem \ref{BFT-2F}. Notice that the equivalence of (iii) and (iv) is Fremlin's Dichotomy (Theorem~\ref{T:Fremlins dichotomy}).
 \end{proof}
 
-\begin{lem}
+Finally, it is natural to ask what the connection is between Talagrand stability and NIP.
+
+\begin{prop}
     Let $X$ be a compact Hausdorff space and $A\subseteq C(X)$ be pointwise bounded. If $A$ is universally Talagrand stable, then $A$ has the NIP.
-\end{lem}
+\end{prop}
 
 \begin{proof}
-    By Theorem \ref{BFT-2F}, it suffices to show that $A$ is relatively countably compact in $\mathscr{M}^0(X,\mu)$ for all Radon probability measure $\mu$ on $X$. Since $A$ is Talagrand $\mu$-stable for any such $\mu$, then $\overline{A}\subseteq\mathscr{M}^0(X,\mu)$. In particular, $A$ is relatively countably compact in $\mathscr{M}^0(X,\mu)$.
+    By Theorem \ref{BFT-2F}, it suffices to show that $A$ is relatively countably compact in $\mathscr{M}^0(X,\mu)$ for all Radon probability measure $\mu$ on $X$. Since $A$ is Talagrand $\mu$-stable for any such $\mu$, we have $\overline{A}\subseteq\mathscr{M}^0(X,\mu)$. In particular, $A$ is relatively countably compact in $\mathscr{M}^0(X,\mu)$.
 \end{proof}
 
 \begin{question}
     Is the converse true?
 \end{question}
 
-There is a delicate point in this question, as it may be sensitive to set-theoretic axioms (even assuming countability of $A$).
+The following two results suggest that the precise connection between Talagrand stability and NIP may be sensitive to set-theoretic axioms (even assuming countability of $A$).
 
 \begin{thm}[Talagrand, Theorem 9-3-1(a) in \cite{talagrand1984pettis}]
     Let $X$ be a compact Hausdorff space and $A\subseteq M_r(X)$ be countable and pointwise bounded. Assume that $[0,1]$ is not the union of $<\mathfrak{c}$ closed measure zero sets. If $A$ has the NIP, then $A$ is universally Talagrand stable.
@@ -755,6 +765,9 @@ There is a delicate point in this question, as it may be sensitive to set-theore
 \begin{thm}[Fremlin, Shelah, \cite{fremlin1993pointwise}]
     It is consistent that there exists a countable pointwise bounded set of Lebesgue measurable functions with the NIP which is not Talagrand stable with respect to Lebesgue measure.
 \end{thm}
+
+
+\begin{comment}
 
 \section*{Appendix: Measure Theory}
 
@@ -775,6 +788,9 @@ While not immediately obvious, sets can be measurable according to one measure, 
 Recall that if $\{X_i:i\in I\}$ is a collection of topological spaces indexed by some set $I$, then the product space $X:=\prod_{i\in I}X_i$ is endowed with the topology generated by \emph{cylinders}, that is, sets of the form $\prod_{i\in I} U_i$ where each $U_i$ is open in $X_i$, and $U_i=X_i$ except for finitely many indices $i\in I$. If each space is measurable, say we pair $X_i$ with a $\sigma$-algebra $\Sigma_i$, then there are multiple ways to interpret the product space $X$ as a measurable space, but the interpretation we care about in this paper is the so called \emph{cylinder $\sigma$-algebra}, as used in Lemma~\ref{lemma:coordinated_univ_meas}. Namely, let $\Sigma$ be the $\sigma$-algebra generated by sets of the form $$\prod_{i\in I}C_i,\quad C_i\in\Sigma_i,\ C_i=X_i\ \text{for all but finitely many }i\in I.$$
 
 We remark that when $I$ is uncountable and $\Sigma_i=\mathcal B(X_i)$ for all $i\in I$, then $\Sigma$ is, in general, strictly \textbf{smaller} than $\mathcal B(X)$.
+
+
+\end{comment}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -821,6 +837,8 @@ We remark that when $I$ is uncountable and $\Sigma_i=\mathcal B(X_i)$ for all $i
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %\begin{thebibliography}{9}
+
+
 
 \bibliographystyle{alpha}
 \nocite{*}
