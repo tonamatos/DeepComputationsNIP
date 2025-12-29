@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.7.13)  29 DEC 2025 07:43
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.7.13)  29 DEC 2025 08:03
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1039,7 +1039,11 @@ ol-ish space, and $\U/eur/m/n/10 A \OMS/cmsy/m/n/10 ^^R \U/eur/m/n/10 C[]\U/euf
 /m/n/10 (\U/eur/m/n/10 X; \U/msb/m/n/10 R[]\U/euf/m/n/10 )$
  []
 
-[8] [9] [10] [11] [12] [13] [14] [15] [16] [17] [18] [19] (./main.bbl [20]
+[8] [9] [10] [11] [12] [13] [14] [15] [16] [17] [18]
+Underfull \vbox (badness 7558) has occurred while \output is active []
+
+ [19]
+(./main.bbl [20]
 Underfull \hbox (badness 1776) in paragraph at lines 169--172
 []\OT1/cmr/m/up/8 Michel Ta-la-grand. The Glivenko-Cantelli prob-lem. \OT1/cmr/
 m/it/8 The An-nals of Prob-a-bil-ity\OT1/cmr/m/up/8 ,
@@ -1058,14 +1062,8 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 LaTeX Warning: There were multiply-defined labels.
 
-
-Package rerunfilecheck Warning: File `main.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `main.out':
-(rerunfilecheck)             Before: A5F7217FD418DCF94A46D85001E514B1;4419
-(rerunfilecheck)             After:  A4FBE1A2C1A7F3414F8A8E1DBCB1CF3C;4650.
+Package rerunfilecheck Info: File `main.out' has not changed.
+(rerunfilecheck)             Checksum: A4FBE1A2C1A7F3414F8A8E1DBCB1CF3C;4650.
  ) 
 Here is how much of TeX's memory you used:
  30747 strings out of 478268
@@ -1103,7 +1101,7 @@ ive/2022/texmf-dist/fonts/type1/public/amsfonts/euler/eusm7.pfb></usr/local/tex
 live/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local
 /texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/l
 ocal/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on main.pdf (21 pages, 400068 bytes).
+Output written on main.pdf (21 pages, 400292 bytes).
 PDF statistics:
  537 PDF objects out of 1000 (max. 8388607)
  453 compressed objects within 5 object streams

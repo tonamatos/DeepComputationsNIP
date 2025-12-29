@@ -655,14 +655,17 @@ These facts motivate the following definition:
     Let $(L,\mathcal P,\Gamma)$ be a CCS. We say that a transition $f:L\rightarrow L$ is \emph{universally essentially computable} if and only if there exists $\tilde f:\mathcal{L}_{sh}\rightarrow \mathcal{L}_{sh}$ extending $f$ such that for every sizer $r_\bullet$ there is a sizer $s_\bullet$ such that the restriction $\tilde f|_{\mathcal{L}[r_{\bullet}]}:\mathcal{L}[r_\bullet]\rightarrow\mathcal{L}[s_\bullet]$ is universally measurable, i.e., $\pi_P\circ \tilde f|_{\mathcal{L}[r_{\bullet}]}:\mathcal{L}[r_\bullet]\rightarrow [-s_P,s_P]$ is $\mu$-measurable for every Radon probability measure $\mu$ on $\mathcal{L}[r_\bullet]$.
 \end{defn}
 
+For a measure $\mu$ on a$X$, the set of all $\mu$-measurable functions will  denoted by $\mathscr{M}^0(X,\mu)$.
+
+
 We will need the following result about NIP and universally measurable functions:
 
-\begin{thm}[Bourgain-Fremlin-Talagrand, Theorem 2F in \cite{BFT_1978_PCompactBaire}]\label{BFT-2F}
+\begin{thm}[Bourgain-Fremlin-Ta set lagrand, Theorem 2F in \cite{BFT_1978_PCompactBaire}]\label{BFT-2F}
     Let $X$ be a Hausdorff space and $A\subseteq C(X)$ be pointwise bounded. The following are equivalent:
     \begin{itemize}
         \item [(i)] $\overline{A}\subseteq M_r(X)$.
         \item [(ii)] For every compact $K\subseteq X$, $A|_K$ has the NIP.
-        \item [(iii)] For every Radon measure $\mu$ on $X$, $A$ is relatively countably compact in $\mathcal{L}^0(X,\mu)$, i.e., every countable subset of $A$ has an accumulation point in $\mathcal{L}^0(X,\mu)$. 
+        \item [(iii)] For every Radon measure $\mu$ on $X$, $A$ is relatively countably compact in $\mathscr{M}^0(X,\mu)$, i.e., every countable subset of $A$ has an accumulation point in $\mathscr{M}^0(X,\mu)$. 
     \end{itemize}
 \end{thm}
 
@@ -691,11 +694,11 @@ We say that $A$ is \emph{Talagrand $\mu$-stable} if and only if for every $\mu$-
 The following lemma establishes that Talagrand stability is a way to ensure that deep computations are definable by measurable functions. We include the proof for the reader's convenience.
 
 \begin{lem}\label{talagrand stable is relatively compact}
-    If $A$ is Talagrand $\mu$-stable, then $\overline{A}$ is also Talagrand $\mu$-stable and $\overline{A}\subseteq\mathcal{L}^0(X,\mu)$.
+    If $A$ is Talagrand $\mu$-stable, then $\overline{A}$ is also Talagrand $\mu$-stable and $\overline{A}\subseteq\mathscr{M}^0(X,\mu)$.
 \end{lem}
 
 \begin{proof}
-    First, observe that a subset of a $\mu$-stable set is $\mu$-stable. To show that $\overline{A}$ is $\mu$-stable, observe that $D_k(\overline{A},E,a,b)\subseteq D_k(A,E,a',b')$ where $a<a'<b'<b$ and $E$ is a $\mu$-measurable set with positive measure. It suffices to show that $\overline{A}\subseteq \mathcal{L}^0(X,\mu)$. Suppose that there exists $f\in\overline{A}$ such that $f\notin \mathcal{L}^0(X,\mu)$. By a characterization of measurable functions (see 413G in \cite{fremlin2003vol4}), there exists a $\mu$-measurable set $E$ of positive measure and $a<b$ such that $\mu^*(P)=\mu^*(Q)=\mu(E)$ where $P=\{x\in E: f(x)\leq a\}$ and $Q=\{x\in E: f(x)\geq b\}$. Then, for any $k\geq 1$: $(P\times Q)^k\subseteq D_k(\{f\},E,a,b)$ so $(\mu^{2k})^*(D_k(\{f\},E,a,b))=(\mu^*(P)\mu^*(Q))^k=(\mu(E))^{2k}$. Thus, $\{f\}$ is not $\mu$-stable, but we argued before that a subset of a $\mu$-stable set must be $\mu$-stable.
+    First, observe that a subset of a $\mu$-stable set is $\mu$-stable. To show that $\overline{A}$ is $\mu$-stable, observe that $D_k(\overline{A},E,a,b)\subseteq D_k(A,E,a',b')$ where $a<a'<b'<b$ and $E$ is a $\mu$-measurable set with positive measure. It suffices to show that $\overline{A}\subseteq \mathscr{M}^0(X,\mu)$. Suppose that there exists $f\in\overline{A}$ such that $f\notin \mathscr{M}^0(X,\mu)$. By a characterization of measurable functions (see 413G in \cite{fremlin2003vol4}), there exists a $\mu$-measurable set $E$ of positive measure and $a<b$ such that $\mu^*(P)=\mu^*(Q)=\mu(E)$ where $P=\{x\in E: f(x)\leq a\}$ and $Q=\{x\in E: f(x)\geq b\}$. Then, for any $k\geq 1$: $(P\times Q)^k\subseteq D_k(\{f\},E,a,b)$ so $(\mu^{2k})^*(D_k(\{f\},E,a,b))=(\mu^*(P)\mu^*(Q))^k=(\mu(E))^{2k}$. Thus, $\{f\}$ is not $\mu$-stable, but we argued before that a subset of a $\mu$-stable set must be $\mu$-stable.
 \end{proof}
 
 We say that $A$ is \emph{universally Talagrand stable} if $A$ is Talagrand $\mu$-stable for every Radon probability measure $\mu$ on $X$. A similar argument as before, yields the following:
@@ -721,7 +724,7 @@ The preceding lemma can be considered as the measure theoretic version of Rosent
     \begin{itemize}
         \item [(i)] $\overline{A}\subseteq M_r(X)$.
         \item [(ii)] For every compact $K\subseteq X$, $A|_K$ has the NIP.
-        \item [(iii)] For every Radon measure $\mu$ on $X$, $A$ is relatively countably compact in $\mathcal{L}^0(X,\mu)$, i.e., every countable subset of $A$ has an accumulation point in $\mathcal{L}^0(X,\mu)$.
+        \item [(iii)] For every Radon measure $\mu$ on $X$, $A$ is relatively countably compact in $\mathscr{M}^0(X,\mu)$, i.e., every countable subset of $A$ has an accumulation point in $\mathscr{M}^0(X,\mu)$.
         \item [(iv)] For every Radon measure $\mu$ on $X$ and every sequence $\{f_n:n\in\mathbb{N}\}\subseteq A$, there is a subsequence that converges $\mu$-almost everywhere.
     \end{itemize}
 \end{thm}
@@ -735,7 +738,7 @@ The preceding lemma can be considered as the measure theoretic version of Rosent
 \end{lem}
 
 \begin{proof}
-    By Theorem \ref{BFT-2F}, it suffices to show that $A$ is relatively countably compact in $\mathcal{L}^0(X,\mu)$ for all Radon probability measure $\mu$ on $X$. Since $A$ is Talagrand $\mu$-stable for any such $\mu$, then $\overline{A}\subseteq\mathcal{L}^0(X,\mu)$. In particular, $A$ is relatively countably compact in $\mathcal{L}^0(X,\mu)$.
+    By Theorem \ref{BFT-2F}, it suffices to show that $A$ is relatively countably compact in $\mathscr{M}^0(X,\mu)$ for all Radon probability measure $\mu$ on $X$. Since $A$ is Talagrand $\mu$-stable for any such $\mu$, then $\overline{A}\subseteq\mathscr{M}^0(X,\mu)$. In particular, $A$ is relatively countably compact in $\mathscr{M}^0(X,\mu)$.
 \end{proof}
 
 \begin{question}
@@ -766,7 +769,7 @@ A special example of the preceding concepts is that of a \emph{Radon measure}. I
 
 The most famous nontrivial example of a Radon measure on $\mathbb R$ is the Lebesgue measure of Borel sets. If $X$ is finite, $\mu(A):=|A|$ (the cardinality of $A$) defines a Radon measure on $X$. Every Radon measure is perfect (see 451A, 451B and 451C in \cite{fremlin2003vol4}).
 
-While not immediately obvious, sets can be measurable according to one measure, but non-measurable according to another. Given a measure space $(X,\Sigma,\mu)$ we say that a set $E\subseteq X$ is \emph{$\mu$-measurable} if there are $A,B\in \Sigma$ such that $A\subseteq E\subseteq B$ and $\mu(B\backslash A)=0$. The set of all $\mu$-measurable sets is a $\sigma$-algebra containing $\Sigma$ and it is denoted by $\Sigma_\mu$. A set $E\subseteq X$ is \emph{universally measurable} if it is $\mu$-measurable for every Radon probability measure on $X$. It follows that Borel sets are universally measurable. We say that $f:X\rightarrow\mathbb{R}$ is \textit{$\mu$-measurable} if $f^{-1}(E)\in\Sigma_\mu$ for all $E\in\mathcal{B}(\mathbb{R})$ (equivalently, $E$ open in $\mathbb{R}$). The set of all $\mu$-measurable functions is denoted by $\mathcal{L}^0(X,\mu)$.
+While not immediately obvious, sets can be measurable according to one measure, but non-measurable according to another. Given a measure space $(X,\Sigma,\mu)$ we say that a set $E\subseteq X$ is \emph{$\mu$-measurable} if there are $A,B\in \Sigma$ such that $A\subseteq E\subseteq B$ and $\mu(B\backslash A)=0$. The set of all $\mu$-measurable sets is a $\sigma$-algebra containing $\Sigma$ and it is denoted by $\Sigma_\mu$. A set $E\subseteq X$ is \emph{universally measurable} if it is $\mu$-measurable for every Radon probability measure on $X$. It follows that Borel sets are universally measurable. We say that $f:X\rightarrow\mathbb{R}$ is \textit{$\mu$-measurable} if $f^{-1}(E)\in\Sigma_\mu$ for all $E\in\mathcal{B}(\mathbb{R})$ (equivalently, $E$ open in $\mathbb{R}$). 
 
 Recall that if $\{X_i:i\in I\}$ is a collection of topological spaces indexed by some set $I$, then the product space $X:=\prod_{i\in I}X_i$ is endowed with the topology generated by \emph{cylinders}, that is, sets of the form $\prod_{i\in I} U_i$ where each $U_i$ is open in $X_i$, and $U_i=X_i$ except for finitely many indices $i\in I$. If each space is measurable, say we pair $X_i$ with a $\sigma$-algebra $\Sigma_i$, then there are multiple ways to interpret the product space $X$ as a measurable space, but the interpretation we care about in this paper is the so called \emph{cylinder $\sigma$-algebra}, as used in Lemma~\ref{lemma:coordinated_univ_meas}. Namely, let $\Sigma$ be the $\sigma$-algebra generated by sets of the form $$\prod_{i\in I}C_i,\quad C_i\in\Sigma_i,\ C_i=X_i\ \text{for all but finitely many }i\in I.$$
 
