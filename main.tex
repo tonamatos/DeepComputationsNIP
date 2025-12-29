@@ -439,7 +439,7 @@ Suppose that a transition map $f: L\to \mathcal L$ can be extended continuously 
 
 \begin{defn}
 \label{D:extendability axiom}
-We say that a CCS $(L,\mathcal P,\Gamma)$ satisfies the \emph{Extendability Axiom} if for all $\gamma\in \Gamma$, there is $\tilde\gamma:\mathcal L_{sh}\to\mathcal L_{sh}$ such that for every sizer $r_{\bullet}$ there is an $s_\bullet$ such that $\tilde\gamma|_{\mathcal L[r_\bullet]}:\mathcal L[r_\bullet]\to\mathcal L[s_\bullet]$ is continuous. 
+We say that a CCS $(L,\mathcal P,\Gamma)$ satisfies the \emph{Extendability Axiom} if for all $\gamma\in \Gamma$, there is $\tilde\gamma:\mathcal L_{sh}\to\mathcal L_{sh}$ such that for every sizer $r_{\bullet}$ there is a sizer $s_\bullet$ such that $\tilde\gamma|_{\mathcal L[r_\bullet]}:\mathcal L[r_\bullet]\to\mathcal L[s_\bullet]$ is continuous. 
 \end{defn}
 
 For a deeper discussion about this axiom, we refer the reader to \cite{alva2024approximability}.
@@ -606,15 +606,18 @@ One of the main results in \cite{argyros2008rosenthal} is that, up to equivalenc
 
 We now turn to the question: what happens when $\mathcal{P}$ is uncountable? Notice that the countability assumption is crucial in the proof of Theorem \ref{Generalized BFT} essentially because it makes $\mathbb{R}^\mathcal{P}$ a Polish space. For the uncountable case, we may lose Baire-1 definability so we shall replace $B_1(X)$ by a larger class. Recall that the \emph{raison d'être} of the class of Baire-1 functions is to have a class that is contains the continuous functions but is closed under pointwise limits, and that ( Fact~\ref{baire}) for perfectly normal $X$, a function  $f$ is in $B_1(X,Y)$ if and only if $f^{-1}[U]$ is an $F_\sigma$ subset of $X$ for every open $U\subseteq Y$. This motivates the following definition:
 
+
+
 \begin{defn}
-Given a Hausdorff space $X$ and a measurable space $(Y,\Sigma)$, we say that $f:X\rightarrow Y$ is \emph{universally measurable} (with respect to $\Sigma$) if $f^{-1}(E)$ is Borel for every $E\in\Sigma$, i.e., $f^{-1}(E)$ is $\mu$-measurable for every Radon probability measure $\mu$ on $X$. hen $Y=\mathbb{R}$ we will always take $\Sigma=\mathcal{B}(\mathbb{R})$, the Borel $\sigma$-algebra of $\mathbb{R}$.  In this case, a function $f:X\rightarrow\mathbb{R}$ is universally measurable if and only if $f^{-1}(U)$ is $\mu$-measurable for every Radon probability measure $\mu$ on $X$ and every open set $U\subseteq\mathbb{R}$. 
+\label{D:universal measurability}
+Given a Hausdorff space $X$ and a measurable space $(Y,\Sigma)$, we say that $f:X\rightarrow Y$ is \emph{universally measurable} (with respect to $\Sigma$) if $f^{-1}(E)$ is Borel for every $E\in\Sigma$, i.e., $f^{-1}(E)$ is $\mu$-measurable for every Radon probability measure $\mu$ on $X$. When $Y=\mathbb{R}$ we will always take $\Sigma=\mathcal{B}(\mathbb{R})$, the Borel $\sigma$-algebra of $\mathbb{R}$.  In this case, a function $f:X\rightarrow\mathbb{R}$ is universally measurable if and only if $f^{-1}(U)$ is $\mu$-measurable for every Radon probability measure $\mu$ on $X$ and every open set $U\subseteq\mathbb{R}$. 
 \end{defn}
 
-Intuitively,  a function is universally measurable if it is ``measurable no matter which reasonable way you try to measure things on its domain". This concept emerged from work of  Kallianpur and Sazonov in the late 1950's and 1960s, building on earlier ideas of Gnedenko and Kolmogorov from the 1950s, with later developments by Blackwell, Darst, and others.  See~\cite[Chapters 1 and 2]{Pap:2002}.
+Intuitively,  a function is universally measurable if it is ``measurable no matter which reasonable way you try to measure things on its domain". The concept of universal measurability emerged from work of  Kallianpur and Sazonov, in the late 1950's and 1960s, , with later developments by Blackwell, Darst, and others, building on earlier ideas of Gnedenko and Kolmogorov from the 1950s.  See~\cite[Chapters 1 and 2]{Pap:2002}.
 
 %In \cite{BFT_1978_PCompactBaire}, J. Bourgain, D.H. Fremlin and M. Talagrand characterized the Non-Independence Property of a set of continuous functions with various notions of compactness in function spaces containing $C(X)$, such as $B_1(X)$. In this section we will replace $B_1(X)$ with the larger space $M_r(X)$ of universally measurable functions. The development of this section is based on Theorem 2F in \cite{BFT_1978_PCompactBaire}. We now give the relevant definitions. Readers with limited familiarity with measure theory may refer to the appendix for standard definitions appearing in this subsection.
 %
-%Given a Hausdorff space $X$ and a measurable space $(Y,\Sigma)$, we say that $f:X\rightarrow Y$ is \emph{universally measurable} (with respect to $\Sigma$) if $f^{-1}(E)$ is universally measurable for every $E\in\Sigma$, i.e., $f^{-1}(E)$ is $\mu$-measurable for every Radon probability measure $\mu$ on $X$. When $Y=\mathbb{R}$ we will always take $\Sigma=\mathcal{B}(\mathbb{R})$, the Borel $\sigma$-algebra of $\mathbb{R}$. In that case, a function $f:X\rightarrow\mathbb{R}$ is universally measurable if and only if $f^{-1}(U)$ is $\mu$-measurable for every Radon probability measure $\mu$ on $X$ and every open set $U\subseteq\mathbb{R}$. 
+
 
 Following \cite{BFT_1978_PCompactBaire}, the collection of all universally measurable real-valued functions will be denoted by $M_r(X)$. In the context of deep computations, we will be interested in transition maps from a state space $L\subseteq \mathbb{R}^\mathcal{P}$ to itself. There are two natural $\sigma$-algebras one can consider in the product space $\mathbb{R}^\mathcal{P}$: the Borel $\sigma$-algebra, i.e., the $\sigma$-algebra generated by open sets in $\mathbb{R}^\mathcal{P}$, and the cylinder $\sigma$-algebra, i.e., the $\sigma$-algebra generated by the sub-basic open sets in $\mathbb{R}^\mathcal{P}$. Note that when $\mathcal{P}$ is countable, both $\sigma$-algebras coincide but in general the cylinder $\sigma$-algebra is strictly smaller. We will use the cylinder $\sigma$-algebra to define universally measurable maps $f:\mathbb{R}^\mathcal{P}\rightarrow\mathbb{R}^\mathcal{P}$. The reason for this choice is the following characterization:
 
@@ -630,10 +633,26 @@ Following \cite{BFT_1978_PCompactBaire}, the collection of all universally measu
     (i)$\Rightarrow$(ii) is clear since the projection maps $\pi_i$ are measurable and the composition of measurable functions is measurable. To prove (ii)$\Rightarrow$(i), suppose that $C=\prod_{i\in I}C_i$ is a measurable cylinder and let $J$ be the finite set of $i\in I$ such that $C_i\neq Y_i$. Then, $C=\bigcap_{i\in J}\pi_i^{-1}(C_i)$, so $f^{-1}(C)=\bigcap_{i\in J}(\pi_i\circ f)^{-1}(C_i)$ is a universally measurable set by assumption.
 \end{proof}
 
-The previous lemma says that a transition map is universally measurable if and only if it is universally measurable on all its features. In other words, we can check measurability of a transition just by checking measurability feature by feature. We will denote by $M_r(X,\mathbb{R}^\mathcal{P})$ the collection of all universally measurable functions $f:X\rightarrow\mathbb{R}^\mathcal{P}$ (with respect to the cylinder $\sigma$-algebra), endowed with the topology of pointwise convergence.
+The preceding lemma says that a transition map is universally measurable if and only if it is universally measurable on all its features. In other words, we can check measurability of a transition just by checking measurability feature by feature. We will denote by $M_r(X,\mathbb{R}^\mathcal{P})$ the collection of all universally measurable functions $f:X\rightarrow\mathbb{R}^\mathcal{P}$ (with respect to the cylinder $\sigma$-algebra), endowed with the topology of pointwise convergence.
+
+
+We now wish to define the concept of a deep computation being computable except  a set of arbitrarily small measure ``no matter which reasonable way you try to measure things on its domain"  (see the remarks following definition~\label{D:universal measurability}). This is definition~\label{D:universally essentially computable} below. To motivate the definition, we need to recall two facts:
+
+\begin{enumerate}
+\item
+Littlewoood's second principle states that every Lebesgue measurable function is ``nearly continuous''. The formal version of this, which is Luzin's theorem, states that if
+ $(X,\Sigma ,\mu )$  a Radon measure space and $Y$ be a second-countable topological space (e.g., $Y=\mathbb{R}^\mathcal{P}$ with $\mathcal{P}$ countable ) equipped with a Borel algebra, then any given $f:X\to Y$ is measurable if and only if for every  $E\in\Sigma$ and every $\epsilon>0$ there exists a closed $F\subseteq E$ such that the restriction of $f$ to $F$ is continuous.
+\item
+Computability of deep computations can is characterized in terms of continuous extendibility of computations. This is at the core of~\cite{alva2024approximability}.
+\end{enumerate}
+
+
+These facts motivate the following definition:
+
 
 \begin{defn}
-    Let $(L,\mathcal P,\Gamma)$ be a CCS. We say that a transition $f:L\rightarrow L$ is \emph{universally measurable shard-definable} if and only if there exists $\tilde f:\mathcal{L}_{sh}\rightarrow \mathcal{L}_{sh}$ extending $f$ such that for every sizer $r_\bullet$ there is a sizer $s_\bullet$ such that the restriction $\tilde f|_{\mathcal{L}[r_{\bullet}]}:\mathcal{L}[r_\bullet]\rightarrow\mathcal{L}[s_\bullet]$ is universally measurable, i.e., $\pi_P\circ \tilde f|_{\mathcal{L}[r_{\bullet}]}:\mathcal{L}[r_\bullet]\rightarrow [-s_P,s_P]$ is $\mu$-measurable for every Radon probability measure $\mu$ on $\mathcal{L}[r_\bullet]$.
+\label{D:universally essentially computable}
+    Let $(L,\mathcal P,\Gamma)$ be a CCS. We say that a transition $f:L\rightarrow L$ is \emph{universally essentially computable} if and only if there exists $\tilde f:\mathcal{L}_{sh}\rightarrow \mathcal{L}_{sh}$ extending $f$ such that for every sizer $r_\bullet$ there is a sizer $s_\bullet$ such that the restriction $\tilde f|_{\mathcal{L}[r_{\bullet}]}:\mathcal{L}[r_\bullet]\rightarrow\mathcal{L}[s_\bullet]$ is universally measurable, i.e., $\pi_P\circ \tilde f|_{\mathcal{L}[r_{\bullet}]}:\mathcal{L}[r_\bullet]\rightarrow [-s_P,s_P]$ is $\mu$-measurable for every Radon probability measure $\mu$ on $\mathcal{L}[r_\bullet]$.
 \end{defn}
 
 We will need the following result about NIP and universally measurable functions:
@@ -650,7 +669,7 @@ We will need the following result about NIP and universally measurable functions
 Theorem~\ref{BFT} immediately yields the following.
 
 \begin{thm}
-    Let $(L,\mathcal P,\Gamma)$ be a CCS satisfying the Extendability Axiom. Let $R$ be an exhaustive collection of sizers. Let $\Delta\subseteq\Gamma$ be $R$-confined. If $\pi_P\circ\Delta|_{L[r_\bullet]}$ has the NIP for all $P\in\mathcal{P}$ and all $r_{\bullet}\in R$, then every deep computation is universally measurable shard-definable.
+    Let $(L,\mathcal P,\Gamma)$ be a CCS satisfying the Extendability Axiom. Let $R$ be an exhaustive collection of sizers. Let $\Delta\subseteq\Gamma$ be $R$-confined. If $\pi_P\circ\Delta|_{L[r_\bullet]}$ has the NIP for all $P\in\mathcal{P}$ and all $r_{\bullet}\in R$, then every deep computation is universally essentially computable.
 \end{thm}
 
 \begin{proof}
@@ -658,7 +677,7 @@ Theorem~\ref{BFT} immediately yields the following.
 \end{proof}
 
 \begin{question}
-Under the same assumptions of the previous Theorem, suppose that every deep computation of $\Delta$ is universally measurable shard-definable. Must $\pi_P\circ\Delta|_{L[r_\bullet]}$ have the NIP for all $P\in\mathcal{P}$ and all $r_{\bullet}\in R$?
+Under the same assumptions of the preceding theorem, suppose that every deep computation of $\Delta$ is universally essentially computable. Must $\pi_P\circ\Delta|_{L[r_\bullet]}$ have the NIP for all $P\in\mathcal{P}$ and all $r_{\bullet}\in R$?
 \end{question}
 
 \subsection{Talagrand stability, NIP, and definability of deep computations}
@@ -682,7 +701,7 @@ The following lemma establishes that Talagrand stability is a way to ensure that
 We say that $A$ is \emph{universally Talagrand stable} if $A$ is Talagrand $\mu$-stable for every Radon probability measure $\mu$ on $X$. A similar argument as before, yields the following:
 
 \begin{thm}
-    Let $(L,\mathcal P,\Gamma)$ be a CCS satisfying the Extendability Axiom. If $\pi_P\circ\Delta|_{L[r_\bullet]}$ is universally Talagrand stable for all $P\in\mathcal{P}$ and all sizers $r_{\bullet}$, then every deep computation is universally measurable sh-definable.
+    Let $(L,\mathcal P,\Gamma)$ be a CCS satisfying the Extendability Axiom. If $\pi_P\circ\Delta|_{L[r_\bullet]}$ is universally Talagrand stable for all $P\in\mathcal{P}$ and all sizers $r_{\bullet}$, then every deep computation is universally essentially computable.
 \end{thm}
 
 It is then natural to ask: what is the relationship between Talagrand stability and the NIP? The following dichotomy will be useful.
