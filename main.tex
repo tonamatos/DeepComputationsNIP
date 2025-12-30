@@ -269,7 +269,7 @@ To summarize, the particular case of Theorem~\ref{BFT}  for $X$ compact can be s
 
 
 \begin{thm}
-\label{BFT}
+\label{BFT2}
     Let $X$ be a compact Polish space. Then, for every pointwise bounded  $A\subseteq C_p(X)$, one and exactly one of the following two conditions must hold:
         \begin{enumerate}[(i)]
         \item $\overline{A}\subseteq B_1(X)$.
@@ -420,7 +420,7 @@ We think of  each state $v\in L$ as being uniquely characterized by its type $\o
 Given a computation states structure $(L,\mathcal{P})$, any element of $\mathbb{R}^\mathcal{P}$  in the image of $L$ under the map $v\mapsto \operatorname{tp}(v)$ will be called a \emph{realized type}. The topological closure of the set of realized types in $\mathbb{R}^\mathcal{P}$ (endowed with the pointwise convergence topology) will be called the \emph{space of types} of  $(L,\mathcal{P})$, denoted $\mathcal{L}$. Elements of $\mathcal{L}\setminus L$ will be called \emph{unrealized types}.
 \end{defn}
 
-In  traditional model theory, the space of types of a structure is viewed as a sort of compactification of the structure, and the compactness of type spaces plays a central role. However, the space  $\mathcal{L}$ defined above is not necessarily compact. To bypass this obstacle, we follow the idea introduced in~\cite{alva2024approximability} of covering $\mathcal{L}$ by ``thin'' compact subspaces that we call \emph{shards}. The formal definition of shard is next.
+In  traditional, compact-valued, model theory, the space of types of a structure is viewed as a sort of compactification of the structure, and the compactness of type spaces plays a central role. However, here we are dealing with real-valued structures, and the space  $\mathcal{L}$ defined above is not necessarily compact. To bypass this obstacle, we follow the idea introduced in~\cite{alva2024approximability} of covering $\mathcal{L}$ by ``thin'' compact subspaces that we call \emph{shards}. The formal definition of shard is next.
 
 \begin{defn}
 A \emph{sizer} is a tuple $r_{\bullet}=(r_P)_{P\in\mathcal{P}}$ of positive real numbers indexed by $\mathcal{P}$. Given a sizer $r_\bullet$, we define the $r_\bullet$-\emph{shard} as:
@@ -433,7 +433,15 @@ For a sizer  $r_{\bullet}$, the \emph{$r_{\bullet}$-type shard} is defined as $\
 We define $\mathcal{L}_{\text{sh}}$, as the union of all type-shards. 
 \end{defn}
 
-%In our context, $\mathcal{L}_{\text{sh}}$ provides the ``correct'' notion of space of types as a compactification.
+%\begin{rem}
+%Even though our type space $\mathcal{L}$ is not compact, the fact that it can be covered by shards gives us two advantages:
+%\begin{enumerate}[(i)]
+%\item
+%It gives us access to the rich theory of Lindel\"of-$\Sigma$ spaces and $K$-analytic spaces
+%\item
+%Families of functions in a given shard are pointwise bounded, which gives us access to the Bourgain-Fremlin-Talagrand dichotomy (Theorem~\ref{BFT}, \ref{BFT-2F} and the theory of Rosenthal compacta.
+%\end{enumerate}
+%\end{rem}
 
 \begin{defn}
 \label{D:CCS}
@@ -700,7 +708,7 @@ We will need the following result about NIP and universally measurable functions
 
 \subsection{Universal Monte Carlo computability of  deep computations}
 
-We now wish to define the concept of a deep computation being computable except  a set of arbitrarily small measure ``no matter which reasonable way you try to measure things on its domain"  (see the remarks following definition~\label{D:universal measurability}). This is the concept of \emph{universal Monte Carlo computability} defined below (Definition~\label{D:universally essentially computable}). To motivate the definition, we need to recall two facts:
+We now wish to define the concept of a deep computation being computable except  a set of arbitrarily small measure ``no matter which reasonable way you try to measure things on its domain"  (see the remarks following definition~\ref{D:universal measurability}). This is the concept of \emph{universal Monte Carlo computability} defined below (Definition~\ref{D:universally essentially computable}). To motivate the definition, we need to recall two facts:
 
 \begin{enumerate}
 \item
