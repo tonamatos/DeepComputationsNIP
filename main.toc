@@ -8,7 +8,7 @@
 \contentsline {section}{\tocsection {}{3}{Classifying deep computations}}{12}{section.3}%
 \contentsline {subsection}{\tocsubsection {}{3.1}{NIP, Rosenthal compacta, and deep computations}}{12}{subsection.3.1}%
 \contentsline {subsection}{\tocsubsection {}{3.2}{The Todorčević trichotomy and levels of PAC learnability}}{12}{subsection.3.2}%
-\contentsline {subsection}{\tocsubsection {}{3.3}{The Argyros-Dodos-Kanellopoulos heptachotomy, and approximability of deep computation by minimal classes}}{14}{subsection.3.3}%
+\contentsline {subsection}{\tocsubsection {}{3.3}{The Argyros-Dodos-Kanellopoulos heptachotomy, and approximability of deep computation by minimal classes}}{15}{subsection.3.3}%
 \contentsline {subsection}{\tocsubsection {}{3.4}{Bourgain-Fremlin-Talagrand, NIP, and essential computability of deep computations}}{16}{subsection.3.4}%
 \contentsline {subsection}{\tocsubsection {}{3.5}{Talagrand stability, NIP, and essential computability of deep computations}}{18}{subsection.3.5}%
-\contentsline {section}{\tocsection {}{}{References}}{19}{section*.2}%
+\contentsline {section}{\tocsection {}{}{References}}{20}{section*.2}%

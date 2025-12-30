@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.7.13)  29 DEC 2025 22:27
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.7.13)  30 DEC 2025 04:27
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -903,7 +903,13 @@ o-si-tional Com-pu-ta-tion Struc-ture \OT1/cmr/m/n/10 (CCS) is a triple $(\OML/
 cmm/m/it/10 L; \U/eus/m/n/10 P\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 ^^@)$,
  []
 
-[10] [11] [12] [13] [14] [15] [16] [17] [18]
+[10]
+Overfull \hbox (20.16731pt too wide) in paragraph at lines 480--481
+[]\OT1/cmr/m/n/10 For a de-tailed dis-cus-sion of the Ex-tend-abil-ity Ax-iom, 
+we re-fer the reader to [[]]. 
+ []
+
+[11] [12] [13] [14] [15] [16] [17] [18]
 LaTeX Font Info:    Trying to load font information for U+euf on input line 808
 .
 
@@ -933,11 +939,11 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 7EEC05E13C066E160F079E7B16E7945F;4987.
  ) 
 Here is how much of TeX's memory you used:
- 30658 strings out of 478268
- 725716 string characters out of 5846347
- 1148640 words of memory out of 5000000
- 48055 multiletter control sequences out of 15000+600000
- 480880 words of font info for 77 fonts, out of 8000000 for 9000
+ 30661 strings out of 478268
+ 725749 string characters out of 5846347
+ 1147639 words of memory out of 5000000
+ 48057 multiletter control sequences out of 15000+600000
+ 481578 words of font info for 79 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
  99i,12n,94p,1729b,1249s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
@@ -960,18 +966,19 @@ mf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/texlive/2022/texmf
 dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2022/texmf-di
 st/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2022/texmf-dist
 /fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2022/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/local/texlive/2022/texmf-dist/fo
-nts/type1/public/amsfonts/euler/eufm10.pfb></usr/local/texlive/2022/texmf-dist/
-fonts/type1/public/amsfonts/euler/eusm10.pfb></usr/local/texlive/2022/texmf-dis
-t/fonts/type1/public/amsfonts/euler/eusm7.pfb></usr/local/texlive/2022/texmf-di
-st/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2022/texm
-f-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2022/
-texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/local/texlive/20
-22/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb>
-Output written on main.pdf (21 pages, 426940 bytes).
+fonts/type1/public/amsfonts/cm/cmti7.pfb></usr/local/texlive/2022/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmti8.pfb></usr/local/texlive/2022/texmf-dist/font
+s/type1/public/amsfonts/euler/eufm10.pfb></usr/local/texlive/2022/texmf-dist/fo
+nts/type1/public/amsfonts/euler/eusm10.pfb></usr/local/texlive/2022/texmf-dist/
+fonts/type1/public/amsfonts/euler/eusm7.pfb></usr/local/texlive/2022/texmf-dist
+/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2022/texmf-
+dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2022/te
+xmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/local/texlive/2022
+/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb>
+Output written on main.pdf (21 pages, 435318 bytes).
 PDF statistics:
- 559 PDF objects out of 1000 (max. 8388607)
- 475 compressed objects within 5 object streams
+ 564 PDF objects out of 1000 (max. 8388607)
+ 478 compressed objects within 5 object streams
  143 named destinations out of 1000 (max. 500000)
  125 words of extra memory for PDF output out of 10000 (max. 10000000)
 

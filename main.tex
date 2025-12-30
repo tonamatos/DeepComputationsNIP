@@ -92,7 +92,7 @@ We study complexity of deep computations. We use topology of function spaces, sp
 \section{Introduction}
 
 
-In this paper we study limit behavior of real-valued computations as the value of certain parameters  of the computation model tend towards infinity, or towards zero, or towards some other fixed value, e.g.,  the depth of a neural network tending to infinity, or the time interval between layers of the network tending toward zero. Recently, particular cases of this situation have attracted considerable attention in deep learning research (e.g., Neural Ordinary Differential Equations~\cite{Chen:2018}, Physics-Informed Neural Networks~\cite{Raissi-Perdikaris-Karniadakis:2019},  deep equilibrium models~\cite{Bai:2019}, etc). In this paper, we combine ideas of topology and model theory to study these limit phenomena from a unified viewpoint. 
+In this paper we study limit behavior of real-valued computations as the value of certain parameters  of the computation model tend towards infinity, or towards zero, or towards some other fixed value, e.g.,  the depth of a neural network tending to infinity, or the time interval between layers of the network tending toward zero. Recently, particular cases of this situation have attracted considerable attention in deep learning research (e.g., Neural Ordinary Differential Equations~\cite{Chen:2018}, Physics-Informed Neural Networks~\cite{Raissi-Perdikaris-Karniadakis:2019},  deep equilibrium models~\cite{Bai:2019}, among others). In this paper, we combine ideas of topology, measure theory, and  model theory to study these limit phenomena from a unified viewpoint. 
 
 Informed by model theory, to each computation in a given computation model, we associate a continuous real-valued function, called the \emph{type} of the computation, that describes the logical properties of this computation with respect to the rest of the model. This allows us to view computations in any given computational model  as elements of a space of real-valued functions, which is called the \emph{space of types} of the model. The idea of embedding models of theories into their type spaces is central in model theory. The embedding of computations into spaces of types allows us to utilize the vast theory of topology of function spaces, known as $C_p$-theory, to obtain results about complexity of topological limits of computations. As we shall indicate next, recent classification results for spaces of functions provide an elegant and powerful machinery to classify computations according to their levels of ``tameness’’ or ``wildness’’, with the former corresponding roughly to polynomial approximability and the latter to exponential approximability. The viewpoint of spaces of types, which we have borrowed from model theory, thus becomes a ``Rosetta stone’’  that allows us  to interconnect various classification programs: In topology, the classification of Rosenthal compacta pioneered by Todorčević~\cite{Todorcevic_1999_CompactSubsetsBaire}; in logic, the classification of theories developed by Shelah~\cite{Shelah:1990}; and in statistical learning, the notion PAC learning and VC dimension pioneered by Vapkins and Chervonenkis~\cite{Vapnik-Chervonenkis:1974, Vapnik-Chervonenkis:1971}. 
 
@@ -101,7 +101,7 @@ In a previous paper~\cite{alva2024approximability}, we introduced the concept of
 
 In \cite{alva2024approximability}, we proved a new ``tame vs wild'' (i.e., polynomial vs exponential) dichotomy for complexity of deep computations by invoking a classical result of Grothendieck from late 50s~\cite{Grothendieck:1952}. Under our model-theoretic Rosetta stone, polynomial approximability in the sense of computation becomes identified with the notion of continuous extendability in the sense of topology, and with the notions of \emph{stability} and \emph{type definability} in the sense of model theory.
 
- In this paper, we follow a more general approach, i.e., we view deep computations as pointwise limits of continuous functions. In topology, real-valued functions that arise as the pointwise limit of a sequence of continuous are called \emph{functions of the first Baire class}, or \emph{Baire class~1} functions, or \emph{Baire-1} for short; Baire class~1 form a step above simple continuity in the hierarchy of functions studied in real analysis  (Baire class 0 functions being continuous functions). Intuitively, Baire-1 functions represent functions with ``controlled'' discontinuities, so they are  crucial in topology and set theory.
+ In this paper, we follow a more general approach, i.e., we view deep computations as pointwise limits of continuous functions. In topology functions that arise as the pointwise limit of a sequence of continuous are called \emph{functions of the first Baire class}, or \emph{Baire class~1} functions, or \emph{Baire-1} for short; Baire class~1 form a step above simple continuity in the hierarchy of functions studied in real analysis  (Baire class 0 functions being continuous functions). Intuitively, Baire-1 functions represent functions with ``controlled'' discontinuities, so they are  crucial in topology and set theory.
 
 We prove a new ``tame vs wild'' Ramsey-theoretic dichotomy for complexity of general deep computations by invoking a famous paper by Bourgain, Fremlin and Talagrand from the late 70s~\cite{BFT_1978_PCompactBaire}, and  a new trichotomy for the class of ``tame'' deep computations by invoking an equally celebrated result of Todorčević, from the late 90s, for  functions of the first Baire class~\cite{Todorcevic_1999_CompactSubsetsBaire}.
 
@@ -112,7 +112,7 @@ Through our Rosetta stone, Rosenthal compacta in topology correspond to the impo
 Going beyond Todorčević’s trichotomy, we invoke a more recent heptachotomy for Rosenthal compacta obtained by Argyros, Dodos and Kanellopoulos~\cite{argyros2008rosenthal}. Argyros, Dodos and Kanellopoulos identified seven fundamental ``prototypes" of separable Rosenthal compacta, and  proved that any non-metrizable separable Rosenthal compactum must contain a ``canonical" embedding of one of these prototypes. They showed that if a separable Rosenthal compactum is not hereditarily separable, it must contain an uncountable discrete subspace of the size of the continuum.
 
 
-We believe that the results presented in this paper show practitioners of computation, or topology, or descriptive set theory, or  model theory, how classification invariants used in their field translate into classification invariants of other fields. However, in the interest of accessibility, we do not assume previous familiarity with high-level topology or model theory, or computing. The only technical prerequisite of the paper is undergraduate-level topology. The necessary topological background beyond undergraduate topology is covered in section~\ref{sec:prelim}.
+We believe that the results presented in this paper show practitioners of computation, or topology, or descriptive set theory, or  model theory, how classification invariants used in their field translate into classification invariants of other fields. However, in the interest of accessibility, we do not assume previous familiarity with high-level topology or model theory, or computing. The only technical prerequisite of the paper is undergraduate-level topology and measure theory. The necessary topological background beyond undergraduate topology is covered in section~\ref{sec:prelim}.
 
 
 Throughout the paper, we focus on classical computation; however, by refining the model-theoretic tools, the results presented here can be extended to quantum computation and open quantum systems. This extension will be addressed in a forthcoming paper.
@@ -144,7 +144,7 @@ A concrete illustration of these ideas appears when considering threshold classi
 Going back to the model theoretic framework, let $$\mathcal F_\varphi(M):=\{\varphi(M,a):a\in M^{|y|}\}$$ be the family of subsets of $M^{|x|}$ defined by instances of the formula $\varphi$, where $\varphi(M,a)$ is the set of $|x|$-tuples $c$ in $M$ for which $M\models \varphi(c,a)$. The fundamental theorem of statistical learning states that a binary hypothesis class is PAC-learnable if and only if it has finite VC-dimension, and the subsequent theorem connects the rest of the concepts presented in this section.
 
 \begin{thm}[Laskowski]
-    The formula $\varphi(x,y)$ has the NIP if and only if $\mathcal F_\varphi(M)$ has finite VC-dimension.
+    The formula $\varphi(x,y)$ satisfies the NIP if and only if $\mathcal F_\varphi(M)$ has finite VC-dimension.
 \end{thm}
 
 For two simple examples of formulas satisfying the NIP, consider first the language $L=\{<\}$ and the model $M=(\mathbb R,<)$ of the reals with their usual linear order. Take the formula $\varphi(x,y)$ to mean $x<y$, then $\varphi(M,a)=(-\infty,a)$, and so $\mathcal F_\varphi(M)$ is just the set of left open rays. The VC-dimension of this collection is 1, since it can shatter a single point, but no two point set can be shattered since the rays are downwards closed. Now in contrast, the collection of open intervals, given by the formula $\varphi(x;y_1,y_2):=(y_1<x)\land(x<y_2)$, has VC-dimension 2.
@@ -171,9 +171,9 @@ A subset \(A\) of a Polish space \(X\) is itself Polish in the subspace topology
 \end{fact}
 
 Given two topological spaces $X$ and $Y$ we denote by $C_p(X,Y)$ the set of all continuous functions $f:X\rightarrow Y$ endowed with the topology of pointwise convergence. When $Y=\mathbb{R}$, we denote this collection simply as $C_p(X)$.
- A natural question is, how do topological properties of $X$ translate to $C_p(X)$ and vice versa? These questions, and in general the study of these spaces, are the concern of $C_p$-theory, an active field of research in general topology which was pioneered by A. V. Arhangel’skiĭ and his students in the 1970's and 1980's. This field has found many applications in model theory and functional analysis. Recent surveys on the topics include \cite{hamel2023cp} and \cite{tkachuk2011cp}.
+ A natural question is, how do topological properties of $X$ translate into $C_p(X)$ and vice versa? These questions, and in general the study of these spaces, are the concern of $C_p$-theory, an active field of research in general topology which was pioneered by A. V. Arhangel’skiĭ and his students in the 1970's and 1980's. This field has found many applications in model theory and functional analysis. Recent surveys on the topics include \cite{hamel2023cp} and \cite{tkachuk2011cp}.
  
- A  \emph{Baire class 1} function between topological spaces is a function that can be expressed as the pointwise limit of a sequence of continuous functions. If $X$ nd $Y$ are topological spaces,  the Baire class 1 functions $f:X\rightarrow Y$ endowed with the topology of pointwise convergence is denoted $B_1(X,Y)$. As above, in the special case $Y=\mathbb{R}$ we denote $B_1(X,Y)$. as  $B_1(X)$. Clearly, $C_p(X,Y)\subseteq B_1(X,Y)$.  The Baire hierarchy of functions was introduced by French mathematician René-Louis Baire in his 1899 doctoral thesis, \emph{Sur les fonctions de variables réelles}. His work moved away from the 19th-century preoccupation with "pathological" functions toward a constructive classification based on pointwise limits.
+ A  \emph{Baire class 1} function between topological spaces is a function that can be expressed as the pointwise limit of a sequence of continuous functions. If $X$ nd $Y$ are topological spaces,  the Baire class 1 functions $f:X\rightarrow Y$ endowed with the topology of pointwise convergence is denoted $B_1(X,Y)$. As above, in the special case $Y=\mathbb{R}$ we denote $B_1(X,Y)$. as  $B_1(X)$. Clearly, $C_p(X,Y)\subseteq B_1(X,Y)$.  The Baire hierarchy of functions was introduced by René-Louis Baire in his 1899 doctoral thesis, \emph{Sur les fonctions de variables réelles}. His work moved away from the 19th-century preoccupation with "pathological" functions toward a constructive classification based on pointwise limits.
 
 A topological space $X$ is \emph{perfectly normal} if it is normal and every closed subset of $X$ is a $G_\delta$ (equivalently, every open subset of $X$ is a $G_\delta$).  Note that every metrizable space is perfectly normal.
 
@@ -197,7 +197,7 @@ The following fact was established by  Baire in thesis. A proof can be found in 
     \]
 \end{fact}
 
-A subset $L$ of a topological space $X$ is \emph{relatively compact} in $X$ if the closure of $L$ in $X$ is compact. Relatively compact subsets of $B_1(X)$ (for $X$ Polish space) have been objects of interest  for researchers in Analysis and Topological Dynamics. We begin with the following well-known result. Recall that a set $A\subseteq\mathbb{R}^X$ of real-valued functions is \emph{pointwise bounded} if for every $x\in X$ there is $M_x>0$ such that $|f(x)|<M_x$ for all $f\in A$. We include a proof for the reader's convenience:
+A subset $L$ of a topological space $X$ is \emph{relatively compact} in $X$ if the closure of $L$ in $X$ is compact. Relatively compact subsets of $B_1(X)$ (for $X$ Polish) have been objects of interest  for researchers in Analysis and Topological Dynamics. We begin with the following well-known result. Recall that a set $A\subseteq\mathbb{R}^X$ of real-valued functions is \emph{pointwise bounded} if for every $x\in X$ there is $M_x>0$ such that $|f(x)|<M_x$ for all $f\in A$. We include a proof for the reader's convenience:
 
 \begin{lem}
     Let $X$ be a Polish space and $A\subseteq B_1(X)$ be pointwise bounded. The following are equivalent:
@@ -251,7 +251,7 @@ $$\bigcap_{n\in I}f_n^{-1}(-\infty,a]\cap\bigcap_{n\notin I}f_n^{-1}[b,\infty)=\
 
 
 \begin{defn}
-    We shall say that a set $A\subseteq \mathbb{R}^X$ has the \emph{Independence Property}, or IP for short, if it satisfies the following condition:
+    We shall say that a set $A\subseteq \mathbb{R}^X$ satisfies the \emph{Independence Property}, or IP for short, if it satisfies the following condition:
     There exists  every $\{f_n\}_{n\in\mathbb N}\subseteq A$ and  $a<b$ such that for every pair of disjoint sets $E,F\subseteq\mathbb{N}$, we have
     \[
     \bigcap_{n\in E}f_n^{-1}(-\infty,a]\cap\bigcap_{n\in F}f_n^{-1}[b,\infty)\neq\emptyset.
@@ -260,7 +260,7 @@ $$\bigcap_{n\in I}f_n^{-1}(-\infty,a]\cap\bigcap_{n\notin I}f_n^{-1}[b,\infty)=\
 \end{defn}
 
 \begin{rem}
-Note that if $X$ is compact and $A\subseteq C_p(X)$, then $A$ has the NIP if and only if for every $\{f_n\}_{n\in\mathbb N}\subseteq A$ and for every $a<b$ there is $I\subseteq\mathbb{N}$ such that
+Note that if $X$ is compact and $A\subseteq C_p(X)$, then $A$ satisfies the NIP if and only if for every $\{f_n\}_{n\in\mathbb N}\subseteq A$ and for every $a<b$ there is $I\subseteq\mathbb{N}$ such that
 $$\bigcap_{n\in I}f_n^{-1}(-\infty,a]\cap\bigcap_{n\notin I}f_n^{-1}[b,\infty)=\emptyset.$$
 \end{rem}
 
@@ -320,12 +320,12 @@ A Rosenthal compactum  is a compact Hausdorff topological space \(K\) that can b
 
 
 Rosenthal compacta are characterized by significant topological and dynamical tameness properties.
-They play a significant role in functional analysis,  measure theory, dynamical systems, descriptive set theory, and model theory. In this paper, we introduce their applicability in deep computation.  For this, we shall first focus on countable languages, which is the theme of the next section.
+They play a significant role in functional analysis,  measure theory, dynamical systems, descriptive set theory, and model theory. In this paper, we introduce their applicability in deep computation.  For this, we shall first focus on countable languages, which is the theme of the next subsection.
 
 
 \subsection{The special case $B_1(X,\mathbb{R}^\mathcal{P})$   with $\mathcal{P}$ countable.}
 
-Our goal now is to characterize relatively compact subsets of $B_1(X,Y)$ for the particular case when $Y=\mathbb{R}^\mathcal{P}$ with $\mathcal{P}$ countable. Given $P\in\mathcal{P}$ we denote the projection map onto the $P$-coordinate by $\pi_P:\mathbb{R}^\mathcal{P}\rightarrow\mathbb{R}$. From a high-level topological interpretation, the subsequent lemma states that, in this context, the spaces $\mathbb R$ and $\mathbb R^\mathcal P$ are really not that different, and that if we understand the Baire class 1 functions of one space, then we also understand the functions of both. 
+Our goal now is to characterize relatively compact subsets of $B_1(X,Y)$ for the particular case when $Y=\mathbb{R}^\mathcal{P}$ with $\mathcal{P}$ countable. Given $P\in\mathcal{P}$ we denote the projection map onto the $P$-coordinate by $\pi_P:\mathbb{R}^\mathcal{P}\rightarrow\mathbb{R}$. From a high-level topological interpretation, the next lemma states that, in this context, the spaces $\mathbb R$ and $\mathbb R^\mathcal P$ are really not that different, and that if we understand the Baire class 1 functions of one space, then we also understand the functions of both. 
 %In fact, $\mathbb R$ and any other Polish space is embeddable as a closed subspace of $\mathbb R^\mathcal P$.
 
 \begin{lem}\label{baire 1 and projections}
@@ -360,7 +360,7 @@ Below we consider $\mathcal P$ with the discrete topology. For each $f:X\rightar
 %
 %
 %
-%Note that if $X$ is compact and $A\subseteq C_p(X)$, then $A$ has the NIP if and only if for every $\{f_n\}_{n\in\mathbb N}\subseteq A$ and for every $a<b$ there is $I\subseteq\mathbb{N}$ such that
+%Note that if $X$ is compact and $A\subseteq C_p(X)$, then $A$ satisfies the NIP if and only if for every $\{f_n\}_{n\in\mathbb N}\subseteq A$ and for every $a<b$ there is $I\subseteq\mathbb{N}$ such that
 %$$\bigcap_{n\in I}f_n^{-1}(-\infty,a]\cap\bigcap_{n\notin I}f_n^{-1}[b,\infty)=\emptyset.$$
 
 Given $A\subseteq Y^X$ and $K\subseteq X$ we write $A|_K:=\{f|_K:f\in A\}$, i.e., the set of all restrictions of functions in $A$ to $K$. The following Theorem is a slightly more general version of Theorem \ref{BFT}.
@@ -370,7 +370,7 @@ Given $A\subseteq Y^X$ and $K\subseteq X$ we write $A|_K:=\{f|_K:f\in A\}$, i.e.
 
     \begin{enumerate}
         \item $\overline{A|_K}\subseteq B_1(K,\mathbb R^\mathcal P)$.
-        \item $\pi_P\circ A|_K$ has the NIP for every $P\in\mathcal P$.
+        \item $\pi_P\circ A|_K$ satisfies the NIP for every $P\in\mathcal P$.
     \end{enumerate}
 \end{thm}
 
@@ -381,18 +381,18 @@ Given $A\subseteq Y^X$ and $K\subseteq X$ we write $A|_K:=\{f|_K:f\in A\}$, i.e.
     $$K\cap\bigcap_{n\in I}(\pi_P\circ f_n)^{-1}(-\infty,a]\cap\bigcap_{n\notin I}(\pi_P\circ f_n)^{-1}[b,\infty)=\emptyset$$
     By the compactness of $K$, there are finite $E\subseteq I$ and $F\subseteq\mathbb{N}\backslash I$ such that
     $$K\cap\bigcap_{n\in E}(\pi_P\circ f_n)^{-1}(-\infty,a]\cap\bigcap_{n\in F}(\pi_P\circ f_n)^{-1}[b,\infty)=\emptyset$$
-    Thus, $\pi_P\circ A|_L$ has the NIP.
+    Thus, $\pi_P\circ A|_L$ satisfies the NIP.
 
-    (2)$\Rightarrow$(1) Fix $f\in\overline{A|_K}$. By lemma \ref{baire 1 and projections} it suffices to show that $\pi_P\circ f\in B_1(K)$ for all $P\in\mathcal{P}$. By (2), $\pi_P\circ A|_K$ has the NIP. Hence, by Theorem \ref{BFT} we have $\overline{\pi_P\circ A|_K}\subseteq B_1(K)$. But then $\pi_P\circ f\in\overline{\pi_P\circ A|_K}\subseteq B_1(K)$.
+    (2)$\Rightarrow$(1) Fix $f\in\overline{A|_K}$. By lemma \ref{baire 1 and projections} it suffices to show that $\pi_P\circ f\in B_1(K)$ for all $P\in\mathcal{P}$. By (2), $\pi_P\circ A|_K$ satisfies the NIP. Hence, by Theorem \ref{BFT} we have $\overline{\pi_P\circ A|_K}\subseteq B_1(K)$. But then $\pi_P\circ f\in\overline{\pi_P\circ A|_K}\subseteq B_1(K)$.
 \end{proof}
 
-Lastly, a simple but significant result that helps understand the operation of restricting a set of functions to a specific subspace of the domain space $X$, of course in the context of the NIP, is that we may always assume that said subspace is closed. Concretely, whether we take its closure or not has no effect on the NIP:
+Lastly, a simple but useful lemma that helps understand when we restrict a set of functions to a specific subspace of the domain space, we may always assume that the subspace is closed, as replacing the subspace by its closure has no effect on NIP.
 
 \begin{lem}\label{NIP and closure}
     Assume that $X$ is Hausdorff and that $A\subseteq C_p(X)$. The following are equivalent for every $L\subseteq X$:
     \begin{itemize}
-        \item [(i)] $A_L$ has the NIP.
-        \item [(ii)] $A|_{\overline{L}}$ has the NIP.
+        \item [(i)] $A_L$ satisfies the NIP.
+        \item [(ii)] $A|_{\overline{L}}$ satisfies the NIP.
     \end{itemize}
 \end{lem}
 
@@ -411,7 +411,7 @@ Lastly, a simple but significant result that helps understand the operation of r
 
 In this section, we connect function spaces with floating point computation. We start by summarizing some basic concepts from \cite{alva2024approximability}.
 
-A \emph{computation states structure} is a pair $(L,\mathcal{P})$, where $L$ is a set whose elements we call \emph{states} and $\mathcal{P}$ is a collection of real-valued functions on $L$ that we call \emph{predicates}.  For a state $v\in L$,  \emph{type} of $v$ is the indexed family
+A \emph{computation states structure} is a pair $(L,\mathcal{P})$, where $L$ is a set whose elements we call \emph{states} and $\mathcal{P}$ is a collection of real-valued functions on $L$ that we call \emph{predicates}.  For a state $v\in L$,  \emph{type} of $v$ is defined as  the indexed family
 \[
 \operatorname{tp}(v)= (P(v))_{P\in \mathcal{P}}\in\mathbb{R}^\mathcal{P}.
 \]
@@ -419,13 +419,13 @@ For each $P\in \mathcal{P}$, we call real value $P(v)$ the $P$-th \emph{feature}
 
 
 Intuitively, $L$ is the set of states of a computation,  and the predicates  $P \in\mathcal{P}$ are primitives that are given and accepted as computational.
-We think of  each state $v\in L$ as being uniquely characterized by its type $\operatorname{tp}(v)$; thus,  in practice, we identify $L$ with a subset of f $\mathbb{R}^\mathcal{P}$.  A typical case will be when $L=\mathbb{R}^\mathbb{N}$ or $L=\mathbb{R}^n$ for some positive integer $n$ and there is a predicate $P_i(v) = v_i$ for each of the coordinates $v_i$ of~$v$.  We regard the space of types as a topological space, endowed with the topology of pointwise convergence inherited from $\mathbb{R}^\mathcal{P}$. In particular, for each $P\in \mathcal{P}$, the projection map $v\mapsto P(v)$ is continuous. 
+We think of  each state $v\in L$ as being uniquely characterized by its type $\operatorname{tp}(v)$. Thus,  in practice, we identify $L$ with a subset of $\mathbb{R}^\mathcal{P}$.  A typical case will be when $L=\mathbb{R}^\mathbb{N}$ or $L=\mathbb{R}^n$ for some positive integer $n$ and there is a predicate $P_i(v) = v_i$ for each of the coordinates $v_i$ of~$v$.  We regard the space of types as a topological space, endowed with the topology of pointwise convergence inherited from $\mathbb{R}^\mathcal{P}$. In particular, for each $P\in \mathcal{P}$, the projection map $v\mapsto P(v)$ is continuous. 
 
 \begin{defn}
 Given a computation states structure $(L,\mathcal{P})$, any element of $\mathbb{R}^\mathcal{P}$  in the image of $L$ under the map $v\mapsto \operatorname{tp}(v)$ will be called a \emph{realized type}. The topological closure of the set of realized types in $\mathbb{R}^\mathcal{P}$ (endowed with the pointwise convergence topology) will be called the \emph{space of types} of  $(L,\mathcal{P})$, denoted $\mathcal{L}$. Elements of $\mathcal{L}\setminus L$ will be called \emph{unrealized types}.
 \end{defn}
 
-In  traditional model theory, the space of types of a structure is viewed as a sort of compactification of the structure. However, the space  $\mathcal{L}$ is not necessarily compact. To bypass this obstacle, we follow the idea introduced in~\cite{alva2024approximability} of covering $\mathcal{L}$ by ``thin'' compact subspaces that we call \emph{shards}. The formal definition of shard is next.
+In  traditional model theory, the space of types of a structure is viewed as a sort of compactification of the structure, and the compactness of type spaces plays a central role. However, the space  $\mathcal{L}$ defined above is not necessarily compact. To bypass this obstacle, we follow the idea introduced in~\cite{alva2024approximability} of covering $\mathcal{L}$ by ``thin'' compact subspaces that we call \emph{shards}. The formal definition of shard is next.
 
 \begin{defn}
 A \emph{sizer} is a tuple $r_{\bullet}=(r_P)_{P\in\mathcal{P}}$ of positive real numbers indexed by $\mathcal{P}$. Given a sizer $r_\bullet$, we define the $r_\bullet$-\emph{shard} as:
@@ -434,11 +434,11 @@ L[r_\bullet]=L\cap\prod_{P\in\mathcal{P}}[-r_P,r_P].
 \]
 
 For a sizer  $r_{\bullet}$, the \emph{$r_{\bullet}$-type shard} is defined as $\mathcal{L}[r_\bullet]=\overline{L[r_\bullet]}$. 
-%A collection $R$ of sizers is called \emph{exhaustive} if $\mathcal{L}_{sh}=\bigcup_{r_{\bullet}\in R}\mathcal{L}[r_\bullet]$.
-We define $\mathcal{L}_{\text sh}$, as the union of all type-shards. 
+%A collection $R$ of sizers is called \emph{exhaustive} if $\mathcal{L}_{\text{sh}}=\bigcup_{r_{\bullet}\in R}\mathcal{L}[r_\bullet]$.
+We define $\mathcal{L}_{\text{sh}}$, as the union of all type-shards. 
 \end{defn}
 
-%In our context, $\mathcal{L}_{\text sh}$ provides the ``correct'' notion of space of types as a compactification.
+%In our context, $\mathcal{L}_{\text{sh}}$ provides the ``correct'' notion of space of types as a compactification.
 
 \begin{defn}
 \label{D:CCS}
@@ -452,12 +452,12 @@ A \emph{Compositional Computation Structure} (CCS) is a triple $(L,\mathcal P,\G
 
 The elements of the  semigroup $\Gamma$ are called the \emph{computations} of the structure $(L,\mathcal P,\Gamma)$.
 
-If $\Delta\subseteq\Gamma$, we say that $\Delta\subseteq\Gamma$ is \emph{$R$-confined} if $\gamma|_{L[r_\bullet]}:L[r_\bullet]\to L[r_\bullet]$ for every $r_\bullet\in R$ and $\gamma\in \Delta$. Elements in $\overline{\Delta}\subseteq \mathcal L_{sh}$ are called (real-valued) \emph{deep computations} or \emph{ultracomputations}. 
+If $\Delta\subseteq\Gamma$, we say that $\Delta\subseteq\Gamma$ is \emph{$R$-confined} if $\gamma|_{L[r_\bullet]}:L[r_\bullet]\to L[r_\bullet]$ for every $r_\bullet\in R$ and $\gamma\in \Delta$. Elements in $\overline{\Delta}\subseteq \mathcal L_{\text{sh}}$ are called (real-valued) \emph{deep computations} or \emph{ultracomputations}. 
 \end{defn}
 
  A tenet of our approach is that a map $f: L\to \mathcal{L}$ is to be considered “effectively computable” if, for each $Q\in\mathcal{P}$, the output feature $Q{\circ}f: L\to\mathbb{R}$ is a \emph{definable} predicate in the following sense:
 
-Given any arbitrary $\varepsilon>0$ and any $K\subseteq L$ wherein every input feature $P(v)$ remains bounded in magnitude there is an $\varepsilon$-approximating continuous ``algebraic'' operator $\varphi(P_1,\dots, P_n)$ of finitely many input features~$P_1,\dots, P_n$, such that  the following holds: for all $v\in K$,  the output feature $Q(f(v))$ is $\varepsilon$-approximated by $\varphi(P_1(v),\dots, P_n(v))$. By ``algebraic",  we mean that the approximating operator $\varphi(P_1,\dots, P_n)$ uses, in addition to the primitives $P_1,\dots, P_n$,  only the algebra operations of $\mathbb{R}^\mathcal{P}$, i.e., vector addition, vector multiplication, and scalar addition.
+Given any arbitrary $\varepsilon>0$ and any $K\subseteq L$ wherein every input feature $P(v)$ remains bounded in magnitude there is an $\varepsilon$-approximating continuous ``algebraic'' operator $\varphi(P_1,\dots, P_n)$ of finitely many input features~$P_1,\dots, P_n$, such that  the following holds: for all $v\in K$,  the output feature $Q(f(v))$ is $\varepsilon$-approximated by $\varphi(P_1(v),\dots, P_n(v))$. By ``algebraic",  we mean that, aside ifrom the primitives $P_1,\dots, P_n$, the approximating operator $\varphi(P_1,\dots, P_n)$ uses only the algebra operations of $\mathbb{R}^\mathcal{P}$, i.e., vector addition, vector multiplication, and scalar addition.
 
 %(The approximating function $\varphi$ above is allowed to depend on $\varepsilon$ and~$K$.)
 
@@ -472,18 +472,18 @@ This motivates the following definition.
 
 \begin{defn}
 \label{D:extendability axiom}
-We say that a CCS $(L,\mathcal P,\Gamma)$ satisfies the \emph{Extendability Axiom} if for all $\gamma\in \Gamma$, there is $\tilde\gamma:\mathcal L_{sh}\to\mathcal L_{sh}$ such that for every sizer $r_{\bullet}$ there is a sizer $s_\bullet$ such that $\tilde\gamma|_{\mathcal L[r_\bullet]}:\mathcal L[r_\bullet]\to\mathcal L[s_\bullet]$ is continuous.  We refer to $\tilde\gamma$ as a \emph{free} extension of $\gamma$.
+We say that a CCS $(L,\mathcal P,\Gamma)$ satisfies the \emph{Extendability Axiom} if for all $\gamma\in \Gamma$, there is $\tilde\gamma:\mathcal L_{\text{sh}}\to\mathcal L_{\text{sh}}$ such that for every sizer $r_{\bullet}$ there is a sizer $s_\bullet$ such that $\tilde\gamma|_{\mathcal L[r_\bullet]}:\mathcal L[r_\bullet]\to\mathcal L[s_\bullet]$ is continuous.  We refer to $\tilde\gamma$ as a \emph{free} extension of~$\gamma$.
 \end{defn}
 
 By the preceding remarks, the Extendability Axiom says that the elements of the semigroup $\Gamma$ are definable. For the rest of the paper, fix for each $\gamma\in\Gamma$ a free extension $\tilde{\gamma}$ of $\gamma$. For any  $\Delta\subseteq\Gamma$, let $\tilde{\Delta}$ denote $\{\tilde\gamma\colon\gamma\in\Delta\}$.
 
-For a deeper discussion about this axiom, we refer the reader to \cite{alva2024approximability}.
+For a detailed discussion of the Extendability Axiom, we refer the reader to~\cite{alva2024approximability}.
 
 
 
 
 
-% In practice, one would like to work with ``definable'' computations, i.e., ones that can be executed by a computer. In this topological framework, being continuous is an expected requirement. However, as in the case of complete-types in model theory, we will work with ``unrealized computations'', i.e., maps $f:\mathcal{L}_{sh}\rightarrow\mathcal{L}_{sh}$. Note that continuity of a computation does not imply that it can be continuously extended to $\mathcal{L}_{sh}$.
+% In practice, one would like to work with ``definable'' computations, i.e., ones that can be executed by a computer. In this topological framework, being continuous is an expected requirement. However, as in the case of complete-types in model theory, we will work with ``unrealized computations'', i.e., maps $f:\mathcal{L}_{\text{sh}}\rightarrow\mathcal{L}_{\text{sh}}$. Note that continuity of a computation does not imply that it can be continuously extended to $\mathcal{L}_{\text{sh}}$.
 %
 %Suppose that a transition map $f: L\to \mathcal L$ can be extended continuously to a map $\mathcal L\to\mathcal L$. Then, the Stone-Weierstrass theorem implies that the feature $\pi_P\circ f$ (here $P$ is a fixed predicate, and the feature is hence continuous) can be uniformly approximated by polynomials on the compact set $\mathcal L[r_\bullet]$. Theorem~2.2 in \cite{alva2024approximability} formalizes the converse of this fact, in the sense that transitions maps that are not continuously extendable in this fashion cannot be obtained from simple constructions involving predicates. Under this framework, the features $\pi_P\circ f$ of such transitions $f$ are not approximable by polynomials, and so they are understood as ``non-computable'' since, again, we expect the operations computers carry out to be determined by elementary algebra corresponding to polynomials (namely addition and multiplication). Therefore it is crucial we assume some extendability conditions.
 
@@ -501,17 +501,17 @@ For an illustrative example, we can frame Newton's polynomial root approximation
 
 \subsection{NIP, Rosenthal compacta, and deep computations}
 
-Under what conditions are deep computations Baire class 1, and thus well-behaved according to our framework, on type-shards? The followiing Theorem says that, under the assumption that $\mathcal{P}$ is countable, the space of deep computations is a Rosenthal compactum (when restricted to shards) if and only if the set of computations has the NIP, feature by feature. Hence, we can import the theory of Rosenthal compacta into this framework of deep computations.
+Under what conditions are deep computations Baire class 1, and thus well-behaved according to our framework, on type-shards? The following theorem says that, under the assumption that $\mathcal{P}$ is countable, the space of deep computations is a Rosenthal compactum (when restricted to shards) if and only if the set of computations satisfies the NIP feature by feature. Hence, we can import the theory of Rosenthal compacta into this framework of deep computations.
 
 \begin{thm}\label{nip-baire1def}
     Let $(L,\mathcal P,\Gamma)$ be a compositional computational structure (Definition~\ref{D:CCS}) satisfying the Extendability Axiom (Definition~\ref{D:extendability axiom}) with $\mathcal{P}$ countable. Let $R$ be an exhaustive collection of sizers. Let $\Delta\subseteq\Gamma$ be $R$-confined. The following are equivalent.
 
     \begin{enumerate}
         \item $\overline{\tilde\Delta|_{\mathcal{L}[r_\bullet]}}\subseteq B_1(\mathcal L[r_\bullet],\mathcal L[r_\bullet])$ for all $r_\bullet\in R$.
-        \item $\pi_P\circ \Delta|_{L[r_\bullet]}$ has the NIP for all $P\in\mathcal{P}$ and $r_\bullet\in R$; that is, for all $P\in\mathcal P$, $r_\bullet\in R$, $a<b$, $\{\gamma_n\}_{n\in\mathbb N}\subseteq\Delta$ there are finite disjoint $E,F\subseteq\mathbb N$ such that $$L[r_\bullet]\cap\bigcap_{n\in E}(\pi_P\circ\gamma_n)^{-1}(-\infty,a]\cap\bigcap_{n\in F}(\pi_P\circ\gamma_n)^{-1}[b,\infty)=\emptyset.$$
+        \item $\pi_P\circ \Delta|_{L[r_\bullet]}$ satisfies the NIP for all $P\in\mathcal{P}$ and $r_\bullet\in R$; that is, for all $P\in\mathcal P$, $r_\bullet\in R$, $a<b$, $\{\gamma_n\}_{n\in\mathbb N}\subseteq\Delta$ there are finite disjoint $E,F\subseteq\mathbb N$ such that $$L[r_\bullet]\cap\bigcap_{n\in E}(\pi_P\circ\gamma_n)^{-1}(-\infty,a]\cap\bigcap_{n\in F}(\pi_P\circ\gamma_n)^{-1}[b,\infty)=\emptyset.$$
     \end{enumerate}
 
-    Moreover, if any (hence all) of the preceding conditions hold, then every deep computation $f\in\overline{\Delta}$ can be extended to a Baire-1 function on shards, i.e., there is $\tilde f:\mathcal L_{sh}\rightarrow \mathcal L_{sh}$ such that $\tilde f|_{\mathcal L[r_\bullet]}\in B_1(\mathcal L[r_\bullet],\mathcal L[r_\bullet])$ for all $r_{\bullet}\in R$. In particular, on each shard every deep computation is the pointwise limit of a countable sequence of computations.
+    Moreover, if any (hence all) of the preceding conditions hold, then every deep computation $f\in\overline{\Delta}$ can be extended to a Baire-1 function on shards, i.e., there is $\tilde f:\mathcal L_{\text{sh}}\rightarrow \mathcal L_{\text{sh}}$ such that $\tilde f|_{\mathcal L[r_\bullet]}\in B_1(\mathcal L[r_\bullet],\mathcal L[r_\bullet])$ for all $r_{\bullet}\in R$. In particular, on each shard every deep computation is the pointwise limit of a countable sequence of computations.
 \end{thm}
 
 \begin{proof}
@@ -702,7 +702,7 @@ These facts motivate the following definition:
 
 \begin{defn}
 \label{D:universally essentially computable}
-    Let $(L,\mathcal P,\Gamma)$ be a CCS. We say that a transition $f:L\rightarrow L$ is \emph{universally essentially computable} if and only if there exists $\tilde f:\mathcal{L}_{sh}\rightarrow \mathcal{L}_{sh}$ extending $f$ such that for every sizer $r_\bullet$ there is a sizer $s_\bullet$ such that the restriction $\tilde f|_{\mathcal{L}[r_{\bullet}]}:\mathcal{L}[r_\bullet]\rightarrow\mathcal{L}[s_\bullet]$ is universally measurable, i.e., $\pi_P\circ \tilde f|_{\mathcal{L}[r_{\bullet}]}:\mathcal{L}[r_\bullet]\rightarrow [-s_P,s_P]$ is $\mu$-measurable for every Radon probability measure $\mu$ on $\mathcal{L}[r_\bullet]$.
+    Let $(L,\mathcal P,\Gamma)$ be a CCS. We say that a transition $f:L\rightarrow L$ is \emph{universally essentially computable} if and only if there exists $\tilde f:\mathcal{L}_{\text{sh}}\rightarrow \mathcal{L}_{\text{sh}}$ extending $f$ such that for every sizer $r_\bullet$ there is a sizer $s_\bullet$ such that the restriction $\tilde f|_{\mathcal{L}[r_{\bullet}]}:\mathcal{L}[r_\bullet]\rightarrow\mathcal{L}[s_\bullet]$ is universally measurable, i.e., $\pi_P\circ \tilde f|_{\mathcal{L}[r_{\bullet}]}:\mathcal{L}[r_\bullet]\rightarrow [-s_P,s_P]$ is $\mu$-measurable for every Radon probability measure $\mu$ on $\mathcal{L}[r_\bullet]$.
 \end{defn}
 
 For a measure $\mu$ on a$X$, the set of all $\mu$-measurable functions will  denoted by $\mathscr{M}^0(X,\mu)$.
@@ -714,7 +714,7 @@ We will need the following result about NIP and universally measurable functions
     Let $X$ be a Hausdorff space and $A\subseteq C(X)$ be pointwise bounded. The following are equivalent:
     \begin{itemize}
         \item [(i)] $\overline{A}\subseteq M_r(X)$.
-        \item [(ii)] For every compact $K\subseteq X$, $A|_K$ has the NIP.
+        \item [(ii)] For every compact $K\subseteq X$, $A|_K$ satisfies the NIP.
         \item [(iii)] For every Radon measure $\mu$ on $X$, $A$ is relatively countably compact in $\mathscr{M}^0(X,\mu)$, i.e., every countable subset of $A$ has an accumulation point in $\mathscr{M}^0(X,\mu)$. 
     \end{itemize}
 \end{thm}
@@ -722,7 +722,7 @@ We will need the following result about NIP and universally measurable functions
 Theorem~\ref{BFT} immediately yields the following.
 
 \begin{thm}
-    Let $(L,\mathcal P,\Gamma)$ be a CCS satisfying the Extendability Axiom. Let $R$ be an exhaustive collection of sizers. Let $\Delta\subseteq\Gamma$ be $R$-confined. If $\pi_P\circ\Delta|_{L[r_\bullet]}$ has the NIP for all $P\in\mathcal{P}$ and all $r_{\bullet}\in R$, then every deep computation is universally essentially computable.
+    Let $(L,\mathcal P,\Gamma)$ be a CCS satisfying the Extendability Axiom. Let $R$ be an exhaustive collection of sizers. Let $\Delta\subseteq\Gamma$ be $R$-confined. If $\pi_P\circ\Delta|_{L[r_\bullet]}$ satisfies the NIP for all $P\in\mathcal{P}$ and all $r_{\bullet}\in R$, then every deep computation is universally essentially computable.
 \end{thm}
 
 \begin{proof}
@@ -765,7 +765,7 @@ It is then natural to ask: what is the relationship between Talagrand stability 
 
 \begin{lem}[Fremlin's Dichotomy, 463K in \cite{fremlin2003vol4}]
 \label{T:Fremlins dichotomy}
-    If $(X,\Sigma,\mu)$ is a perfect $\sigma$-finite measure space (in particular, for $X$ compact and $\mu$ a Radon probability measure on $X$) and $\{f_n:n\in\mathbb{N}\}$ be a sequence of real-valued measurable functions on $X$, then either:
+    If $(X,\Sigma,\mu)$ is a perfect $\sigma$-finite measure space (in particular, for $X$ compact and $\mu$ a Radon probability measure on $X$) and $\{f_n:n\in\mathbb{N}\}$ be a sequence of real-valued measurable functions on $X$, then either
     \begin{itemize}
         \item [(i)] $\{f_n:n\in\mathbb{N}\}$ has a subsequence that converges $\mu$-almost everywhere, or
         \item [(ii)] $\{f_n:n\in\mathbb{N}\}$ has a subsequence with no $\mu$-measurable accumulation point in $\mathbb{R}^X$.
@@ -778,7 +778,7 @@ The preceding lemma can be considered as a measure-theoretic version of Rosentha
     Let $X$ be a Hausdorff space and $A\subseteq C(X)$ be pointwise bounded. The following are equivalent:
     \begin{itemize}
         \item [(i)] $\overline{A}\subseteq M_r(X)$.
-        \item [(ii)] For every compact $K\subseteq X$, $A|_K$ has the NIP.
+        \item [(ii)] For every compact $K\subseteq X$, $A|_K$ satisfies the NIP.
         \item [(iii)] For every Radon measure $\mu$ on $X$, $A$ is relatively countably compact in $\mathscr{M}^0(X,\mu)$, i.e., every countable subset of $A$ has an accumulation point in $\mathscr{M}^0(X,\mu)$.
         \item [(iv)] For every Radon measure $\mu$ on $X$ and every sequence $\{f_n:n\in\mathbb{N}\}\subseteq A$, there is a subsequence that converges $\mu$-almost everywhere.
     \end{itemize}
@@ -791,7 +791,7 @@ The preceding lemma can be considered as a measure-theoretic version of Rosentha
 Finally, it is natural to ask what the connection is between Talagrand stability and NIP.
 
 \begin{prop}
-    Let $X$ be a compact Hausdorff space and $A\subseteq C(X)$ be pointwise bounded. If $A$ is universally Talagrand stable, then $A$ has the NIP.
+    Let $X$ be a compact Hausdorff space and $A\subseteq C(X)$ be pointwise bounded. If $A$ is universally Talagrand stable, then $A$ satisfies the NIP.
 \end{prop}
 
 \begin{proof}
@@ -805,7 +805,7 @@ Finally, it is natural to ask what the connection is between Talagrand stability
 The following two results suggest that the precise connection between Talagrand stability and NIP may be sensitive to set-theoretic axioms (even assuming countability of $A$).
 
 \begin{thm}[Talagrand, Theorem 9-3-1(a) in \cite{talagrand1984pettis}]
-    Let $X$ be a compact Hausdorff space and $A\subseteq M_r(X)$ be countable and pointwise bounded. Assume that $[0,1]$ is not the union of $<\mathfrak{c}$ closed measure zero sets. If $A$ has the NIP, then $A$ is universally Talagrand stable.
+    Let $X$ be a compact Hausdorff space and $A\subseteq M_r(X)$ be countable and pointwise bounded. Assume that $[0,1]$ is not the union of $<\mathfrak{c}$ closed measure zero sets. If $A$ satisfies the NIP, then $A$ is universally Talagrand stable.
 \end{thm}
 
 \begin{thm}[Fremlin, Shelah, \cite{fremlin1993pointwise}]
