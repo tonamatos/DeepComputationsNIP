@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.7.13)  29 DEC 2025 10:10
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.7.13)  29 DEC 2025 19:58
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -709,104 +709,6 @@ File: pgflibraryplotmarks.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 Package: mathrsfs 1996/01/01 Math RSFS package v1.0 (jk)
 \symrsfs=\mathgroup6
 )
-(/usr/local/texlive/2022/texmf-dist/tex/latex/euler/euler.sty
-Package: euler 1995/03/05 v2.5
-
-Package: `euler' v2.5 <1995/03/05> (FJ and FMi)
-LaTeX Font Info:    Redeclaring symbol font `letters' on input line 35.
-LaTeX Font Info:    Encoding `OML' has changed to `U' for symbol font
-(Font)              `letters' in the math version `normal' on input line 35.
-LaTeX Font Info:    Overwriting symbol font `letters' in version `normal'
-(Font)                  OML/cmm/m/it --> U/eur/m/n on input line 35.
-LaTeX Font Info:    Encoding `OML' has changed to `U' for symbol font
-(Font)              `letters' in the math version `bold' on input line 35.
-LaTeX Font Info:    Overwriting symbol font `letters' in version `bold'
-(Font)                  OML/cmm/b/it --> U/eur/m/n on input line 35.
-LaTeX Font Info:    Overwriting symbol font `letters' in version `bold'
-(Font)                  U/eur/m/n --> U/eur/b/n on input line 36.
-LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 47.
-LaTeX Font Info:    Redeclaring math symbol \Delta on input line 48.
-LaTeX Font Info:    Redeclaring math symbol \Theta on input line 49.
-LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 50.
-LaTeX Font Info:    Redeclaring math symbol \Xi on input line 51.
-LaTeX Font Info:    Redeclaring math symbol \Pi on input line 52.
-LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 53.
-LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 54.
-LaTeX Font Info:    Redeclaring math symbol \Phi on input line 55.
-LaTeX Font Info:    Redeclaring math symbol \Psi on input line 56.
-LaTeX Font Info:    Redeclaring math symbol \Omega on input line 57.
-\symEulerFraktur=\mathgroup7
-LaTeX Font Info:    Overwriting symbol font `EulerFraktur' in version `bold'
-(Font)                  U/euf/m/n --> U/euf/b/n on input line 63.
-LaTeX Font Info:    Redeclaring math alphabet \mathfrak on input line 64.
-LaTeX Info: Redefining \oldstylenums on input line 85.
-\symEulerScript=\mathgroup8
-LaTeX Font Info:    Overwriting symbol font `EulerScript' in version `bold'
-(Font)                  U/eus/m/n --> U/eus/b/n on input line 93.
-LaTeX Font Info:    Redeclaring math symbol \aleph on input line 97.
-LaTeX Font Info:    Redeclaring math symbol \Re on input line 98.
-LaTeX Font Info:    Redeclaring math symbol \Im on input line 99.
-LaTeX Font Info:    Redeclaring math delimiter \vert on input line 101.
-LaTeX Font Info:    Redeclaring math delimiter \backslash on input line 103.
-LaTeX Font Info:    Redeclaring math symbol \neg on input line 106.
-LaTeX Font Info:    Redeclaring math symbol \wedge on input line 108.
-LaTeX Font Info:    Redeclaring math symbol \vee on input line 110.
-LaTeX Font Info:    Redeclaring math symbol \setminus on input line 112.
-LaTeX Font Info:    Redeclaring math symbol \sim on input line 113.
-LaTeX Font Info:    Redeclaring math symbol \mid on input line 114.
-LaTeX Font Info:    Redeclaring math delimiter \arrowvert on input line 116.
-LaTeX Font Info:    Redeclaring math symbol \mathsection on input line 117.
-\symEulerExtension=\mathgroup9
-LaTeX Font Info:    Redeclaring math symbol \coprod@ on input line 125.
-LaTeX Font Info:    Redeclaring math symbol \prod@ on input line 125.
-LaTeX Font Info:    Redeclaring math symbol \sum@ on input line 125.
-LaTeX Font Info:    Redeclaring math symbol \intop on input line 130.
-LaTeX Font Info:    Redeclaring math symbol \ointop on input line 131.
-LaTeX Font Info:    Redeclaring math symbol \braceld on input line 132.
-LaTeX Font Info:    Redeclaring math symbol \bracerd on input line 133.
-LaTeX Font Info:    Redeclaring math symbol \bracelu on input line 134.
-LaTeX Font Info:    Redeclaring math symbol \braceru on input line 135.
-LaTeX Font Info:    Redeclaring math symbol \infty on input line 136.
-LaTeX Font Info:    Redeclaring math symbol \nearrow on input line 153.
-LaTeX Font Info:    Redeclaring math symbol \searrow on input line 154.
-LaTeX Font Info:    Redeclaring math symbol \nwarrow on input line 155.
-LaTeX Font Info:    Redeclaring math symbol \swarrow on input line 156.
-LaTeX Font Info:    Redeclaring math symbol \Leftrightarrow on input line 157.
-LaTeX Font Info:    Redeclaring math symbol \Leftarrow on input line 158.
-LaTeX Font Info:    Redeclaring math symbol \Rightarrow on input line 159.
-LaTeX Font Info:    Redeclaring math symbol \leftrightarrow on input line 160.
-LaTeX Font Info:    Redeclaring math symbol \leftarrow on input line 161.
-LaTeX Font Info:    Redeclaring math symbol \rightarrow on input line 163.
-LaTeX Font Info:    Redeclaring math delimiter \uparrow on input line 166.
-LaTeX Font Info:    Redeclaring math delimiter \downarrow on input line 168.
-LaTeX Font Info:    Redeclaring math delimiter \updownarrow on input line 170.
-LaTeX Font Info:    Redeclaring math delimiter \Uparrow on input line 172.
-LaTeX Font Info:    Redeclaring math delimiter \Downarrow on input line 174.
-LaTeX Font Info:    Redeclaring math delimiter \Updownarrow on input line 176.
-LaTeX Font Info:    Redeclaring math symbol \leftharpoonup on input line 177.
-LaTeX Font Info:    Redeclaring math symbol \leftharpoondown on input line 178.
-
-LaTeX Font Info:    Redeclaring math symbol \rightharpoonup on input line 179.
-LaTeX Font Info:    Redeclaring math symbol \rightharpoondown on input line 180
-.
-LaTeX Font Info:    Redeclaring math delimiter \lbrace on input line 182.
-LaTeX Font Info:    Redeclaring math delimiter \rbrace on input line 184.
-\symcmmigroup=\mathgroup10
-LaTeX Font Info:    Overwriting symbol font `cmmigroup' in version `bold'
-(Font)                  OML/cmm/m/it --> OML/cmm/b/it on input line 200.
-LaTeX Font Info:    Redeclaring math accent \vec on input line 201.
-LaTeX Font Info:    Redeclaring math symbol \triangleleft on input line 202.
-LaTeX Font Info:    Redeclaring math symbol \triangleright on input line 203.
-LaTeX Font Info:    Redeclaring math symbol \star on input line 204.
-LaTeX Font Info:    Redeclaring math symbol \lhook on input line 205.
-LaTeX Font Info:    Redeclaring math symbol \rhook on input line 206.
-LaTeX Font Info:    Redeclaring math symbol \flat on input line 207.
-LaTeX Font Info:    Redeclaring math symbol \natural on input line 208.
-LaTeX Font Info:    Redeclaring math symbol \sharp on input line 209.
-LaTeX Font Info:    Redeclaring math symbol \smile on input line 210.
-LaTeX Font Info:    Redeclaring math symbol \frown on input line 211.
-LaTeX Font Info:    Redeclaring math accent \hat on input line 254.
-)
 (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
 s/tikzlibrarytrees.code.tex
 File: tikzlibrarytrees.code.tex 2021/05/15 v3.1.9a (3.1.9a)
@@ -867,15 +769,9 @@ LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 73.
 LaTeX Font Info:    ... okay on input line 73.
 LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 73.
 LaTeX Font Info:    ... okay on input line 73.
-LaTeX Font Info:    Trying to load font information for U+eur on input line 73.
-
- (/usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/ueur.fd
-File: ueur.fd 2013/01/14 v3.01 Euler Roman
-)
 LaTeX Font Info:    Trying to load font information for U+msa on input line 73.
 
-
-(/usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/umsa.fd
+ (/usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
 LaTeX Font Info:    Trying to load font information for U+msb on input line 73.
@@ -889,24 +785,6 @@ LaTeX Font Info:    Trying to load font information for U+rsfs on input line 73
 
 (/usr/local/texlive/2022/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
-)
-LaTeX Font Info:    Trying to load font information for U+euf on input line 73.
-
-
-(/usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/ueuf.fd
-File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
-)
-LaTeX Font Info:    Trying to load font information for U+eus on input line 73.
-
-
-(/usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/ueus.fd
-File: ueus.fd 2013/01/14 v3.01 Euler Script
-)
-LaTeX Font Info:    Trying to load font information for U+euex on input line 73
-.
-
-(/usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/ueuex.fd
-File: ueuex.fd 2013/01/14 v3.01 Euler extra symbols
 )
 Package hyperref Info: Link coloring OFF on input line 73.
 
@@ -958,41 +836,6 @@ ick labels; missing features). Consider writing \pgfplotsset{compat=1.18} into
 your preamble.
  on input line 73.
 
-LaTeX Font Info:    Redeclaring symbol font `operators' on input line 73.
-LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> OT1/cmr/m/up on input line 73.
-LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> OT1/cmr/m/up on input line 73.
-LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/m/up --> OT1/cmr/b/up on input line 73.
-LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 73.
-LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmr/bx/n --> OT1/cmr/b/up on input line 73.
-LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/cmr/bx/n --> OT1/cmr/b/up on input line 73.
-LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 73.
-LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> OT1/cmss/m/up on input line 73.
-LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> OT1/cmss/m/up on input line 73.
-LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 73.
-LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/cmr/m/it --> OT1/cmr/m/it on input line 73.
-LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmr/bx/it --> OT1/cmr/m/it on input line 73.
-LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 73.
-LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/up on input line 73.
-LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/up on input line 73.
-LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/m/up --> OT1/cmss/b/up on input line 73.
-LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmr/m/it --> OT1/cmr/b/it on input line 73.
-
-LaTeX Font Warning: Font shape `OT1/cmr/m/up' undefined
-(Font)              using `OT1/cmr/m/n' instead on input line 78.
-
 
 Class amsart Warning: Abstract should precede \maketitle in AMS document classe
 s; reported on input line 82.
@@ -1001,14 +844,19 @@ s; reported on input line 82.
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [2]
-(./main.toc)
+(./main.toc
+LaTeX Font Info:    Trying to load font information for U+eus on input line 6.
+ (/usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/ueus.fd
+File: ueus.fd 2013/01/14 v3.01 Euler Script
+))
 \tf@toc=\write6
 \openout6 = `main.toc'.
 
- Excluding 'comment' comment. [3] [4] [5]
+
+Excluding 'comment' comment. [3] [4] [5]
 Overfull \hbox (15.13966pt too wide) in paragraph at lines 287--288
-[]\OT1/cmr/m/up/10 ], and in sta-tis-ti-cal learn-ing, by Vladimir Vap-nik and 
-Alexey Cher-vo-nenkis [[],
+[]\OT1/cmr/m/n/10 ], and in sta-tis-ti-cal learn-ing, by Vladimir Vap-nik and A
+lexey Cher-vo-nenkis [[],
  []
 
 [6]
@@ -1042,31 +890,27 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 327.
 
-[8]
-Overfull \hbox (4.6111pt too wide) in paragraph at lines 368--369
-[][]\OT1/cmr/bx/n/10 Theorem 1.12. []\OT1/cmr/m/it/10 As-sume that $\U/eus/m/n/
-10 P$ \OT1/cmr/m/it/10 is count-able, $\U/eur/m/n/10 X$ \OT1/cmr/m/it/10 is a P
-ol-ish space, and $\U/eur/m/n/10 A \OMS/cmsy/m/n/10 ^^R \U/eur/m/n/10 C[]\U/euf
-/m/n/10 (\U/eur/m/n/10 X; \U/msb/m/n/10 R[]\U/euf/m/n/10 )$
- []
+[8] [9] [10] [11]
 
-[9] [10] [11] [12] [13] [14] [15] [16] [17]
-Overfull \hbox (1.2pt too wide) in paragraph at lines 699--701
-\OT1/cmr/m/up/10 where $\U/eur/m/n/10 ^^V\OMS/cmsy/m/n/10 ^^C$ \OT1/cmr/m/up/10
- de-notes the outer mea-sure (we work with outer since the sets $\U/eur/m/n/10 
-D[]\U/euf/m/n/10 (\U/eur/m/n/10 A; E; a; b\U/euf/m/n/10 )$
- []
+LaTeX Warning: Reference `D:CCS' on page 12 undefined on input line 499.
 
-[18] Excluding 'comment' comment. (./main.bbl [19]
+[12] [13] [14] [15] [16] [17] [18]
+LaTeX Font Info:    Trying to load font information for U+euf on input line 800
+.
+
+(/usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/ueuf.fd
+File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
+)
+Excluding 'comment' comment. (./main.bbl [19]
 Underfull \hbox (badness 1776) in paragraph at lines 169--172
-[]\OT1/cmr/m/up/8 Michel Ta-la-grand. The Glivenko-Cantelli prob-lem. \OT1/cmr/
-m/it/8 The An-nals of Prob-a-bil-ity\OT1/cmr/m/up/8 ,
+[]\OT1/cmr/m/n/8 Michel Ta-la-grand. The Glivenko-Cantelli prob-lem. \OT1/cmr/m
+/it/8 The An-nals of Prob-a-bil-ity\OT1/cmr/m/n/8 ,
  []
 
 
 Underfull \hbox (badness 1648) in paragraph at lines 191--194
-[]\OT1/cmr/m/up/8 Leslie G. Valiant. A the-ory of the learn-able. \OT1/cmr/m/it
-/8 Com-mu-ni-ca-tions of the ACM\OT1/cmr/m/up/8 ,
+[]\OT1/cmr/m/n/8 Leslie G. Valiant. A the-ory of the learn-able. \OT1/cmr/m/it/
+8 Com-mu-ni-ca-tions of the ACM\OT1/cmr/m/n/8 ,
  []
 
 
@@ -1075,140 +919,54 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
  [20])
 [21] (./main.aux)
 
-LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+LaTeX Warning: There were undefined references.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
-
-Package rerunfilecheck Warning: File `main.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `main.out':
-(rerunfilecheck)             Before: 499B62702540712B2649042BFC3010F6;4755
-(rerunfilecheck)             After:  DF2EFE161A64C41371B6E0C404F27B5D;4755.
+Package rerunfilecheck Info: File `main.out' has not changed.
+(rerunfilecheck)             Checksum: 7EEC05E13C066E160F079E7B16E7945F;4987.
  ) 
 Here is how much of TeX's memory you used:
- 30773 strings out of 478268
- 727686 string characters out of 5846347
+ 30657 strings out of 478268
+ 725694 string characters out of 5846347
  1148640 words of memory out of 5000000
- 48136 multiletter control sequences out of 15000+600000
- 483883 words of font info for 90 fonts, out of 8000000 for 9000
+ 48054 multiletter control sequences out of 15000+600000
+ 480880 words of font info for 77 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
  99i,12n,94p,1729b,1249s stack positions out of 10000i,1000n,20000p,200000b,200000s
-
-pdfTeX warning (dest): name{thm.4.16} has been referenced but does not exist, r
-eplaced by a fixed one
-
-
-pdfTeX warning (dest): name{thm.4.11} has been referenced but does not exist, r
-eplaced by a fixed one
-
-
-pdfTeX warning (dest): name{thm.4.3} has been referenced but does not exist, re
-placed by a fixed one
-
-
-pdfTeX warning (dest): name{thm.4.1} has been referenced but does not exist, re
-placed by a fixed one
-
-
-pdfTeX warning (dest): name{thm.2.13} has been referenced but does not exist, r
-eplaced by a fixed one
-
-
-pdfTeX warning (dest): name{thm.2.12} has been referenced but does not exist, r
-eplaced by a fixed one
-
-
-pdfTeX warning (dest): name{thm.2.11} has been referenced but does not exist, r
-eplaced by a fixed one
-
-
-pdfTeX warning (dest): name{thm.2.10} has been referenced but does not exist, r
-eplaced by a fixed one
-
-
-pdfTeX warning (dest): name{thm.2.8} has been referenced but does not exist, re
-placed by a fixed one
-
-
-pdfTeX warning (dest): name{thm.2.4} has been referenced but does not exist, re
-placed by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.4.5} has been referenced but does not ex
-ist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.4.4} has been referenced but does not ex
-ist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.4.3} has been referenced but does not ex
-ist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.4.2} has been referenced but does not ex
-ist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.4.1} has been referenced but does not ex
-ist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{section.4} has been referenced but does not exist, 
-replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.2.4} has been referenced but does not ex
-ist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.2.3} has been referenced but does not ex
-ist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.2.2} has been referenced but does not ex
-ist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.2.1} has been referenced but does not ex
-ist, replaced by a fixed one
-
-</usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><
-/usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><
-/usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></
-usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></us
-r/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/
-local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/lo
-cal/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local
-/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/te
-xlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texli
-ve/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/
-2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/texlive/20
-22/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/202
-2/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2022/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2022/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2022/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/local/texlive/2022/texmf
--dist/fonts/type1/public/amsfonts/euler/euex10.pfb></usr/local/texlive/2022/tex
-mf-dist/fonts/type1/public/amsfonts/euler/euex7.pfb></usr/local/texlive/2022/te
-xmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/local/texlive/2022/
-texmf-dist/fonts/type1/public/amsfonts/euler/eufm7.pfb></usr/local/texlive/2022
-/texmf-dist/fonts/type1/public/amsfonts/euler/eurm10.pfb></usr/local/texlive/20
-22/texmf-dist/fonts/type1/public/amsfonts/euler/eurm5.pfb></usr/local/texlive/2
-022/texmf-dist/fonts/type1/public/amsfonts/euler/eurm7.pfb></usr/local/texlive/
-2022/texmf-dist/fonts/type1/public/amsfonts/euler/eusm10.pfb></usr/local/texliv
-e/2022/texmf-dist/fonts/type1/public/amsfonts/euler/eusm7.pfb></usr/local/texli
-ve/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/t
-exlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/loc
-al/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on main.pdf (21 pages, 395177 bytes).
+</usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
+></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb
+></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb>
+</usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><
+/usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></u
+sr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr
+/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/l
+ocal/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/loc
+al/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local
+/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/t
+exlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texl
+ive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive
+/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/20
+22/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2022/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2022/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/texlive/2022/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2022/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2022/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2022/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2022/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/local/texlive/2022/texmf-dist/fo
+nts/type1/public/amsfonts/euler/eufm10.pfb></usr/local/texlive/2022/texmf-dist/
+fonts/type1/public/amsfonts/euler/eusm10.pfb></usr/local/texlive/2022/texmf-dis
+t/fonts/type1/public/amsfonts/euler/eusm7.pfb></usr/local/texlive/2022/texmf-di
+st/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2022/texm
+f-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2022/
+texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/local/texlive/20
+22/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb>
+Output written on main.pdf (21 pages, 426486 bytes).
 PDF statistics:
- 580 PDF objects out of 1000 (max. 8388607)
- 496 compressed objects within 5 object streams
- 160 named destinations out of 1000 (max. 500000)
+ 557 PDF objects out of 1000 (max. 8388607)
+ 473 compressed objects within 5 object streams
+ 143 named destinations out of 1000 (max. 500000)
  125 words of extra memory for PDF output out of 10000 (max. 10000000)
 

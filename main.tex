@@ -15,7 +15,7 @@ pdfkeywords={}
 \usepackage{pdflscape}
 \usepackage{pgfplots}
 \usepackage{mathrsfs}
-\usepackage{euler}
+%\usepackage{euler}
 \usepackage{tikz}
 \usetikzlibrary{trees}
 
@@ -220,7 +220,7 @@ A subset $L$ of a topological space $X$ is \emph{relatively compact} in $X$ if t
     (iii)$\Rightarrow$(i) Suppose that $\overline A\subseteq B_1(X)$. Then $\overline{A}\cap B_1(X)=\overline A$ is a closed subset of $\prod_{x\in X}[-M_x,M_x]$; Tychonoff's theorem states that the product of compact spaces is always compact, and since closed subsets of compact spaces are compact, $\overline A$ must be compact, as desired.
 \end{proof}
 
-\subsection{From Rosenthal's dichotomy to Shelah's NIP}
+\subsection{From Rosenthal's dichotomy to the Bourgain-Fremlin-Talagrand dichotomy to Shelah's NIP}
 
 The fundamental idea that connects the rich theory here presented to real-valued computations is the concept of an \emph{approximation}. In the reals, points of closure from some subset can always be approximated by points inside the set, via a convergent sequence. For more complicated spaces, such as $C_p(X)$, this fails in remarkable  ways. To see an example, consider the Cantor space $X=2^\mathbb N$, and for each $n\in\mathbb{N}$ define $p_n:X\to\{0,1\}$ by  $p_n(x)=x(n)$ for each $x\in X$. Then $p_n$ is continuous for each $n$,  but one can show (see Chapter~1.1 of \cite{Todorcevic_1997_TopicsTop} for details) that the only continuous functions in the closure of $\{p_n\}_{n\in\mathbb N}$ are the functions $p_n$ themselves; moreover, none of the subsequences of $\{p_n\}_{n\in\mathbb N}$ converge. In some sense, this example is the worst possible scenario for convergence. The topological space obtained from this closure is well-known: it is the \emph{Stone-Čech compactification} of the discrete space of natural numbers, or $\beta\mathbb N$ for short, and it is an important object of study in general topology.
 
@@ -407,49 +407,87 @@ Lastly, a simple but significant result that helps understand the operation of r
 
 \section{Compositional computation structures.}
 
-In this section, we connect function spaces with computation. We start by summarizing some basic concepts from \cite{alva2024approximability}.
 
-In \cite{alva2024approximability} , the authors introdiced the following definition. A \emph{computation states structure} is a pair $(L,\mathcal{P})$, where $L$ is a set whose elements we call \emph{states} and $\mathcal{P}$ is a collection of real-valued function on $L$ that we call predicates. Intuitively, $L$ is the set of states of a computation,  and each state $v\in L$ is uniquely characterized by the indexed family $(P(v))_{P\in \mathcal{P}}$. We call this indexed family the \emph{type} of $v$. For each $P\in \mathcal{P}$, we call real value $P(v)$ the $P$-th \emph{feature} of~$v$. A typical case will be when $L=\mathbb{R}^\mathbb{N}$ or $L=\mathbb{R}^n$ for some $n\in\mathbb{N}$ and there is a predicate $P_i(v) = v_i$ for each of the coordinates $v_i$ of~$v$. We shall identify each state with its type.
+In this section, we connect function spaces with floating point computation. We start by summarizing some basic concepts from \cite{alva2024approximability}.
+
+A \emph{computation states structure} is a pair $(L,\mathcal{P})$, where $L$ is a set whose elements we call \emph{states} and $\mathcal{P}$ is a collection of real-valued functions on $L$ that we call \emph{predicates}.  For a state $v\in L$,  \emph{type} of $v$ is the indexed family
+\[
+\operatorname{tp}(v)= (P(v))_{P\in \mathcal{P}}\in\mathbb{R}^\mathcal{P}.
+\]
+For each $P\in \mathcal{P}$, we call real value $P(v)$ the $P$-th \emph{feature} of~$v$.  A \emph{transition} of a computation states structure  $(L,\mathcal{P})$ is a map $f:L\to L$.
+
+
+Intuitively, $L$ is the set of states of a computation,  and the predicates  $P \in\mathcal{P}$ as accepted computational primitives.
+We think of  each state $v\in L$ is uniquely characterized by its type, so in practice, we identify $L$ with a subset of f $\mathbb{R}^\mathcal{P}$.  A typical case will be when $L=\mathbb{R}^\mathbb{N}$ or $L=\mathbb{R}^n$ for some positive integer $n$ and there is a predicate $P_i(v) = v_i$ for each of the coordinates $v_i$ of~$v$.  We regard the space of types as a topological space, endowed with the topology of pointwise convergence inherited from $\mathbb{R}^\mathcal{P}$. In particular, for each $P\in \mathcal{P}$, the projection map $v\mapsto P(v)$ is continuous. 
 
 \begin{defn}
-\label{D:CCS}
-A  \emph{Compositional Computation Structure} (CCS) is a triple  $(L,\mathcal{P},\Gamma)$, where
-\begin{itemize}
-\item
-if $L\subseteq\mathbb R^\mathcal P$ is a subspace of $\mathbb{R}^\mathcal{P}$, with the pointwise convergence topology, and 
-\item
-$\Gamma\subseteq L^L$ forms a semigroup under composition. 
-\end{itemize}
+Given a computation states structure $(L,\mathcal{P})$, any element of $\mathbb{R}^\mathcal{P}$  in the image of $L$ under the map $v\mapsto \operatorname{tp}(v)$ will be called a \emph{realized type}. The topological closure of the set of realized types in $\mathbb{R}^\mathcal{P}$ (endowed with the pointwise convergence topology) will be called the \emph{space of types} of  $(L,\mathcal{P})$, denoted $\mathcal{L}$. Elements of $\mathcal{L}\setminus L$ will be called \emph{unrealized types}.
 \end{defn}
 
-%In this section, we study what the NIP tell us in the context of deep computations as defined in \cite{alva2024approximability}. We say a structure $(L,\mathcal P,\Gamma)$ is a \emph{Compositional Computation Structure} (CCS) if $L\subseteq\mathbb R^\mathcal P$ is a subspace of $\mathbb{R}^\mathcal{P}$, with the pointwise convergence topology, and $\Gamma\subseteq L^L$ is a semigroup under composition. The motivation for CCS comes from (continuous) model theory, where $\mathcal{P}$ is a fixed collection of predicates and $L$ is a (real-valued) structure. Every point in $L$ is identified with its ``type", which is the tuple of all values the point takes on the predicates from $\mathcal{P}$, i.e., an element of $\mathbb{R}^\mathcal{P}$. In this context, elements of $\mathcal{P}$ are called \emph{features}. 
-%
-In the discrete model theory framework, one views the space of complete-types as a sort of compactification of the structure $L$. In this context, we don't want to consider only points in $L$ (realized types) but in its closure $\overline{L}$ (possibly unrealized types). The problem is that the closure $\overline{L}$ is not necessarily compact, and in model theory, compactness of spaces of types is a powerful assumption of model-theoretic frameworks.. To bypass this obstacle, we follow the idea introduced in~\cite{alva2024approximability} of covering $\overline{L}$ by ``thin'' compact subspaces that we call \emph{shards}. We give the formal definition next.
+In  traditional model theory the space of types of a structure is viewed as a sort of compactification of the structure. However, the space  $\mathcal{L}$ is not necessarily compact. To bypass this obstacle, we follow the idea introduced in~\cite{alva2024approximability} of covering $\mathcal{L}$ by ``thin'' compact subspaces that we call \emph{shards}. We give the formal definition next.
 
 \begin{defn}
 A \emph{sizer} is a tuple $r_{\bullet}=(r_P)_{P\in\mathcal{P}}$ of positive real numbers indexed by $\mathcal{P}$. Given a sizer $r_\bullet$, we define the $r_\bullet$-\emph{shard} as:
 \[
 L[r_\bullet]=L\cap\prod_{P\in\mathcal{P}}[-r_P,r_P].
 \]
+
+For a sizer  $r_{\bullet}$, the \emph{$r_{\bullet}$-type shard} is defined as $\mathcal{L}[r_\bullet]=\overline{L[r_\bullet]}$. 
+%A collection $R$ of sizers is called \emph{exhaustive} if $\mathcal{L}_{sh}=\bigcup_{r_{\bullet}\in R}\mathcal{L}[r_\bullet]$.
+We define $\mathcal{L}_{\text sh}$, is the union of all type-shards. 
 \end{defn}
 
-For an illustrative example, we can frame Newton's polynomial root approximation method in the context of a CCS (see Example~5.6 of \cite{alva2024approximability} for details) as follows. Begin by considering the extended complex numbers $\hat{\mathbb{C}}:=\mathbb{C}\cup\{\infty\}$ with the usual Riemann sphere topology that makes it into a compact space (where unbounded sequences converge to $\infty$). In fact, not only is this space compact but it is covered by the shard given by the sizer $(1,1,1)$ (the unit sphere is contained in the cube $[-1,1]^3$). The space $\hat{\mathbb{C}}$ is homeomorphic to the usual unit sphere $S^2:=\{(x,y,z):x^2+y^2+z^2=1\}$ of $\mathbb R^3$, by means of the stereographic projection and its inverse $\hat{\mathbb{C}}\to S^2$. This function is regarded as a triple of predicates $x,y,z:\hat{\mathbb{C}}\to[-1,1]$ where each will map an extended complex number to its corresponding real coordinate on the cube $[-1,1]^3$. Now fix the cubic complex polynomial $p(s):=s^3-1$, and consider the map which performs one step in Newton's method at a particular (extended) complex number $s$, for finding a root of $p$, $\gamma_p:\hat{\mathbb{C}}\to\hat{\mathbb{C}}$. The explicit inner workings of $\gamma_p$ are irrelevant for this example, except for the fact that it is a continuous mapping. It follows that $(S^2,\{x,y,z\},\{\gamma_p^k:k\in\mathbb N\})$ is a CCS. The idea is that repeated applications of $\gamma_p(s), \gamma_p\circ\gamma_p(s), \gamma_p\circ\gamma_p\circ\gamma_p(s),\dots$ would approximate a root of $p$ provided $s$ was a good enough initial guess.
+%In our context, $\mathcal{L}_{\text sh}$ provides the ``correct'' notion of space of types as a compactification.
 
-For a sizer  $r_{\bullet}$, the \emph{$r_{\bullet}$-type shard} is defined as $\mathcal{L}[r_\bullet]=\overline{L[r_\bullet]}$ and $\mathcal{L}_{sh}$ is the union of all type-shards. Notice that $\mathcal{L}_{sh}$ is not necessarily equal to $\mathcal{L}=\overline{L}$, unless $\mathcal{P}$ is countable (see \cite{alva2024approximability}). A \emph{transition} is a map $f:L\rightarrow L$. In particular, every element in the semigroup $\Gamma$ is a transition (these are called \emph{realized computations}).
+\begin{defn}
+a \emph{Compositional Computation Structure} (CCS) is a triple $(L,\mathcal P,\Gamma)$, where
+\begin{itemize}
+\item
+ $(L,\mathcal P)$ is a computation states structure
+ \item
+ $\Gamma\subseteq L^L$ is a semigroup under composition.
+\end{itemize}
+We say that $\Delta\subseteq\Gamma$ is \emph{$R$-confined} if $\gamma|_{L[r_\bullet]}:L[r_\bullet]\to L[r_\bullet]$ for every $r_\bullet\in R$ and $\gamma\in \Delta$. Elements in $\Delta$ are called \emph{real-valued computations} (in this article we will refer to them simply as \emph{computations}) and elements in $\overline{\Delta}\subseteq \mathcal L_{sh}$ are called (real-valued) \emph{deep computations} or \emph{ultracomputations}. 
+\end{defn}
 
- In practice, one would like to work with ``definable'' computations, i.e., ones that can be executed by a computer. In this topological framework, being continuous is an expected requirement. However, as in the case of complete-types in model theory, we will work with ``unrealized computations'', i.e., maps $f:\mathcal{L}_{sh}\rightarrow\mathcal{L}_{sh}$. Note that continuity of a computation does not imply that it can be continuously extended to $\mathcal{L}_{sh}$.
+ A tenet of our approach is that a map $f: L\to \mathcal{L}$ is to be considered “effectively computable” if, for each $Q\in\mathcal{P}$, the output feature $Q{\circ}f: L\to\mathbb{R}$ is a \emph{definable} predicate in the following sense:
 
-Suppose that a transition map $f: L\to \mathcal L$ can be extended continuously to a map $\mathcal L\to\mathcal L$. Then, the Stone-Weierstrass theorem implies that the feature $\pi_P\circ f$ (here $P$ is a fixed predicate, and the feature is hence continuous) can be uniformly approximated by polynomials on the compact set $\mathcal L[r_\bullet]$. Theorem~2.2 in \cite{alva2024approximability} formalizes the converse of this fact, in the sense that transitions maps that are not continuously extendable in this fashion cannot be obtained from simple constructions involving predicates. Under this framework, the features $\pi_P\circ f$ of such transitions $f$ are not approximable by polynomials, and so they are understood as ``non-computable'' since, again, we expect the operations computers carry out to be determined by elementary algebra corresponding to polynomials (namely addition and multiplication). Therefore it is crucial we assume some extendability conditions.
+Given any arbitrary $\varepsilon>0$ and any $K\subseteq L$ wherein every input feature $P(v)$ remains bounded in magnitude there is an $\varepsilon$-approximating continuous ``algebraic'' operator $\varphi(P_1,\dots, P_n)$ of finitely many input features~$P_1,\dots, P_n$, such that  the following holds: for all $v\in K$,  the output feature $Q(f(v))$ is $\varepsilon$-approximated by $\varphi(P_1(v),\dots, P_n(v))$. By ``algebraic", we mean that the approximating operator $\varphi$ uses only the algebra (operations of $\mathbb{R}^\mathcal{P}$, i.e., vector addition, vector multiplication, and scalar addition.
+
+%(The approximating function $\varphi$ above is allowed to depend on $\varepsilon$ and~$K$.)
+
+It is shown in \cite{alva2024approximability}) that:
+\begin{enumerate}
+\item For a definable $f: L\to \mathcal{L}$, the approximating operators $\varphi$  may be taken to be \emph{polynomials} of the input features, and
+\item Definable transforms $f: L\to\mathcal{L}$ are precisely those that extend to continuous $\tilde{f}: \mathcal{L} \to \mathcal{L}$
+  (this is the property of \emph{extendibility} mentioned above).
+\end{enumerate}
+
+This motivates the following definition.
 
 \begin{defn}
 \label{D:extendability axiom}
 We say that a CCS $(L,\mathcal P,\Gamma)$ satisfies the \emph{Extendability Axiom} if for all $\gamma\in \Gamma$, there is $\tilde\gamma:\mathcal L_{sh}\to\mathcal L_{sh}$ such that for every sizer $r_{\bullet}$ there is a sizer $s_\bullet$ such that $\tilde\gamma|_{\mathcal L[r_\bullet]}:\mathcal L[r_\bullet]\to\mathcal L[s_\bullet]$ is continuous. 
 \end{defn}
 
+
+
+
+
+% In practice, one would like to work with ``definable'' computations, i.e., ones that can be executed by a computer. In this topological framework, being continuous is an expected requirement. However, as in the case of complete-types in model theory, we will work with ``unrealized computations'', i.e., maps $f:\mathcal{L}_{sh}\rightarrow\mathcal{L}_{sh}$. Note that continuity of a computation does not imply that it can be continuously extended to $\mathcal{L}_{sh}$.
+%
+%Suppose that a transition map $f: L\to \mathcal L$ can be extended continuously to a map $\mathcal L\to\mathcal L$. Then, the Stone-Weierstrass theorem implies that the feature $\pi_P\circ f$ (here $P$ is a fixed predicate, and the feature is hence continuous) can be uniformly approximated by polynomials on the compact set $\mathcal L[r_\bullet]$. Theorem~2.2 in \cite{alva2024approximability} formalizes the converse of this fact, in the sense that transitions maps that are not continuously extendable in this fashion cannot be obtained from simple constructions involving predicates. Under this framework, the features $\pi_P\circ f$ of such transitions $f$ are not approximable by polynomials, and so they are understood as ``non-computable'' since, again, we expect the operations computers carry out to be determined by elementary algebra corresponding to polynomials (namely addition and multiplication). Therefore it is crucial we assume some extendability conditions.
+
+
+For an illustrative example, we can frame Newton's polynomial root approximation method in the context of a CCS (see Example~5.6 of \cite{alva2024approximability} for details) as follows. Begin by considering the extended complex numbers $\hat{\mathbb{C}}:=\mathbb{C}\cup\{\infty\}$ with the usual Riemann sphere topology that makes it into a compact space (where unbounded sequences converge to $\infty$). In fact, not only is this space compact but it is covered by the shard given by the sizer $(1,1,1)$ (the unit sphere is contained in the cube $[-1,1]^3$). The space $\hat{\mathbb{C}}$ is homeomorphic to the usual unit sphere $S^2:=\{(x,y,z):x^2+y^2+z^2=1\}$ of $\mathbb R^3$, by means of the stereographic projection and its inverse $\hat{\mathbb{C}}\to S^2$. This function is regarded as a triple of predicates $x,y,z:\hat{\mathbb{C}}\to[-1,1]$ where each will map an extended complex number to its corresponding real coordinate on the cube $[-1,1]^3$. Now fix the cubic complex polynomial $p(s):=s^3-1$, and consider the map which performs one step in Newton's method at a particular (extended) complex number $s$, for finding a root of $p$, $\gamma_p:\hat{\mathbb{C}}\to\hat{\mathbb{C}}$. The explicit inner workings of $\gamma_p$ are irrelevant for this example, except for the fact that it is a continuous mapping. It follows that $(S^2,\{x,y,z\},\{\gamma_p^k:k\in\mathbb N\})$ is a CCS. The idea is that repeated applications of $\gamma_p(s), \gamma_p\circ\gamma_p(s), \gamma_p\circ\gamma_p\circ\gamma_p(s),\dots$ would approximate a root of $p$ provided $s$ was a good enough initial guess.
+
+
+
+
 For a deeper discussion about this axiom, we refer the reader to \cite{alva2024approximability}.
 
 
-A collection $R$ of sizers is called \emph{exhaustive} if $\mathcal{L}_{sh}=\bigcup_{r_{\bullet}\in R}\mathcal{L}[r_\bullet]$. We say that $\Delta\subseteq\Gamma$ is \emph{$R$-confined} if $\gamma|_{L[r_\bullet]}:L[r_\bullet]\to L[r_\bullet]$ for every $r_\bullet\in R$ and $\gamma\in \Delta$. Elements in $\Delta$ are called \emph{real-valued computations} (in this article we will refer to them simply as \emph{computations}) and elements in $\overline{\Delta}\subseteq \mathcal L_{sh}^L$ are called (real-valued) \emph{deep computations} or \emph{ultracomputations}. By $\tilde{\Delta}$ we denote the set of all extensions $\tilde\gamma$ for $\gamma\in\Delta$. For a more complete description of this framework, we refer the reader to \cite{alva2024approximability}.
+
 
 \section{Classifying deep computations}
 
@@ -483,13 +521,13 @@ Recall that a topological space $X$ is \emph{hereditarily separable} (HS) if eve
 \begin{defn}
     Let $(L,\mathcal{P},\Gamma)$ be a CCS satisfying the Extendability Axiom and $R$ be an exhaustive collection of sizers. Let $\Delta\subseteq\Gamma$ be an $R$-confined countable set of computations satisfying the NIP on shards and features (condition (2) in Theorem \ref{nip-baire1def}). We say that $\Delta$ is:
     \begin{itemize}
-        \item [(i)] $NIP_1$ if $\overline{\tilde\Delta|_{\mathcal{L}[r_\bullet]}}$ is first countable for every $r_\bullet\in R$.
-        \item [(ii)] $NIP_2$ if $\overline{\tilde\Delta|_{\mathcal{L}[r_\bullet]}}$ is hereditarily separable for every $r_\bullet\in R$.
-        \item [(iii)] $NIP_3$ if $\overline{\tilde\Delta|_{\mathcal{L}[r_\bullet]}}$ is metrizable for every $r_\bullet\in R$.
+        \item [(i)] NIP$_1$ if $\overline{\tilde\Delta|_{\mathcal{L}[r_\bullet]}}$ is first countable for every $r_\bullet\in R$.
+        \item [(ii)] NIP$_2$ if $\overline{\tilde\Delta|_{\mathcal{L}[r_\bullet]}}$ is hereditarily separable for every $r_\bullet\in R$.
+        \item [(iii)] NIP$_3$ if $\overline{\tilde\Delta|_{\mathcal{L}[r_\bullet]}}$ is metrizable for every $r_\bullet\in R$.
     \end{itemize}
 \end{defn}
 
-Observe that $NIP_3 \Rightarrow NIP_2\Rightarrow NIP_1\Rightarrow NIP$. A natural question that would continue this work is to find examples of CCS that separate these levels of NIP. In \cite{Todorcevic_1999_CompactSubsetsBaire}, Todorčević isolates three canonical examples of Rosenthal compacta that witness the failure of the converse implications above. 
+Observe that NIP$_3 \Rightarrow $NIP$_2\Rightarrow $NIP$_1\Rightarrow $NIP. A natural question that would continue this work is to find examples of CCS that separate these levels of NIP. In \cite{Todorcevic_1999_CompactSubsetsBaire}, Todorčević isolates three canonical examples of Rosenthal compacta that witness the failure of the converse implications above. 
 
 We now present some separable and non-separable examples of Rosenthal compacta:
 
@@ -645,7 +683,7 @@ We now wish to define the concept of a deep computation being computable except 
 \begin{enumerate}
 \item
 Littlewoood's second principle states that every Lebesgue measurable function is ``nearly continuous''. The formal version of this, which is Luzin's theorem, states that if
- $(X,\Sigma ,\mu )$  a Radon measure space and $Y$ be a second-countable topological space (e.g., $Y=\mathbb{R}^\mathcal{P}$ with $\mathcal{P}$ countable ) equipped with a Borel algebra, then any given $f:X\to Y$ is measurable if and only if for every  $E\in\Sigma$ and every $\epsilon>0$ there exists a closed $F\subseteq E$ such that the restriction of $f$ to $F$ is continuous.
+ $(X,\Sigma ,\mu )$  a Radon measure space and $Y$ be a second-countable topological space (e.g., $Y=\mathbb{R}^\mathcal{P}$ with $\mathcal{P}$ countable ) equipped with a Borel algebra, then any given $f:X\to Y$ is measurable if and only if for every  $E\in\Sigma$ and every $\varepsilon>0$ there exists a closed $F\subseteq E$ such that the restriction of $f$ to $F$ is continuous.
 \item
 Computability of deep computations can is characterized in terms of continuous extendibility of computations. This is at the core of~\cite{alva2024approximability}.
 \end{enumerate}
@@ -699,7 +737,7 @@ We say that $A$ is \emph{Talagrand $\mu$-stable} if and only if for every $\mu$-
 \]
 where $\mu*$ denotes the outer measure (we work with outer since the sets $D_k(A,E,a,b)$ need not be $\mu$-measurable). This is certainly the case when $A$ is a countable set of continuous (or $\mu$-measurable) functions. 
 
-The following lemma establishes that Talagrand stability is a way to ensure that deep computations are definable by measurable functions. We include the proof for the reader's convenience.
+The following lemma establishes that Talagrand stability is a way to ensure that deep computations are definable by measurable functions. We include a proof for the reader's convenience.
 
 \begin{lem}\label{talagrand stable is relatively compact}
     If $A$ is Talagrand $\mu$-stable, then $\overline{A}$ is also Talagrand $\mu$-stable and $\overline{A}\subseteq\mathscr{M}^0(X,\mu)$.
@@ -773,7 +811,7 @@ The following two results suggest that the precise connection between Talagrand 
 
 Given a set $X$, a collection $\Sigma$ of subsets of $X$ is called a \emph{$\sigma$-algebra} if $\Sigma$ contains $X$ and is closed under complements and countable unions. Hence, for example, a $\sigma$-algebra is also closed under countable intersections. Intuitively, a $\sigma$-algebra is a collection of sets in which we can define a $\sigma$-additive measure. We call sets in a $\sigma$-algebra $\Sigma$ \emph{measurable sets} and the pair $(X,\Sigma)$ a measurable space. If $X$ is a topological space, there is a natural $\sigma$-algebra of subsets of $X$, namely the \emph{Borel $\sigma$-algebra} $\mathcal{B}(X)$, i.e., the smallest $\sigma$-algebra containing all open subsets of $X$. Given two measurable spaces $(X,\Sigma_X)$ and $(Y,\Sigma_Y)$, we say that a function $f:X\rightarrow Y$ is \emph{measurable} if and only if $f^{-1}(E)\in\Sigma_X$ for every $E\in \Sigma_Y$. In particular, we say that $f:X\rightarrow\mathbb{R}$ is measurable if $f^{-1}(E)\in \Sigma_X$ for all $E\in\mathcal{B}(\mathbb{R})$ (equivalently, $E$ open in $\mathbb{R}$).
 
-Given a measurable space $(X,\Sigma)$, a \emph{$\sigma$-additive measure} is a non-negative function $\mu:\Sigma\rightarrow\mathbb{R}$ with the property that $\mu(\emptyset)=0$ and $\mu(\bigcup_{n=0}^\infty A_n)=\sum_{n=0}^\infty\mu(A_n)$ whenever $\{A_n:n\in\mathbb{N}\}\subseteq\Sigma$ is pairwise disjoint. We call $(X,\Sigma,\mu)$ a \emph{measure space}. A $\sigma$-additive measure is called a \emph{probability measure} if $\mu(X)=1$. A measure $\mu$ is \emph{complete} if for every $A\subseteq B\in\Sigma$, $\mu(B)=0$ implies $A\in\Sigma$. In words, subsets of measure-zero sets are always measurable (and hence, by the monotonicity of $\mu$, have measure zero as well). A measure $\mu$ is \emph{$\sigma$-finite} if $X=\cup_{n=1}^\infty X_n$ where $\mu(X_n)<\infty$ for all $n\in\mathbb{N}$ (i.e., $X$ can be decomposed into countably many finite measure sets). A measure $\mu$ is \emph{perfect} if for every measurable $f:X\rightarrow\mathbb{R}$ and every measurable set $E$ with $\mu(E)>0$, there exists a compact $K\subseteq f(E)$ such that $\mu(f^{-1}(K))>0$. We say that a property $\phi(x)$ about $x\in X$ holds \emph{$\mu$-almost everywhere} if $\mu(\{x\in X:\phi(x) \text{ does not hold}\})=0$.
+Given a measurable space $(X,\Sigma)$, a \emph{$\sigma$-additive measure} is a non-negative function $\mu:\Sigma\rightarrow\mathbb{R}$ with the property that $\mu(\emptyset)=0$ and $\mu(\bigcup_{n=0}^\infty A_n)=\sum_{n=0}^\infty\mu(A_n)$ whenever $\{A_n:n\in\mathbb{N}\}\subseteq\Sigma$ is pairwise disjoint. We call $(X,\Sigma,\mu)$ a \emph{measure space}. A $\sigma$-additive measure is called a \emph{probability measure} if $\mu(X)=1$. A measure $\mu$ is \emph{complete} if for every $A\subseteq B\in\Sigma$, $\mu(B)=0$ implies $A\in\Sigma$. In words, subsets of measure-zero sets are always measurable (and hence, by the monotonicity of $\mu$, have measure zero as well). A measure $\mu$ is \emph{$\sigma$-finite} if $X=\cup_{n=1}^\infty X_n$ where $\mu(X_n)<\infty$ for all $n\in\mathbb{N}$ (i.e., $X$ can be decomposed into countably many finite measure sets). A measure $\mu$ is \emph{perfect} if for every measurable $f:X\rightarrow\mathbb{R}$ and every measurable set $E$ with $\mu(E)>0$, there exists a compact $K\subseteq f(E)$ such that $\mu(f^{-1}(K))>0$. We say that a property $\phi(x)$ about $x\in X$ holds \emph{$\mu$-almost everywhere} if $\mu(\{x\in X:\varphi(x) \text{ does not hold}\})=0$.
 
 A special example of the preceding concepts is that of a \emph{Radon measure}. If $X$ is a Hausdorff topological space, then a measure $\mu$ on the Borel sets of $X$ is called a \emph{Radon measure} if
 \begin{itemize}
