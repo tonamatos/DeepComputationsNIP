@@ -413,7 +413,7 @@ A \emph{computation states structure} is a pair $(L,\mathcal{P})$, where $L$ is 
 For each $P\in \mathcal{P}$, we call real value $P(v)$ the $P$-th \emph{feature} of~$v$.  A \emph{transition} of a computation states structure  $(L,\mathcal{P})$ is a map $f:L\to L$.
 
 
-Intuitively, $L$ is the set of states of a computation,  and the predicates  $P \in\mathcal{P}$ are primitives that are given and accepted as computational.
+Intuitively, $L$ is the set of states of a computation,  and the predicates  $P \in\mathcal{P}$ are primitives that are given and accepted as computable.
 We think of  each state $v\in L$ as being uniquely characterized by its type $\operatorname{tp}(v)$. Thus,  in practice, we identify $L$ with a subset of $\mathbb{R}^\mathcal{P}$.  A typical case will be when $L=\mathbb{R}^\mathbb{N}$ or $L=\mathbb{R}^n$ for some positive integer $n$ and there is a predicate $P_i(v) = v_i$ for each of the coordinates $v_i$ of~$v$.  We regard the space of types as a topological space, endowed with the topology of pointwise convergence inherited from $\mathbb{R}^\mathcal{P}$. In particular, for each $P\in \mathcal{P}$, the projection map $v\mapsto P(v)$ is continuous. 
 
 \begin{defn}
@@ -648,7 +648,7 @@ The countability assumption on $\mathcal{P}$  played a crucial  role in the proo
 
 \subsection{A measure-theoretic version of NIP}
 
-Recall that the \emph{raison d'être} of the class of Baire-1 functions is to have a class that is contains the continuous functions but is closed under pointwise limits, and that ( Fact~\ref{baire}) for perfectly normal $X$, a function  $f$ is in $B_1(X,Y)$ if and only if $f^{-1}[U]$ is an $F_\sigma$ subset of $X$ for every open $U\subseteq Y$. This motivates the following definition:
+Recall that the \emph{raison d'être} of the class of Baire-1 functions is to have a class that  contains the continuous functions but is closed under pointwise limits, and that ( Fact~\ref{baire}) for perfectly normal $X$, a function  $f$ is in $B_1(X,Y)$ if and only if $f^{-1}[U]$ is an $F_\sigma$ subset of $X$ for every open $U\subseteq Y$. This motivates the following definition:
 
 
 
