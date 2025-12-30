@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.7.13)  30 DEC 2025 16:21
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.7.13)  30 DEC 2025 16:50
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -857,7 +857,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [4]
 [5] [6]
-Overfull \hbox (15.13966pt too wide) in paragraph at lines 291--292
+Overfull \hbox (15.13966pt too wide) in paragraph at lines 294--295
 []\OT1/cmr/m/n/10 ], and in sta-tis-ti-cal learn-ing, by Vladimir Vap-nik and A
 lexey Cher-vo-nenkis [[],
  []
@@ -866,54 +866,69 @@ lexey Cher-vo-nenkis [[],
 
 Package amsmath Warning: Foreign command \atopwithdelims;
 (amsmath)                \frac or \genfrac should be used instead
-(amsmath)                 on input line 313.
+(amsmath)                 on input line 316.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 333.
+(hyperref)                removing `math shift' on input line 336.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 333.
+(hyperref)                removing `subscript' on input line 336.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 333.
+(hyperref)                removing `superscript' on input line 336.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 333.
+(hyperref)                removing `math shift' on input line 336.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 333.
+(hyperref)                removing `math shift' on input line 336.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 333.
+(hyperref)                removing `math shift' on input line 336.
 
 [8] [9] [10]
-Overfull \hbox (1.67206pt too wide) in paragraph at lines 452--453
+Overfull \hbox (1.67206pt too wide) in paragraph at lines 457--458
 [][]\OT1/cmr/bx/n/10 Definition 2.3. []\OT1/cmr/m/n/10 A \OT1/cmr/m/it/10 Com-p
 o-si-tional Com-pu-ta-tion Struc-ture \OT1/cmr/m/n/10 (CCS) is a triple $(\OML/
 cmm/m/it/10 L; \U/eus/m/n/10 P\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 ^^@)$,
  []
 
 
-Overfull \hbox (20.16731pt too wide) in paragraph at lines 484--485
+Overfull \hbox (20.16731pt too wide) in paragraph at lines 489--490
 []\OT1/cmr/m/n/10 For a de-tailed dis-cus-sion of the Ex-tend-abil-ity Ax-iom, 
 we re-fer the reader to [[]]. 
  []
 
 [11] [12] [13]
-Underfull \vbox (badness 2111) has occurred while \output is active []
+Underfull \vbox (badness 4328) has occurred while \output is active []
 
  [14]
-[15] [16] [17] [18] [19]
-LaTeX Font Info:    Trying to load font information for U+euf on input line 829
-.
+[15] [16]
+Overfull \hbox (11.74614pt too wide) in paragraph at lines 721--722
+[]\OT1/cmr/m/it/10 For ev-ery Radon mea-sure $\OML/cmm/m/it/10 ^^V$ \OT1/cmr/m/
+it/10 on $\OML/cmm/m/it/10 X$\OT1/cmr/m/it/10 , $\OML/cmm/m/it/10 A$ \OT1/cmr/m
+/it/10 is rel-a-tively count-ably com-pact in $\U/rsfs/m/n/10 M[]\OT1/cmr/m/n/1
+0 (\OML/cmm/m/it/10 X; ^^V\OT1/cmr/m/n/10 )$\OT1/cmr/m/it/10 ,
+ []
 
-(/usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/ueuf.fd
+[17] [18]
+Overfull \hbox (11.74614pt too wide) in paragraph at lines 819--820
+[]\OT1/cmr/m/it/10 For ev-ery Radon mea-sure $\OML/cmm/m/it/10 ^^V$ \OT1/cmr/m/
+it/10 on $\OML/cmm/m/it/10 X$\OT1/cmr/m/it/10 , $\OML/cmm/m/it/10 A$ \OT1/cmr/m
+/it/10 is rel-a-tively count-ably com-pact in $\U/rsfs/m/n/10 M[]\OT1/cmr/m/n/1
+0 (\OML/cmm/m/it/10 X; ^^V\OT1/cmr/m/n/10 )$\OT1/cmr/m/it/10 ,
+ []
+
+[19]
+LaTeX Font Info:    Trying to load font information for U+euf on input line 845
+.
+ (/usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/ueuf.fd
 File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
 )
 Excluding 'comment' comment. (./main.bbl [20]
@@ -933,8 +948,8 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: C9F6DA312681FCC0446173CF11C90621;6708.
  ) 
 Here is how much of TeX's memory you used:
- 30674 strings out of 478268
- 725902 string characters out of 5846347
+ 30690 strings out of 478268
+ 726014 string characters out of 5846347
  1145640 words of memory out of 5000000
  48064 multiletter control sequences out of 15000+600000
  481578 words of font info for 79 fonts, out of 8000000 for 9000
@@ -969,10 +984,10 @@ fonts/type1/public/amsfonts/euler/eusm7.pfb></usr/local/texlive/2022/texmf-dist
 dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2022/te
 xmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/local/texlive/2022
 /texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb>
-Output written on main.pdf (21 pages, 441171 bytes).
+Output written on main.pdf (21 pages, 441092 bytes).
 PDF statistics:
- 595 PDF objects out of 1000 (max. 8388607)
- 508 compressed objects within 6 object streams
- 149 named destinations out of 1000 (max. 500000)
+ 614 PDF objects out of 1000 (max. 8388607)
+ 527 compressed objects within 6 object streams
+ 165 named destinations out of 1000 (max. 500000)
  149 words of extra memory for PDF output out of 10000 (max. 10000000)
 

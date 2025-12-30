@@ -205,11 +205,14 @@ A subset $L$ of a topological space $X$ is \emph{relatively compact} in $X$ if t
 
 \begin{lem}
     Let $X$ be a Polish space and $A\subseteq B_1(X)$ be pointwise bounded. The following are equivalent:
-    \begin{itemize}
-        \item [(i)] $A$ is relatively compact in $B_1(X)$.
-        \item [(ii)] $A$ is relatively countably compact in $B_1(X)$, i.e., every countable subset of $A$ has an accumulation point in $B_1(X)$.
-        \item [(iii)] $\overline{A}\subseteq B_1(X)$, where $\overline{A}$ denotes the closure in $\mathbb{R}^X$.
-    \end{itemize}
+    \begin{enumerate}[(i)]
+        \item
+        $A$ is relatively compact in $B_1(X)$.
+        \item
+        $A$ is relatively countably compact in $B_1(X)$, i.e., every countable subset of $A$ has an accumulation point in $B_1(X)$.
+        \item
+        $\overline{A}\subseteq B_1(X)$, where $\overline{A}$ denotes the closure in $\mathbb{R}^X$.
+    \end{enumerate}
 \end{lem}
 
 \begin{proof}
@@ -366,14 +369,14 @@ Given $A\subseteq Y^X$ and $K\subseteq X$ we write $A|_K:=\{f|_K:f\in A\}$, i.e.
 \begin{thm}\label{Generalized BFT}
     Assume that $\mathcal P$ is countable, $X$ is a Polish space, and $A\subseteq C_p(X,\mathbb R^\mathcal P)$ is such that $\pi_P\circ A$ is pointwise bounded for all $P\in\mathcal{P}$. The following are equivalent for every compact $K\subseteq X$:
 
-    \begin{enumerate}
+    \begin{enumerate}[(i)]
         \item $\overline{A|_K}\subseteq B_1(K,\mathbb R^\mathcal P)$.
         \item $\pi_P\circ A|_K$ satisfies the NIP for every $P\in\mathcal P$.
     \end{enumerate}
 \end{thm}
 
 \begin{proof}
-    (1)$\Rightarrow$(2). Let $P\in\mathcal{P}$. Fix $\{f_n\}_{n\in\mathbb N}\subseteq A$ and $a<b$. By (1), we have $\overline{A|_K}\subseteq B_1(K,\mathbb{R}^\mathcal{P})$. Applying the homeomorphism $f\mapsto \hat{f}$ and using lemma \ref{homeo} we get $\overline{\hat{A}|_{\mathcal{P}\times K}}\subseteq B_1(\mathcal{P}\times K)$. By Theorem \ref{BFT}, there is $I\subseteq\mathbb{N}$ such that
+    (i)$\Rightarrow$(ii). Let $P\in\mathcal{P}$. Fix $\{f_n\}_{n\in\mathbb N}\subseteq A$ and $a<b$. By (i), we have $\overline{A|_K}\subseteq B_1(K,\mathbb{R}^\mathcal{P})$. Applying the homeomorphism $f\mapsto \hat{f}$ and using lemma \ref{homeo} we get $\overline{\hat{A}|_{\mathcal{P}\times K}}\subseteq B_1(\mathcal{P}\times K)$. By Theorem \ref{BFT}, there is $I\subseteq\mathbb{N}$ such that
     $$(\mathcal{P}\times K)\cap\bigcap_{n\in I}\hat{f_n}^{-1}(-\infty,a]\cap\bigcap_{n\notin I}\hat{f_n}^{-1}[b,\infty)=\emptyset$$
     Hence,
     $$K\cap\bigcap_{n\in I}(\pi_P\circ f_n)^{-1}(-\infty,a]\cap\bigcap_{n\notin I}(\pi_P\circ f_n)^{-1}[b,\infty)=\emptyset$$
@@ -381,17 +384,19 @@ Given $A\subseteq Y^X$ and $K\subseteq X$ we write $A|_K:=\{f|_K:f\in A\}$, i.e.
     $$K\cap\bigcap_{n\in E}(\pi_P\circ f_n)^{-1}(-\infty,a]\cap\bigcap_{n\in F}(\pi_P\circ f_n)^{-1}[b,\infty)=\emptyset$$
     Thus, $\pi_P\circ A|_L$ satisfies the NIP.
 
-    (2)$\Rightarrow$(1) Fix $f\in\overline{A|_K}$. By lemma \ref{baire 1 and projections} it suffices to show that $\pi_P\circ f\in B_1(K)$ for all $P\in\mathcal{P}$. By (2), $\pi_P\circ A|_K$ satisfies the NIP. Hence, by Theorem \ref{BFT} we have $\overline{\pi_P\circ A|_K}\subseteq B_1(K)$. But then, $\pi_P\circ f\in\overline{\pi_P\circ A|_K}\subseteq B_1(K)$.
+    (ii)$\Rightarrow$(i) Fix $f\in\overline{A|_K}$. By lemma \ref{baire 1 and projections} it suffices to show that $\pi_P\circ f\in B_1(K)$ for all $P\in\mathcal{P}$. By (ii), $\pi_P\circ A|_K$ satisfies the NIP. Hence, by Theorem \ref{BFT} we have $\overline{\pi_P\circ A|_K}\subseteq B_1(K)$. But then, $\pi_P\circ f\in\overline{\pi_P\circ A|_K}\subseteq B_1(K)$.
 \end{proof}
 
 Lastly, a simple but useful lemma that helps understand when we restrict a set of functions to a specific subspace of the domain space, we may always assume that the subspace is closed, as replacing the subspace by its closure has no effect on NIP.
 
 \begin{lem}\label{NIP and closure}
     Assume that $X$ is Hausdorff and that $A\subseteq C_p(X)$. The following are equivalent for every $L\subseteq X$:
-    \begin{itemize}
-        \item [(i)] $A_L$ satisfies the NIP.
-        \item [(ii)] $A|_{\overline{L}}$ satisfies the NIP.
-    \end{itemize}
+    \begin{enumerate}[(i)]
+        \item
+        $A_L$ satisfies the NIP.
+        \item
+        $A|_{\overline{L}}$ satisfies the NIP.
+    \end{enumerate}
 \end{lem}
 
 \begin{proof}
@@ -511,7 +516,7 @@ Under what conditions are deep computations Baire class 1, and thus well-behaved
 \begin{thm}\label{nip-baire1def}
     Let $(L,\mathcal P,\Gamma)$ be a compositional computational structure (Definition~\ref{D:CCS}) satisfying the Extendability Axiom (Definition~\ref{D:extendability axiom}) with $\mathcal{P}$ countable. Let $R$ be an exhaustive collection of sizers. Let $\Delta\subseteq\Gamma$ be $R$-confined. The following are equivalent.
 
-    \begin{enumerate}
+    \begin{enumerate}[(i)]
         \item $\overline{\tilde\Delta|_{\mathcal{L}[r_\bullet]}}\subseteq B_1(\mathcal L[r_\bullet],\mathcal L[r_\bullet])$ for all $r_\bullet\in R$.
         \item $\pi_P\circ \Delta|_{L[r_\bullet]}$ satisfies the NIP for all $P\in\mathcal{P}$ and $r_\bullet\in R$; that is, for all $P\in\mathcal P$, $r_\bullet\in R$, $a<b$, $\{\gamma_n\}_{n\in\mathbb N}\subseteq\Delta$ there are finite disjoint $E,F\subseteq\mathbb N$ such that $$L[r_\bullet]\cap\bigcap_{n\in E}(\pi_P\circ\gamma_n)^{-1}(-\infty,a]\cap\bigcap_{n\in F}(\pi_P\circ\gamma_n)^{-1}[b,\infty)=\emptyset.$$
     \end{enumerate}
@@ -520,24 +525,27 @@ Under what conditions are deep computations Baire class 1, and thus well-behaved
 \end{thm}
 
 \begin{proof}
-    Since $\mathcal{P}$ is countable, $\mathcal{L}[r_\bullet]\subseteq\mathbb{R}^\mathcal{P}$ is Polish. Also, the Extendability Axiom implies that $\pi_P\circ \tilde\Delta|_{\mathcal{L}[r_\bullet]}$ is a pointwise bounded set of continuous functions for all $P\in\mathcal{P}$. Hence, Theorem \ref{Generalized BFT} and Lemma \ref{NIP and closure} prove the equivalence of (1) and (2). If (1) holds and $f\in\overline{\Delta}$, then write $f=\mathcal{U}{\rm lim}_i \gamma_i$ as an ultralimit. Define $\tilde f:=\mathcal{U}{\rm lim}_i \tilde\gamma_i$. Hence, for all $r_\bullet\in R$ we have $\tilde f|_{\mathcal{L}[r_\bullet]}\in\overline{\tilde\Delta|_{\mathcal{L}[r_\bullet]}}\subseteq B_1(\mathcal L[r_\bullet],\mathcal L[r_\bullet])$. That every deep computation is a pointwise limit of a countable sequence of computations follows from the fact that for a Polish space $X$ every compact subset of $B_1(X)$ is Fréchet-Urysohn (that is, a space where topological closures coincide with sequential closures, see Theorem 3F in \cite{BFT_1978_PCompactBaire} or Theorem 4.1 in \cite{debs2013rosenthal}).
+    Since $\mathcal{P}$ is countable, $\mathcal{L}[r_\bullet]\subseteq\mathbb{R}^\mathcal{P}$ is Polish. Also, the Extendability Axiom implies that $\pi_P\circ \tilde\Delta|_{\mathcal{L}[r_\bullet]}$ is a pointwise bounded set of continuous functions for all $P\in\mathcal{P}$. Hence, Theorem \ref{Generalized BFT} and Lemma \ref{NIP and closure} prove the equivalence of (i) and (ii). If (i) holds and $f\in\overline{\Delta}$, then write $f=\mathcal{U}{\rm lim}_i \gamma_i$ as an ultralimit. Define $\tilde f:=\mathcal{U}{\rm lim}_i \tilde\gamma_i$. Hence, for all $r_\bullet\in R$ we have $\tilde f|_{\mathcal{L}[r_\bullet]}\in\overline{\tilde\Delta|_{\mathcal{L}[r_\bullet]}}\subseteq B_1(\mathcal L[r_\bullet],\mathcal L[r_\bullet])$. That every deep computation is a pointwise limit of a countable sequence of computations follows from the fact that for a Polish space $X$ every compact subset of $B_1(X)$ is Fréchet-Urysohn (that is, a space where topological closures coincide with sequential closures, see Theorem 3F in \cite{BFT_1978_PCompactBaire} or Theorem 4.1 in \cite{debs2013rosenthal}).
 \end{proof}
 
 \subsection{The Todorčević trichotomy  and levels of PAC learnability}
 
-Given a countable set $\Delta$ of computations satisfying the NIP on features and shards (condition (2) of Theorem \ref{nip-baire1def}) we have that $\overline{\tilde\Delta_{\mathcal{L}[r_\bullet]}}$ (for a fixed sizer $r_\bullet$) is a separable \textit{Rosenthal compactum} (see Definition~\ref{D:Rosenthal compacta}).  Todorčević\ proved a remarkable trichotomy for Rosenthal compacta~\cite{Todorcevic_1999_CompactSubsetsBaire}, and later Argyros, Dodos, Kanellopoulos~\cite{argyros2008rosenthal} proved an heptachotomy that refined Todorčević's classification. In this section, inspired by the work of Glasner and Megrelishvili~\cite{glasner2022tame}, we study ways in which this classification allows us obtain different levels of PAC-learnability  and NIP.
+Given a countable set $\Delta$ of computations satisfying the NIP on features and shards (condition (ii) of Theorem \ref{nip-baire1def}) we have that $\overline{\tilde\Delta_{\mathcal{L}[r_\bullet]}}$ (for a fixed sizer $r_\bullet$) is a separable \textit{Rosenthal compactum} (see Definition~\ref{D:Rosenthal compacta}).  Todorčević\ proved a remarkable trichotomy for Rosenthal compacta~\cite{Todorcevic_1999_CompactSubsetsBaire}, and later Argyros, Dodos, Kanellopoulos~\cite{argyros2008rosenthal} proved an heptachotomy that refined Todorčević's classification. In this section, inspired by the work of Glasner and Megrelishvili~\cite{glasner2022tame}, we study ways in which this classification allows us obtain different levels of PAC-learnability  and NIP.
 
 
 
 Recall that a topological space $X$ is \emph{hereditarily separable} if every subspace is separable, and that $X$ is \emph{first countable} if every point in $X$ has a countable local basis. Every separable metrizable space is hereditarily separable, and  R. Pol proved that every hereditarily separable Rosenthal compactum is first countable (see section 10 of \cite{debs2013rosenthal}). This suggests the following definition:
 
 \begin{defn}
-    Let $(L,\mathcal{P},\Gamma)$ be a CCS satisfying the Extendability Axiom and $R$ be an exhaustive collection of sizers. Let $\Delta\subseteq\Gamma$ be an $R$-confined countable set of computations satisfying the NIP on shards and features (condition (2) in Theorem \ref{nip-baire1def}). We say that $\Delta$ is:
-    \begin{itemize}
-        \item [(i)] NIP$_1$ if $\overline{\tilde\Delta|_{\mathcal{L}[r_\bullet]}}$ is first countable for every $r_\bullet\in R$.
-        \item [(ii)] NIP$_2$ if $\overline{\tilde\Delta|_{\mathcal{L}[r_\bullet]}}$ is hereditarily separable for every $r_\bullet\in R$.
-        \item [(iii)] NIP$_3$ if $\overline{\tilde\Delta|_{\mathcal{L}[r_\bullet]}}$ is metrizable for every $r_\bullet\in R$.
-    \end{itemize}
+    Let $(L,\mathcal{P},\Gamma)$ be a CCS satisfying the Extendability Axiom and $R$ be an exhaustive collection of sizers. Let $\Delta\subseteq\Gamma$ be an $R$-confined countable set of computations satisfying the NIP on shards and features (condition (ii) in Theorem \ref{nip-baire1def}). We say that $\Delta$ is:
+    \begin{enumerate}[(i)]
+        \item
+        NIP$_1$ if $\overline{\tilde\Delta|_{\mathcal{L}[r_\bullet]}}$ is first countable for every $r_\bullet\in R$.
+        \item
+        NIP$_2$ if $\overline{\tilde\Delta|_{\mathcal{L}[r_\bullet]}}$ is hereditarily separable for every $r_\bullet\in R$.
+        \item
+        NIP$_3$ if $\overline{\tilde\Delta|_{\mathcal{L}[r_\bullet]}}$ is metrizable for every $r_\bullet\in R$.
+    \end{enumerate}
 \end{defn}
 
 Observe that NIP$_3 \Rightarrow $NIP$_2\Rightarrow $NIP$_1\Rightarrow $NIP. A natural question that would continue this work is to find examples of CCS that separate these levels of NIP. In \cite{Todorcevic_1999_CompactSubsetsBaire}, Todorčević isolates three canonical examples of Rosenthal compacta that witness the failure of the converse implications above. 
@@ -574,7 +582,7 @@ We now present some separable and non-separable examples of Rosenthal compacta.
 
 \begin{thm}[Todorčević's Trichotomy, \cite{Todorcevic_1999_CompactSubsetsBaire}, Theorem 3 in \cite{argyros2008rosenthal}]
     Let $K$ be a separable Rosenthal Compactum.
-    \begin{enumerate} [(i)] 
+    \begin{enumerate}[(i)] 
         \item 
         If $K$ is hereditarily separable but non-metrizable, then $S(2^\mathbb{N})$ embeds into $K$.
         \item 
@@ -686,10 +694,12 @@ In the context of deep computations, we will be interested in transition maps of
 
 \begin{lem}\label{lemma:coordinated_univ_meas}
     Let $X$ be a Hausdorff space and $Y=\prod_{i\in I}Y_i$ be any product of measurable spaces $(Y_i,\Sigma_i)$ for $i\in I$. Let $\Sigma_Y$ be the cylinder $\sigma$-algebra generated by the measurable spaces $(Y_i,\Sigma_i)$. Let $f:X\rightarrow Y$. The following are equivalent:
-    \begin{itemize}
-        \item [(i)] $f:X\rightarrow Y$ is universally measurable (with respect to $\Sigma_Y$).
-        \item [(ii)] $\pi_i\circ f:X\rightarrow Y_i$ is universally measurable (with respect to $\Sigma_i$) for all $i\in I$.
-    \end{itemize}
+    \begin{enumerate}[(i)]
+        \item
+        $f:X\rightarrow Y$ is universally measurable (with respect to $\Sigma_Y$).
+        \item
+        $\pi_i\circ f:X\rightarrow Y_i$ is universally measurable (with respect to $\Sigma_i$) for all $i\in I$.
+    \end{enumerate}
 \end{lem}
 
 \begin{proof}
@@ -702,11 +712,14 @@ We will need the following result about NIP and universally measurable functions
 
 \begin{thm}[Bourgain-Fremlin-Talagrand, Theorem 2F in \cite{BFT_1978_PCompactBaire}]\label{BFT-2F}
     Let $X$ be a Hausdorff space and $A\subseteq C(X)$ be pointwise bounded. The following are equivalent:
-    \begin{itemize}
-        \item [(i)] $\overline{A}\subseteq M_r(X)$.
-        \item [(ii)] For every compact $K\subseteq X$, $A|_K$ satisfies the NIP.
-        \item [(iii)] For every Radon measure $\mu$ on $X$, $A$ is relatively countably compact in $\mathscr{M}^0(X,\mu)$, i.e., every countable subset of $A$ has an accumulation point in $\mathscr{M}^0(X,\mu)$. 
-    \end{itemize}
+    \begin{enumerate}[(i)]
+        \item
+        $\overline{A}\subseteq M_r(X)$.
+        \item 
+        For every compact $K\subseteq X$, $A|_K$ satisfies the NIP.
+        \item
+        For every Radon measure $\mu$ on $X$, $A$ is relatively countably compact in $\mathscr{M}^0(X,\mu)$, i.e., every countable subset of $A$ has an accumulation point in $\mathscr{M}^0(X,\mu)$. 
+    \end{enumerate}
 \end{thm}
 
 
@@ -787,22 +800,25 @@ It is then natural to ask: what is the relationship between Talagrand stability 
 \begin{lem}[Fremlin's Dichotomy, 463K in \cite{fremlin2003vol4}]
 \label{T:Fremlins dichotomy}
     If $(X,\Sigma,\mu)$ is a perfect $\sigma$-finite measure space (in particular, for $X$ compact and $\mu$ a Radon probability measure on $X$) and $\{f_n:n\in\mathbb{N}\}$ be a sequence of real-valued measurable functions on $X$, then one (and only one) of the following conditions holds:
-    \begin{itemize}
-        \item [(i)] $\{f_n:n\in\mathbb{N}\}$ has a subsequence that converges $\mu$-almost everywhere,
-        \item [(ii)] $\{f_n:n\in\mathbb{N}\}$ has a subsequence with no $\mu$-measurable accumulation point in $\mathbb{R}^X$.
-    \end{itemize}
+    \begin{enumerate}[(i)] 
+        \item
+        $\{f_n:n\in\mathbb{N}\}$ has a subsequence that converges $\mu$-almost everywhere,
+        \item
+        $\{f_n:n\in\mathbb{N}\}$ has a subsequence with no $\mu$-measurable accumulation point in $\mathbb{R}^X$.
+    \end{enumerate}
 \end{lem}
 
 The preceding lemma can be considered as a measure-theoretic version of Rosenthal's dichotomy. Combining this dichotomy with Theorem \ref{BFT-2F}, we get the following result:
 
 \begin{thm}
     Let $X$ be a Hausdorff space and $A\subseteq C(X)$ be pointwise bounded. The following are equivalent:
-    \begin{itemize}
-        \item [(i)] $\overline{A}\subseteq M_r(X)$.
+    \begin{enumerate}[(i)] 
+        \item
+        $\overline{A}\subseteq M_r(X)$.
         \item [(ii)] For every compact $K\subseteq X$, $A|_K$ satisfies the NIP.
         \item [(iii)] For every Radon measure $\mu$ on $X$, $A$ is relatively countably compact in $\mathscr{M}^0(X,\mu)$, i.e., every countable subset of $A$ has an accumulation point in $\mathscr{M}^0(X,\mu)$.
         \item [(iv)] For every Radon measure $\mu$ on $X$ and every sequence $\{f_n:n\in\mathbb{N}\}\subseteq A$, there is a subsequence that converges $\mu$-almost everywhere.
-    \end{itemize}
+    \end{enumerate}
 \end{thm}
 
 \begin{proof}
