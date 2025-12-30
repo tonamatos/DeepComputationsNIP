@@ -81,7 +81,6 @@ $^{2}$Department of Mathematics, University of Toronto\\
 
 \begin{abstract}
 We study complexity of deep computations. We use topology of function spaces, specifically, the classification Rosenthal compacta, to identify new complexity classes.  We use the language of model theory, specifically,  the concept of  the independence from Shelah's classification theory,  to translate between topology and computation.
-%This paper revisits and extends a bridge between functional analysis and model theory, emphasizing its relevance to the theoretical foundations of machine learning. We show that the compactness behavior of families of Baire class 1 Bourgain-Fremlyn-Talagrand dichotomyfunctions mirrors the learnability conditions in the sense of \emph{Probably Approximately Correct} (PAC) learning, and that the failure of compactness corresponds to the presence of infinite \emph{Vapnik-Chervonenkis} (VC) dimension. From this perspective, Rosenthal compacta emerge as the natural topological counterpart of PAC-learnable concept classes, while NIP vs. IP structures capture the precise boundary between analytical regularity and combinatorial intractability. These parallels suggest a unified framework linking compactness, definability, and learnability, exemplifying how the topology of function spaces encodes the algorithmic and epistemic limits of prediction.
 \end{abstract}
 
 \maketitle
@@ -164,7 +163,7 @@ Recall that a subset of a topological space is $F_\sigma$ if it is a countable u
 
 A \emph{Polish space} is a separable and completely metrizable topological space. The most important examples are the reals $\mathbb R$, the Cantor space $2^\mathbb N$ (the set of all infinite binary sequences, endowed with the product topology), and the Baire space $\mathbb N^\mathbb N$ (the set of all infinite sequences of naturals, also with the product topology). Countable products of Polish spaces are Polish; this includes spaces like $\mathbb R^\mathbb N$, the space of sequences of real numbers. 
 
-In this paper, we shall discuss  subspaces, and so there is a pertinent subtlety of the definitions worth mentioning: \emph{completely metrizable space} is not the same as \emph{complete metric space}; for an illustrative example, the interval $(0,1)$ with  the metric inherited from the reals not complete, but it is Polish since that is homeomorphic to the real line. Being Polish is a topological property.
+In this paper, we shall discuss  subspaces, and so there is a pertinent subtlety of the definitions worth mentioning: \emph{completely metrizable space} is not the same as \emph{complete metric space}; for an illustrative example, the interval $(0,1)$ with  the metric inherited from the reals not complete, but it is Polish since it is homeomorphic to the real line. Being Polish is a topological property.
 
 The following result is a cornerstone of descriptive set theory, closely tied to the work of Wacław Sierpiński and Kazimierz Kuratowski, with proofs often built upon their foundations and formalized later, notably, involving Stefan Mazurkiewicz's work on complete metric spaces.
 
@@ -791,9 +790,9 @@ It is then natural to ask: what is the relationship between Talagrand stability 
 
 \begin{lem}[Fremlin's Dichotomy, 463K in \cite{fremlin2003vol4}]
 \label{T:Fremlins dichotomy}
-    If $(X,\Sigma,\mu)$ is a perfect $\sigma$-finite measure space (in particular, for $X$ compact and $\mu$ a Radon probability measure on $X$) and $\{f_n:n\in\mathbb{N}\}$ be a sequence of real-valued measurable functions on $X$, then either
+    If $(X,\Sigma,\mu)$ is a perfect $\sigma$-finite measure space (in particular, for $X$ compact and $\mu$ a Radon probability measure on $X$) and $\{f_n:n\in\mathbb{N}\}$ be a sequence of real-valued measurable functions on $X$, then one (and only one) of the following conditions holds:
     \begin{itemize}
-        \item [(i)] $\{f_n:n\in\mathbb{N}\}$ has a subsequence that converges $\mu$-almost everywhere, or
+        \item [(i)] $\{f_n:n\in\mathbb{N}\}$ has a subsequence that converges $\mu$-almost everywhere,
         \item [(ii)] $\{f_n:n\in\mathbb{N}\}$ has a subsequence with no $\mu$-measurable accumulation point in $\mathbb{R}^X$.
     \end{itemize}
 \end{lem}
