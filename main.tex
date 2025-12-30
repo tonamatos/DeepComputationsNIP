@@ -71,8 +71,8 @@ Franklin D. Tall$^{2}$
 
 
 \date{\today}
-\subjclass[2000]{54H30, 68T27, 68T07, 03C98, 03D15, 05D10, 54D80}
-\keywords{Deep computations, deep equilibrium models, physics-informed networks, computational complexity, independence property, NIP,  infinite Ramsey theory,  Baire class 1, Rosenthal compacta, Bourgain-Fremlin-Talagrand}
+\subjclass[2000]{54H30, 68T27, 68T07, 03C98, 03D15, 05D10}
+\keywords{Deep computations, deep equilibrium models, physics-informed networks, computational complexity, independence property, NIP,  infinite Ramsey theory,  Baire class~1 functions, Rosenthal compacta, Bourgain-Fremlin-Talagrand}
 
 \begin{document}
 
@@ -112,12 +112,12 @@ Todorčević’s trichotomy regards \emph{Rosenthal compacta}; these  are specia
 
 Through our Rosetta stone, Rosenthal compacta in topology correspond to the important concept of  ``No Independence Property" (known as ``NIP’’) in model theory, identified by Shelah~\cite{Shelah:1971,Shelah:1990}, and to the concept of  Probably Approximately Correct learning (known as ``PAC learnability'') in statistical learning theory identified by Valiant~\cite{Valiant:1984}. 
 
-Going beyond Todorčević’s trichotomy, we invoke a more recent heptachotomy for Rosenthal compacta obtained by Argyros, Dodos and Kanellopoulos~\cite{argyros2008rosenthal}. Argyros, Dodos and Kanellopoulos identified seven fundamental ``prototypes" of separable Rosenthal compacta, and  proved that any non-metrizable separable Rosenthal compactum must contain a ``canonical" embedding of one of these prototypes. They showed that if a separable Rosenthal compactum is not hereditarily separable, it must contain an uncountable discrete subspace of the size of the continuum.
+Going beyond Todorčević’s trichotomy, we invoke a more recent heptachotomy for Rosenthal compacta obtained by Argyros, Dodos and Kanellopoulos~\cite{argyros2008rosenthal}. Argyros, Dodos and Kanellopoulos identified seven fundamental ``prototypes" of separable Rosenthal compacta, and  proved that any non-metrizable separable Rosenthal compactum must contain a ``canonical" embedding of one of these prototypes. They showed that if a separable Rosenthal compactum is not hereditarily separable, then it must contain an uncountable discrete subspace of the size of the continuum.
 
 
 We believe that the results presented in this paper show practitioners of computation, or topology, or descriptive set theory, or  model theory, how classification invariants used in their field translate into classification invariants of other fields. However, in the interest of accessibility, we do not assume previous familiarity with high-level topology or model theory, or computing. The only technical prerequisite of the paper is undergraduate-level topology and measure theory. The necessary topological background beyond undergraduate topology is covered in section~\ref{sec:prelim}.
 
-In section \ref{sec:prelim}, we present the basic topological and combinatorial preliminaries, and in section~\ref{S:CCS}, we introduce the structural/model-theoretic viewpoint (no previous exposure to model theory is needed). Section~\ref{S:Classification} is devoted to the classification of deep computations. The final section, section~\ref{Measure-theoretic NIP},  presents the probabilistic viewpoint.
+In section \ref{sec:prelim}, we present the basic topological and combinatorial preliminaries, and in section~\ref{S:CCS}, we introduce the structural/model-theoretic viewpoint (no previous exposure to model theory is needed). Section~\ref{S:Classification} is devoted to the classification of deep computations, and the final section, section~\ref{Measure-theoretic NIP},  presents the probabilistic viewpoint.
 
 
 Throughout the paper, we focus on classical computation; however, by refining the model-theoretic tools, the results presented here can be extended to quantum computation and open quantum systems. This extension will be addressed in a forthcoming paper.
@@ -167,7 +167,7 @@ Recall that a subset of a topological space is $F_\sigma$ if it is a countable u
 
 A \emph{Polish space} is a separable and completely metrizable topological space. The most important examples are the reals $\mathbb R$, the Cantor space $2^\mathbb N$ (the set of all infinite binary sequences, endowed with the product topology), and the Baire space $\mathbb N^\mathbb N$ (the set of all infinite sequences of naturals, also with the product topology). Countable products of Polish spaces are Polish; this includes spaces like $\mathbb R^\mathbb N$, the space of sequences of real numbers. 
 
-In this paper, we shall often discuss  subspaces, and so there is a pertinent subtlety of the definitions worth mentioning: \emph{completely metrizable space} is not the same as \emph{complete metric space}; for an illustrative example, the interval $(0,1)$ with  the metric inherited from the reals not complete, but it is Polish since it is homeomorphic to the real line. Being Polish is a topological property.
+In this paper, we shall often discuss  subspaces, and so there is a pertinent subtlety of the definitions worth mentioning: \emph{completely metrizable space} is not the same as \emph{complete metric space}; for an illustrative example, the interval $(0,1)$ with  the metric inherited from the reals not complete, but it is Polish since it is homeomorphic to the real line. Being Polish is a topological property while being metrically complete is not.
 
 The following result is a cornerstone of descriptive set theory, closely tied to the work of Wacław Sierpiński and Kazimierz Kuratowski, with proofs often built upon their foundations and formalized later, notably, involving Stefan Mazurkiewicz's work on complete metric spaces.
 
@@ -182,7 +182,7 @@ Given two topological spaces $X$ and $Y$ we denote by $C_p(X,Y)$ the set of all 
 
 A topological space $X$ is \emph{perfectly normal} if it is normal and every closed subset of $X$ is a $G_\delta$ (equivalently, every open subset of $X$ is a $G_\delta$).  Note that every metrizable space is perfectly normal.
 
-The following fact was established by  Baire in thesis. A proof can be found in Section 10 of \cite{Todorcevic_1997_TopicsTop}.
+The following fact was established by  Baire in his thesis 1899. A proof can be found in Section 10 of \cite{Todorcevic_1997_TopicsTop}.
 
 \begin{fact}[Baire]\label{baire}
     If $X$ is perfectly normal, then the following conditions are equivalent for a function $f:X\to \mathbb{R}$:
