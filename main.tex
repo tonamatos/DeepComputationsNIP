@@ -451,15 +451,13 @@ If $\Delta\subseteq\Gamma$, we say that $\Delta\subseteq\Gamma$ is \emph{$R$-con
 \end{defn}
 
  A tenet of our approach is that a map $f: L\to \mathcal{L}$ is to be considered “effectively computable” if, for each $Q\in\mathcal{P}$, the output feature $Q{\circ}f: L\to\mathbb{R}$ is a \emph{definable} predicate in the following sense:
-
-Given any arbitrary $\varepsilon>0$ and any $K\subseteq L$ wherein every input feature $P(v)$ remains bounded in magnitude there is an $\varepsilon$-approximating continuous ``algebraic'' operator $\varphi(P_1,\dots, P_n)$ of finitely many input predicates~$P_1,\dots, P_n\in\mathcal{P}$, such that  the following holds: for all $v\in K$,  the output feature $Q(f(v))$ is $\varepsilon$-approximated by $\varphi(P_1(v),\dots, P_n(v))$. By ``algebraic",  we mean that, aside from the primitives $P_1,\dots, P_n$, the approximating operator $\varphi(P_1,\dots, P_n)$ uses only the algebra operations of $\mathbb{R}^\mathcal{P}$, i.e., vector addition, vector multiplication, and scalar addition.
+Given any arbitrary $\varepsilon>0$ and any $K\subseteq L$ wherein every input feature $P(v)$ remains bounded in magnitude there is an $\varepsilon$-approximating continuous ``algebraic'' operator $\varphi(P_1,\dots, P_n)$ of finitely many input predicates~$P_1,\dots, P_n\in\mathcal{P}$, such that  the following holds: for all $v\in K$,  the output feature $Q(f(v))$ is $\varepsilon$-approximated by $\varphi(P_1(v),\dots, P_n(v))$. By ``algebraic",  we mean that, \emph{aside from the primitively computable $P_1,\dots, P_n$, the approximating operator $\varphi(P_1,\dots, P_n)$ uses only the also primitively computable operations of $\mathbb{R}^\mathcal{P}$ as an algebra}, i.e., vector addition, vector multiplication, and scalar addition.
 
 
 It is shown in \cite{alva2024approximability}) that:
 \begin{enumerate}
 \item For a definable $f: L\to \mathcal{L}$, the approximating operators $\varphi$  may be taken to be \emph{polynomials} of the input features, and
 \item Definable transforms $f: L\to\mathcal{L}$ are precisely those that extend to continuous $\tilde{f}: \mathcal{L} \to \mathcal{L}$
-  (this is the property of \emph{extendibility} mentioned above).
 \end{enumerate}
 
 This motivates the following definition.
@@ -519,7 +517,7 @@ Given a countable set $\Delta$ of computations satisfying the NIP on features an
 
 
 
-Recall that a topological space $X$ is \emph{hereditarily separable} (HS) if every subspace is separable and that $X$ is \emph{first countable} if every point in $X$ has a countable local basis. Every separable metrizable space is hereditarily separable, and  R. Pol proved that every hereditarily separable Rosenthal compactum is first countable (see section 10 of \cite{debs2013rosenthal}). This suggests the following definition:
+Recall that a topological space $X$ is \emph{hereditarily separable} if every subspace is separable, and that $X$ is \emph{first countable} if every point in $X$ has a countable local basis. Every separable metrizable space is hereditarily separable, and  R. Pol proved that every hereditarily separable Rosenthal compactum is first countable (see section 10 of \cite{debs2013rosenthal}). This suggests the following definition:
 
 \begin{defn}
     Let $(L,\mathcal{P},\Gamma)$ be a CCS satisfying the Extendability Axiom and $R$ be an exhaustive collection of sizers. Let $\Delta\subseteq\Gamma$ be an $R$-confined countable set of computations satisfying the NIP on shards and features (condition (2) in Theorem \ref{nip-baire1def}). We say that $\Delta$ is:
@@ -532,7 +530,7 @@ Recall that a topological space $X$ is \emph{hereditarily separable} (HS) if eve
 
 Observe that NIP$_3 \Rightarrow $NIP$_2\Rightarrow $NIP$_1\Rightarrow $NIP. A natural question that would continue this work is to find examples of CCS that separate these levels of NIP. In \cite{Todorcevic_1999_CompactSubsetsBaire}, Todorčević isolates three canonical examples of Rosenthal compacta that witness the failure of the converse implications above. 
 
-We now present some separable and non-separable examples of Rosenthal compacta:
+We now present some separable and non-separable examples of Rosenthal compacta.
 
 \begin{exmps}
 \label{E:Rosenthal comacta}

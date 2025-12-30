@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.7.13)  30 DEC 2025 09:30
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.7.13)  30 DEC 2025 10:50
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -907,13 +907,13 @@ cmm/m/it/10 L; \U/eus/m/n/10 P\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 ^^@)$,
  []
 
 
-Overfull \hbox (20.16731pt too wide) in paragraph at lines 474--475
+Overfull \hbox (20.16731pt too wide) in paragraph at lines 472--473
 []\OT1/cmr/m/n/10 For a de-tailed dis-cus-sion of the Ex-tend-abil-ity Ax-iom, 
 we re-fer the reader to [[]]. 
  []
 
 [11] [12] [13] [14] [15] [16] [17] [18]
-LaTeX Font Info:    Trying to load font information for U+euf on input line 819
+LaTeX Font Info:    Trying to load font information for U+euf on input line 817
 .
 
 (/usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/ueuf.fd
@@ -975,7 +975,7 @@ fonts/type1/public/amsfonts/euler/eusm7.pfb></usr/local/texlive/2022/texmf-dist
 dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2022/te
 xmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/local/texlive/2022
 /texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb>
-Output written on main.pdf (21 pages, 439156 bytes).
+Output written on main.pdf (21 pages, 439174 bytes).
 PDF statistics:
  593 PDF objects out of 1000 (max. 8388607)
  506 compressed objects within 6 object streams
