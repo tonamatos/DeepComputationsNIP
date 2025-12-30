@@ -109,7 +109,7 @@ Todorčević’s trichotomy regards \emph{Rosenthal compacta}; these  are specia
 
 Through our Rosetta stone, Rosenthal compacta in topology correspond to the important concept of  ``No Independence Property" (known as ``NIP’’) in model theory, identified by Shelah~\cite{Shelah:1971,Shelah:1990}, and to the concept of  Probably Approximately Correct learning (known as ``PAC learnability'') in statistical learning theory identified by Valiant~\cite{Valiant:1984}. 
 
-Going beyond Todorčević’s trichotomy, we invoke a more recent heptachotomy for Rosenthal compacta obtained by Argyros, Dodos and Kanellopoulos~\cite{argyros2008rosenthal}. Argyros, Dodos and Kanellopoulos identified the fundamental ``prototypes" of separable Rosenthal compacta, and  proved that any non-metrizable separable Rosenthal compactum must contain a ``canonical" embedding of one of these prototypes. They showed that if a separable Rosenthal compactum is not hereditarily separable, it must contain an uncountable discrete subspace of the size of the continuum.
+Going beyond Todorčević’s trichotomy, we invoke a more recent heptachotomy for Rosenthal compacta obtained by Argyros, Dodos and Kanellopoulos~\cite{argyros2008rosenthal}. Argyros, Dodos and Kanellopoulos identified seven fundamental ``prototypes" of separable Rosenthal compacta, and  proved that any non-metrizable separable Rosenthal compactum must contain a ``canonical" embedding of one of these prototypes. They showed that if a separable Rosenthal compactum is not hereditarily separable, it must contain an uncountable discrete subspace of the size of the continuum.
 
 
 We believe that the results presented in this paper show practitioners of computation, or topology, or descriptive set theory, or  model theory, how classification invariants used in their field translate into classification invariants of other fields. However, in the interest of accessibility, we do not assume previous familiarity with high-level topology or model theory, or computing. The only technical prerequisite of the paper is undergraduate-level topology. The necessary topological background beyond undergraduate topology is covered in section~\ref{sec:prelim}.
@@ -209,7 +209,7 @@ A subset $L$ of a topological space $X$ is \emph{relatively compact} in $X$ if t
 \end{lem}
 
 \begin{proof}
-    Since $A$ is pointwise bounded, for each $x\in X$, fic $M_x>0$ such that $|f(x)|\leq M_x$ for every $f\in A$.
+    Since $A$ is pointwise bounded, for each $x\in X$, fix $M_x>0$ such that $|f(x)|\leq M_x$ for every $f\in A$.
 
     (i)$\Rightarrow$(ii) holds in general. 
 
@@ -474,7 +474,10 @@ This motivates the following definition.
 We say that a CCS $(L,\mathcal P,\Gamma)$ satisfies the \emph{Extendability Axiom} if for all $\gamma\in \Gamma$, there is $\tilde\gamma:\mathcal L_{sh}\to\mathcal L_{sh}$ such that for every sizer $r_{\bullet}$ there is a sizer $s_\bullet$ such that $\tilde\gamma|_{\mathcal L[r_\bullet]}:\mathcal L[r_\bullet]\to\mathcal L[s_\bullet]$ is continuous.  We refer to $\tilde\gamma$ as a \emph{free} extension of $\gamma$.
 \end{defn}
 
-By the preceding remarks, the Extendability Axiom says that the elements of the semigroup $\Gamma$ are definable.
+By the preceding remarks, the Extendability Axiom says that the elements of the semigroup $\Gamma$ are definable. For the rest of the paper, fix for each $\gamma\in\Gamma$ a free extension $\tilde{\gamma}$ of $\gamma$. If $\Delta\subseteq\Gamma$, let $\tilde{\Delta}$ denote $\{\tilde\gamma\colon\\gamma\in\Delta\}$.
+
+For a deeper discussion about this axiom, we refer the reader to \cite{alva2024approximability}.
+
 
 
 
@@ -489,7 +492,6 @@ For an illustrative example, we can frame Newton's polynomial root approximation
 
 
 
-For a deeper discussion about this axiom, we refer the reader to \cite{alva2024approximability}.
 
 
 
@@ -601,10 +603,10 @@ We thus have the following classification:
 \end{tikzpicture}
 \end{center}
 
-The definitions provided here for $NIP_i$ ($i=1,2,3$) are topological. This raises the following question:
+The definitions provided here for NIP$_i$ ($i=1,2,3$) are topological. This raises the following question:
 
 \begin{question}
-    Is there a non-topological characterization for $NIP_i$, $i=1,2,3$?
+    Is there a non-topological characterization for NIP$_i$, $i=1,2,3$?
 \end{question}
 
 
@@ -627,7 +629,7 @@ Let $X$ be a Polish space.
 
 \begin{enumerate}
 \item
-If  $I$ is a countable and l$\{f_i:i\in I\}\subseteq\mathbb{R}^X$, $\{g_i:i\in I\}\subseteq\mathbb{R}^X$  are two pointwise families by  $I$. We say that $\{f_i:i\in\ I\}$ and $\{g_i:i\in I\}$ are \emph{equivalent} if and only if the map $f_i\mapsto g_i$ is extended to a homeomorphism from $\overline{\{f_i:i\in I\}}$ to $\overline{\{g_i:i\in I\}}$.
+If  $I$ is a countable and $\{f_i:i\in I\}\subseteq\mathbb{R}^X$, $\{g_i:i\in I\}\subseteq\mathbb{R}^X$  are two pointwise families by  $I$, we say that $\{f_i:i\in\ I\}$ and $\{g_i:i\in I\}$ are \emph{equivalent} if and only if the map $f_i\mapsto g_i$ is extended to a homeomorphism from $\overline{\{f_i:i\in I\}}$ to $\overline{\{g_i:i\in I\}}$.
 \item
 If $\{f_t:t\in 2^{<\mathbb{N}}\}$ is a pointwise bounded family, we say that $\{f_t:t\in 2^{<\mathbb{N}}\}$ is \emph{minimal} if and only if for every dyadic subtree $\{s_t:t\in 2^{<\mathbb{N}}\}$ of $2^{<\mathbb{N}}$, $\{f_{s_t}:t\in 2^{<\mathbb{N}}\}$ is equivalent to $\{f_t:t\in 2^{<\mathbb{N}}\}$.
  \end{enumerate}

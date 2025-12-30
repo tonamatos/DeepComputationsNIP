@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.7.13)  29 DEC 2025 20:45
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.7.13)  29 DEC 2025 22:01
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -841,6 +841,12 @@ Class amsart Warning: Abstract should precede \maketitle in AMS document classe
 s; reported on input line 82.
 
 [1{/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+Overfull \hbox (3.05618pt too wide) in paragraph at lines 112--113
+\OT1/cmr/m/n/10 sep-a-ra-ble Rosen-thal com-pacta, and proved that any non-metr
+izable sep-a-ra-ble Rosen-
+ []
+
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [2]
@@ -898,7 +904,7 @@ cmm/m/it/10 L; \U/eus/m/n/10 P\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 ^^@)$,
  []
 
 [10] [11] [12] [13] [14] [15] [16] [17] [18]
-LaTeX Font Info:    Trying to load font information for U+euf on input line 805
+LaTeX Font Info:    Trying to load font information for U+euf on input line 807
 .
 
 (/usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/ueuf.fd
@@ -962,7 +968,7 @@ st/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2022/texm
 f-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2022/
 texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/local/texlive/20
 22/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb>
-Output written on main.pdf (21 pages, 426688 bytes).
+Output written on main.pdf (21 pages, 426932 bytes).
 PDF statistics:
  558 PDF objects out of 1000 (max. 8388607)
  474 compressed objects within 5 object streams
