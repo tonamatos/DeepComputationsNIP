@@ -440,6 +440,7 @@ We define $\mathcal{L}_{\text sh}$, as the union of all type-shards.
 %In our context, $\mathcal{L}_{\text sh}$ provides the ``correct'' notion of space of types as a compactification.
 
 \begin{defn}
+\label{D:CCS}
 A \emph{Compositional Computation Structure} (CCS) is a triple $(L,\mathcal P,\Gamma)$, where
 \begin{itemize}
 \item
@@ -470,7 +471,7 @@ This motivates the following definition.
 
 \begin{defn}
 \label{D:extendability axiom}
-We say that a CCS $(L,\mathcal P,\Gamma)$ satisfies the \emph{Extendability Axiom} if for all $\gamma\in \Gamma$, there is $\tilde\gamma:\mathcal L_{sh}\to\mathcal L_{sh}$ such that for every sizer $r_{\bullet}$ there is a sizer $s_\bullet$ such that $\tilde\gamma|_{\mathcal L[r_\bullet]}:\mathcal L[r_\bullet]\to\mathcal L[s_\bullet]$ is continuous. 
+We say that a CCS $(L,\mathcal P,\Gamma)$ satisfies the \emph{Extendability Axiom} if for all $\gamma\in \Gamma$, there is $\tilde\gamma:\mathcal L_{sh}\to\mathcal L_{sh}$ such that for every sizer $r_{\bullet}$ there is a sizer $s_\bullet$ such that $\tilde\gamma|_{\mathcal L[r_\bullet]}:\mathcal L[r_\bullet]\to\mathcal L[s_\bullet]$ is continuous.  We refer to $\tilde\gamma$ as a \emph{free} extension of $\gamma$.
 \end{defn}
 
 By the preceding remarks, the Extendability Axiom says that the elements of the semigroup $\Gamma$ are definable.
