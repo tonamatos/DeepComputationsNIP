@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.7.13)  30 DEC 2025 04:30
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.7.13)  30 DEC 2025 05:01
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -860,7 +860,7 @@ File: ueus.fd 2013/01/14 v3.01 Euler Script
 
 
 Excluding 'comment' comment. [3] [4] [5]
-Overfull \hbox (15.13966pt too wide) in paragraph at lines 287--288
+Overfull \hbox (15.13966pt too wide) in paragraph at lines 288--289
 []\OT1/cmr/m/n/10 ], and in sta-tis-ti-cal learn-ing, by Vladimir Vap-nik and A
 lexey Cher-vo-nenkis [[],
  []
@@ -869,48 +869,48 @@ lexey Cher-vo-nenkis [[],
 
 Package amsmath Warning: Foreign command \atopwithdelims;
 (amsmath)                \frac or \genfrac should be used instead
-(amsmath)                 on input line 308.
+(amsmath)                 on input line 309.
 
 [7]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 328.
+(hyperref)                removing `math shift' on input line 329.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 328.
+(hyperref)                removing `subscript' on input line 329.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 328.
+(hyperref)                removing `superscript' on input line 329.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 328.
+(hyperref)                removing `math shift' on input line 329.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 328.
+(hyperref)                removing `math shift' on input line 329.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 328.
+(hyperref)                removing `math shift' on input line 329.
 
 [8] [9]
-Overfull \hbox (1.67206pt too wide) in paragraph at lines 445--446
+Overfull \hbox (1.67206pt too wide) in paragraph at lines 446--447
 [][]\OT1/cmr/bx/n/10 Definition 2.3. []\OT1/cmr/m/n/10 A \OT1/cmr/m/it/10 Com-p
 o-si-tional Com-pu-ta-tion Struc-ture \OT1/cmr/m/n/10 (CCS) is a triple $(\OML/
 cmm/m/it/10 L; \U/eus/m/n/10 P\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 ^^@)$,
  []
 
 [10]
-Overfull \hbox (20.16731pt too wide) in paragraph at lines 480--481
+Overfull \hbox (20.16731pt too wide) in paragraph at lines 481--482
 []\OT1/cmr/m/n/10 For a de-tailed dis-cus-sion of the Ex-tend-abil-ity Ax-iom, 
 we re-fer the reader to [[]]. 
  []
 
 [11] [12] [13] [14] [15] [16] [17] [18]
-LaTeX Font Info:    Trying to load font information for U+euf on input line 808
+LaTeX Font Info:    Trying to load font information for U+euf on input line 809
 .
 
 (/usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/ueuf.fd
@@ -975,7 +975,7 @@ fonts/type1/public/amsfonts/euler/eusm7.pfb></usr/local/texlive/2022/texmf-dist
 dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2022/te
 xmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/local/texlive/2022
 /texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb>
-Output written on main.pdf (21 pages, 435318 bytes).
+Output written on main.pdf (21 pages, 435278 bytes).
 PDF statistics:
  564 PDF objects out of 1000 (max. 8388607)
  478 compressed objects within 5 object streams
