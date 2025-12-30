@@ -449,14 +449,14 @@ A \emph{Compositional Computation Structure} (CCS) is a triple $(L,\mathcal P,\G
  $\Gamma\subseteq L^L$ is a semigroup under composition.
 \end{itemize}
 
-The elements of the  $\Gamma$ is called the \emph{computations} of the structure $(L,\mathcal P,\Gamma)$.
+The elements of the  semigroup $\Gamma$ are called the \emph{computations} of the structure $(L,\mathcal P,\Gamma)$.
 
 If $\Delta\subseteq\Gamma$, we say that $\Delta\subseteq\Gamma$ is \emph{$R$-confined} if $\gamma|_{L[r_\bullet]}:L[r_\bullet]\to L[r_\bullet]$ for every $r_\bullet\in R$ and $\gamma\in \Delta$. Elements in $\overline{\Delta}\subseteq \mathcal L_{sh}$ are called (real-valued) \emph{deep computations} or \emph{ultracomputations}. 
 \end{defn}
 
  A tenet of our approach is that a map $f: L\to \mathcal{L}$ is to be considered “effectively computable” if, for each $Q\in\mathcal{P}$, the output feature $Q{\circ}f: L\to\mathbb{R}$ is a \emph{definable} predicate in the following sense:
 
-Given any arbitrary $\varepsilon>0$ and any $K\subseteq L$ wherein every input feature $P(v)$ remains bounded in magnitude there is an $\varepsilon$-approximating continuous ``algebraic'' operator $\varphi(P_1,\dots, P_n)$ of finitely many input features~$P_1,\dots, P_n$, such that  the following holds: for all $v\in K$,  the output feature $Q(f(v))$ is $\varepsilon$-approximated by $\varphi(P_1(v),\dots, P_n(v))$. By ``algebraic", we mean that the approximating operator $\varphi(P_1,\dots, P_n)$ uses only,in addition to the primitives $P_1,\dots, P_n$, the algebra operations of $\mathbb{R}^\mathcal{P}$, i.e., vector addition, vector multiplication, and scalar addition.
+Given any arbitrary $\varepsilon>0$ and any $K\subseteq L$ wherein every input feature $P(v)$ remains bounded in magnitude there is an $\varepsilon$-approximating continuous ``algebraic'' operator $\varphi(P_1,\dots, P_n)$ of finitely many input features~$P_1,\dots, P_n$, such that  the following holds: for all $v\in K$,  the output feature $Q(f(v))$ is $\varepsilon$-approximated by $\varphi(P_1(v),\dots, P_n(v))$. By ``algebraic",  we mean that the approximating operator $\varphi(P_1,\dots, P_n)$ uses, in addition to the primitives $P_1,\dots, P_n$,  only the algebra operations of $\mathbb{R}^\mathcal{P}$, i.e., vector addition, vector multiplication, and scalar addition.
 
 %(The approximating function $\varphi$ above is allowed to depend on $\varepsilon$ and~$K$.)
 
@@ -474,7 +474,7 @@ This motivates the following definition.
 We say that a CCS $(L,\mathcal P,\Gamma)$ satisfies the \emph{Extendability Axiom} if for all $\gamma\in \Gamma$, there is $\tilde\gamma:\mathcal L_{sh}\to\mathcal L_{sh}$ such that for every sizer $r_{\bullet}$ there is a sizer $s_\bullet$ such that $\tilde\gamma|_{\mathcal L[r_\bullet]}:\mathcal L[r_\bullet]\to\mathcal L[s_\bullet]$ is continuous.  We refer to $\tilde\gamma$ as a \emph{free} extension of $\gamma$.
 \end{defn}
 
-By the preceding remarks, the Extendability Axiom says that the elements of the semigroup $\Gamma$ are definable. For the rest of the paper, fix for each $\gamma\in\Gamma$ a free extension $\tilde{\gamma}$ of $\gamma$. If $\Delta\subseteq\Gamma$, let $\tilde{\Delta}$ denote $\{\tilde\gamma\colon\\gamma\in\Delta\}$.
+By the preceding remarks, the Extendability Axiom says that the elements of the semigroup $\Gamma$ are definable. For the rest of the paper, fix for each $\gamma\in\Gamma$ a free extension $\tilde{\gamma}$ of $\gamma$. For any  $\Delta\subseteq\Gamma$, let $\tilde{\Delta}$ denote $\{\tilde\gamma\colon\gamma\in\Delta\}$.
 
 For a deeper discussion about this axiom, we refer the reader to \cite{alva2024approximability}.
 
@@ -690,7 +690,7 @@ We now wish to define the concept of a deep computation being computable except 
 \begin{enumerate}
 \item
 Littlewoood's second principle states that every Lebesgue measurable function is ``nearly continuous''. The formal version of this, which is Luzin's theorem, states that if
- $(X,\Sigma ,\mu )$  a Radon measure space and $Y$ be a second-countable topological space (e.g., $Y=\mathbb{R}^\mathcal{P}$ with $\mathcal{P}$ countable ) equipped with a Borel algebra, then any given $f:X\to Y$ is measurable if and only if for every  $E\in\Sigma$ and every $\varepsilon>0$ there exists a closed $F\subseteq E$ such that the restriction of $f$ to $F$ is continuous.
+ $(X,\Sigma ,\mu )$  a Radon measure space and $Y$ be a second-countable topological space (e.g., $Y=\mathbb{R}^\mathcal{P}$ with $\mathcal{P}$ countable ) equipped with a Borel algebra, then any given $f:X\to Y$ is measurable if and only if for every  $E\in\Sigma$ and every $\varepsilon>0$ there exists a closed $F\subseteq E$ such that the restriction $f|F$ is continuous.
 \item
 Computability of deep computations can is characterized in terms of continuous extendibility of computations. This is at the core of~\cite{alva2024approximability}.
 \end{enumerate}
