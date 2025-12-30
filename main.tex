@@ -417,14 +417,14 @@ A \emph{computation states structure} is a pair $(L,\mathcal{P})$, where $L$ is 
 For each $P\in \mathcal{P}$, we call real value $P(v)$ the $P$-th \emph{feature} of~$v$.  A \emph{transition} of a computation states structure  $(L,\mathcal{P})$ is a map $f:L\to L$.
 
 
-Intuitively, $L$ is the set of states of a computation,  and the predicates  $P \in\mathcal{P}$ as accepted computational primitives.
-We think of  each state $v\in L$ is uniquely characterized by its type, so in practice, we identify $L$ with a subset of f $\mathbb{R}^\mathcal{P}$.  A typical case will be when $L=\mathbb{R}^\mathbb{N}$ or $L=\mathbb{R}^n$ for some positive integer $n$ and there is a predicate $P_i(v) = v_i$ for each of the coordinates $v_i$ of~$v$.  We regard the space of types as a topological space, endowed with the topology of pointwise convergence inherited from $\mathbb{R}^\mathcal{P}$. In particular, for each $P\in \mathcal{P}$, the projection map $v\mapsto P(v)$ is continuous. 
+Intuitively, $L$ is the set of states of a computation,  and the predicates  $P \in\mathcal{P}$ are primitives that are given and accepted as computational.
+We think of  each state $v\in L$ as being uniquely characterized by its type $\operatorname{tp}(v)$; thus,  in practice, we identify $L$ with a subset of f $\mathbb{R}^\mathcal{P}$.  A typical case will be when $L=\mathbb{R}^\mathbb{N}$ or $L=\mathbb{R}^n$ for some positive integer $n$ and there is a predicate $P_i(v) = v_i$ for each of the coordinates $v_i$ of~$v$.  We regard the space of types as a topological space, endowed with the topology of pointwise convergence inherited from $\mathbb{R}^\mathcal{P}$. In particular, for each $P\in \mathcal{P}$, the projection map $v\mapsto P(v)$ is continuous. 
 
 \begin{defn}
 Given a computation states structure $(L,\mathcal{P})$, any element of $\mathbb{R}^\mathcal{P}$  in the image of $L$ under the map $v\mapsto \operatorname{tp}(v)$ will be called a \emph{realized type}. The topological closure of the set of realized types in $\mathbb{R}^\mathcal{P}$ (endowed with the pointwise convergence topology) will be called the \emph{space of types} of  $(L,\mathcal{P})$, denoted $\mathcal{L}$. Elements of $\mathcal{L}\setminus L$ will be called \emph{unrealized types}.
 \end{defn}
 
-In  traditional model theory the space of types of a structure is viewed as a sort of compactification of the structure. However, the space  $\mathcal{L}$ is not necessarily compact. To bypass this obstacle, we follow the idea introduced in~\cite{alva2024approximability} of covering $\mathcal{L}$ by ``thin'' compact subspaces that we call \emph{shards}. We give the formal definition next.
+In  traditional model theory, the space of types of a structure is viewed as a sort of compactification of the structure. However, the space  $\mathcal{L}$ is not necessarily compact. To bypass this obstacle, we follow the idea introduced in~\cite{alva2024approximability} of covering $\mathcal{L}$ by ``thin'' compact subspaces that we call \emph{shards}. The formal definition of shard is next.
 
 \begin{defn}
 A \emph{sizer} is a tuple $r_{\bullet}=(r_P)_{P\in\mathcal{P}}$ of positive real numbers indexed by $\mathcal{P}$. Given a sizer $r_\bullet$, we define the $r_\bullet$-\emph{shard} as:
@@ -434,7 +434,7 @@ L[r_\bullet]=L\cap\prod_{P\in\mathcal{P}}[-r_P,r_P].
 
 For a sizer  $r_{\bullet}$, the \emph{$r_{\bullet}$-type shard} is defined as $\mathcal{L}[r_\bullet]=\overline{L[r_\bullet]}$. 
 %A collection $R$ of sizers is called \emph{exhaustive} if $\mathcal{L}_{sh}=\bigcup_{r_{\bullet}\in R}\mathcal{L}[r_\bullet]$.
-We define $\mathcal{L}_{\text sh}$, is the union of all type-shards. 
+We define $\mathcal{L}_{\text sh}$, as the union of all type-shards. 
 \end{defn}
 
 %In our context, $\mathcal{L}_{\text sh}$ provides the ``correct'' notion of space of types as a compactification.
@@ -452,7 +452,7 @@ We say that $\Delta\subseteq\Gamma$ is \emph{$R$-confined} if $\gamma|_{L[r_\bul
 
  A tenet of our approach is that a map $f: L\to \mathcal{L}$ is to be considered “effectively computable” if, for each $Q\in\mathcal{P}$, the output feature $Q{\circ}f: L\to\mathbb{R}$ is a \emph{definable} predicate in the following sense:
 
-Given any arbitrary $\varepsilon>0$ and any $K\subseteq L$ wherein every input feature $P(v)$ remains bounded in magnitude there is an $\varepsilon$-approximating continuous ``algebraic'' operator $\varphi(P_1,\dots, P_n)$ of finitely many input features~$P_1,\dots, P_n$, such that  the following holds: for all $v\in K$,  the output feature $Q(f(v))$ is $\varepsilon$-approximated by $\varphi(P_1(v),\dots, P_n(v))$. By ``algebraic", we mean that the approximating operator $\varphi$ uses only the algebra (operations of $\mathbb{R}^\mathcal{P}$, i.e., vector addition, vector multiplication, and scalar addition.
+Given any arbitrary $\varepsilon>0$ and any $K\subseteq L$ wherein every input feature $P(v)$ remains bounded in magnitude there is an $\varepsilon$-approximating continuous ``algebraic'' operator $\varphi(P_1,\dots, P_n)$ of finitely many input features~$P_1,\dots, P_n$, such that  the following holds: for all $v\in K$,  the output feature $Q(f(v))$ is $\varepsilon$-approximated by $\varphi(P_1(v),\dots, P_n(v))$. By ``algebraic", we mean that the approximating operator $\varphi(P_1,\dots, P_n)$ uses only,in addition to the primitives $P_1,\dots, P_n$, the algebra operations of $\mathbb{R}^\mathcal{P}$, i.e., vector addition, vector multiplication, and scalar addition.
 
 %(The approximating function $\varphi$ above is allowed to depend on $\varepsilon$ and~$K$.)
 
