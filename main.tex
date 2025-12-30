@@ -410,7 +410,7 @@ Lastly, a simple but useful lemma that helps understand when we restrict a set o
     This contradicts (i).
 \end{proof}
 
-\section{Compositional computation structures.}
+\section{Compositional computation structures: A structural point of view to floating-pint computation}
 \label{S:CCS}
 
 
@@ -658,7 +658,7 @@ One of the main results in \cite{argyros2008rosenthal} is that, up to equivalenc
     Let $X$ be Polish. For every relatively compact $\{f_{t}:t\in 2^{<\mathbb{N}}\}\subseteq B_1(X)$, there exists $i=1,2,\dots, 7$ and a regular dyadic subtree $\{s_t:t\in 2^{<\mathbb{N}}\}$ of $2^{<\mathbb{N}}$ such that $\{f_{s_t}:t\in 2^{<\mathbb{N}}\}$ is equivalent to $D_i$. Moreover, all $D_i$ are minimal and mutually non-equivalent.
 \end{thm}
 
-\section{Measure-theoretic versions of NIP and essential computability of  deep computations}
+\section{Measure-theoretic versions of NIP and universal Monte Carlo computability of  deep computations}
 \label{Measure-theoretic NIP}
 
 We now turn to the question: what happens when $\mathcal{P}$ is uncountable? Notice that the countability assumption is crucial in the proof of Theorem \ref{Generalized BFT} essentially because it makes $\mathbb{R}^\mathcal{P}$ a Polish space. For the uncountable case, we may lose Baire-1 definability so we shall replace $B_1(X)$ by a larger class. 
@@ -715,9 +715,9 @@ We will need the following result about NIP and universally measurable functions
 \end{thm}
 
 
-\subsection{Essential computability of  deep computations}
+\subsection{Universal Monte Carlo computability of  deep computations}
 
-We now wish to define the concept of a deep computation being computable except  a set of arbitrarily small measure ``no matter which reasonable way you try to measure things on its domain"  (see the remarks following definition~\label{D:universal measurability}). This is the concept of \emph{universal measurability} defined below (Definition~\label{D:universally essentially computable}). To motivate the definition, we need to recall two facts:
+We now wish to define the concept of a deep computation being computable except  a set of arbitrarily small measure ``no matter which reasonable way you try to measure things on its domain"  (see the remarks following definition~\label{D:universal measurability}). This is the concept of \emph{universal Monte Carlo computability} defined below (Definition~\label{D:universally essentially computable}). To motivate the definition, we need to recall two facts:
 
 \begin{enumerate}
 \item
@@ -733,18 +733,18 @@ These facts motivate the following definition:
 
 \begin{defn}
 \label{D:universally essentially computable}
-    Let $(L,\mathcal P,\Gamma)$ be a CCS. We say that a transition $f:L\rightarrow L$ is \emph{universally essentially computable} if and only if there exists $\tilde f:\mathcal{L}_{\text{sh}}\rightarrow \mathcal{L}_{\text{sh}}$ extending $f$ such that for every sizer $r_\bullet$ there is a sizer $s_\bullet$ such that the restriction $\tilde f|_{\mathcal{L}[r_{\bullet}]}:\mathcal{L}[r_\bullet]\rightarrow\mathcal{L}[s_\bullet]$ is universally measurable, i.e., $\pi_P\circ \tilde f|_{\mathcal{L}[r_{\bullet}]}:\mathcal{L}[r_\bullet]\rightarrow [-s_P,s_P]$ is $\mu$-measurable for every Radon probability measure $\mu$ on $\mathcal{L}[r_\bullet]$.
+    Let $(L,\mathcal P,\Gamma)$ be a CCS. We say that a transition $f:L\rightarrow L$ is \emph{universally Monte Carlo computable} if and only if there exists $\tilde f:\mathcal{L}_{\text{sh}}\rightarrow \mathcal{L}_{\text{sh}}$ extending $f$ such that for every sizer $r_\bullet$ there is a sizer $s_\bullet$ such that the restriction $\tilde f|_{\mathcal{L}[r_{\bullet}]}:\mathcal{L}[r_\bullet]\rightarrow\mathcal{L}[s_\bullet]$ is universally measurable, i.e., $\pi_P\circ \tilde f|_{\mathcal{L}[r_{\bullet}]}:\mathcal{L}[r_\bullet]\rightarrow [-s_P,s_P]$ is $\mu$-measurable for every Radon probability measure $\mu$ on $\mathcal{L}[r_\bullet]$.
 \end{defn}
 
 
-\subsection{Bourgain-Fremlin-Talagrand, NIP, and essential computability of  deep computations}
+\subsection{Bourgain-Fremlin-Talagrand, NIP, and universal Monte Carlo computability of  deep computations}
 
 
 
 Theorem~\ref{BFT-2F} immediately yields the following.
 
 \begin{thm}
-    Let $(L,\mathcal P,\Gamma)$ be a CCS satisfying the Extendability Axiom. Let $R$ be an exhaustive collection of sizers. Let $\Delta\subseteq\Gamma$ be $R$-confined. If $\pi_P\circ\Delta|_{L[r_\bullet]}$ satisfies the NIP for all $P\in\mathcal{P}$ and all $r_{\bullet}\in R$, then every deep computation is universally essentially computable.
+    Let $(L,\mathcal P,\Gamma)$ be a CCS satisfying the Extendability Axiom. Let $R$ be an exhaustive collection of sizers. Let $\Delta\subseteq\Gamma$ be $R$-confined. If $\pi_P\circ\Delta|_{L[r_\bullet]}$ satisfies the NIP for all $P\in\mathcal{P}$ and all $r_{\bullet}\in R$, then every deep computation is universally Monte Carlo computable.
 \end{thm}
 
 \begin{proof}
@@ -752,10 +752,10 @@ Theorem~\ref{BFT-2F} immediately yields the following.
 \end{proof}
 
 \begin{question}
-Under the same assumptions of the preceding theorem, suppose that every deep computation of $\Delta$ is universally essentially computable. Must $\pi_P\circ\Delta|_{L[r_\bullet]}$ have the NIP for all $P\in\mathcal{P}$ and all $r_{\bullet}\in R$?
+Under the same assumptions of the preceding theorem, suppose that every deep computation of $\Delta$ is universally Monte Carlo computable. Must $\pi_P\circ\Delta|_{L[r_\bullet]}$ have the NIP for all $P\in\mathcal{P}$ and all $r_{\bullet}\in R$?
 \end{question}
 
-\subsection{Talagrand stability, Fremiln's dichotomy, NIP, and essential computability of  deep computations}
+\subsection{Talagrand stability, Fremiln's dichotomy, NIP, and universal Monte Carlo computability of  deep computations}
 
 There is another notion closely related to NIP, introduced by Talagrand in \cite{talagrand1984pettis} while studying Pettis integration. Suppose that $X$ is a compact Hausdorff space and $A\subseteq \mathbb{R}^X$. Let $\mu$ be a Radon probability measure on $X$. Given a $\mu$-measurable set $E\subseteq X$, a positive integer $k$ and real numbers $a<b$. we write:
 
@@ -784,7 +784,7 @@ The following lemma establishes that Talagrand stability is a way to ensure that
 We say that $A$ is \emph{universally Talagrand stable} if $A$ is Talagrand $\mu$-stable for every Radon probability measure $\mu$ on $X$. An argument similar to the proof of~\ref{BFT-2F}, yields the following:
 
 \begin{thm}
-    Let $(L,\mathcal P,\Gamma)$ be a CCS satisfying the Extendability Axiom. If $\pi_P\circ\Delta|_{L[r_\bullet]}$ is universally Talagrand stable for all $P\in\mathcal{P}$ and all sizers $r_{\bullet}$, then every deep computation is universally essentially computable.
+    Let $(L,\mathcal P,\Gamma)$ be a CCS satisfying the Extendability Axiom. If $\pi_P\circ\Delta|_{L[r_\bullet]}$ is universally Talagrand stable for all $P\in\mathcal{P}$ and all sizers $r_{\bullet}$, then every deep computation is universally Monte Carlo computable.
 \end{thm}
 
 It is then natural to ask: what is the relationship between Talagrand stability and the NIP? The following dichotomy will be useful.
