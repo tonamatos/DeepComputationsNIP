@@ -440,14 +440,17 @@ We define $\mathcal{L}_{\text sh}$, as the union of all type-shards.
 %In our context, $\mathcal{L}_{\text sh}$ provides the ``correct'' notion of space of types as a compactification.
 
 \begin{defn}
-a \emph{Compositional Computation Structure} (CCS) is a triple $(L,\mathcal P,\Gamma)$, where
+A \emph{Compositional Computation Structure} (CCS) is a triple $(L,\mathcal P,\Gamma)$, where
 \begin{itemize}
 \item
  $(L,\mathcal P)$ is a computation states structure
  \item
  $\Gamma\subseteq L^L$ is a semigroup under composition.
 \end{itemize}
-We say that $\Delta\subseteq\Gamma$ is \emph{$R$-confined} if $\gamma|_{L[r_\bullet]}:L[r_\bullet]\to L[r_\bullet]$ for every $r_\bullet\in R$ and $\gamma\in \Delta$. Elements in $\Delta$ are called \emph{real-valued computations} (in this article we will refer to them simply as \emph{computations}) and elements in $\overline{\Delta}\subseteq \mathcal L_{sh}$ are called (real-valued) \emph{deep computations} or \emph{ultracomputations}. 
+
+The elements of the  $\Gamma$ is called the \emph{computations} of the structure $(L,\mathcal P,\Gamma)$.
+
+If $\Delta\subseteq\Gamma$, we say that $\Delta\subseteq\Gamma$ is \emph{$R$-confined} if $\gamma|_{L[r_\bullet]}:L[r_\bullet]\to L[r_\bullet]$ for every $r_\bullet\in R$ and $\gamma\in \Delta$. Elements in $\overline{\Delta}\subseteq \mathcal L_{sh}$ are called (real-valued) \emph{deep computations} or \emph{ultracomputations}. 
 \end{defn}
 
  A tenet of our approach is that a map $f: L\to \mathcal{L}$ is to be considered “effectively computable” if, for each $Q\in\mathcal{P}$, the output feature $Q{\circ}f: L\to\mathbb{R}$ is a \emph{definable} predicate in the following sense:
@@ -470,6 +473,7 @@ This motivates the following definition.
 We say that a CCS $(L,\mathcal P,\Gamma)$ satisfies the \emph{Extendability Axiom} if for all $\gamma\in \Gamma$, there is $\tilde\gamma:\mathcal L_{sh}\to\mathcal L_{sh}$ such that for every sizer $r_{\bullet}$ there is a sizer $s_\bullet$ such that $\tilde\gamma|_{\mathcal L[r_\bullet]}:\mathcal L[r_\bullet]\to\mathcal L[s_\bullet]$ is continuous. 
 \end{defn}
 
+By the preceding remarks, the Extendability Axiom says that the elements of the semigroup $\Gamma$ are definable.
 
 
 
