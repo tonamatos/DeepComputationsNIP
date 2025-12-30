@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.7.13)  30 DEC 2025 08:34
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.7.13)  30 DEC 2025 09:07
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -864,7 +864,7 @@ Underfull \vbox (badness 1097) has occurred while \output is active []
 
  [4]
 [5] [6]
-Overfull \hbox (15.13966pt too wide) in paragraph at lines 288--289
+Overfull \hbox (15.13966pt too wide) in paragraph at lines 287--288
 []\OT1/cmr/m/n/10 ], and in sta-tis-ti-cal learn-ing, by Vladimir Vap-nik and A
 lexey Cher-vo-nenkis [[],
  []
@@ -872,48 +872,48 @@ lexey Cher-vo-nenkis [[],
 
 Package amsmath Warning: Foreign command \atopwithdelims;
 (amsmath)                \frac or \genfrac should be used instead
-(amsmath)                 on input line 310.
+(amsmath)                 on input line 309.
 
 [7]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 330.
+(hyperref)                removing `math shift' on input line 329.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 330.
+(hyperref)                removing `subscript' on input line 329.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 330.
+(hyperref)                removing `superscript' on input line 329.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 330.
+(hyperref)                removing `math shift' on input line 329.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 330.
+(hyperref)                removing `math shift' on input line 329.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 330.
+(hyperref)                removing `math shift' on input line 329.
 
 [8] [9] [10]
-Overfull \hbox (1.67206pt too wide) in paragraph at lines 448--449
+Overfull \hbox (1.67206pt too wide) in paragraph at lines 440--441
 [][]\OT1/cmr/bx/n/10 Definition 2.3. []\OT1/cmr/m/n/10 A \OT1/cmr/m/it/10 Com-p
 o-si-tional Com-pu-ta-tion Struc-ture \OT1/cmr/m/n/10 (CCS) is a triple $(\OML/
 cmm/m/it/10 L; \U/eus/m/n/10 P\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 ^^@)$,
  []
 
 
-Overfull \hbox (20.16731pt too wide) in paragraph at lines 483--484
+Overfull \hbox (20.16731pt too wide) in paragraph at lines 474--475
 []\OT1/cmr/m/n/10 For a de-tailed dis-cus-sion of the Ex-tend-abil-ity Ax-iom, 
 we re-fer the reader to [[]]. 
  []
 
 [11] [12] [13] [14] [15] [16] [17] [18]
-LaTeX Font Info:    Trying to load font information for U+euf on input line 832
+LaTeX Font Info:    Trying to load font information for U+euf on input line 819
 .
 
 (/usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/ueuf.fd
@@ -936,7 +936,7 @@ Underfull \hbox (badness 1648) in paragraph at lines 191--194
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 9FA71B08ED678446DD690DE66C3A1D01;6756.
+(rerunfilecheck)             Checksum: 79C63FD3AAD6B1D0C69402D8CC119E33;6725.
  ) 
 Here is how much of TeX's memory you used:
  30673 strings out of 478268
@@ -975,7 +975,7 @@ fonts/type1/public/amsfonts/euler/eusm7.pfb></usr/local/texlive/2022/texmf-dist
 dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2022/te
 xmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/local/texlive/2022
 /texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb>
-Output written on main.pdf (21 pages, 439496 bytes).
+Output written on main.pdf (21 pages, 439167 bytes).
 PDF statistics:
  593 PDF objects out of 1000 (max. 8388607)
  506 compressed objects within 6 object streams

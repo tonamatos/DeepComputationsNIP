@@ -113,7 +113,7 @@ Going beyond Todorčević’s trichotomy, we invoke a more recent heptachotomy f
 
 We believe that the results presented in this paper show practitioners of computation, or topology, or descriptive set theory, or  model theory, how classification invariants used in their field translate into classification invariants of other fields. However, in the interest of accessibility, we do not assume previous familiarity with high-level topology or model theory, or computing. The only technical prerequisite of the paper is undergraduate-level topology and measure theory. The necessary topological background beyond undergraduate topology is covered in section~\ref{sec:prelim}.
 
-In section \ref{sec:prelim}, we present the basic topological and combinatorial preliminaries, and in section and \ref{S:CCS}, we introduce the structural/model-theoretic viewpoint (no previous exposure to model theory is needed). Section~\ref{S:Classification} is devoted to the classification of deep computations. The final section, section~\ref{Measure-theoretic NIP},  presents the probabilistic viewpoint.
+In section \ref{sec:prelim}, we present the basic topological and combinatorial preliminaries, and in section~\ref{S:CCS}, we introduce the structural/model-theoretic viewpoint (no previous exposure to model theory is needed). Section~\ref{S:Classification} is devoted to the classification of deep computations. The final section, section~\ref{Measure-theoretic NIP},  presents the probabilistic viewpoint.
 
 
 Throughout the paper, we focus on classical computation; however, by refining the model-theoretic tools, the results presented here can be extended to quantum computation and open quantum systems. This extension will be addressed in a forthcoming paper.
@@ -157,13 +157,13 @@ In this work, we study the corresponding notions of NIP (and hence PAC-learnabil
 \section{General topological preliminaries: From continuity to Baire class 1}
 \label{sec:prelim}
 
-In this section we give preliminaries from general topology and function space theory. We include some of the proofs for completeness, but the reader familiar with these topics may skip them.
+In this section we present the preliminaries from general topology and function space theory. We include some of the proofs for completeness, but the reader familiar with these topics may skip them.
 
 Recall that a subset of a topological space is $F_\sigma$ if it is a countable union of closed  sets, and $G_\delta$ if it is a countable intersection of closed sets. Note that in a metrizable space, every open set is $F_\sigma$; equivalently, every closed set is $G_\delta$.
 
 A \emph{Polish space} is a separable and completely metrizable topological space. The most important examples are the reals $\mathbb R$, the Cantor space $2^\mathbb N$ (the set of all infinite binary sequences, endowed with the product topology), and the Baire space $\mathbb N^\mathbb N$ (the set of all infinite sequences of naturals, also with the product topology). Countable products of Polish spaces are Polish; this includes spaces like $\mathbb R^\mathbb N$, the space of sequences of real numbers. 
 
-In this paper, we shall discuss  subspaces, and so there is a pertinent subtlety of the definitions worth mentioning: \emph{completely metrizable space} is not the same as \emph{complete metric space}; for an illustrative example, the interval $(0,1)$ with  the metric inherited from the reals not complete, but it is Polish since it is homeomorphic to the real line. Being Polish is a topological property.
+In this paper, we shall often discuss  subspaces, and so there is a pertinent subtlety of the definitions worth mentioning: \emph{completely metrizable space} is not the same as \emph{complete metric space}; for an illustrative example, the interval $(0,1)$ with  the metric inherited from the reals not complete, but it is Polish since it is homeomorphic to the real line. Being Polish is a topological property.
 
 The following result is a cornerstone of descriptive set theory, closely tied to the work of Wacław Sierpiński and Kazimierz Kuratowski, with proofs often built upon their foundations and formalized later, notably, involving Stefan Mazurkiewicz's work on complete metric spaces.
 
@@ -222,10 +222,9 @@ A subset $L$ of a topological space $X$ is \emph{relatively compact} in $X$ if t
 
 \subsection{From Rosenthal's dichotomy to the Bourgain-Fremlin-Talagrand dichotomy to Shelah's NIP}
 
-%The fundamental idea that connects the rich theory here presented to real-valued computations is the concept of an \emph{approximation}. 
 In metrizable spaces, points of closure of some subset can always be approximated by points inside the set, via a convergent sequence. For more complicated spaces, such as $C_p(X)$, this fails in remarkable  ways. To see an example, consider the Cantor space $X=2^\mathbb N$, and for each $n\in\mathbb{N}$ define $p_n:X\to\{0,1\}$ by  $p_n(x)=x(n)$ for each $x\in X$. Then $p_n$ is continuous for each $n$,  but one can show (see Chapter~1.1 of \cite{Todorcevic_1997_TopicsTop} for details) that the only continuous functions in the closure of $\{p_n\}_{n\in\mathbb N}$ are the functions $p_n$ themselves; moreover, none of the subsequences of $\{p_n\}_{n\in\mathbb N}$ converge. In some sense, this example is the worst possible scenario for convergence. The topological space obtained from this closure is well-known: it is the \emph{Stone-Čech compactification} of the discrete space of natural numbers, or $\beta\mathbb N$ for short, and it is an important object of study in general topology.
 
-The following theorem,  established by Haskell Rosenthal in 1974,  is fundamental  in functional analysis, and describes a sharp division in the behavior of sequences within a Banach space:
+The following theorem,  established by Haskell Rosenthal in 1974,  is fundamental  in functional analysis, and describes a sharp division in the behavior of sequences in a Banach spaces. I
 
 \begin{thm}[Rosenthal's Dichotomy, \cite{Rosenthal:1974}]
 \label{T:Rosenthal}
@@ -285,13 +284,13 @@ The Independence Property was first isolated by Saharon Shelah in model theory a
 
 \subsection{NIP as universal dividing line between polynomial and exponential complexity}
 
-The particular case of the BFT Dichotomy (Theorem~\ref{BFT}) when $A$ consists of $\{0,1\}$-valued (i.e., $\{\text{Yes},\text{No}\}$-valued) strings was discovered independently, around 1971-1972 in many foundational contexts related to polynomial (``tame") vs exponential (``wild'') complexity:  In model theory, by Saharon Shelah~\cite{Shelah:1971},\cite{Shelah:1990},in  combinatorics, by Norbert Sauer~\cite{Sauer:1972},  and Shelah~\cite{Shelah:1972,Shelah:1990}, and in statistical learning, by Vladimir Vapnik and Alexey Chervonenkis~\cite{Vapnik-Chervonenkis:1971, Vapnik-Chervonenkis:1974}.
+The particular case of the BFT dichotomy (Theorem~\ref{BFT}) when $A$ consists of $\{0,1\}$-valued (i.e., $\{\text{Yes},\text{No}\}$-valued) strings was discovered independently, around 1971-1972 in many foundational contexts related to polynomial (``tame") vs exponential (``wild'') complexity:  In model theory, by Saharon Shelah~\cite{Shelah:1971},\cite{Shelah:1990},in  combinatorics, by Norbert Sauer~\cite{Sauer:1972},  and Shelah~\cite{Shelah:1972,Shelah:1990}, and in statistical learning, by Vladimir Vapnik and Alexey Chervonenkis~\cite{Vapnik-Chervonenkis:1971, Vapnik-Chervonenkis:1974}.
 
 
 \begin{description}
 
 \item[In model theory]
-Shelah's classification theory is a foundational program in mathematical logic devised to categorize first-order theories based on the complexity and structure of their models. A theory $T$ is considered classifiable in Shelah's sense if the number of non-isomorphic models of $T$ of a given cardinality can be described by a bounded number of numerical invariants. In contrast, a theory $T$ is unclassifiable if the number of models of $T$ of a given cardinality is the maximum possible number. The  number of models of $T$ is directly impacted by the number of ``types'' over  of parameters in models of $T$; a controlled number of types is a characteristic of a classifiable theory. 
+Shelah's classification theory is a foundational program in mathematical logic devised to categorize first-order theories based on the complexity and structure of their models. A theory $T$ is considered classifiable in Shelah's sense if the number of non-isomorphic models of $T$ of a given cardinality can be described by a bounded number of numerical invariants. In contrast, a theory $T$ is unclassifiable if the number of models of $T$ of a given cardinality is the maximum possible number.  A key fact is that the  number of models of $T$ is directly impacted by the number of ``types'' over  of parameters in models of $T$; a controlled number of types is a characteristic of a classifiable theory. 
 
 In Shelah's classification program~\cite{Shelah:1990}, theories without the independence property (called NIP theories, or dependent theories) have a well-behaved, ``tame" structure; the number of types over a set of parameters of size $\kappa$ of such a theory is of polynomially or similar ``slow" growth on $\kappa$. 
 In contrast, Theories with the Independence Property  (called IP theories) are considered ``intractable" or ``wild''. A theory with the Independence Property produces the maximum possible number of types over a set of parameters;  for a set of parameters of cardinality $\kappa$, the theory will have $2^{2^{\kappa}}$-many distinct types.
@@ -358,13 +357,6 @@ Below we consider $\mathcal P$ with the discrete topology. For each $f:X\rightar
     which is $F_\sigma$.
 \end{proof}
 
-%We now direct our attention to a notion of the NIP that is more general than the one from the introduction. It can be interpreted as a sort of continuous version of the one presented in the preceding section.
-%
-%
-%
-%Note that if $X$ is compact and $A\subseteq C_p(X)$, then $A$ satisfies the NIP if and only if for every $\{f_n\}_{n\in\mathbb N}\subseteq A$ and for every $a<b$ there is $I\subseteq\mathbb{N}$ such that
-%$$\bigcap_{n\in I}f_n^{-1}(-\infty,a]\cap\bigcap_{n\notin I}f_n^{-1}[b,\infty)=\emptyset.$$
-
 Given $A\subseteq Y^X$ and $K\subseteq X$ we write $A|_K:=\{f|_K:f\in A\}$, i.e., the set of all restrictions of functions in $A$ to $K$. The following Theorem is a slightly more general version of Theorem \ref{BFT}.
 
 \begin{thm}\label{Generalized BFT}
@@ -408,7 +400,7 @@ Lastly, a simple but useful lemma that helps understand when we restrict a set o
     This contradicts (i).
 \end{proof}
 
-\section{Compositional computation structures: A structural point of view to floating-point computation}
+\section{Compositional computation structures: A structural approach to floating-point computation}
 \label{S:CCS}
 
 
@@ -462,7 +454,6 @@ If $\Delta\subseteq\Gamma$, we say that $\Delta\subseteq\Gamma$ is \emph{$R$-con
 
 Given any arbitrary $\varepsilon>0$ and any $K\subseteq L$ wherein every input feature $P(v)$ remains bounded in magnitude there is an $\varepsilon$-approximating continuous ``algebraic'' operator $\varphi(P_1,\dots, P_n)$ of finitely many input predicates~$P_1,\dots, P_n\in\mathcal{P}$, such that  the following holds: for all $v\in K$,  the output feature $Q(f(v))$ is $\varepsilon$-approximated by $\varphi(P_1(v),\dots, P_n(v))$. By ``algebraic",  we mean that, aside from the primitives $P_1,\dots, P_n$, the approximating operator $\varphi(P_1,\dots, P_n)$ uses only the algebra operations of $\mathbb{R}^\mathcal{P}$, i.e., vector addition, vector multiplication, and scalar addition.
 
-%(The approximating function $\varphi$ above is allowed to depend on $\varepsilon$ and~$K$.)
 
 It is shown in \cite{alva2024approximability}) that:
 \begin{enumerate}
@@ -617,10 +608,6 @@ The definitions provided here for NIP$_i$ ($i=1,2,3$) are topological. This rais
 
 \subsection{The Argyros-Dodos-Kanellopoulos heptachotomy, and approximability of deep computation by minimal classes}
 
-%More can be said about the nature of the embeddings in Todorčević's Trichotomy. For an arbitrary separable Rosenthal compactum $K$, there is typically more than one countable dense subset of $K$. We can view a separable Rosenthal compactum as the accumulation points of a countable family of pointwise bounded real-valued functions. The choice of the countable families is not important when a bijection between them can be lifted to a homeomorphism of their closures. To be more precise:
-
-
-
 In the three separable three cases given in \ref{E:Rosenthal comacta}, namely, ($\hat{A}(2^\mathbb{N})$, $S(2^\mathbb{N})$ and $\hat{D}(S(2^\mathbb{N}))$), the countable dense subsets are indexed by the binary tree $2^{<\mathbb{N}}$. This choice of index is useful for two reasons:
 \begin{enumerate}
 \item
@@ -753,7 +740,7 @@ Theorem~\ref{BFT-2F} immediately yields the following.
 Under the same assumptions of the preceding theorem, suppose that every deep computation of $\Delta$ is universally Monte Carlo computable. Must $\pi_P\circ\Delta|_{L[r_\bullet]}$ have the NIP for all $P\in\mathcal{P}$ and all $r_{\bullet}\in R$?
 \end{question}
 
-\subsection{Talagrand stability, Fremiln's dichotomy, NIP, and universal Monte Carlo computability of  deep computations}
+\subsection{Talagrand stability, Fremlin's dichotomy, NIP, and universal Monte Carlo computability of  deep computations}
 
 There is another notion closely related to NIP, introduced by Talagrand in \cite{talagrand1984pettis} while studying Pettis integration. Suppose that $X$ is a compact Hausdorff space and $A\subseteq \mathbb{R}^X$. Let $\mu$ be a Radon probability measure on $X$. Given a $\mu$-measurable set $E\subseteq X$, a positive integer $k$ and real numbers $a<b$. we write:
 
