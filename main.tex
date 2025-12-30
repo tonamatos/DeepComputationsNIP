@@ -85,10 +85,10 @@ We study complexity of deep computations. We use topology of function spaces, sp
 
 \maketitle
 
-\setcounter{section}{-1}
+%\setcounter{section}{-1}
 
 
-\section{Introduction}
+\section*{Introduction}
 
 
 In this paper we study limit behavior of real-valued computations as the value of certain parameters  of the computation model tend towards infinity, or towards zero, or towards some other fixed value, e.g.,  the depth of a neural network tending to infinity, or the time interval between layers of the network tending toward zero. Recently, particular cases of this situation have attracted considerable attention in deep learning research (e.g., Neural Ordinary Differential Equations~\cite{Chen:2018}, Physics-Informed Neural Networks~\cite{Raissi-Perdikaris-Karniadakis:2019},  deep equilibrium models~\cite{Bai:2019}, among others). In this paper, we combine ideas of topology, measure theory, and  model theory to study these limit phenomena from a unified viewpoint. 
@@ -646,7 +646,7 @@ One of the main results in \cite{argyros2008rosenthal} is that, up to equivalenc
 \section{Measure-theoretic versions of NIP and universal Monte Carlo computability of  deep computations}
 \label{Measure-theoretic NIP}
 
-We now turn to the question: what happens when $\mathcal{P}$ is uncountable? Notice that the countability assumption is crucial in the proof of Theorem \ref{Generalized BFT} essentially because it makes $\mathbb{R}^\mathcal{P}$ a Polish space. For the uncountable case, we may lose Baire-1 definability so we shall replace $B_1(X)$ by a larger class. 
+The countability assumption on $\mathcal{P}$  played a crucial  role in the proof of Theorem \ref{Generalized BFT} essentially because it makes $\mathbb{R}^\mathcal{P}$ a Polish space. In this section, we do not assume that $\mathcal{P}$ is countable.  We replace deterministic computability by measure-theoretic (`Monte Carlo') computability.
 
 \subsection{A measure-theoretic version of NIP}
 
@@ -686,7 +686,7 @@ In the context of deep computations, we will be interested in transition maps fr
     (i)$\Rightarrow$(ii) is clear since the projection maps $\pi_i$ are measurable and the composition of measurable functions is measurable. To prove (ii)$\Rightarrow$(i), suppose that $C=\prod_{i\in I}C_i$ is a measurable cylinder and let $J$ be the finite set of $i\in I$ such that $C_i\neq Y_i$. Then, $C=\bigcap_{i\in J}\pi_i^{-1}(C_i)$, so $f^{-1}(C)=\bigcap_{i\in J}(\pi_i\circ f)^{-1}(C_i)$ is a universally measurable set by assumption.
 \end{proof}
 
-The preceding lemma says that a transition map is universally measurable if and only if it is universally measurable on all its features. In other words, we can check measurability of a transition just by checking measurability feature by feature. We will denote by $M_r(X,\mathbb{R}^\mathcal{P})$ the collection of all universally measurable functions $f:X\rightarrow\mathbb{R}^\mathcal{P}$ (with respect to the cylinder $\sigma$-algebra), endowed with the topology of pointwise convergence.
+The preceding lemma says that a transition map is universally measurable if and only if it is universally measurable on all its features; in other words, we can check measurability of a transition just by checking measurability feature by feature. We will denote by $M_r(X,\mathbb{R}^\mathcal{P})$ the collection of all universally measurable functions $f:X\rightarrow\mathbb{R}^\mathcal{P}$ (with respect to the cylinder $\sigma$-algebra), endowed with the topology of pointwise convergence.
 
 We will need the following result about NIP and universally measurable functions:
 
@@ -713,7 +713,7 @@ Computability of deep computations can is characterized in terms of continuous e
 \end{enumerate}
 
 
-These facts motivate the following definition:
+These two facts motivate the following definition:
 
 
 \begin{defn}
@@ -756,7 +756,7 @@ where $\mu*$ denotes the outer measure (we work with outer since the sets $D_k(A
 For a measure $\mu$ on a set $X$, the set of all $\mu$-measurable functions will  denoted by $\mathscr{M}^0(X,\mu)$.
 \end{notn}
 
-The following lemma establishes that Talagrand stability is a way to ensure that deep computations are definable by measurable functions. We include a proof for the reader's convenience.
+The following lemma establishes that Talagrand stability is a way to ensure that deep computations are definable by measurable functions. 
 
 \begin{lem}\label{talagrand stable is relatively compact}
     If $A$ is Talagrand $\mu$-stable, then $\overline{A}$ is also Talagrand $\mu$-stable and $\overline{A}\subseteq\mathscr{M}^0(X,\mu)$.
@@ -783,7 +783,7 @@ It is then natural to ask: what is the relationship between Talagrand stability 
     \end{itemize}
 \end{lem}
 
-The preceding lemma can be considered as a measure-theoretic version of Rosenthal's Dichotomy. Combining this dichotomy with Theorem \ref{BFT-2F}, we get the following result:
+The preceding lemma can be considered as a measure-theoretic version of Rosenthal's dichotomy. Combining this dichotomy with Theorem \ref{BFT-2F}, we get the following result:
 
 \begin{thm}
     Let $X$ be a Hausdorff space and $A\subseteq C(X)$ be pointwise bounded. The following are equivalent:
