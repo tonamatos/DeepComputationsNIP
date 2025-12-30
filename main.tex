@@ -223,7 +223,7 @@ A subset $L$ of a topological space $X$ is \emph{relatively compact} in $X$ if t
 \subsection{From Rosenthal's dichotomy to the Bourgain-Fremlin-Talagrand dichotomy to Shelah's NIP}
 
 %The fundamental idea that connects the rich theory here presented to real-valued computations is the concept of an \emph{approximation}. 
-In metrizable spaces, points of closure from some subset can always be approximated by points inside the set, via a convergent sequence. For more complicated spaces, such as $C_p(X)$, this fails in remarkable  ways. To see an example, consider the Cantor space $X=2^\mathbb N$, and for each $n\in\mathbb{N}$ define $p_n:X\to\{0,1\}$ by  $p_n(x)=x(n)$ for each $x\in X$. Then $p_n$ is continuous for each $n$,  but one can show (see Chapter~1.1 of \cite{Todorcevic_1997_TopicsTop} for details) that the only continuous functions in the closure of $\{p_n\}_{n\in\mathbb N}$ are the functions $p_n$ themselves; moreover, none of the subsequences of $\{p_n\}_{n\in\mathbb N}$ converge. In some sense, this example is the worst possible scenario for convergence. The topological space obtained from this closure is well-known: it is the \emph{Stone-Čech compactification} of the discrete space of natural numbers, or $\beta\mathbb N$ for short, and it is an important object of study in general topology.
+In metrizable spaces, points of closure of some subset can always be approximated by points inside the set, via a convergent sequence. For more complicated spaces, such as $C_p(X)$, this fails in remarkable  ways. To see an example, consider the Cantor space $X=2^\mathbb N$, and for each $n\in\mathbb{N}$ define $p_n:X\to\{0,1\}$ by  $p_n(x)=x(n)$ for each $x\in X$. Then $p_n$ is continuous for each $n$,  but one can show (see Chapter~1.1 of \cite{Todorcevic_1997_TopicsTop} for details) that the only continuous functions in the closure of $\{p_n\}_{n\in\mathbb N}$ are the functions $p_n$ themselves; moreover, none of the subsequences of $\{p_n\}_{n\in\mathbb N}$ converge. In some sense, this example is the worst possible scenario for convergence. The topological space obtained from this closure is well-known: it is the \emph{Stone-Čech compactification} of the discrete space of natural numbers, or $\beta\mathbb N$ for short, and it is an important object of study in general topology.
 
 The following theorem,  established by Haskell Rosenthal in 1974,  is fundamental  in functional analysis, and describes a sharp division in the behavior of sequences within a Banach space:
 
@@ -291,17 +291,18 @@ The particular case of the BFT Dichotomy (Theorem~\ref{BFT}) when $A$ consists o
 \begin{description}
 
 \item[In model theory]
-Shelah's classification theory is a foundational program in mathematical logic devised to categorize first-order theories based on the complexity and structure of their models. A theory $T$ is considered classifiable in Shelah's sense if the number of non-isomorphic models of $T$ of a given cardinality can be described by a bounded number of numerical invariants. In contrast, a theory $T$ is unclassifiable if the number of models of $T$ of a given cardinality is the maximum possible number. This number is directly impacted by the number of ``types'' over  of parameters in models of $T$; a controlled number of types is a characteristic of a classifiable theory. 
+Shelah's classification theory is a foundational program in mathematical logic devised to categorize first-order theories based on the complexity and structure of their models. A theory $T$ is considered classifiable in Shelah's sense if the number of non-isomorphic models of $T$ of a given cardinality can be described by a bounded number of numerical invariants. In contrast, a theory $T$ is unclassifiable if the number of models of $T$ of a given cardinality is the maximum possible number. The  number of models of $T$ is directly impacted by the number of ``types'' over  of parameters in models of $T$; a controlled number of types is a characteristic of a classifiable theory. 
 
-In Shelah's classification program~\cite{Shelah:1990}, theories without the independence property (called NIP theories, or dependent theories) have a well-behaved, ``tame" structure; the number of types over a set of parameters of size $\kappa$ of such a theory is of polynomially or similar ``slow" growth on $\kappa$. Theories with the Independence Property  (called IP theories), in contrast, are considered ``intractable" or ``wild''. A theory with the independence property produces the maximum possible number of types over a set of parameters;  for a set of parameters of cardinality $\kappa$, the theory will have $2^{2^{\kappa}}$-many distinct types.
+In Shelah's classification program~\cite{Shelah:1990}, theories without the independence property (called NIP theories, or dependent theories) have a well-behaved, ``tame" structure; the number of types over a set of parameters of size $\kappa$ of such a theory is of polynomially or similar ``slow" growth on $\kappa$. 
+In contrast, Theories with the Independence Property  (called IP theories) are considered ``intractable" or ``wild''. A theory with the Independence Property produces the maximum possible number of types over a set of parameters;  for a set of parameters of cardinality $\kappa$, the theory will have $2^{2^{\kappa}}$-many distinct types.
 
  \item[In combinatorics]
- Sauer~\cite{Sauer:1972} and Shelah~\cite{Shelah:1972} proved the following: If $\mathscr{F}=\{S_0,S_1,\dots\}$ is a family of subsets of some infinite set $S$, then either for every $n\in\mathbb{N}$, there is a set $A\subseteq S$ with $|A|=n$ such that $|\{S_i\cap A): i\in\mathbb{N}\}|=2^n$ (yielding exponential complexity),
-or there exists $N\in\mathbb{N}$ such that  $A\subseteq S$ with $|A|\ge N$, one has
+ Sauer~\cite{Sauer:1972} and Shelah~\cite{Shelah:1972} proved the following: If $\mathscr{F}=\{S_0,S_1,\dots\}$ is a family of subsets of some infinite set $S$, then either for every $n\in\mathbb{N}$, there is either a set $A\subseteq S$ with $|A|=n$ such that $|\{S_i\cap A): i\in\mathbb{N}\}|=2^n$ (yielding exponential complexity),
+or there exists $N\in\mathbb{N}$ such that  for every $A\subseteq S$ with $|A|\ge N$, one has
 \[
 |\{S_i\cap A): i\in\mathbb{N}\}| \le \sum_{i=0}^{N-1} \binom{|A|}{i} \approx O(|A|^N)
 \]
-for every $A\subseteq S$ such that $|A|\ge N$ (yielding polynomial complexity). This answered a question of Erd\H{o}s.
+(yielding polynomial complexity). This answered a question of Erd\H{o}s.
 
 
  \item[In machine learning]
@@ -312,7 +313,7 @@ Readers familiar with statistical learning may recognize the Sauer-Shelah lemma 
  
 \subsection{Rosenthal compacta}
  
- The comprehensiveness of Theorem~\ref{BFT}, attested by the examples outlined in the preceding section, led to the following definition (isolated by Godefroy~\cite{Godefroy:1980}):
+ The comprehensiveness of Theorem~\ref{BFT}, attested by the examples outlined in the preceding section, led to the following definition (isolated by Gilles Godefroy~\cite{Godefroy:1980}):
 
 \begin{defn}
 \label{D:Rosenthal compacta}
@@ -321,7 +322,7 @@ A Rosenthal compactum  is a compact Hausdorff topological space \(K\) that can b
 
 
 Rosenthal compacta are characterized by significant topological and dynamical tameness properties.
-They play a significant role in functional analysis,  measure theory, dynamical systems, descriptive set theory, and model theory. In this paper, we introduce their applicability in deep computation.  For this, we shall first focus on countable languages, which is the theme of the next subsection.
+They play an important role in functional analysis,  measure theory, dynamical systems, descriptive set theory, and model theory. In this paper, we introduce their applicability in deep computation.  For this, we shall first focus on countable languages, which is the theme of the next subsection.
 
 
 \subsection{The special case $B_1(X,\mathbb{R}^\mathcal{P})$   with $\mathcal{P}$ countable.}
@@ -458,7 +459,7 @@ If $\Delta\subseteq\Gamma$, we say that $\Delta\subseteq\Gamma$ is \emph{$R$-con
 
  A tenet of our approach is that a map $f: L\to \mathcal{L}$ is to be considered “effectively computable” if, for each $Q\in\mathcal{P}$, the output feature $Q{\circ}f: L\to\mathbb{R}$ is a \emph{definable} predicate in the following sense:
 
-Given any arbitrary $\varepsilon>0$ and any $K\subseteq L$ wherein every input feature $P(v)$ remains bounded in magnitude there is an $\varepsilon$-approximating continuous ``algebraic'' operator $\varphi(P_1,\dots, P_n)$ of finitely many input features~$P_1,\dots, P_n$, such that  the following holds: for all $v\in K$,  the output feature $Q(f(v))$ is $\varepsilon$-approximated by $\varphi(P_1(v),\dots, P_n(v))$. By ``algebraic",  we mean that, aside ifrom the primitives $P_1,\dots, P_n$, the approximating operator $\varphi(P_1,\dots, P_n)$ uses only the algebra operations of $\mathbb{R}^\mathcal{P}$, i.e., vector addition, vector multiplication, and scalar addition.
+Given any arbitrary $\varepsilon>0$ and any $K\subseteq L$ wherein every input feature $P(v)$ remains bounded in magnitude there is an $\varepsilon$-approximating continuous ``algebraic'' operator $\varphi(P_1,\dots, P_n)$ of finitely many input predicates~$P_1,\dots, P_n\in\mathcal{P}$, such that  the following holds: for all $v\in K$,  the output feature $Q(f(v))$ is $\varepsilon$-approximated by $\varphi(P_1(v),\dots, P_n(v))$. By ``algebraic",  we mean that, aside from the primitives $P_1,\dots, P_n$, the approximating operator $\varphi(P_1,\dots, P_n)$ uses only the algebra operations of $\mathbb{R}^\mathcal{P}$, i.e., vector addition, vector multiplication, and scalar addition.
 
 %(The approximating function $\varphi$ above is allowed to depend on $\varepsilon$ and~$K$.)
 
