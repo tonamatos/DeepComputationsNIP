@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.7.13)  30 DEC 2025 13:32
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.7.13)  30 DEC 2025 15:12
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -741,42 +741,42 @@ File: l3backend-pdftex.def 2022-02-07 L3 backend support: PDF output (pdfTeX)
 (./main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 73.
-LaTeX Font Info:    ... okay on input line 73.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 73.
-LaTeX Font Info:    ... okay on input line 73.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 73.
-LaTeX Font Info:    ... okay on input line 73.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 73.
-LaTeX Font Info:    ... okay on input line 73.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 73.
-LaTeX Font Info:    ... okay on input line 73.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 73.
-LaTeX Font Info:    ... okay on input line 73.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 73.
-LaTeX Font Info:    ... okay on input line 73.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 73.
-LaTeX Font Info:    ... okay on input line 73.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 73.
-LaTeX Font Info:    ... okay on input line 73.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 73.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 78.
 
  (/usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 73.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 78.
 
 
 (/usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 73
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 78
 .
 
 (/usr/local/texlive/2022/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
-Package hyperref Info: Link coloring OFF on input line 73.
+Package hyperref Info: Link coloring OFF on input line 78.
 
 (/usr/local/texlive/2022/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
@@ -790,9 +790,9 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count319
 )
-LaTeX Info: Redefining \ref on input line 73.
-LaTeX Info: Redefining \pageref on input line 73.
-LaTeX Info: Redefining \nameref on input line 73.
+LaTeX Info: Redefining \ref on input line 78.
+LaTeX Info: Redefining \pageref on input line 78.
+LaTeX Info: Redefining \nameref on input line 78.
  (./main.out) (./main.out)
 \@outlinefile=\write5
 \openout5 = `main.out'.
@@ -824,14 +824,18 @@ e
 Package pgfplots Warning: running in backwards compatibility mode (unsuitable t
 ick labels; missing features). Consider writing \pgfplotsset{compat=1.18} into 
 your preamble.
- on input line 73.
+ on input line 78.
 
 
 Class amsart Warning: Abstract should precede \maketitle in AMS document classe
-s; reported on input line 82.
+s; reported on input line 87.
+
+
+Overfull \vbox (3.4459pt too high) has occurred while \output is active []
+
 
 [1{/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-Overfull \hbox (3.05618pt too wide) in paragraph at lines 111--112
+Overfull \hbox (3.05618pt too wide) in paragraph at lines 116--117
 \OT1/cmr/m/n/10 sep-a-ra-ble Rosen-thal com-pacta, and proved that any non-metr
 izable sep-a-ra-ble Rosen-
  []
@@ -849,66 +853,70 @@ File: ueus.fd 2013/01/14 v3.01 Euler Script
 \openout6 = `main.toc'.
 
 
-Excluding 'comment' comment. [3]
-Underfull \vbox (badness 1097) has occurred while \output is active []
+Excluding 'comment' comment.
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [4]
-[5] [6]
-Overfull \hbox (15.13966pt too wide) in paragraph at lines 287--288
+ [3]
+[4] [5] [6]
+Overfull \hbox (15.13966pt too wide) in paragraph at lines 292--293
 []\OT1/cmr/m/n/10 ], and in sta-tis-ti-cal learn-ing, by Vladimir Vap-nik and A
 lexey Cher-vo-nenkis [[],
  []
 
+[7]
 
 Package amsmath Warning: Foreign command \atopwithdelims;
 (amsmath)                \frac or \genfrac should be used instead
-(amsmath)                 on input line 309.
-
-[7]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 329.
+(amsmath)                 on input line 314.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 329.
+(hyperref)                removing `math shift' on input line 334.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 329.
+(hyperref)                removing `subscript' on input line 334.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 329.
+(hyperref)                removing `superscript' on input line 334.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 329.
+(hyperref)                removing `math shift' on input line 334.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 329.
+(hyperref)                removing `math shift' on input line 334.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 334.
 
 [8] [9] [10]
-Overfull \hbox (1.67206pt too wide) in paragraph at lines 448--449
+Overfull \hbox (1.67206pt too wide) in paragraph at lines 453--454
 [][]\OT1/cmr/bx/n/10 Definition 2.3. []\OT1/cmr/m/n/10 A \OT1/cmr/m/it/10 Com-p
 o-si-tional Com-pu-ta-tion Struc-ture \OT1/cmr/m/n/10 (CCS) is a triple $(\OML/
 cmm/m/it/10 L; \U/eus/m/n/10 P\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 ^^@)$,
  []
 
 
-Overfull \hbox (20.16731pt too wide) in paragraph at lines 480--481
+Overfull \hbox (20.16731pt too wide) in paragraph at lines 485--486
 []\OT1/cmr/m/n/10 For a de-tailed dis-cus-sion of the Ex-tend-abil-ity Ax-iom, 
 we re-fer the reader to [[]]. 
  []
 
-[11] [12] [13] [14] [15] [16] [17] [18]
-LaTeX Font Info:    Trying to load font information for U+euf on input line 825
+[11] [12] [13]
+Underfull \vbox (badness 2111) has occurred while \output is active []
+
+ [14]
+[15] [16] [17] [18] [19]
+LaTeX Font Info:    Trying to load font information for U+euf on input line 830
 .
 
 (/usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/ueuf.fd
 File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
-) [19]
+)
 Excluding 'comment' comment. (./main.bbl [20]
 Underfull \hbox (badness 1776) in paragraph at lines 169--172
 []\OT1/cmr/m/n/8 Michel Ta-la-grand. The Glivenko-Cantelli prob-lem. \OT1/cmr/m
@@ -928,7 +936,7 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 Here is how much of TeX's memory you used:
  30674 strings out of 478268
  725902 string characters out of 5846347
- 1148640 words of memory out of 5000000
+ 1145640 words of memory out of 5000000
  48064 multiletter control sequences out of 15000+600000
  481578 words of font info for 79 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
@@ -962,7 +970,7 @@ fonts/type1/public/amsfonts/euler/eusm7.pfb></usr/local/texlive/2022/texmf-dist
 dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2022/te
 xmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/local/texlive/2022
 /texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb>
-Output written on main.pdf (21 pages, 439317 bytes).
+Output written on main.pdf (21 pages, 440947 bytes).
 PDF statistics:
  595 PDF objects out of 1000 (max. 8388607)
  508 compressed objects within 6 object streams
