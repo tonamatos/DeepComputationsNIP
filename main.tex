@@ -113,7 +113,7 @@ Going beyond Todorčević’s trichotomy, we invoke a more recent heptachotomy f
 
 We believe that the results presented in this paper show practitioners of computation, or topology, or descriptive set theory, or  model theory, how classification invariants used in their field translate into classification invariants of other fields. However, in the interest of accessibility, we do not assume previous familiarity with high-level topology or model theory, or computing. The only technical prerequisite of the paper is undergraduate-level topology and measure theory. The necessary topological background beyond undergraduate topology is covered in section~\ref{sec:prelim}.
 
-In section \ref{sec:prelim}, we present the basic topological and combinatorial preliminaries, and in section and \ref{S:CCS}, we introduce the structural/model-theoretic viewpoint (no previous exposure to model theory is needed). Section~\ref{S:Classification} is devoted to the classification of deep computations. The final section, section~\ref{Measure-theoretic NIP} presents the probabilistic viewpoint.
+In section \ref{sec:prelim}, we present the basic topological and combinatorial preliminaries, and in section and \ref{S:CCS}, we introduce the structural/model-theoretic viewpoint (no previous exposure to model theory is needed). Section~\ref{S:Classification} is devoted to the classification of deep computations. The final section, section~\ref{Measure-theoretic NIP},  presents the probabilistic viewpoint.
 
 
 Throughout the paper, we focus on classical computation; however, by refining the model-theoretic tools, the results presented here can be extended to quantum computation and open quantum systems. This extension will be addressed in a forthcoming paper.
@@ -183,9 +183,8 @@ The following fact was established by  Baire in thesis. A proof can be found in 
 \begin{fact}[Baire]\label{baire}
     If $X$ is perfectly normal, then the following conditions are equivalent for a function $f:X\to \mathbb{R}$:
     \begin{itemize}
-        \item $f$ is a Baire class 1 function, that is, $f\in B_1(X)$.
+        \item $f$ is a Baire class 1 function, that is,  $f$ is a pointwise limit of continuous functions..
         \item $f^{-1}[U]$ is an $F_\sigma$ subset of $X$ whenever $U\subseteq Y$ is open.
-        \item $f$ is a pointwise limit of continuous functions.
         \item For every closed $F\subseteq X$, the restriction $f|_F$ has a point of continuity.
     \end{itemize}
     Moreover, if $X$ is Polish and $f\notin B_1(X)$, then there exists countable $D_0,D_1\subseteq X$ and reals $a<b$ such that
