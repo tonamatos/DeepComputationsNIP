@@ -9,9 +9,9 @@
 \contentsline {subsection}{\tocsubsection {}{3.1}{NIP, Rosenthal compacta, and deep computations}}{12}{subsection.3.1}%
 \contentsline {subsection}{\tocsubsection {}{3.2}{The Todorčević trichotomy and levels of PAC learnability}}{13}{subsection.3.2}%
 \contentsline {subsection}{\tocsubsection {}{3.3}{The Argyros-Dodos-Kanellopoulos heptachotomy, and approximability of deep computation by minimal classes}}{15}{subsection.3.3}%
-\contentsline {section}{\tocsection {}{4}{Measure-theoretic versions of NIP and essential computability of deep computations}}{16}{section.4}%
+\contentsline {section}{\tocsection {}{4}{Measure-theoretic versions of NIP and universal Monte Carlo computability of deep computations}}{16}{section.4}%
 \contentsline {subsection}{\tocsubsection {}{4.1}{A measure-theoretic version of NIP}}{16}{subsection.4.1}%
-\contentsline {subsection}{\tocsubsection {}{4.2}{Essential computability of deep computations}}{17}{subsection.4.2}%
-\contentsline {subsection}{\tocsubsection {}{4.3}{Bourgain-Fremlin-Talagrand, NIP, and essential computability of deep computations}}{17}{subsection.4.3}%
-\contentsline {subsection}{\tocsubsection {}{4.4}{Talagrand stability, Fremiln's dichotomy, NIP, and essential computability of deep computations}}{18}{subsection.4.4}%
+\contentsline {subsection}{\tocsubsection {}{4.2}{Universal Monte Carlo computability of deep computations}}{17}{subsection.4.2}%
+\contentsline {subsection}{\tocsubsection {}{4.3}{Bourgain-Fremlin-Talagrand, NIP, and universal Monte Carlo computability of deep computations}}{17}{subsection.4.3}%
+\contentsline {subsection}{\tocsubsection {}{4.4}{Talagrand stability, Fremiln's dichotomy, NIP, and universal Monte Carlo computability of deep computations}}{18}{subsection.4.4}%
 \contentsline {section}{\tocsection {}{}{References}}{20}{section*.2}%
