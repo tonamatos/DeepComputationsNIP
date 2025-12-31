@@ -72,7 +72,7 @@ Franklin D. Tall$^{2}$
 
 \date{\today}
 \subjclass[2000]{54H30, 68T27, 68T07, 03C98, 03D15, 05D10}
-\keywords{Deep computations, deep equilibrium models, physics-informed networks, computational complexity, independence property, NIP,  infinite Ramsey theory,  Baire class~1 functions, Rosenthal compacta, Bourgain-Fremlin-Talagrand}
+\keywords{Deep computations, deep equilibrium models, physics-informed networks, computational complexity, independence property, NIP,  infinite Ramsey theory,  Baire class~1 functions, Rosenthal compacta, Todorčević trichotomy, Bourgain-Fremlin-Talagrand}
 
 \begin{document}
 
@@ -263,7 +263,7 @@ $$\bigcap_{n\in I}f_n^{-1}(-\infty,a]\cap\bigcap_{n\notin I}f_n^{-1}[b,\infty)=\
     \[
     \bigcap_{n\in E}f_n^{-1}(-\infty,a]\cap\bigcap_{n\in F}f_n^{-1}[b,\infty)\neq\emptyset.
     \]
-    If $A$ satisfies the negation of this condition, we will say that \emph{$A$ satisfies NIP}, or that  has the NIP.
+    If $A$ satisfies the negation of this condition, we will say that \emph{$A$ satisfies NIP}, or that it has the NIP.
 \end{defn}
 
 \begin{rem}
@@ -286,10 +286,10 @@ To summarize, the particular case of Theorem~\ref{BFT}  for $X$ compact can be s
 
 
 
-The Independence Property was first isolated by Saharon Shelah in model theory as a dividing line between theories whose models are ``tame'' (corresponding to NIP) theories of models are ``wild" (corresponding to IP). See~\cite[Definition 4.1]{Shelah:1971},\cite{Shelah:1990}.  We will discuss this dividing line in more detail in the next section.
+The Independence Property was first isolated by Saharon Shelah in model theory as a dividing line between theories whose models are ``tame'' (corresponding to NIP) and theories whose models are ``wild" (corresponding to IP). See~\cite[Definition 4.1]{Shelah:1971},\cite{Shelah:1990}.  We will discuss this dividing line in more detail in the next section.
 
 
-\subsection{NIP as universal dividing line between polynomial and exponential complexity}
+\subsection{NIP as a universal dividing line between polynomial and exponential complexity}
 
 The particular case of the BFT dichotomy (Theorem~\ref{BFT}) when $A$ consists of $\{0,1\}$-valued (i.e., $\{\text{Yes},\text{No}\}$-valued) strings was discovered independently, around 1971-1972 in many foundational contexts related to polynomial (``tame") vs exponential (``wild'') complexity:  In model theory, by Saharon Shelah~\cite{Shelah:1971},\cite{Shelah:1990},in  combinatorics, by Norbert Sauer~\cite{Sauer:1972},  and Shelah~\cite{Shelah:1972,Shelah:1990}, and in statistical learning, by Vladimir Vapnik and Alexey Chervonenkis~\cite{Vapnik-Chervonenkis:1971, Vapnik-Chervonenkis:1974}.
 
@@ -297,7 +297,7 @@ The particular case of the BFT dichotomy (Theorem~\ref{BFT}) when $A$ consists o
 \begin{description}
 
 \item[In model theory]
-Shelah's classification theory is a foundational program in mathematical logic devised to categorize first-order theories based on the complexity and structure of their models. A theory $T$ is considered classifiable in Shelah's sense if the number of non-isomorphic models of $T$ of a given cardinality can be described by a bounded number of numerical invariants. In contrast, a theory $T$ is unclassifiable if the number of models of $T$ of a given cardinality is the maximum possible number.  A key fact is that the  number of models of $T$ is directly impacted by the number of ``types'' over  of parameters in models of $T$; a controlled number of types is a characteristic of a classifiable theory. 
+Shelah's classification theory is a foundational program in mathematical logic devised to categorize first-order theories based on the complexity and structure of their models. A theory $T$ is considered classifiable in Shelah's sense if the number of non-isomorphic models of $T$ of a given cardinality can be described by a bounded number of numerical invariants. In contrast, a theory $T$ is unclassifiable if the number of models of $T$ of a given cardinality is the maximum possible number.  A key fact is that the  number of models of $T$ is directly impacted by the number of  \emph{types} over  sets of parameters in models of $T$; a controlled number of types is a characteristic of a classifiable theory. 
 
 In Shelah's classification program~\cite{Shelah:1990}, theories without the independence property (called NIP theories, or dependent theories) have a well-behaved, ``tame" structure; the number of types over a set of parameters of size $\kappa$ of such a theory is of polynomially or similar ``slow" growth on $\kappa$. 
 In contrast, Theories with the Independence Property  (called IP theories) are considered ``intractable" or ``wild''. A theory with the Independence Property produces the maximum possible number of types over a set of parameters;  for a set of parameters of cardinality $\kappa$, the theory will have $2^{2^{\kappa}}$-many distinct types.
@@ -415,7 +415,7 @@ Lastly, a simple but useful lemma that helps understand when we restrict a set o
 
 In this section, we connect function spaces with floating point computation. We start by summarizing some basic concepts from \cite{alva2024approximability}.
 
-A \emph{computation states structure} is a pair $(L,\mathcal{P})$, where $L$ is a set whose elements we call \emph{states} and $\mathcal{P}$ is a collection of real-valued functions on $L$ that we call \emph{predicates}.  For a state $v\in L$,  \emph{type} of $v$ is defined as  the indexed family
+A \emph{computation states structure} is a pair $(L,\mathcal{P})$, where $L$ is a set whose elements we call \emph{states} and $\mathcal{P}$ is a collection of real-valued functions on $L$ that we call \emph{predicates}.  For a state $v\in L$, the  \emph{type} of $v$ is defined as  the indexed family
 \[
 \operatorname{tp}(v)= (P(v))_{P\in \mathcal{P}}\in\mathbb{R}^\mathcal{P}.
 \]
@@ -530,7 +530,7 @@ Under what conditions are deep computations Baire class 1, and thus well-behaved
 
 \subsection{The Todorčević trichotomy  and levels of PAC learnability}
 
-Given a countable set $\Delta$ of computations satisfying the NIP on features and shards (condition (ii) of Theorem \ref{nip-baire1def}) we have that $\overline{\tilde\Delta_{\mathcal{L}[r_\bullet]}}$ (for a fixed sizer $r_\bullet$) is a separable \textit{Rosenthal compactum} (see Definition~\ref{D:Rosenthal compacta}).  Todorčević\ proved a remarkable trichotomy for Rosenthal compacta~\cite{Todorcevic_1999_CompactSubsetsBaire}, and later Argyros, Dodos, Kanellopoulos~\cite{argyros2008rosenthal} proved an heptachotomy that refined Todorčević's classification. In this section, inspired by the work of Glasner and Megrelishvili~\cite{glasner2022tame}, we study ways in which this classification allows us obtain different levels of PAC-learnability  and NIP.
+Given a countable set $\Delta$ of computations satisfying the NIP on features and shards (condition (ii) of Theorem \ref{nip-baire1def}) we have that $\overline{\tilde\Delta_{\mathcal{L}[r_\bullet]}}$ (for a fixed sizer $r_\bullet$) is a separable \textit{Rosenthal compactum} (see Definition~\ref{D:Rosenthal compacta}).  Todorčević\ proved a remarkable trichotomy for Rosenthal compacta~\cite{Todorcevic_1999_CompactSubsetsBaire}, and later Argyros, Dodos, Kanellopoulos~\cite{argyros2008rosenthal} proved an heptachotomy that refined Todorčević's classification. In this section, inspired by the work of Glasner and Megrelishvili~\cite{glasner2022tame}, we study ways in which this classification allows us to obtain different levels of PAC-learnability  and NIP.
 
 
 
@@ -657,7 +657,7 @@ One of the main results in \cite{argyros2008rosenthal} is that, up to equivalenc
     \item $D_7=\{(v_{s_t},x^+_{s_t^\frown 0^\infty}):t\in 2^{<\mathbb{N}}\}$. This is discrete in $\overline{D_7}=\hat{D}(S(2^{\mathbb{N}}))$
 \end{enumerate}
 
-\begin{thm}[Heptacotomy of minimal families, Theorem 2 in \cite{argyros2008rosenthal}]
+\begin{thm}[Heptachotomy of minimal families, Theorem 2 in \cite{argyros2008rosenthal}]
     Let $X$ be Polish. For every relatively compact $\{f_{t}:t\in 2^{<\mathbb{N}}\}\subseteq B_1(X)$, there exists $i=1,2,\dots, 7$ and a regular dyadic subtree $\{s_t:t\in 2^{<\mathbb{N}}\}$ of $2^{<\mathbb{N}}$ such that $\{f_{s_t}:t\in 2^{<\mathbb{N}}\}$ is equivalent to $D_i$. Moreover, all $D_i$ are minimal and mutually non-equivalent.
 \end{thm}
 
@@ -725,7 +725,7 @@ We will need the following result about NIP and universally measurable functions
 
 \subsection{Universal Monte Carlo computability of  deep computations}
 
-We now wish to define the concept of a deep computation being computable except  a set of arbitrarily small measure ``no matter which reasonable way you try to measure things on its domain"  (see the remarks following definition~\ref{D:universal measurability}). This is the concept of \emph{universal Monte Carlo computability} defined below (Definition~\ref{D:universally essentially computable}). To motivate the definition, we need to recall two facts:
+We now wish to define the concept of a deep computation being computable except on a set of arbitrarily small measure ``no matter which reasonable way you try to measure things on its domain"  (see the remarks following definition~\ref{D:universal measurability}). This is the concept of \emph{universal Monte Carlo computability} defined below (Definition~\ref{D:universally essentially computable}). To motivate the definition, we need to recall two facts:
 
 \begin{enumerate}
 \item
@@ -756,7 +756,7 @@ Theorem~\ref{BFT-2F} immediately yields the following.
 \end{thm}
 
 \begin{proof}
-    By the Extendability Axiom, Theorem \ref{BFT-2F} and lemma \ref{NIP and closure} we have that $\overline{\pi_P\circ\tilde\Delta|_{\mathcal{L}[r_\bullet]}}\subseteq M_r(\mathcal{L}[r_\bullet])$ for all $r_\bullet\in R$ and $P\in\mathcal{P}$. Let $f\in\overline{\Delta}$ be a deep computation. Write $f=\mathcal{U}\lim_i\gamma_i$ as an ultralimit of computations in $\Delta$. Define $\tilde f:=\mathcal{U}\lim_i\tilde\gamma_i$. Then, for all $r_\bullet\in R$ and $P\in\mathcal{P}$ $\pi_P \circ \tilde\gamma_i|_{\mathcal{L}[r_\bullet]}\in M_r(\mathcal{L}[r_\bullet])$ for all $i$, so $\pi_P \circ f|_{\mathcal{L}[r_\bullet]}\in \overline{\pi_P\circ\tilde\Delta|_{\mathcal{L}[r_\bullet]}}\subseteq M_r(\mathcal{L}[r_\bullet])$.
+    By the Extendability Axiom, Theorem \ref{BFT-2F} and Lemma \ref{NIP and closure} we have $\overline{\pi_P\circ\tilde\Delta|_{\mathcal{L}[r_\bullet]}}\subseteq M_r(\mathcal{L}[r_\bullet])$ for all $r_\bullet\in R$ and $P\in\mathcal{P}$. Let $f\in\overline{\Delta}$ be a deep computation. Write $f=\mathcal{U}\lim_i\gamma_i$ as an ultralimit of computations in $\Delta$. Define $\tilde f:=\mathcal{U}\lim_i\tilde\gamma_i$. Then, for all $r_\bullet\in R$ and $P\in\mathcal{P}$ $\pi_P \circ \tilde\gamma_i|_{\mathcal{L}[r_\bullet]}\in M_r(\mathcal{L}[r_\bullet])$ for all $i$, so $\pi_P \circ f|_{\mathcal{L}[r_\bullet]}\in \overline{\pi_P\circ\tilde\Delta|_{\mathcal{L}[r_\bullet]}}\subseteq M_r(\mathcal{L}[r_\bullet])$.
 \end{proof}
 
 \begin{question}
@@ -846,7 +846,7 @@ The following two results suggest that the precise connection between Talagrand 
 \end{thm}
 
 \begin{thm}[Fremlin, Shelah, \cite{fremlin1993pointwise}]
-    It is consistent that there exists a countable pointwise bounded set of Lebesgue measurable functions with the NIP which is not Talagrand stable with respect to Lebesgue measure.
+    It is consistent with the usual axioms of set theory that there exists a countable pointwise bounded set of Lebesgue measurable functions with the NIP which is not Talagrand stable with respect to Lebesgue measure.
 \end{thm}
 
 

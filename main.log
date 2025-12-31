@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.7.13)  30 DEC 2025 21:32
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.7.13)  30 DEC 2025 22:57
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -917,7 +917,13 @@ it/10 on $\OML/cmm/m/it/10 X$\OT1/cmr/m/it/10 , $\OML/cmm/m/it/10 A$ \OT1/cmr/m
 0 (\OML/cmm/m/it/10 X; ^^V\OT1/cmr/m/n/10 )$\OT1/cmr/m/it/10 ,
  []
 
-[17] [18]
+[17]
+Overfull \hbox (24.76465pt too wide) in paragraph at lines 759--760
+[]\OT1/cmr/m/n/10 By the Ex-tend-abil-ity Ax-iom, The-o-rem []4.5[] and Lemma [
+]1.13[] we have $[] \OMS/cmsy/m/n/10 ^^R
+ []
+
+[18]
 Overfull \hbox (11.74614pt too wide) in paragraph at lines 819--820
 []\OT1/cmr/m/it/10 For ev-ery Radon mea-sure $\OML/cmm/m/it/10 ^^V$ \OT1/cmr/m/
 it/10 on $\OML/cmm/m/it/10 X$\OT1/cmr/m/it/10 , $\OML/cmm/m/it/10 A$ \OT1/cmr/m
@@ -945,7 +951,7 @@ Underfull \hbox (badness 1648) in paragraph at lines 198--201
 
 ) [21] (./main.aux)
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: C9F6DA312681FCC0446173CF11C90621;6708.
+(rerunfilecheck)             Checksum: 7AB7E98791E251D1B4C9D498BF358407;6721.
  ) 
 Here is how much of TeX's memory you used:
  30692 strings out of 478268
@@ -984,7 +990,7 @@ fonts/type1/public/amsfonts/euler/eusm7.pfb></usr/local/texlive/2022/texmf-dist
 dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2022/te
 xmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/local/texlive/2022
 /texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb>
-Output written on main.pdf (21 pages, 441718 bytes).
+Output written on main.pdf (21 pages, 441847 bytes).
 PDF statistics:
  615 PDF objects out of 1000 (max. 8388607)
  528 compressed objects within 6 object streams
