@@ -72,7 +72,7 @@ Franklin D. Tall$^{2}$
 
 \date{\today}
 \subjclass[2000]{54H30, 68T27, 68T07, 03C98, 03D15, 05D10}
-\keywords{Deep computations, deep equilibrium models, physics-informed networks, computational complexity, independence property, NIP,  infinite Ramsey theory,  Baire class~1 functions, Rosenthal compacta, Todorčević trichotomy, Bourgain-Fremlin-Talagrand}
+\keywords{Deep computations, deep equilibrium models, deep learning, physics-informed networks, computational complexity, independence property, NIP,  infinite Ramsey theory,  Baire class~1 functions, Rosenthal compacta, Todorčević trichotomy, Bourgain-Fremlin-Talagrand}
 
 \begin{document}
 
@@ -120,45 +120,12 @@ We believe that the results presented in this paper show practitioners of comput
 In section \ref{sec:prelim}, we present the basic topological and combinatorial preliminaries, and in section~\ref{S:CCS}, we introduce the structural/model-theoretic viewpoint (no previous exposure to model theory is needed). Section~\ref{S:Classification} is devoted to the classification of deep computations, and the final section, section~\ref{Measure-theoretic NIP},  presents the probabilistic viewpoint.
 
 
-Throughout the paper, we focus on classical computation; however, by refining the model-theoretic tools, the results presented here can be extended to quantum computation and open quantum systems. This extension will be addressed in a forthcoming paper.
+Throughout the paper, we focus on classical computation; however, by refining the model-theoretic tools, the results presented here can be extended to the realm of quantum computation and open quantum systems. This extension will be addressed in a forthcoming paper.
 
 \tableofcontents
 
-\begin{comment}
 
-\section{Technical and historical backround}
-
-Suppose that $A$ is a subset of the real line $\mathbb R$ and that $\overline A$ is its \emph{closure}. It is a well-known fact that any point of closure of $A$, say $x\in\overline A$, can be \emph{approximated} by points inside of $A$, in the sense that a sequence $\{x_n\}_{n\in\mathbb N}\subseteq A$ must exist with the property that $\lim_{n\to\infty}x_n=x$. For most applications we wish to approximate objects more complicated than points, such as functions.
-
-Suppose we wish to build a neural network that decides, given an 8 by 8 black-and-white image of a hand-written scribble, what single decimal digit the scribble represents. Maybe there exists $f$, a function representing an optimal solution to this classifier. Thus if $X$ is the set of all (possible) images, then for $I\in X$, $f(I)\in\{0,1,2,\dots,9\}$ is the ``best'' (or ``good enough'' for whatever deployment is needed) possible guess. Training the neural network involves approximating $f$ until its guesses are within an acceptable error range. In general, $f$ might be a function defined on a more complicated topological space $X$.
-
-Often computers' viable operations are restricted (addition, subtraction, multiplication, division, etc.) and so we want to approximate a complicated function using simple functions (like polynomials). The problem is that, in contrast with mere points, functions in the closure of a set of functions need not be approximable (meaning the pointwise limit of a sequence of functions) by functions in the set.
-
-Functions that are the pointwise limit of continuous functions are \emph{Baire class 1 functions}, and the set of all of these is denoted by $B_1(X)$. Notice that these are not necessarily continuous themselves! A set of Baire class 1 functions, $A$, will be relatively compact if its closure consists of just Baire class 1 functions (we delay the formal definition of \emph{relatively compact} until Section~\ref{sec:prelim}, but the fact mentioned here is sufficient). The Bourgain-Fremlin-Talagrand (BFT) theorem reveals a precise correspondence between relative compactness in $B_1(X)$ and the model-theoretic notion of \emph{Non-Independence Property} (NIP). This was realized by Pierre Simon in \cite{Simon_2015_RosenthalNIP}. 
-
-Simon's insight was to view definable families of functions as sets of real-valued functions on type spaces and to interpret relative compactness in $B_1(X)$ as a form of ``tame behavior'' under ultrafilter limits. From this perspective, NIP theories are those whose definable families behave like relatively compact sets of Baire class 1 functions, avoiding the wild, $\beta\mathbb N$-like configurations that witness instability. This observation opened a new bridge between analysis and logic: topological compactness corresponds to the absence of combinatorial independence. Simon's later developments connected these ideas to \emph{Keisler measures} and \emph{empirical averages}, allowing tools from functional analysis to be used to study learnability and definable types. This reinterpretation of model-theoretic tameness through the lens of the BFT theorem has made NIP a central notion not only in stability theory but also in contemporary connections with learning theory and ergodic analysis.
-
-Historically, the notion of NIP arises from Shelah's foundational work on the classification theory of models. In his seminal book \emph{Unstable Theories}~\cite{shelah1978unstable}, Shelah introduced the independence property as a key dividing line within unstable structures, identifying the class of \emph{stable} theories inside those in which this property fails. Fix a first-order formula $\varphi(x,y)$ in a language $L$ and a model $M$ of an $L$-theory $T$. We say that $\varphi(x,y)$ has the \emph{independence property (IP)} in $M$ if there is a sequence $(c_i)_{i\in\mathbb N}\subseteq M^{|x|}$ such that for every $S\subseteq\mathbb N$ there is $a_S\in M^{|y|}$ with $$\forall i\in\mathbb N,\qquad M\models\varphi(c_i,a_S)\quad\iff\quad i\in S.$$ The formula $\phi(x,y)$ has the IP if it does so in some model $M$, and the formula has the \emph{non-independence property (NIP)} if it does not have the IP. The latter notion of NIP generalizes stability by forbidding the full combinatorial independence pattern while allowing certain controlled forms of unstability. Thus, Simon's interpretation of the BFT theorem can be viewed as placing Shelah's dividing line into a topological-analytic framework, connecting the earliest notions of stability to compactness phenomena in spaces of Baire class 1 functions.
-
-One of the most important innovations in Machine Learning is the mathematical notion, introduced by Turing Awardee Leslie Valiant in the 1980s, of ‘probably approximately correct learning’, or PAC-learning for short~\cite{bendavid2019understanding}. We give a standard but short overview of these concepts in the context that is relevant to this work.
-
-Consider the following important idea in data classification. Suppose that $A$ is a set and that $\mathcal C$ is a collection of sets. We say that $\mathcal C$ \emph{shatters} $A$ if every subset of $A$ is of the form $C\cap A$ for some $C\in\mathcal C$. For a classical geometric example, if $A$ is the set of four points on the Euclidean plane of the form $(\pm1,\pm1)$, then the collection of all half-planes does not shatter $A$, the collection of all open balls does not shatter $A$, but the collection of all convex sets shatters $A$. While $A$ need not be finite, it will usually be assumed to be so in Machine Learning applications. A finer way to distinguish collections of sets that shatter a given set from those that do not is by the \emph{Vapnik-Chervonenkis dimension (VC-dimension)}, which is equal to the cardinality of the largest finite set shattered by the collection, in case it exists, or to infinity otherwise.
-
-A concrete illustration of these ideas appears when considering threshold classifiers on the real line. Let $\mathcal{H}$ be the collection of all indicator functions $h_t$ given by $h_t(x)=1$ if $x\leq t$ and $h_t(x)=0$ otherwise. Each $h_t$ is a Baire class 1 function, and the family $\mathcal{H}$ is relatively compact in $B_1(\mathbb{R})$. In model-theoretic terms, $\mathcal{H}$ is NIP, since no configuration of points and thresholds can realize the full independence pattern of a binary matrix. By contrast, the family of parity functions $\{x\mapsto (-1)^{\langle w,x\rangle}:w\in\{0,1\}^n\}$ on $\{0,1\}^n$ (here ${\langle w,x\rangle}$ is the usual vector dot product) has the independence property and fails relative compactness in $B_1(X)$, capturing the analytical meaning of instability. This dichotomy mirrors the behavior of concept classes with finite versus infinite VC dimension in statistical learning theory.
-
-Going back to the model theoretic framework, let $$\mathcal F_\varphi(M):=\{\varphi(M,a):a\in M^{|y|}\}$$ be the family of subsets of $M^{|x|}$ defined by instances of the formula $\varphi$, where $\varphi(M,a)$ is the set of $|x|$-tuples $c$ in $M$ for which $M\models \varphi(c,a)$. The fundamental theorem of statistical learning states that a binary hypothesis class is PAC-learnable if and only if it has finite VC-dimension, and the subsequent theorem connects the rest of the concepts presented in this section.
-
-\begin{thm}[Laskowski]
-    The formula $\varphi(x,y)$ satisfies the NIP if and only if $\mathcal F_\varphi(M)$ has finite VC-dimension.
-\end{thm}
-
-For two simple examples of formulas satisfying the NIP, consider first the language $L=\{<\}$ and the model $M=(\mathbb R,<)$ of the reals with their usual linear order. Take the formula $\varphi(x,y)$ to mean $x<y$, then $\varphi(M,a)=(-\infty,a)$, and so $\mathcal F_\varphi(M)$ is just the set of left open rays. The VC-dimension of this collection is 1, since it can shatter a single point, but no two point set can be shattered since the rays are downwards closed. Now in contrast, the collection of open intervals, given by the formula $\varphi(x;y_1,y_2):=(y_1<x)\land(x<y_2)$, has VC-dimension 2.
-
-In this work, we study the corresponding notions of NIP (and hence PAC-learnability) in the context of Compositional Computation Structures (CCS) introduced in \cite{alva2024approximability}.
-
-\end{comment}
-
-\section{General topological preliminaries: From continuity to Baire class 1}
+\section{General topological preliminaries: From continuity\\ to Baire class 1}
 \label{sec:prelim}
 
 In this section we present the preliminaries from general topology and function space theory. We include some of the proofs for completeness, but the reader familiar with these topics may skip them.
@@ -409,7 +376,7 @@ Lastly, a simple but useful lemma that helps understand when we restrict a set o
     This contradicts (i).
 \end{proof}
 
-\section{Compositional computation structures: A structural approach to floating-point computation}
+\section{Compositional computation structures: A structural approach \\ to floating-point computation}
 \label{S:CCS}
 
 
@@ -419,7 +386,7 @@ A \emph{computation states structure} is a pair $(L,\mathcal{P})$, where $L$ is 
 \[
 \operatorname{tp}(v)= (P(v))_{P\in \mathcal{P}}\in\mathbb{R}^\mathcal{P}.
 \]
-For each $P\in \mathcal{P}$, we call real value $P(v)$ the $P$-th \emph{feature} of~$v$.  A \emph{transition} of a computation states structure  $(L,\mathcal{P})$ is a map $f:L\to L$.
+For each $P\in \mathcal{P}$, we call the value $P(v)$ the $P$-th \emph{feature} of~$v$.  A \emph{transition} of a computation states structure  $(L,\mathcal{P})$ is a map $f:L\to L$.
 
 
 Intuitively, $L$ is the set of states of a computation,  and the predicates  $P \in\mathcal{P}$ are primitives that are given and accepted as computable.
@@ -452,6 +419,8 @@ We define $\mathcal{L}_{\text{sh}}$, as the union of all type-shards.
 %\end{enumerate}
 %\end{rem}
 
+\subsection{Compositional Computation Structures} 
+
 \begin{defn}
 \label{D:CCS}
 A \emph{Compositional Computation Structure} (CCS) is a triple $(L,\mathcal P,\Gamma)$, where
@@ -464,17 +433,35 @@ A \emph{Compositional Computation Structure} (CCS) is a triple $(L,\mathcal P,\G
 
 The elements of the  semigroup $\Gamma$ are called the \emph{computations} of the structure $(L,\mathcal P,\Gamma)$.
 
-If $\Delta\subseteq\Gamma$, we say that $\Delta\subseteq\Gamma$ is \emph{$R$-confined} if $\gamma|_{L[r_\bullet]}:L[r_\bullet]\to L[r_\bullet]$ for every $r_\bullet\in R$ and $\gamma\in \Delta$. Elements in $\overline{\Delta}\subseteq \mathcal L_{\text{sh}}$ are called (real-valued) \emph{deep computations} or \emph{ultracomputations}. 
+If $\Delta\subseteq\Gamma$, we say that $\Delta\subseteq\Gamma$ is \emph{$R$-confined} if $\gamma|_{L[r_\bullet]}:L[r_\bullet]\to L[r_\bullet]$ for every $r_\bullet\in R$ and $\gamma\in \Delta$. Elements in $\overline{\Gamma}\subseteq \mathcal L_{\text{sh}}$ are called (real-valued) \emph{deep computations} or \emph{ultracomputations}. 
 \end{defn}
 
- A tenet of our approach is that a map $f: L\to \mathcal{L}$ is to be considered “effectively computable” if, for each $Q\in\mathcal{P}$, the output feature $Q{\circ}f: L\to\mathbb{R}$ is a \emph{definable} predicate in the following sense:
-Given any arbitrary $\varepsilon>0$ and any $K\subseteq L$ wherein every input feature $P(v)$ remains bounded in magnitude there is an $\varepsilon$-approximating continuous ``algebraic'' operator $\varphi(P_1,\dots, P_n)$ of finitely many input predicates~$P_1,\dots, P_n\in\mathcal{P}$, such that  the following holds: for all $v\in K$,  the output feature $Q(f(v))$ is $\varepsilon$-approximated by $\varphi(P_1(v),\dots, P_n(v))$. By ``algebraic",  we mean that, \emph{aside from the primitively computable $P_1,\dots, P_n$, the approximating operator $\varphi(P_1,\dots, P_n)$ uses only the also primitively computable operations of $\mathbb{R}^\mathcal{P}$ as an algebra}, i.e., vector addition, vector multiplication, and scalar addition.
+For a CCS $(L,\mathcal P,\Gamma)$, we regard the elements of $\Gamma$ as ``standard'' computations and the elements of  deep computations as limits of standard, ``finitary'' computations, and elements of $\overline{\Gamma}$, i.e., ultracomputations, as possibly infinitary limits of standard computations. In fact,  a function $f: L\to \mathcal{L}$ is an ultracomputation if and only if it is an utrafilter limit of standard computations. The main goal of this paper is to study the computability, definability and computational complexity of deep computations. Since ultracomputations are defined through a combination of topological concepts (namely, topological closure) and structural and model-theoretic concepts (namely, models and types), we will import technology from both topology and model theory.
 
+\subsection{Computability and definability of deep computations and the Extendibility Axiom}
 
-It is shown in \cite{alva2024approximability}) that:
+Let  $f: L\to \mathcal{L}$ be a function that maps each input state type  $(P(v))_{P\in \mathcal{P}}\in\mathbb{R}^\mathcal{P}$ into an output state type $(P\circ f (v))_{P\in \mathcal{P}}\in\mathbb{R}^\mathcal{P}$.
+ 
+ \begin{enumerate}
+ \item
+We will say that $f$  is \emph{definable}  if for each $Q\in\mathcal{P}$, the output feature $Q{\circ}f: L\to\mathbb{R}$ is a definable predicate in the following sense: There is an \emph{approximating function} $\varphi_{Q,\,K,\varepsilon}: L\to \mathcal{L}$ that can be built recursively out of a finite number of the (primitively computable) predicates in $\mathcal{P}$
+by a finite number of applications of the finitary lattice operations $\land$ (=min) and $\lor$ (=max), the operations of $\mathbb{R}^\mathbb{R}$ as a vector algebra (that is, vector addition and multiplication and scalar multiplication) and the operators sup and inf applied on individual variables from $L$, and such that 
+\[
+| \varphi_{Q,\,K,\varepsilon}(v)- Q{\circ}f(v)|\le \epsilon,
+\qquad
+\text{for all $v\in K$}.
+\]
+
+\emph{Remark:} What we have defined above is a model-theoretic concept; it is a special case of the concept of \emph{first-order definability}  for real-valued predicates in the model the theory of real-valued structures first introduced in \cite{Iovino:1994} for model theory of functional analysis and now standard in model theory (see~\cite{Keisler:2023}). The  $\land$ (=min) and $\lor$ (=max) operations correspond to the  positive Boolean logical connectives  ``and'' and ``or", and the sup and inf operators correspond to the first-order quantifiers, $\forall$ and $\exists$.
+\item
+We will say that $f$  is \emph{computable} if it is definable in the sense defined above under~(1), but without the use of the sup/inf operators; in other words, if for every choice of $Q,K,\varepsilon$, the approximation function $\varphi_{Q,K,\varepsilon}: L\to \mathcal{L}$ can be constructed without any use of sup or inf operators. This is quantifier-free definability (i.e., definability as given by the preceding paragraph, but without use of quantifiers), which, from a logic viewpoint,  corresponds to computability (the presence of the quantifiers $\exists$ and $\forall$ are the reason behind the undecidability of first-order logic).
+  \end{enumerate}
+  
+
+It is shown in \cite{alva2024approximability} that:
 \begin{enumerate}
-\item For a definable $f: L\to \mathcal{L}$, the approximating operators $\varphi$  may be taken to be \emph{polynomials} of the input features, and
-\item Definable transforms $f: L\to\mathcal{L}$ are precisely those that extend to continuous $\tilde{f}: \mathcal{L} \to \mathcal{L}$
+\item For a definable $f: L\to \mathcal{L}$, the approximating operators $\varphi_{Q,\,K,\varepsilon}$  may be taken to be \emph{polynomials} of the input features, and
+\item Definable transforms $f: L\to\mathcal{L}$ are precisely those that extend to continuous $\tilde{f}: \mathcal{L} \to \mathcal{L}$.
 \end{enumerate}
 
 This motivates the following definition.
@@ -484,7 +471,7 @@ This motivates the following definition.
 We say that a CCS $(L,\mathcal P,\Gamma)$ satisfies the \emph{Extendability Axiom} if for all $\gamma\in \Gamma$, there is $\tilde\gamma:\mathcal L_{\text{sh}}\to\mathcal L_{\text{sh}}$ such that for every sizer $r_{\bullet}$ there is a sizer $s_\bullet$ such that $\tilde\gamma|_{\mathcal L[r_\bullet]}:\mathcal L[r_\bullet]\to\mathcal L[s_\bullet]$ is continuous.  We refer to $\tilde\gamma$ as a \emph{free} extension of~$\gamma$.
 \end{defn}
 
-By the preceding remarks, the Extendability Axiom says that the elements of the semigroup $\Gamma$ are definable. For the rest of the paper, fix for each $\gamma\in\Gamma$ a free extension $\tilde{\gamma}$ of $\gamma$. For any  $\Delta\subseteq\Gamma$, let $\tilde{\Delta}$ denote $\{\tilde\gamma\colon\gamma\in\Delta\}$.
+By the preceding remarks, the Extendability Axiom says that the elements of the semigroup $\Gamma$ are finitary computations. For the rest of the paper, fix for each $\gamma\in\Gamma$ a free extension $\tilde{\gamma}$ of $\gamma$. For any  $\Delta\subseteq\Gamma$, let $\tilde{\Delta}$ denote $\{\tilde\gamma\colon\gamma\in\Delta\}$.
 
 For a detailed discussion of the Extendability Axiom, we refer the reader to~\cite{alva2024approximability}.
 

@@ -96,11 +96,22 @@ Clovis Hamel and Franklin~D. Tall.
 \newblock In Jose Iovino, editor, {\em Beyond First Order Model Theory, Volume
   II}, chapter~5, pages 176--213. Chapman and Hall/CRC, 2023.
 
+\bibitem[Iov94]{Iovino:1994}
+Jos\'e~N. Iovino.
+\newblock {\em Stable Theories in Functional Analysis}.
+\newblock PhD thesis, University of Illinois at Urbana-Champaign, 1994.
+
 \bibitem[Kec95]{kechris1995cdst}
 Alexander~S. Kechris.
 \newblock {\em Classical Descriptive Set Theory}, volume 156 of {\em Graduate
   Texts in Mathematics}.
 \newblock Springer-Verlag, 1995.
+
+\bibitem[Kei03]{Keisler:2023}
+H.~Jerome Keisler.
+\newblock Model theory for real-valued structures.
+\newblock In José Iovino, editor, {\em Beyond First Order Model Theory, Volume
+  II}. CRC Press, Boca Raton, FL, 2003.
 
 \bibitem[Kha20]{Khanaki_2020_StabilityNIPNSOP}
 Karim Khanaki.

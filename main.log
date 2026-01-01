@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.7.13)  30 DEC 2025 23:14
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.7.13)  1 JAN 2026 16:46
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -844,20 +844,18 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 LaTeX Font Info:    Trying to load font information for U+eus on input line 6.
  (/usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/ueus.fd
 File: ueus.fd 2013/01/14 v3.01 Euler Script
-))
+)
+[3])
 \tf@toc=\write6
 \openout6 = `main.toc'.
 
 
-Excluding 'comment' comment.
-Underfull \vbox (badness 1270) has occurred while \output is active []
 
- [3]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\\' on input line 128.
 
- [4]
-[5] [6]
-Overfull \hbox (15.13966pt too wide) in paragraph at lines 294--295
+[4] [5] [6]
+Overfull \hbox (15.13966pt too wide) in paragraph at lines 261--262
 []\OT1/cmr/m/n/10 ], and in sta-tis-ti-cal learn-ing, by Vladimir Vap-nik and A
 lexey Cher-vo-nenkis [[],
  []
@@ -866,98 +864,98 @@ lexey Cher-vo-nenkis [[],
 
 Package amsmath Warning: Foreign command \atopwithdelims;
 (amsmath)                \frac or \genfrac should be used instead
-(amsmath)                 on input line 316.
+(amsmath)                 on input line 283.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 336.
+(hyperref)                removing `math shift' on input line 303.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 336.
+(hyperref)                removing `subscript' on input line 303.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 336.
+(hyperref)                removing `superscript' on input line 303.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 336.
+(hyperref)                removing `math shift' on input line 303.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 336.
+(hyperref)                removing `math shift' on input line 303.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 336.
+(hyperref)                removing `math shift' on input line 303.
 
-[8] [9] [10]
-Overfull \hbox (1.67206pt too wide) in paragraph at lines 457--458
+[8] [9]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\\' on input line 379.
+
+[10]
+Overfull \hbox (1.67206pt too wide) in paragraph at lines 426--427
 [][]\OT1/cmr/bx/n/10 Definition 2.3. []\OT1/cmr/m/n/10 A \OT1/cmr/m/it/10 Com-p
 o-si-tional Com-pu-ta-tion Struc-ture \OT1/cmr/m/n/10 (CCS) is a triple $(\OML/
 cmm/m/it/10 L; \U/eus/m/n/10 P\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 ^^@)$,
  []
 
-
-Overfull \hbox (20.16731pt too wide) in paragraph at lines 489--490
+[11]
+Overfull \hbox (20.16731pt too wide) in paragraph at lines 476--477
 []\OT1/cmr/m/n/10 For a de-tailed dis-cus-sion of the Ex-tend-abil-ity Ax-iom, 
 we re-fer the reader to [[]]. 
  []
 
-[11] [12] [13]
-Underfull \vbox (badness 4328) has occurred while \output is active []
-
- [14]
-[15] [16]
-Overfull \hbox (11.74614pt too wide) in paragraph at lines 721--722
+[12] [13] [14] [15] [16] [17]
+Overfull \hbox (11.74614pt too wide) in paragraph at lines 708--709
 []\OT1/cmr/m/it/10 For ev-ery Radon mea-sure $\OML/cmm/m/it/10 ^^V$ \OT1/cmr/m/
 it/10 on $\OML/cmm/m/it/10 X$\OT1/cmr/m/it/10 , $\OML/cmm/m/it/10 A$ \OT1/cmr/m
 /it/10 is rel-a-tively count-ably com-pact in $\U/rsfs/m/n/10 M[]\OT1/cmr/m/n/1
 0 (\OML/cmm/m/it/10 X; ^^V\OT1/cmr/m/n/10 )$\OT1/cmr/m/it/10 ,
  []
 
-[17]
-Overfull \hbox (24.76465pt too wide) in paragraph at lines 759--760
+[18]
+Overfull \hbox (24.76465pt too wide) in paragraph at lines 746--747
 []\OT1/cmr/m/n/10 By the Ex-tend-abil-ity Ax-iom, The-o-rem []4.5[] and Lemma [
 ]1.13[] we have $[] \OMS/cmsy/m/n/10 ^^R
  []
 
-[18]
-Overfull \hbox (11.74614pt too wide) in paragraph at lines 819--820
+[19]
+Overfull \hbox (11.74614pt too wide) in paragraph at lines 806--807
 []\OT1/cmr/m/it/10 For ev-ery Radon mea-sure $\OML/cmm/m/it/10 ^^V$ \OT1/cmr/m/
 it/10 on $\OML/cmm/m/it/10 X$\OT1/cmr/m/it/10 , $\OML/cmm/m/it/10 A$ \OT1/cmr/m
 /it/10 is rel-a-tively count-ably com-pact in $\U/rsfs/m/n/10 M[]\OT1/cmr/m/n/1
 0 (\OML/cmm/m/it/10 X; ^^V\OT1/cmr/m/n/10 )$\OT1/cmr/m/it/10 ,
  []
 
-[19]
-LaTeX Font Info:    Trying to load font information for U+euf on input line 845
+LaTeX Font Info:    Trying to load font information for U+euf on input line 832
 .
- (/usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/ueuf.fd
+(/usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/ueuf.fd
 File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
-)
-Excluding 'comment' comment. (./main.bbl [20]
-Underfull \hbox (badness 1776) in paragraph at lines 176--179
+) [20]
+Excluding 'comment' comment. (./main.bbl [21]
+Underfull \hbox (badness 1776) in paragraph at lines 187--190
 []\OT1/cmr/m/n/8 Michel Ta-la-grand. The Glivenko-Cantelli prob-lem. \OT1/cmr/m
 /it/8 The An-nals of Prob-a-bil-ity\OT1/cmr/m/n/8 ,
  []
 
 
-Underfull \hbox (badness 1648) in paragraph at lines 198--201
+Underfull \hbox (badness 1648) in paragraph at lines 209--212
 []\OT1/cmr/m/n/8 Leslie G. Valiant. A the-ory of the learn-able. \OT1/cmr/m/it/
 8 Com-mu-ni-ca-tions of the ACM\OT1/cmr/m/n/8 ,
  []
 
-) [21] (./main.aux)
+) [22] (./main.aux)
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 7AB7E98791E251D1B4C9D498BF358407;6721.
+(rerunfilecheck)             Checksum: 1CE37C0232DC66FFCC05F8E101E1D2E5;7509.
  ) 
 Here is how much of TeX's memory you used:
- 30692 strings out of 478268
- 726057 string characters out of 5846347
- 1145640 words of memory out of 5000000
- 48065 multiletter control sequences out of 15000+600000
+ 30704 strings out of 478268
+ 726203 string characters out of 5846347
+ 1148640 words of memory out of 5000000
+ 48070 multiletter control sequences out of 15000+600000
  481578 words of font info for 79 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
  99i,12n,94p,1735b,1249s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -990,10 +988,10 @@ fonts/type1/public/amsfonts/euler/eusm7.pfb></usr/local/texlive/2022/texmf-dist
 dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2022/te
 xmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/local/texlive/2022
 /texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb>
-Output written on main.pdf (21 pages, 441879 bytes).
+Output written on main.pdf (22 pages, 446759 bytes).
 PDF statistics:
- 615 PDF objects out of 1000 (max. 8388607)
- 528 compressed objects within 6 object streams
- 166 named destinations out of 1000 (max. 500000)
- 149 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 640 PDF objects out of 1000 (max. 8388607)
+ 552 compressed objects within 6 object streams
+ 173 named destinations out of 1000 (max. 500000)
+ 165 words of extra memory for PDF output out of 10000 (max. 10000000)
 
