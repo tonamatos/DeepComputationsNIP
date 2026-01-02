@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.7.13)  1 JAN 2026 19:14
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.7.13)  2 JAN 2026 06:41
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -904,7 +904,7 @@ cmm/m/it/10 L; \U/eus/m/n/10 P\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 ^^@)$,
  []
 
 [11] [12] [13] [14] [15] [16] [17]
-Overfull \hbox (11.74614pt too wide) in paragraph at lines 708--709
+Overfull \hbox (11.74614pt too wide) in paragraph at lines 701--702
 []\OT1/cmr/m/it/10 For ev-ery Radon mea-sure $\OML/cmm/m/it/10 ^^V$ \OT1/cmr/m/
 it/10 on $\OML/cmm/m/it/10 X$\OT1/cmr/m/it/10 , $\OML/cmm/m/it/10 A$ \OT1/cmr/m
 /it/10 is rel-a-tively count-ably com-pact in $\U/rsfs/m/n/10 M[]\OT1/cmr/m/n/1
@@ -912,20 +912,20 @@ it/10 on $\OML/cmm/m/it/10 X$\OT1/cmr/m/it/10 , $\OML/cmm/m/it/10 A$ \OT1/cmr/m
  []
 
 [18]
-Overfull \hbox (24.76465pt too wide) in paragraph at lines 746--747
+Overfull \hbox (24.76465pt too wide) in paragraph at lines 739--740
 []\OT1/cmr/m/n/10 By the Ex-tend-abil-ity Ax-iom, The-o-rem []4.5[] and Lemma [
 ]1.13[] we have $[] \OMS/cmsy/m/n/10 ^^R
  []
 
 [19]
-Overfull \hbox (11.74614pt too wide) in paragraph at lines 806--807
+Overfull \hbox (11.74614pt too wide) in paragraph at lines 799--800
 []\OT1/cmr/m/it/10 For ev-ery Radon mea-sure $\OML/cmm/m/it/10 ^^V$ \OT1/cmr/m/
 it/10 on $\OML/cmm/m/it/10 X$\OT1/cmr/m/it/10 , $\OML/cmm/m/it/10 A$ \OT1/cmr/m
 /it/10 is rel-a-tively count-ably com-pact in $\U/rsfs/m/n/10 M[]\OT1/cmr/m/n/1
 0 (\OML/cmm/m/it/10 X; ^^V\OT1/cmr/m/n/10 )$\OT1/cmr/m/it/10 ,
  []
 
-LaTeX Font Info:    Trying to load font information for U+euf on input line 832
+LaTeX Font Info:    Trying to load font information for U+euf on input line 825
 .
 (/usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/ueuf.fd
 File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
@@ -943,13 +943,19 @@ Underfull \hbox (badness 1648) in paragraph at lines 209--212
  []
 
 ) [22] (./ComplexityViaTopology.aux)
-Package rerunfilecheck Info: File `ComplexityViaTopology.out' has not changed.
-(rerunfilecheck)             Checksum: 1CE37C0232DC66FFCC05F8E101E1D2E5;7509.
+
+Package rerunfilecheck Warning: File `ComplexityViaTopology.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `ComplexityViaTopology.out':
+(rerunfilecheck)             Before: 1CE37C0232DC66FFCC05F8E101E1D2E5;7509
+(rerunfilecheck)             After:  063D63D8A0E6DCCB07CE1DFDFB8507AC;7635.
  ) 
 Here is how much of TeX's memory you used:
- 30701 strings out of 478268
- 726600 string characters out of 5846347
- 1143657 words of memory out of 5000000
+ 30702 strings out of 478268
+ 726614 string characters out of 5846347
+ 1143656 words of memory out of 5000000
  48068 multiletter control sequences out of 15000+600000
  481278 words of font info for 78 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
@@ -982,10 +988,10 @@ st/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2022/texm
 f-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2022/
 texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/local/texlive/20
 22/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb>
-Output written on ComplexityViaTopology.pdf (22 pages, 432357 bytes).
+Output written on ComplexityViaTopology.pdf (22 pages, 432434 bytes).
 PDF statistics:
- 626 PDF objects out of 1000 (max. 8388607)
- 540 compressed objects within 6 object streams
- 173 named destinations out of 1000 (max. 500000)
+ 627 PDF objects out of 1000 (max. 8388607)
+ 541 compressed objects within 6 object streams
+ 174 named destinations out of 1000 (max. 500000)
  165 words of extra memory for PDF output out of 10000 (max. 10000000)
 

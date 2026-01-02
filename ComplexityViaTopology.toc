@@ -7,6 +7,7 @@
 \contentsline {section}{\tocsection {}{2}{Compositional computation structures: A structural approach \\ to floating-point computation}}{10}{section.2}%
 \contentsline {subsection}{\tocsubsection {}{2.1}{Compositional Computation Structures}}{11}{subsection.2.1}%
 \contentsline {subsection}{\tocsubsection {}{2.2}{Computability and definability of deep computations and the Extendibility Axiom}}{11}{subsection.2.2}%
+\contentsline {subsection}{\tocsubsection {}{2.3}{Examples}}{12}{subsection.2.3}%
 \contentsline {section}{\tocsection {}{3}{Classifying deep computations}}{13}{section.3}%
 \contentsline {subsection}{\tocsubsection {}{3.1}{NIP, Rosenthal compacta, and deep computations}}{13}{subsection.3.1}%
 \contentsline {subsection}{\tocsubsection {}{3.2}{The Todorčević trichotomy and levels of PAC learnability}}{13}{subsection.3.2}%
