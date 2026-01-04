@@ -161,8 +161,8 @@ Recall that a subset of a topological space is $F_\sigma$ if it is a countable u
 Note that in a metrizable space, every open set is $F_\sigma$; equivalently, every closed set is $G_\delta$.
 
 A \emph{Polish space} is a separable and completely metrizable topological space.
-The most important examples are the reals $\mathbb R$, the Cantor space $2^\mathbb N$ (the set of all infinite binary sequences, endowed with the product topology), and the Baire space $\mathbb N^\mathbb N$ (the set of all infinite sequences of naturals, also with the product topology).
-Countable products of Polish spaces are Polish; this includes spaces like $\mathbb R^\mathbb N$, the space of sequences of real numbers.
+The most important examples are the reals $\mathbb{R}$, the Cantor space $2^\mathbb{N}$ (the set of all infinite binary sequences, endowed with the product topology), and the Baire space $\mathbb{N}^\mathbb{N}$ (the set of all infinite sequences of naturals, also with the product topology).
+Countable products of Polish spaces are Polish; this includes spaces like $\mathbb{R}^\mathbb{N}$, the space of sequences of real numbers.
 
 
 In this paper, we shall often discuss  subspaces, and so there is a pertinent subtlety of the definitions worth mentioning: \emph{completely metrizable space} is not the same as \emph{complete metric space}; for an illustrative example, the interval $(0,1)$ with  the metric inherited from the reals not complete, but it is Polish since it is homeomorphic to the real line.
@@ -240,12 +240,12 @@ The following are equivalent:
 
     (ii)$\Rightarrow$(iii) Assume that $A$ is relatively countably compact in $B_1(X)$ and that $f\in\overline A\setminus B_1(X)$.
 By Fact \ref{baire}, there are countable $D_0,D_1\subseteq X$ with $\overline {D_0}=\overline{D_1}$, and $a<b$ such that $D_0\subseteq f^{-1}(-\infty,a]$ and $D_1\subseteq f^{-1}[b,\infty)$.
-We claim that there is a sequence $\{f_n\}_{n\in\mathbb N}\subseteq A$ such that $\lim_{n\to\infty}f_n(x)=f(x)$ for all $x\in D_0\cup D_1$.
-Indeed, use the countability to enumerate $D_0\cup D_1$ as $\{x_n\}_{n\in\mathbb N}$.
+We claim that there is a sequence $\{f_n\}_{n\in\mathbb{N}}\subseteq A$ such that $\lim_{n\to\infty}f_n(x)=f(x)$ for all $x\in D_0\cup D_1$.
+Indeed, use the countability to enumerate $D_0\cup D_1$ as $\{x_n\}_{n\in\mathbb{N}}$.
 Then for each positive $n$ find  $f_n\in A$ with $|f_n(x_i)-f(x_i)|<\frac1n$ for all $i\leq n$.
 The claim follows.
 
-    By relative countable compactness of $A$, there is an accumulation point $g\in B_1(X)$ of $\{f_n\}_{n\in\mathbb N}$.
+    By relative countable compactness of $A$, there is an accumulation point $g\in B_1(X)$ of $\{f_n\}_{n\in\mathbb{N}}$.
 It is straightforward to show that since $f$ and $g$ agree on $D_0\cup D_1$, $g$ does not have a point of continuity on the closed set $\overline{D_0}=\overline{D_1}$, which contradicts Fact~\ref{baire}.
 
     (iii)$\Rightarrow$(i) Suppose that $\overline A\subseteq B_1(X)$.
@@ -256,21 +256,21 @@ Then $\overline{A}\cap B_1(X)=\overline A$ is a closed subset of $\prod_{x\in X}
 
 In metrizable spaces, points of closure of some subset can always be approximated by points inside the set, via a convergent sequence.
 For more complicated spaces, such as $C_p(X)$, this fails in remarkable  ways.
-To see an example, consider the Cantor space $X=2^\mathbb N$, and for each $n\in\mathbb{N}$ define $p_n:X\to\{0,1\}$ by  $p_n(x)=x(n)$ for each $x\in X$.
-Then $p_n$ is continuous for each $n$,  but one can show (see Chapter~1.1 of \cite{Todorcevic_1997_TopicsTop} for details) that the only continuous functions in the closure of $\{p_n\}_{n\in\mathbb N}$ are the functions $p_n$ themselves; moreover, none of the subsequences of $\{p_n\}_{n\in\mathbb N}$ converge.
+To see an example, consider the Cantor space $X=2^\mathbb{N}$, and for each $n\in\mathbb{N}$ define $p_n:X\to\{0,1\}$ by  $p_n(x)=x(n)$ for each $x\in X$.
+Then $p_n$ is continuous for each $n$,  but one can show (see Chapter~1.1 of \cite{Todorcevic_1997_TopicsTop} for details) that the only continuous functions in the closure of $\{p_n\}_{n\in\mathbb{N}}$ are the functions $p_n$ themselves; moreover, none of the subsequences of $\{p_n\}_{n\in\mathbb{N}}$ converge.
 In some sense, this example is the worst possible scenario for convergence.
-The topological space obtained from this closure is well-known: it is the \emph{Stone-Čech compactification} of the discrete space of natural numbers, or $\beta\mathbb N$ for short, and it is an important object of study in general topology.
+The topological space obtained from this closure is well-known: it is the \emph{Stone-Čech compactification} of the discrete space of natural numbers, or $\beta\mathbb{N}$ for short, and it is an important object of study in general topology.
 
 The following theorem,  established by Haskell Rosenthal in 1974,  is fundamental  in functional analysis, and describes a sharp division in the behavior of sequences in a Banach spaces.
 I
 
 \begin{thm}[Rosenthal's Dichotomy, \cite{Rosenthal:1974}]
 \label{T:Rosenthal}
-    If $X$ is Polish and $\{f_n\}\subseteq C_p(X)$ is pointwise bounded, then either $\{f_n\}_{n\in\mathbb N}$ contains a convergent subsequence or a subsequence whose closure (in $\mathbb R^X$) is homeomorphic to $\beta\mathbb N$.
+    If $X$ is Polish and $\{f_n\}\subseteq C_p(X)$ is pointwise bounded, then either $\{f_n\}_{n\in\mathbb{N}}$ contains a convergent subsequence or a subsequence whose closure (in $\mathbb{R}^X$) is homeomorphic to $\beta\mathbb{N}$.
 \end{thm}
 
 In other words, a pointwise bounded set of continuous functions  either contains a convergent subsequence, or a subsequence whose closure is essentially the same as the example mentioned in the previous paragraphs (the ``wildest'' possible scenario).
-Note that in the preceding example, the functions are trivially pointwise bounded in $\mathbb R^X$ as the functions can only take values $0$ and $1$.
+Note that in the preceding example, the functions are trivially pointwise bounded in $\mathbb{R}^X$ as the functions can only take values $0$ and $1$.
 
 
 The genesis of Theorem~\ref{T:Rosenthal} was Rosenthal's $\ell_1$ theorem, which states that the only reason why Banach space can fail to have an isomorphic copy of  $\ell_1$  (the space of absolutely summable sequences) is the presence of a bounded sequence  with no weakly Cauchy subsequence.
@@ -286,7 +286,7 @@ Bourgain-Fremlin-Talagrand {\cite[Theorem 4G]{BFT_1978_PCompactBaire}}]
 The following are equivalent:
     \begin{enumerate}[(i)]
         \item $A$ is relatively compact in $B_1(X)$, i.e., $\overline{A}\subseteq B_1(X)$.
-        \item For every $\{f_n\}_{n\in\mathbb N}\subseteq A$ and every $a<b$ there is $I\subseteq\mathbb{N}$ such that
+        \item For every $\{f_n\}_{n\in\mathbb{N}}\subseteq A$ and every $a<b$ there is $I\subseteq\mathbb{N}$ such that
 $$\bigcap_{n\in I}f_n^{-1}(-\infty,a]\cap\bigcap_{n\notin I}f_n^{-1}[b,\infty)=\emptyset.$$
     \end{enumerate}
 \end{thm}
@@ -295,7 +295,7 @@ $$\bigcap_{n\in I}f_n^{-1}(-\infty,a]\cap\bigcap_{n\notin I}f_n^{-1}[b,\infty)=\
 
 \begin{defn}
     We shall say that a set $A\subseteq \mathbb{R}^X$ satisfies the \emph{Independence Property}, or IP for short, if it satisfies the following condition:
-    There exists  every $\{f_n\}_{n\in\mathbb N}\subseteq A$ and  $a<b$ such that for every pair of disjoint sets $E,F\subseteq\mathbb{N}$, we have
+    There exists  every $\{f_n\}_{n\in\mathbb{N}}\subseteq A$ and  $a<b$ such that for every pair of disjoint sets $E,F\subseteq\mathbb{N}$, we have
     \[
     \bigcap_{n\in E}f_n^{-1}(-\infty,a]\cap\bigcap_{n\in F}f_n^{-1}[b,\infty)\neq\emptyset.
     \]
@@ -303,7 +303,7 @@ $$\bigcap_{n\in I}f_n^{-1}(-\infty,a]\cap\bigcap_{n\notin I}f_n^{-1}[b,\infty)=\
 \end{defn}
 
 \begin{rem}
-Note that if $X$ is compact and $A\subseteq C_p(X)$, then $A$ satisfies the NIP if and only if for every $\{f_n\}_{n\in\mathbb N}\subseteq A$ and for every $a<b$ there is $I\subseteq\mathbb{N}$ such that
+Note that if $X$ is compact and $A\subseteq C_p(X)$, then $A$ satisfies the NIP if and only if for every $\{f_n\}_{n\in\mathbb{N}}\subseteq A$ and for every $a<b$ there is $I\subseteq\mathbb{N}$ such that
 $$\bigcap_{n\in I}f_n^{-1}(-\infty,a]\cap\bigcap_{n\notin I}f_n^{-1}[b,\infty)=\emptyset.$$
 \end{rem}
 
@@ -388,9 +388,9 @@ For this, we shall first focus on countable languages, which is the theme of the
 
 Our goal now is to characterize relatively compact subsets of $B_1(X,Y)$ for the particular case when $Y=\mathbb{R}^\mathcal{P}$ with $\mathcal{P}$ countable.
 Given $P\in\mathcal{P}$ we denote the projection map onto the $P$-coordinate by $\pi_P:\mathbb{R}^\mathcal{P}\rightarrow\mathbb{R}$.
-From a high-level topological interpretation, the next lemma states that, in this context, the spaces $\mathbb R$ and $\mathbb R^\mathcal P$ are really not that different, and that if we understand the Baire class 1 functions of one space, then we also understand the functions of both.
+From a high-level topological interpretation, the next lemma states that, in this context, the spaces $\mathbb{R}$ and $\mathbb{R}^\mathcal{P}$ are really not that different, and that if we understand the Baire class 1 functions of one space, then we also understand the functions of both.
 
-%In fact, $\mathbb R$ and any other Polish space is embeddable as a closed subspace of $\mathbb R^\mathcal P$.
+%In fact, $\mathbb{R}$ and any other Polish space is embeddable as a closed subspace of $\mathbb{R}^\mathcal{P}$.
 
 \begin{lem}\label{baire 1 and projections}
     Let $X$ be a Polish space and $\mathcal{P}$ be a countable set.
@@ -411,21 +411,21 @@ Hence, $f^{-1}[U]$ is $F_\sigma$.
 
 
 
-Below we consider $\mathcal P$ with the discrete topology.
+Below we consider $\mathcal{P}$ with the discrete topology.
 For each $f:X\rightarrow\mathbb{R}^\mathcal{P}$ denote $\hat f(P,x):=\pi_P\circ f(x)$ for all $(P,x)\in\mathcal{P}\times X$.
 Similarly, for each $g:\mathcal{P}\times X\rightarrow\mathbb{R}$ denote $\check g(x)(P):=g(P,x)$.
 Given $A\subseteq (\mathbb{R}^\mathcal{P})^X$, we denote $\hat A$ as the set of all $\hat f$ such that $f\in A$.
-Note that the map $\left(\mathbb R^\mathcal P\right)^X\to\mathbb R^{\mathcal P\times X}$ given by $f\mapsto\hat f$ is a homeomorphism and its inverse is given by $g\mapsto\check g$.
+Note that the map $\left(\mathbb{R}^\mathcal{P}\right)^X\to\mathbb{R}^{\mathcal{P}\times X}$ given by $f\mapsto\hat f$ is a homeomorphism and its inverse is given by $g\mapsto\check g$.
 
 \begin{lem}\label{homeo}
     Let $X$ be a Polish space and $\mathcal{P}$ be countable.
-Then, $f\in B_1(X,\mathbb R^\mathcal P)$ if and only if $\hat f\in B_1(\mathcal P\times X)$.
+Then, $f\in B_1(X,\mathbb{R}^\mathcal{P})$ if and only if $\hat f\in B_1(\mathcal{P}\times X)$.
 \end{lem}
 
 \begin{proof}
-    ($\Rightarrow$) By Lemma~\ref{baire 1 and projections}, given an open set of reals $U$, we have  $f^{-1}[\pi_P^{-1}[U]]$ is $F_\sigma$ for every $P\in\mathcal P$.
-Given that $\mathcal P$ is a discrete countable space, we observe that
-    $$\hat f^{-1}[U]=\bigcup_{P\in\mathcal P}\left(\{P\}\times f^{-1}[\pi_P^{-1}[U]]\right)
+    ($\Rightarrow$) By Lemma~\ref{baire 1 and projections}, given an open set of reals $U$, we have  $f^{-1}[\pi_P^{-1}[U]]$ is $F_\sigma$ for every $P\in\mathcal{P}$.
+Given that $\mathcal{P}$ is a discrete countable space, we observe that
+    $$\hat f^{-1}[U]=\bigcup_{P\in\mathcal{P}}\left(\{P\}\times f^{-1}[\pi_P^{-1}[U]]\right)
     $$ is an $F_\sigma$ as well.
     
     ($\Leftarrow$) By lemma \ref{baire 1 and projections} it suffices to show that $\pi_P\circ f\in B_1(X)$ for all $P\in\mathcal{P}$.
@@ -440,19 +440,19 @@ Given $A\subseteq Y^X$ and $K\subseteq X$ we write $A|_K:=\{f|_K:f\in A\}$, i.e.
 The following Theorem is a slightly more general version of Theorem \ref{BFT}.
 
 \begin{thm}\label{Generalized BFT}
-    Assume that $\mathcal P$ is countable, $X$ is a Polish space, and $A\subseteq C_p(X,\mathbb R^\mathcal P)$ is such that $\pi_P\circ A$ is pointwise bounded for all $P\in\mathcal{P}$.
+    Assume that $\mathcal{P}$ is countable, $X$ is a Polish space, and $A\subseteq C_p(X,\mathbb{R}^\mathcal{P})$ is such that $\pi_P\circ A$ is pointwise bounded for all $P\in\mathcal{P}$.
 The following are equivalent for every compact $K\subseteq X$:
 
     \begin{enumerate}[(i)]
-        \item $\overline{A|_K}\subseteq B_1(K,\mathbb R^\mathcal P)$.
-        \item $\pi_P\circ A|_K$ satisfies the NIP for every $P\in\mathcal P$.
+        \item $\overline{A|_K}\subseteq B_1(K,\mathbb{R}^\mathcal{P})$.
+        \item $\pi_P\circ A|_K$ satisfies the NIP for every $P\in\mathcal{P}$.
     \end{enumerate}
 \end{thm}
 
 \begin{proof}
     (i)$\Rightarrow$(ii).
 Let $P\in\mathcal{P}$.
-Fix $\{f_n\}_{n\in\mathbb N}\subseteq A$ and $a<b$.
+Fix $\{f_n\}_{n\in\mathbb{N}}\subseteq A$ and $a<b$.
 By (i), we have $\overline{A|_K}\subseteq B_1(K,\mathbb{R}^\mathcal{P})$.
 Applying the homeomorphism $f\mapsto \hat{f}$ and using lemma \ref{homeo} we get $\overline{\hat{A}|_{\mathcal{P}\times K}}\subseteq B_1(\mathcal{P}\times K)$.
 By Theorem \ref{BFT}, there is $I\subseteq\mathbb{N}$ such that
@@ -485,7 +485,7 @@ The following are equivalent for every $L\subseteq X$:
 
 \begin{proof}
     It suffices to show that (i)$\Rightarrow$(ii).
-Suppose that (ii) does not hold, i.e., that there are $\{f_n\}_{n\in\mathbb N}\subseteq A$ and $a<b$ such that for all finite disjoint $E,F\subseteq\mathbb{N}$:
+Suppose that (ii) does not hold, i.e., that there are $\{f_n\}_{n\in\mathbb{N}}\subseteq A$ and $a<b$ such that for all finite disjoint $E,F\subseteq\mathbb{N}$:
     $$\overline{L}\cap\bigcap_{n\in E}f_n^{-1}(-\infty,a]\cap\bigcap_{n\in F}f_n^{-1}[b,\infty)\neq\emptyset.$$
     Pick $a'<b'$ such that $a<a'<b'<b$.
 Then, for any finite disjoint $E,F\subseteq\mathbb{N}$ we can choose
@@ -558,22 +558,22 @@ We define $\mathcal{L}_{\text{sh}}$, as the union of all type-shards.
 
 \begin{defn}
 \label{D:CCS}
-A \emph{Compositional Computation Structure} (CCS) is a triple $(L,\mathcal P,\Gamma)$, where
+A \emph{Compositional Computation Structure} (CCS) is a triple $(L,\mathcal{P},\Gamma)$, where
 \begin{itemize}
 \item
- $(L,\mathcal P)$ is a computation states structure, and
+ $(L,\mathcal{P})$ is a computation states structure, and
  \item
  $\Gamma\subseteq L^L$ is a semigroup under composition.
 \end{itemize}
 
-The elements of the  semigroup $\Gamma$ are called the \emph{computations} of the structure $(L,\mathcal P,\Gamma)$.
+The elements of the  semigroup $\Gamma$ are called the \emph{computations} of the structure $(L,\mathcal{P},\Gamma)$.
 
 If $\Delta\subseteq\Gamma$, we say that $\Delta\subseteq\Gamma$ is \emph{$R$-confined} if $\gamma|_{L[r_\bullet]}:L[r_\bullet]\to L[r_\bullet]$ for every $r_\bullet\in R$ and $\gamma\in \Delta$.
-Elements in $\overline{\Gamma}\subseteq \mathcal L_{\text{sh}}$ are called (real-valued) \emph{deep computations} or \emph{ultracomputations}.
+Elements in $\overline{\Gamma}\subseteq \mathcal{L}_{\text{sh}}$ are called (real-valued) \emph{deep computations} or \emph{ultracomputations}.
 
 \end{defn}
 
-For a CCS $(L,\mathcal P,\Gamma)$, we regard the elements of $\Gamma$ as ``standard'' finitary computations and the elements of $\overline{\Gamma}$, i.e., deep computations, as possibly infinitary limits of standard computations.
+For a CCS $(L,\mathcal{P},\Gamma)$, we regard the elements of $\Gamma$ as ``standard'' finitary computations and the elements of $\overline{\Gamma}$, i.e., deep computations, as possibly infinitary limits of standard computations.
 The main goal of this paper is to study the computability, definability and computational complexity of deep computations.
 Since ultracomputations are defined through a combination of topological concepts (namely, topological closure) and structural and model-theoretic concepts (namely, models and types), we will import technology from both topology and model theory.
 
@@ -610,7 +610,7 @@ This motivates the following definition.
 
 \begin{defn}
 \label{D:extendability axiom}
-We say that a CCS $(L,\mathcal P,\Gamma)$ satisfies the \emph{Extendability Axiom} if for all $\gamma\in \Gamma$, there is $\tilde\gamma:\mathcal L_{\text{sh}}\to\mathcal L_{\text{sh}}$ such that for every sizer $r_{\bullet}$ there is a sizer $s_\bullet$ such that $\tilde\gamma|_{\mathcal L[r_\bullet]}:\mathcal L[r_\bullet]\to\mathcal L[s_\bullet]$ is continuous.
+We say that a CCS $(L,\mathcal{P},\Gamma)$ satisfies the \emph{Extendability Axiom} if for all $\gamma\in \Gamma$, there is $\tilde\gamma:\mathcal{L}_{\text{sh}}\to\mathcal{L}_{\text{sh}}$ such that for every sizer $r_{\bullet}$ there is a sizer $s_\bullet$ such that $\tilde\gamma|_{\mathcal{L}[r_\bullet]}:\mathcal{L}[r_\bullet]\to\mathcal{L}[s_\bullet]$ is continuous.
 We refer to $\tilde\gamma$ as a \emph{free} extension of~$\gamma$.
 \end{defn}
 
@@ -625,11 +625,11 @@ For a more detailed discussion of the Extendability Axiom, we refer the reader t
 For an illustrative example, we can frame Newton's polynomial root approximation method in the context of a CCS (see Example~5.6 of \cite{alva2024approximability} for details) as follows.
 Begin by considering the extended complex numbers $\hat{\mathbb{C}}:=\mathbb{C}\cup\{\infty\}$ with the usual Riemann sphere topology that makes it into a compact space (where unbounded sequences converge to $\infty$).
 In fact, not only is this space compact, but it is covered by the shard given by the sizer $(1,1,1)$ (the unit sphere is contained in the cube $[-1,1]^3$).
-The space $\hat{\mathbb{C}}$ is homeomorphic to the usual unit sphere $S^2:=\{(x,y,z):x^2+y^2+z^2=1\}$ of $\mathbb R^3$, by means of the stereographic projection and its inverse $\hat{\mathbb{C}}\to S^2$.
+The space $\hat{\mathbb{C}}$ is homeomorphic to the usual unit sphere $S^2:=\{(x,y,z):x^2+y^2+z^2=1\}$ of $\mathbb{R}^3$, by means of the stereographic projection and its inverse $\hat{\mathbb{C}}\to S^2$.
 This function is regarded as a triple of predicates $x,y,z:\hat{\mathbb{C}}\to[-1,1]$ where each will map an extended complex number to its corresponding real coordinate on the cube $[-1,1]^3$.
 Now fix the cubic complex polynomial $p(s):=s^3-1$, and consider the map which performs one step in Newton's method at a particular (extended) complex number $s$, for finding a root of $p$, $\gamma_p:\hat{\mathbb{C}}\to\hat{\mathbb{C}}$.
 The explicit inner workings of $\gamma_p$ are irrelevant for this example, except for the fact that it is a continuous mapping.
-It follows that $(S^2,\{x,y,z\},\{\gamma_p^k:k\in\mathbb N\})$ is a CCS.
+It follows that $(S^2,\{x,y,z\},\{\gamma_p^k:k\in\mathbb{N}\})$ is a CCS.
 The idea is that repeated applications of $\gamma_p(s), \gamma_p\circ\gamma_p(s), \gamma_p\circ\gamma_p\circ\gamma_p(s),\dots$ would approximate a root of $p$ provided $s$ was a good enough initial guess.
 
 
@@ -648,17 +648,17 @@ Under what conditions are deep computations Baire class 1, and thus well-behaved
 Hence, we can import the theory of Rosenthal compacta into this framework of deep computations.
 
 \begin{thm}\label{nip-baire1def}
-    Let $(L,\mathcal P,\Gamma)$ be a compositional computational structure (Definition~\ref{D:CCS}) satisfying the Extendability Axiom (Definition~\ref{D:extendability axiom}) with $\mathcal{P}$ countable.
+    Let $(L,\mathcal{P},\Gamma)$ be a compositional computational structure (Definition~\ref{D:CCS}) satisfying the Extendability Axiom (Definition~\ref{D:extendability axiom}) with $\mathcal{P}$ countable.
 Let $R$ be an exhaustive collection of sizers.
 Let $\Delta\subseteq\Gamma$ be $R$-confined.
 The following are equivalent.
 
     \begin{enumerate}[(i)]
-        \item $\overline{\tilde\Delta|_{\mathcal{L}[r_\bullet]}}\subseteq B_1(\mathcal L[r_\bullet],\mathcal L[r_\bullet])$ for all $r_\bullet\in R$.
-        \item $\pi_P\circ \Delta|_{L[r_\bullet]}$ satisfies the NIP for all $P\in\mathcal{P}$ and $r_\bullet\in R$; that is, for all $P\in\mathcal P$, $r_\bullet\in R$, $a<b$, $\{\gamma_n\}_{n\in\mathbb N}\subseteq\Delta$ there are finite disjoint $E,F\subseteq\mathbb N$ such that $$L[r_\bullet]\cap\bigcap_{n\in E}(\pi_P\circ\gamma_n)^{-1}(-\infty,a]\cap\bigcap_{n\in F}(\pi_P\circ\gamma_n)^{-1}[b,\infty)=\emptyset.$$
+        \item $\overline{\tilde\Delta|_{\mathcal{L}[r_\bullet]}}\subseteq B_1(\mathcal{L}[r_\bullet],\mathcal{L}[r_\bullet])$ for all $r_\bullet\in R$.
+        \item $\pi_P\circ \Delta|_{L[r_\bullet]}$ satisfies the NIP for all $P\in\mathcal{P}$ and $r_\bullet\in R$; that is, for all $P\in\mathcal{P}$, $r_\bullet\in R$, $a<b$, $\{\gamma_n\}_{n\in\mathbb{N}}\subseteq\Delta$ there are finite disjoint $E,F\subseteq\mathbb{N}$ such that $$L[r_\bullet]\cap\bigcap_{n\in E}(\pi_P\circ\gamma_n)^{-1}(-\infty,a]\cap\bigcap_{n\in F}(\pi_P\circ\gamma_n)^{-1}[b,\infty)=\emptyset.$$
     \end{enumerate}
 
-    Moreover, if any (hence all) of the preceding conditions hold, then every deep computation $f\in\overline{\Delta}$ can be extended to a Baire-1 function on shards, i.e., there is $\tilde f:\mathcal L_{\text{sh}}\rightarrow \mathcal L_{\text{sh}}$ such that $\tilde f|_{\mathcal L[r_\bullet]}\in B_1(\mathcal L[r_\bullet],\mathcal L[r_\bullet])$ for all $r_{\bullet}\in R$.
+    Moreover, if any (hence all) of the preceding conditions hold, then every deep computation $f\in\overline{\Delta}$ can be extended to a Baire-1 function on shards, i.e., there is $\tilde f:\mathcal{L}_{\text{sh}}\rightarrow \mathcal{L}_{\text{sh}}$ such that $\tilde f|_{\mathcal{L}[r_\bullet]}\in B_1(\mathcal{L}[r_\bullet],\mathcal{L}[r_\bullet])$ for all $r_{\bullet}\in R$.
 In particular, on each shard every deep computation is the pointwise limit of a countable sequence of computations.
 \end{thm}
 
@@ -668,7 +668,7 @@ Also, the Extendability Axiom implies that $\pi_P\circ \tilde\Delta|_{\mathcal{L
 Hence, Theorem \ref{Generalized BFT} and Lemma \ref{NIP and closure} prove the equivalence of (i) and (ii).
 If (i) holds and $f\in\overline{\Delta}$, then write $f=\mathcal{U}{\rm lim}_i \gamma_i$ as an ultralimit.
 Define $\tilde f:=\mathcal{U}{\rm lim}_i \tilde\gamma_i$.
-Hence, for all $r_\bullet\in R$ we have $\tilde f|_{\mathcal{L}[r_\bullet]}\in\overline{\tilde\Delta|_{\mathcal{L}[r_\bullet]}}\subseteq B_1(\mathcal L[r_\bullet],\mathcal L[r_\bullet])$.
+Hence, for all $r_\bullet\in R$ we have $\tilde f|_{\mathcal{L}[r_\bullet]}\in\overline{\tilde\Delta|_{\mathcal{L}[r_\bullet]}}\subseteq B_1(\mathcal{L}[r_\bullet],\mathcal{L}[r_\bullet])$.
 That every deep computation is a pointwise limit of a countable sequence of computations follows from the fact that for a Polish space $X$ every compact subset of $B_1(X)$ is Fréchet-Urysohn (that is, a space where topological closures coincide with sequential closures, see Theorem 3F in \cite{BFT_1978_PCompactBaire} or Theorem 4.1 in \cite{debs2013rosenthal}).
 \end{proof}
 
@@ -968,7 +968,7 @@ These two facts motivate the following definition:
 
 \begin{defn}
 \label{D:universally essentially computable}
-    Let $(L,\mathcal P,\Gamma)$ be a CCS.
+    Let $(L,\mathcal{P},\Gamma)$ be a CCS.
 We say that a transition $f:L\rightarrow L$ is \emph{universally Monte Carlo computable} if and only if there exists $\tilde f:\mathcal{L}_{\text{sh}}\rightarrow \mathcal{L}_{\text{sh}}$ extending $f$ such that for every sizer $r_\bullet$ there is a sizer $s_\bullet$ such that the restriction $\tilde f|_{\mathcal{L}[r_{\bullet}]}:\mathcal{L}[r_\bullet]\rightarrow\mathcal{L}[s_\bullet]$ is universally measurable, i.e., $\pi_P\circ \tilde f|_{\mathcal{L}[r_{\bullet}]}:\mathcal{L}[r_\bullet]\rightarrow [-s_P,s_P]$ is $\mu$-measurable for every Radon probability measure $\mu$ on $\mathcal{L}[r_\bullet]$.
 \end{defn}
 
@@ -980,7 +980,7 @@ We say that a transition $f:L\rightarrow L$ is \emph{universally Monte Carlo com
 Theorem~\ref{BFT-2F} immediately yields the following.
 
 \begin{thm}
-    Let $(L,\mathcal P,\Gamma)$ be a CCS satisfying the Extendability Axiom.
+    Let $(L,\mathcal{P},\Gamma)$ be a CCS satisfying the Extendability Axiom.
 Let $R$ be an exhaustive collection of sizers.
 Let $\Delta\subseteq\Gamma$ be $R$-confined.
 If $\pi_P\circ\Delta|_{L[r_\bullet]}$ satisfies the NIP for all $P\in\mathcal{P}$ and all $r_{\bullet}\in R$, then every deep computation is universally Monte Carlo computable.
@@ -1042,7 +1042,7 @@ We say that $A$ is \emph{universally Talagrand stable} if $A$ is Talagrand $\mu$
 An argument similar to the proof of~\ref{BFT-2F}, yields the following:
 
 \begin{thm}
-    Let $(L,\mathcal P,\Gamma)$ be a CCS satisfying the Extendability Axiom.
+    Let $(L,\mathcal{P},\Gamma)$ be a CCS satisfying the Extendability Axiom.
 If $\pi_P\circ\Delta|_{L[r_\bullet]}$ is universally Talagrand stable for all $P\in\mathcal{P}$ and all sizers $r_{\bullet}$, then every deep computation is universally Monte Carlo computable.
 \end{thm}
 
@@ -1137,7 +1137,7 @@ If $X$ is a Hausdorff topological space, then a measure $\mu$ on the Borel sets 
     \item every point of $X$ has a neighborhood $U\ni x$ for which $\mu(U)$ is finite.
 \end{itemize}
 
-The most famous nontrivial example of a Radon measure on $\mathbb R$ is the Lebesgue measure of Borel sets.
+The most famous nontrivial example of a Radon measure on $\mathbb{R}$ is the Lebesgue measure of Borel sets.
 If $X$ is finite, $\mu(A):=|A|$ (the cardinality of $A$) defines a Radon measure on $X$.
 Every Radon measure is perfect (see 451A, 451B and 451C in \cite{fremlin2003vol4}).
 
@@ -1153,7 +1153,7 @@ Recall that if $\{X_i:i\in I\}$ is a collection of topological spaces indexed by
 If each space is measurable, say we pair $X_i$ with a $\sigma$-algebra $\Sigma_i$, then there are multiple ways to interpret the product space $X$ as a measurable space, but the interpretation we care about in this paper is the so called \emph{cylinder $\sigma$-algebra}, as used in Lemma~\ref{lemma:coordinated_univ_meas}.
 Namely, let $\Sigma$ be the $\sigma$-algebra generated by sets of the form $$\prod_{i\in I}C_i,\quad C_i\in\Sigma_i,\ C_i=X_i\ \text{for all but finitely many }i\in I.$$
 
-We remark that when $I$ is uncountable and $\Sigma_i=\mathcal B(X_i)$ for all $i\in I$, then $\Sigma$ is, in general, strictly \textbf{smaller} than $\mathcal B(X)$.
+We remark that when $I$ is uncountable and $\Sigma_i=\mathcal{B}(X_i)$ for all $i\in I$, then $\Sigma$ is, in general, strictly \textbf{smaller} than $\mathcal{B}(X)$.
 
 
 \end{comment}
@@ -1163,19 +1163,19 @@ We remark that when $I$ is uncountable and $\Sigma_i=\mathcal B(X_i)$ for all $i
 %Proof below was simplified by the previous
 
 %\begin{thm}
-    %Let $X$ be a Polish space, $\mathcal{P}$ be a countable set and $Y=\mathbb R^\mathcal P$.
+    %Let $X$ be a Polish space, $\mathcal{P}$ be a countable set and $Y=\mathbb{R}^\mathcal{P}$.
 Let $A\subseteq C_p(X,Y)$ be a pointwise bounded set (i.e.
-for all $x\in X$, there is a sizer $r_{\bullet}^x=\{r_P^x\}_{P\in\mathcal{P}}$ such that for all $f\in A$ and $P\in\mathcal P$, $\pi_P\circ f(x)\in[-r_P^x,r_P^x]$).
+for all $x\in X$, there is a sizer $r_{\bullet}^x=\{r_P^x\}_{P\in\mathcal{P}}$ such that for all $f\in A$ and $P\in\mathcal{P}$, $\pi_P\circ f(x)\in[-r_P^x,r_P^x]$).
 The following are equivalent:
 
     %\begin{itemize}
         %\item [(i)] For every compact $K\subseteq X$, $A|_K$ is relatively compact in $B_1(K,Y)$.
         %\item [(ii)] For every compact $K\subseteq X$, $\overline{A|_K}\subseteq B_1(X,Y)$.
-        %\item [(iii)] For every compact $K\subseteq X$, for every $P\in\mathcal P$, $\{f_n\}_n\subseteq A$ and reals $\alpha<\beta$, there is $I\subseteq\mathbb N$ such that for any $p\in\mathcal P'$,
+        %\item [(iii)] For every compact $K\subseteq X$, for every $P\in\mathcal{P}$, $\{f_n\}_n\subseteq A$ and reals $\alpha<\beta$, there is $I\subseteq\mathbb{N}$ such that for any $p\in\mathcal{P}'$,
     %$$
     %\bigcap_{n\in I}(p\circ f)^{-1}(-\infty,\alpha]\cap\bigcap_{n\notin I}(p\circ f)^{-1}[\beta,\infty)\cap K=\emptyset.
     %$$
-        %\item [(iv)] For any relatively compact $L$, for any finite $\mathcal P'\subseteq\mathcal P$, $\{f_n\}_n\subseteq A$ and reals $\alpha<\beta$, there are disjoint finite sets $F,G\subseteq\mathbb N$ such that for any $p\in\mathcal P'$,$$\bigcap_{n\in F}(p\circ f)^{-1}(-\infty,\alpha]\cap\bigcap_{n\in G}(p\circ f)^{-1}[\beta,\infty)\cap L=\emptyset.$$
+        %\item [(iv)] For any relatively compact $L$, for any finite $\mathcal{P}'\subseteq\mathcal{P}$, $\{f_n\}_n\subseteq A$ and reals $\alpha<\beta$, there are disjoint finite sets $F,G\subseteq\mathbb{N}$ such that for any $p\in\mathcal{P}'$,$$\bigcap_{n\in F}(p\circ f)^{-1}(-\infty,\alpha]\cap\bigcap_{n\in G}(p\circ f)^{-1}[\beta,\infty)\cap L=\emptyset.$$
     %\end{itemize}
 %\end{thm}
 
@@ -1186,10 +1186,10 @@ The following are equivalent:
 %$\boxed{1\implies 2}$
 
 %Denote $F:=A|_K$ and suppose that $f\in\overline F\setminus B_1(X,Y)$.
-Lemma 1 implies that $\hat f\notin B_1(\mathcal P\times X)$.
-Since $\mathcal P\times X$ is a Polish space, we apply Fact~\ref{baire} to find reals $\alpha<\beta$ and countable sets $D_0,D_1\subseteq\mathcal P\times X$ with $\overline{D_0}=\overline{D_1}$, $D_0\subseteq\hat f^{-1}(-\infty,\alpha]$ and $D_1\subseteq\hat f^{-1}[\beta,\infty)$.
+Lemma 1 implies that $\hat f\notin B_1(\mathcal{P}\times X)$.
+Since $\mathcal{P}\times X$ is a Polish space, we apply Fact~\ref{baire} to find reals $\alpha<\beta$ and countable sets $D_0,D_1\subseteq\mathcal{P}\times X$ with $\overline{D_0}=\overline{D_1}$, $D_0\subseteq\hat f^{-1}(-\infty,\alpha]$ and $D_1\subseteq\hat f^{-1}[\beta,\infty)$.
 
-%For each $p\in\mathcal P$ and $i<2$, let $D_i^p:=\{x\in X:(p,x)\in D_i\}$ and consider $D=\bigcup_{p\in\mathcal P}(D_0^p\cup D_1^p)$.
+%For each $p\in\mathcal{P}$ and $i<2$, let $D_i^p:=\{x\in X:(p,x)\in D_i\}$ and consider $D=\bigcup_{p\in\mathcal{P}}(D_0^p\cup D_1^p)$.
 Since $D$ is countable, enumerate it in order type $\omega$, $D=\{x_i:i<\omega\}$.
 
 %This is Stevo's diagonal argument.
@@ -1212,7 +1212,7 @@ But then, the triangle inequality and the choice of $\alpha,\beta$ give $\beta-\
 %To prove the remaining implication we need:
 
 %\begin{lem}
-    %$\overline{\hat A|_K}\setminus B_1(\mathcal P\times X)\neq\emptyset$ implies that $\overline{A|_K}\setminus B_1(X,Y)\neq\emptyset$.
+    %$\overline{\hat A|_K}\setminus B_1(\mathcal{P}\times X)\neq\emptyset$ implies that $\overline{A|_K}\setminus B_1(X,Y)\neq\emptyset$.
 %\end{lem}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
