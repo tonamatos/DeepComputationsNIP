@@ -7,6 +7,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write # Required for pushing to gh-pages
 
     steps:
       - name: Checkout repository
@@ -17,9 +19,23 @@ jobs:
         with:
           root_file: ComplexityViaTopology.tex
 
-      - name: Deploy PDF to GitHub Pages
+      - name: Prepare Deployment Folder
+        run: |
+          mkdir public
+          
+          # 1. Copy your existing landing page to the deploy folder
+          cp index.html public/
+          
+          # 2. Move the generated PDF to the deploy folder
+          mv ComplexityViaTopology.pdf public/
+          
+          # 3. (Crucial) If your index.html displays images from the 'images' folder, 
+          # you must copy that folder too. Uncomment the line below if needed:
+          # cp -r images public/
+
+      - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages
-          publish_dir: .
+          publish_dir: ./public
