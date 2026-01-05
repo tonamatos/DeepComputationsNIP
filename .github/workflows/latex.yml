@@ -15,10 +15,7 @@ jobs:
       - name: Compile LaTeX document
         uses: xu-cheng/latex-action@v3
         with:
-          root_file: main.tex
-
-      - name: Rename output to paper.pdf
-        run: mv main.pdf paper.pdf
+          root_file: ComplexityViaTopology.tex
 
       - name: Deploy PDF to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
