@@ -14,6 +14,21 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+
+      # --- ADD THIS SECTION ---
+      - name: Debug - List Files
+        run: |
+          echo "Current working directory:"
+          pwd
+          echo "File structure:"
+          ls -R
+      # ------------------------
+
+      - name: Compile LaTeX document
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: ComplexityViaTopology.tex
+
       - name: Compile LaTeX document
         uses: xu-cheng/latex-action@v3
         with:
