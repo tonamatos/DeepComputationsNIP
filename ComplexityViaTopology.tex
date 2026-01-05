@@ -84,7 +84,7 @@ $^{2}$Department of Mathematics, University of Toronto\\
 }
 
 \begin{abstract}
-We use topological methods to study complexity of deep computations and limit computations. We use topology of function spaces, specifically, the classification Rosenthal compacta, to identify new complexity classes.  We use the language of model theory, specifically,  the concept of  \emph{independence} from Shelah's classification theory,  to translate between topology and computation. We use the theory of Rosenthal compacta to characterize approximablility of deep computations, both deterministically and probabilistically.
+We use topological methods to study complexity of deep computations and limit computations. We use topology of function spaces, specifically, the classification of Rosenthal compacta, to identify new complexity classes.  We use the language of model theory, specifically,  the concept of  \emph{independence} from Shelah's classification theory, to translate between topology and computation. We use the theory of Rosenthal compacta to characterize approximablility of deep computations, both deterministically and probabilistically.
 \end{abstract}
 
 \maketitle
@@ -145,9 +145,9 @@ A subset \(A\) of a Polish space \(X\) is itself Polish in the subspace topology
 Given two topological spaces $X$ and $Y$ we denote by $C_p(X,Y)$ the set of all continuous functions $f:X\rightarrow Y$ endowed with the topology of pointwise convergence. When $Y=\mathbb{R}$, we denote this collection simply as $C_p(X)$.
  A natural question is, how do topological properties of $X$ translate into $C_p(X)$ and vice versa? These questions, and in general the study of these spaces, are the concern of $C_p$-theory, an active field of research in general topology which was pioneered by A. V. Arhangel’skiĭ and his students in the 1970's and 1980's~\cite{Arkhangelskii:1992}. This field has found many applications in model theory and functional analysis. For a recent survey, see~\cite{tkachuk2011cp}.
  
- A  \emph{Baire class 1} function between topological spaces is a function that can be expressed as the pointwise limit of a sequence of continuous functions. If $X$ nd $Y$ are topological spaces,  the Baire class 1 functions $f:X\rightarrow Y$ endowed with the topology of pointwise convergence is denoted $B_1(X,Y)$. As above, in the special case $Y=\mathbb{R}$ we denote $B_1(X,Y)$ as  $B_1(X)$. Clearly, $C_p(X,Y)\subseteq B_1(X,Y)$.  The Baire hierarchy of functions was introduced by René-Louis Baire in his 1899 doctoral thesis, \emph{Sur les fonctions de variables réelles}. His work moved away from the 19th-century preoccupation with ``pathological" functions toward a constructive classification based on pointwise limits.
+ A  \emph{Baire class 1} function between topological spaces is a function that can be expressed as the pointwise limit of a sequence of continuous functions. If $X$ and $Y$ are topological spaces, the space of Baire class 1 functions $f:X\rightarrow Y$ endowed with the topology of pointwise convergence is denoted $B_1(X,Y)$. As above, in the special case $Y=\mathbb{R}$ we denote $B_1(X,Y)$ as $B_1(X)$. Clearly, $C_p(X,Y)\subseteq B_1(X,Y)$.  The Baire hierarchy of functions was introduced by René-Louis Baire in his 1899 doctoral thesis, \emph{Sur les fonctions de variables réelles}. His work moved away from the 19th-century preoccupation with ``pathological" functions toward a constructive classification based on pointwise limits.
 
-A topological space $X$ is \emph{perfectly normal} if it is normal and every closed subset of $X$ is a $G_\delta$ (equivalently, every open subset of $X$ is a $G_\delta$).  Note that every metrizable space is perfectly normal.
+A topological space $X$ is \emph{perfectly normal} if it is normal and every closed subset of $X$ is a $G_\delta$ (equivalently, every open subset of $X$ is a $F_\sigma$).  Note that every metrizable space is perfectly normal.
 
 The following fact was established by  Baire in his 1899 thesis. A proof can be found in Section 10 of \cite{Todorcevic_1997_TopicsTop}.
 
@@ -158,7 +158,7 @@ The following fact was established by  Baire in his 1899 thesis. A proof can be 
         \item $f^{-1}[U]$ is an $F_\sigma$ subset of $X$ whenever $U\subseteq Y$ is open.
         \item For every closed $F\subseteq X$, the restriction $f|_F$ has a point of continuity.
     \end{itemize}
-    Moreover, if $X$ is Polish and $f\notin B_1(X)$, then there exists countable $D_0,D_1\subseteq X$ and reals $a<b$ such that
+    Moreover, if $X$ is Polish and $f\notin B_1(X)$, then there exist countable $D_0,D_1\subseteq X$ and reals $a<b$ such that
     \[
     D_0\subseteq f^{-1}(-\infty,a],
     \quad
@@ -198,7 +198,7 @@ A subset $L$ of a topological space $X$ is \emph{relatively compact} in $X$ if t
 
 In metrizable spaces, points of closure of some subset can always be approximated by points inside the set, via a convergent sequence. For more complicated spaces, such as $C_p(X)$, this fails in remarkable  ways. To see an example, consider the Cantor space $X=2^\mathbb N$, and for each $n\in\mathbb{N}$ define $p_n:X\to\{0,1\}$ by  $p_n(x)=x(n)$ for each $x\in X$. Then $p_n$ is continuous for each $n$,  but one can show (see Chapter~1.1 of \cite{Todorcevic_1997_TopicsTop} for details) that the only continuous functions in the closure of $\{p_n\}_{n\in\mathbb N}$ are the functions $p_n$ themselves; moreover, none of the subsequences of $\{p_n\}_{n\in\mathbb N}$ converge. In some sense, this example is the worst possible scenario for convergence. The topological space obtained from this closure is well-known: it is the \emph{Stone-Čech compactification} of the discrete space of natural numbers, or $\beta\mathbb N$ for short, and it is an important object of study in general topology.
 
-The following theorem,  established by Haskell Rosenthal in 1974,  is fundamental  in functional analysis, and describes a sharp division in the behavior of sequences in a Banach spaces. I
+The following theorem,  established by Haskell Rosenthal in 1974,  is fundamental  in functional analysis, and describes a sharp division in the behavior of sequences in a Banach spaces.
 
 \begin{thm}[Rosenthal's Dichotomy, \cite{Rosenthal:1974}]
 \label{T:Rosenthal}
@@ -226,7 +226,7 @@ $$\bigcap_{n\in I}f_n^{-1}(-\infty,a]\cap\bigcap_{n\notin I}f_n^{-1}[b,\infty)=\
 
 \begin{defn}
     We shall say that a set $A\subseteq \mathbb{R}^X$ satisfies the \emph{Independence Property}, or IP for short, if it satisfies the following condition:
-    There exists  every $\{f_n\}_{n\in\mathbb N}\subseteq A$ and  $a<b$ such that for every pair of disjoint sets $E,F\subseteq\mathbb{N}$, we have
+    There exist $\{f_n\}_{n\in\mathbb N}\subseteq A$ and  $a<b$ such that for every pair of finite disjoint sets $E,F\subseteq\mathbb{N}$, we have
     \[
     \bigcap_{n\in E}f_n^{-1}(-\infty,a]\cap\bigcap_{n\in F}f_n^{-1}[b,\infty)\neq\emptyset.
     \]
@@ -247,18 +247,18 @@ To summarize, the particular case of Theorem~\ref{BFT}  for $X$ compact can be s
     Let $X$ be a compact Polish space. Then, for every pointwise bounded  $A\subseteq C_p(X)$, one and exactly one of the following two conditions must hold:
         \begin{enumerate}[(i)]
         \item $\overline{A}\subseteq B_1(X)$.
-        \item $A$ has NIP.
+        \item $A$ has the IP.
     \end{enumerate}
 \end{thm}
 
 
 
-The Independence Property was first isolated by Saharon Shelah in model theory as a dividing line between theories whose models are ``tame'' (corresponding to NIP) and theories whose models are ``wild" (corresponding to IP). See~\cite[Definition 4.1]{Shelah:1971},\cite{Shelah:1990}.  We will discuss this dividing line in more detail in the next section.
+The Independence Property was first isolated by Saharon Shelah in model theory as a dividing line between theories whose models are ``tame'' (corresponding to NIP) and theories whose models are ``wild" (corresponding to IP). See~\cite[Definition 4.1]{Shelah:1971}, \cite{Shelah:1990}. We will discuss this dividing line in more detail in the next section.
 
 
 \subsection{NIP as a universal dividing line between polynomial and exponential complexity}
 
-The particular case of the BFT dichotomy (Theorem~\ref{BFT}) when $A$ consists of $\{0,1\}$-valued (i.e., $\{\text{Yes},\text{No}\}$-valued) strings was discovered independently, around 1971-1972 in many foundational contexts related to polynomial (``tame") vs exponential (``wild'') complexity:  In model theory, by Saharon Shelah~\cite{Shelah:1971},\cite{Shelah:1990},in  combinatorics, by Norbert Sauer~\cite{Sauer:1972},  and Shelah~\cite{Shelah:1972,Shelah:1990}, and in statistical learning, by Vladimir Vapniks and Alexey Chervonenkis~\cite{Vapnik-Chervonenkis:1971, Vapnik-Chervonenkis:1974}.
+The particular case of the BFT dichotomy (Theorem~\ref{BFT}) when $A$ consists of $\{0,1\}$-valued (i.e., $\{\text{Yes},\text{No}\}$-valued) strings was discovered independently, around 1971-1972 in many foundational contexts related to polynomial (``tame") vs exponential (``wild'') complexity:  In model theory, by Saharon Shelah~\cite{Shelah:1971}, \cite{Shelah:1990}, in  combinatorics, by Norbert Sauer~\cite{Sauer:1972}, and Shelah~\cite{Shelah:1972}, \cite{Shelah:1990}, and in statistical learning, by Vladimir Vapniks and Alexey Chervonenkis~\cite{Vapnik-Chervonenkis:1971}, \cite{Vapnik-Chervonenkis:1974}.
 
 
 \begin{description}
@@ -267,7 +267,7 @@ The particular case of the BFT dichotomy (Theorem~\ref{BFT}) when $A$ consists o
 Shelah's classification theory is a foundational program in mathematical logic devised to categorize first-order theories based on the complexity and structure of their models. A theory $T$ is considered classifiable in Shelah's sense if the number of non-isomorphic models of $T$ of a given cardinality can be described by a bounded number of numerical invariants. In contrast, a theory $T$ is unclassifiable if the number of models of $T$ of a given cardinality is the maximum possible number.  A key fact is that the  number of models of $T$ is directly impacted by the number of  \emph{types} over  sets of parameters in models of $T$; a controlled number of types is a characteristic of a classifiable theory. 
 
 In Shelah's classification program~\cite{Shelah:1990}, theories without the independence property (called NIP theories, or dependent theories) have a well-behaved, ``tame" structure; the number of types over a set of parameters of size $\kappa$ of such a theory is of polynomially or similar ``slow" growth on $\kappa$. 
-In contrast, Theories with the Independence Property  (called IP theories) are considered ``intractable" or ``wild''. A theory with the Independence Property produces the maximum possible number of types over a set of parameters;  for a set of parameters of cardinality $\kappa$, the theory will have $2^{2^{\kappa}}$-many distinct types.
+In contrast, theories with the Independence Property  (called IP theories) are considered ``intractable" or ``wild''. A theory with the Independence Property produces the maximum possible number of types over a set of parameters;  for a set of parameters of cardinality $\kappa$, the theory will have $2^{2^{\kappa}}$-many distinct types.
 
  \item[In combinatorics]
  Sauer~\cite{Sauer:1972} and Shelah~\cite{Shelah:1972} proved the following: If $\mathscr{F}=\{S_0,S_1,\dots\}$ is a family of subsets of some infinite set $S$, then either for every $n\in\mathbb{N}$, either there is  a set $A\subseteq S$ with $|A|=n$ such that $|\{S_i\cap A): i\in\mathbb{N}\}|=2^n$ (yielding exponential complexity),
@@ -445,7 +445,7 @@ Let  $f: L\to \mathcal{L}$ be a function that maps each input state type  $(P(v)
  \begin{enumerate}
  \item
 We will say that $f$  is \emph{definable}  if for each $Q\in\mathcal{P}$, the output feature $Q{\circ}f: L\to\mathbb{R}$ is a definable predicate in the following sense: There is an \emph{approximating function} $\varphi_{Q,\,K,\varepsilon}: L\to \mathcal{L}$ that can be built recursively out of a finite number of the (primitively computable) predicates in $\mathcal{P}$
-by a finite number of applications of the finitary lattice operations $\land$ (=min) and $\lor$ (=max), the operations of $\mathbb{R}^\mathbb{R}$ as a vector algebra (that is, vector addition and multiplication and scalar multiplication) and the operators sup and inf applied on individual variables from $L$, and such that 
+and by a finite number of iterations of the finitary lattice operations $\land$ (=min) and $\lor$ (=max), the operations of $\mathbb{R}^\mathbb{R}$ as a vector algebra (that is, vector addition and multiplication and scalar multiplication) and the operators sup and inf applied on individual variables from $L$, and such that 
 \[
 | \varphi_{Q,\,K,\varepsilon}(v)- Q{\circ}f(v)|\le \epsilon,
 \qquad
@@ -708,9 +708,9 @@ We now wish to define the concept of a deep computation being computable except 
 \begin{enumerate}
 \item
 Littlewoood's second principle states that every Lebesgue measurable function is ``nearly continuous''. The formal statement of this, which is Luzin's theorem, is that if
- $(X,\Sigma ,\mu )$  a Radon measure space and $Y$ be a second-countable topological space (e.g., $Y=\mathbb{R}^\mathcal{P}$ with $\mathcal{P}$ countable ) equipped with a Borel algebra, then any given $f:X\to Y$ is measurable if and only if for every  $E\in\Sigma$ and every $\varepsilon>0$ there exists a closed $F\subseteq E$ such that the restriction $f|F$ is continuous.
+ $(X,\Sigma ,\mu )$  a Radon measure space and $Y$ be a second-countable topological space (e.g., $Y=\mathbb{R}^\mathcal{P}$ with $\mathcal{P}$ countable ) equipped with a Borel algebra, then any given $f:X\to Y$ is measurable if and only if for every  $E\in\Sigma$ and every $\varepsilon>0$ there exists a closed $F\subseteq E$ such that the restriction $f|_F$ is continuous and $\mu(E\backslash F) < \varepsilon$.
 \item
-Computability of deep computations can is characterized in terms of continuous extendibility of computations. This is at the core of~\cite{alva2024approximability}.
+Computability of deep computations is characterized in terms of continuous extendibility of computations. This is at the core of~\cite{alva2024approximability}.
 \end{enumerate}
 
 
