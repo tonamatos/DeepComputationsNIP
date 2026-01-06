@@ -8,4 +8,6 @@ A unified framework linking compactness, definability, and learnability, proving
 
 © 2025 Eduardo Dueñez, José Iovino, [Tonatiuh Matos-Wiederhold](https://www.wiederhold.dev/), Luciano Salvetti, and Franklin D. Tall.
 
-This repository contains the LaTeX source files for the paper *“Deep computations and NIP”*, currently in preparation. These materials are shared for transparency and collaboration purposes only. Redistribution or reuse is not permitted without the authors’ consent.
+This repository contains the LaTeX source files for the paper *“Deep computations and NIP”*, currently in preparation. It also contains the script `tools/render_newton.py` to make the diagrams, stored in `images/`, used in the paper.
+
+These materials are shared for transparency and collaboration purposes only. Redistribution or reuse is not permitted without the authors' consent.
