@@ -1203,9 +1203,10 @@ If $\pi_P\circ\Delta|_{L[r_\bullet]}$ is universally Talagrand stable for all $P
     This is a consequence of proposition \ref{prop:Talagrand implies NIP} and Theorem 4.8.
 \end{proof}
 
-In the measure-theoretic side, we have identified two levels of PAC-learnability: Talagrand stability with respect to any measure and the NIP, which can also be desci. The natural question is whether these two classes are the same. Even in the simple case of countably many computations, we hit an undecidability phenomenon by assuming that computations are
-
-The following two results suggest that the precise connection between Talagrand stability and NIP may be sensitive to set-theoretic axioms (even assuming countability of $A$).
+In the measure-theoretic side, we have identified two levels of PAC-learnability: Talagrand stability with respect to any measure and the NIP, which can also be described in measure-theoretic terms. 
+The natural question is whether these two classes are the same. 
+Even in the simple case of countably many computations, this question is sensitive to the set-theoretic axioms. 
+On one hand, it is consistent (with respect to the ZFC axioms) that these two classes are the same:
 
 \begin{thm}[Talagrand, Theorem 9-3-1(a) in \cite{talagrand1984pettis}]
     Let $X$ be a compact Hausdorff space and $A\subseteq M_r(X)$ be countable and pointwise bounded.
@@ -1213,9 +1214,17 @@ Assume that $[0,1]$ is not the union of $<\mathfrak{c}$ closed measure zero sets
 If $A$ satisfies the NIP, then $A$ is universally Talagrand stable.
 \end{thm}
 
+The assumption that $[0,1]$ is not the union of $<\mathfrak{c}$ closed measure zero sets is a consequence of, for example, the Continuum Hypothesis.
+On the other hand, by fixing a particular well-known measure: the Lebesgue measure, we see that the other case is also consistent:
+
 \begin{thm}[Fremlin, Shelah, \cite{fremlin1993pointwise}]
     It is consistent with the usual axioms of set theory that there exists a countable pointwise bounded set of Lebesgue measurable functions with the NIP which is not Talagrand stable with respect to Lebesgue measure.
 \end{thm}
+
+Notice that in the framework presented in this paper, we are interested in continuous computations and their limits. 
+The previous two results apply to sets of measurable functions, a higher level of computability than continuity.
+It is possible that the continuity assumption, i.e., the Extendibility Axiom, settles the problem. 
+This is a problem that remains open for future work.
 
 
 \begin{comment}
