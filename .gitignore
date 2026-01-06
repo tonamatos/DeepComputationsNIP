@@ -325,4 +325,5 @@ TSWLatexianTemp*
 # Uncomment the next line to have this generated file ignored.
 #*Notes.bib
 
-tools/split_cantor.py # not currently included as diagrams seems unnecessary
+# not currently included as diagrams seems unnecessary
+tools/split_cantor.py
