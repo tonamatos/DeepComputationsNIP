@@ -17,6 +17,9 @@ pdfkeywords={}
 \usepackage{mathrsfs}
 \usepackage{tikz}
 \usetikzlibrary{trees}
+\usepackage{graphicx}
+\graphicspath{ {images/} }
+\usepackage{subcaption}
 
 \newtheorem{thm}{Theorem}[section]
 \newtheorem{cor}[thm]{Corollary}
@@ -196,7 +199,7 @@ Note that every metrizable space is perfectly normal.
 A topological space $X$ is \emph{Baire} if every countable intersection of dense open sets is non-empty.
 In particular, every completely metrizable space (hence every Polish space) is Baire by the Baire Category Theorem.
 
-The following fact was established by  Baire in his 1899 thesis.
+The following fact was established by Baire in his 1899 thesis.
 A proof can be found in Section 10 of \cite{Todorcevic_1997_TopicsTop}.
 
 \begin{fact}[Baire]\label{baire}
@@ -205,7 +208,7 @@ A proof can be found in Section 10 of \cite{Todorcevic_1997_TopicsTop}.
         \item[(1)] $f$ is a Baire class 1 function, that is,  $f$ is a pointwise limit of continuous functions.
         \item[(2)] $f^{-1}[U]$ is an $F_\sigma$ subset of $X$ whenever $U\subseteq Y$ is open.
     \end{itemize}
-    If $X$ is perfectly normal and Baire, then (1) and (2) are equivalent to:
+    If $X$ is Baire, then (1) and (2) are equivalent to:
     \begin{itemize}
         \item[(3)] For every closed $F\subseteq X$, the restriction $f|_F$ has a point of continuity.
     \end{itemize}
@@ -625,23 +628,111 @@ For any  $\Delta\subseteq\Gamma$, let $\tilde{\Delta}$ denote $\{\tilde\gamma\co
 
 For a more detailed discussion of the Extendability Axiom, we refer the reader to~\cite{alva2024approximability}.
 
-\subsection{Examples}
+\subsection{Newton's method as a CCS}
 
-For an illustrative example, we can frame Newton's polynomial root approximation method in the context of a CCS (see Example~5.6 of \cite{alva2024approximability} for details) as follows.
+For an illustrative example, we can frame Newton's polynomial root approximation method in the context of a CCS (also see Example~5.6 of \cite{alva2024approximability}).
 Begin by considering the extended complex numbers $\hat{\mathbb{C}}:=\mathbb{C}\cup\{\infty\}$ with the usual Riemann sphere topology that makes it into a compact space (where unbounded sequences converge to $\infty$).
 In fact, not only is this space compact, but it is covered by the shard given by the sizer $(1,1,1)$ (the unit sphere is contained in the cube $[-1,1]^3$).
-The space $\hat{\mathbb{C}}$ is homeomorphic to the usual unit sphere $S^2:=\{(x,y,z):x^2+y^2+z^2=1\}$ of $\mathbb{R}^3$, by means of the stereographic projection and its inverse $\hat{\mathbb{C}}\to S^2$.
+The space $\hat{\mathbb{C}}$ is homeomorphic to the usual unit sphere $S^2:=\{(x,y,z):x^2+y^2+z^2=1\}$ of $\mathbb R^3$, by means of the stereographic projection and its inverse $\hat{\mathbb{C}}\to S^2$.
 This function is regarded as a triple of predicates $x,y,z:\hat{\mathbb{C}}\to[-1,1]$ where each will map an extended complex number to its corresponding real coordinate on the cube $[-1,1]^3$.
 Now fix the cubic complex polynomial $p(s):=s^3-1$, and consider the map which performs one step in Newton's method at a particular (extended) complex number $s$, for finding a root of $p$, $\gamma_p:\hat{\mathbb{C}}\to\hat{\mathbb{C}}$.
 The explicit inner workings of $\gamma_p$ are irrelevant for this example, except for the fact that it is a continuous mapping.
-It follows that $(S^2,\{x,y,z\},\{\gamma_p^k:k\in\mathbb{N}\})$ is a CCS.
+It follows that $(S^2,\{x,y,z\},\{\gamma_p^k:k\in\mathbb {N}\})$ is a CCS.
 The idea is that repeated applications of $\gamma_p(s), \gamma_p\circ\gamma_p(s), \gamma_p\circ\gamma_p\circ\gamma_p(s),\dots$ would approximate a root of $p$ provided $s$ was a good enough initial guess.
 
+% computer scientists use colors in the range 0-255 instead
+For the same choice of $p$ in question, the limit of these functions is in fact discontinuous (thus making this a good nontrivial example of a Baire class 1 function).
+This is easiest to visualize by adding a dash of color:
+let us give each complex number $s_0$ a color $(R,G,B)$ where $R,G,B\in[0,1]$ (so that $(1,0,0)$ is red, $(0,1,0)$ is green, and $(0.5,0,0.5)$ is a light purple, for example).
+The values of $R,G$ and $B$ are determined by looking at the image of said number at each stage of the iteration, $\gamma_p^k(s_0)$, and computing the current distance to each of the cubic roots of unity (the roots of $p(s)=s^3-1$); so $R=1/d_r$ where $d_r$ is the positive distance to the root which is colored red, and so on.
+In this way, the roots themselves are colored red, green, and blue, and every other point gets a mix of the three colors.
+As the number of iterations increases, each point gets a sharper color, as the sequence of images $\{\gamma_p^k(s_0)\}_{k=1}^\infty$ converges to one of the three roots.
+Each stage, the complex plane looks as if out of focus because the coloring function is continuous.
+As the reader can see in Figure~\ref{fig:newton}, the limit is discontinuous, and the points at the boundary of each color class forms the famous Newton fractal (of which, interestingly, Newton was unaware).
 
+Taking the topological closure of the set of mappings $\Gamma=\{\gamma^k_p:k\in\mathbb{N}\}$ adds but a single new map given by the pointwise limit of the sequence.
+In symbols, $\overline\Gamma=\Gamma\cup\{\gamma\}$, which is a metrizable space.
+Nevertheless, $\Gamma$ is an interesting example of a subset of the space of continuous functions whose closure isn't contained in said space.
 
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{newton1.png}
+        \caption{After 1 iteration}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{newton3.png}
+        \caption{After 3 iterations}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{newton100.png}
+        \caption{After 100 iterations}
+    \end{subfigure}
 
+    \caption{Newton's method approximating $p(s)=s^3-1$.}
+    \label{fig:newton}
+\end{figure}
 
+A slightly more complicated example is the polynomial $q(s)=s^3-2s+2$, which produces regions where the iterations cycle through different points forever and thus fail to converge.
+This is appreciated in Figure~\ref{fig:newton2}, where after 100 iterations, there are open sets in the complex plane that are still a mix of all three colors: a result of the lack of convergence.
+In this way, the functions $\gamma_q^k$ do not have a pointwise limit when taken as a sequence, and we must instead look at convergent subsequences.
 
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{newton_div1.png}
+        \caption{After 1 iteration}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{newton_div3.png}
+        \caption{After 3 iterations}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{newton_div100.png}
+        \caption{After 100 iterations}
+    \end{subfigure}
+
+    \caption{Newton's method approximating $q(s)=s^3-2s+2$. Notice the regions of divergence.}
+    \label{fig:newton2}
+\end{figure}
+
+\subsection{Finite precision threshold classifiers}
+
+Recall that the Cantor space $2^\mathbb{N}$, consisting of all infinite binary sequences with the topology of pointwise convergence, can be interpreted as floating-point numbers in the interval $[0,1]$.
+Given a finite binary string $w$ and $x\in2^\mathbb{N}$, we consider the function given by the rule $\phi_w(x)=1$ if and only if $x|_{|w|}$ comes before or is equal to $w$ in the lexicographic order of strings, where $|w|$ is the length of the string $w$ and $x|_{|w|}$ is the prefix of $x$ of length $|w|$.
+In other words, $\phi_w$ checks if a number is less than or equal to the scalar value of threshold $w$.
+(The string $w$ is finite, hence the classifier has \emph{finite precision}.)
+
+Each function $\phi_w$ is continuous as it only needs to look at a finite number of bits of the input to make a decision.
+Thus the collection of all of these functions, call it $\Gamma$, is a subset of $C(2^\mathbb{N})$.
+
+Intuitively, the closure of $\Gamma$ consists of the set of all possible threshold classifiers on the real line, but there are two sorts: the ones that classify strict inequalities and those that classify $\leq$.
+The members of $\Gamma$ are finite-precision approximations of classifiers that check all bits of information.
+But here it gets interesting: what is the difference, in terms of floating-point arithmetic, between $x<0.5$ and $x\leq0.5$?
+Let us answer with an example.
+Suppose that $f_a^+$ represents the $\leq$ classifier.
+That is, for $a\in2^\mathbb{N}$, $f_a^+(x)=1$ if and only if $x\leq a$.
+Then consider the sequence of strings $w_n:=a|_n$ (the first $n$ bits of $a$).
+It is straightforward to see that $\lim_{n\to\infty}\phi_{w_n}=f_a^+$.
+Now let $f_a^-$ be the strict classifier and again let $w_n=a|_n$.
+If $w_n$ is not the sequence $000\cdots0$, then it has a lexicographical predecessor $w_n'$.
+Routine arguments show that $\lim_{n\to\infty}w_n'=f_a^-$.
+The special case when $a$ is the constant zero can be treated separately as it is clearly in the closure.
+
+$\overline\Gamma$ is actually a very interesting example for topologists, as it hereditarily separable but not metrizable.
+The informal argument is that two thresholds can be infinitesimally close but still classify a specific point differently.
+Indeed, $\overline\Gamma$ is the \emph{Split Cantor} space (see Examples~\ref{E:Rosenthal comacta}(3)).
+This latter fact follows from the observation that the elements of $\Gamma$ are all eventually constant.
 
 
 \section{Classifying deep computations}
@@ -681,8 +772,7 @@ That every deep computation is a pointwise limit of a countable sequence of comp
 
 Given a countable set $\Delta$ of computations satisfying the NIP on features and shards (condition (ii) of Theorem \ref{nip-baire1def}) we have that $\overline{\tilde\Delta_{\mathcal{L}[r_\bullet]}}$ (for a fixed sizer $r_\bullet$) is a separable \textit{Rosenthal compactum} (see Definition~\ref{D:Rosenthal compacta}).
 Todorčević\ proved a remarkable trichotomy for Rosenthal compacta~\cite{Todorcevic_1999_CompactSubsetsBaire}, and later Argyros, Dodos, Kanellopoulos~\cite{argyros2008rosenthal} proved an heptachotomy that refined Todorčević's classification.
-In this section, inspired by the work of Glasner and Megrelishvili~\cite{glasner2022tame}, we study ways in which this classification allows us to obtain different levels of PAC-learnability  and NIP.
-
+In this section, inspired by the work of Glasner and Megrelishvili~\cite{glasner2022tame}, we study ways in which this classification allows us to obtain different levels of PAC-learnability and NIP.
 
 
 Recall that a topological space $X$ is \emph{hereditarily separable} if every subspace is separable, and that $X$ is \emph{first countable} if every point in $X$ has a countable local basis.
@@ -820,7 +910,7 @@ Elements of $2^{<\mathbb{N}}$ represent finite bitstrings, i.e.,  standard compu
 Mathematically, deep computations are pointwise limits of standard computations.
 However, computationally, we are interested in the manner (and the efficiency) in which the approximations can occur.
 \item
-Infinite branches of the binary tree $2^{<\mathbb{N}}$ correspond to the Cantor space $2^{\mathbb{N}}$, the canonical perfect set (in the sense that  any Polish space with no isolated points contains a copy of $2^{\mathbb{N}}$). 
+Infinite branches of the binary tree $2^{<\mathbb{N}}$ correspond to the Cantor space $2^{\mathbb{N}}$, the canonical perfect set (in the sense that  any Polish space with no isolated points contains a copy of $2^{\mathbb{N}}$).
 The use of infinite dimensional Ramsey theory for trees (pioneered by the work of James D. Halpern, Hans L\" auchli in \cite{halpern1966partition} and also Keith Milliken in \cite{milliken1981partition}, and Alain Louveau, Saharon Shelah, Boban Velickovic in \cite{louveau_shelah_velickovic_1993}) and perfect sets (Frederick William Galvin, Arnold W. Miller in \cite{miller1989infinite}, Stevo Todorcevic in \cite{Todorcevic_1999_CompactSubsetsBaire}) allowed S.A. Argyros, P. Dodos and V. Kanellopoulos in \cite{argyros2008rosenthal} to obtain an improved version of Theorem \ref{T:Todorcevic trichotomy}.
 It is no surprise that Ramsey Theory becomes relevant in the study of Rosenthal compacta as it was a key ingredient in Rosenthal's $\ell_1$ Theorem.
 For this reason, the main results in \cite{argyros2008rosenthal} (which we cite in this paper) are better explained by indexing Rosenthal compacta with the binary tree.
@@ -850,7 +940,6 @@ Given two maps $f,g:2^{\mathbb{N}}\rightarrow\mathbb{R}$ we denote by $(f,g):2^{
 \begin{enumerate}
     \item $D_1=\{\frac{1}{|t|+1}v_t:t\in 2^{<\mathbb{N}}\}$.
 This is discrete in $\overline{D_1}=A(2^{\mathbb{N}})$.
-
     \item $D_2=\{s_t^\frown 0^{\infty}:t\in 2^{<\mathbb{N}}\}$.
 This is discrete in $\overline{D_2}=2^{\leq N}$.
     \item $D_3=\{f^+_{s_t^\frown 0^\infty}:t\in 2^{<\mathbb{N}}\}$.
@@ -902,7 +991,7 @@ See~\cite[Chapters 1 and 2]{Pap:2002}.
 
 
 \begin{notn}
-Following \cite{BFT_1978_PCompactBaire}, the collection of all universally measurable real-valued functions on $X$ will be denoted by $M_r(X)$. 
+Following \cite{BFT_1978_PCompactBaire}, the collection of all universally measurable real-valued functions on $X$ will be denoted by $M_r(X)$.
 Given a fixed Radon measure $\mu$ on $X$, the collection of all $\mu$-measurable real-valued functions on $X$ will be denoted by $\mathscr{M}^0(X,\mu)$.
 \end{notn}
 
@@ -949,7 +1038,6 @@ The following are equivalent:
         For every compact $K\subseteq X$, $A|_K$ satisfies the NIP.
         \item
         For every Radon measure $\mu$ on $X$, $A$ is relatively countably compact in $\mathscr{M}^0(X,\mu)$, i.e., every countable subset of $A$ has an accumulation point in $\mathscr{M}^0(X,\mu)$.
-
     \end{enumerate}
 \end{thm}
 
@@ -981,14 +1069,13 @@ We say that a transition $f:L\rightarrow L$ is \emph{universally Monte Carlo com
 \end{defn}
 
 \begin{rem}
-    Recall that every Radon measure on a compact space (e.g., $\mathcal{L}_{\text{sh}}$) is finite and, by proper normalization, can be treated as probability measures. 
+    Recall that every Radon measure on a compact space (e.g., $\mathcal{L}_{\text{sh}}$) is finite and, by proper normalization, can be treated as probability measures.
     For this reason we use the term ``Radon probability measure'' instead of ``Radon measure'' in definition \ref{D:universally essentially computable}.
 \end{rem}
 
-
 \subsection{Bourgain-Fremlin-Talagrand, NIP, and universal Monte Carlo computability of  deep computations}
 
-The result in this subsection is a consequence of Theorem~\ref{BFT-2F}. 
+The result in this subsection is a consequence of Theorem~\ref{BFT-2F}.
 It says that PAC-learning (or NIP) implies Monte Carlo computability with respect to any measure.
 
 \begin{thm}\label{T:NIP and Monte Carlo}
@@ -999,7 +1086,7 @@ If $\pi_P\circ\Delta|_{L[r_\bullet]}$ satisfies the NIP for all $P\in\mathcal{P}
 \end{thm}
 
 \begin{proof}
-    Fix $P\in\mathcal{P}$ and $r_\bullet\in R$. 
+    Fix $P\in\mathcal{P}$ and $r_\bullet\in R$.
     By the Extendability Axiom, $\pi_P\circ\tilde\Delta|_{\mathcal{L}[r_\bullet]}$ is a set of pointwise bounded continuous functions on the compact set $\mathcal{L}[r_\bullet]$.
     Since $\pi_P\circ\tilde\Delta|_{L[r_\bullet]}=\pi_P\circ\Delta|_{L[r_\bullet]}$ has the NIP then so does $\pi_P\circ\tilde\Delta|_{\mathcal{L}[r_\bullet]}$ by lemma \ref{NIP and closure}.
     By Theorem \ref{BFT-2F}, we have $\overline{\pi_P\circ\tilde\Delta|_{\mathcal{L}[r_\bullet]}}\subseteq M_r(\mathcal{L}[r_\bullet])$ for all $r_\bullet\in R$ and $P\in\mathcal{P}$.
@@ -1033,79 +1120,90 @@ We say that $A$ is \emph{Talagrand $\mu$-stable} if and only if for every $\mu$-
 where $\mu*$ denotes the outer measure (we work with outer since the sets $D_k(A,E,a,b)$ need not be $\mu$-measurable).
 This is certainly the case when $A$ is a countable set of continuous (or $\mu$-measurable) functions.
 
-The following lemma establishes that Talagrand stability is a way to ensure that deep computations are definable by measurable functions.
+We shall now establish that Talagrand $\mu$-stability is a way to ensure that accumulation points (deep computations) are $\mu$-measurable.
+First, we mention the following useful characterization of measurable functions (compare with Fact \ref{baire}):
 
+\begin{fact}[Lemma 413G in \cite{fremlin2003vol4}]\label{fact: measurable functions characterization}
+    Suppose that $(X,\Sigma,\mu)$ is a measure space and $\mathcal{K}\subseteq\Sigma$ is a collection of measurable sets satisfying the following conditions:
+    \begin{enumerate}
+        \item $(X,\Sigma,\mu)$ is complete, i.e., for all $E\in\Sigma$ with $\mu(E)=0$ and $F\subseteq E$ we have $F\in\Sigma$.
+        \item $(X,\Sigma,\mu)$ is semi-finite, i.e., for all $E\in\Sigma$ with $\mu(E)=\infty$ there exists $F\subseteq E$ such that $F\in\Sigma$ and $0<\mu(F)<\infty$.
+        \item $(X,\Sigma,\mu)$ is saturated, i.e., $E\in\Sigma$ if and only if $E\cap F\in\Sigma$ for all $F\in\Sigma$ with $\mu(F)<\infty$.
+        \item $(X,\Sigma,\mu)$ is inner regular with respect to $\mathcal{K}$, i.e., for all $E\in\Sigma$
+        $$\mu(E)=\sup\{\mu(K):K\in\mathcal{K} \text{ and } K\subseteq E\}$$
+    \end{enumerate}
+    (In particular, if $X$ is Hausdorff, $\mu$ is a Radon measure on $X$ and $\mathcal{K}$ is the collection of compact subsets of $X$, all these conditions hold).
+    Then, $f:X\rightarrow\mathbb{R}$ is measurable if and only if for every $K\in\mathcal{K}$ with $0<\mu(K)<\infty$ and $a<b$, either $\mu^*(P)<\mu(K)$ or $\mu^*(Q)<\mu(K)$ where $P=\{x\in K:f(x)\leq a\}$ and $Q=\{x\in K:f(x)\geq b\}$.
+\end{fact}
 
 \begin{lem}\label{talagrand stable is relatively compact}
     If $A$ is Talagrand $\mu$-stable, then $\overline{A}$ is also Talagrand $\mu$-stable and $\overline{A}\subseteq\mathscr{M}^0(X,\mu)$.
 \end{lem}
 
 \begin{proof}
-    First, observe that a subset of a $\mu$-stable set is $\mu$-stable.
-To show that $\overline{A}$ is $\mu$-stable, observe that $D_k(\overline{A},E,a,b)\subseteq D_k(A,E,a',b')$ where $a<a'<b'<b$ and $E$ is a $\mu$-measurable set with positive measure.
-It suffices to show that $\overline{A}\subseteq \mathscr{M}^0(X,\mu)$.
-Suppose that there exists $f\in\overline{A}$ such that $f\notin \mathscr{M}^0(X,\mu)$.
-By a characterization of measurable functions (see 413G in \cite{fremlin2003vol4}), there exists a $\mu$-measurable set $E$ of positive measure and $a<b$ such that $\mu^*(P)=\mu^*(Q)=\mu(E)$ where $P=\{x\in E: f(x)\leq a\}$ and $Q=\{x\in E: f(x)\geq b\}$.
-Then, for any $k\geq 1$: $(P\times Q)^k\subseteq D_k(\{f\},E,a,b)$ so $(\mu^{2k})^*(D_k(\{f\},E,a,b))=(\mu^*(P)\mu^*(Q))^k=(\mu(E))^{2k}$.
-Thus, $\{f\}$ is not $\mu$-stable, but we argued before that a subset of a $\mu$-stable set must be $\mu$-stable.
+    First, we claim that a subset of a $\mu$-stable set is $\mu$-stable.
+    To see this, suppose that $A\subseteq B$ and $B$ is $\mu$-stable.
+    Fix any $\mu$-measurable $E\subseteq X$ of positive measure and $a<b$.
+    Let $k\geq 1$ such that
+    \[
+    (\mu^{2k})^*(D_k(B,E,a,b))<(\mu(E))^{2k}
+    \]
+    Since $A\subseteq B$, then $D_k(A,E,a,b)\subseteq D_k(B,E,a,b)$ so
+    \[
+    (\mu^{2k})^*(D_k(A,E,a,b))\leq (\mu^{2k})^*(D_k(B,E,a,b))<(\mu(E))^{2k}
+    \]
+    We now show that $\overline{A}$ is $\mu$-stable.
+    Fix $E\subseteq X$ measurable with positive measure and $a<b$.
+    Let $a'<b'$ be such that $a<a'<b'<b$.
+    Since $A$ is $\mu$-stable, let $k\geq 1$ be such that
+    \[
+    (\mu^{2k})^*(D_k(A,E,a',b'))<(\mu(E))^{2k}
+    \]
+    If $x\in D_k(\overline{A},E,a,b)$, then there is $f\in\overline{A}$ such that $f(x_{2i})\leq a<a'$ and $f(x_{2i+1})\geq b>b'$ for all $i<k$.
+    By definition of pointwise convergence topology, there exists $g\in A$ such that $g(x_{2i})<a'$ and $g(x_{2i+1})>b'$ for all $i<k$.
+    Hence, $x\in D_k(A,E,a',b')$.
+    We have shown that $D_k(\overline{A},E,a,b)\subseteq D_k(A,E,a',b')$ so
+    \[
+    (\mu^{2k})^*(D_k(\overline{A},E,a,b))\leq (\mu^{2k})^*(D_k(A,E,a',b'))<(\mu(E))^{2k}
+    \]
+    It suffices to show that $\overline{A}\subseteq \mathscr{M}^0(X,\mu)$.
+    Suppose that there exists $f\in\overline{A}$ such that $f\notin \mathscr{M}^0(X,\mu)$.
+    By fact \ref{fact: measurable functions characterization}, there exists a $\mu$-measurable set $E$ of positive measure and $a<b$ such that $\mu^*(P)=\mu^*(Q)=\mu(E)$ where $P=\{x\in E: f(x)\leq a\}$ and $Q=\{x\in E: f(x)\geq b\}$.
+    Then, for any $k\geq 1$: $(P\times Q)^k\subseteq D_k(\{f\},E,a,b)$ so $(\mu^{2k})^*(D_k(\{f\},E,a,b))=(\mu^*(P)\mu^*(Q))^k=(\mu(E))^{2k}$.
+    Thus, $\{f\}$ is not $\mu$-stable, but we argued before that a subset of a $\mu$-stable set must be $\mu$-stable.
+    Contradiction.
 \end{proof}
+
+Just like the NIP, Talagrand $\mu$-stability is directly related to relative compactness in the space $\mathscr{M}^0(X,\mu)$.
+This is the content of the preceeding lemma.
 
 We say that $A$ is \emph{universally Talagrand stable} if $A$ is Talagrand $\mu$-stable for every Radon probability measure $\mu$ on $X$.
-An argument similar to the proof of~\ref{BFT-2F}, yields the following:
+We will see that universal Talagrand stability corresponds to a complexity class smaller than or equal to the NIP.
+In other words, that every universally Talagrand stable set has the NIP.
 
-\begin{thm}
-    Let $(L,\mathcal{P},\Gamma)$ be a CCS satisfying the Extendability Axiom.
-If $\pi_P\circ\Delta|_{L[r_\bullet]}$ is universally Talagrand stable for all $P\in\mathcal{P}$ and all sizers $r_{\bullet}$, then every deep computation is universally Monte Carlo computable.
-\end{thm}
-
-It is then natural to ask: what is the relationship between Talagrand stability and the NIP? The following dichotomy will be useful.
-
-\begin{lem}[Fremlin's Dichotomy, 463K in \cite{fremlin2003vol4}]
-\label{T:Fremlins dichotomy}
-    If $(X,\Sigma,\mu)$ is a perfect $\sigma$-finite measure space (in particular, for $X$ compact and $\mu$ a Radon probability measure on $X$) and $\{f_n:n\in\mathbb{N}\}$ be a sequence of real-valued measurable functions on $X$, then one (and only one) of the following conditions holds:
-    \begin{enumerate}[(i)] 
-        \item
-        $\{f_n:n\in\mathbb{N}\}$ has a subsequence that converges $\mu$-almost everywhere,
-        \item
-        $\{f_n:n\in\mathbb{N}\}$ has a subsequence with no $\mu$-measurable accumulation point in $\mathbb{R}^X$.
-    \end{enumerate}
-\end{lem}
-
-The preceding lemma can be considered as a measure-theoretic version of Rosenthal's dichotomy.
-Combining this dichotomy with Theorem \ref{BFT-2F}, we get the following result:
-
-\begin{thm}
-    Let $X$ be a Hausdorff space and $A\subseteq C(X)$ be pointwise bounded.
-The following are equivalent:
-    \begin{enumerate}[(i)] 
-        \item
-        $\overline{A}\subseteq M_r(X)$.
-        \item [(ii)] For every compact $K\subseteq X$, $A|_K$ satisfies the NIP.
-        \item [(iii)] For every Radon measure $\mu$ on $X$, $A$ is relatively countably compact in $\mathscr{M}^0(X,\mu)$, i.e., every countable subset of $A$ has an accumulation point in $\mathscr{M}^0(X,\mu)$.
-        \item [(iv)] For every Radon measure $\mu$ on $X$ and every sequence $\{f_n:n\in\mathbb{N}\}\subseteq A$, there is a subsequence that converges $\mu$-almost everywhere.
-    \end{enumerate}
-\end{thm}
-
-\begin{proof}
-    The equivalence (i)$\Leftrightarrow$(ii)$\Leftrightarrow$(iii)  is Theorem \ref{BFT-2F}, and the equivalence (iii)$\Leftrightarrow$(iv) is Fremlin's Dichotomy (Theorem~\ref{T:Fremlins dichotomy}).
-\end{proof}
-
-Finally, it is natural to ask what the connection is between Talagrand stability and NIP.
-
-\begin{prop}
+\begin{prop}\label{prop:Talagrand implies NIP}
     Let $X$ be a compact Hausdorff space and $A\subseteq C(X)$ be pointwise bounded.
 If $A$ is universally Talagrand stable, then $A$ satisfies the NIP.
 \end{prop}
 
 \begin{proof}
     By Theorem \ref{BFT-2F}, it suffices to show that $A$ is relatively countably compact in $\mathscr{M}^0(X,\mu)$ for all Radon probability measure $\mu$ on $X$.
-Since $A$ is Talagrand $\mu$-stable for any such $\mu$, we have $\overline{A}\subseteq\mathscr{M}^0(X,\mu)$.
+Since $A$ is Talagrand $\mu$-stable for any such $\mu$, we have $\overline{A}\subseteq\mathscr{M}^0(X,\mu)$ by lemma \ref{talagrand stable is relatively compact}.
 In particular, $A$ is relatively countably compact in $\mathscr{M}^0(X,\mu)$.
 \end{proof}
 
-\begin{question}
-    Is the converse true?
-\end{question}
+In the computational context we get the following:
+
+\begin{cor}\label{T:Talagrand stability and Monte Carlo}
+    Let $(L,\mathcal{P},\Gamma)$ be a CCS satisfying the Extendability Axiom.
+If $\pi_P\circ\Delta|_{L[r_\bullet]}$ is universally Talagrand stable for all $P\in\mathcal{P}$ and all sizers $r_{\bullet}$, then every deep computation is universally Monte Carlo computable.
+\end{cor}
+
+\begin{proof}
+    This is a consequence of proposition \ref{prop:Talagrand implies NIP} and Theorem 4.8.
+\end{proof}
+
+In the measure-theoretic side, we have identified two levels of PAC-learnability: Talagrand stability with respect to any measure and the NIP, which can also be desci. The natural question is whether these two classes are the same. Even in the simple case of countably many computations, we hit an undecidability phenomenon by assuming that computations are
 
 The following two results suggest that the precise connection between Talagrand stability and NIP may be sensitive to set-theoretic axioms (even assuming countability of $A$).
 
@@ -1171,6 +1269,9 @@ We remark that when $I$ is uncountable and $\Sigma_i=\mathcal{B}(X_i)$ for all $
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %\begin{thebibliography}{9}
 
