@@ -25,10 +25,10 @@ Z0 = X + 1j * Y
 
 # Polynomial and derivative
 def f(z):
-    return z**3 - 1
+    return z**3 - 2*z + 2
 
 def df(z):
-    return 3*z**2
+    return 3*z**2 - 2
 
 # Find roots
 def find_roots():
@@ -101,7 +101,7 @@ for n in ITERATION_FRAMES:
     rgb = color_from_distances(Z, roots)
     rgb[invalid] = 0
 
-    output_path = IMAGES_DIR / f"newton{n}.png"
+    output_path = IMAGES_DIR / f"newton_div{n}.png"
     imageio.imwrite(output_path, rgb)
 
     print(f"Saved {output_path}")
