@@ -131,28 +131,28 @@ Intuitively, the Baire-1 class consists of functions with ``controlled'' discont
 We prove a new ``tame vs wild'' Ramsey-theoretic dichotomy for complexity of general deep computations by invoking a famous paper by Bourgain, Fremlin and Talagrand from the late 70s~\cite{BFT_1978_PCompactBaire}, and  a new trichotomy for the class of ``tame'' deep computations by invoking an equally celebrated result of Todorčević, from the late 90s, for  functions of the first Baire class~\cite{Todorcevic_1999_CompactSubsetsBaire}.
 
 Todorčević’s trichotomy regards \emph{Rosenthal compacta}; these  are special classes of  topological spaces, defined as compact spaces that can be embedded (homeomorphically identified as a subset) within the space of Baire class 1 functions on some Polish (separable, complete metric) space, under the pointwise convergence topology.
-Rosenthal compacta  exhibit  ``topological tameness," meaning that they behave in relatively controlled ways, and since the late 70's, they have played a crucial role for understanding complexity of structures of functional analysis, especially Banach spaces.
+Rosenthal compacta  exhibit  ``topological tameness,'' meaning that they behave in relatively controlled ways;
+since the late 70's, they have played a crucial role in understanding the complexity of structures of functional analysis, especially Banach spaces.
 Todorčević’s trichotomy has been utilized to settle longstanding problems in topological dynamics and topological entropy~\cite{glasner2022tame}.
 
-Through our Rosetta stone, Rosenthal compacta in topology correspond to the important concept of  ``Non Independence Property" (known as ``NIP’’) in model theory, identified by Shelah~\cite{Shelah:1971,Shelah:1990}, and to the concept of  Probably Approximately Correct learning (known as ``PAC learnability'') in statistical learning theory identified by Valiant~\cite{Valiant:1984}.
+Through our Rosetta stone, Rosenthal compacta in topology correspond to the important concept of  ``Non Independence Property'' (known as ``NIP'') in model theory, identified by Shelah~\cite{Shelah:1971,Shelah:1990}, and to the concept of  Probably Approximately Correct learning (known as ``PAC learnability'') in statistical learning theory identified by Valiant~\cite{Valiant:1984}.
 
 
-Going beyond Todorčević’s trichotomy, we invoke a more recent heptachotomy for Rosenthal compacta obtained by Argyros, Dodos and Kanellopoulos~\cite{argyros2008rosenthal}.
-Argyros, Dodos and Kanellopoulos identified seven fundamental ``prototypes" of separable Rosenthal compacta, and  proved that any non-metrizable separable Rosenthal compactum must contain a ``canonical" embedding of one of these prototypes.
-They showed that if a separable Rosenthal compactum is not hereditarily separable, then it must contain an uncountable discrete subspace of the size of the continuum.
+Going beyond Todorčević’s trichotomy, we invoke a more recent heptachotomy for Rosenthal compacta obtained by Argyros, Dodos and Kanellopoulos~\cite{argyros2008rosenthal};
+they identify seven fundamental ``prototypes" of separable Rosenthal compacta, and  show that any non-metrizable separable Rosenthal compactum must contain a ``canonical'' embedding of one of these prototypes.
+They also showed that if a separable Rosenthal compactum is not hereditarily separable, then it must contain an uncountable discrete subspace of the size of the continuum.
 
 
 We believe that the results presented in this paper show practitioners of computation, or topology, or descriptive set theory, or  model theory, how classification invariants used in their field translate into classification invariants of other fields.
-However, in the interest of accessibility, we do not assume previous familiarity with high-level topology or model theory, or computing.
-The only technical prerequisite of the paper is undergraduate-level topology and measure theory.
+In the interest of accessibility, we do not assume the reader to have previous familiarity with advanced topology, model theory, or computing.
+The only technical prerequisites to read this paper are undergraduate-level topology and measure theory.
 The necessary topological background beyond undergraduate topology is covered in section~\ref{sec:prelim}.
 
-In section \ref{sec:prelim}, we present the basic topological and combinatorial preliminaries, and in section~\ref{S:CCS}, we introduce the structural/model-theoretic viewpoint (no previous exposure to model theory is needed).
-Section~\ref{S:Classification} is devoted to the classification of deep computations, and the final section, section~\ref{Measure-theoretic NIP},  presents the probabilistic viewpoint.
+In section \ref{sec:prelim}, we present basic topological and combinatorial preliminaries, and in section~\ref{S:CCS}, we introduce the structural/model-theoretic viewpoint (no previous exposure to model theory is needed).
+Section~\ref{S:Classification} is devoted to the classification of deep computations.
 
-
-Throughout the paper, we focus on classical computation; however, by refining the model-theoretic tools, the results presented here can be extended to the realm of quantum computation and open quantum systems.
-This extension will be addressed in a forthcoming paper.
+Throughout the paper, our results pertain to classical models of computation (particularly computations involving real-valued quantities that are known and manipulated to a finite degree of precision).
+The final Section~\ref{Measure-theoretic NIP} introduces a probabilistic viewpoint, whose development we intend to pursue in future research, extending the present framework to encompass non-deterministic and quantum computations.
 
 \tableofcontents
 
