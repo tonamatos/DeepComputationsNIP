@@ -87,10 +87,10 @@ $^{2}$Department of Mathematics, University of Toronto\\
 }
 
 \begin{abstract}
-We use topological methods to study complexity of deep computations and limit computations.
+We use topological methods to study the complexity of deep computations and limit computations.
 We use topology of function spaces, specifically, the classification of Rosenthal compacta, to identify new complexity classes.
 We use the language of model theory, specifically,  the concept of  \emph{independence} from Shelah's classification theory, to translate between topology and computation.
-We use the theory of Rosenthal compacta to characterize approximablility of deep computations, both deterministically and probabilistically.
+We use the theory of Rosenthal compacta to characterize approximability of deep computations, both deterministically and probabilistically.
 \end{abstract}
 
 \maketitle
@@ -119,7 +119,7 @@ In a previous paper~\cite{alva2024approximability}, we introduced the concept of
 There is a technical difference between both designations, but in this paper, to simplify the nomenclature, we will ignore the difference and use only the term ``deep computation’’.
 
 In \cite{alva2024approximability}, we proved a new ``tame vs wild'' (i.e., polynomial vs exponential) dichotomy for complexity of deep computations by invoking a classical result of Grothendieck from the 50s~\cite{Grothendieck:1952}.
-Under our model-theoretic Rosetta stone, polynomial approximability in the sense of computation becomes identified with the notion of continuous extendability in the sense of topology, and with the notions of \emph{stability} and \emph{type definability} in the sense of model theory.
+Under our model-theoretic Rosetta stone, polynomial approximability in the sense of computation becomes identified with the notion of continuous extendibility in the sense of topology, and with the notions of \emph{stability} and \emph{type definability} in the sense of model theory.
 
  In this paper, we follow a more general approach, i.e., we view deep computations as pointwise limits of continuous functions.
 In topology, functions that arise as the pointwise limit of a sequence of continuous functions are called \emph{functions of the first Baire class}, or \emph{Baire class~1} functions, or \emph{Baire-1} for short; Baire class~1 form a step above simple continuity in the hierarchy of functions studied in real analysis  (Baire class 0 functions being continuous functions).
@@ -617,16 +617,16 @@ To summarize, a function $f: L\to \mathcal{L}$ is computable if and only if it i
 This motivates the following definition.
 
 \begin{defn}
-\label{D:extendability axiom}
-We say that a CCS $(L,\mathcal{P},\Gamma)$ satisfies the \emph{Extendability Axiom} if for all $\gamma\in \Gamma$, there is $\tilde\gamma:\mathcal{L}_{\text{sh}}\to\mathcal{L}_{\text{sh}}$ such that for every sizer $r_{\bullet}$ there is a sizer $s_\bullet$ such that $\tilde\gamma|_{\mathcal{L}[r_\bullet]}:\mathcal{L}[r_\bullet]\to\mathcal{L}[s_\bullet]$ is continuous.
+\label{D:extendibility axiom}
+We say that a CCS $(L,\mathcal{P},\Gamma)$ satisfies the \emph{Extendibility Axiom} if for all $\gamma\in \Gamma$, there is $\tilde\gamma:\mathcal{L}_{\text{sh}}\to\mathcal{L}_{\text{sh}}$ such that for every sizer $r_{\bullet}$ there is a sizer $s_\bullet$ such that $\tilde\gamma|_{\mathcal{L}[r_\bullet]}:\mathcal{L}[r_\bullet]\to\mathcal{L}[s_\bullet]$ is continuous.
 We refer to $\tilde\gamma$ as a \emph{free} extension of~$\gamma$.
 \end{defn}
 
-By the preceding remarks, the Extendability Axiom says that the elements of the semigroup $\Gamma$ are finitary computations.
+By the preceding remarks, the Extendibility Axiom says that the elements of the semigroup $\Gamma$ are finitary computations.
 For the rest of the paper, fix for each $\gamma\in\Gamma$ a free extension $\tilde{\gamma}$ of $\gamma$.
 For any  $\Delta\subseteq\Gamma$, let $\tilde{\Delta}$ denote $\{\tilde\gamma\colon\gamma\in\Delta\}$.
 
-For a more detailed discussion of the Extendability Axiom, we refer the reader to~\cite{alva2024approximability}.
+For a more detailed discussion of the Extendibility Axiom, we refer the reader to~\cite{alva2024approximability}.
 
 \subsection{Newton's method as a CCS}
 
@@ -744,7 +744,7 @@ Under what conditions are deep computations Baire class 1, and thus well-behaved
 Hence, we can import the theory of Rosenthal compacta into this framework of deep computations.
 
 \begin{thm}\label{nip-baire1def}
-    Let $(L,\mathcal{P},\Gamma)$ be a compositional computational structure (Definition~\ref{D:CCS}) satisfying the Extendability Axiom (Definition~\ref{D:extendability axiom}) with $\mathcal{P}$ countable.
+    Let $(L,\mathcal{P},\Gamma)$ be a compositional computational structure (Definition~\ref{D:CCS}) satisfying the Extendibility Axiom (Definition~\ref{D:extendibility axiom}) with $\mathcal{P}$ countable.
 Let $R$ be an exhaustive collection of sizers.
 Let $\Delta\subseteq\Gamma$ be $R$-confined.
 The following are equivalent.
@@ -760,7 +760,7 @@ In particular, on each shard every deep computation is the pointwise limit of a 
 
 \begin{proof}
     Since $\mathcal{P}$ is countable, $\mathcal{L}[r_\bullet]\subseteq\mathbb{R}^\mathcal{P}$ is Polish.
-Also, the Extendability Axiom implies that $\pi_P\circ \tilde\Delta|_{\mathcal{L}[r_\bullet]}$ is a pointwise bounded set of continuous functions for all $P\in\mathcal{P}$.
+Also, the Extendibility Axiom implies that $\pi_P\circ \tilde\Delta|_{\mathcal{L}[r_\bullet]}$ is a pointwise bounded set of continuous functions for all $P\in\mathcal{P}$.
 Hence, Theorem \ref{Generalized BFT} and Lemma \ref{NIP and closure} prove the equivalence of (i) and (ii).
 If (i) holds and $f\in\overline{\Delta}$, then write $f=\mathcal{U}{\rm lim}_i \gamma_i$ as an ultralimit.
 Define $\tilde f:=\mathcal{U}{\rm lim}_i \tilde\gamma_i$.
@@ -781,7 +781,7 @@ Pol proved that every hereditarily separable Rosenthal compactum is first counta
 This suggests the following definition:
 
 \begin{defn}
-    Let $(L,\mathcal{P},\Gamma)$ be a CCS satisfying the Extendability Axiom and $R$ be an exhaustive collection of sizers.
+    Let $(L,\mathcal{P},\Gamma)$ be a CCS satisfying the Extendibility Axiom and $R$ be an exhaustive collection of sizers.
 Let $\Delta\subseteq\Gamma$ be an $R$-confined countable set of computations satisfying the NIP on shards and features (condition (ii) in Theorem \ref{nip-baire1def}).
 We say that $\Delta$ is:
     \begin{enumerate}[(i)]
@@ -1080,7 +1080,7 @@ The result in this subsection is a consequence of Theorem~\ref{BFT-2F}.
 It says that PAC-learning (or NIP) implies Monte Carlo computability with respect to any measure.
 
 \begin{thm}\label{T:NIP and Monte Carlo}
-    Let $(L,\mathcal{P},\Gamma)$ be a CCS satisfying the Extendability Axiom.
+    Let $(L,\mathcal{P},\Gamma)$ be a CCS satisfying the Extendibility Axiom.
 Let $R$ be an exhaustive collection of sizers.
 Let $\Delta\subseteq\Gamma$ be $R$-confined.
 If $\pi_P\circ\Delta|_{L[r_\bullet]}$ satisfies the NIP for all $P\in\mathcal{P}$ and all $r_{\bullet}\in R$, then every deep computation in $\Delta$ is universally Monte Carlo computable.
@@ -1088,7 +1088,7 @@ If $\pi_P\circ\Delta|_{L[r_\bullet]}$ satisfies the NIP for all $P\in\mathcal{P}
 
 \begin{proof}
     Fix $P\in\mathcal{P}$ and $r_\bullet\in R$.
-    By the Extendability Axiom, $\pi_P\circ\tilde\Delta|_{\mathcal{L}[r_\bullet]}$ is a set of pointwise bounded continuous functions on the compact set $\mathcal{L}[r_\bullet]$.
+    By the Extendibility Axiom, $\pi_P\circ\tilde\Delta|_{\mathcal{L}[r_\bullet]}$ is a set of pointwise bounded continuous functions on the compact set $\mathcal{L}[r_\bullet]$.
     Since $\pi_P\circ\tilde\Delta|_{L[r_\bullet]}=\pi_P\circ\Delta|_{L[r_\bullet]}$ has the NIP then so does $\pi_P\circ\tilde\Delta|_{\mathcal{L}[r_\bullet]}$ by lemma \ref{NIP and closure}.
     By Theorem \ref{BFT-2F}, we have $\overline{\pi_P\circ\tilde\Delta|_{\mathcal{L}[r_\bullet]}}\subseteq M_r(\mathcal{L}[r_\bullet])$ for all $r_\bullet\in R$ and $P\in\mathcal{P}$.
     Let $f\in\overline{\Delta}$ be a deep computation.
@@ -1199,7 +1199,7 @@ In particular, $A$ is relatively countably compact in $\mathscr{M}^0(X,\mu)$.
 In the computational context we get the following:
 
 \begin{cor}\label{T:Talagrand stability and Monte Carlo}
-    Let $(L,\mathcal{P},\Gamma)$ be a CCS satisfying the Extendability Axiom.
+    Let $(L,\mathcal{P},\Gamma)$ be a CCS satisfying the Extendibility Axiom.
 If $\pi_P\circ\Delta|_{L[r_\bullet]}$ is universally Talagrand stable for all $P\in\mathcal{P}$ and all sizers $r_{\bullet}$, then every deep computation is universally Monte Carlo computable.
 \end{cor}
 
