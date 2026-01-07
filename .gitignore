@@ -327,3 +327,6 @@ TSWLatexianTemp*
 
 # not currently included as diagrams seems unnecessary
 tools/split_cantor.py
+
+# Tona messing around with ffmpeg renders
+tools/video_renders/
