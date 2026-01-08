@@ -269,14 +269,14 @@ Thus, $A$ is relatively compact in $B_1(X)$.
 
 \subsection{From Rosenthal's dichotomy to the Bourgain-Fremlin-Talagrand dichotomy to Shelah's NIP}
 
-In metrizable spaces, points of closure of some subset can always be approximated by points inside the set, via a convergent sequence.
-For more complicated spaces, such as $C_p(X)$, this fails in remarkable  ways.
-To see an example, consider the Cantor space $X=2^\mathbb{N}$, and for each $n\in\mathbb{N}$ define $p_n:X\to\{0,1\}$ by  $p_n(x)=x(n)$ for each $x\in X$.
-Then $p_n$ is continuous for each $n$,  but one can show (see Chapter~1.1 of \cite{Todorcevic_1997_TopicsTop} for details) that the only continuous functions in the closure of $\{p_n\}_{n\in\mathbb{N}}$ are the functions $p_n$ themselves; moreover, none of the subsequences of $\{p_n\}_{n\in\mathbb{N}}$ converge.
-In some sense, this example is the worst possible scenario for convergence.
-The topological space obtained from this closure is well-known: it is the \emph{Stone-Čech compactification} of the discrete space of natural numbers, or $\beta\mathbb{N}$ for short, and it is an important object of study in general topology.
+In metrizable spaces, points of the closure of some subset can always be approximated by points in the set proper, via a convergent sequence.
+For more complicated spaces, such as $C_p$-spaces, this fails in remarkable ways.
+The $n$-th coordinate map $p_n: 2^{\mathbb{N}}\to\{0,1\}$ on the Cantor space $X = 2^\mathbb{N}$ ($= \{0, 1\}^{\mathbb{N}}$) is continuous for each $n\in \mathbb{N}$, and one can show (e.g., \cite[Chapter~1.1]{Todorcevic_1997_TopicsTop}) that $\{p_n\}_{n\in\mathbb{N}}$ is closed, but has \emph{no} convergent subsequences, in $Y = C_p(X)$:
+in a sense, such example exhibits the worst failure of sequential convergence possible.
+The closure of $\{p_n\}$ in $\{0, 1\}^X$ (or in $\mathbb{R}^{X}$ for that matter) realizes the \emph{Stone-Čech compactification $\beta\mathbb{N}$} of the discrete space of natural numbers;
+it is an important object of study in general topology.
 
-The following theorem,  established by Haskell Rosenthal in 1974,  is fundamental  in functional analysis, and describes a sharp division in the behavior of sequences in a Banach spaces.
+The following theorem,  established by Haskell Rosenthal in 1974,  is fundamental  in functional analysis and captures a sharp division in the behavior of sequences in a Banach spaces.
 
 \begin{thm}[Rosenthal's Dichotomy, \cite{Rosenthal:1974}]
 \label{T:Rosenthal}
