@@ -393,60 +393,71 @@ In contrast, theories with the Independence Property  (called IP theories) are c
 A theory with the Independence Property produces the maximum possible number of types over a set of parameters;  for a set of parameters of cardinality $\kappa$, the theory will have $2^{2^{\kappa}}$-many distinct types.
 
  \item[In combinatorics]
- Sauer~\cite{Sauer:1972} and Shelah~\cite{Shelah:1972} proved the following independently: If $\mathscr{F}=\{S_0,S_1,\dots\}$ is a family of subsets of some infinite set $S$, then either for every $n\in\mathbb{N}$, either there is  a set $A\subseteq S$ with $|A|=n$ such that $|\{S_i\cap A): i\in\mathbb{N}\}|=2^n$ (yielding exponential complexity),
-or there exists $N\in\mathbb{N}$ such that  for every $A\subseteq S$ with $|A|\ge N$, one has
+   Sauer~\cite{Sauer:1972} and Shelah~\cite{Shelah:1972} proved the following independently:
+   Let $\mathscr{F}$ be a family of subsets of some set $S$.
+   Either:
+   for every $n\in\mathbb{N}$ there is  a set $A\subseteq S$ with $|A|=n$ such that $|\{S_i\cap A: i\in\mathbb{N}\}|=2^n$ ($\mathscr{F}$ has ``exponential complexity'');
+or: there exists $N\in\mathbb{N}$ such that  for every $A\subseteq S$ with $|A|\ge N$, one has
 \[
-|\{S_i\cap A): i\in\mathbb{N}\}| \le \sum_{i=0}^{N-1} \binom{|A|}{i} \approx O(|A|^N)
+|\{S_i\cap A: i\in\mathbb{N}\}| \le \sum_{i=0}^{N-1} \binom{|A|}{i}.
 \]
-(yielding polynomial complexity).
-This answered a question of Erd\H{o}s.
-
+($\mathscr{F}$ has ``polynomial complexity'').
+Clearly, any family $\mathscr{F}$ of subsets of a \emph{finite} set $S$ has polynomial complexity.
+The ``polynomial'' name is justified:
+indeed, for fixed $N>0$, as a function of the size $|A| = m > 0$, we have
+\begin{equation*}
+  \sum_{i=0}^{N-1} \binom{m}{i}
+  \le \sum_{i=0}^{N-1}\frac{m^{i}}{i!}
+  \le \left( \sum_{i=0}^{N-1}\frac{1}{i!} \right)\cdot m^{N-1}\cdot
+  < e\cdot m^{N-1} = O \left( m^N \right).
+\end{equation*}
+(More precisely, the order of magnitude is $O(m^{N-1})$:
+polynomial in $m$ for $N$ fixed.)
 
  \item[In machine learning]
 Readers familiar with statistical learning may recognize the Sauer-Shelah lemma as the dichotomy discovered and proved slightly  earlier (1971) by Vapnik and Chervonenkis~\cite{Vapnik-Chervonenkis:1971, Vapnik-Chervonenkis:1974} to address the problem of uniform convergence in statistics.
-The least integer $N$ given by the preceding paragraph, when it exists, is called the \emph{VC-dimension} of $\mathscr{F}$.
-This is a core concept in machine learning.
+The least integer $N$ given by the preceding paragraph, when it exists, is called the \emph{VC-dimension} of $\mathscr{F}$;
+it is a core concept in machine learning.
 If such an integer $N$ does not exist, we say that the VC-dimension of $\mathscr{F}$ is infinite.
- The lemma provides upper bounds on the number of data points (sample size $m$) needed to learn a concept class with VC dimension $d\in\mathbb{N}$ by showing this number grows polynomially with $m$ and $d$ (namely, $\sum _{i=0}^{d}{m \choose i}\approx O(m^{d})$), not exponentially.
+The lemma provides upper bounds on the number of data points (sample size) needed to learn a concept class of known VC dimension~$d$ up to a given admissible error in the statistical sense.
 The Fundamental Theorem of Statistical Learning states that a hypothesis class is PAC-learnable (PAC stands for ``Probably Approximately Correct'') if and only if its VC dimension is finite.
  
 \end{description}
  
 \subsection{Rosenthal compacta}
  
- The comprehensiveness of Theorem~\ref{BFT}, attested by the examples outlined in the preceding section, led to the following definition (isolated by Gilles Godefroy~\cite{Godefroy:1980}):
+ The universal classification implied by Theorem~\ref{BFT}, as attested by the examples outlined in the preceding section, led to the following definition (by Gilles Godefroy~\cite{Godefroy:1980}):
 
 \begin{defn}
 \label{D:Rosenthal compacta}
-A Rosenthal compactum  is a compact Hausdorff topological space \(K\) that can be topologically embedded as a compact subset into the space of all functions of the first Baire class on some Polish space \(X\), equipped with the topology of pointwise convergence.
-
+A Rosenthal compactum is any topological space realized as a compact subset of the space $B_1(X) = B_1(X, \mathbb{R})$ (equipped with the topology of pointwise convergence) of all real functions of the first Baire class on some Polish space~\(X\).
 \end{defn}
+A Rosenthal compactum~$K$ is necessarily Hausdorff since it is a topological subspace of the Hausdorff product space $\mathbb{R}^X$.
 
-
-Rosenthal compacta are characterized by significant topological and dynamical tameness properties.
-They play an important role in functional analysis,  measure theory, dynamical systems, descriptive set theory, and model theory.
-In this paper, we introduce their applicability in deep computation.
+Rosenthal compacta possess significant topological and dynamical tameness properties.
+They play an important role in functional analysis,  measure theory, dynamical systems, descriptive set theory, and model theory;
+in this paper, we use them to study deep computations.
 For this, we shall first focus on countable languages, which is the theme of the next subsection.
 
 
 \subsection{The special case $B_1(X,\mathbb{R}^\mathcal{P})$   with $\mathcal{P}$ countable.}
 
-Our goal now is to characterize relatively compact subsets of $B_1(X,\mathbb{R}^\mathcal{P})$ for the particular case when $\mathcal{P}$ is countable.
-Given $P\in\mathcal{P}$ we denote the projection map onto the $P$-coordinate by $\pi_P:\mathbb{R}^\mathcal{P}\rightarrow\mathbb{R}$.
-From a high-level topological interpretation, the next lemma states that, in this context, the spaces $\mathbb{R}$ and $\mathbb{R}^\mathcal{P}$ are really not that different, and that if we understand the Baire class~1 functions of one space, then we also understand the functions of both.
+Fix an arbitrary (at most) countable set~$\mathcal{P}$, whose elements $P\in \mathcal{P}$ will be called \emph{predicate symbols} or \emph{formal predicates}.
+Our present goal is to characterize relatively compact subsets of $B_1(X,\mathbb{R}^\mathcal{P})$.
+For $P\in\mathcal{P}$, let $\pi_P:\mathbb{R}^\mathcal{P}\rightarrow\mathbb{R}$ be the corresponding projection (``$P$-th coordinate'' map).
+The next lemma reduces the study of (Baire-1) functions into~$\mathbb{R}^{\mathcal{P}}$ to the special case of real-valued ones.
 
 %In fact, $\mathbb{R}$ and any other Polish space is embeddable as a closed subspace of $\mathbb{R}^\mathcal{P}$.
 
 \begin{lem}\label{baire 1 and projections}
-    Let $X$ be a Polish space and $\mathcal{P}$ be a countable set.
-Then, $f\in B_1(X,\mathbb{R}^\mathcal{P})$ if and only if $\pi_P\circ f\in B_1(X)$ for all $P\in\mathcal{P}$.
+    Let $X$ be a Polish space and let $\mathcal{P}$ be any (at most) countable set.
+    For all $f: X\to \mathbb{R}$ the equivalence $f\in B_1(X,\mathbb{R}^\mathcal{P})$ if (and only if) $\pi_P\circ f\in B_1(X)$ for all $P\in\mathcal{P}$ holds.
 \end{lem}
 
 \begin{proof}
-    Only one implication needs a proof.
 Suppose that $\pi_P\circ f\in B_1(X)$ for all $P\in\mathcal{P}$.
 Let $V$ be a basic open subset of $\mathbb{R}^\mathcal{P}$.
-That is, there exists a finite $\mathcal{P}'\subseteq\mathcal{P}$ such that $V=\bigcap_{P\in\mathcal{P}'}\pi_P^{-1}[U_P]$ where $U_P$ is open in $\mathbb{R}$.
+That is, there exists a finite $\mathcal{P}'\subseteq\mathcal{P}$ such that $V=\bigcap_{P\in\mathcal{P}'}\pi_P^{-1}[U_P]$ where, for each $P\in \mathcal{P}'$, the set $U_P\subseteq \mathbb{R}$ is open.
 Then, 
     $$f^{-1}[V]=\bigcap_{P\in\mathcal{P}'}(\pi_P\circ f)^{-1}[U_P]$$ is an $F_\sigma$ set.
 Since $\mathcal{P}$ is countable, $\mathbb{R}^\mathcal{P}$ is second countable so every open set $U$ in $\mathbb{R}^\mathcal{P}$ is a countable union of basic open sets.
