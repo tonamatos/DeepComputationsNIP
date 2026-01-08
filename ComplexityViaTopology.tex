@@ -1,6 +1,7 @@
 \documentclass[psamsfonts]{amsart}
 \usepackage[utf8]{inputenc}
 \usepackage{amsfonts, comment, enumerate}
+\usepackage{mathtools}
 \usepackage[mathcal]{eucal}
 \usepackage[hidelinks]{hyperref}
 \hypersetup{
@@ -9,7 +10,7 @@ pdfsubject={Mathematics, Set Theory},
 pdfauthor={Luciano Salvetti, Tonatiuh Matos-Wiederhold},
 pdfkeywords={}
 }
-\usepackage{amsmath}
+\usepackage{amsmath,amssymb}
 \usepackage{xcolor}
 \usepackage{amsthm}
 \usepackage{pdflscape}
@@ -289,9 +290,18 @@ The genesis of Theorem~\ref{T:Rosenthal} was Rosenthal's ``$\ell_1$-Theorem'', w
 The $\ell_1$-Theorem connects diverse areas:
 Banach space geometry, Ramsey theory, set theory, and topology of function spaces.
 
-As we move from $C_p(X)$ to the larger space $B_1(X)$, we find a similar dichotomy:
+As we move from $C_p(X)$ to the larger space $B_1(X)$, a dichotomy paralleling the $\ell_1$-Theorem holds:
 Either every point of the closure of a set of functions is a Baire class-1 function, or there is a sequence in the set behaving in the wildest possible way.
-Such theorem is usually not phrased as a dichotomy, but rather as an equivalence:
+Such theorem is usually not phrased as a dichotomy, but rather as an equivalence as in Theorem~\ref{BFT} below.
+
+First, we introduce some useful notation.
+For any set $A\subseteq \mathbb{R}^X$ and any real $a$, define
+\begin{align*}
+  X^A_{\le a} &\coloneqq \bigcap_{f\in A}f^{-1}(-\infty,a] = \{x\in X: \text{$f(x)\le a$ for all $f\in A$}\},\\
+  X^A_{\ge a} &\coloneqq \bigcap_{f\in A}f^{-1}[a, +\infty) = \{x\in X: \text{$f(x)\ge a$ for all $f\in A$}\}.
+\end{align*}
+(In case $A=\emptyset$, we define $X^\emptyset_{\ge a} = X = X^\emptyset_{\le a}$.)
+For any sequence $\{f_n\}\subseteq \mathbb{R}^X$ and $I\subseteq \mathbf{N}$, define $I^{\complement} \coloneqq \mathbb{N}\setminus I$ and $f_I \coloneqq \{f_i: i\in I\}$.
 
 \begin{thm}[``The BFT Dichotomy''. Bourgain-Fremlin-Talagrand {\cite{BFT_1978_PCompactBaire}}]
 \label{BFT}
@@ -299,31 +309,50 @@ Such theorem is usually not phrased as a dichotomy, but rather as an equivalence
 The following are equivalent:
     \begin{enumerate}[(i)]
         \item $A$ is relatively compact in $B_1(X)$.
-        \item For every $\{f_n\}_{n\in\mathbb{N}}\subseteq A$ and every $a<b$ there is $I\subseteq\mathbb{N}$ such that
-\[\bigcap_{n\in I}f_n^{-1}(-\infty,a]\cap\bigcap_{n\notin I}f_n^{-1}[b,\infty)=\emptyset.\]
+        \item For every $\{f_n\}_{n\in\mathbb{N}}\subseteq A$ and every $a<b$ there is $I\subseteq\mathbb{N}$ such that $X_{\le a}^{f_I} \cap X_{\ge b}^{f_{I^{\complement}}} = \emptyset$.
     \end{enumerate}
 \end{thm}
 (As stated above, the BFT Dichotomy is a particular case of the equivalence (iv)$\Leftrightarrow$(viii) in {\cite[Theorem 4D]{BFT_1978_PCompactBaire}}:
 on a Polish space, a real function is Baire-1 iff it is $K$-analytic.)
 
+The sets $X_{\le a}^{f_I}$ and $X_{\ge b}^{f_{I^{\complement}}}$ appearing in condition Theorem~\ref{BFT}\emph{(ii)} are defined, respectively, in terms of $|I|$-many inequalities of the form $f_i(x)\le a$, and $|I^{\complement}|$-many of the form $f_j(x)\ge b$.
+Thus, at least one of  $X_{\le a}^{f_I}$ and $X_{\ge b}^{f_{I^{\complement}}}$ is defined by the satisfaction of infinitely (countably) many inequalities.
+For our purposes, it is more natural to consider only finitely many inequalities at a time, which motivates the definitions below.
 
 \begin{defn}\label{def:NIP-fns}
-    We shall say that a set $A\subseteq \mathbb{R}^X$ satisfies the \emph{Independence Property}, or IP for short, if it satisfies the following condition:
-    There exist $\{f_n\}_{n\in\mathbb{N}}\subseteq A$ and  $a<b$ such that for every pair of finite disjoint sets $E,F\subseteq\mathbb{N}$, we have
-    \[
-    \bigcap_{n\in E}f_n^{-1}(-\infty,a]\cap\bigcap_{n\in F}f_n^{-1}[b,\infty)\neq\emptyset.
-    \]
-    If $A$ satisfies the negation of this condition, we will say that \emph{$A$ satisfies NIP}, or that it has the NIP.
+    We say that \emph{$A$ has the No-Independence Property (NIP)} if, for all sequences $\{f_n\}_{n\in\mathbb{N}}\subseteq A$ and reals $a<b$ there exist finite disjoint sets $E,F\subseteq\mathbb{N}$ such that $X_{\le a}^{f_E} \cap X_{\ge b}^{f_F} = \emptyset$.
+    We say that such $E, F$ \emph{witness NIP for $A$, $\{f_n\}$ and $a, b$}.
+    For emphasis, we say that NIP in this sense is \emph{finitary} NIP.
+
+    A set $A\subseteq \mathbb{R}^X$ \emph{has the Independence Property (IP)} if it does not have NIP, i.e., there exists a sequence $\{f_n\}_{n\in\mathbb{N}}\subseteq A$ and reals $a<b$ such that for every pair of finite disjoint sets $E,F\subseteq\mathbb{N}$, we have $X_{\le a}^{f_E} \cap X_{\ge b}^{f_F} \ne \emptyset$.
+    Again, such IP will be called \emph{finitary} for emphasis.
 \end{defn}
 
-\begin{rem}
-Note that if $X$ is compact and $A\subseteq C_p(X)$, then $A$ satisfies the NIP if and only if for every $\{f_n\}_{n\in\mathbb{N}}\subseteq A$ and for every $a<b$ there is $I\subseteq\mathbb{N}$ such that
-$$\bigcap_{n\in I}f_n^{-1}(-\infty,a]\cap\bigcap_{n\notin I}f_n^{-1}[b,\infty)=\emptyset.$$
-\end{rem}
+If the word ``finite'' is omitted in the above definitions, we obtain the definitions of \emph{infinitary} NIP (weaker than finitary NIP) and \emph{infinitary} IP (stronger than finitary IP), respectively.
 
 
-To summarize, the particular case of Theorem~\ref{BFT}  for $X$ compact can be stated in the following way:
+If we insist on witnesses $E,F\subseteq \mathbf{N}$ such that $E\cup F = \mathbf{N}$, we call the respective properties ``BFT-NIP'' (even weaker than infinitary NIP) and ``BFT-IP'' (even stronger than infinitary IP).
+Evidently, the condition in Theorem~\ref{BFT}\emph{(ii)} is simply that $A$ has BFT-NIP.
 
+\begin{prop}\label{prop:BFT-finitary-cpct}
+  If $X$ is compact and $A\subseteq C_p(X)$, then $A$ has BFT-NIP if and only if it has finitary NIP.
+\end{prop}
+\begin{proof}
+  Trivially (as per the preceding discussion), finitary NIP implies BFT-NIP.
+  Reciprocally, assume that $X$ is compact and has finitary IP.  
+  Fix $A\subseteq C_p(X)$, a sequence $\{f_n\}\subseteq A$ and reals $r<s$.
+  For any $I, J\subseteq \mathbb{N}$ (eventually disjoint in applications), write $X_{I,J}$ for $X^{f_I}_{\le r}\cap X^{f_J}_{\ge s}$.
+  For $I\subseteq I'\subseteq \mathbb{N}$ and $J\subseteq J'\subseteq \mathbb{N}$, we have $X_{I,J}\supseteq X_{I',J'}$;
+  moreover, $X_{I,J} = \bigcap_{E\subseteq I, F\subseteq J} X_{E, F}$, where the index variables $E\subseteq I$, $F\subseteq J$ range over \emph{finite} subsets of~$I, J$, respectively.
+  Clearly, $E, F\subseteq \mathbb{N}$ witness finitary NIP for $\{f_n\}$ iff $X^{E,F}=\emptyset$.
+
+  Fix $I\subseteq \mathbb{N}$.
+  Since $\{f_n\}\subseteq A\subseteq C_p(X)$ is a sequence of continuous functions, and $X$ is compact, the nested family $\{X_{E,F}: E\subseteq I, F\subseteq I^{\complement}\}$ consists of closed, thus compact, sets.
+  Since $A$ has finitary IP by hypothesis, the nested family consists of nonempty sets, hence its intersection $X_{I,I^{\complement}}\ne\emptyset$ by compactness.
+  This holds for arbitrary $\{f_n\}\subseteq A$ and $r<s$, so $A$ has BFT-IP.
+\end{proof}
+
+Henceforth, by IP/NIP we will mean \emph{finitary} IP/NIP unless otherwise specified.
 
 \begin{thm}
 \label{BFT2}
@@ -331,10 +360,12 @@ To summarize, the particular case of Theorem~\ref{BFT}  for $X$ compact can be s
 Then, for every pointwise bounded  $A\subseteq C_p(X)$, one and exactly one of the following two conditions must hold:
         \begin{enumerate}[(i)]
         \item $\overline{A}\subseteq B_1(X)$.
-        \item $A$ has the IP.
+        \item $A$ has (finitary) IP.
     \end{enumerate}
 \end{thm}
-
+\begin{proof}
+  Corollary of Theorem~\ref{BFT} and Proposition~\ref{prop:BFT-finitary-cpct}.
+\end{proof}
 
 
 The Independence Property was first isolated by Saharon Shelah in model theory as a dividing line between theories whose models are ``tame'' (corresponding to NIP) and theories whose models are ``wild" (corresponding to IP).
