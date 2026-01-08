@@ -160,19 +160,22 @@ The final Section~\ref{Measure-theoretic NIP} introduces a probabilistic viewpoi
 \section{General topological preliminaries: From continuity\\ to Baire class 1}
 \label{sec:prelim}
 
-In this section we present the preliminaries from general topology and function space theory.
-We include some of the proofs for completeness, but the reader familiar with these topics may skip them.
+In this section we present some preliminaries from general topology and function space theory.
+We include the proofs of some results for the sake of completeness;
+they may be safely skipped by readers familiar with these topics.
 
 Recall that a subset of a topological space is $F_\sigma$ if it is a countable union of closed  sets, and $G_\delta$ if it is a countable intersection of closed sets.
-Note that in a metrizable space, every open set is $F_\sigma$; equivalently, every closed set is $G_\delta$.
+A space is metrizable if its topology agrees with the topology induced by some metric therein.
+Two such metrics inducing the same topology may induce quite different properties in the category of metric spaces. 
+For example, the interval $(0,1)$ with  the usual metric (as a subset) of the reals is not complete;
+however, $(0,1)$ is homeomorphic to the real line, which is complete with respect to the usual metric thereon.
+In a metrizable space, every open set is $F_\sigma$; equivalently, every closed set is $G_\delta$.
 
-A \emph{Polish space} is a separable and completely metrizable topological space.
-The most important examples are the reals $\mathbb{R}$, the Cantor space $2^\mathbb{N}$ (the set of all infinite binary sequences, endowed with the product topology), and the Baire space $\mathbb{N}^\mathbb{N}$ (the set of all infinite sequences of naturals, also with the product topology).
-Countable products of Polish spaces are Polish; this includes spaces like $\mathbb{R}^\mathbb{N}$, the space of sequences of real numbers.
-
-
-In this paper, we shall often discuss  subspaces, and so there is a pertinent subtlety of the definitions worth mentioning: \emph{completely metrizable space} is not the same as \emph{complete metric space}; for an illustrative example, the interval $(0,1)$ with  the metric inherited from the reals not complete, but it is Polish since it is homeomorphic to the real line.
-Being Polish is a topological property while being metrically complete is not.
+A \emph{Polish space} is a separable and completely metrizable topological space, i.e., admitting some complete metric inducing its topology.
+Although other (possibly incomplete) metrics may induce the same topology, being Polish is a purely topological property.
+The most important Polish spaces is the real line~$\mathbb{R}$.
+The class of Polish spaces is closed under countable topological products;
+in particular, the Cantor space~$2^\mathbb{N}$ (the set of all infinite binary sequences, endowed with the product topology), the Baire space $\mathbb{N}^\mathbb{N}$ (the set of all infinite sequences of naturals, also with the product topology), and the space $\mathbb{R}^\mathbb{N}$ of sequences of real numbers are all Polish.
 
 The following result is a cornerstone of descriptive set theory, closely tied to the work of Wacław Sierpiński and Kazimierz Kuratowski, with proofs often built upon their foundations and formalized later, notably involving Stefan Mazurkiewicz's work on complete metric spaces.
 
@@ -182,28 +185,26 @@ In particular, closed subsets and open subsets of Polish spaces are also Polish 
 \end{fact}
 
 Given two topological spaces $X$ and $Y$ we denote by $C_p(X,Y)$ the set of all continuous functions $f:X\rightarrow Y$ endowed with the topology of pointwise convergence.
-When $Y=\mathbb{R}$, we denote this collection simply as $C_p(X)$.
- A natural question is, how do topological properties of $X$ translate into $C_p(X)$ and vice versa? These questions, and in general the study of these spaces, are the concern of $C_p$-theory, an active field of research in general topology which was pioneered by A.
-V.
-Arhangel’skiĭ and his students in the 1970's and 1980's~\cite{Arkhangelskii:1992}.
+The space $C_p(X, \mathbb{R})$ of continuous real functions on~$X$ is denoted simply~$C_p(X)$.
+A natural question is, how do topological properties of $X$ translate into $C_p(X)$ and vice versa?
+This general question, and the study of these spaces in general, is the concern of $C_p$-theory, an active field of research in general topology which was pioneered by A.~V.~Arhangel’skiĭ and his students in the 1970's and 1980's~\cite{Arkhangelskii:1992}.
 This field has found many applications in model theory and functional analysis.
 For a recent survey, see~\cite{tkachuk2011cp}.
  
  A  \emph{Baire class 1} function between topological spaces is a function that can be expressed as the pointwise limit of a sequence of continuous functions.
-If $X$ and $Y$ are topological spaces, the space of Baire class 1 functions $f:X\rightarrow Y$ endowed with the topology of pointwise convergence is denoted $B_1(X,Y)$.
-As above, in the special case $Y=\mathbb{R}$ we denote $B_1(X,Y)$ as $B_1(X)$.
+If $X$ and $Y$ are topological spaces, the space of Baire class 1 functions $f:X\rightarrow Y$ endowed with the topology of pointwise convergence is denoted $B_1(X,Y)$ (as above, $B_1(X, \mathbb{R})$ is denoted $B_1(X)$).
 Clearly, $C_p(X,Y)\subseteq B_1(X,Y)$.
 The Baire hierarchy of functions was introduced by René-Louis Baire in his 1899 doctoral thesis, \emph{Sur les fonctions de variables réelles}.
-His work moved away from the 19th-century preoccupation with ``pathological" functions toward a constructive classification based on pointwise limits.
+His work moved away from the 19th-century preoccupation with ``pathological'' functions toward a constructive classification based on pointwise limits.
 
 A topological space $X$ is \emph{perfectly normal} if it is normal and every closed subset of $X$ is a $G_\delta$ (equivalently, every open subset of $X$ is a $F_\sigma$).
-Note that every metrizable space is perfectly normal.
+Every metrizable space (hence, every Polish space) is perfectly normal.
 
 A topological space $X$ is \emph{Baire} if every countable intersection of dense open sets is non-empty.
-In particular, every completely metrizable space (hence every Polish space) is Baire by the Baire Category Theorem.
+The Baire Category Theorem states that every completely metrizable space (hence, every Polish space) is Baire in the sense above.
 
 The following fact was established by Baire in his 1899 thesis.
-A proof can be found in Section 10 of \cite{Todorcevic_1997_TopicsTop}.
+A proof can be found in~\cite[Section 10]{Todorcevic_1997_TopicsTop}.
 
 \begin{fact}[Baire]\label{baire}
     If $X$ is perfectly normal, then the following conditions are equivalent for a function $f:X\to \mathbb{R}$:
@@ -228,7 +229,7 @@ A proof can be found in Section 10 of \cite{Todorcevic_1997_TopicsTop}.
 A subset $L$ of a topological space $X$ is \emph{relatively compact} in $X$ if the closure of $L$ in $X$ is compact.
 Relatively compact subsets of $B_1(X)$ (for $X$ Polish) have been objects of interest  for researchers in Analysis and Topological Dynamics.
 We begin with the following well-known result.
-Recall that a set $A\subseteq\mathbb{R}^X$ of real-valued functions is \emph{pointwise bounded} if for every $x\in X$ there is $M_x>0$ such that $|f(x)|<M_x$ for all $f\in A$.
+Recall that a set $A\subseteq\mathbb{R}^X$ of real-valued functions is \emph{pointwise bounded} if for every $x\in X$ there is $M_x \ge 0$ (a \emph{pointwise bound at~$x$}) such that $|f(x)| \le M_x$ for all $f\in A$.
 We include a proof for the reader's convenience:
 
 \begin{lem}
@@ -245,23 +246,25 @@ The following are equivalent:
 \end{lem}
 
 \begin{proof}
-    Since $A$ is pointwise bounded, for each $x\in X$, fix $M_x>0$ such that $|f(x)|\leq M_x$ for every $f\in A$.
-
-    (i)$\Rightarrow$(ii) holds in general.
+    (i)$\Rightarrow$(ii) Relative compact subsets of any space are countably compact therein.
 
 
-    (ii)$\Rightarrow$(iii) Assume that $A$ is relatively countably compact in $B_1(X)$ and that $f\in\overline A\setminus B_1(X)$.
-By Fact \ref{baire}, there are countable $D_0,D_1\subseteq X$ with $\overline {D_0}=\overline{D_1}$, and $a<b$ such that $D_0\subseteq f^{-1}(-\infty,a]$ and $D_1\subseteq f^{-1}[b,\infty)$.
-We claim that there is a sequence $\{f_n\}_{n\in\mathbb{N}}\subseteq A$ such that $\lim_{n\to\infty}f_n(x)=f(x)$ for all $x\in D_0\cup D_1$.
-Indeed, use the countability to enumerate $D_0\cup D_1$ as $\{x_n\}_{n\in\mathbb{N}}$.
-Then for each positive $n$ find  $f_n\in A$ with $|f_n(x_i)-f(x_i)|<\frac1n$ for all $i\leq n$.
-The claim follows.
+    (ii)$\Rightarrow$(iii)
+Consider any $f\in\overline A$ and any countable subset $\{x_i\}_{i\in \mathbb{N}}\subseteq X$.
+We claim that there is a sequence $\{f_n\}_{n\in\mathbb{N}}\subseteq A$ such that $\lim_{n\to\infty}f_n(x_i)=f(x_i)$ for all $i\in \mathbb{N}$.
+Since $A$ carries the relative product topology, for each $n\in \mathbb{N}$ there exists $f_n\in A$ such that $|f_n(x_i) - f(x_i)| < \frac{1}{n}$ for all $i \le n$;
+the sequence $\{f_n\}$ is as claimed.
+Seeking a contradiction, assume that $A$ is relatively countably compact in~$B_1(X)$, but there exists some $f\in \overline{A}\setminus B_1(X)$.
+    By Fact \ref{baire}, there are countable $D_0,D_1\subseteq X$ with $\overline {D_0}=\overline{D_1}$, and $a<b$ such that $D_0\subseteq f^{-1}(-\infty,a]$ and $D_1\subseteq f^{-1}[b,\infty)$.
+Per the claim above, let $\{f_n\}_{n\in\mathbb{N}}\subseteq A$ satisfy $\lim_{n\to\infty}f_n(x)=f(x)$ for all $x\in D_0\cup D_1$ (the latter being a countable set).
+By relative countable compactness of~$A$, there is an accumulation point $g\in B_1(X)$ of $\{f_n\}_{n\in\mathbb{N}}$;
+clearly, $f$ and $g$ agree on $D_0\cup D_1$.
+Thus $g$ takes values $g(x_i) = f(x_i) \le  a$ as well as values $g(x_j) = f(x_j) \ge b > a$ on any open subset of the closed set $\overline{D_0} = \overline{D_1}$, contradicting the implication (1)$\Rightarrow$(3) in Fact~\ref{baire}.
 
-    By relative countable compactness of $A$, there is an accumulation point $g\in B_1(X)$ of $\{f_n\}_{n\in\mathbb{N}}$.
-It is straightforward to show that since $f$ and $g$ agree on $D_0\cup D_1$, $g$ does not have a point of continuity on the closed set $\overline{D_0}=\overline{D_1}$, which contradicts Fact~\ref{baire}.
-
-    (iii)$\Rightarrow$(i) Suppose that $\overline A\subseteq B_1(X)$.
-Then $\overline{A}\cap B_1(X)=\overline A$ is a closed subset of $\prod_{x\in X}[-M_x,M_x]$; Tychonoff's theorem states that the product of compact spaces is always compact, and since closed subsets of compact spaces are compact, $\overline A$ must be compact, as desired.
+(iii)$\Rightarrow$(i)   For each $x\in X$, let $M_x \ge 0$ be a pointwise bound for~$A$ thereat.
+Being necessarily a closed subset of the compact space (being product of compacta) $\prod_{x\in X}[-M_x,M_x] \subseteq \mathbb{R}^X$,  it follows that $\overline{A}$ is compact;
+by~(iii), it is also the closure of~$A$ in $B_1(X)$ \emph{a fortiori}.
+Thus, $A$ is relatively compact in $B_1(X)$.
 \end{proof}
 
 \subsection{From Rosenthal's dichotomy to the Bourgain-Fremlin-Talagrand dichotomy to Shelah's NIP}
