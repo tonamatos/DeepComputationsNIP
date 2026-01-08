@@ -130,7 +130,7 @@ Intuitively, the Baire-1 class consists of functions with ``controlled'' discont
 
 We prove a new ``tame vs wild'' Ramsey-theoretic dichotomy for complexity of general deep computations by invoking a famous paper by Bourgain, Fremlin and Talagrand from the late 70s~\cite{BFT_1978_PCompactBaire}, and  a new trichotomy for the class of ``tame'' deep computations by invoking an equally celebrated result of Todorčević, from the late 90s, for  functions of the first Baire class~\cite{Todorcevic_1999_CompactSubsetsBaire}.
 
-Todorčević’s trichotomy regards \emph{Rosenthal compacta}; these  are special classes of  topological spaces, defined as compact spaces that can be embedded (homeomorphically identified as a subset) within the space of Baire class 1 functions on some Polish (separable, complete metric) space, under the pointwise convergence topology.
+Todorčević’s trichotomy regards \emph{Rosenthal compacta}; these  are special classes of  topological spaces, defined as compact spaces that can be embedded (homeomorphically identified as a subset) within the space of Baire class~1 functions on some Polish (separable, complete metric) space, under the pointwise convergence topology.
 Rosenthal compacta  exhibit  ``topological tameness,'' meaning that they behave in relatively controlled ways;
 since the late 70's, they have played a crucial role in understanding the complexity of structures of functional analysis, especially Banach spaces.
 Todorčević’s trichotomy has been utilized to settle longstanding problems in topological dynamics and topological entropy~\cite{glasner2022tame}.
@@ -157,7 +157,7 @@ The final Section~\ref{Measure-theoretic NIP} introduces a probabilistic viewpoi
 \tableofcontents
 
 
-\section{General topological preliminaries: From continuity\\ to Baire class 1}
+\section{General topological preliminaries: From continuity\\ to Baire class~1}
 \label{sec:prelim}
 
 In this section we present some preliminaries from general topology and function space theory.
@@ -191,8 +191,8 @@ This general question, and the study of these spaces in general, is the concern 
 This field has found many applications in model theory and functional analysis.
 For a recent survey, see~\cite{tkachuk2011cp}.
  
- A  \emph{Baire class 1} function between topological spaces is a function that can be expressed as the pointwise limit of a sequence of continuous functions.
-If $X$ and $Y$ are topological spaces, the space of Baire class 1 functions $f:X\rightarrow Y$ endowed with the topology of pointwise convergence is denoted $B_1(X,Y)$ (as above, $B_1(X, \mathbb{R})$ is denoted $B_1(X)$).
+ A  \emph{Baire class~1} function between topological spaces is a function that can be expressed as the pointwise limit of a sequence of continuous functions.
+If $X$ and $Y$ are topological spaces, the space of Baire class~1 functions $f:X\rightarrow Y$ endowed with the topology of pointwise convergence is denoted $B_1(X,Y)$ (as above, $B_1(X, \mathbb{R})$ is denoted $B_1(X)$).
 Clearly, $C_p(X,Y)\subseteq B_1(X,Y)$.
 The Baire hierarchy of functions was introduced by René-Louis Baire in his 1899 doctoral thesis, \emph{Sur les fonctions de variables réelles}.
 His work moved away from the 19th-century preoccupation with ``pathological'' functions toward a constructive classification based on pointwise limits.
@@ -209,7 +209,7 @@ A proof can be found in~\cite[Section 10]{Todorcevic_1997_TopicsTop}.
 \begin{fact}[Baire]\label{baire}
     If $X$ is perfectly normal, then the following conditions are equivalent for a function $f:X\to \mathbb{R}$:
     \begin{itemize}
-        \item[(1)] $f$ is a Baire class 1 function, that is,  $f$ is a pointwise limit of continuous functions.
+        \item[(1)] $f$ is a Baire class~1 function, that is,  $f$ is a pointwise limit of continuous functions.
         \item[(2)] $f^{-1}[U]$ is an $F_\sigma$ subset of $X$ whenever $U\subseteq Y$ is open.
     \end{itemize}
     If $X$ is Baire, then (1) and (2) are equivalent to:
@@ -290,7 +290,7 @@ Note that in the preceding example, the functions are trivially pointwise bounde
 The genesis of Theorem~\ref{T:Rosenthal} was Rosenthal's $\ell_1$ theorem, which states that the only reason why Banach space can fail to have an isomorphic copy of  $\ell_1$  (the space of absolutely summable sequences) is the presence of a bounded sequence  with no weakly Cauchy subsequence.
 The theorem is famous for connecting diverse areas of mathematics, namely,  Banach space geometry, Ramsey theory, set theory, and topology of function spaces.
 
-As we move from $C_p(X)$ to the larger space $B_1(X)$, we find a similar dichotomy: Either every point of closure of the set of functions will be a Baire class 1 function, or there is a sequence inside the set that behaves in the wildest possible way.
+As we move from $C_p(X)$ to the larger space $B_1(X)$, we find a similar dichotomy: Either every point of closure of the set of functions will be a Baire class~1 function, or there is a sequence inside the set that behaves in the wildest possible way.
 The theorem is usually not phrased as a dichotomy, but rather as an equivalence:
 
 \begin{thm}[``The BFT Dichotomy''.
@@ -402,7 +402,7 @@ For this, we shall first focus on countable languages, which is the theme of the
 
 Our goal now is to characterize relatively compact subsets of $B_1(X,\mathbb{R}^\mathcal{P})$ for the particular case when $\mathcal{P}$ is countable.
 Given $P\in\mathcal{P}$ we denote the projection map onto the $P$-coordinate by $\pi_P:\mathbb{R}^\mathcal{P}\rightarrow\mathbb{R}$.
-From a high-level topological interpretation, the next lemma states that, in this context, the spaces $\mathbb{R}$ and $\mathbb{R}^\mathcal{P}$ are really not that different, and that if we understand the Baire class 1 functions of one space, then we also understand the functions of both.
+From a high-level topological interpretation, the next lemma states that, in this context, the spaces $\mathbb{R}$ and $\mathbb{R}^\mathcal{P}$ are really not that different, and that if we understand the Baire class~1 functions of one space, then we also understand the functions of both.
 
 %In fact, $\mathbb{R}$ and any other Polish space is embeddable as a closed subspace of $\mathbb{R}^\mathcal{P}$.
 
@@ -647,7 +647,7 @@ It follows that $(S^2,\{x,y,z\},\{\gamma_p^k:k\in\mathbb {N}\})$ is a CCS.
 The idea is that repeated applications of $\gamma_p(s), \gamma_p\circ\gamma_p(s), \gamma_p\circ\gamma_p\circ\gamma_p(s),\dots$ would approximate a root of $p$ provided $s$ was a good enough initial guess.
 
 % computer scientists use colors in the range 0-255 instead
-For the same choice of $p$ in question, the limit of these functions is in fact discontinuous (thus making this a good nontrivial example of a Baire class 1 function).
+For the same choice of $p$ in question, the limit of these functions is in fact discontinuous (thus making this a good nontrivial example of a Baire class~1 function).
 This is easiest to visualize by adding a dash of color:
 let us give each complex number $s_0$ a color $(R,G,B)$ where $R,G,B\in[0,1]$ (so that $(1,0,0)$ is red, $(0,1,0)$ is green, and $(0.5,0,0.5)$ is a light purple, for example).
 The values of $R,G$ and $B$ are determined by looking at the image of said number at each stage of the iteration, $\gamma_p^k(s_0)$, and computing the current distance to each of the cubic roots of unity (the roots of $p(s)=s^3-1$); so $R=1/d_r$ where $d_r$ is the positive distance to the root which is colored red, and so on.
@@ -746,7 +746,7 @@ This latter fact follows from the observation that the elements of $\Gamma$ are 
 
 \subsection{NIP, Rosenthal compacta, and deep computations}
 
-Under what conditions are deep computations Baire class 1, and thus well-behaved according to our framework, on type-shards? The following theorem says that, under the assumption that $\mathcal{P}$ is countable, the space of deep computations is a Rosenthal compactum (when restricted to shards) if and only if the set of computations satisfies the NIP feature by feature.
+Under what conditions are deep computations Baire class~1, and thus well-behaved according to our framework, on type-shards? The following theorem says that, under the assumption that $\mathcal{P}$ is countable, the space of deep computations is a Rosenthal compactum (when restricted to shards) if and only if the set of computations satisfies the NIP feature by feature.
 Hence, we can import the theory of Rosenthal compacta into this framework of deep computations.
 
 \begin{thm}\label{nip-baire1def}
