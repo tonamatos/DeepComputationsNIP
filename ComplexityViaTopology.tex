@@ -276,38 +276,38 @@ in a sense, such example exhibits the worst failure of sequential convergence po
 The closure of $\{p_n\}$ in $\{0, 1\}^X$ (or in $\mathbb{R}^{X}$ for that matter) realizes the \emph{Stone-Čech compactification $\beta\mathbb{N}$} of the discrete space of natural numbers;
 it is an important object of study in general topology.
 
-The following theorem,  established by Haskell Rosenthal in 1974,  is fundamental  in functional analysis and captures a sharp division in the behavior of sequences in a Banach spaces.
+The following theorem, proved by Haskell Rosenthal in 1974, is fundamental in functional analysis and captures a sharp division in the behavior of sequences in a Banach spaces.
 
 \begin{thm}[Rosenthal's Dichotomy, \cite{Rosenthal:1974}]
 \label{T:Rosenthal}
-    If $X$ is Polish and $\{f_n\}\subseteq C_p(X)$ is pointwise bounded, then either $\{f_n\}_{n\in\mathbb{N}}$ contains a convergent subsequence or a subsequence whose closure (in $\mathbb{R}^X$) is homeomorphic to $\beta\mathbb{N}$.
+    If $X$ is Polish and $\{f_n\}\subseteq C_p(X)$ is pointwise bounded, then $\{f_n\}_{n\in\mathbb{N}}$ has a convergent subsequence, or a subsequence whose closure in $\mathbb{R}^X$ is homeomorphic to~$\beta\mathbb{N}$.
 \end{thm}
 
-In other words, a pointwise bounded set of continuous functions  either contains a convergent subsequence, or a subsequence whose closure is essentially the same as the example mentioned in the previous paragraphs (the ``wildest'' possible scenario).
-Note that in the preceding example, the functions are trivially pointwise bounded in $\mathbb{R}^X$ as the functions can only take values $0$ and $1$.
+In other words, a pointwise bounded set of continuous functions contains either a convergent subsequence, or a subsequence whose closure is essentially the same as the example mentioned in the previous paragraphs (i.e., ``wildest'' possible).
 
+The genesis of Theorem~\ref{T:Rosenthal} was Rosenthal's ``$\ell_1$-Theorem'', which states that a Banach space includes an isomorphic copy of $\ell_1$  (the space of absolutely summable sequences), or else every bounded sequence therein is weakly Cauchy.
+The $\ell_1$-Theorem connects diverse areas:
+Banach space geometry, Ramsey theory, set theory, and topology of function spaces.
 
-The genesis of Theorem~\ref{T:Rosenthal} was Rosenthal's $\ell_1$ theorem, which states that the only reason why Banach space can fail to have an isomorphic copy of  $\ell_1$  (the space of absolutely summable sequences) is the presence of a bounded sequence  with no weakly Cauchy subsequence.
-The theorem is famous for connecting diverse areas of mathematics, namely,  Banach space geometry, Ramsey theory, set theory, and topology of function spaces.
+As we move from $C_p(X)$ to the larger space $B_1(X)$, we find a similar dichotomy:
+Either every point of the closure of a set of functions is a Baire class-1 function, or there is a sequence in the set behaving in the wildest possible way.
+Such theorem is usually not phrased as a dichotomy, but rather as an equivalence:
 
-As we move from $C_p(X)$ to the larger space $B_1(X)$, we find a similar dichotomy: Either every point of closure of the set of functions will be a Baire class~1 function, or there is a sequence inside the set that behaves in the wildest possible way.
-The theorem is usually not phrased as a dichotomy, but rather as an equivalence:
-
-\begin{thm}[``The BFT Dichotomy''.
-Bourgain-Fremlin-Talagrand {\cite[Theorem 4G]{BFT_1978_PCompactBaire}}]
+\begin{thm}[``The BFT Dichotomy''. Bourgain-Fremlin-Talagrand {\cite{BFT_1978_PCompactBaire}}]
 \label{BFT}
     Let $X$ be a Polish space and $A\subseteq C_p(X)$ be pointwise bounded.
 The following are equivalent:
     \begin{enumerate}[(i)]
-        \item $A$ is relatively compact in $B_1(X)$, i.e., $\overline{A}\subseteq B_1(X)$.
+        \item $A$ is relatively compact in $B_1(X)$.
         \item For every $\{f_n\}_{n\in\mathbb{N}}\subseteq A$ and every $a<b$ there is $I\subseteq\mathbb{N}$ such that
-$$\bigcap_{n\in I}f_n^{-1}(-\infty,a]\cap\bigcap_{n\notin I}f_n^{-1}[b,\infty)=\emptyset.$$
+\[\bigcap_{n\in I}f_n^{-1}(-\infty,a]\cap\bigcap_{n\notin I}f_n^{-1}[b,\infty)=\emptyset.\]
     \end{enumerate}
 \end{thm}
+(As stated above, the BFT Dichotomy is a particular case of the equivalence (iv)$\Leftrightarrow$(viii) in {\cite[Theorem 4D]{BFT_1978_PCompactBaire}}:
+on a Polish space, a real function is Baire-1 iff it is $K$-analytic.)
 
 
-
-\begin{defn}
+\begin{defn}\label{def:NIP-fns}
     We shall say that a set $A\subseteq \mathbb{R}^X$ satisfies the \emph{Independence Property}, or IP for short, if it satisfies the following condition:
     There exist $\{f_n\}_{n\in\mathbb{N}}\subseteq A$ and  $a<b$ such that for every pair of finite disjoint sets $E,F\subseteq\mathbb{N}$, we have
     \[
