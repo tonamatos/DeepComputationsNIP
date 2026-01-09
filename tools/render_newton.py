@@ -10,7 +10,7 @@ IMAGES_DIR.mkdir(exist_ok=True)
 # Parameters
 WIDTH = 432
 HEIGHT = 432
-XMIN, XMAX = -2.0, 0.0 # I used -2, 2 for newton{n}.png
+XMIN, XMAX = -1.5, 0.5 # I used -2, 2 for newton{n}.png
 YMIN, YMAX = -1.0, 1.0
 
 ITERATION_FRAMES = [1, 3, 100]
