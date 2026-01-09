@@ -572,11 +572,7 @@ In this section, we connect function spaces with floating point computations.
 We start by summarizing some basic concepts from~\cite{alva2024approximability}.
 
 A \emph{computation states structure} is a pair $(L,\mathcal{P})$, where $L$ is a set whose elements we call \emph{states} and $\mathcal{P}$ is a collection of real-valued functions on $L$ that we call \emph{predicates}.
-<<<<<<< HEAD
-For a state $v\in L$, the \emph{type} of $v$ is defined as the indexed family
-=======
 For a state $v\in L$, the \emph{type} of a state~$v$ is the indexed family
->>>>>>> d497418a4283979e83b5305ba0f833bc306dba78
 \[
 \operatorname{tp}(v)= (P(v))_{P\in \mathcal{P}}\in\mathbb{R}^\mathcal{P}.
 \]
@@ -584,19 +580,6 @@ For each $P\in \mathcal{P}$, we call the value $P(v)$ the $P$-th \emph{feature} 
 A \emph{transition} of a computation states structure $(L,\mathcal{P})$ is a map $f:L\to L$.
 
 
-<<<<<<< HEAD
-Intuitively, $L$ is the set of states of a computation, and the predicates $P \in\mathcal{P}$ are primitives that are given and accepted as computable.
-We think of each state $v\in L$ as being uniquely characterized by its type $\operatorname{tp}(v)$.
-Thus, in practice, we identify $L$ with a subset of $\mathbb{R}^\mathcal{P}$.
-A typical case will be when $L=\mathbb{R}^\mathbb{N}$ or $L=\mathbb{R}^n$ for some positive integer $n$ and there is a predicate $P_i(v) = v_i$ for each of the coordinates $v_i$ of~$v$.
-We regard the space of types as a topological space, endowed with the topology of pointwise convergence inherited from $\mathbb{R}^\mathcal{P}$.
-In particular, for each $P\in \mathcal{P}$, the projection map $v\mapsto P(v)$ is continuous.
-
-
-\begin{defn}
-Given a computation states structure $(L,\mathcal{P})$, any element of $\mathbb{R}^\mathcal{P}$ in the image of $L$ under the map $v\mapsto \operatorname{tp}(v)$ will be called a \emph{realized type}.
-The topological closure of the set of realized types in $\mathbb{R}^\mathcal{P}$ (endowed with the pointwise convergence topology) will be called the \emph{space of types} of $(L,\mathcal{P})$, denoted $\mathcal{L}$.
-=======
 Intuitively, $L$ is the set of states of a computation,  and the predicates  $P \in\mathcal{P}$ are primitives that are given and accepted as computable.
 Each state $v\in L$ is uniquely characterized by its type $\operatorname{tp}(v)$, so we may identify $L$ with a subset of~$\mathbb{R}^\mathcal{P}$.
 Important space states are $L=\mathbb{R}^\mathbb{N}$ and $L=\mathbb{R}^n$ for some positive integer $n$, endowed with predicate $P_i(v) = v_i$, one each for the $i$-th coordinate of~$v$.
@@ -608,24 +591,16 @@ in particular, for each $P\in \mathcal{P}$, the projection map $v\mapsto P(v)$ i
 Given a computation states structure $(L,\mathcal{P})$, any element of $\mathbb{R}^\mathcal{P}$  in the image of $L$ under the map $v\mapsto \operatorname{tp}(v)$ will be called a \emph{realized (state) type}.
 The topological closure of the set of realized types in $\mathbb{R}^\mathcal{P}$ (endowed with the pointwise convergence topology) will be called the \emph{space of types} of  $(L,\mathcal{P})$, denoted~$\mathcal{L}$;
 elements $\xi\in \mathcal{L}$ are called \emph{state types}.
->>>>>>> d497418a4283979e83b5305ba0f833bc306dba78
 Elements of $\mathcal{L}\setminus L$ will be called \emph{unrealized types}.
 \end{defn}
 Intuitively, state types capture a notion of ``ultrastate''.
 
-<<<<<<< HEAD
-In traditional, compact-valued, model theory, the space of types of a structure is viewed as a sort of compactification of the structure, and the compactness of type spaces plays a central role.
-However, here we are dealing with real-valued structures, and the space $\mathcal{L}$ defined above is not necessarily compact.
-To bypass this obstacle, we follow the idea introduced in~\cite{alva2024approximability} of covering $\mathcal{L}$ by ``thin'' compact subspaces that we call \emph{shards}.
-The formal definition of shard is next.
-=======
 The traditional setting of discrete first-order logic may be regarded as the special case in which predicates are binary (such predicates may take only the values $0$ and $1$, say).
 In such traditional setting, the space of types of a structure is necessarily compact;
 for some purposes, it serves as a sort of compactification of the structure itself.
 Compactness in such setting is critical.
 However, predicates of a computational states structure take values in the non-compact space~$\mathbb{R}$, so the corresponding type space $\mathcal{L}$ need not be compact.
 To bypass this obstacle, we follow the idea, introduced in~\cite{alva2024approximability}, of covering $\mathcal{L}$ by ``thin'' compact subspaces called~\emph{shards}.
->>>>>>> d497418a4283979e83b5305ba0f833bc306dba78
 
 \begin{defn}
   A \emph{sizer} is a tuple $r_{\bullet}=(r_P)_{P\in\mathcal{P}}$ of positive real numbers, indexed by~$\mathcal{P}$.
@@ -634,12 +609,8 @@ To bypass this obstacle, we follow the idea, introduced in~\cite{alva2024approxi
 L[r_\bullet] = L\cap \mathbb{R}^{[\rb]}.
 \]
 
-<<<<<<< HEAD
-For a sizer $r_{\bullet}$, the \emph{$r_{\bullet}$-type shard} is defined as $\mathcal{L}[r_\bullet]=\overline{L[r_\bullet]}$.
-=======
 For a sizer  $r_{\bullet}$, the \emph{$r_{\bullet}$-type shard} is defined as $\mathcal{L}[r_\bullet]=\overline{L[r_\bullet]}$
 (a closed, hence compact subset of $\mathbb{R}^{[\rb]}$).
->>>>>>> d497418a4283979e83b5305ba0f833bc306dba78
 
 %A collection $R$ of sizers is called \emph{exhaustive} if $\mathcal{L}_{\text{sh}}=\bigcup_{r_{\bullet}\in R}\mathcal{L}[r_\bullet]$.
 Let also $\mathcal{L}_{\text{sh}}$ be the union of all type-shards (as the sizer $r_{\bullet}$ varies).
@@ -672,18 +643,11 @@ A \emph{Compositional Computation Structure} (CCS) is a triple $(L,\mathcal{P},\
 Elements of the semigroup $\Gamma$ are called the \emph{computations} of the structure $(L,\mathcal{P},\Gamma)$.
 We assume that the identity map $\text{id}$ on~$L$ is an element of~$\Gamma$ (which is thus not merely a semigroup but a monoid of transformations of~$L$).
 
-<<<<<<< HEAD
-The elements of the semigroup $\Gamma$ are called the \emph{computations} of the structure $(L,\mathcal{P},\Gamma)$.
-
-If $\Delta\subseteq\Gamma$, we say that $\Delta\subseteq\Gamma$ is \emph{$R$-confined} if $\gamma|_{L[r_\bullet]}:L[r_\bullet]\to L[r_\bullet]$ for every $r_\bullet\in R$ and $\gamma\in \Delta$.
-Elements in $\overline{\Gamma}\subseteq \mathcal{L}_{\text{sh}}$ are called (real-valued) \emph{deep computations} or \emph{ultracomputations}.
-=======
 We topologize $\Gamma$ as a subset of the topological product $L^L$, where the ``exponent''~$L$ serves merely as an index set, but the ``base''~$L$ is topologized by type;
 consequently, one may identify $\Gamma$ with a subset of the topological product $(\mathbb{R}^{\mathcal{P}})^L$.
 More specifically, $\Gamma$ is identified with a subset of~$\mathcal{L}^L$, which is a closed subspace of~$(\mathbb{R}^{\mathcal{P}})^L$.
 Therefore, we have an inclusion $\overline{\Gamma}\subseteq \mathcal{L}^{L}$.
 Elements $\xi\in\overline{\Gamma}$ are called (real-valued) \emph{deep computations} or \emph{ultracomputations}.
->>>>>>> d497418a4283979e83b5305ba0f833bc306dba78
 
 A collection $R$ of sizers is \emph{exhaustive} if $L = \bigcup_{\rb\in R}L[\rb]$ (shards $L[\rb]$ exhaust~$L$).
 A transformation $\gamma\in\Gamma$ is \emph{$R$-confined} if $\gamma$ restricts to a map $\gamma|_{L[r_\bullet]}:L[r_\bullet]\to L[r_\bullet]$ (into $L[r_{\bullet}]$ itself) for every $r_\bullet\in R$.
@@ -708,11 +672,7 @@ Since ultracomputations are defined through a combination of topological concept
 
 \subsection{Computability and definability of deep computations and the Extendibility Axiom}
 
-<<<<<<< HEAD
-Let $f: L\to \mathcal{L}$ be a function that maps each input state type $(P(v))_{P\in \mathcal{P}}\in\mathbb{R}^\mathcal{P}$ into an output state type $(P\circ f (v))_{P\in \mathcal{P}}\in\mathbb{R}^\mathcal{P}$.
-=======
 Let  $f: L\to \mathcal{L}$ be a function that maps each input state type  $(P(v))_{P\in \mathcal{P}}\in\mathbb{R}^\mathcal{P}$ to an output state type $(P\circ f (v))_{P\in \mathcal{P}}\in\mathbb{R}^\mathcal{P}$.
->>>>>>> d497418a4283979e83b5305ba0f833bc306dba78
  
  \begin{enumerate}
  \item
