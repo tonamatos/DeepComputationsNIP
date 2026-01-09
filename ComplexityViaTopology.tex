@@ -484,7 +484,7 @@ When clear from context, rather than using the specific symbols (``$\lambda$'' f
 thus, $\pi_x$ may mean $\lambda_x$, and $\pi_P$ may mean $\rho_P$.
 %We may also use the standard notations $\varphi(x,\cdot)$ for $\lambda_x(\varphi)$, and $\varphi(\cdot,P)$ for $\rho_P(\varphi)$.
 
-The next lemma reduces the study of $\mathbb{R}^{\mathcal{P}}$-valued continuous or Baire-1 functions on~$X$ to the special case of real-valued ones.
+The proposition below reduces the study of $\mathbb{R}^{\mathcal{P}}$-valued continuous or Baire-1 functions on~$X$ to the special case of real-valued ones.
 
 %In fact, $\mathbb{R}$ and any other Polish space is embeddable as a closed subspace of $\mathbb{R}^\mathcal{P}$.
 
@@ -497,7 +497,7 @@ The next lemma reduces the study of $\mathbb{R}^{\mathcal{P}}$-valued continuous
 \end{prop}
 \begin{proof}
   The identification of $C_p$-spaces follows trivially from the definition of topological product and the fact that $\mathcal{P}$ is discrete:
-  A continuous map $X\to \mathbb{R}^{\mathcal{P}}$ is precisely a $\mathcal{P}$-tuple of continuous functions $X\to \mathbb{R}$, and these correspond to continuous functions $X\times \mathcal{P}\to \mathbb{R}$.
+  a continuous map $X\to \mathbb{R}^{\mathcal{P}}$ is precisely a $\mathcal{P}$-tuple of continuous functions $X\to \mathbb{R}$, and these correspond to continuous functions $X\times \mathcal{P}\to \mathbb{R}$.
   The identification of Baire-1 spaces follows immediately, since it is defined in terms of the purely topological notion of limit (in the ambient space) of sequences of continuous functions.
 \end{proof}
 
@@ -560,12 +560,12 @@ Then, for any finite disjoint $E,F\subseteq\mathbb{N}$ we can choose
     This contradicts (i).
 \end{proof}
 
-\section{Compositional computation structures: A structural approach \\ to floating-point computation}
+\section{Compositional Computation Structures: A structural approach to floating-point computations}
 \label{S:CCS}
 
 
-In this section, we connect function spaces with floating point computation.
-We start by summarizing some basic concepts from \cite{alva2024approximability}.
+In this section, we connect function spaces with floating point computations.
+We start by summarizing some basic concepts from~\cite{alva2024approximability}.
 
 A \emph{computation states structure} is a pair $(L,\mathcal{P})$, where $L$ is a set whose elements we call \emph{states} and $\mathcal{P}$ is a collection of real-valued functions on $L$ that we call \emph{predicates}.
 For a state $v\in L$, the  \emph{type} of $v$ is defined as  the indexed family
@@ -590,14 +590,16 @@ The topological closure of the set of realized types in $\mathbb{R}^\mathcal{P}$
 Elements of $\mathcal{L}\setminus L$ will be called \emph{unrealized types}.
 \end{defn}
 
-In  traditional, compact-valued, model theory, the space of types of a structure is viewed as a sort of compactification of the structure, and the compactness of type spaces plays a central role.
-However, here we are dealing with real-valued structures, and the space  $\mathcal{L}$ defined above is not necessarily compact.
-To bypass this obstacle, we follow the idea introduced in~\cite{alva2024approximability} of covering $\mathcal{L}$ by ``thin'' compact subspaces that we call \emph{shards}.
-The formal definition of shard is next.
+The traditional setting of discrete first-order logic may be regarded as the special case in which predicates are binary (they may take only the values $0$ and $1$, say).
+In such setting, the space of types of a structure is compact;
+for some purposes, it serves as a sort of compactification of the structure.
+Compactness in such setting is critical.
+However, predicates of a computational states structure take values in the non-compact space~$\mathbb{R}$, so the corresponding type space $\mathcal{L}$ need not be compact.
+To bypass this obstacle, we follow the idea introduced in~\cite{alva2024approximability} of covering $\mathcal{L}$ by ``thin'' compact subspaces called \emph{shards}, whose introduction requires some preliminary definitions.
 
 \begin{defn}
-A \emph{sizer} is a tuple $r_{\bullet}=(r_P)_{P\in\mathcal{P}}$ of positive real numbers indexed by $\mathcal{P}$.
-Given a sizer $r_\bullet$, we define the $r_\bullet$-\emph{shard} as:
+A \emph{sizer} is a tuple $r_{\bullet}=(r_P)_{P\in\mathcal{P}}$ of positive real numbers, indexed by~$\mathcal{P}$.
+Given a sizer $r_\bullet$, the $r_\bullet$-\emph{shard} of a states structure~$L$ is
 \[
 L[r_\bullet]=L\cap\prod_{P\in\mathcal{P}}[-r_P,r_P].
 \]
@@ -605,9 +607,10 @@ L[r_\bullet]=L\cap\prod_{P\in\mathcal{P}}[-r_P,r_P].
 For a sizer  $r_{\bullet}$, the \emph{$r_{\bullet}$-type shard} is defined as $\mathcal{L}[r_\bullet]=\overline{L[r_\bullet]}$.
 
 %A collection $R$ of sizers is called \emph{exhaustive} if $\mathcal{L}_{\text{sh}}=\bigcup_{r_{\bullet}\in R}\mathcal{L}[r_\bullet]$.
-We define $\mathcal{L}_{\text{sh}}$, as the union of all type-shards.
-
+We define $\mathcal{L}_{\text{sh}}$, as the union of all type-shards (as the sizer $r_{\bullet}$ varies).
 \end{defn}
+In general, $\mathcal{L}_{\text{sh}}\subseteq \mathcal{L}$ may be a proper subset.
+Equality holds in the important special case when $\mathcal{P}$ is countable (see~*** below).
 
 %\begin{rem}
 %Even though our type space $\mathcal{L}$ is not compact, the fact that it can be covered by shards gives us two advantages:
@@ -632,8 +635,9 @@ A \emph{Compositional Computation Structure} (CCS) is a triple $(L,\mathcal{P},\
 \end{itemize}
 
 The elements of the  semigroup $\Gamma$ are called the \emph{computations} of the structure $(L,\mathcal{P},\Gamma)$.
+We assume that the identity map $\text{id}$ on~$L$ is an element of~$\Gamma$ (which is thus not merely a semigroup but a monoid of transformations of~$L$).
 
-If $\Delta\subseteq\Gamma$, we say that $\Delta\subseteq\Gamma$ is \emph{$R$-confined} if $\gamma|_{L[r_\bullet]}:L[r_\bullet]\to L[r_\bullet]$ for every $r_\bullet\in R$ and $\gamma\in \Delta$.
+If $R$ is a collection of sizers, a subset $\Delta\subseteq\Gamma$ is \emph{$R$-confined} if each $\gamma\in \Delta$ restricts to a map $\gamma|_{L[r_\bullet]}:L[r_\bullet]\to L[r_\bullet]$ (into $L[r_{\bullet}]$ itself) for every $r_\bullet\in R$.
 Elements in $\overline{\Gamma}\subseteq \mathcal{L}_{\text{sh}}$ are called (real-valued) \emph{deep computations} or \emph{ultracomputations}.
 
 \end{defn}
