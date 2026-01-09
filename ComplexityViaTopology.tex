@@ -442,7 +442,7 @@ For this, we shall first focus on countable languages, which is the theme of the
 
 \subsection{The special case $B_1(X,\mathbb{R}^\mathcal{P})$   with $\mathcal{P}$ countable.}
 
-Fix an arbitrary (at most) countable set~$\mathcal{P}$, whose elements $P\in \mathcal{P}$ will be called \emph{predicate symbols} or \emph{formal predicates}.
+Fix an arbitrary (at most) countable set~$\mathcal{P}$ whose elements $P\in \mathcal{P}$ will be called \emph{predicate symbols} or \emph{formal predicates}.
 Our present goal is to characterize relatively compact subsets of $B_1(X,\mathbb{R}^\mathcal{P})$.
 For $P\in\mathcal{P}$, let $\pi_P:\mathbb{R}^\mathcal{P}\rightarrow\mathbb{R}$ be the corresponding projection (``$P$-th coordinate'' map).
 The next lemma reduces the study of (Baire-1) functions into~$\mathbb{R}^{\mathcal{P}}$ to the special case of real-valued ones.
@@ -451,17 +451,23 @@ The next lemma reduces the study of (Baire-1) functions into~$\mathbb{R}^{\mathc
 
 \begin{lem}\label{baire 1 and projections}
     Let $X$ be a Polish space and let $\mathcal{P}$ be any (at most) countable set.
-    For all $f: X\to \mathbb{R}$ the equivalence $f\in B_1(X,\mathbb{R}^\mathcal{P})$ if (and only if) $\pi_P\circ f\in B_1(X)$ for all $P\in\mathcal{P}$ holds.
+    For all $f: X\to \mathbb{R}$, the equivalence $f\in B_1(X,\mathbb{R}^\mathcal{P})$ if (and only if) $\pi_P\circ f\in B_1(X)$ for all $P\in\mathcal{P}$ holds.
 \end{lem}
-
 \begin{proof}
-Suppose that $\pi_P\circ f\in B_1(X)$ for all $P\in\mathcal{P}$.
-Let $V$ be a basic open subset of $\mathbb{R}^\mathcal{P}$.
-That is, there exists a finite $\mathcal{P}'\subseteq\mathcal{P}$ such that $V=\bigcap_{P\in\mathcal{P}'}\pi_P^{-1}[U_P]$ where, for each $P\in \mathcal{P}'$, the set $U_P\subseteq \mathbb{R}$ is open.
-Then, 
-    $$f^{-1}[V]=\bigcap_{P\in\mathcal{P}'}(\pi_P\circ f)^{-1}[U_P]$$ is an $F_\sigma$ set.
-Since $\mathcal{P}$ is countable, $\mathbb{R}^\mathcal{P}$ is second countable so every open set $U$ in $\mathbb{R}^\mathcal{P}$ is a countable union of basic open sets.
-Hence, $f^{-1}[U]$ is $F_\sigma$.
+  Any open $U\subseteq \mathbb{R}^{\mathcal{P}}$ is a union of basic open sets each a finite intersection of sets of the form $\tilde{U} = \pi_P^{-1}[V]$ where $V\subseteq \mathbb{R}$ is open and $P\in\mathcal{P}$.
+  It suffices to let $V$ vary over the (countable set) of open intervals with rational endpoints.
+  Such $V$ are $F_{\sigma}$ in~$\mathbb{R}$.
+  Since the intersection of finitely many $F_{\sigma}$ is still $F_{\sigma}$, the correspondingly obtained basis of~$\mathbb{R}^{\mathcal{P}}$ consists of $F_{\sigma}$ (open) sets, and is countable as well
+  (in particular, $\mathbb{R}^{\mathcal{P}}$ is second countable for $\mathcal{P}$ countable);
+  it follows that all open $U\subseteq \mathbb{R}^{\mathcal{P}}$ are $F_{\sigma}$.
+
+  Beginning the proof proper, suppose that $\pi_P\circ f\in B_1(X)$ for all $P\in\mathcal{P}$.
+  By the equivalence (1)$\Leftrightarrow$(2) in Fact~\ref{baire}, it suffices to show that $f^{-1}[U]$ is $F_{\sigma}$ for all open $U\subseteq \mathbb{R}^{\mathcal{P}}$;
+  indeed, by the argument above, it suffices to consider subbasics $U = \pi_P[V]$ with $V$ open and $P\in \mathcal{P}$.
+  All functions $\pi_P\circ f$ are Baire~1 by hypothesis, so $f^{-1}[U] = (\pi_P\circ f)^{-1}[V]$ is $F_{\sigma}$;
+  therefore, $f$ is itself Baire~1.
+
+  The converse is obvious.
 \end{proof}
 
 
