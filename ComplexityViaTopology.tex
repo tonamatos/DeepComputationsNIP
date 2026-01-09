@@ -760,7 +760,7 @@ In this way, the functions $\gamma_q^k$ do not have a pointwise limit when taken
     \label{fig:newton2}
 \end{figure}
 
-\subsection{Finite precision threshold classifiers}
+\subsection{Finite precision threshold classifiers}\label{subsec:finite_prec_threshold}
 
 Recall that the Cantor space $2^\mathbb{N}$, consisting of all infinite binary sequences with the topology of pointwise convergence, can be interpreted as floating-point numbers in the interval $[0,1]$.
 Given a finite binary string $w$ and $x\in2^\mathbb{N}$, we consider the function given by the rule $\phi_w(x)=1$ if and only if $x|_{|w|}$ comes before or is equal to $w$ in the lexicographic order of strings, where $|w|$ is the length of the string $w$ and $x|_{|w|}$ is the prefix of $x$ of length $|w|$.
@@ -854,6 +854,7 @@ In \cite{Todorcevic_1999_CompactSubsetsBaire}, Todorčević isolates three canon
 
 
 We now present some separable and non-separable examples of Rosenthal compacta.
+These show that the previously discussed classes NIP$_k$ are not equal.
 
 \begin{exmps}
 \label{E:Rosenthal comacta}
@@ -873,7 +874,7 @@ Note that this space is a separable Rosenthal compactum which is not first count
 Let $<$ be the lexicographic order in the space of infinite binary sequences, i.e., $2^\mathbb{N}$.
 For each $a\in 2^\mathbb{N}$ let $f_a^-:2^\mathbb{N}\rightarrow\mathbb{R}$ be given by $f_a^-(x)=1$ if $x<a$ and $f_a^-(x)=0$ otherwise.
 Let $f_a^+:2^\mathbb{N}\rightarrow\mathbb{R}$ be given by $f_a^+(x)=1$ if $x\leq a$ and $f_a^+(x)=0$ otherwise.
-The split Cantor is the space $S(2^\mathbb{N})=\{f_a^-:a\in 2^\mathbb{N}\}\cup\{f_a^+:a\in 2^\mathbb{N}\}$.
+The split Cantor is the space $S(2^\mathbb{N})=\{f_a^-:a\in 2^\mathbb{N}\}\cup\{f_a^+:a\in 2^\mathbb{N}\}$, which was obtained as the closure of the space discussed in Section~\ref{subsec:finite_prec_threshold}, giving an example separating NIP$_2$ from NIP$_3$.
 This is a separable Rosenthal compactum.
 One example of a countable dense subset is the set of all $f_a^+$ and $f_a^-$ where $a$ is an infinite binary sequence that is eventually constant.
 Moreover, it is hereditarily separable, but it is not metrizable.
