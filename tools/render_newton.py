@@ -8,9 +8,9 @@ IMAGES_DIR = ROOT / "images"
 IMAGES_DIR.mkdir(exist_ok=True)
 
 # Parameters
-WIDTH = 432
-HEIGHT = 432
-XMIN, XMAX = -1.0, 1.0 # I used -2 for newton{n}.png
+WIDTH = 1024    # The images in the tex are 432x432
+HEIGHT = 1024
+XMIN, XMAX = -1.5, 0.5 # I used -2, 2 for newton{n}.png
 YMIN, YMAX = -1.0, 1.0
 
 ITERATION_FRAMES = [1, 3, 100]
@@ -101,7 +101,7 @@ for n in ITERATION_FRAMES:
     rgb = color_from_distances(Z, roots)
     rgb[invalid] = 0
 
-    output_path = IMAGES_DIR / f"newton_div{n}.png"
+    output_path = IMAGES_DIR / f"newton_bg.png"
     imageio.imwrite(output_path, rgb)
 
     print(f"Saved {output_path}")
