@@ -55,6 +55,11 @@ pdfkeywords={}
 \newtheorem{warn}[thm]{Warning}
 \newtheorem{sch}[thm]{Scholium}
 
+\DeclareMathOperator{\tp}{tp}
+
+\newcommand{\Lshard}{\mathcal{L}_{\text{sh}}}
+\newcommand{\rb}{r_{\bullet}}
+
 \makeatletter
 \let\c@equation\c@thm
 \makeatother
@@ -568,7 +573,7 @@ In this section, we connect function spaces with floating point computations.
 We start by summarizing some basic concepts from~\cite{alva2024approximability}.
 
 A \emph{computation states structure} is a pair $(L,\mathcal{P})$, where $L$ is a set whose elements we call \emph{states} and $\mathcal{P}$ is a collection of real-valued functions on $L$ that we call \emph{predicates}.
-For a state $v\in L$, the  \emph{type} of $v$ is defined as  the indexed family
+For a state $v\in L$, the \emph{type} of a state~$v$ is the indexed family
 \[
 \operatorname{tp}(v)= (P(v))_{P\in \mathcal{P}}\in\mathbb{R}^\mathcal{P}.
 \]
@@ -577,38 +582,41 @@ A \emph{transition} of a computation states structure  $(L,\mathcal{P})$ is a ma
 
 
 Intuitively, $L$ is the set of states of a computation,  and the predicates  $P \in\mathcal{P}$ are primitives that are given and accepted as computable.
-We think of  each state $v\in L$ as being uniquely characterized by its type $\operatorname{tp}(v)$.
-Thus,  in practice, we identify $L$ with a subset of $\mathbb{R}^\mathcal{P}$.
-A typical case will be when $L=\mathbb{R}^\mathbb{N}$ or $L=\mathbb{R}^n$ for some positive integer $n$ and there is a predicate $P_i(v) = v_i$ for each of the coordinates $v_i$ of~$v$.
-We regard the space of types as a topological space, endowed with the topology of pointwise convergence inherited from $\mathbb{R}^\mathcal{P}$.
-In particular, for each $P\in \mathcal{P}$, the projection map $v\mapsto P(v)$ is continuous.
-
+Each state $v\in L$ is uniquely characterized by its type $\operatorname{tp}(v)$, so we may identify $L$ with a subset of~$\mathbb{R}^\mathcal{P}$.
+Important space states are $L=\mathbb{R}^\mathbb{N}$ and $L=\mathbb{R}^n$ for some positive integer $n$, endowed with predicate $P_i(v) = v_i$, one each for the $i$-th coordinate of~$v$.
+We regard the space of types as a topological space, endowed with the topology of pointwise convergence induced by the product topology of~$\mathbb{R}^\mathcal{P}$.
+Via the identification $v\mapsto\tp(v)$, the states space~$L$ is correspondingly topologized;
+in particular, for each $P\in \mathcal{P}$, the projection map $v\mapsto P(v)$ is continuous.
 
 \begin{defn}
-Given a computation states structure $(L,\mathcal{P})$, any element of $\mathbb{R}^\mathcal{P}$  in the image of $L$ under the map $v\mapsto \operatorname{tp}(v)$ will be called a \emph{realized type}.
-The topological closure of the set of realized types in $\mathbb{R}^\mathcal{P}$ (endowed with the pointwise convergence topology) will be called the \emph{space of types} of  $(L,\mathcal{P})$, denoted $\mathcal{L}$.
+Given a computation states structure $(L,\mathcal{P})$, any element of $\mathbb{R}^\mathcal{P}$  in the image of $L$ under the map $v\mapsto \operatorname{tp}(v)$ will be called a \emph{realized (state) type}.
+The topological closure of the set of realized types in $\mathbb{R}^\mathcal{P}$ (endowed with the pointwise convergence topology) will be called the \emph{space of types} of  $(L,\mathcal{P})$, denoted~$\mathcal{L}$;
+elements $\xi\in \mathcal{L}$ are called \emph{state types}.
 Elements of $\mathcal{L}\setminus L$ will be called \emph{unrealized types}.
 \end{defn}
+Intuitively, state types capture a notion of ``ultrastate''.
 
-The traditional setting of discrete first-order logic may be regarded as the special case in which predicates are binary (they may take only the values $0$ and $1$, say).
-In such setting, the space of types of a structure is compact;
-for some purposes, it serves as a sort of compactification of the structure.
+The traditional setting of discrete first-order logic may be regarded as the special case in which predicates are binary (such predicates may take only the values $0$ and $1$, say).
+In such traditional setting, the space of types of a structure is necessarily compact;
+for some purposes, it serves as a sort of compactification of the structure itself.
 Compactness in such setting is critical.
 However, predicates of a computational states structure take values in the non-compact space~$\mathbb{R}$, so the corresponding type space $\mathcal{L}$ need not be compact.
-To bypass this obstacle, we follow the idea introduced in~\cite{alva2024approximability} of covering $\mathcal{L}$ by ``thin'' compact subspaces called \emph{shards}, whose introduction requires some preliminary definitions.
+To bypass this obstacle, we follow the idea, introduced in~\cite{alva2024approximability}, of covering $\mathcal{L}$ by ``thin'' compact subspaces called~\emph{shards}.
 
 \begin{defn}
-A \emph{sizer} is a tuple $r_{\bullet}=(r_P)_{P\in\mathcal{P}}$ of positive real numbers, indexed by~$\mathcal{P}$.
-Given a sizer $r_\bullet$, the $r_\bullet$-\emph{shard} of a states structure~$L$ is
+  A \emph{sizer} is a tuple $r_{\bullet}=(r_P)_{P\in\mathcal{P}}$ of positive real numbers, indexed by~$\mathcal{P}$.
+  Given a sizer $r_\bullet$, let $\mathbb{R}^{[\rb]} = \prod_{P\in\mathcal{P}}[-r_P,r_P]$ (a compact space), and let the $r_\bullet$-\emph{shard} of a states space~$L$ be
 \[
-L[r_\bullet]=L\cap\prod_{P\in\mathcal{P}}[-r_P,r_P].
+L[r_\bullet] = L\cap \mathbb{R}^{[\rb]}.
 \]
 
-For a sizer  $r_{\bullet}$, the \emph{$r_{\bullet}$-type shard} is defined as $\mathcal{L}[r_\bullet]=\overline{L[r_\bullet]}$.
+For a sizer  $r_{\bullet}$, the \emph{$r_{\bullet}$-type shard} is defined as $\mathcal{L}[r_\bullet]=\overline{L[r_\bullet]}$
+(a closed, hence compact subset of $\mathbb{R}^{[\rb]}$).
 
 %A collection $R$ of sizers is called \emph{exhaustive} if $\mathcal{L}_{\text{sh}}=\bigcup_{r_{\bullet}\in R}\mathcal{L}[r_\bullet]$.
-We define $\mathcal{L}_{\text{sh}}$, as the union of all type-shards (as the sizer $r_{\bullet}$ varies).
+Let also $\mathcal{L}_{\text{sh}}$ be the union of all type-shards (as the sizer $r_{\bullet}$ varies).
 \end{defn}
+
 In general, $\mathcal{L}_{\text{sh}}\subseteq \mathcal{L}$ may be a proper subset.
 Equality holds in the important special case when $\mathcal{P}$ is countable (see~*** below).
 
@@ -633,22 +641,39 @@ A \emph{Compositional Computation Structure} (CCS) is a triple $(L,\mathcal{P},\
  \item
  $\Gamma\subseteq L^L$ is a semigroup under composition.
 \end{itemize}
-
-The elements of the  semigroup $\Gamma$ are called the \emph{computations} of the structure $(L,\mathcal{P},\Gamma)$.
+Elements of the semigroup $\Gamma$ are called the \emph{computations} of the structure $(L,\mathcal{P},\Gamma)$.
 We assume that the identity map $\text{id}$ on~$L$ is an element of~$\Gamma$ (which is thus not merely a semigroup but a monoid of transformations of~$L$).
 
-If $R$ is a collection of sizers, a subset $\Delta\subseteq\Gamma$ is \emph{$R$-confined} if each $\gamma\in \Delta$ restricts to a map $\gamma|_{L[r_\bullet]}:L[r_\bullet]\to L[r_\bullet]$ (into $L[r_{\bullet}]$ itself) for every $r_\bullet\in R$.
-Elements in $\overline{\Gamma}\subseteq \mathcal{L}_{\text{sh}}$ are called (real-valued) \emph{deep computations} or \emph{ultracomputations}.
+We topologize $\Gamma$ as a subset of the topological product $L^L$, where the ``exponent''~$L$ serves merely as an index set, but the ``base''~$L$ is topologized by type;
+consequently, one may identify $\Gamma$ with a subset of the topological product $(\mathbb{R}^{\mathcal{P}})^L$.
+More specifically, $\Gamma$ is identified with a subset of~$\mathcal{L}^L$, which is a closed subspace of~$(\mathbb{R}^{\mathcal{P}})^L$.
+Therefore, we have an inclusion $\overline{\Gamma}\subseteq \mathcal{L}^{L}$.
+Elements $\xi\in\overline{\Gamma}$ are called (real-valued) \emph{deep computations} or \emph{ultracomputations}.
 
+A collection $R$ of sizers is \emph{exhaustive} if $L = \bigcup_{\rb\in R}L[\rb]$ (shards $L[\rb]$ exhaust~$L$).
+A transformation $\gamma\in\Gamma$ is \emph{$R$-confined} if $\gamma$ restricts to a map $\gamma|_{L[r_\bullet]}:L[r_\bullet]\to L[r_\bullet]$ (into $L[r_{\bullet}]$ itself) for every $r_\bullet\in R$.
+A subset $\Delta\subseteq\Gamma$ is \emph{$R$-confined} if each $\gamma\in \Delta$ is.
 \end{defn}
 
-For a CCS $(L,\mathcal{P},\Gamma)$, we regard the elements of $\Gamma$ as ``standard'' finitary computations and the elements of $\overline{\Gamma}$, i.e., deep computations, as possibly infinitary limits of standard computations.
+\begin{prop}\label{prop:confined-compact}
+  If $\Delta\subseteq\Gamma$ is confined by an exhaustive sizer collection, then $\overline{\Delta}$ is a compact subset of~$\Lshard^L$.
+\end{prop}
+\begin{proof}
+  Assume that $R$ confines~$\Delta$.
+  For each $v\in L$, let $\rb^{(v)}\in R$ be a sizer such that $v\in L[\rb^{(v)}]$.
+  An arbitrary $\gamma\in\Delta$ restricts to a map $\gamma\restriction L[\rb^{(v)}]: L[\rb^{(v)}]\to L[\rb^{(v)}]$, so $\Gamma \subseteq \prod_{v\in L}\mathcal{L}[\rb^{(v)}]$.
+  The latter space is a product of compact spaces, hence compact, so $\overline{\Gamma}$ is a closed, hence compact subset thereof.
+  % Since $R$ is exhaustive, any fixed state $v$ belongs to some shard~$L[\rb]$, hence $|P\circ\gamma(v)|\le r_P$ for $P\in\mathcal{P}$, uniformly over $\gamma\in\Delta$.
+  % It follows that   
+\end{proof}
+
+For a CCS $(L,\mathcal{P},\Gamma)$, we regard the elements of $\Gamma$ as ``standard'' finitary computations, and the elements of $\overline{\Gamma}$, i.e., deep computations, as possibly infinitary limits of standard computations.
 The main goal of this paper is to study the computability, definability and computational complexity of deep computations.
 Since ultracomputations are defined through a combination of topological concepts (namely, topological closure) and structural and model-theoretic concepts (namely, models and types), we will import technology from both topology and model theory.
 
 \subsection{Computability and definability of deep computations and the Extendibility Axiom}
 
-Let  $f: L\to \mathcal{L}$ be a function that maps each input state type  $(P(v))_{P\in \mathcal{P}}\in\mathbb{R}^\mathcal{P}$ into an output state type $(P\circ f (v))_{P\in \mathcal{P}}\in\mathbb{R}^\mathcal{P}$.
+Let  $f: L\to \mathcal{L}$ be a function that maps each input state type  $(P(v))_{P\in \mathcal{P}}\in\mathbb{R}^\mathcal{P}$ to an output state type $(P\circ f (v))_{P\in \mathcal{P}}\in\mathbb{R}^\mathcal{P}$.
  
  \begin{enumerate}
  \item
