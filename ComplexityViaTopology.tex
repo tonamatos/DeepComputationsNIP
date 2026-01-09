@@ -1,6 +1,7 @@
 \documentclass[psamsfonts]{amsart}
 \usepackage[utf8]{inputenc}
 \usepackage{amsfonts, comment, enumerate}
+\usepackage{mathtools}
 \usepackage[mathcal]{eucal}
 \usepackage[hidelinks]{hyperref}
 \hypersetup{
@@ -9,7 +10,7 @@ pdfsubject={Mathematics, Set Theory},
 pdfauthor={Luciano Salvetti, Tonatiuh Matos-Wiederhold},
 pdfkeywords={}
 }
-\usepackage{amsmath}
+\usepackage{amsmath,amssymb}
 \usepackage{xcolor}
 \usepackage{amsthm}
 \usepackage{pdflscape}
@@ -130,7 +131,7 @@ Intuitively, the Baire-1 class consists of functions with ``controlled'' discont
 
 We prove a new ``tame vs wild'' Ramsey-theoretic dichotomy for complexity of general deep computations by invoking a famous paper by Bourgain, Fremlin and Talagrand from the late 70s~\cite{BFT_1978_PCompactBaire}, and  a new trichotomy for the class of ``tame'' deep computations by invoking an equally celebrated result of Todorčević, from the late 90s, for  functions of the first Baire class~\cite{Todorcevic_1999_CompactSubsetsBaire}.
 
-Todorčević’s trichotomy regards \emph{Rosenthal compacta}; these  are special classes of  topological spaces, defined as compact spaces that can be embedded (homeomorphically identified as a subset) within the space of Baire class 1 functions on some Polish (separable, complete metric) space, under the pointwise convergence topology.
+Todorčević’s trichotomy regards \emph{Rosenthal compacta}; these  are special classes of  topological spaces, defined as compact spaces that can be embedded (homeomorphically identified as a subset) within the space of Baire class~1 functions on some Polish (separable, complete metric) space, under the pointwise convergence topology.
 Rosenthal compacta  exhibit  ``topological tameness,'' meaning that they behave in relatively controlled ways;
 since the late 70's, they have played a crucial role in understanding the complexity of structures of functional analysis, especially Banach spaces.
 Todorčević’s trichotomy has been utilized to settle longstanding problems in topological dynamics and topological entropy~\cite{glasner2022tame}.
@@ -157,22 +158,25 @@ The final Section~\ref{Measure-theoretic NIP} introduces a probabilistic viewpoi
 \tableofcontents
 
 
-\section{General topological preliminaries: From continuity\\ to Baire class 1}
+\section{General topological preliminaries: From continuity\\ to Baire class~1}
 \label{sec:prelim}
 
-In this section we present the preliminaries from general topology and function space theory.
-We include some of the proofs for completeness, but the reader familiar with these topics may skip them.
+In this section we present some preliminaries from general topology and function space theory.
+We include the proofs of some results for the sake of completeness;
+they may be safely skipped by readers familiar with these topics.
 
 Recall that a subset of a topological space is $F_\sigma$ if it is a countable union of closed  sets, and $G_\delta$ if it is a countable intersection of closed sets.
-Note that in a metrizable space, every open set is $F_\sigma$; equivalently, every closed set is $G_\delta$.
+A space is metrizable if its topology agrees with the topology induced by some metric therein.
+Two such metrics inducing the same topology may induce quite different properties in the category of metric spaces. 
+For example, the interval $(0,1)$ with  the usual metric (as a subset) of the reals is not complete;
+however, $(0,1)$ is homeomorphic to the real line, which is complete with respect to the usual metric thereon.
+In a metrizable space, every open set is $F_\sigma$; equivalently, every closed set is $G_\delta$.
 
-A \emph{Polish space} is a separable and completely metrizable topological space.
-The most important examples are the reals $\mathbb{R}$, the Cantor space $2^\mathbb{N}$ (the set of all infinite binary sequences, endowed with the product topology), and the Baire space $\mathbb{N}^\mathbb{N}$ (the set of all infinite sequences of naturals, also with the product topology).
-Countable products of Polish spaces are Polish; this includes spaces like $\mathbb{R}^\mathbb{N}$, the space of sequences of real numbers.
-
-
-In this paper, we shall often discuss  subspaces, and so there is a pertinent subtlety of the definitions worth mentioning: \emph{completely metrizable space} is not the same as \emph{complete metric space}; for an illustrative example, the interval $(0,1)$ with  the metric inherited from the reals not complete, but it is Polish since it is homeomorphic to the real line.
-Being Polish is a topological property while being metrically complete is not.
+A \emph{Polish space} is a separable and completely metrizable topological space, i.e., admitting some complete metric inducing its topology.
+Although other (possibly incomplete) metrics may induce the same topology, being Polish is a purely topological property.
+The most important Polish spaces is the real line~$\mathbb{R}$.
+The class of Polish spaces is closed under countable topological products;
+in particular, the Cantor space~$2^\mathbb{N}$ (the set of all infinite binary sequences, endowed with the product topology), the Baire space $\mathbb{N}^\mathbb{N}$ (the set of all infinite sequences of naturals, also with the product topology), and the space $\mathbb{R}^\mathbb{N}$ of sequences of real numbers are all Polish.
 
 The following result is a cornerstone of descriptive set theory, closely tied to the work of Wacław Sierpiński and Kazimierz Kuratowski, with proofs often built upon their foundations and formalized later, notably involving Stefan Mazurkiewicz's work on complete metric spaces.
 
@@ -182,33 +186,31 @@ In particular, closed subsets and open subsets of Polish spaces are also Polish 
 \end{fact}
 
 Given two topological spaces $X$ and $Y$ we denote by $C_p(X,Y)$ the set of all continuous functions $f:X\rightarrow Y$ endowed with the topology of pointwise convergence.
-When $Y=\mathbb{R}$, we denote this collection simply as $C_p(X)$.
- A natural question is, how do topological properties of $X$ translate into $C_p(X)$ and vice versa? These questions, and in general the study of these spaces, are the concern of $C_p$-theory, an active field of research in general topology which was pioneered by A.
-V.
-Arhangel’skiĭ and his students in the 1970's and 1980's~\cite{Arkhangelskii:1992}.
+The space $C_p(X, \mathbb{R})$ of continuous real functions on~$X$ is denoted simply~$C_p(X)$.
+A natural question is, how do topological properties of $X$ translate into $C_p(X)$ and vice versa?
+This general question, and the study of these spaces in general, is the concern of $C_p$-theory, an active field of research in general topology which was pioneered by A.~V.~Arhangel’skiĭ and his students in the 1970's and 1980's~\cite{Arkhangelskii:1992}.
 This field has found many applications in model theory and functional analysis.
 For a recent survey, see~\cite{tkachuk2011cp}.
  
- A  \emph{Baire class 1} function between topological spaces is a function that can be expressed as the pointwise limit of a sequence of continuous functions.
-If $X$ and $Y$ are topological spaces, the space of Baire class 1 functions $f:X\rightarrow Y$ endowed with the topology of pointwise convergence is denoted $B_1(X,Y)$.
-As above, in the special case $Y=\mathbb{R}$ we denote $B_1(X,Y)$ as $B_1(X)$.
+ A  \emph{Baire class~1} function between topological spaces is a function that can be expressed as the pointwise limit of a sequence of continuous functions.
+If $X$ and $Y$ are topological spaces, the space of Baire class~1 functions $f:X\rightarrow Y$ endowed with the topology of pointwise convergence is denoted $B_1(X,Y)$ (as above, $B_1(X, \mathbb{R})$ is denoted $B_1(X)$).
 Clearly, $C_p(X,Y)\subseteq B_1(X,Y)$.
 The Baire hierarchy of functions was introduced by René-Louis Baire in his 1899 doctoral thesis, \emph{Sur les fonctions de variables réelles}.
-His work moved away from the 19th-century preoccupation with ``pathological" functions toward a constructive classification based on pointwise limits.
+His work moved away from the 19th-century preoccupation with ``pathological'' functions toward a constructive classification based on pointwise limits.
 
 A topological space $X$ is \emph{perfectly normal} if it is normal and every closed subset of $X$ is a $G_\delta$ (equivalently, every open subset of $X$ is a $F_\sigma$).
-Note that every metrizable space is perfectly normal.
+Every metrizable space (hence, every Polish space) is perfectly normal.
 
 A topological space $X$ is \emph{Baire} if every countable intersection of dense open sets is non-empty.
-In particular, every completely metrizable space (hence every Polish space) is Baire by the Baire Category Theorem.
+The Baire Category Theorem states that every completely metrizable space (hence, every Polish space) is Baire in the sense above.
 
 The following fact was established by Baire in his 1899 thesis.
-A proof can be found in Section 10 of \cite{Todorcevic_1997_TopicsTop}.
+A proof can be found in~\cite[Section 10]{Todorcevic_1997_TopicsTop}.
 
 \begin{fact}[Baire]\label{baire}
     If $X$ is perfectly normal, then the following conditions are equivalent for a function $f:X\to \mathbb{R}$:
     \begin{itemize}
-        \item[(1)] $f$ is a Baire class 1 function, that is,  $f$ is a pointwise limit of continuous functions.
+        \item[(1)] $f$ is a Baire class~1 function, that is,  $f$ is a pointwise limit of continuous functions.
         \item[(2)] $f^{-1}[U]$ is an $F_\sigma$ subset of $X$ whenever $U\subseteq Y$ is open.
     \end{itemize}
     If $X$ is Baire, then (1) and (2) are equivalent to:
@@ -228,7 +230,7 @@ A proof can be found in Section 10 of \cite{Todorcevic_1997_TopicsTop}.
 A subset $L$ of a topological space $X$ is \emph{relatively compact} in $X$ if the closure of $L$ in $X$ is compact.
 Relatively compact subsets of $B_1(X)$ (for $X$ Polish) have been objects of interest  for researchers in Analysis and Topological Dynamics.
 We begin with the following well-known result.
-Recall that a set $A\subseteq\mathbb{R}^X$ of real-valued functions is \emph{pointwise bounded} if for every $x\in X$ there is $M_x>0$ such that $|f(x)|<M_x$ for all $f\in A$.
+Recall that a set $A\subseteq\mathbb{R}^X$ of real-valued functions is \emph{pointwise bounded} if for every $x\in X$ there is $M_x \ge 0$ (a \emph{pointwise bound at~$x$}) such that $|f(x)| \le M_x$ for all $f\in A$.
 We include a proof for the reader's convenience:
 
 \begin{lem}
@@ -245,82 +247,112 @@ The following are equivalent:
 \end{lem}
 
 \begin{proof}
-    Since $A$ is pointwise bounded, for each $x\in X$, fix $M_x>0$ such that $|f(x)|\leq M_x$ for every $f\in A$.
-
-    (i)$\Rightarrow$(ii) holds in general.
+    (i)$\Rightarrow$(ii) Relative compact subsets of any space are countably compact therein.
 
 
-    (ii)$\Rightarrow$(iii) Assume that $A$ is relatively countably compact in $B_1(X)$ and that $f\in\overline A\setminus B_1(X)$.
-By Fact \ref{baire}, there are countable $D_0,D_1\subseteq X$ with $\overline {D_0}=\overline{D_1}$, and $a<b$ such that $D_0\subseteq f^{-1}(-\infty,a]$ and $D_1\subseteq f^{-1}[b,\infty)$.
-We claim that there is a sequence $\{f_n\}_{n\in\mathbb{N}}\subseteq A$ such that $\lim_{n\to\infty}f_n(x)=f(x)$ for all $x\in D_0\cup D_1$.
-Indeed, use the countability to enumerate $D_0\cup D_1$ as $\{x_n\}_{n\in\mathbb{N}}$.
-Then for each positive $n$ find  $f_n\in A$ with $|f_n(x_i)-f(x_i)|<\frac1n$ for all $i\leq n$.
-The claim follows.
+    (ii)$\Rightarrow$(iii)
+Consider any $f\in\overline A$ and any countable subset $\{x_i\}_{i\in \mathbb{N}}\subseteq X$.
+We claim that there is a sequence $\{f_n\}_{n\in\mathbb{N}}\subseteq A$ such that $\lim_{n\to\infty}f_n(x_i)=f(x_i)$ for all $i\in \mathbb{N}$.
+Since $A$ carries the relative product topology, for each $n\in \mathbb{N}$ there exists $f_n\in A$ such that $|f_n(x_i) - f(x_i)| < \frac{1}{n}$ for all $i \le n$;
+the sequence $\{f_n\}$ is as claimed.
+Seeking a contradiction, assume that $A$ is relatively countably compact in~$B_1(X)$, but there exists some $f\in \overline{A}\setminus B_1(X)$.
+    By Fact \ref{baire}, there are countable $D_0,D_1\subseteq X$ with $\overline {D_0}=\overline{D_1}$, and $a<b$ such that $D_0\subseteq f^{-1}(-\infty,a]$ and $D_1\subseteq f^{-1}[b,\infty)$.
+Per the claim above, let $\{f_n\}_{n\in\mathbb{N}}\subseteq A$ satisfy $\lim_{n\to\infty}f_n(x)=f(x)$ for all $x\in D_0\cup D_1$ (the latter being a countable set).
+By relative countable compactness of~$A$, there is an accumulation point $g\in B_1(X)$ of $\{f_n\}_{n\in\mathbb{N}}$;
+clearly, $f$ and $g$ agree on $D_0\cup D_1$.
+Thus $g$ takes values $g(x_i) = f(x_i) \le  a$ as well as values $g(x_j) = f(x_j) \ge b > a$ on any open subset of the closed set $\overline{D_0} = \overline{D_1}$, contradicting the implication (1)$\Rightarrow$(3) in Fact~\ref{baire}.
 
-    By relative countable compactness of $A$, there is an accumulation point $g\in B_1(X)$ of $\{f_n\}_{n\in\mathbb{N}}$.
-It is straightforward to show that since $f$ and $g$ agree on $D_0\cup D_1$, $g$ does not have a point of continuity on the closed set $\overline{D_0}=\overline{D_1}$, which contradicts Fact~\ref{baire}.
-
-    (iii)$\Rightarrow$(i) Suppose that $\overline A\subseteq B_1(X)$.
-Then $\overline{A}\cap B_1(X)=\overline A$ is a closed subset of $\prod_{x\in X}[-M_x,M_x]$; Tychonoff's theorem states that the product of compact spaces is always compact, and since closed subsets of compact spaces are compact, $\overline A$ must be compact, as desired.
+(iii)$\Rightarrow$(i)   For each $x\in X$, let $M_x \ge 0$ be a pointwise bound for~$A$ thereat.
+Being necessarily a closed subset of the compact space (being product of compacta) $\prod_{x\in X}[-M_x,M_x] \subseteq \mathbb{R}^X$,  it follows that $\overline{A}$ is compact;
+by~(iii), it is also the closure of~$A$ in $B_1(X)$ \emph{a fortiori}.
+Thus, $A$ is relatively compact in $B_1(X)$.
 \end{proof}
 
 \subsection{From Rosenthal's dichotomy to the Bourgain-Fremlin-Talagrand dichotomy to Shelah's NIP}
 
-In metrizable spaces, points of closure of some subset can always be approximated by points inside the set, via a convergent sequence.
-For more complicated spaces, such as $C_p(X)$, this fails in remarkable  ways.
-To see an example, consider the Cantor space $X=2^\mathbb{N}$, and for each $n\in\mathbb{N}$ define $p_n:X\to\{0,1\}$ by  $p_n(x)=x(n)$ for each $x\in X$.
-Then $p_n$ is continuous for each $n$,  but one can show (see Chapter~1.1 of \cite{Todorcevic_1997_TopicsTop} for details) that the only continuous functions in the closure of $\{p_n\}_{n\in\mathbb{N}}$ are the functions $p_n$ themselves; moreover, none of the subsequences of $\{p_n\}_{n\in\mathbb{N}}$ converge.
-In some sense, this example is the worst possible scenario for convergence.
-The topological space obtained from this closure is well-known: it is the \emph{Stone-Čech compactification} of the discrete space of natural numbers, or $\beta\mathbb{N}$ for short, and it is an important object of study in general topology.
+In metrizable spaces, points of the closure of some subset can always be approximated by points in the set proper, via a convergent sequence.
+For more complicated spaces, such as $C_p$-spaces, this fails in remarkable ways.
+The $n$-th coordinate map $p_n: 2^{\mathbb{N}}\to\{0,1\}$ on the Cantor space $X = 2^\mathbb{N}$ ($= \{0, 1\}^{\mathbb{N}}$) is continuous for each $n\in \mathbb{N}$, and one can show (e.g., \cite[Chapter~1.1]{Todorcevic_1997_TopicsTop}) that $\{p_n\}_{n\in\mathbb{N}}$ is closed, but has \emph{no} convergent subsequences, in $Y = C_p(X)$:
+in a sense, such example exhibits the worst failure of sequential convergence possible.
+The closure of $\{p_n\}$ in $\{0, 1\}^X$ (or in $\mathbb{R}^{X}$ for that matter) realizes the \emph{Stone-Čech compactification $\beta\mathbb{N}$} of the discrete space of natural numbers;
+it is an important object of study in general topology.
 
-The following theorem,  established by Haskell Rosenthal in 1974,  is fundamental  in functional analysis, and describes a sharp division in the behavior of sequences in a Banach spaces.
+The following theorem, proved by Haskell Rosenthal in 1974, is fundamental in functional analysis and captures a sharp division in the behavior of sequences in a Banach spaces.
 
 \begin{thm}[Rosenthal's Dichotomy, \cite{Rosenthal:1974}]
 \label{T:Rosenthal}
-    If $X$ is Polish and $\{f_n\}\subseteq C_p(X)$ is pointwise bounded, then either $\{f_n\}_{n\in\mathbb{N}}$ contains a convergent subsequence or a subsequence whose closure (in $\mathbb{R}^X$) is homeomorphic to $\beta\mathbb{N}$.
+    If $X$ is Polish and $\{f_n\}\subseteq C_p(X)$ is pointwise bounded, then $\{f_n\}_{n\in\mathbb{N}}$ has a convergent subsequence, or a subsequence whose closure in $\mathbb{R}^X$ is homeomorphic to~$\beta\mathbb{N}$.
 \end{thm}
 
-In other words, a pointwise bounded set of continuous functions  either contains a convergent subsequence, or a subsequence whose closure is essentially the same as the example mentioned in the previous paragraphs (the ``wildest'' possible scenario).
-Note that in the preceding example, the functions are trivially pointwise bounded in $\mathbb{R}^X$ as the functions can only take values $0$ and $1$.
+In other words, a pointwise bounded set of continuous functions contains either a convergent subsequence, or a subsequence whose closure is essentially the same as the example mentioned in the previous paragraphs (i.e., ``wildest'' possible).
 
+The genesis of Theorem~\ref{T:Rosenthal} was Rosenthal's ``$\ell_1$-Theorem'', which states that a Banach space includes an isomorphic copy of $\ell_1$  (the space of absolutely summable sequences), or else every bounded sequence therein is weakly Cauchy.
+The $\ell_1$-Theorem connects diverse areas:
+Banach space geometry, Ramsey theory, set theory, and topology of function spaces.
 
-The genesis of Theorem~\ref{T:Rosenthal} was Rosenthal's $\ell_1$ theorem, which states that the only reason why Banach space can fail to have an isomorphic copy of  $\ell_1$  (the space of absolutely summable sequences) is the presence of a bounded sequence  with no weakly Cauchy subsequence.
-The theorem is famous for connecting diverse areas of mathematics, namely,  Banach space geometry, Ramsey theory, set theory, and topology of function spaces.
+As we move from $C_p(X)$ to the larger space $B_1(X)$, a dichotomy paralleling the $\ell_1$-Theorem holds:
+Either every point of the closure of a set of functions is a Baire class-1 function, or there is a sequence in the set behaving in the wildest possible way.
+Such theorem is usually not phrased as a dichotomy, but rather as an equivalence as in Theorem~\ref{BFT} below.
 
-As we move from $C_p(X)$ to the larger space $B_1(X)$, we find a similar dichotomy: Either every point of closure of the set of functions will be a Baire class 1 function, or there is a sequence inside the set that behaves in the wildest possible way.
-The theorem is usually not phrased as a dichotomy, but rather as an equivalence:
+First, we introduce some useful notation.
+For any set $A\subseteq \mathbb{R}^X$ and any real $a$, define
+\begin{align*}
+  X^A_{\le a} &\coloneqq \bigcap_{f\in A}f^{-1}(-\infty,a] = \{x\in X: \text{$f(x)\le a$ for all $f\in A$}\},\\
+  X^A_{\ge a} &\coloneqq \bigcap_{f\in A}f^{-1}[a, +\infty) = \{x\in X: \text{$f(x)\ge a$ for all $f\in A$}\}.
+\end{align*}
+(In case $A=\emptyset$, we define $X^\emptyset_{\ge a} = X = X^\emptyset_{\le a}$.)
+For any sequence $\{f_n\}\subseteq \mathbb{R}^X$ and $I\subseteq \mathbf{N}$, define $I^{\complement} \coloneqq \mathbb{N}\setminus I$ and $f_I \coloneqq \{f_i: i\in I\}$.
 
-\begin{thm}[``The BFT Dichotomy''.
-Bourgain-Fremlin-Talagrand {\cite[Theorem 4G]{BFT_1978_PCompactBaire}}]
+\begin{thm}[``The BFT Dichotomy''. Bourgain-Fremlin-Talagrand {\cite{BFT_1978_PCompactBaire}}]
 \label{BFT}
     Let $X$ be a Polish space and $A\subseteq C_p(X)$ be pointwise bounded.
 The following are equivalent:
     \begin{enumerate}[(i)]
-        \item $A$ is relatively compact in $B_1(X)$, i.e., $\overline{A}\subseteq B_1(X)$.
-        \item For every $\{f_n\}_{n\in\mathbb{N}}\subseteq A$ and every $a<b$ there is $I\subseteq\mathbb{N}$ such that
-$$\bigcap_{n\in I}f_n^{-1}(-\infty,a]\cap\bigcap_{n\notin I}f_n^{-1}[b,\infty)=\emptyset.$$
+        \item $A$ is relatively compact in $B_1(X)$.
+        \item For every $\{f_n\}_{n\in\mathbb{N}}\subseteq A$ and every $a<b$ there is $I\subseteq\mathbb{N}$ such that $X_{\le a}^{f_I} \cap X_{\ge b}^{f_{I^{\complement}}} = \emptyset$.
     \end{enumerate}
 \end{thm}
+(As stated above, the BFT Dichotomy is a particular case of the equivalence (iv)$\Leftrightarrow$(viii) in {\cite[Theorem 4D]{BFT_1978_PCompactBaire}}:
+on a Polish space, a real function is Baire-1 iff it is $K$-analytic.)
 
+The sets $X_{\le a}^{f_I}$ and $X_{\ge b}^{f_{I^{\complement}}}$ appearing in condition Theorem~\ref{BFT}\emph{(ii)} are defined, respectively, in terms of $|I|$-many inequalities of the form $f_i(x)\le a$, and $|I^{\complement}|$-many of the form $f_j(x)\ge b$.
+Thus, at least one of  $X_{\le a}^{f_I}$ and $X_{\ge b}^{f_{I^{\complement}}}$ is defined by the satisfaction of infinitely (countably) many inequalities.
+For our purposes, it is more natural to consider only finitely many inequalities at a time, which motivates the definitions below.
 
+\begin{defn}\label{def:NIP-fns}
+    We say that \emph{$A$ has the No-Independence Property (NIP)} if, for all sequences $\{f_n\}_{n\in\mathbb{N}}\subseteq A$ and reals $a<b$ there exist finite disjoint sets $E,F\subseteq\mathbb{N}$ such that $X_{\le a}^{f_E} \cap X_{\ge b}^{f_F} = \emptyset$.
+    We say that such $E, F$ \emph{witness NIP for $A$, $\{f_n\}$ and $a, b$}.
+    For emphasis, we say that NIP in this sense is \emph{finitary} NIP.
 
-\begin{defn}
-    We shall say that a set $A\subseteq \mathbb{R}^X$ satisfies the \emph{Independence Property}, or IP for short, if it satisfies the following condition:
-    There exist $\{f_n\}_{n\in\mathbb{N}}\subseteq A$ and  $a<b$ such that for every pair of finite disjoint sets $E,F\subseteq\mathbb{N}$, we have
-    \[
-    \bigcap_{n\in E}f_n^{-1}(-\infty,a]\cap\bigcap_{n\in F}f_n^{-1}[b,\infty)\neq\emptyset.
-    \]
-    If $A$ satisfies the negation of this condition, we will say that \emph{$A$ satisfies NIP}, or that it has the NIP.
+    A set $A\subseteq \mathbb{R}^X$ \emph{has the Independence Property (IP)} if it does not have NIP, i.e., there exists a sequence $\{f_n\}_{n\in\mathbb{N}}\subseteq A$ and reals $a<b$ such that for every pair of finite disjoint sets $E,F\subseteq\mathbb{N}$, we have $X_{\le a}^{f_E} \cap X_{\ge b}^{f_F} \ne \emptyset$.
+    Again, such IP will be called \emph{finitary} for emphasis.
 \end{defn}
 
-\begin{rem}
-Note that if $X$ is compact and $A\subseteq C_p(X)$, then $A$ satisfies the NIP if and only if for every $\{f_n\}_{n\in\mathbb{N}}\subseteq A$ and for every $a<b$ there is $I\subseteq\mathbb{N}$ such that
-$$\bigcap_{n\in I}f_n^{-1}(-\infty,a]\cap\bigcap_{n\notin I}f_n^{-1}[b,\infty)=\emptyset.$$
-\end{rem}
+If the word ``finite'' is omitted in the above definitions, we obtain the definitions of \emph{countable} NIP (weaker than finitary NIP) and \emph{countable} IP (stronger than finitary IP), respectively.
 
 
-To summarize, the particular case of Theorem~\ref{BFT}  for $X$ compact can be stated in the following way:
+If we insist on witnesses $E,F\subseteq \mathbf{N}$ such that $E\cup F = \mathbf{N}$, we call the respective properties ``BFT-NIP'' (even weaker than countable NIP) and ``BFT-IP'' (even stronger than countable IP).
+Evidently, the condition in Theorem~\ref{BFT}\emph{(ii)} is simply that $A$ has BFT-NIP.
 
+\begin{prop}\label{prop:BFT-finitary-cpct}
+  If $X$ is compact and $A\subseteq C_p(X)$, then $A$ has BFT-NIP if and only if it has finitary NIP.
+\end{prop}
+\begin{proof}
+  Trivially (as per the preceding discussion), finitary NIP implies BFT-NIP.
+  Reciprocally, assume that $X$ is compact and has finitary IP.  
+  Fix $A\subseteq C_p(X)$, a sequence $\{f_n\}\subseteq A$ and reals $r<s$.
+  For any $I, J\subseteq \mathbb{N}$ (eventually disjoint in applications), write $X_{I,J}$ for $X^{f_I}_{\le r}\cap X^{f_J}_{\ge s}$.
+  For $I\subseteq I'\subseteq \mathbb{N}$ and $J\subseteq J'\subseteq \mathbb{N}$, we have $X_{I,J}\supseteq X_{I',J'}$;
+  moreover, $X_{I,J} = \bigcap_{E\subseteq I, F\subseteq J} X_{E, F}$, where the index variables $E\subseteq I$, $F\subseteq J$ range over \emph{finite} subsets of~$I, J$, respectively.
+  Clearly, $E, F\subseteq \mathbb{N}$ witness finitary NIP for $\{f_n\}$ iff $X^{E,F}=\emptyset$.
+
+  Fix $I\subseteq \mathbb{N}$.
+  Since $\{f_n\}\subseteq A\subseteq C_p(X)$ is a sequence of continuous functions, and $X$ is compact, the nested family $\{X_{E,F}: E\subseteq I, F\subseteq I^{\complement}\}$ consists of closed, thus compact, sets.
+  Since $A$ has finitary IP by hypothesis, the nested family consists of nonempty sets, hence its intersection $X_{I,I^{\complement}}\ne\emptyset$ by compactness.
+  This holds for arbitrary $\{f_n\}\subseteq A$ and $r<s$, so $A$ has BFT-IP.
+\end{proof}
+
+Henceforth, by IP/NIP we will mean \emph{finitary} IP/NIP unless otherwise specified.
 
 \begin{thm}
 \label{BFT2}
@@ -328,10 +360,12 @@ To summarize, the particular case of Theorem~\ref{BFT}  for $X$ compact can be s
 Then, for every pointwise bounded  $A\subseteq C_p(X)$, one and exactly one of the following two conditions must hold:
         \begin{enumerate}[(i)]
         \item $\overline{A}\subseteq B_1(X)$.
-        \item $A$ has the IP.
+        \item $A$ has IP.
     \end{enumerate}
 \end{thm}
-
+\begin{proof}
+  Corollary of Theorem~\ref{BFT} and Proposition~\ref{prop:BFT-finitary-cpct}.
+\end{proof}
 
 
 The Independence Property was first isolated by Saharon Shelah in model theory as a dividing line between theories whose models are ``tame'' (corresponding to NIP) and theories whose models are ``wild" (corresponding to IP).
@@ -359,60 +393,71 @@ In contrast, theories with the Independence Property  (called IP theories) are c
 A theory with the Independence Property produces the maximum possible number of types over a set of parameters;  for a set of parameters of cardinality $\kappa$, the theory will have $2^{2^{\kappa}}$-many distinct types.
 
  \item[In combinatorics]
- Sauer~\cite{Sauer:1972} and Shelah~\cite{Shelah:1972} proved the following independently: If $\mathscr{F}=\{S_0,S_1,\dots\}$ is a family of subsets of some infinite set $S$, then either for every $n\in\mathbb{N}$, either there is  a set $A\subseteq S$ with $|A|=n$ such that $|\{S_i\cap A): i\in\mathbb{N}\}|=2^n$ (yielding exponential complexity),
-or there exists $N\in\mathbb{N}$ such that  for every $A\subseteq S$ with $|A|\ge N$, one has
+   Sauer~\cite{Sauer:1972} and Shelah~\cite{Shelah:1972} proved the following independently:
+   Let $\mathscr{F}$ be a family of subsets of some set $S$.
+   Either:
+   for every $n\in\mathbb{N}$ there is  a set $A\subseteq S$ with $|A|=n$ such that $|\{S_i\cap A: i\in\mathbb{N}\}|=2^n$ ($\mathscr{F}$ has ``exponential complexity'');
+or: there exists $N\in\mathbb{N}$ such that  for every $A\subseteq S$ with $|A|\ge N$, one has
 \[
-|\{S_i\cap A): i\in\mathbb{N}\}| \le \sum_{i=0}^{N-1} \binom{|A|}{i} \approx O(|A|^N)
+|\{S_i\cap A: i\in\mathbb{N}\}| \le \sum_{i=0}^{N-1} \binom{|A|}{i}.
 \]
-(yielding polynomial complexity).
-This answered a question of Erd\H{o}s.
-
+($\mathscr{F}$ has ``polynomial complexity'').
+Clearly, any family $\mathscr{F}$ of subsets of a \emph{finite} set $S$ has polynomial complexity.
+The ``polynomial'' name is justified:
+indeed, for fixed $N>0$, as a function of the size $|A| = m > 0$, we have
+\begin{equation*}
+  \sum_{i=0}^{N-1} \binom{m}{i}
+  \le \sum_{i=0}^{N-1}\frac{m^{i}}{i!}
+  \le \left( \sum_{i=0}^{N-1}\frac{1}{i!} \right)\cdot m^{N-1}\cdot
+  < e\cdot m^{N-1} = O \left( m^N \right).
+\end{equation*}
+(More precisely, the order of magnitude is $O(m^{N-1})$:
+polynomial in $m$ for $N$ fixed.)
 
  \item[In machine learning]
 Readers familiar with statistical learning may recognize the Sauer-Shelah lemma as the dichotomy discovered and proved slightly  earlier (1971) by Vapnik and Chervonenkis~\cite{Vapnik-Chervonenkis:1971, Vapnik-Chervonenkis:1974} to address the problem of uniform convergence in statistics.
-The least integer $N$ given by the preceding paragraph, when it exists, is called the \emph{VC-dimension} of $\mathscr{F}$.
-This is a core concept in machine learning.
+The least integer $N$ given by the preceding paragraph, when it exists, is called the \emph{VC-dimension} of $\mathscr{F}$;
+it is a core concept in machine learning.
 If such an integer $N$ does not exist, we say that the VC-dimension of $\mathscr{F}$ is infinite.
- The lemma provides upper bounds on the number of data points (sample size $m$) needed to learn a concept class with VC dimension $d\in\mathbb{N}$ by showing this number grows polynomially with $m$ and $d$ (namely, $\sum _{i=0}^{d}{m \choose i}\approx O(m^{d})$), not exponentially.
+The lemma provides upper bounds on the number of data points (sample size) needed to learn a concept class of known VC dimension~$d$ up to a given admissible error in the statistical sense.
 The Fundamental Theorem of Statistical Learning states that a hypothesis class is PAC-learnable (PAC stands for ``Probably Approximately Correct'') if and only if its VC dimension is finite.
  
 \end{description}
  
 \subsection{Rosenthal compacta}
  
- The comprehensiveness of Theorem~\ref{BFT}, attested by the examples outlined in the preceding section, led to the following definition (isolated by Gilles Godefroy~\cite{Godefroy:1980}):
+ The universal classification implied by Theorem~\ref{BFT}, as attested by the examples outlined in the preceding section, led to the following definition (by Gilles Godefroy~\cite{Godefroy:1980}):
 
 \begin{defn}
 \label{D:Rosenthal compacta}
-A Rosenthal compactum  is a compact Hausdorff topological space \(K\) that can be topologically embedded as a compact subset into the space of all functions of the first Baire class on some Polish space \(X\), equipped with the topology of pointwise convergence.
-
+A Rosenthal compactum is any topological space realized as a compact subset of the space $B_1(X) = B_1(X, \mathbb{R})$ (equipped with the topology of pointwise convergence) of all real functions of the first Baire class on some Polish space~\(X\).
 \end{defn}
+A Rosenthal compactum~$K$ is necessarily Hausdorff since it is a topological subspace of the Hausdorff product space $\mathbb{R}^X$.
 
-
-Rosenthal compacta are characterized by significant topological and dynamical tameness properties.
-They play an important role in functional analysis,  measure theory, dynamical systems, descriptive set theory, and model theory.
-In this paper, we introduce their applicability in deep computation.
+Rosenthal compacta possess significant topological and dynamical tameness properties.
+They play an important role in functional analysis,  measure theory, dynamical systems, descriptive set theory, and model theory;
+in this paper, we use them to study deep computations.
 For this, we shall first focus on countable languages, which is the theme of the next subsection.
 
 
 \subsection{The special case $B_1(X,\mathbb{R}^\mathcal{P})$   with $\mathcal{P}$ countable.}
 
-Our goal now is to characterize relatively compact subsets of $B_1(X,Y)$ for the particular case when $Y=\mathbb{R}^\mathcal{P}$ with $\mathcal{P}$ countable.
-Given $P\in\mathcal{P}$ we denote the projection map onto the $P$-coordinate by $\pi_P:\mathbb{R}^\mathcal{P}\rightarrow\mathbb{R}$.
-From a high-level topological interpretation, the next lemma states that, in this context, the spaces $\mathbb{R}$ and $\mathbb{R}^\mathcal{P}$ are really not that different, and that if we understand the Baire class 1 functions of one space, then we also understand the functions of both.
+Fix an arbitrary (at most) countable set~$\mathcal{P}$, whose elements $P\in \mathcal{P}$ will be called \emph{predicate symbols} or \emph{formal predicates}.
+Our present goal is to characterize relatively compact subsets of $B_1(X,\mathbb{R}^\mathcal{P})$.
+For $P\in\mathcal{P}$, let $\pi_P:\mathbb{R}^\mathcal{P}\rightarrow\mathbb{R}$ be the corresponding projection (``$P$-th coordinate'' map).
+The next lemma reduces the study of (Baire-1) functions into~$\mathbb{R}^{\mathcal{P}}$ to the special case of real-valued ones.
 
 %In fact, $\mathbb{R}$ and any other Polish space is embeddable as a closed subspace of $\mathbb{R}^\mathcal{P}$.
 
 \begin{lem}\label{baire 1 and projections}
-    Let $X$ be a Polish space and $\mathcal{P}$ be a countable set.
-Then, $f\in B_1(X,\mathbb{R}^\mathcal{P})$ if and only if $\pi_P\circ f\in B_1(X)$ for all $P\in\mathcal{P}$.
+    Let $X$ be a Polish space and let $\mathcal{P}$ be any (at most) countable set.
+    For all $f: X\to \mathbb{R}$ the equivalence $f\in B_1(X,\mathbb{R}^\mathcal{P})$ if (and only if) $\pi_P\circ f\in B_1(X)$ for all $P\in\mathcal{P}$ holds.
 \end{lem}
 
 \begin{proof}
-    Only one implication needs a proof.
 Suppose that $\pi_P\circ f\in B_1(X)$ for all $P\in\mathcal{P}$.
 Let $V$ be a basic open subset of $\mathbb{R}^\mathcal{P}$.
-That is, there exists a finite $\mathcal{P}'\subseteq\mathcal{P}$ such that $V=\bigcap_{P\in\mathcal{P}'}\pi_P^{-1}[U_P]$ where $U_P$ is open in $\mathbb{R}$.
+That is, there exists a finite $\mathcal{P}'\subseteq\mathcal{P}$ such that $V=\bigcap_{P\in\mathcal{P}'}\pi_P^{-1}[U_P]$ where, for each $P\in \mathcal{P}'$, the set $U_P\subseteq \mathbb{R}$ is open.
 Then, 
     $$f^{-1}[V]=\bigcap_{P\in\mathcal{P}'}(\pi_P\circ f)^{-1}[U_P]$$ is an $F_\sigma$ set.
 Since $\mathcal{P}$ is countable, $\mathbb{R}^\mathcal{P}$ is second countable so every open set $U$ in $\mathbb{R}^\mathcal{P}$ is a countable union of basic open sets.
@@ -644,7 +689,7 @@ It follows that $(S^2,\{x,y,z\},\{\gamma_p^k:k\in\mathbb {N}\})$ is a CCS.
 The idea is that repeated applications of $\gamma_p(s), \gamma_p\circ\gamma_p(s), \gamma_p\circ\gamma_p\circ\gamma_p(s),\dots$ would approximate a root of $p$ provided $s$ was a good enough initial guess.
 
 % computer scientists use colors in the range 0-255 instead
-For the same choice of $p$ in question, the limit of these functions is in fact discontinuous (thus making this a good nontrivial example of a Baire class 1 function).
+For the same choice of $p$ in question, the limit of these functions is in fact discontinuous (thus making this a good nontrivial example of a Baire class~1 function).
 This is easiest to visualize by adding a dash of color:
 let us give each complex number $s_0$ a color $(R,G,B)$ where $R,G,B\in[0,1]$ (so that $(1,0,0)$ is red, $(0,1,0)$ is green, and $(0.5,0,0.5)$ is a light purple, for example).
 The values of $R,G$ and $B$ are determined by looking at the image of said number at each stage of the iteration, $\gamma_p^k(s_0)$, and computing the current distance to each of the cubic roots of unity (the roots of $p(s)=s^3-1$); so $R=1/d_r$ where $d_r$ is the positive distance to the root which is colored red, and so on.
@@ -743,7 +788,7 @@ This latter fact follows from the observation that the elements of $\Gamma$ are 
 
 \subsection{NIP, Rosenthal compacta, and deep computations}
 
-Under what conditions are deep computations Baire class 1, and thus well-behaved according to our framework, on type-shards? The following theorem says that, under the assumption that $\mathcal{P}$ is countable, the space of deep computations is a Rosenthal compactum (when restricted to shards) if and only if the set of computations satisfies the NIP feature by feature.
+Under what conditions are deep computations Baire class~1, and thus well-behaved according to our framework, on type-shards? The following theorem says that, under the assumption that $\mathcal{P}$ is countable, the space of deep computations is a Rosenthal compactum (when restricted to shards) if and only if the set of computations satisfies the NIP feature by feature.
 Hence, we can import the theory of Rosenthal compacta into this framework of deep computations.
 
 \begin{thm}\label{nip-baire1def}
