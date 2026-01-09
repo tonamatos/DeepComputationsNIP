@@ -444,8 +444,7 @@ For this, we shall first focus on countable languages, which is the theme of the
 Fix an arbitrary (at most) countable set~$\mathcal{P}$ whose elements $P\in \mathcal{P}$ will be called \emph{predicate symbols} or \emph{formal predicates}.
 Our present goal is to characterize relatively compact subsets of $B_1(X,\mathbb{R}^\mathcal{P})$.
 For $P\in\mathcal{P}$, let $\pi_P:\mathbb{R}^\mathcal{P}\rightarrow\mathbb{R}$ be the corresponding projection (``$P$-th coordinate'' map).
-Regard $\mathcal{P}$ as a discrete topological space.
-Let $\left(\mathbb{R}^\mathcal{P}\right)^X\to\mathbb{R}^{\mathcal{P}\times X}: f\mapsto\hat{f}$ be the natural homeomorphism (of topological products), and $\mathbb{R}^{\mathcal{P}\times X}\to\left(\mathbb{R}^\mathcal{P}\right)^X: g\mapsto \check{g}$ its inverse.
+Let $\left(\mathbb{R}^\mathcal{P}\right)^X\to\mathbb{R}^{\mathcal{P}\times X}: \varphi\mapsto\hat{\varphi}$ be the natural homeomorphism (of topological products), and $\mathbb{R}^{\mathcal{P}\times X}\to\left(\mathbb{R}^\mathcal{P}\right)^X: \psi\mapsto \check{\psi}$ its inverse.
 
 The next lemma reduces the study of (Baire-1) functions into~$\mathbb{R}^{\mathcal{P}}$ to the special case of real-valued ones.
 
@@ -460,22 +459,27 @@ The next lemma reduces the study of (Baire-1) functions into~$\mathbb{R}^{\mathc
   By the definition of the product topology on $\mathbb{R}^{\mathcal{P}}$ and the relative product topologies on $B_1(X)\subseteq \mathbb{R}^X$ and $B_1(X, \mathbb{R}^{\mathcal{P}}) \subseteq (\mathbb{R}^{\mathcal{P}})^X$, we see that a sequence $\{\varphi_n\}\subseteq C_p(X, \mathbb{R}^{\mathcal{P}})$ converges pointwise to a limit~$\varphi\in(\mathbb{R}^{\mathcal{P}})^X$ (necessarily Baire~1) (if and) only if the sequences $\{\pi_P\circ \varphi_n\}\subseteq C_p(X)$ for $P\in \mathcal{P}$ each converges pointwise to a (necessarily Baire~1) limit $f^P\in \mathbb{R}^X$.
 
   Conversely, assume that $\varphi\in (\mathbb{R}^{\mathcal{P}})^X$ is such that $\varphi^P \coloneqq \pi_P\circ \varphi\in B_1(X)$ for each $P\in \mathcal{P}$, so there exists a sequence $\{f_n^P\}_{n\in \mathbb{N}}\subseteq C_p(X)$ pointwise convergent to~$\varphi^P$.
-  Let $\mathcal{P} = \{P_i\}_{i\in \mathbb{N}}$ be an enumeration of~$\mathcal{P}$.
-  Passing to a subsequence of $\{f_n^P\}_n$ if necessary, assume that the inequality $|f^P_n-\varphi^P| \le 1/k$ holds for all $k\le n\in \mathbb{N}$.
+  % Let $\mathcal{P} = \{P_i\}_{i\in \mathbb{N}}$ be an enumeration of~$\mathcal{P}$.
+  % Passing to a subsequence of $\{f_n^P\}_n$ if necessary, assume that the inequality $|f^P_n-\varphi^P| \le 1/k$ holds for all $k\le n\in \mathbb{N}$.
   For $n\in \mathbb{N}$, let $\psi_n \coloneq (f^P_n)_{P\in \mathcal{P}}$;
-  evidently, $\psi_n\in C_p(X, R^{\mathcal{P}})$ because $f^P_n\in C_p(X)$ by construction, and moreover $\pi_P\circ\psi_n = f^P_n$ converges to $\varphi^P = \pi_P\circ\varphi$ for each $P\in \mathcal{P}$ as $n\rightarrow\infty$, hence $\{\psi_n\}$ converges to~$\varphi$ pointwise, so $\varphi\in B_1(X, \mathbb{R}^{\mathcal{P}})$.
+  evidently, $\psi_n\in C_p(X, \mathbb{R}^{\mathcal{P}})$ because $f^P_n\in C_p(X)$ by construction, and moreover $\pi_P\circ\psi_n = f^P_n$ converges to $\varphi^P = \pi_P\circ\varphi$ for each $P\in \mathcal{P}$ as $n\rightarrow\infty$, hence $\{\psi_n\}$ converges to~$\varphi$ pointwise, so $\varphi\in B_1(X, \mathbb{R}^{\mathcal{P}})$.
 \end{proof}
 
 The proof of Lemma~\ref{baire 1 and projections} above is direct from the definition of the Baire-1 class.
 Using the fact that $\mathbb{R}^{\mathcal{P}}$ is Polish if $\mathcal{P}$ is countable, the Lemma may also be proved using the equivalence \emph{(1)}$\Leftrightarrow$\emph{(2)} in Fact~\ref{baire}.
 
-Below we consider $\mathcal{P}$ with the discrete topology.
-
 \begin{lem}\label{homeo}
-    Let $X$ be a Polish space and $\mathcal{P}$ be countable.
-Then, $f\in B_1(X,\mathbb{R}^\mathcal{P})$ if and only if $\hat f\in B_1(\mathcal{P}\times X)$.
+    Let $X$ be a Polish space and $\mathcal{P}$ be countable and discrete.
+    Then $\varphi\mapsto\hat{\varphi}$ restricts to a homeomorphism $B_1(X,\mathbb{R}^\mathcal{P})\to B_1(\mathcal{P}\times X)$.
 \end{lem}
-
+\begin{proof}
+  Since the map $\hat{\cdot}: \varphi\mapsto \hat{\varphi}: (\mathbb{R}^{\mathcal{P}})^X\to \mathbb{R}^{\mathcal{P}\times X}$ is a homeomorphism, we need only show that it restricts to a bijection $B_1(X,\mathbb{R}^\mathcal{P})\to B_1(\mathcal{P}\times X)$.
+  % To begin, by the definition of the product topology, it is clear that $\hat{\cdot}$ restricts to a bijection $C_p(X, \mathbb{R}^{\mathcal{P}})\to C_p(\mathcal{P}\times X)$:
+  % continuous functions $\psi\in C_p(\mathcal{P}\times X)\cong C_p(X, \mathbb{R}^{\mathcal{P}})$ are effectively $\mathcal{P}$-indexed tuples $(\psi^P)_{P\in \mathcal{P}}\subseteq C_p(X)$.
+  By Lemma~\ref{baire 1 and projections}, since $\mathcal{P}$ is countable and discrete, Baire-1 functions $\psi\in B_1(X, \mathbb{R}^{\mathcal{P}})$ into $\mathbb{R}^{\mathcal{P}}$ are, \emph{de facto}, $\mathcal{P}$-indexed tuples $(\psi^P)_{P\in \mathcal{P}}\subseteq B_1(X)$ of real-valued Baire-1 functions.
+  Convergent sequences in $C_p(X, \mathbb{R}^{\mathcal{P}})$ are effectively $\mathcal{P}$-tuples of convergent sequences in~$C_p(X)$.
+  [...]
+\end{proof}
 % \begin{proof}
 %     ($\Rightarrow$) By Lemma~\ref{baire 1 and projections}, given an open set of reals $U$, we have  $f^{-1}[\pi_P^{-1}[U]]$ is $F_\sigma$ for every $P\in\mathcal{P}$.
 % Given that $\mathcal{P}$ is a discrete countable space, we observe that
