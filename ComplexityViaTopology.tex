@@ -57,7 +57,7 @@ pdfkeywords={}
 
 \DeclareMathOperator{\tp}{tp}
 
-\newcommand{\Lshard}{\mathcal{L}_{\text{sh}}}
+\newcommand{\Lshard}{\mathcal{L}_{\mathrm{sh}}}
 \newcommand{\rb}{r_{\bullet}}
 
 \makeatletter
@@ -660,8 +660,8 @@ A subset $\Delta\subseteq\Gamma$ is \emph{$R$-confined} if each $\gamma\in \Delt
 \begin{proof}
   Assume that $R$ confines~$\Delta$.
   For each $v\in L$, let $\rb^{(v)}\in R$ be a sizer such that $v\in L[\rb^{(v)}]$.
-  An arbitrary $\gamma\in\Delta$ restricts to a map $\gamma\restriction L[\rb^{(v)}]: L[\rb^{(v)}]\to L[\rb^{(v)}]$, so $\Gamma \subseteq \prod_{v\in L}\mathcal{L}[\rb^{(v)}]$.
-  The latter space is a product of compact spaces, hence compact, so $\overline{\Gamma}$ is a closed, hence compact subset thereof.
+  An arbitrary $\gamma\in\Delta$ restricts to a map $\gamma\restriction L[\rb^{(v)}]: L[\rb^{(v)}]\to L[\rb^{(v)}]$, so $\Gamma \subseteq K \coloneqq \prod_{v\in L}\mathcal{L}[\rb^{(v)}]$.
+  The space~$K$ is a product of compact spaces, hence compact, so $\overline{\Gamma}$ is a closed, hence compact subset thereof, and a subset of~$\Lshard^L\supseteq K$ \emph{a fortiori}.
   % Since $R$ is exhaustive, any fixed state $v$ belongs to some shard~$L[\rb]$, hence $|P\circ\gamma(v)|\le r_P$ for $P\in\mathcal{P}$, uniformly over $\gamma\in\Delta$.
   % It follows that   
 \end{proof}
