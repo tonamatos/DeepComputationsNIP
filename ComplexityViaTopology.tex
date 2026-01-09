@@ -55,6 +55,11 @@ pdfkeywords={}
 \newtheorem{warn}[thm]{Warning}
 \newtheorem{sch}[thm]{Scholium}
 
+\DeclareMathOperator{\tp}{tp}
+
+\newcommand{\Lshard}{\mathcal{L}_{\mathrm{sh}}}
+\newcommand{\rb}{r_{\bullet}}
+
 \makeatletter
 \let\c@equation\c@thm
 \makeatother
@@ -312,8 +317,7 @@ The following are equivalent:
         \item For every $\{f_n\}_{n\in\mathbb{N}}\subseteq A$ and every $a<b$ there is $I\subseteq\mathbb{N}$ such that $X_{\le a}^{f_I} \cap X_{\ge b}^{f_{I^{\complement}}} = \emptyset$.
     \end{enumerate}
 \end{thm}
-(As stated above, the BFT Dichotomy is a particular case of the equivalence (iv)$\Leftrightarrow$(viii) in {\cite[Theorem 4D]{BFT_1978_PCompactBaire}}:
-on a Polish space, the space $B_1(X)$, of Baire-1 functions is $K$-analytic.)
+(As stated above, the BFT Dichotomy is a particular case of the equivalence (ii)$\Leftrightarrow$(v) in {\cite[Corollary 4G]{BFT_1978_PCompactBaire}})
 
 The sets $X_{\le a}^{f_I}$ and $X_{\ge b}^{f_{I^{\complement}}}$ appearing in condition Theorem~\ref{BFT}\emph{(ii)} are defined, respectively, in terms of $|I|$-many inequalities of the form $f_i(x)\le a$, and $|I^{\complement}|$-many of the form $f_j(x)\ge b$.
 Thus, at least one of $X_{\le a}^{f_I}$ and $X_{\ge b}^{f_{I^{\complement}}}$ is defined by the satisfaction of infinitely (countably) many inequalities.
@@ -432,7 +436,7 @@ The Fundamental Theorem of Statistical Learning states that a hypothesis class i
 \label{D:Rosenthal compacta}
 A Rosenthal compactum is any topological space realized as a compact subset of the space $B_1(X) = B_1(X, \mathbb{R})$ (equipped with the topology of pointwise convergence) of all real functions of the first Baire class on some Polish space~\(X\).
 \end{defn}
-A Rosenthal compactum~$K$ is necessarily Hausdorff since it is a topological subspace of the Hausdorff product space $\mathbb{R}^X$.
+A Rosenthal compactum~$K$ is necessarily Hausdorff since it is a topological subspace of the Hausdorff product space $\mathbb{R}^X$ (and $\mathbb{R}$ itself is Hausdorff).
 
 Rosenthal compacta possess significant topological and dynamical tameness properties.
 They play an important role in functional analysis, measure theory, dynamical systems, descriptive set theory, and model theory;
@@ -442,57 +446,64 @@ For this, we shall first focus on countable languages, which is the theme of the
 \subsection{The special case $B_1(X,\mathbb{R}^\mathcal{P})$ with $\mathcal{P}$ countable.}
 
 Fix an arbitrary (at most) countable set~$\mathcal{P}$ whose elements $P\in \mathcal{P}$ will be called \emph{predicate symbols} or \emph{formal predicates}.
-Our present goal is to characterize relatively compact subsets of $B_1(X,\mathbb{R}^\mathcal{P})$.
-For $P\in\mathcal{P}$, let $\pi_P:\mathbb{R}^\mathcal{P}\rightarrow\mathbb{R}$ be the corresponding projection (``$P$-th coordinate'' map).
-Let $\left(\mathbb{R}^\mathcal{P}\right)^X\to\mathbb{R}^{\mathcal{P}\times X}: \varphi\mapsto\hat{\varphi}$ be the natural homeomorphism (of topological products), and $\mathbb{R}^{\mathcal{P}\times X}\to\left(\mathbb{R}^\mathcal{P}\right)^X: \psi\mapsto \check{\psi}$ its inverse.
+Our present goal is to characterize relatively compact subsets of $B_1(X,\mathbb{R}^\mathcal{P})$, where $X$ is always assumed to be a perfectly normal space (often a Polish space).
 
-The next lemma reduces the study of (Baire-1) functions into~$\mathbb{R}^{\mathcal{P}}$ to the special case of real-valued ones.
+The set $\mathcal{P}$ shall be considered discrete whenever regarded as a topological space.
+Since $C_p(X, \mathbb{R}^{\mathcal{P}})\subseteq B_1(X, \mathbb{R}^{\mathcal{P}})\subseteq (\mathbb{R}^{\mathcal{P}})^X$, the ``ambient'' space $(\mathbb{R}^{\mathcal{P}})^X$ is quite relevant.
+The product $X\times \mathcal{P}$ will be regarded as either a pointset, or as a topological product depending on context.
+We have natural homeomorphic identifications
+\begin{equation*}
+  (\mathbb{R}^{\mathcal{P}})^X \cong \mathbb{R}^{X\times \mathcal{P}} \cong (\mathbb{R}^X)^{\mathcal{P}},
+\end{equation*}
+given by
+\begin{align*}
+  \mathbb{R}^{X\times \mathcal{P}} \to (\mathbb{R}^{\mathcal{P}})^X: \varphi &\mapsto {\hat{}}\varphi \\
+  \mathbb{R}^{X\times \mathcal{P}} \to (\mathbb{R}^X)^{\mathcal{P}}: \varphi &\mapsto \varphi{\,\hat{}},
+\end{align*}
+where 
+\begin{align*}
+  \hat{}\varphi(x)\coloneqq \varphi(x, \cdot)\in \mathbb{R}^{\mathcal{P}}, &&
+  \varphi\,\hat{}(P)\coloneqq \varphi(\cdot, P) \in \mathbb{R}^X.
+\end{align*}
+Such identifications view $X$ and $\mathcal{P}$ as mere pointsets (the topology of~$X$ in particular plays no role).
+% They may be used implicitly, so $\varphi(x)$ means\ $\hat{}\varphi(x)$, and $\varphi(P)$ means $\varphi\,\hat{}(P)$.
+
+For $x\in X$, define the ``left projection'' map
+\begin{equation*}
+  \lambda_x: \mathbb{R}^{X\times\mathcal{P}}\to \mathbb{R}^{\mathcal{P}}: \varphi\mapsto \lambda_x(\varphi)\coloneqq \varphi(x,\cdot);
+%  \lambda_x: \mathbb{R}^X\to \mathbb{R}: f\mapsto \lambda_x(f)\coloneqq f(x)
+\end{equation*}
+% (both denoted $\lambda_x$ by an abuse of notation);
+for $P\in \mathcal{P}$, the ``right projection'' map
+\begin{equation*}
+  \rho_P: \mathbb{R}^{X\times\mathcal{P}}\to \mathbb{R}^X: \varphi\mapsto \varphi(\cdot,P).
+  % \rho_P: \mathbb{R}^{\mathcal{P}}\to \mathbb{R}: f\mapsto f(P).
+\end{equation*}
+For fixed $x\in X$ and $P\in \mathcal{P}$, we also have canonical projection maps
+\begin{align*}
+  \pi_x: \mathbb{R}^X\to \mathbb{R}: f\mapsto f(x), &&
+  \pi_P: \mathbb{R}^{\mathcal{P}}\to \mathbb{R}: f\mapsto f(P).
+\end{align*}
+When clear from context, rather than using the specific symbols (``$\lambda$'' for left,``$\rho$'' for right) to denote projections, we may use the generic symbol~``$\pi$'';
+thus, $\pi_x$ may mean $\lambda_x$, and $\pi_P$ may mean $\rho_P$.
+%We may also use the standard notations $\varphi(x,\cdot)$ for $\lambda_x(\varphi)$, and $\varphi(\cdot,P)$ for $\rho_P(\varphi)$.
+
+The proposition below reduces the study of $\mathbb{R}^{\mathcal{P}}$-valued continuous or Baire-1 functions on~$X$ to the special case of real-valued ones.
 
 %In fact, $\mathbb{R}$ and any other Polish space is embeddable as a closed subspace of $\mathbb{R}^\mathcal{P}$.
 
-\begin{lem}\label{baire 1 and projections}
-    Let $X$ be a Polish space and let $\mathcal{P}$ be any (at most) countable set.
-    For all $\varphi: X\to \mathbb{R}^{\mathcal{P}}$, we have an equivalence:
-    $\varphi\in B_1(X,\mathbb{R}^\mathcal{P})$ if (and only if) $\pi_P\circ \varphi\in B_1(X)$ for all $P\in\mathcal{P}$.
-\end{lem}
+\begin{prop}\label{prop:Baire-identifications}
+  The identification $(\mathbb{R}^{\mathcal{P}})^X \cong \mathbb{R}^{X\times \mathcal{P}} \cong (\mathbb{R}^X)^{\mathcal{P}}$ induces identifications
+  \begin{align*}
+      C_p(X, \mathbb{R}^{\mathcal{P}}) \cong C_p(X\times \mathcal{P}) \cong C_p(X)^{\mathcal{P}}, &&
+      B_1(X, \mathbb{R}^{\mathcal{P}}) \cong B_1(X\times \mathcal{P}) \cong B_1(X)^{\mathcal{P}}.
+  \end{align*}
+\end{prop}
 \begin{proof}
-  By the definition of the product topology on $\mathbb{R}^{\mathcal{P}}$ and the relative product topologies on $B_1(X)\subseteq \mathbb{R}^X$ and $B_1(X, \mathbb{R}^{\mathcal{P}}) \subseteq (\mathbb{R}^{\mathcal{P}})^X$, we see that a sequence $\{\varphi_n\}\subseteq C_p(X, \mathbb{R}^{\mathcal{P}})$ converges pointwise to a limit~$\varphi\in(\mathbb{R}^{\mathcal{P}})^X$ (necessarily Baire~1) (if and) only if the sequences $\{\pi_P\circ \varphi_n\}\subseteq C_p(X)$ for $P\in \mathcal{P}$ each converges pointwise to a (necessarily Baire~1) limit $f^P\in \mathbb{R}^X$.
-
-  Conversely, assume that $\varphi\in (\mathbb{R}^{\mathcal{P}})^X$ is such that $\varphi^P \coloneqq \pi_P\circ \varphi\in B_1(X)$ for each $P\in \mathcal{P}$, so there exists a sequence $\{f_n^P\}_{n\in \mathbb{N}}\subseteq C_p(X)$ pointwise convergent to~$\varphi^P$.
-  % Let $\mathcal{P} = \{P_i\}_{i\in \mathbb{N}}$ be an enumeration of~$\mathcal{P}$.
-  % Passing to a subsequence of $\{f_n^P\}_n$ if necessary, assume that the inequality $|f^P_n-\varphi^P| \le 1/k$ holds for all $k\le n\in \mathbb{N}$.
-  For $n\in \mathbb{N}$, let $\psi_n \coloneq (f^P_n)_{P\in \mathcal{P}}$;
-  evidently, $\psi_n\in C_p(X, \mathbb{R}^{\mathcal{P}})$ because $f^P_n\in C_p(X)$ by construction, and moreover $\pi_P\circ\psi_n = f^P_n$ converges to $\varphi^P = \pi_P\circ\varphi$ for each $P\in \mathcal{P}$ as $n\rightarrow\infty$, hence $\{\psi_n\}$ converges to~$\varphi$ pointwise, so $\varphi\in B_1(X, \mathbb{R}^{\mathcal{P}})$.
+  The identification of $C_p$-spaces follows trivially from the definition of topological product and the fact that $\mathcal{P}$ is discrete:
+  a continuous map $X\to \mathbb{R}^{\mathcal{P}}$ is precisely a $\mathcal{P}$-tuple of continuous functions $X\to \mathbb{R}$, and these correspond to continuous functions $X\times \mathcal{P}\to \mathbb{R}$.
+  The identification of Baire-1 spaces follows immediately, since it is defined in terms of the purely topological notion of limit (in the ambient space) of sequences of continuous functions.
 \end{proof}
-
-The proof of Lemma~\ref{baire 1 and projections} above is direct from the definition of the Baire-1 class.
-Using the fact that $\mathbb{R}^{\mathcal{P}}$ is Polish if $\mathcal{P}$ is countable, the Lemma may also be proved using the equivalence \emph{(1)}$\Leftrightarrow$\emph{(2)} in Fact~\ref{baire}.
-
-\begin{lem}\label{homeo}
-    Let $X$ be a Polish space and $\mathcal{P}$ be countable and discrete.
-    Then $\varphi\mapsto\hat{\varphi}$ restricts to a homeomorphism $B_1(X,\mathbb{R}^\mathcal{P})\to B_1(\mathcal{P}\times X)$.
-\end{lem}
-\begin{proof}
-  Since the map $\hat{\cdot}: \varphi\mapsto \hat{\varphi}: (\mathbb{R}^{\mathcal{P}})^X\to \mathbb{R}^{\mathcal{P}\times X}$ is a homeomorphism, we need only show that it restricts to a bijection $B_1(X,\mathbb{R}^\mathcal{P})\to B_1(\mathcal{P}\times X)$.
-  % To begin, by the definition of the product topology, it is clear that $\hat{\cdot}$ restricts to a bijection $C_p(X, \mathbb{R}^{\mathcal{P}})\to C_p(\mathcal{P}\times X)$:
-  % continuous functions $\psi\in C_p(\mathcal{P}\times X)\cong C_p(X, \mathbb{R}^{\mathcal{P}})$ are effectively $\mathcal{P}$-indexed tuples $(\psi^P)_{P\in \mathcal{P}}\subseteq C_p(X)$.
-  By Lemma~\ref{baire 1 and projections}, since $\mathcal{P}$ is countable and discrete, Baire-1 functions $\psi\in B_1(X, \mathbb{R}^{\mathcal{P}})$ into $\mathbb{R}^{\mathcal{P}}$ are, \emph{de facto}, $\mathcal{P}$-indexed tuples $(\psi^P)_{P\in \mathcal{P}}\subseteq B_1(X)$ of real-valued Baire-1 functions.
-  Convergent sequences in $C_p(X, \mathbb{R}^{\mathcal{P}})$ are effectively $\mathcal{P}$-tuples of convergent sequences in~$C_p(X)$.
-  [...]
-\end{proof}
-% \begin{proof}
-%     ($\Rightarrow$) By Lemma~\ref{baire 1 and projections}, given an open set of reals $U$, we have  $f^{-1}[\pi_P^{-1}[U]]$ is $F_\sigma$ for every $P\in\mathcal{P}$.
-% Given that $\mathcal{P}$ is a discrete countable space, we observe that
-%     $$\hat f^{-1}[U]=\bigcup_{P\in\mathcal{P}}\left(\{P\}\times f^{-1}[\pi_P^{-1}[U]]\right)
-%     $$ is an $F_\sigma$ as well.
-    
-%     ($\Leftarrow$) By lemma \ref{baire 1 and projections} it suffices to show that $\pi_P\circ f\in B_1(X)$ for all $P\in\mathcal{P}$.
-% Fix an open $U\subseteq\mathbb{R}$.
-% Write $\hat{f}^{-1}[U]=\bigcup_{n\in\mathbb{N}}F_n$ where $F_n$ is closed in $\mathcal{P}\times X$.
-% Then,
-%     $$(\pi_P\circ f)^{-1}[U]=\bigcup_{n\in\mathbb{N}}\{x\in X:(P,x)\in F_n\}$$
-%     which is $F_\sigma$.
-% \end{proof}
 
 Given $A\subseteq Y^X$ and $K\subseteq X$ we write $A|_K:=\{f|_K:f\in A\}$, i.e., the set of all restrictions of functions in $A$ to $K$.
 The following Theorem is a slightly more general version of Theorem \ref{BFT}.
@@ -512,7 +523,7 @@ The following are equivalent for every compact $K\subseteq X$:
 Let $P\in\mathcal{P}$.
 Fix $\{f_n\}_{n\in\mathbb{N}}\subseteq A$ and $a<b$.
 By (i), we have $\overline{A|_K}\subseteq B_1(K,\mathbb{R}^\mathcal{P})$.
-Applying the homeomorphism $f\mapsto \hat{f}$ and using lemma \ref{homeo} we get $\overline{\hat{A}|_{\mathcal{P}\times K}}\subseteq B_1(\mathcal{P}\times K)$.
+Applying the homeomorphism $f\mapsto \hat{f}$ and using Proposition~\ref{prop:Baire-identifications}, we get $\overline{\hat{A}|_{\mathcal{P}\times K}}\subseteq B_1(\mathcal{P}\times K)$.
 By Theorem \ref{BFT}, there is $I\subseteq\mathbb{N}$ such that
     $$(\mathcal{P}\times K)\cap\bigcap_{n\in I}\hat{f_n}^{-1}(-\infty,a]\cap\bigcap_{n\notin I}\hat{f_n}^{-1}[b,\infty)=\emptyset$$
     Hence,
@@ -522,7 +533,7 @@ By Theorem \ref{BFT}, there is $I\subseteq\mathbb{N}$ such that
     Thus, $\pi_P\circ A|_L$ satisfies the NIP.
 
     (ii)$\Rightarrow$(i) Fix $f\in\overline{A|_K}$.
-By lemma \ref{baire 1 and projections} it suffices to show that $\pi_P\circ f\in B_1(K)$ for all $P\in\mathcal{P}$.
+By Proposition~\ref{prop:Baire-identifications}, it suffices to show that $\pi_P\circ f\in B_1(K)$ for all $P\in\mathcal{P}$.
 By (ii), $\pi_P\circ A|_K$ satisfies the NIP.
 Hence, by Theorem \ref{BFT} we have $\overline{\pi_P\circ A|_K}\subseteq B_1(K)$.
 But then, $\pi_P\circ f\in\overline{\pi_P\circ A|_K}\subseteq B_1(K)$.
@@ -553,15 +564,19 @@ Then, for any finite disjoint $E,F\subseteq\mathbb{N}$ we can choose
     This contradicts (i).
 \end{proof}
 
-\section{Compositional computation structures: A structural approach \\ to floating-point computation}
+\section{Compositional Computation Structures: A structural approach to floating-point computations}
 \label{S:CCS}
 
 
-In this section, we connect function spaces with floating point computation.
-We start by summarizing some basic concepts from \cite{alva2024approximability}.
+In this section, we connect function spaces with floating point computations.
+We start by summarizing some basic concepts from~\cite{alva2024approximability}.
 
 A \emph{computation states structure} is a pair $(L,\mathcal{P})$, where $L$ is a set whose elements we call \emph{states} and $\mathcal{P}$ is a collection of real-valued functions on $L$ that we call \emph{predicates}.
+<<<<<<< HEAD
 For a state $v\in L$, the \emph{type} of $v$ is defined as the indexed family
+=======
+For a state $v\in L$, the \emph{type} of a state~$v$ is the indexed family
+>>>>>>> d497418a4283979e83b5305ba0f833bc306dba78
 \[
 \operatorname{tp}(v)= (P(v))_{P\in \mathcal{P}}\in\mathbb{R}^\mathcal{P}.
 \]
@@ -569,6 +584,7 @@ For each $P\in \mathcal{P}$, we call the value $P(v)$ the $P$-th \emph{feature} 
 A \emph{transition} of a computation states structure $(L,\mathcal{P})$ is a map $f:L\to L$.
 
 
+<<<<<<< HEAD
 Intuitively, $L$ is the set of states of a computation, and the predicates $P \in\mathcal{P}$ are primitives that are given and accepted as computable.
 We think of each state $v\in L$ as being uniquely characterized by its type $\operatorname{tp}(v)$.
 Thus, in practice, we identify $L$ with a subset of $\mathbb{R}^\mathcal{P}$.
@@ -580,27 +596,57 @@ In particular, for each $P\in \mathcal{P}$, the projection map $v\mapsto P(v)$ i
 \begin{defn}
 Given a computation states structure $(L,\mathcal{P})$, any element of $\mathbb{R}^\mathcal{P}$ in the image of $L$ under the map $v\mapsto \operatorname{tp}(v)$ will be called a \emph{realized type}.
 The topological closure of the set of realized types in $\mathbb{R}^\mathcal{P}$ (endowed with the pointwise convergence topology) will be called the \emph{space of types} of $(L,\mathcal{P})$, denoted $\mathcal{L}$.
+=======
+Intuitively, $L$ is the set of states of a computation,  and the predicates  $P \in\mathcal{P}$ are primitives that are given and accepted as computable.
+Each state $v\in L$ is uniquely characterized by its type $\operatorname{tp}(v)$, so we may identify $L$ with a subset of~$\mathbb{R}^\mathcal{P}$.
+Important space states are $L=\mathbb{R}^\mathbb{N}$ and $L=\mathbb{R}^n$ for some positive integer $n$, endowed with predicate $P_i(v) = v_i$, one each for the $i$-th coordinate of~$v$.
+We regard the space of types as a topological space, endowed with the topology of pointwise convergence induced by the product topology of~$\mathbb{R}^\mathcal{P}$.
+Via the identification $v\mapsto\tp(v)$, the states space~$L$ is correspondingly topologized;
+in particular, for each $P\in \mathcal{P}$, the projection map $v\mapsto P(v)$ is continuous.
+
+\begin{defn}
+Given a computation states structure $(L,\mathcal{P})$, any element of $\mathbb{R}^\mathcal{P}$  in the image of $L$ under the map $v\mapsto \operatorname{tp}(v)$ will be called a \emph{realized (state) type}.
+The topological closure of the set of realized types in $\mathbb{R}^\mathcal{P}$ (endowed with the pointwise convergence topology) will be called the \emph{space of types} of  $(L,\mathcal{P})$, denoted~$\mathcal{L}$;
+elements $\xi\in \mathcal{L}$ are called \emph{state types}.
+>>>>>>> d497418a4283979e83b5305ba0f833bc306dba78
 Elements of $\mathcal{L}\setminus L$ will be called \emph{unrealized types}.
 \end{defn}
+Intuitively, state types capture a notion of ``ultrastate''.
 
+<<<<<<< HEAD
 In traditional, compact-valued, model theory, the space of types of a structure is viewed as a sort of compactification of the structure, and the compactness of type spaces plays a central role.
 However, here we are dealing with real-valued structures, and the space $\mathcal{L}$ defined above is not necessarily compact.
 To bypass this obstacle, we follow the idea introduced in~\cite{alva2024approximability} of covering $\mathcal{L}$ by ``thin'' compact subspaces that we call \emph{shards}.
 The formal definition of shard is next.
+=======
+The traditional setting of discrete first-order logic may be regarded as the special case in which predicates are binary (such predicates may take only the values $0$ and $1$, say).
+In such traditional setting, the space of types of a structure is necessarily compact;
+for some purposes, it serves as a sort of compactification of the structure itself.
+Compactness in such setting is critical.
+However, predicates of a computational states structure take values in the non-compact space~$\mathbb{R}$, so the corresponding type space $\mathcal{L}$ need not be compact.
+To bypass this obstacle, we follow the idea, introduced in~\cite{alva2024approximability}, of covering $\mathcal{L}$ by ``thin'' compact subspaces called~\emph{shards}.
+>>>>>>> d497418a4283979e83b5305ba0f833bc306dba78
 
 \begin{defn}
-A \emph{sizer} is a tuple $r_{\bullet}=(r_P)_{P\in\mathcal{P}}$ of positive real numbers indexed by $\mathcal{P}$.
-Given a sizer $r_\bullet$, we define the $r_\bullet$-\emph{shard} as:
+  A \emph{sizer} is a tuple $r_{\bullet}=(r_P)_{P\in\mathcal{P}}$ of positive real numbers, indexed by~$\mathcal{P}$.
+  Given a sizer $r_\bullet$, let $\mathbb{R}^{[\rb]} = \prod_{P\in\mathcal{P}}[-r_P,r_P]$ (a compact space), and let the $r_\bullet$-\emph{shard} of a states space~$L$ be
 \[
-L[r_\bullet]=L\cap\prod_{P\in\mathcal{P}}[-r_P,r_P].
+L[r_\bullet] = L\cap \mathbb{R}^{[\rb]}.
 \]
 
+<<<<<<< HEAD
 For a sizer $r_{\bullet}$, the \emph{$r_{\bullet}$-type shard} is defined as $\mathcal{L}[r_\bullet]=\overline{L[r_\bullet]}$.
+=======
+For a sizer  $r_{\bullet}$, the \emph{$r_{\bullet}$-type shard} is defined as $\mathcal{L}[r_\bullet]=\overline{L[r_\bullet]}$
+(a closed, hence compact subset of $\mathbb{R}^{[\rb]}$).
+>>>>>>> d497418a4283979e83b5305ba0f833bc306dba78
 
 %A collection $R$ of sizers is called \emph{exhaustive} if $\mathcal{L}_{\text{sh}}=\bigcup_{r_{\bullet}\in R}\mathcal{L}[r_\bullet]$.
-We define $\mathcal{L}_{\text{sh}}$, as the union of all type-shards.
-
+Let also $\mathcal{L}_{\text{sh}}$ be the union of all type-shards (as the sizer $r_{\bullet}$ varies).
 \end{defn}
+
+In general, $\mathcal{L}_{\text{sh}}\subseteq \mathcal{L}$ may be a proper subset.
+Equality holds in the important special case when $\mathcal{P}$ is countable (see~*** below).
 
 %\begin{rem}
 %Even though our type space $\mathcal{L}$ is not compact, the fact that it can be covered by shards gives us two advantages:
@@ -623,21 +669,50 @@ A \emph{Compositional Computation Structure} (CCS) is a triple $(L,\mathcal{P},\
  \item
  $\Gamma\subseteq L^L$ is a semigroup under composition.
 \end{itemize}
+Elements of the semigroup $\Gamma$ are called the \emph{computations} of the structure $(L,\mathcal{P},\Gamma)$.
+We assume that the identity map $\text{id}$ on~$L$ is an element of~$\Gamma$ (which is thus not merely a semigroup but a monoid of transformations of~$L$).
 
+<<<<<<< HEAD
 The elements of the semigroup $\Gamma$ are called the \emph{computations} of the structure $(L,\mathcal{P},\Gamma)$.
 
 If $\Delta\subseteq\Gamma$, we say that $\Delta\subseteq\Gamma$ is \emph{$R$-confined} if $\gamma|_{L[r_\bullet]}:L[r_\bullet]\to L[r_\bullet]$ for every $r_\bullet\in R$ and $\gamma\in \Delta$.
 Elements in $\overline{\Gamma}\subseteq \mathcal{L}_{\text{sh}}$ are called (real-valued) \emph{deep computations} or \emph{ultracomputations}.
+=======
+We topologize $\Gamma$ as a subset of the topological product $L^L$, where the ``exponent''~$L$ serves merely as an index set, but the ``base''~$L$ is topologized by type;
+consequently, one may identify $\Gamma$ with a subset of the topological product $(\mathbb{R}^{\mathcal{P}})^L$.
+More specifically, $\Gamma$ is identified with a subset of~$\mathcal{L}^L$, which is a closed subspace of~$(\mathbb{R}^{\mathcal{P}})^L$.
+Therefore, we have an inclusion $\overline{\Gamma}\subseteq \mathcal{L}^{L}$.
+Elements $\xi\in\overline{\Gamma}$ are called (real-valued) \emph{deep computations} or \emph{ultracomputations}.
+>>>>>>> d497418a4283979e83b5305ba0f833bc306dba78
 
+A collection $R$ of sizers is \emph{exhaustive} if $L = \bigcup_{\rb\in R}L[\rb]$ (shards $L[\rb]$ exhaust~$L$).
+A transformation $\gamma\in\Gamma$ is \emph{$R$-confined} if $\gamma$ restricts to a map $\gamma|_{L[r_\bullet]}:L[r_\bullet]\to L[r_\bullet]$ (into $L[r_{\bullet}]$ itself) for every $r_\bullet\in R$.
+A subset $\Delta\subseteq\Gamma$ is \emph{$R$-confined} if each $\gamma\in \Delta$ is.
 \end{defn}
 
-For a CCS $(L,\mathcal{P},\Gamma)$, we regard the elements of $\Gamma$ as ``standard'' finitary computations and the elements of $\overline{\Gamma}$, i.e., deep computations, as possibly infinitary limits of standard computations.
+\begin{prop}\label{prop:confined-compact}
+  If $\Delta\subseteq\Gamma$ is confined by an exhaustive sizer collection, then $\overline{\Delta}$ is a compact subset of~$\Lshard^L$.
+\end{prop}
+\begin{proof}
+  Assume that $R$ confines~$\Delta$.
+  For each $v\in L$, let $\rb^{(v)}\in R$ be a sizer such that $v\in L[\rb^{(v)}]$.
+  An arbitrary $\gamma\in\Delta$ restricts to a map $\gamma\restriction L[\rb^{(v)}]: L[\rb^{(v)}]\to L[\rb^{(v)}]$, so $\Gamma \subseteq K \coloneqq \prod_{v\in L}\mathcal{L}[\rb^{(v)}]$.
+  The space~$K$ is a product of compact spaces, hence compact, so $\overline{\Gamma}$ is a closed, hence compact subset thereof, and a subset of~$\Lshard^L\supseteq K$ \emph{a fortiori}.
+  % Since $R$ is exhaustive, any fixed state $v$ belongs to some shard~$L[\rb]$, hence $|P\circ\gamma(v)|\le r_P$ for $P\in\mathcal{P}$, uniformly over $\gamma\in\Delta$.
+  % It follows that   
+\end{proof}
+
+For a CCS $(L,\mathcal{P},\Gamma)$, we regard the elements of $\Gamma$ as ``standard'' finitary computations, and the elements of $\overline{\Gamma}$, i.e., deep computations, as possibly infinitary limits of standard computations.
 The main goal of this paper is to study the computability, definability and computational complexity of deep computations.
 Since ultracomputations are defined through a combination of topological concepts (namely, topological closure) and structural and model-theoretic concepts (namely, models and types), we will import technology from both topology and model theory.
 
 \subsection{Computability and definability of deep computations and the Extendibility Axiom}
 
+<<<<<<< HEAD
 Let $f: L\to \mathcal{L}$ be a function that maps each input state type $(P(v))_{P\in \mathcal{P}}\in\mathbb{R}^\mathcal{P}$ into an output state type $(P\circ f (v))_{P\in \mathcal{P}}\in\mathbb{R}^\mathcal{P}$.
+=======
+Let  $f: L\to \mathcal{L}$ be a function that maps each input state type  $(P(v))_{P\in \mathcal{P}}\in\mathbb{R}^\mathcal{P}$ to an output state type $(P\circ f (v))_{P\in \mathcal{P}}\in\mathbb{R}^\mathcal{P}$.
+>>>>>>> d497418a4283979e83b5305ba0f833bc306dba78
  
  \begin{enumerate}
  \item
@@ -1073,7 +1148,7 @@ Then, $C=\bigcap_{i\in J}\pi_i^{-1}(C_i)$, so $f^{-1}(C)=\bigcap_{i\in J}(\pi_i\
 \end{proof}
 
 The preceding proposition says that a transition map is universally measurable if and only if it is universally measurable on all its features; in other words, we can check measurability of a transition just by checking measurability feature by feature.
-This is the same as in the Baire class-1 case (compare with lemma \ref{baire 1 and projections}).
+This is the same as in the Baire class-1 case (compare with Proposition~\ref{prop:Baire-identifications}).
 We will denote by $M_r(X,\mathbb{R}^\mathcal{P})$ the collection of all universally measurable functions $f:X\rightarrow\mathbb{R}^\mathcal{P}$ (with respect to the cylinder $\sigma$-algebra), endowed with the topology of pointwise convergence.
 
 In this paper we are interested in identifying PAC-learnability phenomena in real-valued deep computations (i.e., the NIP).
