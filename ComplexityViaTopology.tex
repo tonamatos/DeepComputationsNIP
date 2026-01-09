@@ -317,30 +317,30 @@ The following are equivalent:
         \item For every $\{f_n\}_{n\in\mathbb{N}}\subseteq A$ and every $a<b$ there is $I\subseteq\mathbb{N}$ such that $X_{\le a}^{f_I} \cap X_{\ge b}^{f_{I^{\complement}}} = \emptyset$.
     \end{enumerate}
 \end{thm}
-(As stated above, the BFT Dichotomy is a particular case of the equivalence (ii)$\Leftrightarrow$(v) in {\cite[Corollary 4G]{BFT_1978_PCompactBaire}})
+(As stated above, the BFT Dichotomy is a particular case of the equivalence (ii)$\Leftrightarrow$(v) in {\cite[Corollary 4G]{BFT_1978_PCompactBaire}}.)
 
 The sets $X_{\le a}^{f_I}$ and $X_{\ge b}^{f_{I^{\complement}}}$ appearing in condition Theorem~\ref{BFT}\emph{(ii)} are defined, respectively, in terms of $|I|$-many inequalities of the form $f_i(x)\le a$, and $|I^{\complement}|$-many of the form $f_j(x)\ge b$.
 Thus, at least one of  $X_{\le a}^{f_I}$ and $X_{\ge b}^{f_{I^{\complement}}}$ is defined by the satisfaction of infinitely (countably) many inequalities.
 For our purposes, it is more natural to consider only finitely many inequalities at a time, which motivates the definitions below.
 
 \begin{defn}\label{def:NIP-fns}
-    We say that \emph{$A$ has the No-Independence Property (NIP)} if, for all sequences $\{f_n\}_{n\in\mathbb{N}}\subseteq A$ and reals $a<b$ there exist finite disjoint sets $E,F\subseteq\mathbb{N}$ such that $X_{\le a}^{f_E} \cap X_{\ge b}^{f_F} = \emptyset$.
-    We say that such $E, F$ \emph{witness NIP for $A$, $\{f_n\}$ and $a, b$}.
-    For emphasis, we say that NIP in this sense is \emph{finitary} NIP.
+    We say that a function collection \emph{$A\subseteq \mathbb{R}^X$ has the finitary No-Independence Property (NIP)} if, for all sequences $\{f_n\}_{n\in\mathbb{N}}\subseteq A$ and reals $a<b$, there exist finite disjoint sets $E,F\subseteq\mathbb{N}$ such that $X_{\le a}^{f_E} \cap X_{\ge b}^{f_F} = \emptyset$.
+    We say that such $E, F$ \emph{witness finitary NIP for $A$, $\{f_n\}$ and $a, b$}.
 
-    A set $A\subseteq \mathbb{R}^X$ \emph{has the Independence Property (IP)} if it does not have NIP, i.e., there exists a sequence $\{f_n\}_{n\in\mathbb{N}}\subseteq A$ and reals $a<b$ such that for every pair of finite disjoint sets $E,F\subseteq\mathbb{N}$, we have $X_{\le a}^{f_E} \cap X_{\ge b}^{f_F} \ne \emptyset$.
-    Again, such IP will be called \emph{finitary} for emphasis.
+    A set $A\subseteq \mathbb{R}^X$ \emph{has the finitary Independence Property (IP)} if it does not have finitary NIP, i.e., if there exists a sequence $\{f_n\}_{n\in\mathbb{N}}\subseteq A$ and reals $a<b$ such that for every pair of finite disjoint sets $E,F\subseteq\mathbb{N}$, we have $X_{\le a}^{f_E} \cap X_{\ge b}^{f_F} \ne \emptyset$.
 \end{defn}
 
 If the word ``finite'' is omitted in the above definitions, we obtain the definitions of \emph{countable} NIP (weaker than finitary NIP) and \emph{countable} IP (stronger than finitary IP), respectively.
 
+If we insist on witnesses $E,F\subseteq \mathbb{N}$ such that $F = E^{\complement}$, we call the respective properties ``BFT-NIP'' (even weaker than countable NIP) and ``BFT-IP'' (even stronger than countable IP).
+Thus, Theorem~\ref{BFT} becomes that statement, for pointwise bounded function collections $A\subseteq C_p(X)$, that $A$ is relatively compact in $B_1(X)$ if and only if $A$ has BFT-NIP.
 
-If we insist on witnesses $E,F\subseteq \mathbf{N}$ such that $E\cup F = \mathbf{N}$, we call the respective properties ``BFT-NIP'' (even weaker than countable NIP) and ``BFT-IP'' (even stronger than countable IP).
-Evidently, the condition in Theorem~\ref{BFT}\emph{(ii)} is simply that $A$ has BFT-NIP.
+Unless otherwise unspecified, IP/NIP shall mean \emph{finitary} IP/NIP henceforth.
 
 \begin{prop}\label{prop:BFT-finitary-cpct}
   If $X$ is compact and $A\subseteq C_p(X)$, then $A$ has BFT-NIP if and only if it has finitary NIP.
 \end{prop}
+(No pointwise boundedness is assumed of~$A$.)
 \begin{proof}
   Trivially (as per the preceding discussion), finitary NIP implies BFT-NIP.
   Reciprocally, assume that $X$ is compact and has finitary IP.  
@@ -355,22 +355,23 @@ Evidently, the condition in Theorem~\ref{BFT}\emph{(ii)} is simply that $A$ has 
   Since $A$ has finitary IP by hypothesis, the nested family consists of nonempty sets, hence its intersection $X_{I,I^{\complement}}\ne\emptyset$ by compactness.
   This holds for arbitrary $\{f_n\}\subseteq A$ and $r<s$, so $A$ has BFT-IP.
 \end{proof}
-
-Henceforth, by IP/NIP we will mean \emph{finitary} IP/NIP unless otherwise specified.
-
 \begin{thm}
 \label{BFT2}
     Let $X$ be a compact Polish space.
-Then, for every pointwise bounded  $A\subseteq C_p(X)$, one and exactly one of the following two conditions must hold:
+For every pointwise bounded  $A\subseteq C_p(X)$, the following properties are all equivalent:
         \begin{enumerate}[(i)]
-        \item $\overline{A}\subseteq B_1(X)$.
-        \item $A$ has IP.
+        \item $A$ is relatively compact in~$B_1(X)$;
+        \item $A$ has BFT-NIP;
+        \item $A$ has countable NIP;
+        \item $A$ has finitary NIP.
     \end{enumerate}
-\end{thm}
+  \end{thm}
+  (The equivalences \emph{(ii)}$\Leftrightarrow$\emph{(iii)}$\Leftrightarrow$\emph{(iv)} hold for arbitrary compact~$X$.)
 \begin{proof}
   Corollary of Theorem~\ref{BFT} and Proposition~\ref{prop:BFT-finitary-cpct}.
 \end{proof}
-
+Theorem~\ref{BFT2} may be stated as the following dichotomy (under the assumptions):
+either $A$ is relatively compact in~$B_1(X)$, or $A$ has IP (in either sense).
 
 The Independence Property was first isolated by Saharon Shelah in model theory as a dividing line between theories whose models are ``tame'' (corresponding to NIP) and theories whose models are ``wild" (corresponding to IP).
 See~\cite[Definition 4.1]{Shelah:1971}, \cite{Shelah:1990}.
@@ -499,6 +500,7 @@ The proposition below reduces the study of $\mathbb{R}^{\mathcal{P}}$-valued con
       B_1(X, \mathbb{R}^{\mathcal{P}}) \cong B_1(X\times \mathcal{P}) \cong B_1(X)^{\mathcal{P}}.
   \end{align*}
 \end{prop}
+(The cardinality of $\mathcal{P}$ plays no role.)
 \begin{proof}
   The identification of $C_p$-spaces follows trivially from the definition of topological product and the fact that $\mathcal{P}$ is discrete:
   a continuous map $X\to \mathbb{R}^{\mathcal{P}}$ is precisely a $\mathcal{P}$-tuple of continuous functions $X\to \mathbb{R}$, and these correspond to continuous functions $X\times \mathcal{P}\to \mathbb{R}$.
@@ -509,34 +511,17 @@ Given $A\subseteq Y^X$ and $K\subseteq X$ we write $A|_K:=\{f|_K:f\in A\}$, i.e.
 The following Theorem is a slightly more general version of Theorem \ref{BFT}.
 
 \begin{thm}\label{Generalized BFT}
-    Assume that $\mathcal{P}$ is countable, $X$ is a Polish space, and $A\subseteq C_p(X,\mathbb{R}^\mathcal{P})$ is such that $\pi_P\circ A$ is pointwise bounded for all $P\in\mathcal{P}$.
+    Assume that $\mathcal{P}$ is countable, $X$ is a Polish space, and $A\subseteq C_p(X,\mathbb{R}^\mathcal{P})$ is pointwise bounded in the sense that $\pi_P\circ A$ ($\subseteq C_p(X)$) is pointwise bounded for every $P\in\mathcal{P}$.
 The following are equivalent for every compact $K\subseteq X$:
 
     \begin{enumerate}[(i)]
-        \item $\overline{A|_K}\subseteq B_1(K,\mathbb{R}^\mathcal{P})$.
-        \item $\pi_P\circ A|_K$ satisfies the NIP for every $P\in\mathcal{P}$.
+        \item $A|_K$ is relatively compact in $B_1(K,\mathbb{R}^\mathcal{P})$;
+        \item $\pi_P\circ A|_K$ has NIP for every $P\in\mathcal{P}$.
     \end{enumerate}
 \end{thm}
-
 \begin{proof}
-    (i)$\Rightarrow$(ii).
-Let $P\in\mathcal{P}$.
-Fix $\{f_n\}_{n\in\mathbb{N}}\subseteq A$ and $a<b$.
-By (i), we have $\overline{A|_K}\subseteq B_1(K,\mathbb{R}^\mathcal{P})$.
-Applying the homeomorphism $f\mapsto \hat{f}$ and using Proposition~\ref{prop:Baire-identifications}, we get $\overline{\hat{A}|_{\mathcal{P}\times K}}\subseteq B_1(\mathcal{P}\times K)$.
-By Theorem \ref{BFT}, there is $I\subseteq\mathbb{N}$ such that
-    $$(\mathcal{P}\times K)\cap\bigcap_{n\in I}\hat{f_n}^{-1}(-\infty,a]\cap\bigcap_{n\notin I}\hat{f_n}^{-1}[b,\infty)=\emptyset$$
-    Hence,
-    $$K\cap\bigcap_{n\in I}(\pi_P\circ f_n)^{-1}(-\infty,a]\cap\bigcap_{n\notin I}(\pi_P\circ f_n)^{-1}[b,\infty)=\emptyset$$
-    By the compactness of $K$, there are finite $E\subseteq I$ and $F\subseteq\mathbb{N}\backslash I$ such that
-    $$K\cap\bigcap_{n\in E}(\pi_P\circ f_n)^{-1}(-\infty,a]\cap\bigcap_{n\in F}(\pi_P\circ f_n)^{-1}[b,\infty)=\emptyset$$
-    Thus, $\pi_P\circ A|_L$ satisfies the NIP.
-
-    (ii)$\Rightarrow$(i) Fix $f\in\overline{A|_K}$.
-By Proposition~\ref{prop:Baire-identifications}, it suffices to show that $\pi_P\circ f\in B_1(K)$ for all $P\in\mathcal{P}$.
-By (ii), $\pi_P\circ A|_K$ satisfies the NIP.
-Hence, by Theorem \ref{BFT} we have $\overline{\pi_P\circ A|_K}\subseteq B_1(K)$.
-But then, $\pi_P\circ f\in\overline{\pi_P\circ A|_K}\subseteq B_1(K)$.
+  Compact subsets $K\subseteq X$ are closed, hence also Polish.
+  Therefore, the asserted equivalence follows from Theorems~\ref{BFT} and~\ref{prop:BFT-finitary-cpct}.
 \end{proof}
 
 Lastly, a simple but useful lemma that helps understand when we restrict a set of functions to a specific subspace of the domain space, we may always assume that the subspace is closed, as replacing the subspace by its closure has no effect on NIP.
@@ -551,7 +536,6 @@ The following are equivalent for every $L\subseteq X$:
         $A|_{\overline{L}}$ satisfies the NIP.
     \end{enumerate}
 \end{lem}
-
 \begin{proof}
     It suffices to show that (i)$\Rightarrow$(ii).
 Suppose that (ii) does not hold, i.e., that there are $\{f_n\}_{n\in\mathbb{N}}\subseteq A$ and $a<b$ such that for all finite disjoint $E,F\subseteq\mathbb{N}$:
