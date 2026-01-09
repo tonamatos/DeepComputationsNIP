@@ -44,9 +44,8 @@ jobs:
           # 2. Move the generated PDF to the deploy folder
           mv ComplexityViaTopology.pdf public/
           
-          # 3. (Crucial) If your index.html displays images from the 'images' folder, 
-          # you must copy that folder too. Uncomment the line below if needed:
-          # cp -r images public/
+          # 3. index.html displays images from the 'images' folder
+          cp -r images public/
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
