@@ -699,57 +699,30 @@ For a more detailed discussion of the Extendibility Axiom, we refer the reader t
 
 \subsection{Newton's method as a CCS}
 
-For an illustrative example, we can frame Newton's polynomial root approximation method in the context of a CCS (also see Example~5.6 of \cite{alva2024approximability}).
-Begin by considering the extended complex numbers $\hat{\mathbb{C}}:=\mathbb{C}\cup\{\infty\}$ with the usual Riemann sphere topology that makes it into a compact space (where unbounded sequences converge to $\infty$).
-In fact, not only is this space compact, but it is covered by the shard given by the sizer $(1,1,1)$ (the unit sphere is contained in the cube $[-1,1]^3$).
-The space $\hat{\mathbb{C}}$ is homeomorphic to the usual unit sphere $S^2:=\{(x,y,z):x^2+y^2+z^2=1\}$ of $\mathbb R^3$, by means of the stereographic projection and its inverse $\hat{\mathbb{C}}\to S^2$.
-This function is regarded as a triple of predicates $x,y,z:\hat{\mathbb{C}}\to[-1,1]$ where each will map an extended complex number to its corresponding real coordinate on the cube $[-1,1]^3$.
-Now fix the cubic complex polynomial $p(s):=s^3-1$, and consider the map which performs one step in Newton's method at a particular (extended) complex number $s$, for finding a root of $p$, $\gamma_p:\hat{\mathbb{C}}\to\hat{\mathbb{C}}$.
-The explicit inner workings of $\gamma_p$ are irrelevant for this example, except for the fact that it is a continuous mapping.
-It follows that $(S^2,\{x,y,z\},\{\gamma_p^k:k\in\mathbb {N}\})$ is a CCS.
-The idea is that repeated applications of $\gamma_p(s), \gamma_p\circ\gamma_p(s), \gamma_p\circ\gamma_p\circ\gamma_p(s),\dots$ would approximate a root of $p$ provided $s$ was a good enough initial guess.
+Let $p(z)$ be a non-constant polynomial with complex coefficients. 
+Newton's method is an iterative method that is used to approximate a root of $p(z)$. 
+Define the \emph{Newton map} as:
+$$N_p(z)=z-\frac{p(z)}{p'(z)}$$
+The method consists of taking an initial guess $z_0\in\mathbb{C}$ and iterating the rational map $N_p$ to obtain a sequence given by
+$$z_{n+1}=N_p(z_n)=z_n-\frac{p(z_n)}{p'(z_n)}$$
+For each root $r\in\mathbb{C}$ of $p(z)$, there exists $\varepsilon>0$ such that for any initial guess $z_0$ in the $\varepsilon$-ball centered at $r$, Newton's iteration converges to $r$ (provided $p'(r)\neq 0$) and the convergence is quadratic in that case. 
 
-% computer scientists use colors in the range 0-255 instead
-For the same choice of $p$ in question, the limit of these functions is in fact discontinuous (thus making this a good nontrivial example of a Baire class~1 function).
+Denote by $N_p^n:=N_p\circ N_p \circ \cdots\circ N_p$ (nth iteration of $N_p$). 
+Given a root $r$ of $p(z)$, the set $B_r=\{z\in\mathbb{C}:\lim_{n\rightarrow\infty}N_p^n(z)=r\}$ is an open set called the \emph{basin} of $r$.
+However, Newton's method can fail to converge to any root for some choices of $z_0$.
+For example, consider the polynomial $p(z)=z^3-2z+2$. 
+The Newton map is given by
+$$N_p(z)=z-\frac{z^3-2z+2}{3z^2-2}=\frac{2z^3-2}{3z^2-2}$$
+Notice that taking $z_0=0$ as an initial guess will yield the sequence $0,1,0,1,0,1,\dots$ that oscillates between $0$ and $1$ but none of them are roots of $p(z)$.
+Another more chaotic way Newton's method can fail to converge is when the sequence of iterations has no convergent subsequence.
+The set of such points is known as the \emph{Julia set} associated to $N_p$ and it is typically a fractal.
 This is easiest to visualize by adding a dash of color:
-let us give each complex number $s_0$ a color $(R,G,B)$ where $R,G,B\in[0,1]$ (so that $(1,0,0)$ is red, $(0,1,0)$ is green, and $(0.5,0,0.5)$ is a light purple, for example).
-The values of $R,G$ and $B$ are determined by looking at the image of said number at each stage of the iteration, $\gamma_p^k(s_0)$, and computing the current distance to each of the cubic roots of unity (the roots of $p(s)=s^3-1$); so $R=1/d_r$ where $d_r$ is the positive distance to the root which is colored red, and so on.
+let us give each complex number $z_0$ a color $(R,G,B)$ where $R,G,B\in[0,1]$ (so that $(1,0,0)$ is red, $(0,1,0)$ is green, $(0,0,1)$ is blue and $(0.5,0,0.5)$ is a light purple, for example).
+The values of $R$, $G$ and $B$ are determined by looking at the image of said number at each stage of the iteration, $N_p^n(z_0)$, and computing the current distance to each of the roots of $p(z)$; so $R=1/d_r$ where $d_r$ is the positive distance to the root which is colored red, and so on.
 In this way, the roots themselves are colored red, green, and blue, and every other point gets a mix of the three colors.
-As the number of iterations increases, each point gets a sharper color, as the sequence of images $\{\gamma_p^k(s_0)\}_{k=1}^\infty$ converges to one of the three roots.
+As the number of iterations increases, each point gets a sharper color, as the sequence of images $\{N_p^n(z_0)\}_{n=1}^\infty$ converges to one of the three roots.
 Each stage, the complex plane looks as if out of focus because the coloring function is continuous.
-As the reader can see in Figure~\ref{fig:newton}, the limit is discontinuous, and the points at the boundary of each color class forms the famous Newton fractal (of which, interestingly, Newton was unaware).
-
-Taking the topological closure of the set of mappings $\Gamma=\{\gamma^k_p:k\in\mathbb{N}\}$ adds but a single new map given by the pointwise limit of the sequence.
-In symbols, $\overline\Gamma=\Gamma\cup\{\gamma\}$, which is a metrizable space.
-Nevertheless, $\Gamma$ is an interesting example of a subset of the space of continuous functions whose closure isn't contained in said space.
-
-\begin{figure}[htbp]
-    \centering
-    \begin{subfigure}[b]{0.32\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{newton1.png}
-        \caption{After 1 iteration}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}[b]{0.32\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{newton3.png}
-        \caption{After 3 iterations}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}[b]{0.32\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{newton100.png}
-        \caption{After 100 iterations}
-    \end{subfigure}
-
-    \caption{Newton's method approximating $p(s)=s^3-1$.}
-    \label{fig:newton}
-\end{figure}
-
-A slightly more complicated example is the polynomial $q(s)=s^3-2s+2$, which produces regions where the iterations cycle through different points forever and thus fail to converge.
-This is appreciated in Figure~\ref{fig:newton2}, where after 100 iterations, there are open sets in the complex plane that are still a mix of all three colors: a result of the lack of convergence.
-In this way, the functions $\gamma_q^k$ do not have a pointwise limit when taken as a sequence, and we must instead look at convergent subsequences.
+As the reader can see in Figure~\ref{fig:newton}, the points at the boundary of each color class form the famous Newton fractal (of which, interestingly, Newton was unaware).
 
 \begin{figure}[htbp]
     \centering
@@ -771,9 +744,106 @@ In this way, the functions $\gamma_q^k$ do not have a pointwise limit when taken
         \caption{After 100 iterations}
     \end{subfigure}
 
-    \caption{Newton's method approximating $q(s)=s^3-2s+2$. Notice the regions of divergence.}
+    \caption{Newton's method approximating $p(z)=z^3-2z+2$. Notice the regions of divergence.}
+    \label{fig:newton}
+\end{figure}
+
+Another example of a Newton's fractal is for $p(z)=z^3-1$. 
+The roots of $p(z)$ are the 3rd roots of unity and the Newton map is given by:
+
+$$N_p(z)=z-\frac{z^3-1}{3z^2}=\frac{2z^3+1}{3z^2}$$
+
+In this case, there are three basins of atraction (one for each root) and the complement of their union is the Julia set, i.e., the common boundary.
+
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{newton1.png}
+        \caption{After 1 iteration}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{newton3.png}
+        \caption{After 3 iterations}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{newton100.png}
+        \caption{After 100 iterations}
+    \end{subfigure}
+
+    \caption{Newton's method approximating $p(z)=z^3-1$.}
     \label{fig:newton2}
 \end{figure}
+
+We can frame Newton's method as a CCS (satisfying the Extendibility Axiom) as follows.
+Given a non-constant polynomial $p(z)$, let $L\subseteq\mathbb{C}$ be the complement of the Julia set (this is called the \emph{Fatou set}) associated to $N_p$.
+This is the set where Newton's method is tame.
+By Corollary 4.6 in \cite{Blanchard1984}, $L$ is open and dense in $\mathbb{C}$.
+Let $\mathcal{P}=\{P_1,P_2,P_3\}$ where the map $z\mapsto (P_1(z),P_2(z),P_3(z))$ is the stereographic projection into the Riemann Sphere $S^2$, i.e.,
+$$P_1(z)=\frac{2Re(z)}{|z|^2+1}$$
+$$P_2(z)=\frac{2Im(z)}{|z|^2+1}$$
+$$P_3(z)=\frac{|z|^2-1}{|z|^2+1}$$
+Since $L$ is dense in the extended complex plane, then $\mathcal{L}=S^2$.
+Computations are the iterations of Newton's method, i.e., $\Delta=\Gamma=\{N_p^n:n\in\mathbb{N}\}$.
+Then, $(L,\mathcal{P},\Gamma)$ is a CCS.
+Since all computations $N_p^n$ are rational maps, they can be continuously extended to the extended complex plane $\overline{\mathbb{C}}=\mathbb{C}\cup\{\infty\}$, i.e., to $\mathcal{L}$.
+In particular, $(L,\mathcal{P},\Gamma)$ satisfy the Extendibility Axiom.
+The set of deep computations $\overline{\Delta}$ might behave different for various polynomials.
+
+\begin{exmps}\label{E: newton method} The following are illustrative examples.
+    \begin{enumerate}
+        \item 
+        \textbf{Computation of square roots}. 
+        Let $a$ be a positive real number. 
+        Let $(L,\mathcal{P},\Gamma)$ be the CCS associated to the real-valued Newton's method for $p(x)=x^2-a$.
+        In other words, $L=\mathbb{R}\backslash\{0\}$ and $N_p:L\rightarrow L$ is given by $$N_p(x)=\frac{x^2+a}{2x}$$
+        $\mathcal{P}=(P_1,P_2)$ where $x\mapsto (P_1(x),P_2(x))$ is the stereographic projection into $S^1\subseteq \mathbb{R}^2$, i.e.,
+        $$P_1(x)=\frac{2x}{x^2+1}$$
+        $$P_2(x)=\frac{x^2-1}{x^2+1}$$
+        Note that $\mathcal{L}=S^1$ and that each iterate $N_p^n$ can be continuously extended to the extended real line $\mathbb{R}\cup\{\infty\}$, i.e., $\mathcal{L}$.
+        For example,
+        $$\tilde{N_p}(x)=\left\{\begin{array}{cc}
+            \frac{x^2+a}{2x}, & x\in L  \\
+            \infty, & x=0,\infty 
+        \end{array}\right.$$
+        For every initial guess $x\in L$, the limit $f(x)=\lim_{n\rightarrow\infty}N_p^n(x)$ converges pointwise to one of the roots.
+        Moreover,
+        $$f(x)=\left\{\begin{array}{cc}
+            \sqrt{a}, & x>0  \\
+            -\sqrt{a} & x<0
+        \end{array}\right.$$
+        Notice that $f$ can be extended to $\mathcal{L}$ by
+        $$\tilde{f}(x)=\left\{\begin{array}{cc}
+            \sqrt{a}, & x>0  \\
+            -\sqrt{a}, & x<0  \\
+            \infty, & x=0,\infty
+        \end{array}\right.$$
+        However, $\tilde{f}:\mathcal{L}\rightarrow\mathcal{L}$ is not continuous.
+        The set $\overline{\tilde{\Delta}}$ of deep computations is $\tilde{\Delta}\cup\{\tilde{f}\}\subseteq B_1(\mathcal{L},\mathcal{L})$.
+
+        \item 
+        \textbf{Newton's method for $p(z)=z^3-2z+2$}.
+        Let $r_1$, $r_2$ and $r_3$ be the three roots of $p(z)$.
+        Let $B_1$, $B_2$ and $B_3$ be their respective basins.
+        Let $B$ be the basin of the attractive cycle $0,1,0,1,\dots$.
+        Let $J$ be the Julia set, i.e., the complement of $B\cup\bigcup_{i=1}^3 B_i$.
+        Notice that $N_p^n$ does not converge pointwise.
+        However, the subsequences $N_p^{2n}$ and $N_p^{2n+1}$ are pointwise convergent to functions $f_1$ and $f_2$ respectively.
+        $f_1$ and $f_2$ are two distinct deep computations.
+        Note that for $z\in J$, no subsequence of $\tilde{N_p^n}(z)$ converges to a complex number.
+        However, since $\mathcal{L}=S^2$ is compact there is a subsequence of $\tilde{N_p^n}(z)$ that converges to $\infty$.
+        We can extend $f_i:L\rightarrow\mathcal{L}$ to $\tilde{f_i}:\mathcal{L}\rightarrow\mathcal{L}$ by:
+        $$\tilde{f_i}(z)=\left\{\begin{array}{cc}
+           f_i(z), & z\notin J  \\
+           \infty, & z\in J
+        \end{array}\right.$$
+        Again, note that $\tilde{f_i}$ for $i=1,2$ are not continuous and that $\tilde{f_i}\in\overline{\tilde{\Delta}}$.
+    \end{enumerate}
+\end{exmps}
 
 \subsection{Finite precision threshold classifiers}\label{subsec:finite_prec_threshold}
 
