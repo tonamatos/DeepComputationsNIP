@@ -179,16 +179,18 @@ In a metrizable space, every open set is $F_\sigma$; equivalently, every closed 
 
 A \emph{Polish space} is a separable and completely metrizable topological space, i.e., admitting some complete metric inducing its topology.
 Although other (possibly incomplete) metrics may induce the same topology, being Polish is a purely topological property.
-The most important Polish spaces is the real line~$\mathbb{R}$.
+The most important Polish space is the real line~$\mathbb{R}$.
 The class of Polish spaces is closed under countable topological products;
 in particular, the Cantor space~$2^\mathbb{N}$ (the set of all infinite binary sequences, endowed with the product topology), the Baire space $\mathbb{N}^\mathbb{N}$ (the set of all infinite sequences of naturals, also with the product topology), and the space $\mathbb{R}^\mathbb{N}$ of sequences of real numbers are all Polish.
 
-The following is an important  fact about Polish spaces. For a proof, see~\cite[4.3.24]{Engelking:1989}
+
 
 \begin{fact}
 A subset of a Polish space is itself Polish in the subspace topology if and only if it is a $G_{\delta }$ set.
 In particular, closed subsets and open subsets of Polish spaces are also Polish spaces.
 \end{fact}
+
+For a proof, see~\cite[4.3.24]{Engelking:1989}.
 
 Given two topological spaces $X$ and $Y$ we denote by $C_p(X,Y)$ the set of all continuous functions $f:X\rightarrow Y$ endowed with the topology of pointwise convergence.
 The space $C_p(X, \mathbb{R})$ of continuous real functions on~$X$ is denoted simply~$C_p(X)$.
@@ -206,8 +208,8 @@ His work moved away from the 19th-century preoccupation with ``pathological'' fu
 A topological space $X$ is \emph{perfectly normal} if it is normal and every closed subset of $X$ is a $G_\delta$ (equivalently, every open subset of $X$ is a $F_\sigma$).
 Every metrizable space (hence, every Polish space) is perfectly normal.
 
-A topological space $X$ is \emph{Baire} if every countable intersection of dense open sets is non-empty.
-The Baire Category Theorem states that every completely metrizable space (hence, every Polish space) is Baire in the sense above.
+A topological space $X$ is \emph{Baire} if every countable intersection of dense open sets is dense.
+The Baire Category Theorem states that every completely metrizable space (hence, every Polish space) is Baire.
 
 The following fact was established by Baire in his 1899 thesis.
 A proof can be found in~\cite[Section 10]{Todorcevic_1997_TopicsTop}.
@@ -233,7 +235,7 @@ A proof can be found in~\cite[Section 10]{Todorcevic_1997_TopicsTop}.
 \end{fact}
 
 A subset $L$ of a topological space $X$ is \emph{relatively compact} in $X$ if the closure of $L$ in $X$ is compact.
-Relatively compact subsets of $B_1(X)$ (for $X$ Polish) have been objects of interest for researchers in Analysis and Topological Dynamics.
+Relatively compact subsets of $B_1(X)$ (for $X$ Polish) are of interest analysis and topological dynamics.
 We begin with the following well-known result.
 Recall that a set $A\subseteq\mathbb{R}^X$ of real-valued functions is \emph{pointwise bounded} if for every $x\in X$ there is $M_x \ge 0$ (a \emph{pointwise bound at~$x$}) such that $|f(x)| \le M_x$ for all $f\in A$.
 We include a proof for the reader's convenience:
@@ -289,14 +291,12 @@ The following theorem, proved by Haskell Rosenthal in 1974, is fundamental in fu
     If $X$ is Polish and $\{f_n\}\subseteq C_p(X)$ is pointwise bounded, then $\{f_n\}_{n\in\mathbb{N}}$ has a convergent subsequence, or a subsequence whose closure in $\mathbb{R}^X$ is homeomorphic to~$\beta\mathbb{N}$.
 \end{thm}
 
-In other words, a pointwise bounded set of continuous functions contains either a convergent subsequence, or a subsequence whose closure is essentially the same as the example mentioned in the previous paragraphs (i.e., ``wildest'' possible).
-
-The genesis of Theorem~\ref{T:Rosenthal} was Rosenthal's ``$\ell_1$-Theorem'', which states that a Banach space includes an isomorphic copy of $\ell_1$ (the space of absolutely summable sequences), or else every bounded sequence therein is weakly Cauchy.
+Rosenthal's Dichotomy states that a pointwise bounded set of continuous functions contains either a convergent subsequence, or a subsequence whose closure is essentially the same as the example mentioned in the previous paragraphs (i.e., ``wildest'' possible). The genesis of this theorem was Rosenthal's ``$\ell_1$-Theorem'', which states that a Banach space includes an isomorphic copy of $\ell_1$ (the space of absolutely summable sequences), or else every bounded sequence therein is weakly Cauchy.
 The $\ell_1$-Theorem connects diverse areas:
 Banach space geometry, Ramsey theory, set theory, and topology of function spaces.
 
 As we move from $C_p(X)$ to the larger space $B_1(X)$, a dichotomy paralleling the $\ell_1$-Theorem holds:
-Either every point of the closure of a set of functions is a Baire class-1 function, or there is a sequence in the set behaving in the wildest possible way.
+Either every point of the closure of a set of functions is a Baire class~1 function, or there is a sequence in the set behaving in the wildest possible way.
 This result  is usually not phrased as a dichotomy, but rather as an equivalence as in Theorem~\ref{BFT} below.
 
 First, we introduce some useful notation.
