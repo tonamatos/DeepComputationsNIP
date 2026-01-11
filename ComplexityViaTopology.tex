@@ -297,7 +297,7 @@ Banach space geometry, Ramsey theory, set theory, and topology of function space
 
 As we move from $C_p(X)$ to the larger space $B_1(X)$, a dichotomy paralleling the $\ell_1$-Theorem holds:
 Either every point of the closure of a set of functions is a Baire class-1 function, or there is a sequence in the set behaving in the wildest possible way.
-Such theorem is usually not phrased as a dichotomy, but rather as an equivalence as in Theorem~\ref{BFT} below.
+This result  is usually not phrased as a dichotomy, but rather as an equivalence as in Theorem~\ref{BFT} below.
 
 First, we introduce some useful notation.
 For any set $A\subseteq \mathbb{R}^X$ and any real $a$, define
@@ -357,7 +357,7 @@ Unless otherwise unspecified, IP/NIP shall mean \emph{finitary} IP/NIP hencefort
 \end{proof}
 \begin{thm}
 \label{BFT2}
-    Let $X$ be a compact Polish space.
+    Let $X$ be a metrizable compact (hence Polish) space.
 For every pointwise bounded  $A\subseteq C_p(X)$, the following properties are all equivalent:
         \begin{enumerate}[(i)]
         \item $A$ is relatively compact in~$B_1(X)$;
@@ -580,7 +580,7 @@ Elements of $\mathcal{L}\setminus L$ will be called \emph{unrealized types}.
 Intuitively, state types capture a notion of ``ultrastate''.
 
 The traditional setting of discrete first-order logic may be regarded as the special case in which predicates are binary (such predicates may take only the values $0$ and $1$, say).
-In such traditional setting, the space of types of a structure is necessarily compact;
+In such a traditional setting, the space of types of a structure is necessarily compact;
 for some purposes, it serves as a sort of compactification of the structure itself.
 Compactness in such setting is critical.
 However, predicates of a computational states structure take values in the non-compact space~$\mathbb{R}$, so the corresponding type space $\mathcal{L}$ need not be compact.
@@ -863,7 +863,7 @@ The complexity of threshold classification comes from \emph{width}: the semigrou
 
 Before we discuss the deep computations of this CCS, let us describe its type-shards and the Extendibility Axiom.
 For any sizer $r_\bullet$ with $r_\bullet\geq 1$, the shard $L[r_\bullet]$ is all of $L$.
-It is worth pointing out that if we topologize $L$ as the as the standard subspace $[0,1]$ of $\mathbb{R}$, these maps are no longer continuous, and the axiom fails.
+It is worth pointing out that if we topologize $L$ as the standard subspace $[0,1]$ of $\mathbb{R}$, these maps are no longer continuous, and the axiom fails.
 In the product topology of $L=2^\mathbb{N}$, the set of sequences starting with a specific prefix is clopen (closed and open), making threshold classifiers locally constant, and hence continuous.
 The free extension $\tilde\phi_w$ of $\phi_w$ is simply $\phi_w$ itself.
 Therefore, the Extendibility Axiom is satisfied.
