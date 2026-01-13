@@ -1042,6 +1042,8 @@ We thus have the following classification:
 \end{tikzpicture}
 \end{center}
 
+The following examples show that the levels NIP$_i$ ($i=1,2,3$) may be distinguished by the topological complexity of deep computations.
+
 \begin{exmps}
 \label{E: NIP levels}
 \hfill
@@ -1049,6 +1051,10 @@ We thus have the following classification:
     \item Let $(L,\mathcal{P},\Gamma)$ be the computation of square root (example \ref{E: newton method}(1)) with $\Delta=\Gamma$. 
     We saw that $\overline{\tilde{\Delta}}=\tilde{\Delta}\cup\{\tilde{f}\}\subseteq B_1(\mathcal{L},\mathcal{L})$.
     This corresponds to the Alexandroff compactification of a countable discrete set, which is metrizable. Hence, $\Delta$ is NIP$_3$ but it is not stable, in the sense that $\overline{\tilde{\Delta}}\not\subseteq C(\mathcal{L},\mathcal{L})$.
+
+    \item Let $(L,\mathcal{P},\Gamma)$ be the finite precision threshold classifiers (Section~\ref{subsec:finite_prec_threshold}) with $\Delta=\Gamma$.
+    We saw that $\overline{\tilde{\Delta}}$ is homeomorphic to the Split Cantor space $S(2^\mathbb{N})$ (Example \ref{E:Rosenthal comacta}(3)), which is hereditarily separable but not metrizable.
+    Hence, $\Delta$ is NIP$_2$ but not NIP$_3$.
 \end{enumerate}
 \end{exmps}
 
