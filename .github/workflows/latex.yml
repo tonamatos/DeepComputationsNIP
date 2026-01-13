@@ -29,11 +29,6 @@ jobs:
         with:
           root_file: ComplexityViaTopology.tex
 
-      - name: Compile LaTeX document
-        uses: xu-cheng/latex-action@v3
-        with:
-          root_file: ComplexityViaTopology.tex
-
       - name: Prepare Deployment Folder
         run: |
           mkdir public
