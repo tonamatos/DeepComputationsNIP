@@ -1017,10 +1017,22 @@ That every deep computation is a pointwise limit of a countable sequence of comp
 
 \subsection{The Todorčević trichotomy and levels of PAC learnability}
 
+In this subsection we study the case when the set of deep computations is a separable Rosenthal compactum. We are interested in the separable case for two reasons:
+
+\begin{enumerate}
+    \item 
+    In practice, the set $\Delta$ of computations is countable. 
+    This implies that the set $\overline{\Delta}$ of deep computations is separable.
+
+    \item 
+    The non-separable case lacks some tools and nice examples, which makes their study more complicated. 
+    In the separable case we have two important results, which are introduced in this subsection (Todorčević's Trichotomy) and the next subsection (Argyros-Dodos-Kanellopoulos heptachotomy). 
+    By introducing Todorčević's Trichotomy into this framework, we obtain a classification of the complexity of deep computations.
+\end{enumerate}
+
 Given a countable set $\Delta$ of computations satisfying the NIP on features and shards (condition (ii) of Theorem \ref{nip-baire1def}) we have that $\overline{\tilde\Delta_{\mathcal{L}[r_\bullet]}}$ (for a fixed sizer $r_\bullet$) is a separable \textit{Rosenthal compactum} (see Definition~\ref{D:Rosenthal compacta}).
 Todorčević\ proved a remarkable trichotomy for Rosenthal compacta~\cite{Todorcevic_1999_CompactSubsetsBaire}, and later Argyros, Dodos, Kanellopoulos~\cite{argyros2008rosenthal} proved an heptachotomy that refined Todorčević's classification.
 In this section, inspired by the work of Glasner and Megrelishvili~\cite{glasner2022tame}, we study ways in which this classification allows us to obtain different levels of PAC-learnability and NIP.
-
 
 Recall that a topological space $X$ is \emph{hereditarily separable} if every subspace is separable, and that $X$ is \emph{first countable} if every point in $X$ has a countable local basis.
 Every separable metrizable space is hereditarily separable, and R.
@@ -1042,7 +1054,6 @@ We say that $\Delta$ is:
 \end{defn}
 
 Observe that NIP$_3 \Rightarrow $NIP$_2\Rightarrow $NIP$_1\Rightarrow $NIP.
-A natural question that would continue this work is to find examples of CCS that separate these levels of NIP.
 In \cite{Todorcevic_1999_CompactSubsetsBaire}, Todorčević isolates three canonical examples of Rosenthal compacta that witness the failure of the converse implications above.
 
 
@@ -1062,7 +1073,9 @@ Notice that this space is also not separable.
     \item \emph{Extended Alexandroff compactification}.
 For each finite binary sequence $s\in 2^{<\mathbb{N}}$, let $v_s:2^\mathbb{N}\rightarrow\mathbb{R}$ be given by $v_s(x)=1$ if $x$ extends $s$ and $v_s(x)=0$ otherwise.
 Let $\hat{A}(2^\mathbb{N})$ be the pointwise closure of $\{v_s:s\in2^{<\mathbb{N}}\}$, i.e., $\hat{A}(2^\mathbb{N})=A(2^\mathbb{N})\cup\{v_s:s\in 2^{<\mathbb{N}}\}$.
-Note that this space is a separable Rosenthal compactum which is not first countable.
+Note that this space is a separable Rosenthal compactum which is not first countable. 
+This is the example discussed in Section \ref{subsec: prefix test}. 
+It is an example of a CCS that is NIP but not NIP$_1$.
     \item \emph{Split Cantor}.
 Let $<$ be the lexicographic order in the space of infinite binary sequences, i.e., $2^\mathbb{N}$.
 For each $a\in 2^\mathbb{N}$ let $f_a^-:2^\mathbb{N}\rightarrow\mathbb{R}$ be given by $f_a^-(x)=1$ if $x<a$ and $f_a^-(x)=0$ otherwise.
@@ -1139,19 +1152,24 @@ We thus have the following classification:
 \end{tikzpicture}
 \end{center}
 
+Todorčević's Trichotomy suggests that in order to distinguish the classes NIP$_i$, the examples in \ref{E:Rosenthal comacta} are essential.
 The following examples show that the levels NIP$_i$ ($i=1,2,3$) may be distinguished by the topological complexity of deep computations.
 
 \begin{exmps}
 \label{E: NIP levels}
 \hfill
 \begin{enumerate}
-    \item Let $(L,\mathcal{P},\Gamma)$ be the computation of square root (example \ref{E: newton method}(1)) with $\Delta=\Gamma$. 
+    \item Let $(L,\mathcal{P},\Gamma)$ be the computation of square root (example \ref{E: computation of square roots} with $\Delta=\Gamma$. 
     We saw that $\overline{\tilde{\Delta}}=\tilde{\Delta}\cup\{\tilde{f}\}\subseteq B_1(\mathcal{L},\mathcal{L})$.
     This corresponds to the Alexandroff compactification of a countable discrete set, which is metrizable. Hence, $\Delta$ is NIP$_3$ but it is not stable, in the sense that $\overline{\tilde{\Delta}}\not\subseteq C(\mathcal{L},\mathcal{L})$.
 
-    \item Let $(L,\mathcal{P},\Gamma)$ be the finite precision threshold classifiers (Section~\ref{subsec:finite_prec_threshold}) with $\Delta=\Gamma$.
-    We saw that $\overline{\tilde{\Delta}}$ is homeomorphic to the Split Cantor space $S(2^\mathbb{N})$ (Example \ref{E:Rosenthal comacta}(3)), which is hereditarily separable but not metrizable.
+    \item Let $(L,\mathcal{P},\Gamma)$ be the finite precision threshold classifiers (Section~\ref{subsec:finite_prec_threshold}) with $\Delta=\{\phi_w:w\in 2^{<\mathbb{N}}\}\cup\{\mathbf{0^\infty},\mathbf{1^\infty}\}$.
+    We saw that $\overline{\Delta}$ is homeomorphic to the Split Cantor space $S(2^\mathbb{N})$ (Example \ref{E:Rosenthal comacta}(3)), which is hereditarily separable but not metrizable.
     Hence, $\Delta$ is NIP$_2$ but not NIP$_3$.
+
+    \item Let $(L,\mathcal{P},\Gamma)$ be the finite precision prefix test (Section~\ref{subsec: prefix test}) with $\Delta=\{\psi_w:w\in 2^{<\mathbb{N}}\}$.
+    We saw that $\overline{\tilde{\Delta}}$ is homeomorphic to the Extended Alexandroff compactification $\hat{A}(2^\mathbb{N})$ (Example \ref{E:Rosenthal comacta}(3)), which is separable but not first countable.
+    Hence, $\Delta$ is NIP but not NIP$_1$.
 \end{enumerate}
 \end{exmps}
 
@@ -1223,6 +1241,11 @@ This is discrete in $\overline{D_7}=\hat{D}(S(2^{\mathbb{N}}))$
 For every relatively compact $\{f_{t}:t\in 2^{<\mathbb{N}}\}\subseteq B_1(X)$, there exists $i=1,2,\dots, 7$ and a regular dyadic subtree $\{s_t:t\in 2^{<\mathbb{N}}\}$ of $2^{<\mathbb{N}}$ such that $\{f_{s_t}:t\in 2^{<\mathbb{N}}\}$ is equivalent to $D_i$.
 Moreover, all $D_i$ are minimal and mutually non-equivalent.
 \end{thm}
+
+The implications of this result for deep computations is the following: for any countable set of computations $\Delta$ satisfying the NIP (for some CCS $(L,\mathcal{P},\Gamma)$), we can always find a countable discrete set of deep computations that approximate all the other deep computations.
+For example: in the finite precision prefix test example (subsection \ref{subsec: prefix test}), the prefix test computations (family $D_5$) approximate all other deep computations.
+However, note that this discrete set $D_i$ may not consist of continuous functions (i.e., they will not be computable in general).
+For example, functions in $D_3$ are not continuous.
 
 \section{Measure-theoretic versions of NIP and universal Monte Carlo computability of deep computations}
 \label{Measure-theoretic NIP}
