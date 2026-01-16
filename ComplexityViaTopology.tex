@@ -704,7 +704,7 @@ Define the \emph{Newton map} as:
 $$N_p(z)=z-\frac{p(z)}{p'(z)}$$
 The method consists of taking an initial guess $z_0\in\mathbb{C}$ and iterating the rational map $N_p$ to obtain a sequence given by
 $$z_{n+1}=N_p(z_n)=z_n-\frac{p(z_n)}{p'(z_n)}$$
-For each root $r\in\mathbb{C}$ of $p(z)$, there exists $\varepsilon>0$ such that for any initial guess $z_0$ in the $\varepsilon$-ball centered at $r$, Newton's iteration converges to $r$ (provided $p'(r)\neq 0$) and the convergence is quadratic in that case. 
+For each root $r\in\mathbb{C}$ of $p(z)$, there exists $\varepsilon>0$ such that for any initial guess $z_0$ in the $\varepsilon$-ball centered at $r$, Newton's iteration converges to $r$ (provided $p'(r)\neq 0$) and the convergence is quadratic in that case, meaning the error at each step is roughly squared, causing the number of correct digits to double, leading to fast convergence. 
 
 Denote by $N_p^n:=N_p\circ N_p \circ \cdots\circ N_p$ (nth iteration of $N_p$). 
 Given a root $r$ of $p(z)$, the set $B_r=\{z\in\mathbb{C}:\lim_{n\rightarrow\infty}N_p^n(z)=r\}$ is an open set called the \emph{basin} of $r$.
@@ -752,7 +752,7 @@ The roots of $p(z)$ are the 3rd roots of unity and the Newton map is given by:
 
 $$N_p(z)=z-\frac{z^3-1}{3z^2}=\frac{2z^3+1}{3z^2}$$
 
-In this case, there are three basins of atraction (one for each root) and the complement of their union is the Julia set, i.e., the common boundary.
+In this case, there are three basins of attraction (one for each root) and the complement of their union is the Julia set, i.e., the common boundary.
 
 \begin{figure}[htbp]
     \centering
@@ -781,7 +781,7 @@ In this case, there are three basins of atraction (one for each root) and the co
 We can frame Newton's method as a CCS (satisfying the Extendibility Axiom) as follows.
 Given a non-constant polynomial $p(z)$, let $L\subseteq\mathbb{C}$ be the complement of the Julia set (this is called the \emph{Fatou set}) associated to $N_p$.
 This is the set where Newton's method is tame.
-By Corollary 4.6 in \cite{Blanchard1984}, $L$ is open and dense in $\mathbb{C}$.
+By~\cite[Corollary 4.6]{Blanchard1984}, $L$ is open and dense in $\mathbb{C}$.
 Let $\mathcal{P}=\{P_1,P_2,P_3\}$ where the map $z\mapsto (P_1(z),P_2(z),P_3(z))$ is the stereographic projection into the Riemann Sphere $S^2$, i.e.,
 $$P_1(z)=\frac{2{\rm Re}(z)}{|z|^2+1}$$
 $$P_2(z)=\frac{2{\rm Im}(z)}{|z|^2+1}$$
