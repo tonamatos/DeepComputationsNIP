@@ -1246,15 +1246,14 @@ For example: in the finite precision prefix test example (subsection \ref{subsec
 However, note that this discrete set $D_i$ may not consist of continuous functions (i.e., they will not be computable in general).
 For example, functions in $D_3$ are not continuous.
 
-\section{Measure-theoretic versions of NIP and universal Monte Carlo computability of deep computations}
+\section{Probabilistic versions of NIP}
 \label{Measure-theoretic NIP}
 
-
-In this section, we replace deterministic computability by measure-theoretic (`Monte Carlo') computability.
+In this section, we replace deterministic computability by probabilistic (`Monte Carlo') computability.
 We do not assume that $\mathcal{P}$ is countable.
 (The countability assumption on $\mathcal{P}$ played a crucial role in the proof of Theorem \ref{Generalized BFT} , as it makes $\mathbb{R}^\mathcal{P}$ a Polish space.)
 
-\subsection{A measure-theoretic version of NIP}
+\subsection{Universal Monte Carlo computability of deep computations}
 
 The \emph{raison d'être} of the Baire class-1 functions is to work with a small class that contains the continuous functions and their pointwise limits, and that for perfectly normal $X$, a function $f$ is in $B_1(X,Y)$ if and only if $f^{-1}[U]$ is an $F_\sigma$ subset of $X$ for every open $U\subseteq Y$ (see Fact~\ref{baire}).
 This motivates the following definition:
@@ -1310,23 +1309,6 @@ This is the same as in the Baire class-1 case (compare with Proposition~\ref{pro
 We will denote by $M_r(X,\mathbb{R}^\mathcal{P})$ the collection of all universally measurable functions $f:X\rightarrow\mathbb{R}^\mathcal{P}$ (with respect to the cylinder $\sigma$-algebra), endowed with the topology of pointwise convergence.
 
 The main result in section \ref{S:Classification} is that, whenever we work with countably many features, PAC-learning (or NIP) corresponds to relative compactness in the space of Baire class-1 functions.
-The following measure-theoretic characterization of the NIP will lead us to find other connections between topology of function spaces and Monte Carlo computability (see the next section):
-
-\begin{thm}[Bourgain-Fremlin-Talagrand, Theorem 2F in \cite{BFT_1978_PCompactBaire}]\label{BFT-2F}
-    Let $X$ be a Hausdorff space and $A\subseteq C(X)$ be pointwise bounded.
-The following are equivalent:
-    \begin{enumerate}[(i)]
-        \item
-        $\overline{A}\subseteq M_r(X)$.
-        \item 
-        For every compact $K\subseteq X$, $A|_K$ satisfies the NIP.
-        \item
-        For every Radon measure $\mu$ on $X$, $A$ is relatively countably compact in $\mathscr{M}^0(X,\mu)$, i.e., every countable subset of $A$ has an accumulation point in $\mathscr{M}^0(X,\mu)$.
-    \end{enumerate}
-\end{thm}
-
-
-\subsection{Universal Monte Carlo computability of deep computations}% delete this and move contents before BFT-2F
 
 We now formalize the concept of a deep computation being computable except on a set of arbitrarily small measure ``no matter which reasonable way you try to measure things on its domain" (see the remarks following definition~\ref{D:universal measurability}).
 This is the concept of \emph{universal Monte Carlo computability} defined below (Definition~\ref{D:universally essentially computable}).
@@ -1342,9 +1324,7 @@ Computability of deep computations is characterized in terms of continuous exten
 This is at the core of~\cite{alva2024approximability}.
 \end{enumerate}
 
-
 These two facts motivate the following definition:
-
 
 \begin{defn}
 \label{D:universally essentially computable}
@@ -1356,6 +1336,24 @@ We say that a transition $f:L\rightarrow L$ is \emph{universally Monte Carlo com
     Every Radon measure on a compact space (e.g., $\mathcal{L}_{\text{sh}}$) is finite; hence, by proper normalization, it can be treated as a probability measure.
     For this reason, we shall use the term ``Radon probability measure'' instead of ``Radon measure'' in definition \ref{D:universally essentially computable}.
 \end{rem}
+
+The following probabilistic characterization of the NIP will lead us to find other connections between topology of function spaces and Monte Carlo computability (see the next section).
+
+\begin{thm}[Bourgain-Fremlin-Talagrand, Theorem 2F in \cite{BFT_1978_PCompactBaire}]\label{BFT-2F}
+    Let $X$ be a Hausdorff space and $A\subseteq C(X)$ be pointwise bounded.
+The following are equivalent:
+    \begin{enumerate}[(i)]
+        \item
+        $\overline{A}\subseteq M_r(X)$.
+        \item 
+        For every compact $K\subseteq X$, $A|_K$ satisfies the NIP.
+        \item
+        For every Radon measure $\mu$ on $X$, $A$ is relatively countably compact in $\mathscr{M}^0(X,\mu)$, i.e., every countable subset of $A$ has an accumulation point in $\mathscr{M}^0(X,\mu)$.
+    \end{enumerate}
+\end{thm}
+
+
+%\subsection{Universal Monte Carlo computability of deep computations}% delete this and move contents before BFT-2F
 
 \subsection{Bourgain-Fremlin-Talagrand, NIP, and universal Monte Carlo computability of deep computations}
 
