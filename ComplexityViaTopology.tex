@@ -117,7 +117,7 @@ The formal framework introduced here  provides a unified setting to study these 
 Informed by model theory, to each computation in a given computation model, we associate a continuous real-valued function, called the \emph{type} of the computation, that describes the logical properties of this computation with respect to the rest of the model.
 This allows us to view computations in any given computational model as elements of a space of real-valued functions, which is called the \emph{space of types} of the model.
 The idea of embedding models of theories into their type spaces is central in model theory.
-In the context of this paper, the embedding of computations into spaces of types allows us to utilize the vast theory of topology of function spaces, known as $C_p$-theory, to obtain results about complexity of topological limits of computations.
+In the context of this paper, the embedding of computations into spaces of types allows us to utilize the vast theory of topology of function spaces, known as \emph{$C_p$-theory}, to obtain results about complexity of topological limits of computations.
 As we shall indicate next, recent classification results for spaces of functions provide an elegant and powerful machinery to classify computations according to their levels of ``tameness’’ or ``wildness’’, with the former corresponding roughly to polynomial approximability and the latter to exponential approximability.
 The viewpoint of spaces of types, which we have borrowed from model theory, thus becomes a ``Rosetta stone’’ that allows us to interconnect various classification programs: In topology, the classification of Rosenthal compacta pioneered by Todorčević~\cite{Todorcevic_1999_CompactSubsetsBaire}; in logic, the classification of theories developed by Shelah~\cite{Shelah:1990}; and in statistical learning, the notions of PAC learning and VC dimension pioneered by Vapnik and Chervonenkis~\cite{Vapnik-Chervonenkis:1974, Vapnik-Chervonenkis:1971}.
 
@@ -209,7 +209,7 @@ A topological space $X$ is \emph{perfectly normal} if it is normal and every clo
 Every metrizable space (hence, every Polish space) is perfectly normal.
 
 A topological space $X$ is \emph{Baire} if every countable intersection of dense open sets is dense.
-The Baire Category Theorem states that every completely metrizable space (hence, every Polish space) is Baire.
+The Baire Category Theorem states that every Hausdorff compact or completely metrizable space (hence, every Polish space) is Baire.
 
 The following fact was established by Baire in his 1899 thesis.
 A proof can be found in~\cite[Section 10]{Todorcevic_1997_TopicsTop}.
@@ -220,7 +220,7 @@ A proof can be found in~\cite[Section 10]{Todorcevic_1997_TopicsTop}.
         \item[(1)] $f$ is a Baire class~1 function, that is, $f$ is a pointwise limit of continuous functions.
         \item[(2)] $f^{-1}[U]$ is an $F_\sigma$ subset of $X$ whenever $U\subseteq Y$ is open.
     \end{itemize}
-    If $X$ is Baire, then (1) and (2) are equivalent to:
+    If, mooreover, $X$ is Baire, then (1) and (2) are equivalent to:
     \begin{itemize}
         \item[(3)] For every closed $F\subseteq X$, the restriction $f|_F$ has a point of continuity.
     \end{itemize}
