@@ -715,7 +715,7 @@ $$N_p(z)=z-\frac{z^3-2z+2}{3z^2-2}=\frac{2z^3-2}{3z^2-2}$$
 Notice that taking $z_0=0$ as an initial guess will yield the sequence $0,1,0,1,0,1,\dots$ that oscillates between $0$ and $1$ but none of them are roots of $p(z)$.
 Another more chaotic way Newton's method can fail to converge is when the sequence of iterations has no convergent subsequence.
 The set of such points is known as the \emph{Julia set} associated to $N_p$ and it is typically a fractal.
-This is easiest to visualize by adding a dash of color:
+This can be visualizaed by adding a dash of color:
 let us give each complex number $z_0$ a color $(R,G,B)$ where $R,G,B\in[0,1]$ (so that $(1,0,0)$ is red, $(0,1,0)$ is green, $(0,0,1)$ is blue and $(0.5,0,0.5)$ is a light purple, for example).
 The values of $R$, $G$ and $B$ are determined by looking at the image of said number at each stage of the iteration, $N_p^n(z_0)$, and computing the current distance to each of the roots of $p(z)$; so $R=1/d_r$ where $d_r$ is the positive distance to the root which is colored red, and so on.
 In this way, the roots themselves are colored red, green, and blue, and every other point gets a mix of the three colors.
@@ -783,9 +783,9 @@ Given a non-constant polynomial $p(z)$, let $L\subseteq\mathbb{C}$ be the comple
 This is the set where Newton's method is tame.
 By~\cite[Corollary 4.6]{Blanchard1984}, $L$ is open and dense in $\mathbb{C}$.
 Let $\mathcal{P}=\{P_1,P_2,P_3\}$ where the map $z\mapsto (P_1(z),P_2(z),P_3(z))$ is the stereographic projection into the Riemann Sphere $S^2$, i.e.,
-$$P_1(z)=\frac{2{\rm Re}(z)}{|z|^2+1}$$
-$$P_2(z)=\frac{2{\rm Im}(z)}{|z|^2+1}$$
-$$P_3(z)=\frac{|z|^2-1}{|z|^2+1}$$
+$$P_1(z)=\frac{2{\rm Re}(z)}{|z|^2+1},$$
+$$P_2(z)=\frac{2{\rm Im}(z)}{|z|^2+1},$$
+$$P_3(z)=\frac{|z|^2-1}{|z|^2+1}.$$
 Since $L$ is dense in the extended complex plane, then $\mathcal{L}=S^2$.
 Computations are the iterations of Newton's method, i.e., $\Delta=\Gamma=\{N_p^n:n\in\mathbb{N}\}$.
 Then, $(L,\mathcal{P},\Gamma)$ is a CCS.
@@ -799,14 +799,14 @@ Let us look at various examples:
         Let $a$ be a positive real number and $p(x)=x^2-a$. 
         Let $L=\mathbb{R}\backslash\{0\}$.
         Let $\mathcal{P}=(P_1,P_2)$ where $x\mapsto (P_1(x),P_2(x))$ is the stereographic projection into $S^1\subseteq \mathbb{R}^2$, i.e.,
-        $$P_1(x)=\frac{2x}{x^2+1}$$
-        $$P_2(x)=\frac{x^2-1}{x^2+1}$$
-        The Newton's method map $N_p:L\rightarrow L$ is given by $$N_p(x)=\frac{x^2+a}{2x}$$
+        $$P_1(x)=\frac{2x}{x^2+1},$$
+        $$P_2(x)=\frac{x^2-1}{x^2+1}.$$
+        The Newton's method map $N_p:L\rightarrow L$ is given by $$N_p(x)=\frac{x^2+a}{2x}.$$
         Note that $\mathcal{L}=S^1$ and that each iterate $N_p^n$ can be continuously extended to the extended real line $\mathbb{R}\cup\{\infty\}$, i.e., $\mathcal{L}$.
         For example,
         $$\tilde{N_p}(x)=\left\{\begin{array}{cc}
             \frac{x^2+a}{2x}, & x\in L  \\
-            \infty, & x=0,\infty 
+            \infty, & x=0,\infty
         \end{array}\right.$$
         For every initial guess $x\in L$, the limit $f(x)=\lim_{n\rightarrow\infty}N_p^n(x)$ converges pointwise to one of the roots.
         Moreover,
