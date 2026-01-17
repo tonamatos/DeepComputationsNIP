@@ -804,22 +804,22 @@ Let us look at various examples:
         The Newton's method map $N_p:L\rightarrow L$ is given by $$N_p(x)=\frac{x^2+a}{2x}.$$
         Note that $\mathcal{L}=S^1$ and that each iterate $N_p^n$ can be continuously extended to the extended real line $\mathbb{R}\cup\{\infty\}$, i.e., $\mathcal{L}$.
         For example,
-        $$\tilde{N_p}(x)=\left\{\begin{cases}{cc}
-            \frac{x^2+a}{2x}, & x\in L  \\
-            \infty, & x=0,\infty
-        \end{cases}\right.$$
+        $$\tilde{N_p}(x)=\begin{cases}
+            \frac{x^2+a}{2x}, & \text{if }x\in L;\\
+            \infty, & \text{if }x=0,\infty.
+        \end{cases}$$
         For every initial guess $x\in L$, the limit $f(x)=\lim_{n\rightarrow\infty}N_p^n(x)$ converges pointwise to one of the roots.
         Moreover,
-        $$f(x)=\left\{\begin{cases}{cc}
-            \sqrt{a}, & x>0  \\
-            -\sqrt{a} & x<0
-        \end{cases}\right.$$
+        $$f(x)=\begin{cases}
+            \sqrt{a}, & \text{if }x>0;\\
+            -\sqrt{a}, & \text{if }x<0.
+        \end{cases}$$
         Notice that $f$ can be extended to $\mathcal{L}$ by
-        $$\tilde{f}(x)=\left\{\begin{cases}{cc}
-            \sqrt{a}, & x>0  \\
-            -\sqrt{a}, & x<0  \\
-            \infty, & x=0,\infty
-        \end{cases}\right.$$
+        $$\tilde{f}(x)=\begin{cases}
+            \sqrt{a}, & \text{if }x>0;\\
+            -\sqrt{a}, & \text{if }x<0;\\
+            \infty, & \text{if }x=0,\infty.
+        \end{cases}$$
         However, $\tilde{f}:\mathcal{L}\rightarrow\mathcal{L}$ is not continuous.
         The set $\overline{\tilde{\Delta}}$ of deep computations is $\tilde{\Delta}\cup\{\tilde{f}\}\subseteq B_1(\mathcal{L},\mathcal{L})$.
 \end{exmp}
@@ -837,8 +837,8 @@ Let us look at various examples:
         However, since $\mathcal{L}=S^2$ is compact there is a subsequence of $\tilde{N_p^n}(z)$ that converges to $\infty$.
         We can extend $f_i:L\rightarrow\mathcal{L}$ to $\tilde{f_i}:\mathcal{L}\rightarrow\mathcal{L}$ by:
         $$\tilde{f_i}(z)=\begin{cases}
-           f_i(z), & z\in L  \\
-           \infty, & z\in J
+           f_i(z), & \text{if }z\in L;\\
+           \infty, & \text{if }z\in J.
         \end{cases}.$$
         Again, note that $\tilde{f_i}$ for $i=1,2$ are not continuous and that $\tilde{f_i}\in\overline{\tilde{\Delta}}$.
 \end{exmp}
@@ -852,7 +852,7 @@ Notice that $L\subseteq\mathbb{R}^{\mathcal{P}}$ is closed.
 Therefore, $\mathcal{L}=L$.
 We denote by $0^\infty$ the infinite binary sequence consisting of $0$s, and by $1^\infty$ the infinite binary sequence consisting of $1$s.
 The set of finite binary strings is denoted by $2^{<\mathbb{N}}$.
-Given a finite binary string $w$, we consider the transition $\phi_w:L\to L$ given by the rule $$\phi_w(x)=\begin{cases}1^\infty, & x|_{|w|}\leq_{\mathrm{lex}}w\\0^\infty, & \text{otherwise}\end{cases},$$ where $|w|$ is the length of the string $w$ and $x|_{|w|}$ is the prefix of $x$ of length $|w|$.
+Given a finite binary string $w$, we consider the transition $\phi_w:L\to L$ given by the rule $$\phi_w(x)=\begin{cases}1^\infty, & \text{if }x|_{|w|}\leq_{\mathrm{lex}}w;\\0^\infty, & \text{otherwise};\end{cases}$$ where $|w|$ is the length of the string $w$ and $x|_{|w|}$ is the prefix of $x$ of length $|w|$.
 That is, $\phi_w(x)$ is equal to the constant sequence of ones if $x|_{|w|}$ comes before or is equal to $w$ in the lexicographic order of strings, and it is equal to the constant sequence of zeros otherwise.
 In words, $\phi_w$ checks if a number is less than or equal to the scalar value of threshold $w$ (the string $w$ is finite, hence the classifier has \emph{finite precision}).
 Note that $P_n\circ\phi_w(x)=1$ if and only if $x|_{|w|}$ comes before $w$.
@@ -864,9 +864,9 @@ Note that $P_n\circ\phi_w(x)=1$ if and only if $x|_{|w|}$ comes before $w$.
 \begin{proof}
     It suffices to prove that $P_n\circ\phi_w:2^{\mathbb{N}}\rightarrow \{0,1\}$ is continuous for all $n\in\mathbb{N}$. For simplicity, let us call $f:=P_n\circ \phi_w$, i.e.,
     $$f(x)=\begin{cases}
-        1, & x|_{|w|}\leq_{\mathrm{lex}} w \\
-        0, & \text{otherwise}
-    \end{cases}.$$
+        1, & \text{if }x|_{|w|}\leq_{\mathrm{lex}} w;\\
+        0, & \text{otherwise}.
+    \end{cases}$$
     We first prove that $f^{-1}(1)=\{x\in 2^{\mathbb{N}}:x|_{|w|}\leq_{\mathrm{lex}} w\}$ is an open set. Fix $x_0\in f^{-1}(1)$. Let $t:=x_0|_{|w|}$ and consider the basic open set $[t]=\{x\in 2^{\mathbb{N}}:x|_{|t|}=t\}$. Then, it is not difficult to check that $x_0\in [t]\subseteq f^{-1}(1)$. The same reasoning shows that $f^{-1}(0)$ is open.
 \end{proof}
 
@@ -936,7 +936,7 @@ In this subsection we present another example of a CCS with a more complicated s
 Let $L=2^\mathbb{N}$ and $\mathcal{P}=\{P_n:n\in\mathbb{N}\}$ where $P_n(x)=x(n)$ are the projection maps so clearly $L\subseteq\mathbb{R}^\mathcal{P}$ and $\mathcal{L}=L$ (same computation states structure as subsection \ref{subsec:finite_prec_threshold}).
 For each $w\in 2^{<\mathbb{N}}$, let $\psi_w:L\rightarrow L$ be the transition given by:
 $$\psi_w(x)=\begin{cases}
-    1^\infty, & x|_{|w|}=w; \\
+    1^\infty, & \text{if }x|_{|w|}=w;\\
     0^\infty, & \text{otherwise}.
 \end{cases}$$
 In other words, $\psi_w$ determines whether the first $|w|$ bits of a binary sequence is exactly $w$. 
@@ -1089,12 +1089,12 @@ Moreover, it is hereditarily separable, but it is not metrizable.
 Let $K$ be any compact metric space and consider the Polish space $X=C(K)\sqcup K$, i.e., the disjoint union of $C(K)$ (with its supremum norm topology) and $K$.
 For each $a\in K$ define $g_a^0,g_a^1:X\rightarrow\mathbb{R}$ as follows:
     $$g_a^0(x)=\begin{cases}
-        x(a), & x\in C(K) \\
-        0, & x\in K
+        x(a), & \text{if }x\in C(K);\\
+        0, & \text{if }x\in K;
     \end{cases}$$
     $$g_a^1(x)=\begin{cases}
-        x(a), & x\in C(K) \\
-        \delta_a(x), & x\in K
+        x(a), & \text{if }x\in C(K);\\
+        \delta_a(x), & \text{if }x\in K.
     \end{cases}$$
     Let $D(K)=\{g_a^0:a\in K\}\cup\{g_a^1:a\in K\}$.
 Notice that $D(K)$ is a first countable Rosenthal compactum.
@@ -1104,9 +1104,9 @@ The interesting case will be when $K=2^\mathbb{N}$.
 For each finite binary sequence $t\in 2^{<\mathbb{N}}$ let $a_t\in 2^\mathbb{N}$ be the sequence starting with $t$ and ending with $0$'s and let $b_t\in 2^\mathbb{N}$ be the sequence starting with $t$ and ending with $1$'s.
 Define $h_t:2^\mathbb{N}\rightarrow\mathbb{R}$ by
     $$h_t(x)=\begin{cases}
-        0, & x<a_t \\
-        1/2, & a_t\leq x \leq b_t \\
-        1, & b_t<x
+        0, & \text{if }x<a_t;\\
+        1/2, & \text{if }a_t\leq x \leq b_t;\\
+        1, & \text{if }b_t<x.
     \end{cases}$$
     Let $\hat{D}(S(2^\mathbb{N}))$ be the pointwise closure of the set $\{h_t:t\in 2^{<\mathbb{N}}\}$.
 Hence, $\hat{D}(S(2^\mathbb{N}))$ is a separable first countable Rosenthal compactum which is not hereditarily separable.
@@ -1327,7 +1327,7 @@ The following are equivalent:
 \end{thm}
 
 
-\subsection{Universal Monte Carlo computability of deep computations}
+\subsection{Universal Monte Carlo computability of deep computations}% delete this and move contents before BFT-2F
 
 We now formalize the concept of a deep computation being computable except on a set of arbitrarily small measure ``no matter which reasonable way you try to measure things on its domain" (see the remarks following definition~\ref{D:universal measurability}).
 This is the concept of \emph{universal Monte Carlo computability} defined below (Definition~\ref{D:universally essentially computable}).
