@@ -1252,19 +1252,20 @@ For example, functions in $D_3$ are not continuous.
 In this section, we replace deterministic computability by probabilistic (`Monte Carlo') computability.
 We do not assume that $\mathcal{P}$ is countable.
 (The countability assumption on $\mathcal{P}$ played a crucial role in the proof of Theorem \ref{Generalized BFT} , as it makes $\mathbb{R}^\mathcal{P}$ a Polish space.)
+The main results of the section are Theorem~\ref{T:NIP and Monte Carlo}  (connecting NIP and Monte Carlo computability) and~\ref{T:Talagrand stability and Monte Carlo}  (connecting Talagrand stability and Monte Carlo computability) .
 
 
 \subsection{NIP and Monte Carlo computability of deep computations}
 
 The \emph{raison d'être} of the Baire class-1 functions is have a class of functions that contains the continuous functions and is closed under pointwise limits.
-By Fact~\ref{baire}t, for perfectly normal $X$, a function $f$ is in $B_1(X,Y)$ if and only if $f^{-1}[U]$ is an $F_\sigma$ subset of $X$ for every open $U\subseteq Y$.
+By Fact~\ref{baire}, for perfectly normal $X$, a function $f$ is in $B_1(X,Y)$ if and only if $f^{-1}[U]$ is an $F_\sigma$ subset of $X$ for every open $U\subseteq Y$.
 This motivates the following definition:
-)
+
 
 \begin{defn}
 \label{D:universal measurability}
 Given a Hausdorff space $X$ and a measurable space $(Y,\Sigma)$, we say that $f:X\rightarrow Y$ is \emph{universally measurable} (with respect to $\Sigma$) if $f^{-1}(E)$ is $\mu$-measurable for every Radon measure $\mu$ on $X$ and every $E\in\Sigma$.
-When $Y=\mathbb{R}$ we will always take $\Sigma=\mathcal{B}(\mathbb{R})$, the Borel $\sigma$-algebra of $\mathbb{R}$.
+When $Y=\mathbb{R}$, we will always take $\Sigma=\mathcal{B}(\mathbb{R})$, the Borel $\sigma$-algebra of $\mathbb{R}$.
 \end{defn}
 
 \begin{rem} 
@@ -1307,10 +1308,9 @@ Then, $C=\bigcap_{i\in J}\pi_i^{-1}(C_i)$, so $f^{-1}(C)=\bigcap_{i\in J}(\pi_i\
 
 The preceding proposition says that a transition map is universally measurable if and only if it is universally measurable on all its features; in other words, we can check measurability of a transition just by checking measurability feature by feature.
 This is the same as in the Baire class-1 case (compare with Proposition~\ref{prop:Baire-identifications}).
-We will denote by $M_r(X,\mathbb{R}^\mathcal{P})$ the collection of all universally measurable functions $f:X\rightarrow\mathbb{R}^\mathcal{P}$ (with respect to the cylinder $\sigma$-algebra), endowed with the topology of pointwise convergence.
 
 The main result in section \ref{S:Classification} is that, as long as we work with countably many features, PAC-learning (or NIP) corresponds to relative compactness in the space of Baire class-1 functions.
-The following result (which does not assume countability of the number of features) gives an alternative  characterization of the NIP in terms of universal measurability:
+The following result (which does not assume countability of the number of features) gives an analogous characterization of the NIP in terms of universal measurability:
 
 \begin{thm}[Bourgain-Fremlin-Talagrand, Theorem 2F in \cite{BFT_1978_PCompactBaire}]
 \label{BFT-2F}
@@ -1351,12 +1351,13 @@ We say that a transition $f:L\rightarrow L$ is \emph{universally Monte Carlo com
 \begin{rem}
 Condition (2) of Theorem~\label{BFT-2F} shows that to study measure-theoretic versions of NIP, we need only consider compact subsets of $X$.
     Now, every Radon measure on a compact space is finite; hence, by proper normalization, it can be treated as a probability measure.
-    For this reason, in the context of Monte Carlo measurability, we focus on Radon probability measures rather than general Radon measures.
+    Therefore, in the context of Monte Carlo measurability, we focus on Radon probability measures rather than general Radon measures.
 \end{rem}
 
 
 
-\begin{thm}\label{T:NIP and Monte Carlo}
+\begin{thm}
+\label{T:NIP and Monte Carlo}
     Let $(L,\mathcal{P},\Gamma)$ be a CCS satisfying the Extendibility Axiom.
 Let $R$ be an exhaustive collection of sizers.
 Let $\Delta\subseteq\Gamma$ be $R$-confined.
@@ -1408,11 +1409,14 @@ First, we mention the following useful characterization of measurable functions 
         \item $(X,\Sigma,\mu)$ is semi-finite, i.e., for all $E\in\Sigma$ with $\mu(E)=\infty$ there exists $F\subseteq E$ such that $F\in\Sigma$ and $0<\mu(F)<\infty$.
         \item $(X,\Sigma,\mu)$ is saturated, i.e., $E\in\Sigma$ if and only if $E\cap F\in\Sigma$ for all $F\in\Sigma$ with $\mu(F)<\infty$.
         \item $(X,\Sigma,\mu)$ is inner regular with respect to $\mathcal{K}$, i.e., for all $E\in\Sigma$
-        $$\mu(E)=\sup\{\mu(K):K\in\mathcal{K} \text{ and } K\subseteq E\}$$
+        $$\mu(E)=\sup\{\mu(K):K\in\mathcal{K} \text{ and } K\subseteq E\}.$$
     \end{enumerate}
     (In particular, if $X$ is Hausdorff, $\mu$ is a Radon measure on $X$ and $\mathcal{K}$ is the collection of compact subsets of $X$, all these conditions hold).
     Then, $f:X\rightarrow\mathbb{R}$ is measurable if and only if for every $K\in\mathcal{K}$ with $0<\mu(K)<\infty$ and $a<b$, either $\mu^*(P)<\mu(K)$ or $\mu^*(Q)<\mu(K)$ where $P=\{x\in K:f(x)\leq a\}$ and $Q=\{x\in K:f(x)\geq b\}$.
 \end{fact}
+
+%The following lemma shows that, just as in the case of  NIP, Talagrand $\mu$-stability is directly related to relative compactness in the space $\mathscr{M}^0(X,\mu)$.
+The following lemma will be instrumental to prove of proposition~\ref{prop:Talagrand implies NIP}, which, in turn, will yield Theorem~\ref{T:Talagrand stability and Monte Carlo}, our main result on Talagrand stability.
 
 \begin{lem}\label{talagrand stable is relatively compact}
     If $A$ is Talagrand $\mu$-stable, then $\overline{A}$ is also Talagrand $\mu$-stable and $\overline{A}\subseteq\mathscr{M}^0(X,\mu)$.
@@ -1424,7 +1428,7 @@ First, we mention the following useful characterization of measurable functions 
     Fix any $\mu$-measurable $E\subseteq X$ of positive measure and $a<b$.
     Let $k\geq 1$ such that
     \[
-    (\mu^{2k})^*(D_k(B,E,a,b))<(\mu(E))^{2k}
+    (\mu^{2k})^*(D_k(B,E,a,b))<(\mu(E))^{2k}.
     \]
     Since $A\subseteq B$, then $D_k(A,E,a,b)\subseteq D_k(B,E,a,b)$ so
     \[
@@ -1435,25 +1439,24 @@ First, we mention the following useful characterization of measurable functions 
     Let $a'<b'$ be such that $a<a'<b'<b$.
     Since $A$ is $\mu$-stable, let $k\geq 1$ be such that
     \[
-    (\mu^{2k})^*(D_k(A,E,a',b'))<(\mu(E))^{2k}
+    (\mu^{2k})^*(D_k(A,E,a',b'))<(\mu(E))^{2k}.
     \]
     If $x\in D_k(\overline{A},E,a,b)$, then there is $f\in\overline{A}$ such that $f(x_{2i})\leq a<a'$ and $f(x_{2i+1})\geq b>b'$ for all $i<k$.
     By definition of pointwise convergence topology, there exists $g\in A$ such that $g(x_{2i})<a'$ and $g(x_{2i+1})>b'$ for all $i<k$.
     Hence, $x\in D_k(A,E,a',b')$.
-    We have shown that $D_k(\overline{A},E,a,b)\subseteq D_k(A,E,a',b')$ so
+    We have shown that $D_k(\overline{A},E,a,b)\subseteq D_k(A,E,a',b')$; hence,
     \[
-    (\mu^{2k})^*(D_k(\overline{A},E,a,b))\leq (\mu^{2k})^*(D_k(A,E,a',b'))<(\mu(E))^{2k}
+    (\mu^{2k})^*(D_k(\overline{A},E,a,b))\leq (\mu^{2k})^*(D_k(A,E,a',b'))<(\mu(E))^{2k}.
     \]
     It suffices to show that $\overline{A}\subseteq \mathscr{M}^0(X,\mu)$.
     Suppose that there exists $f\in\overline{A}$ such that $f\notin \mathscr{M}^0(X,\mu)$.
     By fact \ref{fact: measurable functions characterization}, there exists a $\mu$-measurable set $E$ of positive measure and $a<b$ such that $\mu^*(P)=\mu^*(Q)=\mu(E)$ where $P=\{x\in E: f(x)\leq a\}$ and $Q=\{x\in E: f(x)\geq b\}$.
-    Then, for any $k\geq 1$: $(P\times Q)^k\subseteq D_k(\{f\},E,a,b)$ so $(\mu^{2k})^*(D_k(\{f\},E,a,b))=(\mu^*(P)\mu^*(Q))^k=(\mu(E))^{2k}$.
-    Thus, $\{f\}$ is not $\mu$-stable, but we argued before that a subset of a $\mu$-stable set must be $\mu$-stable.
-    Contradiction.
+    Then, for any $k\geq 1$: $(P\times Q)^k\subseteq D_k(\{f\},E,a,b)$, so $(\mu^{2k})^*(D_k(\{f\},E,a,b))=(\mu^*(P)\mu^*(Q))^k=(\mu(E))^{2k}$.
+    Thus, $\{f\}$ is not $\mu$-stable, but we argued before that a subset of a $\mu$-stable set must be $\mu$-stable,
+    so we have a contradiction.
 \end{proof}
 
-Just like the NIP, Talagrand $\mu$-stability is directly related to relative compactness in the space $\mathscr{M}^0(X,\mu)$.
-This is the content of the preceeding lemma.
+
 
 \begin{defn}
 We say that $A$ is \emph{universally Talagrand stable} if $A$ is Talagrand $\mu$-stable for every Radon probability measure $\mu$ on $X$.
@@ -1467,13 +1470,14 @@ If $A$ is universally Talagrand stable, then $A$ satisfies the NIP.
 \end{prop}
 
 \begin{proof}
-    By Theorem \ref{BFT-2F}, it suffices to show that $A$ is relatively countably compact in $\mathscr{M}^0(X,\mu)$ for all Radon probability measure $\mu$ on $X$.
+    By Theorem \ref{BFT-2F}, it suffices to show that $A$ is relatively countably compact in $\mathscr{M}^0(X,\mu)$ for every Radon probability measure $\mu$ on $X$.
 Since $A$ is Talagrand $\mu$-stable for any such $\mu$, we have $\overline{A}\subseteq\mathscr{M}^0(X,\mu)$ by lemma \ref{talagrand stable is relatively compact}.
 In particular, $A$ is relatively countably compact in $\mathscr{M}^0(X,\mu)$.
 \end{proof}
 
 
-\begin{cor}\label{T:Talagrand stability and Monte Carlo}
+\begin{cor}
+\label{T:Talagrand stability and Monte Carlo}
     Let $(L,\mathcal{P},\Gamma)$ be a CCS satisfying the Extendibility Axiom.
 If $\pi_P\circ\Delta|_{L[r_\bullet]}$ is universally Talagrand stable for all $P\in\mathcal{P}$ and all sizers $r_{\bullet}$, then every deep computation is universally Monte Carlo computable.
 \end{cor}
@@ -1482,8 +1486,8 @@ If $\pi_P\circ\Delta|_{L[r_\bullet]}$ is universally Talagrand stable for all $P
     This is a direct consequence of proposition \ref{prop:Talagrand implies NIP} and Theorem 4.8.
 \end{proof}
 
-In the measure-theoretic side, we have identified two notions of PAC-learnability: 
-Talagrand stability with respect to any measure and the measure-theoretic version of NIP. 
+In the measure-theoretic context, we have identified two notions of PAC-learnability, namely, 
+NIP and Talagrand stability. 
 A natural question is whether these two classes are equivalent. 
 Even in the simple case of countably many computations, this question is sensitive to the set-theoretic axioms. 
 On one hand, it is consistent (with respect to the standard ZFC axioms of set theory) that these two classes are the same:
