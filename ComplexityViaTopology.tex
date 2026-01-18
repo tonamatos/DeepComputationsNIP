@@ -1452,7 +1452,7 @@ The following lemma will be instrumental to prove of proposition~\ref{prop:Talag
     Suppose that there exists $f\in\overline{A}$ such that $f\notin \mathscr{M}^0(X,\mu)$.
     By fact \ref{fact: measurable functions characterization}, there exists a $\mu$-measurable set $E$ of positive measure and $a<b$ such that $\mu^*(P)=\mu^*(Q)=\mu(E)$ where $P=\{x\in E: f(x)\leq a\}$ and $Q=\{x\in E: f(x)\geq b\}$.
     Then, for any $k\geq 1$: $(P\times Q)^k\subseteq D_k(\{f\},E,a,b)$, so $(\mu^{2k})^*(D_k(\{f\},E,a,b))=(\mu^*(P)\mu^*(Q))^k=(\mu(E))^{2k}$.
-    Thus, $\{f\}$ is not $\mu$-stable, but we argued before that a subset of a $\mu$-stable set must be $\mu$-stable,
+    Thus, $\{f\}$ is not $\mu$-stable. However,  we argued before that a subset of a $\mu$-stable set must be $\mu$-stable,
     so we have a contradiction.
 \end{proof}
 
@@ -1477,20 +1477,20 @@ In particular, $A$ is relatively countably compact in $\mathscr{M}^0(X,\mu)$.
 
 
 \begin{cor}
-\label{T:Talagrand stability and Monte Carlo}
+\label{T:Talagrand stability and Monte Carlo}xx
     Let $(L,\mathcal{P},\Gamma)$ be a CCS satisfying the Extendibility Axiom.
 If $\pi_P\circ\Delta|_{L[r_\bullet]}$ is universally Talagrand stable for all $P\in\mathcal{P}$ and all sizers $r_{\bullet}$, then every deep computation is universally Monte Carlo computable.
 \end{cor}
 
 \begin{proof}
-    This is a direct consequence of proposition \ref{prop:Talagrand implies NIP} and Theorem 4.8.
+    This is a direct consequence of proposition \ref{prop:Talagrand implies NIP} and Theorem~\ref{T:NIP and Monte Carlo}.
 \end{proof}
 
-In the measure-theoretic context, we have identified two notions of PAC-learnability, namely, 
-NIP and Talagrand stability. 
-A natural question is whether these two classes are equivalent. 
-Even in the simple case of countably many computations, this question is sensitive to the set-theoretic axioms. 
-On one hand, it is consistent (with respect to the standard ZFC axioms of set theory) that these two classes are the same:
+In the context of deep computations, we have identified two ways to obtain Monte Carlo computability, namely,
+NIP/PAC and Talagrand stability. 
+It is natural to ask whether these two notions are equivalent. 
+It turns out that, even in the simple case of countably many computations, this question is sensitive to the set-theoretic axioms. 
+On the one hand, it is consistent (with respect to the standard ZFC axioms of set theory) that these two classes are the same:
 
 \begin{thm}[Talagrand, Theorem 9-3-1(a) in \cite{talagrand1984pettis}]
     Let $X$ be a compact Hausdorff space and $A\subseteq M_r(X)$ be countable and pointwise bounded.
@@ -1499,8 +1499,8 @@ If $A$ satisfies the NIP, then $A$ is universally Talagrand stable.
 \end{thm}
 
 
-The assumption that $[0,1]$ is not the union of $<\mathfrak{c}$ closed measure zero sets is a consequence of, for example, the Continuum Hypothesis.
-On the other hand, by fixing a particular well-known measure: the Lebesgue measure, we see that the other case is also consistent:
+(The assumption that $[0,1]$ is not the union of $<\mathfrak{c}$ closed measure zero sets is a consequence of, for example, the Continuum Hypothesis.)
+On the other hand, by fixing a particular well-known measure, the Lebesgue measure, we see that the other case is also consistent:
 
 \begin{thm}[Fremlin, Shelah, \cite{fremlin1993pointwise}]
     It is consistent with the usual axioms of set theory that there exists a countable pointwise bounded set of Lebesgue measurable functions with the NIP which is not Talagrand stable with respect to Lebesgue measure.
