@@ -1399,8 +1399,9 @@ We say that $A$ is \emph{Talagrand $\mu$-stable} if and only if for every $\mu$-
 where $\mu^*$ denotes the outer measure (we work with outer since the sets $D_k(A,E,a,b)$ need not be $\mu$-measurable).
 This is certainly the case when $A$ is a countable set of continuous (or $\mu$-measurable) functions.
 
-We shall now establish that Talagrand $\mu$-stability is a way to ensure that accumulation points (deep computations) are $\mu$-measurable.
-First, we mention the following useful characterization of measurable functions (compare with Fact \ref{baire}):
+The main result of this section is that accumulation points (deep computations) are Monte Carlo computable (Theorem~\ref{T:Talagrand stability and Monte Carlo}).
+We now prove that deep computations that are Talagrand $\mu$-stable are $\mu$-measurable.
+But first, we mention the following useful characterization of measurable functions (compare with Fact \ref{baire}):
 
 \begin{fact}[Lemma 413G in \cite{fremlin2003vol4}]\label{fact: measurable functions characterization}
     Suppose that $(X,\Sigma,\mu)$ is a measure space and $\mathcal{K}\subseteq\Sigma$ is a collection of measurable sets satisfying the following conditions:
@@ -1415,8 +1416,7 @@ First, we mention the following useful characterization of measurable functions 
     Then, $f:X\rightarrow\mathbb{R}$ is measurable if and only if for every $K\in\mathcal{K}$ with $0<\mu(K)<\infty$ and $a<b$, either $\mu^*(P)<\mu(K)$ or $\mu^*(Q)<\mu(K)$ where $P=\{x\in K:f(x)\leq a\}$ and $Q=\{x\in K:f(x)\geq b\}$.
 \end{fact}
 
-%The following lemma shows that, just as in the case of  NIP, Talagrand $\mu$-stability is directly related to relative compactness in the space $\mathscr{M}^0(X,\mu)$.
-The following lemma will be instrumental to prove of Proposition~\ref{prop:Talagrand implies NIP}, which, in turn, will yield our main result on Talagrand stability, Theorem~\ref{T:Talagrand stability and Monte Carlo}.
+The following lemma will be instrumental to prove of Proposition~\ref{prop:Talagrand implies NIP}, which, in turn, will yield the main result of the subsection, Theorem~\ref{T:Talagrand stability and Monte Carlo}.
 
 \begin{lem}\label{talagrand stable is relatively compact}
     If $A$ is Talagrand $\mu$-stable, then $\overline{A}$ is also Talagrand $\mu$-stable and $\overline{A}\subseteq\mathscr{M}^0(X,\mu)$.
@@ -1477,7 +1477,7 @@ In particular, $A$ is relatively countably compact in $\mathscr{M}^0(X,\mu)$.
 
 
 \begin{cor}
-\label{T:Talagrand stability and Monte Carlo}xx
+\label{T:Talagrand stability and Monte Carlo}
     Let $(L,\mathcal{P},\Gamma)$ be a CCS satisfying the Extendibility Axiom.
 If $\pi_P\circ\Delta|_{L[r_\bullet]}$ is universally Talagrand stable for all $P\in\mathcal{P}$ and all sizers $r_{\bullet}$, then every deep computation is universally Monte Carlo computable.
 \end{cor}
