@@ -1246,14 +1246,22 @@ For example: in the finite precision prefix test example (subsection \ref{subsec
 However, note that this discrete set $D_i$ may not consist of continuous functions (i.e., they will not be computable in general).
 For example, functions in $D_3$ are not continuous.
 
+<<<<<<< Updated upstream
 \section{Probabilistic versions of NIP}
+=======
+\section{Probabilistic versions of NIP and universal Monte Carlo computability of deep computations}
+>>>>>>> Stashed changes
 \label{Measure-theoretic NIP}
 
 In this section, we replace deterministic computability by probabilistic (`Monte Carlo') computability.
 We do not assume that $\mathcal{P}$ is countable.
 (The countability assumption on $\mathcal{P}$ played a crucial role in the proof of Theorem \ref{Generalized BFT} , as it makes $\mathbb{R}^\mathcal{P}$ a Polish space.)
 
+<<<<<<< Updated upstream
 \subsection{Universal Monte Carlo computability of deep computations}
+=======
+\subsection{A probabilistic version of NIP}
+>>>>>>> Stashed changes
 
 The \emph{raison d'être} of the Baire class-1 functions is to work with a small class that contains the continuous functions and their pointwise limits, and that for perfectly normal $X$, a function $f$ is in $B_1(X,Y)$ if and only if $f^{-1}[U]$ is an $F_\sigma$ subset of $X$ for every open $U\subseteq Y$ (see Fact~\ref{baire}).
 This motivates the following definition:
@@ -1308,9 +1316,31 @@ The preceding proposition says that a transition map is universally measurable i
 This is the same as in the Baire class-1 case (compare with Proposition~\ref{prop:Baire-identifications}).
 We will denote by $M_r(X,\mathbb{R}^\mathcal{P})$ the collection of all universally measurable functions $f:X\rightarrow\mathbb{R}^\mathcal{P}$ (with respect to the cylinder $\sigma$-algebra), endowed with the topology of pointwise convergence.
 
+<<<<<<< Updated upstream
 The main result in section \ref{S:Classification} is that, whenever we work with countably many features, PAC-learning (or NIP) corresponds to relative compactness in the space of Baire class-1 functions.
+=======
+The main result in section \ref{S:Classification} is that, as long as we work with countably many features, PAC-learning (or NIP) corresponds to relative compactness in the space of Baire class-1 functions.
+The following result gives a measure-theoretic characterization of the NIP:
 
-We now formalize the concept of a deep computation being computable except on a set of arbitrarily small measure ``no matter which reasonable way you try to measure things on its domain" (see the remarks following definition~\ref{D:universal measurability}).
+\begin{thm}[Bourgain-Fremlin-Talagrand, Theorem 2F in \cite{BFT_1978_PCompactBaire}]
+\label{BFT-2F}
+    Let $X$ be a Hausdorff space and $A\subseteq C(X)$ be pointwise bounded.
+The following are equivalent:
+    \begin{enumerate}[(i)]
+        \item
+        $\overline{A}\subseteq M_r(X)$.
+        \item 
+        For every compact $K\subseteq X$, $A|_K$ satisfies the NIP.
+        \item
+        For every Radon measure $\mu$ on $X$, $A$ is relatively countably compact in $\mathscr{M}^0(X,\mu)$, i.e., every countable subset of $A$ has an accumulation point in $\mathscr{M}^0(X,\mu)$.
+    \end{enumerate}
+\end{thm}
+
+
+%\subsection{Universal Monte Carlo computability of deep computations}% delete this and move contents before BFT-2F
+>>>>>>> Stashed changes
+
+This result allows us to formalize the concept of a deep computation being computable except on a set of arbitrarily small measure ``no matter which reasonable way you try to measure things on its domain" (see the remarks following definition~\ref{D:universal measurability}).
 This is the concept of \emph{universal Monte Carlo computability} defined below (Definition~\ref{D:universally essentially computable}).
 To motivate the definition, let us first recall two facts:
 
@@ -1332,11 +1362,14 @@ These two facts motivate the following definition:
 We say that a transition $f:L\rightarrow L$ is \emph{universally Monte Carlo computable} if and only if there exists $\tilde f:\mathcal{L}_{\text{sh}}\rightarrow \mathcal{L}_{\text{sh}}$ extending $f$ such that for every sizer $r_\bullet$ there is a sizer $s_\bullet$ such that the restriction $\tilde f|_{\mathcal{L}[r_{\bullet}]}:\mathcal{L}[r_\bullet]\rightarrow\mathcal{L}[s_\bullet]$ is universally measurable, i.e., $\pi_P\circ \tilde f|_{\mathcal{L}[r_{\bullet}]}:\mathcal{L}[r_\bullet]\rightarrow [-s_P,s_P]$ is $\mu$-measurable for every Radon probability measure $\mu$ on $\mathcal{L}[r_\bullet]$ and $P\in\mathcal{P}$.
 \end{defn}
 
+
 \begin{rem}
-    Every Radon measure on a compact space (e.g., $\mathcal{L}_{\text{sh}}$) is finite; hence, by proper normalization, it can be treated as a probability measure.
-    For this reason, we shall use the term ``Radon probability measure'' instead of ``Radon measure'' in definition \ref{D:universally essentially computable}.
+Condition (2) of Theorem~\label{BFT-2F} shows that to study measure-theoretic versions of NIP, we need only consider compact subsets of $X$.
+    Now, every Radon measure on a compact space is finite; hence, by proper normalization, it can be treated as a probability measure.
+    For this reason, for the rest of this subsection, we focus on Radon probability measures rather than general Radon measures.
 \end{rem}
 
+<<<<<<< Updated upstream
 The following probabilistic characterization of the NIP will lead us to find other connections between topology of function spaces and Monte Carlo computability (see the next section).
 
 \begin{thm}[Bourgain-Fremlin-Talagrand, Theorem 2F in \cite{BFT_1978_PCompactBaire}]\label{BFT-2F}
@@ -1356,6 +1389,9 @@ The following are equivalent:
 %\subsection{Universal Monte Carlo computability of deep computations}% delete this and move contents before BFT-2F
 
 \subsection{Bourgain-Fremlin-Talagrand, NIP, and universal Monte Carlo computability of deep computations}
+=======
+%\subsection{Bourgain-Fremlin-Talagrand, NIP, and universal Monte Carlo computability of deep computations}
+>>>>>>> Stashed changes
 
 The result in this subsection is a consequence of Theorem~\ref{BFT-2F},
 and it states that PAC-learning (or NIP) implies Monte Carlo computability with respect to any measure.
@@ -1498,6 +1534,7 @@ On one hand, it is consistent (with respect to the standard ZFC axioms of set th
 Assume that $[0,1]$ is not the union of $<\mathfrak{c}$ closed measure zero sets.
 If $A$ satisfies the NIP, then $A$ is universally Talagrand stable.
 \end{thm}
+
 
 The assumption that $[0,1]$ is not the union of $<\mathfrak{c}$ closed measure zero sets is a consequence of, for example, the Continuum Hypothesis.
 On the other hand, by fixing a particular well-known measure: the Lebesgue measure, we see that the other case is also consistent:
