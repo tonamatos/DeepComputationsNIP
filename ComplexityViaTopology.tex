@@ -487,7 +487,7 @@ When clear from context, rather than using the specific symbols (``$\lambda$'' f
 thus, $\pi_x$ may mean $\lambda_x$, and $\pi_P$ may mean $\rho_P$.
 %We may also use the standard notations $\varphi(x,\cdot)$ for $\lambda_x(\varphi)$, and $\varphi(\cdot,P)$ for $\rho_P(\varphi)$.
 
-The proposition below reduces the study of $\mathbb{R}^{\mathcal{P}}$-valued continuous or Baire-1 functions on~$X$ to the special case of real-valued ones.
+The Proposition below reduces the study of $\mathbb{R}^{\mathcal{P}}$-valued continuous or Baire-1 functions on~$X$ to the special case of real-valued ones.
 
 %In fact, $\mathbb{R}$ and any other Polish space is embeddable as a closed subspace of $\mathbb{R}^\mathcal{P}$.
 
@@ -1367,7 +1367,7 @@ If $\pi_P\circ\Delta|_{L[r_\bullet]}$ satisfies the NIP for all $P\in\mathcal{P}
 \begin{proof}
     Fix $P\in\mathcal{P}$ and $r_\bullet\in R$.
     By the Extendibility Axiom, $\pi_P\circ\tilde\Delta|_{\mathcal{L}[r_\bullet]}$ is a set of pointwise bounded continuous functions on the compact set $\mathcal{L}[r_\bullet]$.
-    Since $\pi_P\circ\tilde\Delta|_{L[r_\bullet]}=\pi_P\circ\Delta|_{L[r_\bullet]}$ has the NIP, so does $\pi_P\circ\tilde\Delta|_{\mathcal{L}[r_\bullet]}$ by lemma \ref{NIP and closure}.
+    Since $\pi_P\circ\tilde\Delta|_{L[r_\bullet]}=\pi_P\circ\Delta|_{L[r_\bullet]}$ has the NIP, so does $\pi_P\circ\tilde\Delta|_{\mathcal{L}[r_\bullet]}$ by Lemma \ref{NIP and closure}.
     By Theorem \ref{BFT-2F}, we have $\overline{\pi_P\circ\tilde\Delta|_{\mathcal{L}[r_\bullet]}}\subseteq M_r(\mathcal{L}[r_\bullet])$ for all $r_\bullet\in R$ and $P\in\mathcal{P}$.
     Let $f\in\overline{\Delta}$ be a deep computation.
     Write $f=\mathcal{U}\lim_i\gamma_i$ as an ultralimit of computations in $\Delta$.
@@ -1416,7 +1416,7 @@ First, we mention the following useful characterization of measurable functions 
 \end{fact}
 
 %The following lemma shows that, just as in the case of  NIP, Talagrand $\mu$-stability is directly related to relative compactness in the space $\mathscr{M}^0(X,\mu)$.
-The following lemma will be instrumental to prove of proposition~\ref{prop:Talagrand implies NIP}, which, in turn, will yield our main result on Talagrand stability, Theorem~\ref{T:Talagrand stability and Monte Carlo}.
+The following lemma will be instrumental to prove of Proposition~\ref{prop:Talagrand implies NIP}, which, in turn, will yield our main result on Talagrand stability, Theorem~\ref{T:Talagrand stability and Monte Carlo}.
 
 \begin{lem}\label{talagrand stable is relatively compact}
     If $A$ is Talagrand $\mu$-stable, then $\overline{A}$ is also Talagrand $\mu$-stable and $\overline{A}\subseteq\mathscr{M}^0(X,\mu)$.
@@ -1430,9 +1430,9 @@ The following lemma will be instrumental to prove of proposition~\ref{prop:Talag
     \[
     (\mu^{2k})^*(D_k(B,E,a,b))<(\mu(E))^{2k}.
     \]
-    Since $A\subseteq B$, then $D_k(A,E,a,b)\subseteq D_k(B,E,a,b)$ so
+    Since $A\subseteq B$, we have $D_k(A,E,a,b)\subseteq D_k(B,E,a,b)$; therefore,
     \[
-    (\mu^{2k})^*(D_k(A,E,a,b))\leq (\mu^{2k})^*(D_k(B,E,a,b))<(\mu(E))^{2k}
+    (\mu^{2k})^*(D_k(A,E,a,b))\leq (\mu^{2k})^*(D_k(B,E,a,b))<(\mu(E))^{2k}.
     \]
     We now show that $\overline{A}$ is $\mu$-stable.
     Fix $E\subseteq X$ measurable with positive measure and $a<b$.
@@ -1471,7 +1471,7 @@ If $A$ is universally Talagrand stable, then $A$ satisfies the NIP.
 
 \begin{proof}
     By Theorem \ref{BFT-2F}, it suffices to show that $A$ is relatively countably compact in $\mathscr{M}^0(X,\mu)$ for every Radon probability measure $\mu$ on $X$.
-Since $A$ is Talagrand $\mu$-stable for any such $\mu$, we have $\overline{A}\subseteq\mathscr{M}^0(X,\mu)$ by lemma \ref{talagrand stable is relatively compact}.
+Since $A$ is Talagrand $\mu$-stable for any such $\mu$, we have $\overline{A}\subseteq\mathscr{M}^0(X,\mu)$ by Lemma \ref{talagrand stable is relatively compact}.
 In particular, $A$ is relatively countably compact in $\mathscr{M}^0(X,\mu)$.
 \end{proof}
 
@@ -1483,7 +1483,7 @@ If $\pi_P\circ\Delta|_{L[r_\bullet]}$ is universally Talagrand stable for all $P
 \end{cor}
 
 \begin{proof}
-    This is a direct consequence of proposition \ref{prop:Talagrand implies NIP} and Theorem~\ref{T:NIP and Monte Carlo}.
+    This is a direct consequence of Proposition \ref{prop:Talagrand implies NIP} and Theorem~\ref{T:NIP and Monte Carlo}.
 \end{proof}
 
 In the context of deep computations, we have identified two ways to obtain Monte Carlo computability, namely,
