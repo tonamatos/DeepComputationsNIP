@@ -1247,12 +1247,15 @@ However, note that this discrete set $D_i$ may not consist of continuous functio
 For example, functions in $D_3$ are not continuous.
 
 
-\section{Probabilistic versions of NIP and Monte Carlo computability of deep computations}
+\section{Randomized versions of NIP and Monte Carlo computability of deep computations}
 
 In this section, we replace deterministic computability by probabilistic (`Monte Carlo') computability.
 We do not assume that $\mathcal{P}$ is countable.
-(The countability assumption on $\mathcal{P}$ played a crucial role in the proof of Theorem \ref{Generalized BFT} , as it makes $\mathbb{R}^\mathcal{P}$ a Polish space.)
-The main results of the section are Theorem~\ref{T:NIP and Monte Carlo}  (connecting NIP and Monte Carlo computability) and~\ref{T:Talagrand stability and Monte Carlo}  (connecting Talagrand stability and Monte Carlo computability) .
+The main results of the section are Theorem~\ref{T:NIP and Monte Carlo}  (connecting NIP and Monte Carlo computability) and~\ref{T:Talagrand stability and Monte Carlo}  (connecting Talagrand stability and Monte Carlo computability).
+
+Fundamental in this section is a measure-theoretic version of Theorem \ref{Generalized BFT}, namely,  Theorem~\ref{BFT-2F}. 
+For the proof of Theorem \ref{Generalized BFT}, we assumed countability of  $\mathcal{P}$ --- this ensured that $\mathbb{R}^\mathcal{P}$ a Polish space.
+In this section, the countability assumption is not needed.
 
 
 \subsection{NIP and Monte Carlo computability of deep computations}
@@ -1312,7 +1315,8 @@ This is the same as in the Baire class-1 case (compare with Proposition~\ref{pro
 The main result in section \ref{S:Classification} is that, as long as we work with countably many features, PAC-learning (or NIP) corresponds to relative compactness in the space of Baire class-1 functions.
 The following result (which does not assume countability of the number of features) gives an analogous characterization of the NIP in terms of universal measurability:
 
-\begin{thm}[Bourgain-Fremlin-Talagrand, Theorem 2F in \cite{BFT_1978_PCompactBaire}]
+\begin{thm}
+[Bourgain-Fremlin-Talagrand, Theorem 2F in \cite{BFT_1978_PCompactBaire}]
 \label{BFT-2F}
     Let $X$ be a Hausdorff space and $A\subseteq C(X)$ be pointwise bounded.
 The following are equivalent:
@@ -1452,7 +1456,7 @@ The following lemma will be instrumental to prove of Proposition~\ref{prop:Talag
     Suppose that there exists $f\in\overline{A}$ such that $f\notin \mathscr{M}^0(X,\mu)$.
     By fact \ref{fact: measurable functions characterization}, there exists a $\mu$-measurable set $E$ of positive measure and $a<b$ such that $\mu^*(P)=\mu^*(Q)=\mu(E)$ where $P=\{x\in E: f(x)\leq a\}$ and $Q=\{x\in E: f(x)\geq b\}$.
     Then, for any $k\geq 1$: $(P\times Q)^k\subseteq D_k(\{f\},E,a,b)$, so $(\mu^{2k})^*(D_k(\{f\},E,a,b))=(\mu^*(P)\mu^*(Q))^k=(\mu(E))^{2k}$.
-    Thus, $\{f\}$ is not $\mu$-stable. However,  we argued before that a subset of a $\mu$-stable set must be $\mu$-stable,
+    Thus, $\{f\}$ is not $\mu$-stable. However,  we argued above that a subset of a $\mu$-stable set must be $\mu$-stable,
     so we have a contradiction.
 \end{proof}
 
