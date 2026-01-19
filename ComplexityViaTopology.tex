@@ -253,11 +253,10 @@ The following are equivalent:
 \begin{proof}
     (i)$\Rightarrow$(ii) Relatively compact subsets of any space are countably compact therein.
 
-
     (ii)$\Rightarrow$(iii)
 Consider any $f\in\overline A$ and any countable subset $\{x_i\}_{i\in \mathbb{N}}\subseteq X$.
 We claim that there is a sequence $\{f_n\}_{n\in\mathbb{N}}\subseteq A$ such that $\lim_{n\to\infty}f_n(x_i)=f(x_i)$ for all $i\in \mathbb{N}$.
-Since $A$ carries the relative product topology, for each $n\in \mathbb{N}$ there exists an $f_n\in A$ such that $|f_n(x_i) - f(x_i)| < \frac{1}{n}$ for all $i \le n$;
+Since $A$ carries the relative product topology, for each $n\in \mathbb{N}$ there exists $f_n\in A$ such that $|f_n(x_i) - f(x_i)| < \frac{1}{n}$ for all $i \le n$;
 the sequence $\{f_n\}$ is as claimed.
 Seeking a contradiction, assume that $A$ is relatively countably compact in~$B_1(X)$, but there exists some $f\in \overline{A}\setminus B_1(X)$.
     By Fact \ref{baire}, there are countable $D_0,D_1\subseteq X$ with $\overline {D_0}=\overline{D_1}$, and $a<b$ such that $D_0\subseteq f^{-1}(-\infty,a]$ and $D_1\subseteq f^{-1}[b,\infty)$.
@@ -266,9 +265,9 @@ By relative countable compactness of~$A$, there is an accumulation point $g\in B
 clearly, $f$ and $g$ agree on $D_0\cup D_1$.
 Thus $g$ takes values $g(x_i) = f(x_i) \le a$ as well as values $g(x_j) = f(x_j) \ge b > a$ on any open subset of the closed set $\overline{D_0} = \overline{D_1}$, contradicting the implication (1)$\Rightarrow$(3) in Fact~\ref{baire}.
 
-(iii)$\Rightarrow$(i) For each $x\in X$, let $M_x \ge 0$ be a pointwise bound for~$A$ thereat.
-Being necessarily a closed subset of the compact space (being product of compacta) $\prod_{x\in X}[-M_x,M_x] \subseteq \mathbb{R}^X$, it follows that $\overline{A}$ is compact;
-by~(iii), it is also the closure of~$A$ in $B_1(X)$ \emph{a fortiori}.
+(iii)$\Rightarrow$(i) For each $x\in X$, let $M_x \ge 0$ be a pointwise bound for~$A$.
+Since $\overline{A}$ is a closed subset of the compact space $\prod_{x\in X}[-M_x,M_x] \subseteq \mathbb{R}^X$, it follows that $\overline{A}$ is compact.
+By~(iii), it is also the closure of~$A$ in $B_1(X)$.
 Thus, $A$ is relatively compact in $B_1(X)$.
 \end{proof}
 
