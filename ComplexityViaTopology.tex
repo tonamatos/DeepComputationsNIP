@@ -126,7 +126,7 @@ The viewpoint of spaces of types, which we have borrowed from model theory, thus
 In a previous paper~\cite{alva2024approximability}, we introduced the concept of limits of computations, which we called \emph{ultracomputations} (given they arise as ultrafilter limits of standard computations) and \emph{deep computations} (following usage in machine learning~\cite{Bai:2019}).
 There is a technical difference between both designations, but in this paper, to simplify the nomenclature, we will ignore the difference and use only the term ``deep computation’’.
 
-In \cite{alva2024approximability}, we proved a new ``tame vs wild'' (i.e., polynomially approximable vs nonpolynimially approximable) dichotomy for the complexity of deep computations by invoking a classical result of Grothendieck from the 1950s~\cite{Grothendieck:1952}.
+In \cite{alva2024approximability}, we proved a new ``tame vs wild'' (i.e., polynomially approximable vs nonpolynomially approximable) dichotomy for the complexity of deep computations by invoking a classical result of Grothendieck from the 1950s~\cite{Grothendieck:1952}.
 Under our model-theoretic Rosetta stone, the property of polynomial approximability of computations is identified with continuous extendibility in the sense of topology, and with the notions of \emph{stability} and \emph{type definability} in model theory.
 
 Simplest among deep computations are those arising as pointwise limits of (continuous) computations proper.
@@ -165,7 +165,7 @@ The final section, Section~\ref{Measure-theoretic NIP}, introduces a probabilist
 \label{sec:prelim}
 
 In this section we present some preliminaries from general topology and function space theory.
-In the interest of completeness, we some proofs that may be safely skipped by readers familiar with these topics.
+In the interest of completeness, we include some proofs that may be safely skipped by readers familiar with these topics.
 
 Recall that a subset of a topological space is $F_\sigma$ if it is a countable union of closed sets, and $G_\delta$ if it is a countable intersection of closed sets.
 A space is metrizable if its topology agrees with the topology induced by some metric therein.
@@ -234,7 +234,7 @@ A proof can be found in~\cite[Section 10]{Todorcevic_1997_TopicsTop}.
 \end{fact}
 
 A subset $L$ of a topological space $X$ is \emph{relatively compact} in $X$ if the closure of $L$ in $X$ is compact.
-Relatively compact subsets of $B_1(X)$ (for $X$ Polish) are of interest analysis and topological dynamics.
+Relatively compact subsets of $B_1(X)$ (for $X$ Polish) are of interest in analysis and topological dynamics.
 We begin with the following well-known result.
 Recall that a set $A\subseteq\mathbb{R}^X$ of real-valued functions is \emph{pointwise bounded} if for every $x\in X$ there is $M_x \ge 0$ (a \emph{pointwise bound at~$x$}) such that $|f(x)| \le M_x$ for all $f\in A$.
 We include a proof for the reader's convenience:
@@ -281,7 +281,7 @@ The $n$-th coordinate map $p_n: 2^{\mathbb{N}}\to\{0,1\}$ on the Cantor space $X
 In a sense, this example exhibits the worst failure of sequential convergence possible.
 The closure of $\{p_n\}$ in $\{0, 1\}^X$ (or in $\mathbb{R}^{X}$ for that matter) is homeomorphic to the \emph{Stone-Čech compactification} of the discrete space of natural numbers, usually denoted $\beta\mathbb{N}$, which is an important object of study in general topology.
 
-The following theorem, proved by Haskell Rosenthal in 1974, is fundamental in functional analysis and captures a sharp division in the behavior of sequences in a Banach spaces.
+The following theorem, proved by Haskell Rosenthal in 1974, is fundamental in functional analysis and captures a sharp division in the behavior of sequences in a Banach space.
 
 \begin{thm}[Rosenthal's Dichotomy, \cite{Rosenthal:1974}]
 \label{T:Rosenthal}
@@ -669,7 +669,7 @@ and by a finite number of iterations of the finitary lattice operations $\land$ 
 \text{for all $v\in K$}.
 \]
 
-\emph{Remark:} What we have defined above is a model-theoretic concept; it is a special case of the concept of \emph{first-order definability} for real-valued predicates in the model the theory of real-valued structures first introduced in \cite{Iovino:1994} for model theory of functional analysis and now standard in model theory (see~\cite{Keisler:2023}).
+\emph{Remark:} What we have defined above is a model-theoretic concept; it is a special case of the concept of \emph{first-order definability} for real-valued predicates in the model theory of real-valued structures first introduced in \cite{Iovino:1994} for model theory of functional analysis and now standard in model theory (see~\cite{Keisler:2023}).
 The $\land$ (=min) and $\lor$ (=max) operations correspond to the positive Boolean logical connectives ``and'' and ``or", and the sup and inf operators correspond to the first-order quantifiers, $\forall$ and $\exists$.
 \item
 We will say that $f$ is \emph{computable} if it is definable in the sense defined above under~(1), but without the use of the sup/inf operators; in other words, if for every choice of $Q,K,\varepsilon$, the approximation function $\varphi_{Q,K,\varepsilon}: L\to \mathcal{L}$ can be constructed without any use of sup or inf operators.
@@ -855,7 +855,7 @@ Let us look at various examples:
 \subsection{Finite precision threshold classifiers as a CCS}\label{subsec:finite_prec_threshold}
 
 Let $L=2^\mathbb{N}$, i.e., the set consisting of all infinite binary sequences with the topology of pointwise convergence.
-Let $\mathcal{P}=\{P_n:n\in\mathbb{N}\}$ is the collection of projections, i.e., $P_n(x)=x(n)$ for each $n$ and each $x\in L$.
+Let $\mathcal{P}=\{P_n:n\in\mathbb{N}\}$ equal the collection of projections, i.e., $P_n(x)=x(n)$ for each $n$ and each $x\in L$.
 In other words, $P_n$ is the predicate that reads the $n$th digit of a sequence.
 Notice that $L\subseteq\mathbb{R}^{\mathcal{P}}$ is closed. 
 Therefore, $\mathcal{L}=L$.
@@ -936,7 +936,7 @@ Note that if $a$ is the constant zero, then $f_a^-=\mathbf{0^{\infty}}$.
 \end{proof}
 
 The preceding proposition shows that the topological structure of deep computations can be very complicated.
-Indeed, $\overline{P_n\circ \Delta}$ contains the \emph{Split Cantor} space for all $n\in\mathbb{N}$. (see Examples~\ref{E:Rosenthal comacta}(3)).
+Indeed, $\overline{P_n\circ \Delta}$ contains the \emph{Split Cantor} space for all $n\in\mathbb{N}$. (see Examples~\ref{E:Rosenthal compacta}(3)).
 
 \subsection{Finite precision prefix test}
 \label{subsec: prefix test}
@@ -984,7 +984,7 @@ These equality tests $\delta_a$ are not all the deep computations. The other dee
     Hence, $\psi_{w_n}(x)=0^\infty$ for large enough $n$.
 \end{proof}
 
-In fact, $\overline{\Delta}=\Delta\cup\{\delta_a:a\in 2^\mathbb{N}\}\cup\{\mathbf{0^\infty}\}$ and this space is known as the \emph{Extended Alexandroff compactification of $2^\mathbb{N}$} (see Example \ref{E:Rosenthal comacta}(2)).
+In fact, $\overline{\Delta}=\Delta\cup\{\delta_a:a\in 2^\mathbb{N}\}\cup\{\mathbf{0^\infty}\}$ and this space is known as the \emph{Extended Alexandroff compactification of $2^\mathbb{N}$} (see Example \ref{E:Rosenthal compacta}(2)).
 One key topological property about this space is that $\mathbf{0^\infty}$ is not a $G_\delta$ point, i.e., $\{\mathbf{0^\infty}\}$ is not a countable intersection of open sets.
 Moreover, $\mathbf{0^\infty}$ is the only non-$G_\delta$ point.
 It is well-known that in a Hausdorff, first countable space every point is $G_\delta$. 
@@ -1040,7 +1040,7 @@ In this subsection we study the case when the set of deep computations is a sepa
 \end{enumerate}
 
 Given a countable set $\Delta$ of computations satisfying the NIP on features and shards (condition (ii) of Theorem \ref{nip-baire1def}) we have that $\overline{\tilde\Delta_{\mathcal{L}[r_\bullet]}}$ (for a fixed sizer $r_\bullet$) is a separable \textit{Rosenthal compactum} (see Definition~\ref{D:Rosenthal compacta}).
-Todorčević\ proved a remarkable trichotomy for Rosenthal compacta~\cite{Todorcevic_1999_CompactSubsetsBaire}, and later Argyros, Dodos, Kanellopoulos~\cite{argyros2008rosenthal} proved an heptachotomy that refined Todorčević's classification.
+Todorčević\ proved a remarkable trichotomy for Rosenthal compacta~\cite{Todorcevic_1999_CompactSubsetsBaire}, and later Argyros, Dodos, Kanellopoulos~\cite{argyros2008rosenthal} proved a heptachotomy that refined Todorčević's classification.
 In this section, inspired by the work of Glasner and Megrelishvili~\cite{glasner2022tame}, we study ways in which this classification allows us to obtain different levels of PAC-learnability and NIP.
 
 Recall that a topological space $X$ is \emph{hereditarily separable} if every subspace is separable, and that $X$ is \emph{first countable} if every point in $X$ has a countable local basis.
@@ -1070,7 +1070,7 @@ We now present some separable and non-separable examples of Rosenthal compacta.
 These show that the previously discussed classes NIP$_i$ are not equal.
 
 \begin{exmps}
-\label{E:Rosenthal comacta}
+\label{E:Rosenthal compacta}
 \hfill
 \begin{enumerate}
     \item \emph{Alexandroff compactification of a discrete space of size continuum}.
@@ -1161,7 +1161,7 @@ We thus have the following classification:
 \end{tikzpicture}
 \end{center}
 
-Todorčević's Trichotomy suggests that in order to distinguish the classes NIP$_i$, the examples in \ref{E:Rosenthal comacta} are essential.
+Todorčević's Trichotomy suggests that in order to distinguish the classes NIP$_i$, the examples in \ref{E:Rosenthal compacta} are essential.
 The following examples show that the levels NIP$_i$ ($i=1,2,3$) may be distinguished by the topological complexity of deep computations.
 
 \begin{exmps}
@@ -1173,11 +1173,11 @@ The following examples show that the levels NIP$_i$ ($i=1,2,3$) may be distingui
     This corresponds to the Alexandroff compactification of a countable discrete set, which is metrizable. Hence, $\Delta$ is NIP$_3$ but it is not stable, in the sense that $\overline{\tilde{\Delta}}\not\subseteq C(\mathcal{L},\mathcal{L})$.
 
     \item Let $(L,\mathcal{P},\Gamma)$ be the finite precision threshold classifiers (Section~\ref{subsec:finite_prec_threshold}) with $\Delta=\{\phi_w:w\in 2^{<\mathbb{N}}\}\cup\{\mathbf{0^\infty},\mathbf{1^\infty}\}$.
-    We saw that $\overline{\Delta}$ is homeomorphic to the Split Cantor space $S(2^\mathbb{N})$ (Example \ref{E:Rosenthal comacta}(3)), which is hereditarily separable but not metrizable.
+    We saw that $\overline{\Delta}$ is homeomorphic to the Split Cantor space $S(2^\mathbb{N})$ (Example \ref{E:Rosenthal compacta}(3)), which is hereditarily separable but not metrizable.
     Hence, $\Delta$ is NIP$_2$ but not NIP$_3$.
 
     \item Let $(L,\mathcal{P},\Gamma)$ be the finite precision prefix test (Section~\ref{subsec: prefix test}) with $\Delta=\{\psi_w:w\in 2^{<\mathbb{N}}\}$.
-    We saw that $\overline{\tilde{\Delta}}$ is homeomorphic to the Extended Alexandroff compactification $\hat{A}(2^\mathbb{N})$ (Example \ref{E:Rosenthal comacta}(3)), which is separable but not first countable.
+    We saw that $\overline{\tilde{\Delta}}$ is homeomorphic to the Extended Alexandroff compactification $\hat{A}(2^\mathbb{N})$ (Example \ref{E:Rosenthal compacta}(3)), which is separable but not first countable.
     Hence, $\Delta$ is NIP but not NIP$_1$.
 \end{enumerate}
 \end{exmps}
@@ -1192,7 +1192,7 @@ This raises the following question:
 
 \subsection{The Argyros-Dodos-Kanellopoulos heptachotomy, and approximability of deep computation by minimal classes}
 
-In the three separable cases given in \ref{E:Rosenthal comacta}, namely, $\hat{A}(2^\mathbb{N})$, $S(2^\mathbb{N})$ and $\hat{D}(S(2^\mathbb{N}))$, the countable dense subsets are indexed by the binary tree $2^{<\mathbb{N}}$.
+In the three separable cases given in \ref{E:Rosenthal compacta}, namely, $\hat{A}(2^\mathbb{N})$, $S(2^\mathbb{N})$ and $\hat{D}(S(2^\mathbb{N}))$, the countable dense subsets are indexed by the binary tree $2^{<\mathbb{N}}$.
 This choice of index is useful for two reasons:
 \begin{enumerate}
 \item
@@ -1212,7 +1212,7 @@ Let $X$ be a Polish space.
 
 \begin{enumerate}
 \item
-If $I$ is a countable and $\{f_i:i\in I\}\subseteq\mathbb{R}^X$, $\{g_i:i\in I\}\subseteq\mathbb{R}^X$ are two pointwise families by $I$, we say that $\{f_i:i\in\ I\}$ and $\{g_i:i\in I\}$ are \emph{equivalent} if and only if the map $f_i\mapsto g_i$ is extended to a homeomorphism from $\overline{\{f_i:i\in I\}}$ to $\overline{\{g_i:i\in I\}}$.
+If $I$ is countable and $\{f_i:i\in I\}\subseteq\mathbb{R}^X$, $\{g_i:i\in I\}\subseteq\mathbb{R}^X$ are two pointwise families by $I$, we say that $\{f_i:i\in\ I\}$ and $\{g_i:i\in I\}$ are \emph{equivalent} if and only if the map $f_i\mapsto g_i$ is extended to a homeomorphism from $\overline{\{f_i:i\in I\}}$ to $\overline{\{g_i:i\in I\}}$.
 \item
 If $\{f_t:t\in 2^{<\mathbb{N}}\}$ is a pointwise bounded family, we say that $\{f_t:t\in 2^{<\mathbb{N}}\}$ is \emph{minimal} if and only if for every dyadic subtree $\{s_t:t\in 2^{<\mathbb{N}}\}$ of $2^{<\mathbb{N}}$, $\{f_{s_t}:t\in 2^{<\mathbb{N}}\}$ is equivalent to $\{f_t:t\in 2^{<\mathbb{N}}\}$.
  \end{enumerate}
@@ -1221,7 +1221,7 @@ If $\{f_t:t\in 2^{<\mathbb{N}}\}$ is a pointwise bounded family, we say that $\{
 One of the main results in \cite{argyros2008rosenthal} is that, up to equivalence, there are seven minimal families of Rosenthal compacta and that for every relatively compact $\{f_t:t\in 2^{<\mathbb{N}}\}\subseteq B_1(X)$ there is a dyadic subtree $\{s_t:t\in 2^{<\mathbb{N}}\}$ such that $\{f_{s_t}:t\in 2^{<\mathbb{N}}\}$ is equivalent to one of the minimal families.
 We shall describe the seven minimal families next.
 We follow the same notation as in \cite{argyros2008rosenthal}.
-For any node $t\in 2^{<\mathbb{N}}$, let us denote by $t^\frown 0^{\infty}$ ($t^\frown 1^{\infty}$) the infinite binary sequence starting with $t$ and continuing will all $0$'s (respectively, all $1$'s).
+For any node $t\in 2^{<\mathbb{N}}$, let us denote by $t^\frown 0^{\infty}$ ($t^\frown 1^{\infty}$) the infinite binary sequence starting with $t$ and continuing with all $0$'s (respectively, all $1$'s).
 Fix a regular dyadic subtree $R=\{s_t:t\in 2^{<\mathbb{N}}\}$ of $2^{<\mathbb{N}}$ (i.e., a dyadic subtree such that every level of $R$ is contained in a level of $2^{<\mathbb{N}}$) with the property that for all $s,s'\in R$, $s^\frown 0^{\infty}\neq s'^\frown 0^\infty$ and $s^\frown 1^{\infty}\neq s'^\frown 1^\infty$.
 Given $t\in 2^{<\mathbb{N}}$, let $v_t$ be the characteristic function of the set $\{x\in 2^\mathbb{N}:x \text{ extends } t\}$.
 Let $<$ be the lexicographic order in $2^\mathbb{N}$.
@@ -1234,7 +1234,7 @@ This is discrete in $\overline{D_1}=A(2^{\mathbb{N}})$.
     \item $D_2=\{s_t^\frown 0^{\infty}:t\in 2^{<\mathbb{N}}\}$.
 This is discrete in $\overline{D_2}=2^{\leq N}$.
     \item $D_3=\{f^+_{s_t^\frown 0^\infty}:t\in 2^{<\mathbb{N}}\}$.
-This is a discrete in $\overline{D_3}=S(2^{\mathbb{N}})$.
+This is discrete in $\overline{D_3}=S(2^{\mathbb{N}})$.
     \item $D_4=\{f^-_{s_t^\frown 1^\infty}:t\in 2^{<\mathbb{N}}\}$.
 This is discrete in $\overline{D_4}=S(2^{\mathbb{N}})$.
     \item $D_5=\{v_t:t\in 2^{<\mathbb{N}}\}$.
@@ -1406,8 +1406,7 @@ Must $\pi_P\circ\Delta|_{L[r_\bullet]}$ have the NIP for all $P\in\mathcal{P}$ a
 There is another notion closely related to NIP, introduced by Talagrand in \cite{talagrand1984pettis} while studying Pettis integration.
 Suppose that $X$ is a compact Hausdorff space and $A\subseteq \mathbb{R}^X$.
 Let $\mu$ be a Radon probability measure on $X$.
-Given a $\mu$-measurable set $E\subseteq X$, a positive integer $k$ and real numbers $a<b$.
-we write:
+Given a $\mu$-measurable set $E\subseteq X$, a positive integer $k$ and real numbers $a<b$, we write:
 
 $$D_k(A,E,a,b)=\bigcup_{f\in A}\{x\in E^{2k}:f(x_{2i})\leq a, \hspace{1mm} f(x_{2i+1})\geq b \hspace{1mm}{\text{ for all }i<k} \}.$$
 
