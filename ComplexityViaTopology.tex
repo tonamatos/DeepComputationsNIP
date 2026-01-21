@@ -724,7 +724,7 @@ $$N_p(z)=z-\frac{z^3-2z+2}{3z^2-2}=\frac{2z^3-2}{3z^2-2}$$
 Notice that taking $z_0=0$ as an initial guess will yield the sequence $0,1,0,1,0,1,\dots$ that oscillates between $0$ and $1$ but none of them are roots of $p(z)$.
 Another more chaotic way Newton's method can fail to converge is when the sequence of iterations has no convergent subsequence.
 The set of such points is known as the \emph{Julia set} associated to $N_p$ and it is typically a fractal.
-This can be visualizaed by adding a dash of color:
+This can be visualized by adding a dash of color:
 let us give each complex number $z_0$ a color $(R,G,B)$ where $R,G,B\in[0,1]$ (so that $(1,0,0)$ is red, $(0,1,0)$ is green, $(0,0,1)$ is blue and $(0.5,0,0.5)$ is a light purple, for example).
 The values of $R$, $G$ and $B$ are determined by looking at the image of said number at each stage of the iteration, $N_p^n(z_0)$, and computing the current distance to each of the roots of $p(z)$; so $R=1/d_r$ where $d_r$ is the positive distance to the root which is colored red, and so on.
 In this way, the roots themselves are colored red, green, and blue, and every other point gets a mix of the three colors.
