@@ -734,10 +734,10 @@ We say that $(L_p,\mathcal{P},\Gamma_p)$ is \emph{Newton's method for $p(z)$} if
 \end{rems}
 
 Newton's method is an iterative method that is used to approximate a root of $p(z)$. 
-The map $N_p(z)$ defined above is known as the \emph{Newton's map}.
+The map $N_p(z)$ defined above is known as \emph{Newton's map}.
 The method consists of taking an initial guess $z_0\in\mathbb{C}$ and iterating the rational map $N_p$ to obtain a sequence given by
 $$z_{n+1}=N_p(z_n)=z_n-\frac{p(z_n)}{p'(z_n)}$$
-For each root $r\in\mathbb{C}$ of $p(z)$, there exists $\varepsilon>0$ such that for any initial guess $z_0$ in the $\varepsilon$-ball centered at $r$, Newton's iteration converges to $r$ (provided $p'(r)\neq 0$) and the convergence is quadratic in that case, meaning the error at each step is roughly squared, causing the number of correct digits to double, leading to fast convergence. 
+For each root $r\in\mathbb{C}$ of $p(z)$, there exists an $\varepsilon>0$ such that for any initial guess $z_0$ in the $\varepsilon$-ball centered at $r$, Newton's iteration converges to $r$ (provided $p'(r)\neq 0$) and the convergence is quadratic in that case, meaning the error at each step is roughly squared, causing the number of correct digits to double, leading to fast convergence. 
 
 Given a root $r$ of $p(z)$, the set $B_r=\{z\in\mathbb{C}:\lim_{n\rightarrow\infty}N_p^n(z)=r\}$ is an open set called the \emph{basin} of $r$.
 However, Newton's method can fail to converge to any root for some choices of $z_0$.
@@ -752,7 +752,7 @@ let us give each complex number $z_0$ a color $(R,G,B)$ where $R,G,B\in[0,1]$ (s
 The values of $R$, $G$ and $B$ are determined by looking at the image of said number at each stage of the iteration, $N_p^n(z_0)$, and computing the current distance to each of the roots of $p(z)$; so $R=1/d_r$ where $d_r$ is the positive distance to the root which is colored red, and so on.
 In this way, the roots themselves are colored red, green, and blue, and every other point gets a mix of the three colors.
 As the number of iterations increases, each point gets a sharper color, as the sequence of images $\{N_p^n(z_0)\}_{n=1}^\infty$ converges to one of the three roots.
-Each stage, the complex plane looks as if out of focus because the coloring function is continuous.
+At each stage, the complex plane looks as if out of focus because the coloring function is continuous.
 As the reader can see in Figure~\ref{fig:newton}, the points at the boundary of each color class form the famous Newton fractal (of which, interestingly, Newton was unaware).
 
 \begin{figure}[htbp]
@@ -899,7 +899,10 @@ Note that $P_n\circ\phi_w(x)=1$ if and only if $x|_{|w|}$ comes before $w$.
         1, & \text{if }x|_{|w|}\leq_{\mathrm{lex}} w;\\
         0, & \text{otherwise}.
     \end{cases}$$
-    We first prove that $f^{-1}(1)=\{x\in 2^{\mathbb{N}}:x|_{|w|}\leq_{\mathrm{lex}} w\}$ is an open set. Fix $x_0\in f^{-1}(1)$. Let $t:=x_0|_{|w|}$ and consider the basic open set $[t]=\{x\in 2^{\mathbb{N}}:x|_{|t|}=t\}$. Then, it is not difficult to check that $x_0\in [t]\subseteq f^{-1}(1)$. The same reasoning shows that $f^{-1}(0)$ is open.
+    We first prove that $f^{-1}(1)=\{x\in 2^{\mathbb{N}}:x|_{|w|}\leq_{\mathrm{lex}} w\}$ is an open set. 
+    Fix $x_0\in f^{-1}(1)$. Let $t:=x_0|_{|w|}$ and consider the basic open set $[t]=\{x\in 2^{\mathbb{N}}:x|_{|t|}=t\}$. 
+    Then it is not difficult to check that $x_0\in [t]\subseteq f^{-1}(1)$. 
+    The same reasoning shows that $f^{-1}(0)$ is open.
 \end{proof}
 
 Let $\Delta=\{\phi_w:w\in 2^{<\mathbb{N}}\}\cup\{\mathbf{0^{\infty}},\mathbf{1^{\infty}}\}$, where $\mathbf{0^{\infty}},\mathbf{1^{\infty}}:L\rightarrow L$ are the constant maps identical to $0^{\infty}$ and $1^{\infty}$, respectively. 
@@ -1220,9 +1223,10 @@ This choice of index is useful for two reasons:
 \begin{enumerate}
 \item
 Our emphasis is computational.
-Elements of $2^{<\mathbb{N}}$ represent finite bitstrings, i.e., standard computations, while Rosenthal compacta represent deep computations, i.e., limits of finite computations.
-Mathematically, deep computations are ultralimits of standard computations.
-However, computationally, we are interested in the manner (and the efficiency) in which the approximations can occur.
+Real numbers can be represented as infinite binary sequences, i.e., infinite branches of the binary tree $2^{<\mathbb{N}}$.
+We approximate real numbers or binary sequences with elements in $2^{<\mathbb{N}}$, i.e., finite bitstrings.
+Indexing standard computations with finite bitstrings allow us to better understand how deep computations arise and how they get approximated.
+Computationally, we are interested in the manner (and the efficiency) in which the approximations can occur.
 \item
 Infinite branches of the binary tree $2^{<\mathbb{N}}$ correspond to the Cantor space $2^{\mathbb{N}}$, the canonical perfect set (in the sense that any Polish space with no isolated points contains a copy of $2^{\mathbb{N}}$).
 The use of infinite dimensional Ramsey theory for trees (pioneered by the work of James D. Halpern, Hans L\" auchli in \cite{halpern1966partition} and also Keith Milliken in \cite{milliken1981partition}, and Alain Louveau, Saharon Shelah, Boban Velickovic in \cite{louveau_shelah_velickovic_1993}) and perfect sets (Fred Galvin and Andreas Blass in \cite{Blass1981}, Arnold W. Miller in \cite{miller1989infinite}, and Stevo Todorčević in \cite{Todorcevic_1999_CompactSubsetsBaire}) allowed S.A. Argyros, P. Dodos and V. Kanellopoulos in \cite{argyros2008rosenthal} to obtain an improved version of Theorem \ref{T:Todorcevic trichotomy}.
