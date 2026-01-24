@@ -992,7 +992,7 @@ For a given $a\in 2^\mathbb{N}$, let $\delta_a:L\rightarrow\{0^\infty,1^\infty\}
 \end{prop}
 
 \begin{proof}
-    Fix $a\in 2^\mathbb{N}$. Let $w_n:=a|_n$ for each $n\in\mathbb{N}$. 
+    Fix $a\in 2^\mathbb{N}$, and let  $w_n:=a|_n$ for each $n\in\mathbb{N}$. 
     We claim that $\lim_{n\rightarrow\infty}\psi_{w_n}(x)=\delta_a(x)$ for all $x\in L$. 
     If $x=a$, then $x|_{|w_n|}=w_n$ for all $n$ and so $\psi_{w_n}(x)=1^\infty=\delta_a(x)$ for all $n$.
     If $x\neq a$, then $x|_{|w_n|}\neq w_n$ for large enough $n$.
@@ -1006,7 +1006,7 @@ These equality tests $\delta_a$ are not all the deep computations. The other dee
 \end{prop}
 
 \begin{proof}
-    To show that $\mathbf{0^\infty}\in\overline{\Delta}$ consider, for each $n\in\mathbb{N}$, ${w_n=1^n}^\frown 0$, i.e., the string consisting of $n$ consecutive $1$s followed by a $0$. 
+    To show that $\mathbf{0^\infty}\in\overline{\Delta}$, for each $n\in\mathbb{N}$,  consider, ${w_n=1^n}^\frown 0$, i.e., the string consisting of $n$ consecutive $1$s followed by a $0$. 
     If $x=1^\infty$, then $x|_{|w_n|}\neq w_n$ for all $n\in\mathbb{N}$.
     Hence, $\psi_{w_n}(x)=0^\infty$ for all $n\in\mathbb{N}$.
     If $x\neq 1^\infty$, let $N$ be the smallest such that $x(N)=0$.
@@ -1207,7 +1207,7 @@ The following examples show that the levels NIP$_i$ ($i=1,2,3$) may be distingui
     Hence, $\Delta$ is NIP$_2$ but not NIP$_3$.
 
     \item Let $(L,\mathcal{P},\Gamma)$ be the finite precision prefix test (Section~\ref{subsec: prefix test}) with $\Delta=\{\psi_w:w\in 2^{<\mathbb{N}}\}$.
-    We saw that $\overline{\tilde{\Delta}}$ is homeomorphic to the Extended Alexandroff compactification $\hat{A}(2^\mathbb{N})$ (Example \ref{E:Rosenthal compacta}(3)), which is separable but not first countable.
+    We saw that $\overline{\tilde{\Delta}}$ is homeomorphic to the Extended Alexandroff compactification $\hat{A}(2^\mathbb{N})$ (Example \ref{E:Rosenthal compacta}-(3)), which is separable but not first countable.
     Hence, $\Delta$ is NIP but not NIP$_1$.
 \end{enumerate}
 \end{exmps}
