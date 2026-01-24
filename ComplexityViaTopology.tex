@@ -881,13 +881,14 @@ Let us look at various examples:
 \subsection{Finite precision threshold classifiers as a CCS}\label{subsec:finite_prec_threshold}
 
 Let $L=2^\mathbb{N}$, i.e., the set consisting of all infinite binary sequences with the topology of pointwise convergence.
-Let $\mathcal{P}=\{P_n:n\in\mathbb{N}\}$ equal the collection of projections, i.e., $P_n(x)=x(n)$ for each $n$ and each $x\in L$.
-In other words, $P_n$ is the predicate that reads the $n$th digit of a sequence.
+Let $\mathcal{P}=\{P_n:n\in\mathbb{N}\}$ equal the collection of projections, i.e., $P_n(x)=x(n)$ for each each $x\in L$ and $n\in\mathbb{N}$.
+%In other words, $P_n$ is the predicate that reads the $n$th digit of an input sequence.
 Notice that $L\subseteq\mathbb{R}^{\mathcal{P}}$ is closed. 
 Therefore, $\mathcal{L}=L$.
 We denote by $0^\infty$ the infinite binary sequence consisting of $0$s, and by $1^\infty$ the infinite binary sequence consisting of $1$s.
-The set of finite binary strings is denoted by $2^{<\mathbb{N}}$.
-Given a finite binary string $w$, we consider the transition $\phi_w:L\to L$ given by the rule $$\phi_w(x)=\begin{cases}1^\infty, & \text{if }x|_{|w|}\leq_{\mathrm{lex}}w;\\0^\infty, & \text{otherwise};\end{cases}$$ where $|w|$ is the length of the string $w$ and $x|_{|w|}$ is the prefix of $x$ of length $|w|$.
+The set of finite binary strings is denoted by $2^{<\mathbb{N}}$. This set is naturally ordered by the lexicographic order  $\leq_{\mathrm{lex}}$.
+Given a finite binary string $w$, we consider the transition $\phi_w:L\to L$ given by the rule $$\phi_w(x)=\begin{cases}1^\infty, & \text{if }x|_{|w|}\leq_{\mathrm{lex}}w;\\0^\infty, & \text{otherwise},\end{cases}$$ 
+where $|w|$ is the length of the string $w$ and $x|_{|w|}$ is the prefix of $x$ of length $|w|$.
 That is, $\phi_w(x)$ is equal to the constant sequence of ones if $x|_{|w|}$ comes before or is equal to $w$ in the lexicographic order of strings, and it is equal to the constant sequence of zeros otherwise.
 In words, $\phi_w$ checks if a number is less than or equal to the scalar value of threshold $w$ (the string $w$ is finite, hence the classifier has \emph{finite precision}).
 Note that $P_n\circ\phi_w(x)=1$ if and only if $x|_{|w|}$ comes before $w$.
