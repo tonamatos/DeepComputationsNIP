@@ -577,12 +577,14 @@ Elements of $\mathcal{L}\setminus L$ will be called \emph{unrealized types}.
 \end{defn}
 Intuitively, state types capture a notion of ``limit state''.
 
-The traditional setting of discrete first-order logic may be regarded as the special case in which predicates are binary (such predicates may take only the values $0$ and $1$, say).
-In such a traditional setting, the space of types of a structure is necessarily compact;
-for some purposes, it serves as a sort of compactification of the structure itself.
-Compactness in such setting is critical.
-However, predicates of a computational states structure take values in the non-compact space~$\mathbb{R}$, so the corresponding type space $\mathcal{L}$ need not be compact.
-To bypass this obstacle, we follow the idea, introduced in~\cite{alva2024approximability}, of covering $\mathcal{L}$ by ``thin'' compact subspaces called~\emph{shards}.
+%The traditional setting of discrete first-order logic may be regarded as the special case in which predicates are binary (such predicates may take only the values $0$ and $1$, say).
+%In such a traditional setting, the space of types of a structure is necessarily compact;
+%for some purposes, it serves as a sort of compactification of the structure itself.
+%Compactness in such setting is critical.
+%However, predicates of a computational states structure take values in the non-compact space~$\mathbb{R}$, so the corresponding type space $\mathcal{L}$ need not be compact.
+%To bypass this obstacle, we follow the idea, introduced in~\cite{alva2024approximability}, of covering $\mathcal{L}$ by ``thin'' compact subspaces called~\emph{shards}.
+
+We are interested in families of real-valued functions that are pointwise bounded. This leads us to the concepts of \emph{size} and \emph{shard}:
 
 \begin{defn}
   A \emph{sizer} is a tuple $r_{\bullet}=(r_P)_{P\in\mathcal{P}}$ of positive real numbers, indexed by~$\mathcal{P}$.
