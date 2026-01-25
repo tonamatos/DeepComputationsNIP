@@ -502,7 +502,7 @@ The Proposition below reduces the study of $\mathbb{R}^{\mathcal{P}}$-valued con
 (The cardinality of $\mathcal{P}$ plays no role.)
 \begin{proof}
   The identification of $C_p$-spaces follows trivially from the definition of topological product and the fact that $\mathcal{P}$ is discrete:
-  a continuous map $X\to \mathbb{R}^{\mathcal{P}}$ is precisely a $\mathcal{P}$-tuple of continuous functions $X\to \mathbb{R}$, and these correspond to continuous functions $X\times \mathcal{P}\to \mathbb{R}$.
+  a continuous map $X\to \mathbb{R}^{\mathcal{P}}$ is precisely a $\mathcal{P}$-indexed family of continuous functions $X\to \mathbb{R}$, and these correspond to continuous functions $X\times \mathcal{P}\to \mathbb{R}$.
   The identification of Baire-1 spaces follows immediately, since it is defined in terms of the purely topological notion of limit (in the ambient space) of sequences of continuous functions.
 \end{proof}
 
@@ -587,7 +587,7 @@ Intuitively, state types capture a notion of ``limit state''.
 As we combine ideas of model theory~\cite{Keisler:2023} and topology~\cite{BFT_1978_PCompactBaire}, we are interested in families of real-valued functions that are pointwise bounded. This leads us to the concepts of \emph{sizer} and \emph{shard} introduced first in introduced in~\cite{alva2024approximability}:
 
 \begin{defn}
-  A \emph{sizer} is a tuple $r_{\bullet}=(r_P)_{P\in\mathcal{P}}$ of positive real numbers, indexed by~$\mathcal{P}$.
+  A \emph{sizer} is a family $r_{\bullet}=(r_P)_{P\in\mathcal{P}}$ of positive real numbers, indexed by~$\mathcal{P}$.
   Given a sizer $r_\bullet$, let $\mathbb{R}^{[\rb]} = \prod_{P\in\mathcal{P}}[-r_P,r_P]$ (a compact space), and let the $r_\bullet$-\emph{shard} of a states space~$L$ be
 \[
 L[r_\bullet] = L\cap \mathbb{R}^{[\rb]}.
