@@ -1097,7 +1097,6 @@ We say that $\Delta$ is:
 Observe that NIP$_3 \Rightarrow $NIP$_2\Rightarrow $NIP$_1\Rightarrow $NIP.
 Todorčević, \cite{Todorcevic_1999_CompactSubsetsBaire},  isolated three canonical examples of Rosenthal compacta that witness the failure of the converse implications above.
 
-
 We now present some separable and non-separable examples of Rosenthal compacta.
 These show that the previously discussed classes NIP$_i$ are not equal.
 
@@ -1107,40 +1106,50 @@ These show that the previously discussed classes NIP$_i$ are not equal.
 \begin{enumerate}
     \item \emph{Alexandroff compactification of a discrete space of size continuum}.
 For each $a\in 2^\mathbb{N}$ consider the map $\delta_a:2^\mathbb{N}\rightarrow\mathbb{R}$ given by $\delta_a(x)=1$ if $x=a$ and $\delta_a(x)=0$ otherwise.
-Let $A(2^\mathbb{N})=\{\delta_a:a\in 2^\mathbb{N}\}\cup\{0\}$, where $0$ is the zero map.
-Notice that $A(2^\mathbb{N})$ is a compact subset of $B_1(2^\mathbb{N})$, in fact $\{\delta_a:a\in 2^\mathbb{N}\}$ is a discrete subspace of $B_1(2^\mathbb{N})$ and its pointwise closure is precisely $A(2^\mathbb{N})$.
-Hence, this is a Rosenthal compactum which is not first countable.
-Notice that this space is also not separable.
+Let $A(2^\mathbb{N})=\{\delta_a:a\in 2^\mathbb{N}\}\cup\{\mathbf{0}\}$, where $\mathbf{0}$ is the zero map.
+Notice that $A(2^\mathbb{N})$ is a compact subset of $B_1(2^\mathbb{N})$. 
+In fact, $\{\delta_a:a\in 2^\mathbb{N}\}$ is an uncountable discrete subspace of $B_1(2^\mathbb{N})$ and its pointwise closure is precisely $A(2^\mathbb{N})$.
+Hence, this is a Rosenthal compactum which is not hereditarily separable (hence, not first countable).
+In particular, this space is not separable but it can be made separable by adding a countable set as the next example shows.
+
     \item \emph{Extended Alexandroff compactification}.
 For each finite binary sequence $s\in 2^{<\mathbb{N}}$, let $v_s:2^\mathbb{N}\rightarrow\mathbb{R}$ be given by $v_s(x)=1$ if $x$ extends $s$ and $v_s(x)=0$ otherwise.
 Let $\hat{A}(2^\mathbb{N})$ be the pointwise closure of $\{v_s:s\in2^{<\mathbb{N}}\}$, i.e., $\hat{A}(2^\mathbb{N})=A(2^\mathbb{N})\cup\{v_s:s\in 2^{<\mathbb{N}}\}$.
-Note that this space is a separable Rosenthal compactum which is not first countable. 
+Note that this space is a separable Rosenthal compactum which is not first countable.
 This is the example discussed in Section \ref{subsec: prefix test}. 
 It is an example of a CCS that is NIP but not NIP$_1$.
+
     \item \emph{Split Cantor}.
 Let $<$ be the lexicographic order in the space of infinite binary sequences, i.e., $2^\mathbb{N}$.
 For each $a\in 2^\mathbb{N}$ let $f_a^-:2^\mathbb{N}\rightarrow\mathbb{R}$ be given by $f_a^-(x)=1$ if $x<a$ and $f_a^-(x)=0$ otherwise.
 Let $f_a^+:2^\mathbb{N}\rightarrow\mathbb{R}$ be given by $f_a^+(x)=1$ if $x\leq a$ and $f_a^+(x)=0$ otherwise.
 The split Cantor is the space $S(2^\mathbb{N})=\{f_a^-:a\in 2^\mathbb{N}\}\cup\{f_a^+:a\in 2^\mathbb{N}\}$, which was obtained as the closure of the space discussed in Section~\ref{subsec:finite_prec_threshold}, giving an example separating NIP$_2$ from NIP$_3$.
-This is a separable Rosenthal compactum.
+This is a well known separable Rosenthal compactum.
 One example of a countable dense subset is the set of all $f_a^+$ and $f_a^-$ where $a$ is an infinite binary sequence that is eventually constant.
 Moreover, it is hereditarily separable, but it is not metrizable.
+It is homeomorphic to the space $2^{\mathbb{N}}\times\{0,1\}$ with the lexicographic order topology via the identification $(a,1)\mapsto f_a^+$ and $(a,0)\mapsto f_a^-$.
 
     \item \emph{Alexandroff Duplicate}.
-Let $K$ be any compact metric space and consider the Polish space $X=C(K)\sqcup K$, i.e., the disjoint union of $C(K)$ (with its supremum norm topology) and $K$.
+Let $K$ be any compact metric space and consider the Polish space $X=K\sqcup C(K)$, i.e., the disjoint union of $C(K)$ (with its supremum norm topology) and $K$.
 For each $a\in K$ define $g_a^0,g_a^1:X\rightarrow\mathbb{R}$ as follows:
     $$g_a^0(x)=\begin{cases}
-        x(a), & \text{if }x\in C(K);\\
-        0, & \text{if }x\in K;
+        0, & \text{if }x\in K\\
+        x(a), & \text{if }x\in C(K);
     \end{cases}$$
     $$g_a^1(x)=\begin{cases}
-        x(a), & \text{if }x\in C(K);\\
-        \delta_a(x), & \text{if }x\in K.
+        \delta_a(x), & \text{if }x\in K;\\
+        x(a), & \text{if }x\in C(K).
     \end{cases}$$
     Let $D(K)=\{g_a^0:a\in K\}\cup\{g_a^1:a\in K\}$.
+Observe that all points $g_a^1$ are isolated and that open neighborhoods of $g_a^0$ are of the form $\{g_a^i:a\in U,i\in\{0,1\}\}\backslash\{g_a^1:a\in F\}$ where $U\subseteq K$ is an open neighborhood of $a$ and $F\subseteq K$ is a finite set.
+Another abstract way in which this space is presented is as the space $K\times\{0,1\}$ whose basic open neighborhoods are given as before, identifying $(a,0)\mapsto g_a^0$ and $(a,1)\mapsto g_a^1$.
+We can also embed $D(K)$ into the product $A(K)\times K$ by identifying $(a,0)\mapsto (\mathbf{0},a)$ and $(a,1)\mapsto (\delta_a,a)$.
 Notice that $D(K)$ is a first countable Rosenthal compactum.
 It is not separable if $K$ is uncountable.
 The interesting case will be when $K=2^\mathbb{N}$.
+As with the Alexandroff compactification $A(2^{\mathbb{N}})$, we can make the space $D(2^{\mathbb{N}})$ separable by adding a countable set.
+For example, the closure of the set $\{(v_s,s^\frown 0^\infty):s\in 2^{<\mathbb{N}}\}\subseteq \hat{A}(2^{\mathbb{N}})\times 2^{\mathbb{N}}$ is $\{(\mathbf{0},a):a\in 2^{\mathbb{N}}\}\cup \{(\delta_a,a):a\in 2^{\mathbb{N}}\}\cup\{(v_s,s^\frown 0^\infty):s\in 2^{<\mathbb{N}}\}$, where $\{(\mathbf{0},a):a\in 2^{\mathbb{N}}\}\cup \{(\delta_a,a):a\in 2^{\mathbb{N}}\}$ is homeomorphic to $D(2^{\mathbb{N}})$.
+
     \item \emph{Extended Alexandroff Duplicate of the split Cantor}.
 For each finite binary sequence $t\in 2^{<\mathbb{N}}$ let $a_t\in 2^\mathbb{N}$ be the sequence starting with $t$ and ending with $0$'s and let $b_t\in 2^\mathbb{N}$ be the sequence starting with $t$ and ending with $1$'s.
 Define $h_t:2^\mathbb{N}\rightarrow\mathbb{R}$ by
@@ -1150,8 +1159,9 @@ Define $h_t:2^\mathbb{N}\rightarrow\mathbb{R}$ by
         1, & \text{if }b_t<x.
     \end{cases}$$
     Let $\hat{D}(S(2^\mathbb{N}))$ be the pointwise closure of the set $\{h_t:t\in 2^{<\mathbb{N}}\}$.
+    The identification $h_t\mapsto (v_t,f_{t^\frown 0^\infty}^+)$ lifts to a homeomorphism between $\hat{D}(S(2^\mathbb{N}))$ and the subspace of $\hat{A}(2^\mathbb{N})\times S(2^\mathbb{N})$ consisting of $(\mathbf{0},f_a^+)$, $(\mathbf{0},f_a^-)$, $(\delta_a,f_a^+)$ and $(v_t,f_{t^\frown 0^\infty}^+)$ for $a\in 2^{\mathbb{N}}$ and $t\in 2^{<\mathbb{N}}$ (see 4.3.7 in \cite{argyros2008rosenthal}).
 Hence, $\hat{D}(S(2^\mathbb{N}))$ is a separable first countable Rosenthal compactum which is not hereditarily separable.
-In fact, it contains an uncountable discrete subspace (see Theorem 5 in \cite{Todorcevic_1999_CompactSubsetsBaire}).
+In fact, it contains an uncountable discrete subspace.
 \end{enumerate}
 
 \end{exmps}
@@ -1208,6 +1218,18 @@ The following examples show that the levels NIP$_i$ ($i=1,2,3$) may be distingui
     We saw that $\overline{\Delta}$ is homeomorphic to the Split Cantor space $S(2^\mathbb{N})$ (Example \ref{E:Rosenthal compacta}(3)), which is hereditarily separable but not metrizable.
     Hence, $\Delta$ is NIP$_2$ but not NIP$_3$.
 
+    \item Let $(L,\mathcal{P},\Gamma)$ be the CCS given by $L=2^{\mathbb{N}}$, $\mathcal{P}=\{P_n:n\in\mathbb{N}\}$ and $\Gamma$ is the semigroup generated by $\Delta=\{\gamma_t:t\in 2^{<\mathbb{N}}\}$, where $P_n:2^\mathbb{N}\rightarrow\{0,1\}$ is the projection map $P_n(x)=x(n)$ and $\gamma_t:L\rightarrow L$ is given by
+    $$\gamma_t(x)=\begin{cases}
+        0^\infty, & \text{if }x<_{\text{lex}}t^\frown0^\infty;\\
+        (01)^\infty, & \text{if }t^\frown0^\infty\leq_{\text{lex}} x \leq_{\text{lex}} t^\frown1^\infty;\\
+        1^\infty, & \text{if }t^\frown1^\infty<_{\text{lex}}x.
+    \end{cases}$$
+    where $(01)^\infty$ denotes the sequence $010101\dots$. 
+    As in the other examples, it is not difficult to see that $(L,\mathcal{P},\Gamma)$ satisfies the Extendibility Axiom.
+    For example, $t^\frown0^\infty\leq_{\text{lex}} x \leq_{\text{lex}} t^\frown1^\infty$ if and only if $x|_{|t|}=t$.
+    Observe that the set of deep computations is homeomorphic to $\hat{D}(S(2^{\mathbb{N}}))$ (see Example \ref{E:Rosenthal compacta}(5)).
+    This is an example of $\Delta$ which is NIP$_1$ but not NIP$_2$.
+
     \item Let $(L,\mathcal{P},\Gamma)$ be the finite precision prefix test (Section~\ref{subsec: prefix test}) with $\Delta=\{\psi_w:w\in 2^{<\mathbb{N}}\}$.
     We saw that $\overline{\tilde{\Delta}}$ is homeomorphic to the Extended Alexandroff compactification $\hat{A}(2^\mathbb{N})$ (Example \ref{E:Rosenthal compacta}-(3)), which is separable but not first countable.
     Hence, $\Delta$ is NIP but not NIP$_1$.
@@ -1220,7 +1242,6 @@ This raises the following question:
 \begin{question}
     Is there a non-topological characterization for NIP$_i$, $i=1,2,3$?
 \end{question}
-
 
 \subsection{The Argyros-Dodos-Kanellopoulos heptachotomy, and approximability of deep computation by minimal classes}
 
