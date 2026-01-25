@@ -249,7 +249,7 @@ The following are equivalent:
         \item
         $A$ is relatively compact in $B_1(X)$.
         \item
-        $A$ is relatively countably compact in $B_1(X)$, i.e., every countable subset of $A$ has an accumulation point in $B_1(X)$.
+        $A$ is relatively countably compact in $B_1(X)$, i.e., every countable subset of $A$ has a limit point in $B_1(X)$.
         \item
         $\overline{A}\subseteq B_1(X)$, where $\overline{A}$ denotes the closure in $\mathbb{R}^X$.
     \end{enumerate}
@@ -266,7 +266,7 @@ the sequence $\{f_n\}$ is as claimed.
 Seeking a contradiction, assume that $A$ is relatively countably compact in~$B_1(X)$, but there exists some $f\in \overline{A}\setminus B_1(X)$.
     By Fact \ref{baire}, there are countable $D_0,D_1\subseteq X$ with $\overline {D_0}=\overline{D_1}$, and $a<b$ such that $D_0\subseteq f^{-1}(-\infty,a]$ and $D_1\subseteq f^{-1}[b,\infty)$.
 Per the claim above, let $\{f_n\}_{n\in\mathbb{N}}\subseteq A$ satisfy $\lim_{n\to\infty}f_n(x)=f(x)$ for all $x\in D_0\cup D_1$ (the latter being a countable set).
-By relative countable compactness of~$A$, there is an accumulation point $g\in B_1(X)$ of $\{f_n\}_{n\in\mathbb{N}}$;
+By relative countable compactness of~$A$, there is a limit point $g\in B_1(X)$ of $\{f_n\}_{n\in\mathbb{N}}$;
 clearly, $f$ and $g$ agree on $D_0\cup D_1$.
 Thus $g$ takes values $g(x_i) = f(x_i) \le a$ as well as values $g(x_j) = f(x_j) \ge b > a$ on any open subset of the closed set $\overline{D_0} = \overline{D_1}$, contradicting the implication (1)$\Rightarrow$(3) in Fact~\ref{baire}.
 
@@ -1324,7 +1324,7 @@ In this section, the countability assumption is not needed.
 
 \subsection{NIP and Monte Carlo computability of deep computations}
 
-The \emph{raison d'être} of the Baire class-1 functions is to work with a class of functions that are obtained as accumulation points of continuous functions (deep computations) but are not too far from being continuous.
+The \emph{raison d'être} of the Baire class-1 functions is to work with a class of functions that are obtained as limit points of continuous functions (deep computations) but are not too far from being continuous.
 By Fact~\ref{baire}, for perfectly normal $X$, a function $f$ is in $B_1(X,Y)$ if and only if $f^{-1}[U]$ is an $F_\sigma$ subset of $X$ for every open $U\subseteq Y$.
 Recall that a function $f:X\rightarrow Y$ is continuous if and only if $f^{-1}[U]$ is open in $X$ for every open $U\subseteq Y$.
 In other words, we can view the class $B_1(X,Y)$ as a weaker notion of continuity.
@@ -1395,7 +1395,7 @@ The following are equivalent:
         \item 
         For every compact $K\subseteq X$, $A|_K$ satisfies the NIP.
         \item
-        For every Radon measure $\mu$ on $X$, $A$ is relatively countably compact in $\mathscr{M}^0(X,\mu)$, i.e., every countable subset of $A$ has an accumulation point in $\mathscr{M}^0(X,\mu)$.
+        For every Radon measure $\mu$ on $X$, $A$ is relatively countably compact in $\mathscr{M}^0(X,\mu)$, i.e., every countable subset of $A$ has a limit point in $\mathscr{M}^0(X,\mu)$.
     \end{enumerate}
 \end{thm}
 
@@ -1471,8 +1471,8 @@ We say that $A$ is \emph{Talagrand $\mu$-stable} if and only if for every $\mu$-
 where $\mu^*$ denotes the outer measure (we need to work with outer measure since the sets $D_k(A,E,a,b)$ need not be $\mu^{2k}$-measurable).
 The inequality certainly holds when $A$ is a countable set of continuous (or $\mu$-measurable) functions.
 
-The main result of this section is that deep computations, i.e., accumulation points of a Talagrand stable set of computations are Monte Carlo computable; this is Theorem~\ref{T:Talagrand stability and Monte Carlo} below.
-We now prove that accumulation points of a Talagrand $\mu$-stable set are $\mu$-measurable.
+The main result of this section is that deep computations, i.e., limit points of a Talagrand stable set of computations are Monte Carlo computable; this is Theorem~\ref{T:Talagrand stability and Monte Carlo} below.
+We now prove that limit points of a Talagrand $\mu$-stable set are $\mu$-measurable.
 But first,  let us state  the following useful characterization of measurable functions (compare with Fact \ref{baire}):
 
 \begin{fact}[Lemma 413G in \cite{fremlin2003vol4}]\label{fact: measurable functions characterization}
