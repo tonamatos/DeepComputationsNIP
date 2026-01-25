@@ -1108,9 +1108,9 @@ These show that the previously discussed classes NIP$_i$ are not equal.
 For each $a\in 2^\mathbb{N}$ consider the map $\delta_a:2^\mathbb{N}\rightarrow\mathbb{R}$ given by $\delta_a(x)=1$ if $x=a$ and $\delta_a(x)=0$ otherwise.
 Let $A(2^\mathbb{N})=\{\delta_a:a\in 2^\mathbb{N}\}\cup\{\mathbf{0}\}$, where $\mathbf{0}$ is the zero map.
 Notice that $A(2^\mathbb{N})$ is a compact subset of $B_1(2^\mathbb{N})$. 
-In fact, $\{\delta_a:a\in 2^\mathbb{N}\}$ is an uncountable discrete subspace of $B_1(2^\mathbb{N})$ and its pointwise closure is precisely $A(2^\mathbb{N})$.
-Hence, this is a Rosenthal compactum which is not hereditarily separable (hence, not first countable).
-In particular, this space is not separable but it can be made separable by adding a countable set as the next example shows.
+In fact, $\{\delta_a:a\in 2^\mathbb{N}\}$ is an uncountable discrete subspace of $B_1(2^\mathbb{N})$, and its pointwise closure is precisely $A(2^\mathbb{N})$.
+Hence, this is a Rosenthal compactum which is not hereditarily separable (and therefore not first countable).
+In particular, this space is does not satisfy separability, but it can be made separable by adding a countable set as the next example shows.
 
     \item \emph{Extended Alexandroff compactification}.
 For each finite binary sequence $s\in 2^{<\mathbb{N}}$, let $v_s:2^\mathbb{N}\rightarrow\mathbb{R}$ be given by $v_s(x)=1$ if $x$ extends $s$ and $v_s(x)=0$ otherwise.
@@ -1141,12 +1141,11 @@ For each $a\in K$ define $g_a^0,g_a^1:X\rightarrow\mathbb{R}$ as follows:
         x(a), & \text{if }x\in C(K).
     \end{cases}$$
     Let $D(K)=\{g_a^0:a\in K\}\cup\{g_a^1:a\in K\}$.
-Observe that all points $g_a^1$ are isolated and that open neighborhoods of $g_a^0$ are of the form $\{g_a^i:a\in U,i\in\{0,1\}\}\backslash\{g_a^1:a\in F\}$ where $U\subseteq K$ is an open neighborhood of $a$ and $F\subseteq K$ is a finite set.
+Observe that all points $g_a^1$ are isolated and that open neighborhoods of $g_{a_0}^0$ are of the form $\{g_a^i:a\in U,i\in\{0,1\}\}\backslash\{g_a^1:a\in F\}$ where $U\subseteq K$ is an open neighborhood of $a_0$ and $F\subseteq K$ is a finite set.
 Another abstract way in which this space is presented is as the space $K\times\{0,1\}$ whose basic open neighborhoods are given as before, identifying $(a,0)\mapsto g_a^0$ and $(a,1)\mapsto g_a^1$.
 We can also embed $D(K)$ into the product $A(K)\times K$ by identifying $(a,0)\mapsto (\mathbf{0},a)$ and $(a,1)\mapsto (\delta_a,a)$.
 Notice that $D(K)$ is a first countable Rosenthal compactum.
-It is not separable if $K$ is uncountable.
-The interesting case will be when $K=2^\mathbb{N}$.
+It is not separable if $K$ is uncountable, thus we typically study the interesting case when $K=2^\mathbb{N}$.
 As with the Alexandroff compactification $A(2^{\mathbb{N}})$, we can make the space $D(2^{\mathbb{N}})$ separable by adding a countable set.
 For example, the closure of the set $\{(v_s,s^\frown 0^\infty):s\in 2^{<\mathbb{N}}\}\subseteq \hat{A}(2^{\mathbb{N}})\times 2^{\mathbb{N}}$ is $\{(\mathbf{0},a):a\in 2^{\mathbb{N}}\}\cup \{(\delta_a,a):a\in 2^{\mathbb{N}}\}\cup\{(v_s,s^\frown 0^\infty):s\in 2^{<\mathbb{N}}\}$, where $\{(\mathbf{0},a):a\in 2^{\mathbb{N}}\}\cup \{(\delta_a,a):a\in 2^{\mathbb{N}}\}$ is homeomorphic to $D(2^{\mathbb{N}})$.
 
@@ -1224,9 +1223,9 @@ The following examples show that the levels NIP$_i$ ($i=1,2,3$) may be distingui
         (01)^\infty, & \text{if }t^\frown0^\infty\leq_{\text{lex}} x \leq_{\text{lex}} t^\frown1^\infty;\\
         1^\infty, & \text{if }t^\frown1^\infty<_{\text{lex}}x.
     \end{cases}$$
-    where $(01)^\infty$ denotes the sequence $010101\dots$. 
+    where $(01)^\infty$ denotes the sequence of alternating bits: $010101\cdots$. 
     As in the other examples, it is not difficult to see that $(L,\mathcal{P},\Gamma)$ satisfies the Extendibility Axiom.
-    For example, $t^\frown0^\infty\leq_{\text{lex}} x \leq_{\text{lex}} t^\frown1^\infty$ if and only if $x|_{|t|}=t$.
+    For example, the condition $t^\frown0^\infty\leq_{\text{lex}} x \leq_{\text{lex}} t^\frown1^\infty$ is equivalent to $x$ extending $t$.
     Observe that the set of deep computations is homeomorphic to $\hat{D}(S(2^{\mathbb{N}}))$ (see Example \ref{E:Rosenthal compacta}(5)).
     This is an example of $\Delta$ which is NIP$_1$ but not NIP$_2$.
 
