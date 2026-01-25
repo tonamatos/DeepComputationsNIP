@@ -530,7 +530,7 @@ Lastly, a simple but useful lemma that helps understand when we restrict a set o
 The following are equivalent for every $L\subseteq X$:
     \begin{enumerate}[(i)]
         \item
-        $A_L$ satisfies the NIP.
+        $A_L$ satisfies the NIP;
         \item
         $A|_{\overline{L}}$ satisfies the NIP.
     \end{enumerate}
@@ -666,7 +666,8 @@ Let  $f: L\to \mathcal{L}$ be a function that maps each input state type  $(P(v)
  
  \begin{enumerate}
  \item
-We will say that $f$ is \emph{definable} if for each $Q\in\mathcal{P}$, the output feature $Q{\circ}f: L\to\mathbb{R}$ is a definable predicate in the following sense: There is an \emph{approximating function} $\varphi_{Q,\,K,\varepsilon}: L\to \mathcal{R}$ that can be built recursively out of a finite number of the (primitively computable) predicates in $\mathcal{P}$
+We will say that $f$ is \emph{definable} if for each $Q\in\mathcal{P}$, the output feature $Q{\circ}f: L\to\mathbb{R}$ is a definable predicate in the following sense: 
+There is an \emph{approximating function} $\varphi_{Q,\,K,\varepsilon}: L\to \mathcal{R}$ that can be built recursively out of a finite number of the (primitively computable) predicates in $\mathcal{P}$
 and by a finite number of iterations of the finitary lattice operations $\land$ (=min) and $\lor$ (=max), the operations of $\mathbb{R}^\mathbb{R}$ as a vector algebra (that is, vector addition and multiplication and scalar multiplication) and the operators sup and inf applied on individual variables from $L$, and such that 
 \[
 | \varphi_{Q,\,K,\varepsilon}(v)- Q{\circ}f(v)|\le \epsilon,
@@ -676,6 +677,7 @@ and by a finite number of iterations of the finitary lattice operations $\land$ 
 
 \emph{Remark:} What we have defined above is a model-theoretic concept; it is a special case of the concept of \emph{first-order definability} for real-valued predicates in the model theory of real-valued structures first introduced in \cite{Iovino:1994} for model theory of functional analysis and now standard in model theory (see~\cite{Keisler:2023}).
 The $\land$ (=min) and $\lor$ (=max) operations correspond to the positive Boolean logical connectives ``and'' and ``or", and the sup and inf operators correspond to the first-order quantifiers, $\forall$ and $\exists$.
+
 \item
 We will say that $f$ is \emph{computable} if it is definable in the sense defined above under~(1), but without the use of the sup/inf operators; in other words, if for every choice of $Q,K,\varepsilon$, the approximation function $\varphi_{Q,K,\varepsilon}: L\to \mathcal{L}$ can be constructed without any use of sup or inf operators.
 This is quantifier-free definability (i.e., definability as given by the preceding paragraph, but without use of quantifiers), which, from a logic viewpoint, corresponds to computability (the presence of the quantifiers $\exists$ and $\forall$ are the reason behind the undecidability of first-order logic).
@@ -967,7 +969,7 @@ Note that if $a$ is the constant zero, then $f_a^-=\mathbf{0^{\infty}}$.
     \end{enumerate}
 \end{proof}
 
-The preceding proposition shows that the topological structure of deep computations can be very complicated.
+The preceding proposition shows that the topological structure of deep computations can be complicated.
 Indeed, $\overline{P_n\circ \Delta}$ contains the \emph{Split Cantor} space for all $n\in\mathbb{N}$. (see Examples~\ref{E:Rosenthal compacta}(3)).
 
 \subsection{Finite precision prefix test}
@@ -1038,7 +1040,7 @@ Let $\Delta\subseteq\Gamma$ be $R$-confined.
 The following are equivalent.
 
     \begin{enumerate}[(i)]
-        \item $\overline{\tilde\Delta|_{\mathcal{L}[r_\bullet]}}\subseteq B_1(\mathcal{L}[r_\bullet],\mathcal{L}[r_\bullet])$ for all $r_\bullet\in R$.
+        \item $\overline{\tilde\Delta|_{\mathcal{L}[r_\bullet]}}\subseteq B_1(\mathcal{L}[r_\bullet],\mathcal{L}[r_\bullet])$ for all $r_\bullet\in R$;
         \item $\pi_P\circ \Delta|_{L[r_\bullet]}$ satisfies the NIP for all $P\in\mathcal{P}$ and $r_\bullet\in R$; that is, for all $P\in\mathcal{P}$, $r_\bullet\in R$, $a<b$, $\{\gamma_n\}_{n\in\mathbb{N}}\subseteq\Delta$ there are finite disjoint $E,F\subseteq\mathbb{N}$ such that $$L[r_\bullet]\cap\bigcap_{n\in E}(\pi_P\circ\gamma_n)^{-1}(-\infty,a]\cap\bigcap_{n\in F}(\pi_P\circ\gamma_n)^{-1}[b,\infty)=\emptyset.$$
     \end{enumerate}
 
