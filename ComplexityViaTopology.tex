@@ -104,13 +104,11 @@ We use the theory of Rosenthal compacta to characterize approximability of deep 
 
 \maketitle
 
-%\setcounter{section}{-1}
 
 
 \section*{Introduction}
 
 In this paper we  study asymptotic behavior of computations, e.g., the depth of a neural network tending to infinity, or the time interval between layers of a time-series network tending toward zero.
-%The reason is that if we know the limit of a convergent sequence, we can confidently calculate how far out we have to go to be within epsilon of that limit.
 Recently, particular cases of this concept have attracted considerable attention in deep learning research (e.g., Neural Ordinary Differential Equations~\cite{Chen:2018}, Physics-Informed Neural Networks~\cite{Raissi-Perdikaris-Karniadakis:2019}, and deep equilibrium models~\cite{Bai:2019}).
 The formal framework introduced here  provides a unified setting to study these limit phenomena from a foundational viewpoint.
 
@@ -131,7 +129,7 @@ There is a technical difference between both designations, but in this paper, to
 In \cite{alva2024approximability},  a new ``tame vs wild'' (i.e., polynomially approximable vs nonpolynomially approximable) dichotomy for the complexity of deep computations was proved by invoking a classical result of Grothendieck from the 1950s~\cite{Grothendieck:1952}.
 Under our model-theoretic Rosetta stone, the property of polynomial approximability of computations is identified with continuous extendibility in the sense of topology, and with the notions of \emph{stability} and \emph{type definability} in model theory.
 
-Deep computations arise as  limits of (continuous) computations.
+Deep computations arise as  limits of standard (continuous) computations.
 In topology, the \emph{first Baire class}, or \emph{Baire class~1} consists of functions (also called simply ``\emph{Baire-1}'') arising as pointwise limits of sequences of continuous functions.
 Intuitively, the Baire-1 class consists of functions with ``controlled'' discontinuities, and lies just one level of topological complexity above the Baire class 0 which (by definition) consists of continuous functions.
 
@@ -577,12 +575,6 @@ Elements of $\mathcal{L}\setminus L$ will be called \emph{unrealized types}.
 \end{defn}
 Intuitively, state types capture a notion of ``limit state''.
 
-%The traditional setting of discrete first-order logic may be regarded as the special case in which predicates are binary (such predicates may take only the values $0$ and $1$, say).
-%In such a traditional setting, the space of types of a structure is necessarily compact;
-%for some purposes, it serves as a sort of compactification of the structure itself.
-%Compactness in such setting is critical.
-%However, predicates of a computational states structure take values in the non-compact space~$\mathbb{R}$, so the corresponding type space $\mathcal{L}$ need not be compact.
-%To bypass this obstacle, we follow the idea, introduced in~\cite{alva2024approximability}, of covering $\mathcal{L}$ by ``thin'' compact subspaces called~\emph{shards}.
 
 As we combine ideas of model theory~\cite{Keisler:2023} and topology~\cite{BFT_1978_PCompactBaire}, we are interested in families of real-valued functions that are pointwise bounded. This leads us to the concepts of \emph{sizer} and \emph{shard} introduced first in introduced in~\cite{alva2024approximability}:
 
@@ -596,22 +588,12 @@ L[r_\bullet] = L\cap \mathbb{R}^{[\rb]}.
 For a sizer  $r_{\bullet}$, the \emph{$r_{\bullet}$-type shard} is defined as $\mathcal{L}[r_\bullet]=\overline{L[r_\bullet]}$
 (a closed, hence compact subset of $\mathbb{R}^{[\rb]}$).
 
-%A collection $R$ of sizers is called \emph{exhaustive} if $\mathcal{L}_{\text{sh}}=\bigcup_{r_{\bullet}\in R}\mathcal{L}[r_\bullet]$.
 Let also $\mathcal{L}_{\text{sh}}$ be the union of all type-shards as the sizer $r_{\bullet}$ varies.
 \end{defn}
 
 In general, $\mathcal{L}_{\text{sh}}\subseteq \mathcal{L}$, and the inclusion may be proper.
 However, equality holds in the important special case when $\mathcal{P}$ is countable (see~\cite{alva2024approximability}).
 
-%\begin{rem}
-%Even though our type space $\mathcal{L}$ is not compact, the fact that it can be covered by shards gives us two advantages:
-%\begin{enumerate}[(i)]
-%\item
-%It gives us access to the rich theory of Lindel\"of-$\Sigma$ spaces and $K$-analytic spaces
-%\item
-%Families of functions in a given shard are pointwise bounded, which gives us access to the Bourgain-Fremlin-Talagrand dichotomy (Theorem~\ref{BFT}, \ref{BFT-2F} and the theory of Rosenthal compacta.
-%\end{enumerate}
-%\end{rem}
 
 \subsection{Compositional Computation Structures} 
 
@@ -633,12 +615,6 @@ More specifically, $\Gamma$ is identified with a subset of~$\mathcal{L}^L$, whic
 Therefore, we have an inclusion $\overline{\Gamma}\subseteq \mathcal{L}^{L}$.
 Elements $\xi\in\overline{\Gamma}$ are called (real-valued) \emph{deep computations} or \emph{ultracomputations}.
 
-The reason why we require $\Gamma$ to be a semigroup is because in many practical applications we want to perform an iterative process of computations (e.g., see subsection \ref{subsec: Newton method}). 
-In these scenarios we need the set of computations to be closed under composition.
-This leads to other concepts that are not addressed in this paper but are rather discussed in \cite[Section 5]{alva2024approximability}.
-However, in other applications we do not need to work on a set of computations that is closed under composition (e.g., see subsection \ref{subsec:finite_prec_threshold}).
-Given a set $\Delta\subseteq L^L$ of computations (not necessarily a semigroup), we can always take the semigroup $\Gamma$ generated by $\Delta$, i.e., the smallest semigroup containing $\Delta$.
-
 A collection $R$ of sizers is \emph{exhaustive} if $L = \bigcup_{\rb\in R}L[\rb]$ (shards $L[\rb]$ exhaust~$L$).
 A transformation $\gamma\in\Gamma$ is \emph{$R$-confined} if $\gamma$ restricts to a map $\gamma|_{L[r_\bullet]}:L[r_\bullet]\to L[r_\bullet]$ (into $L[r_{\bullet}]$ itself) for every $r_\bullet\in R$.
 A subset $\Delta\subseteq\Gamma$ is \emph{$R$-confined} if each $\gamma\in \Delta$ is.
@@ -652,8 +628,6 @@ A subset $\Delta\subseteq\Gamma$ is \emph{$R$-confined} if each $\gamma\in \Delt
   For each $v\in L$, let $\rb^{(v)}\in R$ be a sizer such that $v\in L[\rb^{(v)}]$.
   An arbitrary $\gamma\in\Delta$ restricts to a map $\gamma\restriction L[\rb^{(v)}]: L[\rb^{(v)}]\to L[\rb^{(v)}]$, so $\Gamma \subseteq K \coloneqq \prod_{v\in L}\mathcal{L}[\rb^{(v)}]$.
   The space~$K$ is a product of compact spaces, hence compact, so $\overline{\Gamma}$ is a closed, hence compact subset thereof, and a subset of~$\Lshard^L\supseteq K$ \emph{a fortiori}.
-  % Since $R$ is exhaustive, any fixed state $v$ belongs to some shard~$L[\rb]$, hence $|P\circ\gamma(v)|\le r_P$ for $P\in\mathcal{P}$, uniformly over $\gamma\in\Delta$.
-  % It follows that   
 \end{proof}
 
 For a CCS $(L,\mathcal{P},\Gamma)$, we regard the elements of $\Gamma$ as ``standard'' finitary computations, and the elements of $\overline{\Gamma}$, i.e., deep computations, as possibly infinitary limits of standard computations.
@@ -699,13 +673,6 @@ We say that a CCS $(L,\mathcal{P},\Gamma)$ satisfies the \emph{Extendibility Axi
 We refer to $\tilde\gamma$ as a \emph{free} extension of~$\gamma$.
 \end{defn}
 
-%In practice, we should expect that finitary computations (i.e., elements in $\Gamma$) are describing continuous functions.
-%This is precisely what the Extendibility Axiom is saying.
-%For example, suppose we want to approximate $e^{\pi}$.
-%We can't input the exact value of $\pi$ in a computer, but we can work with finite approximations.
-%The fact that $e^x$ is continuous is telling us that good enough approximations of $\pi$ yield good enough approximations of $e^\pi$.
-%We want to emphasize that, on the other hand, deep computations may become discontinuous even if they are the pointwise limit of (continuous) computations.
-%A simple illustrative example of this phenomenon is example \ref{E: computation of square roots}.
 
 For the rest of the paper, fix for each $\gamma\in\Gamma$ a free extension $\tilde{\gamma}$ of $\gamma$.
 For any $\Delta\subseteq\Gamma$, let $\tilde{\Delta}$ denote $\{\tilde\gamma\colon\gamma\in\Delta\}$.
