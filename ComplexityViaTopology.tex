@@ -11,7 +11,6 @@ pdfauthor={Luciano Salvetti, Tonatiuh Matos-Wiederhold},
 pdfkeywords={}
 }
 \usepackage{amsmath,amssymb}
-\usepackage{xcolor}
 \usepackage{amsthm}
 \usepackage{pdflscape}
 \usepackage{pgfplots}
@@ -22,7 +21,7 @@ pdfkeywords={}
 \graphicspath{ {images/} }
 \usepackage{subcaption}
 
-\usepackage[rgb]{xcolor}
+%\usepackage[rgb]{xcolor}
 
 
 \newtheorem{thm}{Theorem}[section]
@@ -78,8 +77,8 @@ Luciano Salvetti$^{2}$ \qquad
 Franklin D. Tall$^{2}$
 }
 
-\usepackage{lineno}
-\linenumbers
+%\usepackage{lineno}
+%\linenumbers
 
 
 \date{\today}
@@ -1092,7 +1091,7 @@ It is an example of a CCS that is NIP but not NIP$_1$.
 Let $<$ be the lexicographic order in the space of infinite binary sequences, i.e., $2^\mathbb{N}$.
 For each $a\in 2^\mathbb{N}$ let $f_a^-:2^\mathbb{N}\rightarrow\mathbb{R}$ be given by $f_a^-(x)=1$ if $x<a$ and $f_a^-(x)=0$ otherwise.
 Let $f_a^+:2^\mathbb{N}\rightarrow\mathbb{R}$ be given by $f_a^+(x)=1$ if $x\leq a$ and $f_a^+(x)=0$ otherwise.
-The split Cantor is the space $S(2^\mathbb{N})=\{f_a^-:a\in 2^\mathbb{N}\}\cup\{f_a^+:a\in 2^\mathbb{N}\}$, which was obtained as the closure of the space discussed in Section~\ref{subsec:finite_prec_threshold}, giving an example separating NIP$_2$ from NIP$_3$.
+The Split Cantor is the space $S(2^\mathbb{N})=\{f_a^-:a\in 2^\mathbb{N}\}\cup\{f_a^+:a\in 2^\mathbb{N}\}$, which was obtained as the closure of the space discussed in Section~\ref{subsec:finite_prec_threshold}, giving an example separating NIP$_2$ from NIP$_3$.
 This is a well known separable Rosenthal compactum.
 One example of a countable dense subset is the set of all $f_a^+$ and $f_a^-$ where $a$ is an infinite binary sequence that is eventually constant.
 Moreover, it is hereditarily separable, but it is not metrizable.
@@ -1118,7 +1117,7 @@ It is not separable if $K$ is uncountable, thus we typically study the interesti
 As with the Alexandroff compactification $A(2^{\mathbb{N}})$, we can make the space $D(2^{\mathbb{N}})$ separable by adding a countable set.
 For example, the closure of the set $\{(v_s,s^\frown 0^\infty):s\in 2^{<\mathbb{N}}\}\subseteq \hat{A}(2^{\mathbb{N}})\times 2^{\mathbb{N}}$ is $\{(\mathbf{0},a):a\in 2^{\mathbb{N}}\}\cup \{(\delta_a,a):a\in 2^{\mathbb{N}}\}\cup\{(v_s,s^\frown 0^\infty):s\in 2^{<\mathbb{N}}\}$, where $\{(\mathbf{0},a):a\in 2^{\mathbb{N}}\}\cup \{(\delta_a,a):a\in 2^{\mathbb{N}}\}$ is homeomorphic to $D(2^{\mathbb{N}})$.
 
-    \item \emph{Extended Alexandroff Duplicate of the split Cantor}.
+    \item \emph{Extended Alexandroff Duplicate of the Split Cantor}.
 For each finite binary sequence $t\in 2^{<\mathbb{N}}$ let $a_t\in 2^\mathbb{N}$ be the sequence starting with $t$ and ending with $0$'s and let $b_t\in 2^\mathbb{N}$ be the sequence starting with $t$ and ending with $1$'s.
 Define $h_t:2^\mathbb{N}\rightarrow\mathbb{R}$ by
     $$h_t(x)=\begin{cases}
