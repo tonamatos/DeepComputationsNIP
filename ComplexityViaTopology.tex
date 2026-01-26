@@ -131,9 +131,9 @@ There is a technical difference between both designations, but in this paper, to
 In \cite{alva2024approximability}, we proved a new ``tame vs wild'' (i.e., polynomially approximable vs nonpolynomially approximable) dichotomy for the complexity of deep computations by invoking a classical result of Grothendieck from the 1950s~\cite{Grothendieck:1952}.
 Under our model-theoretic Rosetta stone, the property of polynomial approximability of computations is identified with continuous extendibility in the sense of topology, and with the notions of \emph{stability} and \emph{type definability} in model theory.
 
-Simplest among deep computations are those arising as pointwise limits of (continuous) computations proper.
+Simplest among deep computations are those arising as pointwise limits of (continuous) computations.
 In topology, the \emph{first Baire class}, or \emph{Baire class~1} consists of functions (also called simply ``\emph{Baire-1}'') arising as pointwise limits of sequences of continuous functions.
-Intuitively, the Baire-1 class consists of functions with ``controlled'' discontinuities, and lies just one level of topological complexity away from the Baire class 0 which (by definition) consists of continuous functions.
+Intuitively, the Baire-1 class consists of functions with ``controlled'' discontinuities, and lies just one level of topological complexity above the Baire class 0 which (by definition) consists of continuous functions.
 
 We prove a new ``tame vs wild'' Ramsey-theoretic dichotomy for complexity of general deep computations by invoking a famous paper by Bourgain, Fremlin and Talagrand from the late 70s~\cite{BFT_1978_PCompactBaire}, and a new trichotomy for the class of ``tame'' deep computations by invoking an equally celebrated result of Todorčević, from the late 90s, for functions of the first Baire class~\cite{Todorcevic_1999_CompactSubsetsBaire}.
 
@@ -146,7 +146,7 @@ At the time of writing this paper, decades after his original argument, no eleme
 
 Through our Rosetta stone, Rosenthal compacta in topology correspond to the important concept of ``Non Independence Property'' (known as ``NIP'') in model theory, identified by Shelah~\cite{Shelah:1971,Shelah:1990}, and to the concept of Probably Approximately Correct learning (known as ``PAC learnability'') in statistical learning theory identified by Valiant~\cite{Valiant:1984}.
 
-Refining Todorčević’s trichotomy, we invoke a more recent heptachotomy for Rosenthal compacta obtained by Argyros, Dodos and Kanellopoulos~\cite{argyros2008rosenthal};
+Refining Todorčević’s trichotomy, we invoke a more recent heptachotomy for separable Rosenthal compacta obtained by Argyros, Dodos and Kanellopoulos~\cite{argyros2008rosenthal};
 they identify seven fundamental ``prototypes" of separable Rosenthal compacta, and show that any non-metrizable separable Rosenthal compactum must contain a ``canonical'' embedding of one of these prototypes.
 
 We believe that the results presented in this paper show practitioners of computation, or topology, or descriptive set theory, or model theory, how classification invariants used in their field translate into classification invariants of other fields.
@@ -181,7 +181,7 @@ Although other (possibly incomplete) metrics may induce the same topology, being
 One of the most important Polish spaces is the real line~$\mathbb{R}$; the others include the Cantor space $2^\mathbb{N}$ and the Baire space $\mathbb{N}^\mathbb{N}$.
 The class of Polish spaces is closed under countable topological products;
 in particular, the Cantor space~$2^\mathbb{N}$ (the set of all infinite binary sequences, endowed with the product topology), the Baire space $\mathbb{N}^\mathbb{N}$ (the set of all infinite sequences of naturals, also with the product topology), and the space $\mathbb{R}^\mathbb{N}$ of sequences of real numbers are all Polish.
-Recall that the product topology on these spaces is the \emph{topology of pointwise convergence}: a sequence converges in the space if and only if it converges at each coordinate index.
+Recall that the product topology on these spaces is the topology of pointwise convergence: a sequence converges in the space if and only if it converges at each coordinate index.
 
 
 \begin{fact}
@@ -201,7 +201,7 @@ For a recent survey, see~\cite{tkachuk2011cp}.
 A \emph{Baire class~1} function between topological spaces is a function that can be expressed as the pointwise limit of a sequence of continuous functions.
 In symbols, $f:X\to Y$ is \emph{Baire class~1} if there is a sequence of continuous functions $f_n:X\to Y$ such that for all $x\in X$, $f(x)=\lim_{n\to\infty}f_n(x)$.
 If $X$ and $Y$ are topological spaces, the space of Baire class~1 functions $f:X\rightarrow Y$ endowed with the topology of pointwise convergence is denoted $B_1(X,Y)$ (as above, $B_1(X, \mathbb{R})$ is denoted $B_1(X)$).
-Clearly, $C_p(X,Y)\subseteq B_1(X,Y)$.
+Clearly, $C_p(X,Y)\subseteq B_1(X,Y)\subseteq Y^X$ and we give these the topology (called the \emph{topology of pointwise convergence}) inherited from the product topology of $Y^X$.
 The Baire hierarchy of functions was introduced by René-Louis Baire in his 1899 doctoral thesis, \emph{Sur les fonctions de variables réelles}.
 His work moved away from the 19th-century preoccupation with ``pathological'' functions toward a constructive classification based on pointwise limits.
 An elementary fact about Baire class~1 functions is that they are continuous except on a set of first category (also called a \emph{meager} set, a set of first cateogory is the countable union of sets whose closure has empty interior; intuitively, these sets are ``topologically small'').
@@ -211,7 +211,7 @@ A topological space $X$ is \emph{perfectly normal} if it is normal and every clo
 Every metrizable space (hence, every Polish space) is perfectly normal.
 
 A topological space $X$ is \emph{Baire} if every countable intersection of dense open sets is dense.
-The Baire Category Theorem states that every Hausdorff compact or completely metrizable space (hence, every Polish space) is Baire.
+The Baire Category Theorem states that every compact Hausdorff or completely metrizable space (hence, every Polish space) is Baire.
 
 The following fact was established by Baire in his 1899 thesis.
 A proof can be found in~\cite[Section 10]{Todorcevic_1997_TopicsTop}.
@@ -345,7 +345,7 @@ Unless otherwise unspecified, IP/NIP shall mean \emph{finitary} IP/NIP hencefort
   Trivially (as per the preceding discussion), finitary NIP implies BFT-NIP.
   Reciprocally, assume that $X$ is compact and has finitary IP.
   Fix $A\subseteq C_p(X)$, a sequence $\{f_n\}\subseteq A$ and reals $r<s$.
-  For any $I, J\subseteq \mathbb{N}$ (eventually disjoint in applications), write $X_{I,J}$ for $X^{f_I}_{\le r}\cap X^{f_J}_{\ge s}$.
+  For any $I, J\subseteq \mathbb{N}$ (almost disjoint in applications), write $X_{I,J}$ for $X^{f_I}_{\le r}\cap X^{f_J}_{\ge s}$.
   For $I\subseteq I'\subseteq \mathbb{N}$ and $J\subseteq J'\subseteq \mathbb{N}$, we have $X_{I,J}\supseteq X_{I',J'}$;
   moreover, $X_{I,J} = \bigcap_{E\subseteq I, F\subseteq J} X_{E, F}$, where the index variables $E\subseteq I$, $F\subseteq J$ range over \emph{finite} subsets of~$I, J$, respectively.
   Clearly, $E, F\subseteq \mathbb{N}$ witness finitary NIP for $\{f_n\}$ if and only if $X^{E,F}=\emptyset$.
@@ -357,7 +357,7 @@ Unless otherwise unspecified, IP/NIP shall mean \emph{finitary} IP/NIP hencefort
 \end{proof}
 \begin{thm}
 \label{BFT2}
-    Let $X$ be a metrizable compact (hence Polish) space.
+    Let $X$ be a compact metrizable  (hence Polish) space.
 For every pointwise bounded  $A\subseteq C_p(X)$, the following properties are all equivalent:
         \begin{enumerate}[(i)]
         \item $A$ is relatively compact in~$B_1(X)$;
@@ -658,7 +658,7 @@ A subset $\Delta\subseteq\Gamma$ is \emph{$R$-confined} if each $\gamma\in \Delt
 
 For a CCS $(L,\mathcal{P},\Gamma)$, we regard the elements of $\Gamma$ as ``standard'' finitary computations, and the elements of $\overline{\Gamma}$, i.e., deep computations, as possibly infinitary limits of standard computations.
 The main goal of this paper is to study the computability, definability and computational complexity of deep computations.
-Since ultracomputations are defined through a combination of topological concepts (namely, topological closure) and structural and model-theoretic concepts (namely, models and types), we will import technology from both topology and model theory.
+Since deep computations are defined through a combination of topological concepts (namely, topological closure) and structural and model-theoretic concepts (namely, models and types), we will import technology from both topology and model theory.
 
 \subsection{Computability and definability of deep computations and the Extendibility Axiom}
 
@@ -691,7 +691,7 @@ It is shown in \cite{alva2024approximability} that:
 \end{enumerate}
 
 To summarize, a function $f: L\to \mathcal{L}$ is computable if and only if it is definable if and only if it is polynomially approximable if and only it can be extended to a continuous $\tilde{f}: \mathcal{L} \to \mathcal{L}$.
-This motivates the following definition.
+This is the reason for the following definition.
 
 \begin{defn}
 \label{D:extendibility axiom}
