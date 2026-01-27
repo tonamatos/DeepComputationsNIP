@@ -327,7 +327,7 @@ For our purposes, it is more natural to consider only finitely many inequalities
 
 \begin{defn}\label{def:NIP-fns}
     We say that a collection of functions \emph{$A\subseteq \mathbb{R}^X$ has the finitary No-Independence Property (NIP)} if, for all sequences $\{f_n\}_{n\in\mathbb{N}}\subseteq A$ and reals $a<b$, there exist finite disjoint sets $E,F\subseteq\mathbb{N}$ such that $X_{\le a}^{f_E} \cap X_{\ge b}^{f_F} = \emptyset$.
-    We say that such $E, F$ \emph{witness finitary NIP for $A$, $\{f_n\}$ and $a, b$}.
+    We say that such $E, F$ \emph{witness finitary NIP for $\{f_n\}$ and $a, b$}.
 
     A set $A\subseteq \mathbb{R}^X$ \emph{has the finitary Independence Property (IP)} if it does not have finitary NIP, i.e., if there exists a sequence $\{f_n\}_{n\in\mathbb{N}}\subseteq A$ and reals $a<b$ such that for every pair of finite disjoint sets $E,F\subseteq\mathbb{N}$, we have $X_{\le a}^{f_E} \cap X_{\ge b}^{f_F} \ne \emptyset$.
 \end{defn}
@@ -345,18 +345,14 @@ Unless otherwise unspecified, IP/NIP shall mean \emph{finitary} IP/NIP hencefort
 (No pointwise boundedness is assumed of~$A$.)
 \begin{proof}
   Trivially (as per the preceding discussion), finitary NIP implies BFT-NIP.
-  Reciprocally, assume that $X$ is compact and has finitary IP.
-  Fix $A\subseteq C_p(X)$, a sequence $\{f_n\}\subseteq A$ and reals $r<s$.
-  For any $I, J\subseteq \mathbb{N}$ (almost disjoint in applications), write $X_{I,J}$ for $X^{f_I}_{\le r}\cap X^{f_J}_{\ge s}$.
-  For $I\subseteq I'\subseteq \mathbb{N}$ and $J\subseteq J'\subseteq \mathbb{N}$, we have $X_{I,J}\supseteq X_{I',J'}$;
-  moreover, $X_{I,J} = \bigcap_{E\subseteq I, F\subseteq J} X_{E, F}$, where the index variables $E\subseteq I$, $F\subseteq J$ range over \emph{finite} subsets of~$I, J$, respectively.
-  Clearly, $E, F\subseteq \mathbb{N}$ witness finitary NIP for $\{f_n\}$ if and only if $X^{E,F}=\emptyset$.
-
-  Fix $I\subseteq \mathbb{N}$.
-  Since $\{f_n\}\subseteq A\subseteq C_p(X)$ is a sequence of continuous functions, and $X$ is compact, the nested family $\{X_{E,F}: E\subseteq I, F\subseteq I^{\complement}\}$ consists of closed, thus compact, sets.
-  Since $A$ has finitary IP by hypothesis, the nested family consists of nonempty sets, hence its intersection $X_{I,I^{\complement}}\ne\emptyset$ by compactness.
-  This holds for arbitrary $\{f_n\}\subseteq A$ and $r<s$, so $A$ has BFT-IP.
+  Reciprocally, assume that $X$ is compact and $A\subseteq C_p(X)$ has finitary IP.
+  Fix a sequence $\{f_n\}\subseteq A$ and reals $a<b$ such that $X^{f_E}_{\le a}\cap X^{f_F}_{\ge b}\neq\empty$ for every finite disjoint $E,F\subseteq\mathbb{N}$.
+  Fix $I\subseteq\mathbb{N}$.
+  Since $\{f_n\}\subseteq A\subseteq C_p(X)$ is a sequence of continuous functions, the family $\mathcal{F}_I=\{X^{f_{\{n\}}}_{\le a}:n\in I\}\cup\{X^{f_{\{m\}}}_{\ge a}:m\in I^{\complement}\}$ consists of closed (non-empty) sets.
+  Since all finite $E\subseteq I$ and $F\subseteq I^{\complement}$ witness finitary IP for $\{f_n\}$ and $a, b$, then the family $\mathcal{F}_I$ has the finite intersection property.
+  By compactness, $X^{f_I}_{\le a}\cap X^{f_{I^{\complement}}}_{\ge b}=\bigcap\mathcal{F}_I\neq\emptyset$.
 \end{proof}
+
 \begin{thm}
 \label{BFT2}
     Let $X$ be a compact metrizable  (hence Polish) space.
