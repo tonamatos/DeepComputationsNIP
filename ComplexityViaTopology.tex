@@ -114,7 +114,7 @@ The formal framework introduced here  provides a unified setting to study these 
 
 To every computation in a given computation model, we associate a continuous real-valued function, called the \emph{type} of the computation, that describes the logical properties of this computation with respect to the rest of the model.
 This allows us to view computations in any given computational model as elements of a space of real-valued functions, which is called the \emph{space of types} of the model.
-The idea of embedding models of theories into their type spaces is borrowed from model theory, where types spaces play a central role for classification of theories.
+The idea of embedding models of theories into their type spaces is borrowed from model theory, where types spaces play a central role.
 In the context of this paper, the embedding of computations into spaces of types allows us to utilize the vast theory of topology of function spaces, known as \emph{$C_p$-theory}, to obtain results about complexity of topological limits of computations.
 As we shall indicate next, recent classification results for spaces of functions provide an elegant and powerful machinery to classify computations according to their levels of ``tameness’’ or ``wildness’’, with the former corresponding roughly to polynomial approximability and the latter to exponential approximability.
 The model-theoretic viewpoint of spaces of types thus becomes a ``Rosetta stone’’ that allows us to interconnect various classification programs: In topology, the classification of Rosenthal compacta pioneered by Todorčević~\cite{Todorcevic_1999_CompactSubsetsBaire}; in logic, the classification of theories developed by Shelah~\cite{Shelah:1990}; and in statistical learning,
@@ -122,7 +122,7 @@ The model-theoretic viewpoint of spaces of types thus becomes a ``Rosetta stone�
 
 
 
-In a previous paper~\cite{alva2024approximability}, the authors introduced the concept of limits of computations, which we called \emph{ultracomputations} (given they arise as ultrafilter limits of standard computations) and \emph{deep computations} (following usage in machine learning~\cite{Bai:2019}).
+In a previous paper~\cite{alva2024approximability}, the authors introduced the concept of limits of computations, which they called \emph{ultracomputations} (given they arise as ultrafilter limits of standard computations) and \emph{deep computations} (following usage in machine learning~\cite{Bai:2019}).
 There is a technical difference between both designations, but in this paper, to simplify the nomenclature, we will ignore the difference and use only the term ``deep computation’’.
 
 
@@ -132,29 +132,30 @@ Under our model-theoretic Rosetta stone, the property of polynomial approximabil
 
 In this paper, we refine the dichotomy of \cite{alva2024approximability}, and obtain new complexity classes for deep computation. 
 %Both the topological and model-theoretic tools are considerably more sophisticated.
-The ``wild'' part of the dichotomy from~\cite{alva2024approximability}, is further subdivided between ``tame'' and ``wild''  classes, 
+The ``wild'' part of the dichotomy from~\cite{alva2024approximability} is further subdivided between ``tame'' and ``wild''  classes;
 three new levels of  tameness are identified within this new subdivision, and seven distinct minimal prototypes of tameness are detected.
 
 The finer results of this paper are obtained through more contemporary topological and model-theoretic tools than in the previous paper~\cite{alva2024approximability}. 
 From the topological side, instead of Grothendieck's classical criterion, we use the modern theory of \emph{Rosenthal compacta}, and from the model theory side, instead of stability, we use \emph{neostability}.
-The main neostability tool of  is Shelah's \emph{Independence Property}, or rather, its negation, referred to as NIP. 
+The main tool imported from neostability   is Shelah's \emph{Independence Property}, or rather, its negation, which is commonly referred to as ``NIP''. 
 More on this below.
 
 
 Deep computations arise as topological limits of standard (continuous) computations.
 %Simplest among these is when the limit is sequential.
-In topology, the \emph{first Baire class}, or \emph{Baire class~1} consists of functions (also called simply ``\emph{Baire-1}'') arising as pointwise limits of sequences of continuous functions.
+In topology, the \emph{first Baire class}, or \emph{Baire class~1} consists of functions (also called simply \emph{Baire-1}) arising as pointwise limits of sequences of continuous functions.
 Intuitively, the Baire-1 class consists of functions with ``controlled'' discontinuities, and lies just one level of topological complexity above the Baire class 0 which (by definition) consists of continuous functions.
 
 We apply a result of Bourgain, Fremlin and Talagrand from the late 70s on compact subsets of the first Baire class to obtain a new ``tame vs wild'' dichotomy for  deep computations~\cite{BFT_1978_PCompactBaire}; 
 then, we apply a trichotomy of Todorčević, from the late 90s, for \emph{Rosental compacta} to identify new tame classes~\cite{Todorcevic_1999_CompactSubsetsBaire}.
 
-Rosenthal compacta are defined as compact topological spaces that are homeomorphic to subspaces of the space of Baire class~1 functions on some Polish (separable, completely metrizable) space, under the topology of pointwise convergence.
+Rosenthal compacta are defined as compact topological spaces that are homeomorphic to subspaces of the space of Baire class~1 functions on some Polish (i.e., separable, completely metrizable) space, under the topology of pointwise convergence.
 They exhibit ``topological tameness,'' meaning that they behave in relatively controlled ways.
 Since the late 70's, Rosenthal compacta have played a crucial role in understanding the complexity of structures of functional analysis, especially Banach spaces.
 Todorčević’s trichotomy for Rosenthal compacta has been utilized to settle longstanding problems in topological dynamics and topological entropy~\cite{glasner2022tame}.
 It is noteworthy that Todorčević’s proof relies on sophisticated set-theoretic  forcing and infinite Ramsey theory.
-At the time of writing this paper, decades after his original argument, no elementary proof has been found~\cite{Todorcevic:2023,horowitz2019compactsetsbaireclass}.
+At the time of writing this paper, decades after his original argument, no elementary proof has been found; 
+in fact, the the proof method has been analyzed and exploited further~\cite{Todorcevic:2023,horowitz2019compactsetsbaireclass}.
 
 Through our Rosetta stone, Rosenthal compacta in topology correspond to the important concept of  \emph{Non Independence Property} (known as ``NIP'') in model theory, identified by Shelah~\cite{Shelah:1971,Shelah:1990}, and to the concepts \emph{VC-dimension} and \emph{Probably Approximately Correct} learning (known as ``PAC learnability'') in statistical learning theory~\cite{Vapnik-Chervonenkis:1971, Vapnik-Chervonenkis:1974, Valiant:1984}.
 
