@@ -112,12 +112,12 @@ Recently, particular cases of this concept have attracted considerable attention
 The formal framework introduced here  provides a unified setting to study these limit phenomena from a foundational viewpoint.
 
 
-Informed by model theory, to each computation in a given computation model, we associate a continuous real-valued function, called the \emph{type} of the computation, that describes the logical properties of this computation with respect to the rest of the model.
+To every computation in a given computation model, we associate a continuous real-valued function, called the \emph{type} of the computation, that describes the logical properties of this computation with respect to the rest of the model.
 This allows us to view computations in any given computational model as elements of a space of real-valued functions, which is called the \emph{space of types} of the model.
-The idea of embedding models of theories into their type spaces is central in model theory.
+The idea of embedding models of theories into their type spaces is borrowed from model theory, where types spaces play a central role for classification of theories.
 In the context of this paper, the embedding of computations into spaces of types allows us to utilize the vast theory of topology of function spaces, known as \emph{$C_p$-theory}, to obtain results about complexity of topological limits of computations.
 As we shall indicate next, recent classification results for spaces of functions provide an elegant and powerful machinery to classify computations according to their levels of ``tameness’’ or ``wildness’’, with the former corresponding roughly to polynomial approximability and the latter to exponential approximability.
-The viewpoint of spaces of types, which we have borrowed from model theory, thus becomes a ``Rosetta stone’’ that allows us to interconnect various classification programs: In topology, the classification of Rosenthal compacta pioneered by Todorčević~\cite{Todorcevic_1999_CompactSubsetsBaire}; in logic, the classification of theories developed by Shelah~\cite{Shelah:1990}; and in statistical learning,
+The model-theoretic viewpoint of spaces of types thus becomes a ``Rosetta stone’’ that allows us to interconnect various classification programs: In topology, the classification of Rosenthal compacta pioneered by Todorčević~\cite{Todorcevic_1999_CompactSubsetsBaire}; in logic, the classification of theories developed by Shelah~\cite{Shelah:1990}; and in statistical learning,
  the notions of PAC learning and VC dimension pioneered by Vapnik and Chervonenkis~\cite{Vapnik-Chervonenkis:1974, Vapnik-Chervonenkis:1971}.
 
 
@@ -125,8 +125,15 @@ The viewpoint of spaces of types, which we have borrowed from model theory, thus
 In a previous paper~\cite{alva2024approximability}, the authors introduced the concept of limits of computations, which we called \emph{ultracomputations} (given they arise as ultrafilter limits of standard computations) and \emph{deep computations} (following usage in machine learning~\cite{Bai:2019}).
 There is a technical difference between both designations, but in this paper, to simplify the nomenclature, we will ignore the difference and use only the term ``deep computation’’.
 
+
+
 In \cite{alva2024approximability},  a new ``tame vs wild'' (i.e., polynomially approximable vs nonpolynomially approximable) dichotomy for the complexity of deep computations was proved by invoking a classical result of Grothendieck from the 1950s~\cite{Grothendieck:1952}.
 Under our model-theoretic Rosetta stone, the property of polynomial approximability of computations is identified with continuous extendibility in the sense of topology, and with the notions of \emph{stability} and \emph{type definability} in the sense of model theory.
+
+In this paper, we refine the dichotomy obtained in \cite{alva2024approximability}, and obtain new complexity classes for deep computation. 
+Both the topological and model-theoretic tools are considerably more sophisticated.
+In particular, the ``wild'' part of the dichotomy is further subdivided between ``tame'' and ``wild''  classes, three new levels of ``tameness'' are identified, and seven distinct prototypes of tameness are identified.
+
 
 Deep computations arise as topological limits of standard (continuous) computations.
 Simplest among these is when the limit is sequential.
