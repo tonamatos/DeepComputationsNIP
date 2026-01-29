@@ -96,9 +96,9 @@ $^{2}$Department of Mathematics, University of Toronto\\
 
 \begin{abstract}
 We use topological methods to study the complexity of deep computations and limit computations.
-We use topology of function spaces, specifically, the classification of Rosenthal compacta, to identify new complexity classes.
-We use the language of model theory, specifically, the concept of \emph{independence} from Shelah's classification theory, to translate between topology and computation.
-We use the theory of Rosenthal compacta to characterize approximability of deep computations, both deterministically and probabilistically.
+We identify new complexity classes by using topology of function spaces, specifically, the classification of Rosenthal compacta.
+We use the language of model theory, specifically, the concept of \emph{independence} from Shelah's classification theory, as a medium to translate between topology and computation.
+The theory of Rosenthal compacta allows us to characterize approximability of deep computations, both deterministically and probabilistically.
 \end{abstract}
 
 \maketitle
@@ -107,44 +107,62 @@ We use the theory of Rosenthal compacta to characterize approximability of deep 
 
 \section*{Introduction}
 
-In this paper we  study asymptotic behavior of computations, e.g., the depth of a neural network tending to infinity, or the time interval between layers of a time-series network tending toward zero.
+In this paper we  study asymptotic behavior of computations as parameters of the computation tend towards a limit, e.g., the depth of a neural network tending to infinity, or the time interval between layers of a time-series network tending toward zero.
 Recently, particular cases of this concept have attracted considerable attention in deep learning research (e.g., Neural Ordinary Differential Equations~\cite{Chen:2018}, Physics-Informed Neural Networks~\cite{Raissi-Perdikaris-Karniadakis:2019}, and deep equilibrium models~\cite{Bai:2019}).
 The formal framework introduced here  provides a unified setting to study these limit phenomena from a foundational viewpoint.
 
 
-Informed by model theory, to each computation in a given computation model, we associate a continuous real-valued function, called the \emph{type} of the computation, that describes the logical properties of this computation with respect to the rest of the model.
+To every computation in a given computation model, we associate a continuous real-valued function, called the \emph{type} of the computation, that describes the logical properties of this computation with respect to the rest of the model.
 This allows us to view computations in any given computational model as elements of a space of real-valued functions, which is called the \emph{space of types} of the model.
-The idea of embedding models of theories into their type spaces is central in model theory.
+The idea of embedding models of theories into their type spaces is borrowed from model theory, where types spaces play a central role.
 In the context of this paper, the embedding of computations into spaces of types allows us to utilize the vast theory of topology of function spaces, known as \emph{$C_p$-theory}, to obtain results about complexity of topological limits of computations.
 As we shall indicate next, recent classification results for spaces of functions provide an elegant and powerful machinery to classify computations according to their levels of ``tameness’’ or ``wildness’’, with the former corresponding roughly to polynomial approximability and the latter to exponential approximability.
-The viewpoint of spaces of types, which we have borrowed from model theory, thus becomes a ``Rosetta stone’’ that allows us to interconnect various classification programs: In topology, the classification of Rosenthal compacta pioneered by Todorčević~\cite{Todorcevic_1999_CompactSubsetsBaire}; in logic, the classification of theories developed by Shelah~\cite{Shelah:1990}; and in statistical learning,
+The model-theoretic viewpoint of spaces of types thus becomes a ``Rosetta stone’’ that allows us to interconnect various classification programs: In topology, the classification of Rosenthal compacta pioneered by Todorčević~\cite{Todorcevic_1999_CompactSubsetsBaire}; in logic, the classification of theories developed by Shelah~\cite{Shelah:1990}; and in statistical learning,
  the notions of PAC learning and VC dimension pioneered by Vapnik and Chervonenkis~\cite{Vapnik-Chervonenkis:1974, Vapnik-Chervonenkis:1971}.
 
 
 
-In a previous paper~\cite{alva2024approximability}, the authors introduced the concept of limits of computations, which we called \emph{ultracomputations} (given they arise as ultrafilter limits of standard computations) and \emph{deep computations} (following usage in machine learning~\cite{Bai:2019}).
+In a previous paper~\cite{alva2024approximability}, the authors introduced the concept of limits of computations, which they called \emph{ultracomputations} (given that they arise as ultrafilter limits of standard computations) and \emph{deep computations} (following usage in machine learning~\cite{Bai:2019}).
 There is a technical difference between both designations, but in this paper, to simplify the nomenclature, we will ignore the difference and use only the term ``deep computation’’.
 
-In \cite{alva2024approximability},  a new ``tame vs wild'' (i.e., polynomially approximable vs nonpolynomially approximable) dichotomy for the complexity of deep computations was proved by invoking a classical result of Grothendieck from the 1950s~\cite{Grothendieck:1952}.
-Under our model-theoretic Rosetta stone, the property of polynomial approximability of computations is identified with continuous extendibility in the sense of topology, and with the notions of \emph{stability} and \emph{type definability} in model theory.
 
-Deep computations arise as  limits of standard (continuous) computations.
-In topology, the \emph{first Baire class}, or \emph{Baire class~1} consists of functions (also called simply ``\emph{Baire-1}'') arising as pointwise limits of sequences of continuous functions.
+
+In \cite{alva2024approximability},  a new ``tame vs wild'' (i.e., polynomially approximable vs nonpolynomially approximable) dichotomy for the complexity of deep computations was proved by invoking a classical result of Grothendieck from the 1950s~\cite{Grothendieck:1952}.
+Under our model-theoretic Rosetta stone, the property of polynomial approximability of computations is identified with continuous extendibility in the sense of topology, and with the notions of \emph{stability} and \emph{type definability} in the sense of model theory.
+
+In this paper, we refine the dichotomy of \cite{alva2024approximability}, and obtain new complexity classes for deep computation. 
+%Both the topological and model-theoretic tools are considerably more sophisticated.
+The ``wild'' part of the dichotomy from~\cite{alva2024approximability} is further subdivided between ``tame'' and ``wild''  classes;
+three new levels of  tameness are identified within this new subdivision, and seven distinct minimal prototypes of tameness are detected.
+
+The finer classification results of this paper are obtained through more contemporary topological and model-theoretic tools than in the previous paper~\cite{alva2024approximability}. 
+From the topological side, instead of Grothendieck's classical criterion, we use the modern theory of \emph{Rosenthal compacta}, and from the model theory side, instead of stability, we use \emph{neostability}.
+The main tool imported from neostability   is Shelah's \emph{Independence Property}, or rather, its negation, which is commonly referred to as ``NIP''. 
+More on this below.
+
+
+Deep computations arise as topological limits of standard (continuous) computations.
+%Simplest among these is when the limit is sequential.
+In topology, the \emph{first Baire class}, or \emph{Baire class~1} consists of functions (also called simply \emph{Baire-1}) arising as pointwise limits of sequences of continuous functions.
 Intuitively, the Baire-1 class consists of functions with ``controlled'' discontinuities, and lies just one level of topological complexity above the Baire class 0 which (by definition) consists of continuous functions.
 
-In this paper, we prove a new ``tame vs wild'' Ramsey-theoretic dichotomy for complexity of general deep computations by invoking a famous paper by Bourgain, Fremlin and Talagrand from the late 70s~\cite{BFT_1978_PCompactBaire}, and a new trichotomy for the class of ``tame'' deep computations by invoking an equally celebrated result of Todorčević, from the late 90s, for functions of the first Baire class~\cite{Todorcevic_1999_CompactSubsetsBaire}.
+We apply a result of Bourgain, Fremlin and Talagrand from the late 70s on compact subsets of the first Baire class to obtain a new ``tame vs wild'' dichotomy for  deep computations~\cite{BFT_1978_PCompactBaire}; 
+then, we apply a trichotomy of Todorčević, from the late 90s, for \emph{Rosental compacta} to identify new tame classes~\cite{Todorcevic_1999_CompactSubsetsBaire}.
 
-Todorčević’s trichotomy concerns \emph{Rosenthal compacta}; these are special classes of topological spaces, defined as compact spaces that can be embedded (homeomorphically identified as a subset) within the space of Baire class~1 functions on some Polish (separable, completely metrizable) space, under the topology of pointwise convergence.
-Rosenthal compacta exhibit ``topological tameness,'' meaning that they behave in relatively controlled ways;
-since the late 70's, they have played a crucial role in understanding the complexity of structures of functional analysis, especially Banach spaces.
-Todorčević’s trichotomy has been utilized to settle longstanding problems in topological dynamics and topological entropy~\cite{glasner2022tame}.
+Rosenthal compacta are defined as compact topological spaces that are homeomorphic to subspaces of the space of Baire class~1 functions on some Polish (i.e., separable, completely metrizable) space, under the topology of pointwise convergence.
+They exhibit ``topological tameness,'' meaning that they behave in relatively controlled ways.
+Since the late 70's, Rosenthal compacta have played a crucial role in understanding the complexity of structures of functional analysis, especially Banach spaces.
+Todorčević’s trichotomy for Rosenthal compacta has been utilized to settle longstanding problems in topological dynamics and topological entropy~\cite{glasner2022tame}.
 It is noteworthy that Todorčević’s proof relies on sophisticated set-theoretic  forcing and infinite Ramsey theory.
-At the time of writing this paper, decades after his original argument, no elementary proof has been found~\cite{Todorcevic:2023,horowitz2019compactsetsbaireclass}.
+At the time of writing this paper, decades after his original argument, no elementary proof has been found; 
+in fact, the the proof method has been analyzed and exploited further~\cite{Todorcevic:2023,horowitz2019compactsetsbaireclass}.
 
-Through our Rosetta stone, Rosenthal compacta in topology correspond to the important concept of ``Non Independence Property'' (known as ``NIP'') in model theory, identified by Shelah~\cite{Shelah:1971,Shelah:1990}, and to the concept of Probably Approximately Correct learning (known as ``PAC learnability'') in statistical learning theory identified by Valiant~\cite{Valiant:1984}.
+Through our Rosetta stone, Rosenthal compacta in topology correspond to the important concept of  \emph{Non Independence Property} (known as ``NIP'') in model theory, identified by Shelah~\cite{Shelah:1971,Shelah:1990}, and to the concepts \emph{VC-dimension} and \emph{Probably Approximately Correct} learning (known as ``PAC learnability'') in statistical learning theory~\cite{Vapnik-Chervonenkis:1971, Vapnik-Chervonenkis:1974, Valiant:1984}.
 
-Refining Todorčević’s trichotomy, we invoke a more recent heptachotomy for separable Rosenthal compacta obtained by Argyros, Dodos and Kanellopoulos~\cite{argyros2008rosenthal};
-these authors identify seven fundamental ``prototypes" of separable Rosenthal compacta, and show that any non-metrizable separable Rosenthal compactum must contain a ``canonical'' embedding of one of these prototypes.
+Beyond Todorčević’s trichotomy, we invoke a more recent heptachotomy for separable Rosenthal compacta obtained by Argyros, Dodos and Kanellopoulos~\cite{argyros2008rosenthal}.
+These authors identify seven fundamental ``prototypes" of separable Rosenthal compacta, and show that any non-metrizable separable Rosenthal compactum must contain a ``canonical'' embedding of one of these prototypes.
+
+Fom the point of view of approximation theory, it is noteworthy that in the context of Grothendieck~\cite{Grothendieck:1952} and  Bourgain-Fremlin-Talagrand~\cite{BFT_1978_PCompactBaire}, compactness and sequential compactness coincide; thus, the results of these papers allow us to ensure that deep computations, which in principle are abstract ultrafilter limits (over a potentially uncountable set), can always be approximated by concrete  \emph{sequences} of standard computations.
 
 We believe that the results presented in this paper show practitioners of computation, or topology, or descriptive set theory, or model theory, how classification invariants used in their field translate into classification invariants of other fields.
 In the interest of accessibility, we do not assume that the reader has previous familiarity with advanced topology, model theory, or computing.
@@ -155,7 +173,7 @@ In section \ref{sec:prelim}, we present basic topological and combinatorial prel
 Section~\ref{S:Classification} is devoted to the classification of deep computations.
 
 Throughout the paper, our results pertain to classical models of computation (particularly computations involving real-valued quantities that are known and manipulated to a finite degree of precision).
-The final section, Section~\ref{Measure-theoretic NIP}, introduces a probabilistic viewpoint, the development of which we intend to pursue in future research, extending the present framework to encompass non-deterministic and quantum computations.
+The final section, Section~\ref{Measure-theoretic NIP}, introduces a probabilistic viewpoint, the development of which we intend to extend in future research.
 
 \tableofcontents
 
@@ -189,7 +207,7 @@ In particular, closed subsets and open subsets of Polish spaces are also Polish 
 For a proof, see~\cite[4.3.24]{Engelking:1989}.
 
 Given two topological spaces $X$ and $Y$ we denote by $C_p(X,Y)$ the set of all continuous functions $f:X\rightarrow Y$ endowed with the topology of pointwise convergence.
-The space $C_p(X, \mathbb{R})$ of continuous real functions on~$X$ is denoted simply~$C_p(X)$.
+The space $C_p(X, \mathbb{R})$ of continuous real-valued functions on~$X$ is denoted simply~$C_p(X)$.
 A natural question is, how do topological properties of $X$ translate into $C_p(X)$ and vice versa?
 This general question, and the study of these spaces in general, is the concern of $C_p$-theory, an active field of research in general topology which was pioneered by A.~V.~Arhangel’skiĭ and his students in the 1970's and 1980's~\cite{Arkhangelskii:1992}.
 This field has found many applications in model theory and functional analysis.
@@ -201,16 +219,16 @@ If $X$ and $Y$ are topological spaces, the space of Baire class~1 functions $f:X
 Clearly, $C_p(X,Y)\subseteq B_1(X,Y)\subseteq Y^X$ and we give these the topology (called the \emph{topology of pointwise convergence}) inherited from the product topology of $Y^X$.
 The Baire hierarchy of functions was introduced by René-Louis Baire in his 1899 doctoral thesis, \emph{Sur les fonctions de variables réelles}.
 His work moved away from the 19th-century preoccupation with ``pathological'' functions toward a constructive classification based on pointwise limits.
-An elementary fact about Baire class~1 functions is that they are continuous except on a set of first category (also called a \emph{meager} set, a set of first cateogory is the countable union of sets whose closure has empty interior; intuitively, these sets are ``topologically small'').
+An elementary fact about Baire class~1 functions is that they are continuous everywhere except on a set of first category (also called a \emph{meager} set, which is a countable union of sets whose closures have empty interior; intuitively, these sets are ``topologically small'').
 Thus, Baire class~1 functions are continuous on a ``topologically large'' subset of their domain.
 
-A topological space $X$ is \emph{perfectly normal} if it is normal and every closed subset of $X$ is a $G_\delta$ (equivalently, every open subset of $X$ is a $F_\sigma$).
+A topological space $X$ is \emph{perfectly normal} if it is normal and every closed subset of $X$ is a $G_\delta$ set (equivalently, every open subset of $X$ is an $F_\sigma$ set).
 Every metrizable space (hence, every Polish space) is perfectly normal.
 
 A topological space $X$ is \emph{Baire} if every countable intersection of dense open sets is dense.
 The Baire Category Theorem states that every compact Hausdorff or completely metrizable space (hence, every Polish space) is Baire.
 
-The following fact was established by Baire in his 1899 thesis.
+The following fact was established by Baire in his groundbreaking thesis.
 A proof can be found in~\cite[Section 10]{Todorcevic_1997_TopicsTop}.
 
 \begin{fact}[Baire]\label{baire}
@@ -275,7 +293,7 @@ Thus, $A$ is relatively compact in $B_1(X)$.
 
 \subsection{From Rosenthal's dichotomy to the Bourgain-Fremlin-Talagrand dichotomy to Shelah's NIP}
 
-In metrizable spaces, points of the closure of some subset can always be approximated by points in the set proper, via a convergent sequence.
+In metrizable spaces, points in the closure of some subset can always be approximated by a convergent sequence of points in the set.
 For more complicated spaces, such as $C_p$-spaces, this fails in remarkable ways.
 The $n$-th coordinate map $p_n: 2^{\mathbb{N}}\to\{0,1\}$ on the Cantor space $X = 2^\mathbb{N}$ ($= \{0, 1\}^{\mathbb{N}}$) is continuous for each $n\in \mathbb{N}$, and one can show (e.g., \cite[Chapter~1.1]{Todorcevic_1997_TopicsTop}) that $\{p_n\}_{n\in\mathbb{N}}$ has \emph{no} convergent subsequences, in $\mathbb{R}^X$.
 In a sense, this example exhibits the worst failure of sequential convergence possible.
@@ -288,13 +306,13 @@ The following theorem, proved by Haskell Rosenthal in 1974, is fundamental in fu
     If $X$ is Polish and $\{f_n\}\subseteq C_p(X)$ is pointwise bounded, then $\{f_n\}_{n\in\mathbb{N}}$ has a convergent subsequence, or a subsequence whose closure in $\mathbb{R}^X$ is homeomorphic to~$\beta\mathbb{N}$.
 \end{thm}
 
-Rosenthal's Dichotomy states that a pointwise bounded set of continuous functions contains either a convergent subsequence, or a subsequence whose closure is essentially the same as the example mentioned in the previous paragraphs (i.e., ``wildest'' possible). The genesis of this theorem was Rosenthal's ``$\ell_1$-Theorem'', which states that a Banach space includes an isomorphic copy of $\ell_1$ (the space of absolutely summable sequences), or else every bounded sequence therein is weakly Cauchy.
+Rosenthal's Dichotomy states that a pointwise bounded set of continuous functions contains either a convergent subsequence, or a subsequence whose closure is essentially the same as the example mentioned in the previous paragraphs (i.e., the ``wildest'' possible). The genesis of this theorem was Rosenthal's ``$\ell_1$-Theorem'', which states that a Banach space includes an isomorphic copy of $\ell_1$ (the space of absolutely summable sequences), or else every bounded sequence therein is weakly Cauchy.
 The $\ell_1$-Theorem connects diverse areas:
 Banach space geometry, Ramsey theory, set theory, and topology of function spaces.
 
 As we move from $C_p(X)$ to the larger space $B_1(X)$, a dichotomy paralleling the $\ell_1$-Theorem holds:
-Either every point of the closure of a set of functions is a Baire class~1 function, or there is a sequence in the set behaving in the wildest possible way.
-This result  is usually not phrased as a dichotomy, but rather as an equivalence as in Theorem~\ref{BFT} below.
+Either every point in the closure of a set of functions is a Baire class~1 function, or there is a sequence in the set behaving in the wildest possible way.
+This result is usually not phrased as a dichotomy, but rather as an equivalence (see Theorem~\ref{BFT} below).
 
 First, we introduce some useful notation.
 For any set $A\subseteq \mathbb{R}^X$ and any real $a$, define
@@ -303,7 +321,7 @@ For any set $A\subseteq \mathbb{R}^X$ and any real $a$, define
   X^A_{\ge a} &\coloneqq \bigcap_{f\in A}f^{-1}[a, +\infty) = \{x\in X: \text{$f(x)\ge a$ for all $f\in A$}\}.
 \end{align*}
 (In case $A=\emptyset$, we define $X^\emptyset_{\ge a} = X = X^\emptyset_{\le a}$.)
-For any sequence $\{f_n\}\subseteq \mathbb{R}^X$ and $I\subseteq \mathbf{N}$, define $I^{\complement} \coloneqq \mathbb{N}\setminus I$ and $f_I \coloneqq \{f_i: i\in I\}$.
+For any sequence $\{f_n\}\subseteq \mathbb{R}^X$ and $I\subseteq \mathbb{N}$, define $I^{\complement} \coloneqq \mathbb{N}\setminus I$ and $f_I \coloneqq \{f_i: i\in I\}$.
 
 \begin{thm}[``The BFT Dichotomy''. Bourgain-Fremlin-Talagrand {\cite{BFT_1978_PCompactBaire}}]
 \label{BFT}
@@ -321,8 +339,8 @@ Thus, at least one of $X_{\le a}^{f_I}$ and $X_{\ge b}^{f_{I^{\complement}}}$ is
 For our purposes, it is more natural to consider only finitely many inequalities at a time, which motivates the definitions below.
 
 \begin{defn}\label{def:NIP-fns}
-    We say that a function collection \emph{$A\subseteq \mathbb{R}^X$ has the finitary No-Independence Property (NIP)} if, for all sequences $\{f_n\}_{n\in\mathbb{N}}\subseteq A$ and reals $a<b$, there exist finite disjoint sets $E,F\subseteq\mathbb{N}$ such that $X_{\le a}^{f_E} \cap X_{\ge b}^{f_F} = \emptyset$.
-    We say that such $E, F$ \emph{witness finitary NIP for $A$, $\{f_n\}$ and $a, b$}.
+    We say that a collection of functions \emph{$A\subseteq \mathbb{R}^X$ has the finitary No-Independence Property (NIP)} if, for all sequences $\{f_n\}_{n\in\mathbb{N}}\subseteq A$ and reals $a<b$, there exist finite disjoint sets $E,F\subseteq\mathbb{N}$ such that $X_{\le a}^{f_E} \cap X_{\ge b}^{f_F} = \emptyset$.
+    We say that such $E, F$ \emph{witness finitary NIP for $\{f_n\}$ and $a, b$}.
 
     A set $A\subseteq \mathbb{R}^X$ \emph{has the finitary Independence Property (IP)} if it does not have finitary NIP, i.e., if there exists a sequence $\{f_n\}_{n\in\mathbb{N}}\subseteq A$ and reals $a<b$ such that for every pair of finite disjoint sets $E,F\subseteq\mathbb{N}$, we have $X_{\le a}^{f_E} \cap X_{\ge b}^{f_F} \ne \emptyset$.
 \end{defn}
@@ -340,18 +358,14 @@ Unless otherwise unspecified, IP/NIP shall mean \emph{finitary} IP/NIP hencefort
 (No pointwise boundedness is assumed of~$A$.)
 \begin{proof}
   Trivially (as per the preceding discussion), finitary NIP implies BFT-NIP.
-  Reciprocally, assume that $X$ is compact and has finitary IP.
-  Fix $A\subseteq C_p(X)$, a sequence $\{f_n\}\subseteq A$ and reals $r<s$.
-  For any $I, J\subseteq \mathbb{N}$ (almost disjoint in applications), write $X_{I,J}$ for $X^{f_I}_{\le r}\cap X^{f_J}_{\ge s}$.
-  For $I\subseteq I'\subseteq \mathbb{N}$ and $J\subseteq J'\subseteq \mathbb{N}$, we have $X_{I,J}\supseteq X_{I',J'}$;
-  moreover, $X_{I,J} = \bigcap_{E\subseteq I, F\subseteq J} X_{E, F}$, where the index variables $E\subseteq I$, $F\subseteq J$ range over \emph{finite} subsets of~$I, J$, respectively.
-  Clearly, $E, F\subseteq \mathbb{N}$ witness finitary NIP for $\{f_n\}$ if and only if $X^{E,F}=\emptyset$.
-
-  Fix $I\subseteq \mathbb{N}$.
-  Since $\{f_n\}\subseteq A\subseteq C_p(X)$ is a sequence of continuous functions, and $X$ is compact, the nested family $\{X_{E,F}: E\subseteq I, F\subseteq I^{\complement}\}$ consists of closed, thus compact, sets.
-  Since $A$ has finitary IP by hypothesis, the nested family consists of nonempty sets, hence its intersection $X_{I,I^{\complement}}\ne\emptyset$ by compactness.
-  This holds for arbitrary $\{f_n\}\subseteq A$ and $r<s$, so $A$ has BFT-IP.
+  Reciprocally, assume that $X$ is compact and $A\subseteq C_p(X)$ has finitary IP.
+  Fix a sequence $\{f_n\}\subseteq A$ and reals $a<b$ such that $X^{f_E}_{\le a}\cap X^{f_F}_{\ge b}\neq\empty$ for every finite disjoint $E,F\subseteq\mathbb{N}$.
+  Fix $I\subseteq\mathbb{N}$.
+  Since $\{f_n\}\subseteq A\subseteq C_p(X)$ is a sequence of continuous functions, the family $\mathcal{F}_I=\{X^{f_{\{n\}}}_{\le a}:n\in I\}\cup\{X^{f_{\{m\}}}_{\ge a}:m\in I^{\complement}\}$ consists of closed (non-empty) sets.
+  Since all finite $E\subseteq I$ and $F\subseteq I^{\complement}$ witness finitary IP for $\{f_n\}$ and $a, b$, then the family $\mathcal{F}_I$ has the finite intersection property.
+  By compactness, $X^{f_I}_{\le a}\cap X^{f_{I^{\complement}}}_{\ge b}=\bigcap\mathcal{F}_I\neq\emptyset$.
 \end{proof}
+
 \begin{thm}
 \label{BFT2}
     Let $X$ be a compact metrizable  (hence Polish) space.
@@ -575,7 +589,7 @@ Elements of $\mathcal{L}\setminus L$ will be called \emph{unrealized types}.
 Intuitively, state types capture a notion of ``limit state''.
 
 
-As we combine ideas of model theory~\cite{Keisler:2023} and topology~\cite{BFT_1978_PCompactBaire}, we are interested in families of real-valued functions that are pointwise bounded. This leads us to the concepts of \emph{sizer} and \emph{shard} introduced first in introduced in~\cite{alva2024approximability}:
+As we combine ideas of model theory~\cite{Keisler:2023} and topology~\cite{BFT_1978_PCompactBaire}, we are interested in families of real-valued functions that are pointwise bounded. This leads us to the concepts of \emph{sizer} and \emph{shard} first in introduced in~\cite{alva2024approximability}:
 
 \begin{defn}
   A \emph{sizer} is a family $r_{\bullet}=(r_P)_{P\in\mathcal{P}}$ of positive real numbers, indexed by~$\mathcal{P}$.
@@ -663,8 +677,21 @@ It is shown in \cite{alva2024approximability} that:
 \item Definable transforms $f: L\to\mathcal{L}$ are precisely those that extend to continuous $\tilde{f}: \mathcal{L} \to \mathcal{L}$.
 \end{enumerate}
 
-To summarize, a function $f: L\to \mathcal{L}$ is computable if and only if it is definable if and only if it is polynomially approximable if and only it can be extended to a continuous $\tilde{f}: \mathcal{L} \to \mathcal{L}$.
-This is the reason for the following definition.
+To summarize, for a function a function $f: L\to \mathcal{L}$, the following conditios are equivalent:
+
+\begin{itemize}
+\item
+$f$ is computable
+\item
+$f$ is definable
+\item
+$f$
+$f$  is polynomially approximable 
+\item
+$f$ can be extended to a continuous $\tilde{f}: \mathcal{L} \to \mathcal{L}$.
+\end{itemize}
+
+This is the ratinale for the following definition.
 
 \begin{defn}
 \label{D:extendibility axiom}
@@ -1063,10 +1090,8 @@ We say that $\Delta$ is:
 \end{defn}
 
 Observe that NIP$_3 \Rightarrow $NIP$_2\Rightarrow $NIP$_1\Rightarrow $NIP.
-Todorčević, \cite{Todorcevic_1999_CompactSubsetsBaire},  isolated three canonical examples of Rosenthal compacta that witness the failure of the converse implications above.
-
-We now present some separable and non-separable examples of Rosenthal compacta.
-These show that the previously discussed classes NIP$_i$ are not equal.
+We now present some separable and non-separable examples of Rosenthal compacta that and show that implications are strict.
+These examples are due to Todorčević \cite{Todorcevic_1999_CompactSubsetsBaire}.
 
 \begin{exmps}
 \label{E:Rosenthal compacta}
