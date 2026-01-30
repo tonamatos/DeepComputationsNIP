@@ -654,7 +654,7 @@ Let  $f: L\to \mathcal{L}$ be a function that maps each input state type  $(P(v)
  \begin{enumerate}
  \item
 We will say that $f$ is \emph{definable} if for each $Q\in\mathcal{P}$, the output feature $Q{\circ}f: L\to\mathbb{R}$ is a definable predicate in the following sense: 
-There is an \emph{approximating function} $\varphi_{Q,\,K,\varepsilon}: L\to \mathcal{R}$ that can be built recursively out of a finite number of the (primitively computable) predicates in $\mathcal{P}$
+There is an \emph{approximating function} $\varphi_{Q,\,K,\varepsilon}: L\to \mathbb{R}$ that can be built recursively out of a finite number of the (primitively computable) predicates in $\mathcal{P}$
 and by a finite number of iterations of the finitary lattice operations $\land$ (=min) and $\lor$ (=max), the operations of $\mathbb{R}^\mathbb{R}$ as a vector algebra (that is, vector addition and multiplication and scalar multiplication) and the operators sup and inf applied on individual variables from $L$, and such that 
 \[
 | \varphi_{Q,\,K,\varepsilon}(v)- Q{\circ}f(v)|\le \epsilon,
@@ -666,7 +666,7 @@ and by a finite number of iterations of the finitary lattice operations $\land$ 
 The $\land$ (=min) and $\lor$ (=max) operations correspond to the positive Boolean logical connectives ``and'' and ``or", and the sup and inf operators correspond to the first-order quantifiers, $\forall$ and $\exists$.
 
 \item
-We will say that $f$ is \emph{computable} if it is definable in the sense defined above under~(1), but without the use of the sup/inf operators; in other words, if for every choice of $Q,K,\varepsilon$, the approximation function $\varphi_{Q,K,\varepsilon}: L\to \mathcal{L}$ can be constructed without any use of sup or inf operators.
+We will say that $f$ is \emph{computable} if it is definable in the sense defined above under~(1), but without the use of the sup/inf operators; in other words, if for every choice of $Q,K,\varepsilon$, the approximation function $\varphi_{Q,K,\varepsilon}: L\to \mathbb{R}$ can be constructed without any use of sup or inf operators.
 This is quantifier-free definability (i.e., definability as given by the preceding paragraph, but without use of quantifiers), which, from a logic viewpoint, corresponds to computability (the presence of the quantifiers $\exists$ and $\forall$ are the reason behind the undecidability of first-order logic).
   \end{enumerate}
   
