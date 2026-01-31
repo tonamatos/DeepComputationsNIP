@@ -593,6 +593,11 @@ Elements of $\mathcal{L}\setminus L$ will be called \emph{unrealized types}.
 Intuitively, state types capture a notion of ``limit state''.
 
 
+\begin{rem}
+This is a remark for readers versed in model theory. Computation states structures are real-valued structures (see \cite[section 6]{Duenez-Iovino:2017} for a tutorial; see also~\cite{Keisler:2023}), and the class of computation state structures is closed under ultraproducts and ultrapowers. Given a structure $\mathbb{L}=(L,\mathcal{P})$, every type in  $\mathcal{L}\setminus L$ is realized in an ultrapower of $\mathbb{L}$, for if $f$ is a type in $\mathcal{L}\setminus L$, then, by the very definition of closure, there exists an indexed  family $(f_i)_{i\in I}$ in $L$ and an ultrafilter $\mathcal{U}$ on $I$ such that $f=\mathcal{U}\lim_i f_i$; this means that $f$ is realized in the $\mathcal{U}$-ultrapower  $\mathbb{L}_\mathcal{U}$ of $\mathbb{L}$; in fact, the type $f$ is realized by the element of $\mathbb{L}_\mathcal{U}$ represented by $(f_i)_{i\in I}$. This approach to spaces of types was introduced in Banach space theorem by Krivine~\cite{Krivine:1974, Krivine-Maurey:1981,Krivine:1972}.
+\end{rem}
+
+
 As we combine ideas of model theory~\cite{Keisler:2023} and topology~\cite{BFT_1978_PCompactBaire}, we are interested in families of real-valued functions that are pointwise bounded. This leads us to the concepts of \emph{sizer} and \emph{shard} first introduced in~\cite{alva2024approximability}:
 
 \begin{defn}
@@ -672,7 +677,7 @@ The $\land$ (=min) and $\lor$ (=max) operations correspond to the positive Boole
 
 \item
 We will say that $f$ is \emph{computable} if it is definable in the sense defined above under~(1), but without the use of the sup/inf operators; in other words, if for every choice of $Q,K,\varepsilon$, the approximation function $\varphi_{Q,K,\varepsilon}: L\to \mathbb{R}$ can be constructed without any use of sup or inf operators; in other words,
-$ $\varphi_{Q,K,\varepsilon}$ can be built recursively out of a finite number of the (primitively computable) predicates in $\mathcal{P}$
+ $\varphi_{Q,K,\varepsilon}$ can be built recursively out of a finite number of the (primitively computable) predicates in $\mathcal{P}$
 by a finite number of iterations of the (primitively computable) finitary lattice operations $\land,\lor$, and the  (primitively computable) operations of $\mathbb{R}^\mathbb{R}$ as a vector algebra.
 
 \emph{Remark:} This is the model-theoretic concept of quantifier-free definability (i.e., definability as given by the preceding paragraph, but without use of quantifiers), which, from a logic viewpoint, corresponds to computability.
