@@ -117,7 +117,9 @@ This allows us to view computations in any given computational model as elements
 The idea of embedding models of theories into their type spaces is borrowed from model theory, where types spaces play a central role.
 In the context of this paper, the embedding of computations into spaces of types allows us to utilize the vast theory of topology of function spaces, known as \emph{$C_p$-theory}, to obtain results about complexity of topological limits of computations.
 As we shall indicate next, recent classification results for spaces of functions provide an elegant and powerful machinery to classify computations according to their levels of ``tameness’’ or ``wildness’’, with the former corresponding roughly to polynomial approximability and the latter to exponential approximability.
-The model-theoretic viewpoint of spaces of types thus becomes a ``Rosetta stone’’ that allows us to interconnect various classification programs: In topology, the classification of Rosenthal compacta pioneered by Todorčević~\cite{Todorcevic_1999_CompactSubsetsBaire}; in logic, the classification of theories developed by Shelah~\cite{Shelah:1990}; and in statistical learning,
+The model-theoretic viewpoint of spaces of types thus becomes a ``Rosetta stone’’ that allows us to interconnect various classification programs: 
+in topology, the classification of Rosenthal compacta pioneered by Todorčević~\cite{Todorcevic_1999_CompactSubsetsBaire}; 
+in logic, the classification of theories developed by Shelah~\cite{Shelah:1990}; and in statistical learning,
  the notions of PAC learning and VC dimension pioneered by Vapnik and Chervonenkis~\cite{Vapnik-Chervonenkis:1974, Vapnik-Chervonenkis:1971}.
 
 
@@ -155,7 +157,7 @@ Since the late 70's, they have played a crucial role in understanding the comple
 Todorčević’s trichotomy for Rosenthal compacta has been utilized to settle longstanding problems in topological dynamics and topological entropy~\cite{glasner2022tame}.
 It is noteworthy that Todorčević’s proof relies on sophisticated set-theoretic  forcing and infinite Ramsey theory.
 At the time of writing this paper, decades after his original argument, no elementary proof has been found; 
-in fact, the the proof method has been analyzed and exploited further~\cite{Todorcevic:2023,horowitz2019compactsetsbaireclass}.
+in fact, the proof method has been analyzed and exploited further~\cite{Todorcevic:2023,horowitz2019compactsetsbaireclass}.
 
 Through our Rosetta stone, Rosenthal compacta in topology correspond to the important concept of  \emph{Non Independence Property} (known as ``NIP'') in model theory, identified by Shelah~\cite{Shelah:1971,Shelah:1990}, and to the concepts \emph{VC-dimension} and \emph{Probably Approximately Correct} learning (known as ``PAC learnability'') in statistical learning theory~\cite{Vapnik-Chervonenkis:1971, Vapnik-Chervonenkis:1974, Valiant:1984}.
 
@@ -1572,16 +1574,16 @@ However, by the Extendibility Axiom, finitary computations are continuous, i.e.,
 
 
 
-\section*{Conclusion}
+\section{Conclusion}
 
 We have seen how the tools of model theory and the topology of function spaces can give us new insights into classifying the difficulty of computations.
 In future papers, we plan to extend this research in a variety of directions. 
 A direction of particular interest to us  is replacing classical computation by quantum computation.
 Topologically, our results so far are not optimal because of their restriction to Polish spaces. 
-We expect to extend most of them to $K$-countably determined (Lindelöf $\Sigma$) spaces or  $K$-analytic spaces, which have previously been used in functional analysis --- see e.g., Kakol et al~\cite{Kakol-Kubis-Lopez-Pelicer:2011}. 
+We expect to extend most of them to $K$-countably determined (Lindelöf $\Sigma$) spaces or  $K$-analytic spaces, which have previously been used in functional analysis --- see e.g., Kakol et al~\cite{Kakol-Kubis-Lopez-Pelicer-Sobota:2025}.
 Our restricting our considerations to continuous and Baire class~1 functions can be relaxed by applying more high-powered model-theoretic and topological techniques. 
 This is work in progress. 
-We have hinted at applications to deep equilibria; this is also work in progress. 
+We have hinted at applications to deep equilibria; see~\cite{alva2024approximability}.
 In another direction, we have hinted at the role additional set-theoretic axioms may play. 
 Since real world computations are finite and hence do not depend on other than the usual set-theoretic axioms, in principle we can assume these axioms and then dispense with them;
 however, this is delicate, since many of our techniques involve infinite sets so we have to check that our assertions are sufficiently simple so as to be absolute, i.e. unaffected by additional axioms. 
