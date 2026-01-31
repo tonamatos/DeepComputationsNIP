@@ -680,11 +680,11 @@ by a finite number of iterations of the finitary lattice operations $\land$ (=mi
 The $\land$ (=min) and $\lor$ (=max) operations correspond to the positive Boolean logical connectives ``and'' and ``or", and the sup and inf operators correspond to the first-order quantifiers, $\forall$ and $\exists$.
 
 \item
-We will say that $f$ is \emph{computable} if it is definable in the sense defined above under~(1), but without the use of the sup/inf operators; in other words, if for every choice of $Q,K,\varepsilon$, the approximation function $\varphi_{Q,K,\varepsilon}: L\to \mathbb{R}$ can be constructed without any use of sup or inf operators; in other words,
+We will say that $f$ is $\mathcal{P}$-\emph{computable} if it is definable in the sense defined above under~(1), but without the use of the sup/inf operators; in other words, if for every choice of $Q,K,\varepsilon$, the approximation function $\varphi_{Q,K,\varepsilon}: L\to \mathbb{R}$ can be constructed without any use of sup or inf operators; in other words,
  $\varphi_{Q,K,\varepsilon}$ can be built recursively out of a finite number of the (primitively computable) predicates in $\mathcal{P}$
 by a finite number of iterations of the (primitively computable) finitary lattice operations $\land,\lor$, and the  (primitively computable) operations of $\mathbb{R}^\mathbb{R}$ as a vector algebra.
 
-\emph{Remark:} This is the model-theoretic concept of quantifier-free definability (i.e., definability as given by the preceding paragraph, but without use of quantifiers), which, from a logic viewpoint, corresponds to computability.
+\emph{Remark:} This is the model-theoretic concept of quantifier-free definability (i.e., definability as given by the preceding paragraph, but without use of quantifiers).
  \end{enumerate}
   
 
@@ -698,7 +698,7 @@ To summarize, for a function a function $f: L\to \mathcal{L}$, the following con
 
 \begin{itemize}
 \item
-$f$ is computable
+$f$ is $\mathcal{P}$-computable
 \item
 $f$ is definable
 \item
@@ -708,7 +708,7 @@ $f$  is polynomially approximable
 $f$ can be extended to a continuous $\tilde{f}: \mathcal{L} \to \mathcal{L}$.
 \end{itemize}
 
-This is the ratinale for the following definition.
+These equivalences motivate the following definition:
 
 \begin{defn}
 \label{D:extendibility axiom}
@@ -1314,7 +1314,8 @@ For every relatively compact $\{f_{t}:t\in 2^{<\mathbb{N}}\}\subseteq B_1(X)$, t
 Moreover, all $D_i$ are minimal and mutually non-equivalent.
 \end{thm}
 
-The implication of this result for deep computations is the following: for any countable set of computations $\Delta$ satisfying the NIP (for some CCS $(L,\mathcal{P},\Gamma)$), we can always find a countable discrete set of deep computations that approximates all the other deep computations.
+The implication of this result for deep computations is the following: 
+for any countable set of computations $\Delta$ satisfying the NIP (for some CCS $(L,\mathcal{P},\Gamma)$), we can always find a countable discrete set of deep computations that approximates all the other deep computations.
 For example: in the finite precision prefix test example (subsection \ref{subsec: prefix test}), the prefix test computations (family $D_5$) approximate all other deep computations.
 However, note that this discrete set $D_i$ may not consist of continuous functions (i.e., they will not be computable in general).
 For example, functions in $D_3$ are not continuous.
