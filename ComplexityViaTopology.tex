@@ -220,7 +220,8 @@ If $X$ and $Y$ are topological spaces, the space of Baire-1 functions $f:X\right
 thus, $C_p(X,Y)\subseteq B_1(X,Y)\subseteq Y^X$ are topological inclusions.
 The Baire hierarchy of functions was introduced by René-Louis Baire in his 1899 doctoral thesis, \emph{Sur les fonctions de variables réelles}.
 His work moved away from the 19th-century preoccupation with ``pathological'' functions toward a constructive classification based on pointwise limits.
-A elementary argument shows that Baire-1 functions are continuous everywhere except on a set of the first category (also called a \emph{meager} set, i.e., any countable union of sets whose closures have empty interior; intuitively, these sets are ``topologically small'').
+A elementary argument shows that Baire-1 functions are continuous everywhere except on a set of the first category (also called a \emph{meager} set, i.e., any countable union of sets whose closures have empty interior;
+intuitively, these sets are ``topologically small'', at least in Baire spaces—see below).
 Thus, Baire-1 functions are continuous on a ``topologically large'' subset of their domain.
 
 A topological space $X$ is \emph{perfectly normal} if it is normal and every closed subset of $X$ is a $G_\delta$ set (equivalently, every open subset of $X$ is an $F_\sigma$ set).
@@ -255,10 +256,9 @@ A proof can be found in~\cite[Section 10]{Todorcevic_1997_TopicsTop}.
 
 A subset $L$ of a topological space $X$ is \emph{relatively compact} in $X$ if the closure of $L$ in $X$ is compact.
 Relatively compact subsets of $B_1(X)$ (for $X$ Polish) are of interest in analysis and topological dynamics.
-We begin with the following well-known result.
 Recall that a set $A\subseteq\mathbb{R}^X$ of real-valued functions is \emph{pointwise bounded} if for every $x\in X$ there is $M_x \ge 0$ (a \emph{pointwise bound at~$x$}) such that $|f(x)| \le M_x$ for all $f\in A$.
-We include a proof for the reader's convenience:
 
+The Lemma below is well known, but we include a proof for the reader's convenience.
 \begin{lem}
     Let $X$ be a Polish space and $A\subseteq B_1(X)$ be pointwise bounded.
 The following are equivalent:
@@ -536,7 +536,7 @@ The following are equivalent for every compact $K\subseteq X$:
   Therefore, the asserted equivalence follows from Theorems~\ref{BFT} and~\ref{prop:BFT-finitary-cpct}.
 \end{proof}
 
-Lastly, a simple but useful lemma that helps understand when we restrict a set of functions to a specific subspace of the domain space, we may always assume that the subspace is closed, as replacing the subspace by its closure has no effect on NIP.
+Lastly, a simple but useful lemma to the effect that a set of continuous functions has NIP over a subset of the domain if and only if it has NIP over the closure of the subset.
 
 \begin{lem}\label{NIP and closure}
     Assume that $X$ is Hausdorff and that $A\subseteq C_p(X)$.
@@ -549,7 +549,7 @@ The following are equivalent for every $L\subseteq X$:
     \end{enumerate}
 \end{lem}
 \begin{proof}
-    It suffices to show that (i)$\Rightarrow$(ii).
+    We prove the non-trivial implication (i)$\Rightarrow$(ii) only.
 Suppose that (ii) does not hold, i.e., that there are $\{f_n\}_{n\in\mathbb{N}}\subseteq A$ and $a<b$ such that for all finite disjoint $E,F\subseteq\mathbb{N}$:
     $$\overline{L}\cap\bigcap_{n\in E}f_n^{-1}(-\infty,a]\cap\bigcap_{n\in F}f_n^{-1}[b,\infty)\neq\emptyset.$$
     Pick $a'<b'$ such that $a<a'<b'<b$.
