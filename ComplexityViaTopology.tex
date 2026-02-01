@@ -108,7 +108,7 @@ The theory of Rosenthal compacta allows us to characterize approximability of de
 \section*{Introduction}
 
 In this paper we  study asymptotic behavior of computations as parameters of the computation tend towards a limit, e.g., the depth of a neural network tending to infinity, or the time interval between layers of a time-series network tending toward zero.
-Recently, particular cases of this concept have attracted considerable attention in deep learning research (e.g., Neural Ordinary Differential Equations~\cite{Chen:2018}, Physics-Informed Neural Networks~\cite{Raissi-Perdikaris-Karniadakis:2019}, and deep equilibrium models~\cite{Bai:2019}).
+Recently, particular cases of this concept have attracted considerable attention in deep learning research (e.g., Neural Ordinary Differential Equations~\cite{Chen:2018}, Physics-Informed Neural Networks~\cite{Raissi-Perdikaris-Karniadakis:2019}, and Deep Equilibrium Models~\cite{Bai:2019}).
 The formal framework introduced here  provides a unified setting to study these limit phenomena from a foundational viewpoint.
 
 
@@ -1334,7 +1334,7 @@ In this section, the countability assumption is not needed.
 
 \subsection{NIP and Monte Carlo computability of deep computations}
 
-The \emph{raison d'être} of the Baire class-1 functions is to have a class of functions that are obtained as equential limit points of continuous functions.
+The \emph{raison d'être} of the Baire class 1 functions is to have a class of functions that are obtained as equential limit points of continuous functions.
 By Fact~\ref{baire}, for perfectly normal $X$, a function $f$ is in $B_1(X,Y)$ if and only if $f^{-1}[U]$ is an $F_\sigma$ subset of $X$ for every open $U\subseteq Y$.
 Thus, for such $X$,  functions in $B_1(X,Y)$ are not too far from being continuous.
 In this section we will study a more general  class of functions, namely, the class of \emph{universally measurable} functions, which we define next.
@@ -1388,9 +1388,9 @@ Then, $C=\bigcap_{i\in J}\pi_i^{-1}(C_i)$, so $f^{-1}(C)=\bigcap_{i\in J}(\pi_i\
 \end{proof}
 
 The preceding proposition says that a transition map is universally measurable if and only if it is universally measurable on all its features; in other words, we can check measurability of a transition just by checking measurability feature by feature.
-This is the same as in the Baire class-1 case (compare with Proposition~\ref{prop:Baire-identifications}).
+This is the same as in the Baire class 1 case (compare with Proposition~\ref{prop:Baire-identifications}).
 
-The main result in section \ref{S:Classification} is that, as long as we work with countably many features, PAC-learning (or NIP) corresponds to relative compactness in the space of Baire class-1 functions.
+The main result in section \ref{S:Classification} is that, as long as we work with countably many features, PAC-learning (or NIP) corresponds to relative compactness in the space of Baire class 1 functions.
 The following result (which does not assume countability of the number of features) gives an analogous characterization of the NIP in terms of universal measurability:
 
 \begin{thm}
