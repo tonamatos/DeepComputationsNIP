@@ -108,7 +108,7 @@ The theory of Rosenthal compacta allows us to characterize approximability of de
 \section*{Introduction}
 
 In this paper we  study asymptotic behavior of computations as parameters of the computation tend towards a limit, e.g., the depth of a neural network tending to infinity, or the time interval between layers of a time-series network tending toward zero.
-Recently, particular cases of this concept have attracted considerable attention in deep learning research (e.g., Neural Ordinary Differential Equations~\cite{Chen:2018}, Physics-Informed Neural Networks~\cite{Raissi-Perdikaris-Karniadakis:2019}, and deep equilibrium models~\cite{Bai:2019}).
+Recently, particular cases of this concept have attracted considerable attention in deep learning research (e.g., Neural Ordinary Differential Equations~\cite{Chen:2018}, Physics-Informed Neural Networks~\cite{Raissi-Perdikaris-Karniadakis:2019}, and Deep Equilibrium Models~\cite{Bai:2019}).
 The formal framework introduced here  provides a unified setting to study these limit phenomena from a foundational viewpoint.
 
 
@@ -149,7 +149,7 @@ In topology, the \emph{first Baire class}, or \emph{Baire class~1} consists of f
 Intuitively, the Baire-1 class consists of functions with ``controlled'' discontinuities, and lies just one level of topological complexity above the Baire class 0 which (by definition) consists of continuous functions.
 
 We apply a result of Bourgain, Fremlin and Talagrand from the late 70s on compact subsets of the first Baire class to obtain a new ``tame vs wild'' dichotomy for  deep computations~\cite{BFT_1978_PCompactBaire}; 
-then, we apply a trichotomy of Todorčević, from the late 90s, for \emph{Rosental compacta} to identify new tame classes~\cite{Todorcevic_1999_CompactSubsetsBaire}.
+then, we apply a trichotomy of Todorčević, from the late 90s, for \emph{Rosenthal compacta} to identify new tame classes~\cite{Todorcevic_1999_CompactSubsetsBaire}.
 
 A Rosenthal compactum  is a compact topological space that is homeomorphic to a subspace of the space of Baire class~1 functions on some Polish (i.e., separable, completely metrizable) space equipped with the topology of pointwise convergence.
 Rosenthal compacta exhibit ``topological tameness,'' meaning that they behave in relatively controlled ways.
@@ -594,11 +594,18 @@ Intuitively, state types capture a notion of ``limit state''.
 
 
 \begin{rem}
-This is a remark for readers versed in model theory. Computation states structures are real-valued structures (see \cite[section 6]{Duenez-Iovino:2017} for a tutorial; see also~\cite{Keisler:2023}), and the class of computation state structures is closed under ultraproducts and ultrapowers. Given a structure $\mathbb{L}=(L,\mathcal{P})$, every type in  $\mathcal{L}\setminus L$ is realized in an ultrapower of $\mathbb{L}$, for if $f\in\mathcal{L}\setminus L$, then, by the definition of topological closure, there exists an indexed  family $(f_i)_{i\in I}$ in $L$ and an ultrafilter $\mathcal{U}$ on $I$ such that $f=\mathcal{U}\lim_i f_i$; this means that $f$ is realized in the $\mathcal{U}$-ultrapower  $\mathbb{L}_\mathcal{U}$ of $\mathbb{L}$; in fact, $f$ is realized by the element of $\mathbb{L}_\mathcal{U}$ represented by $(f_i)_{i\in I}$. This approach to spaces of types was introduced in Banach space theorem by Krivine~\cite{Krivine:1974, Krivine-Maurey:1981,Krivine:1972}.
+\label{R:types}
+This remark is for readers versed in model theory. Computation states structures are real-valued structures (see~\cite{Keisler:2023}; see also~\cite[section 6]{Duenez-Iovino:2017} for a tutorial), and the class of computation state structures is closed under ultraproducts and ultrapowers. 
+Given a structure $\mathbb{L}=(L,\mathcal{P})$, every type in  $\mathcal{L}\setminus L$ is realized in an ultrapower of $\underline{L}$, for if $f\in\mathcal{L}\setminus L$, then, by the definition of topological closure, there exists an indexed  family $(f_i)_{i\in I}$ in $L$ and an ultrafilter $\mathcal{U}$ on $I$ such that $f=\mathcal{U}\lim_i f_i$; this means that $f$ is realized in the $\mathcal{U}$-ultrapower  $\mathbb{L}_\mathcal{U}$ of $\mathbb{L}$; 
+in fact, $f$ is realized by the element of $\mathbb{L}_\mathcal{U}$ represented by $(f_i)_{i\in I}$. 
+This approach to spaces of types was introduced in Banach space theory by Krivine~\cite{Krivine:1974, Krivine-Maurey:1981,Krivine:1972}.
 \end{rem}
 
 
-As we combine ideas of model theory~\cite{Keisler:2023} and topology~\cite{BFT_1978_PCompactBaire}, we are interested in families of real-valued functions that are pointwise bounded. This leads us to the concepts of \emph{sizer} and \emph{shard} first introduced in~\cite{alva2024approximability}:
+%As we combine ideas of model theory~\cite{Keisler:2023} and topology~\cite{BFT_1978_PCompactBaire}, we are interested in families of real-valued functions that are pointwise bounded. 
+Since machines have finite memory, the set of inputs and outputs of any individual computation must be bounded; 
+however, the bounds for a particular feature of a computation may depend on the feature.
+This leads us to the concepts of \emph{sizer} and \emph{shard} first introduced in~\cite{alva2024approximability}:
 
 \begin{defn}
   A \emph{sizer} is a family $r_{\bullet}=(r_P)_{P\in\mathcal{P}}$ of positive real numbers, indexed by~$\mathcal{P}$.
@@ -642,6 +649,8 @@ A transformation $\gamma\in\Gamma$ is \emph{$R$-confined} if $\gamma$ restricts 
 A subset $\Delta\subseteq\Gamma$ is \emph{$R$-confined} if each $\gamma\in \Delta$ is.
 \end{defn}
 
+
+
 \begin{prop}\label{prop:confined-compact}
   If $\Delta\subseteq\Gamma$ is confined by an exhaustive sizer collection, then $\overline{\Delta}$ is a compact subset of~$\Lshard^L$.
 \end{prop}
@@ -656,6 +665,25 @@ For a CCS $(L,\mathcal{P},\Gamma)$, we regard the elements of $\Gamma$ as ``stan
 The main goal of this paper is to study the computability, definability and computational complexity of deep computations.
 Since deep computations are defined through a combination of topological concepts (namely, topological closure) and structural and model-theoretic concepts (namely, models and types), we will import technology from both topology and model theory.
 
+\begin{rem}
+The remark is related to remark~\ref{R:types}. 
+Compositional computational structures as defined above are not real-valued structures in the sense of~\cite{Keisler:2023}.
+However, they can be easily defined alternatively as real-valued structures as follows. We define a CCS as a quintuple $(L,\mathcal{P},\Gamma,\circ,\operatorname{ev})$, where
+\begin{itemize}
+\item
+ $(L,\mathcal{P})$ is a computation states structure, 
+ \item
+ $(\Gamma,\circ)$ is a semigroup,
+\item 
+$\operatorname{ev}: \Gamma\times L\to L: (\gamma,v)\mapsto \operatorname{ev}(\gamma,v)$ is a map giving an action of $\Gamma$ on~$L$
+  (i.e., $\operatorname{ev}(\gamma\delta,v) = \operatorname{ev}(\gamma,\operatorname{ev}(\delta,v))$ for $\gamma,\delta\in\Gamma$ and $v\in L$).
+\end{itemize}
+Then, notationally, we identify each $\gamma\in \Gamma$ with the map  $(\gamma,v)\mapsto \operatorname{ev}(\gamma,v)$.
+This is in fact the original definition of CSS given in \cite{alva2024approximability}.
+
+\end{rem}
+
+
 \subsection{Computability and definability of deep computations and the Extendibility Axiom}
 
 Let  $f: L\to \mathcal{L}$ be a function that maps each input state type  $(P(v))_{P\in \mathcal{P}}\in\mathbb{R}^\mathcal{P}$ to an output state type $(P\circ f (v))_{P\in \mathcal{P}}\in\mathbb{R}^\mathcal{P}$.
@@ -663,11 +691,11 @@ Let  $f: L\to \mathcal{L}$ be a function that maps each input state type  $(P(v)
  \begin{enumerate}
  \item
 We will say that $f$ is (first-order) \emph{definable} if for each $Q\in\mathcal{P}$, the output feature $Q{\circ}f: L\to\mathbb{R}$ is a definable predicate in the following sense: 
-For every $\epsilon>0$ and every compact $K\subseteq L$,  there 
+For every $\varepsilon>0$ and every compact $K\subseteq L$,  there 
 is an \emph{approximating function} $\varphi_{Q,\,K,\varepsilon}: L\to \mathbb{R}$ that can be built recursively out of a finite number of the (primitively computable) predicates in $\mathcal{P}$
 by a finite number of iterations of the finitary lattice operations $\land$ (=min) and $\lor$ (=max), the operations of $\mathbb{R}^\mathbb{R}$ as a vector algebra (that is, vector addition and multiplication and scalar multiplication) and the operators sup and inf applied on individual variables from $L$, and such that 
 \[
-| \varphi_{Q,\,K,\varepsilon}(v)- Q{\circ}f(v)|\le \epsilon,
+| \varphi_{Q,\,K,\varepsilon}(v)- Q{\circ}f(v)|\le \varepsilon,
 \qquad
 \text{for all $v\in K$}.
 \]
@@ -676,11 +704,11 @@ by a finite number of iterations of the finitary lattice operations $\land$ (=mi
 The $\land$ (=min) and $\lor$ (=max) operations correspond to the positive Boolean logical connectives ``and'' and ``or", and the sup and inf operators correspond to the first-order quantifiers, $\forall$ and $\exists$.
 
 \item
-We will say that $f$ is \emph{computable} if it is definable in the sense defined above under~(1), but without the use of the sup/inf operators; in other words, if for every choice of $Q,K,\varepsilon$, the approximation function $\varphi_{Q,K,\varepsilon}: L\to \mathbb{R}$ can be constructed without any use of sup or inf operators; in other words,
+We will say that $f$ is $\mathcal{P}$-\emph{computable} if it is definable in the sense defined above under~(1), but without the use of the sup/inf operators; in other words, if for every choice of $Q,K,\varepsilon$, the approximation function $\varphi_{Q,K,\varepsilon}: L\to \mathbb{R}$ can be constructed without any use of sup or inf operators; in other words,
  $\varphi_{Q,K,\varepsilon}$ can be built recursively out of a finite number of the (primitively computable) predicates in $\mathcal{P}$
 by a finite number of iterations of the (primitively computable) finitary lattice operations $\land,\lor$, and the  (primitively computable) operations of $\mathbb{R}^\mathbb{R}$ as a vector algebra.
 
-\emph{Remark:} This is the model-theoretic concept of quantifier-free definability (i.e., definability as given by the preceding paragraph, but without use of quantifiers), which, from a logic viewpoint, corresponds to computability.
+\emph{Remark:} This is the model-theoretic concept of quantifier-free definability (i.e., definability as given by the preceding paragraph, but without use of quantifiers).
  \end{enumerate}
   
 
@@ -694,7 +722,7 @@ To summarize, for a function a function $f: L\to \mathcal{L}$, the following con
 
 \begin{itemize}
 \item
-$f$ is computable
+$f$ is $\mathcal{P}$-computable
 \item
 $f$ is definable
 \item
@@ -704,7 +732,7 @@ $f$  is polynomially approximable
 $f$ can be extended to a continuous $\tilde{f}: \mathcal{L} \to \mathcal{L}$.
 \end{itemize}
 
-This is the ratinale for the following definition.
+These equivalences motivate the following definition:
 
 \begin{defn}
 \label{D:extendibility axiom}
@@ -884,7 +912,7 @@ Let us look at various examples:
         $$\tilde{f_i}(z)=\begin{cases}
            f_i(z), & \text{if }z\in L_p;\\
            \infty, & \text{if }z\notin L_p.
-        \end{cases}.$$
+        \end{cases}$$
         Again, note that $\tilde{f_i}$ for $i=1,2$ are not continuous and that $\tilde{f_i}\in\overline{\tilde{\Gamma}}$.
 \end{exmp}
 
@@ -1061,7 +1089,8 @@ Hence, Theorem \ref{Generalized BFT} and Lemma \ref{NIP and closure} prove the e
 If (i) holds and $f\in\overline{\Delta}$, then write $f=\mathcal{U}{\rm lim}_i \gamma_i$ as an ultralimit.
 Define $\tilde f:=\mathcal{U}{\rm lim}_i \tilde\gamma_i$.
 Hence, for all $r_\bullet\in R$ we have $\tilde f|_{\mathcal{L}[r_\bullet]}\in\overline{\tilde\Delta|_{\mathcal{L}[r_\bullet]}}\subseteq B_1(\mathcal{L}[r_\bullet],\mathcal{L}[r_\bullet])$.
-That every deep computation is a pointwise limit of a countable sequence of computations follows from the fact that for a Polish space $X$ every compact subset of $B_1(X)$ is Fréchet-Urysohn (that is, a space where topological closures coincide with sequential closures, see Theorem 3F in \cite{BFT_1978_PCompactBaire} or Theorem 4.1 in \cite{debs2013rosenthal}).
+That every deep computation is a pointwise limit of a countable sequence of computations follows from the fact that for a Polish space $X$ every compact subset of $B_1(X)$ is Fréchet-Urysohn 
+(that is, a space where any point in the closure of  a set $A$ is the limit of a sequence of points in  $A$; see Theorem 3F in \cite{BFT_1978_PCompactBaire} or Theorem 4.1 in \cite{debs2013rosenthal}).
 \end{proof}
 
 \subsection{The Todorčević trichotomy, and levels of NIP and PAC learnability}
@@ -1136,7 +1165,7 @@ Moreover, it is hereditarily separable, but it is not metrizable.
 It is homeomorphic to the space $2^{\mathbb{N}}\times\{0,1\}$ with the lexicographic order topology via the identification $(a,1)\mapsto f_a^+$ and $(a,0)\mapsto f_a^-$.
 
     \item \emph{Alexandroff Duplicate}.
-Let $K$ be any compact metric space and consider the Polish space $X=K\sqcup C(K)$, i.e., the disjoint union of $C(K)$ (with its supremum norm topology) and $K$.
+Let $K$ be any compact metric space and consider the Polish space $X=K\sqcup C(K)$, i.e., the disjoint union of $C(K)$ (continuous functions on $K$ with the supremum norm topology) and $K$.
 For each $a\in K$ define $g_a^0,g_a^1:X\rightarrow\mathbb{R}$ as follows:
     $$g_a^0(x)=\begin{cases}
         0, & \text{if }x\in K\\
@@ -1151,7 +1180,7 @@ Observe that all points $g_a^1$ are isolated and that open neighborhoods of $g_{
 Another abstract way in which this space is presented is as the space $K\times\{0,1\}$ whose basic open neighborhoods are given as before, identifying $(a,0)\mapsto g_a^0$ and $(a,1)\mapsto g_a^1$.
 We can also embed $D(K)$ into the product $A(K)\times K$ by identifying $(a,0)\mapsto (\mathbf{0},a)$ and $(a,1)\mapsto (\delta_a,a)$.
 Notice that $D(K)$ is a first countable Rosenthal compactum.
-It is not separable if $K$ is uncountable, thus we typically study the interesting case when $K=2^\mathbb{N}$.
+It is not separable if $K$ is uncountable; thus, we typically study the interesting case when $K=2^\mathbb{N}$.
 As with the Alexandroff compactification $A(2^{\mathbb{N}})$, we can make the space $D(2^{\mathbb{N}})$ separable by adding a countable set.
 For example, the closure of the set $\{(v_s,s^\frown 0^\infty):s\in 2^{<\mathbb{N}}\}\subseteq \hat{A}(2^{\mathbb{N}})\times 2^{\mathbb{N}}$ is $\{(\mathbf{0},a):a\in 2^{\mathbb{N}}\}\cup \{(\delta_a,a):a\in 2^{\mathbb{N}}\}\cup\{(v_s,s^\frown 0^\infty):s\in 2^{<\mathbb{N}}\}$, where $\{(\mathbf{0},a):a\in 2^{\mathbb{N}}\}\cup \{(\delta_a,a):a\in 2^{\mathbb{N}}\}$ is homeomorphic to $D(2^{\mathbb{N}})$.
 
@@ -1310,7 +1339,8 @@ For every relatively compact $\{f_{t}:t\in 2^{<\mathbb{N}}\}\subseteq B_1(X)$, t
 Moreover, all $D_i$ are minimal and mutually non-equivalent.
 \end{thm}
 
-The implication of this result for deep computations is the following: for any countable set of computations $\Delta$ satisfying the NIP (for some CCS $(L,\mathcal{P},\Gamma)$), we can always find a countable discrete set of deep computations that approximates all the other deep computations.
+The implication of this result for deep computations is the following: 
+for any countable set of computations $\Delta$ satisfying the NIP (for some CCS $(L,\mathcal{P},\Gamma)$), we can always find a countable discrete set of deep computations that approximates all the other deep computations.
 For example: in the finite precision prefix test example (subsection \ref{subsec: prefix test}), the prefix test computations (family $D_5$) approximate all other deep computations.
 However, note that this discrete set $D_i$ may not consist of continuous functions (i.e., they will not be computable in general).
 For example, functions in $D_3$ are not continuous.
@@ -1329,7 +1359,7 @@ In this section, the countability assumption is not needed.
 
 \subsection{NIP and Monte Carlo computability of deep computations}
 
-The \emph{raison d'être} of the Baire class-1 functions is to have a class of functions that are obtained as equential limit points of continuous functions.
+The \emph{raison d'être} of the Baire class 1 functions is to have a class of functions that are obtained as sequential limit points of continuous functions.
 By Fact~\ref{baire}, for perfectly normal $X$, a function $f$ is in $B_1(X,Y)$ if and only if $f^{-1}[U]$ is an $F_\sigma$ subset of $X$ for every open $U\subseteq Y$.
 Thus, for such $X$,  functions in $B_1(X,Y)$ are not too far from being continuous.
 In this section we will study a more general  class of functions, namely, the class of \emph{universally measurable} functions, which we define next.
@@ -1383,9 +1413,9 @@ Then, $C=\bigcap_{i\in J}\pi_i^{-1}(C_i)$, so $f^{-1}(C)=\bigcap_{i\in J}(\pi_i\
 \end{proof}
 
 The preceding proposition says that a transition map is universally measurable if and only if it is universally measurable on all its features; in other words, we can check measurability of a transition just by checking measurability feature by feature.
-This is the same as in the Baire class-1 case (compare with Proposition~\ref{prop:Baire-identifications}).
+This is the same as in the Baire class 1 case (compare with Proposition~\ref{prop:Baire-identifications}).
 
-The main result in section \ref{S:Classification} is that, as long as we work with countably many features, PAC-learning (or NIP) corresponds to relative compactness in the space of Baire class-1 functions.
+The main result in section \ref{S:Classification} is that, as long as we work with countably many features, PAC-learning (or NIP) corresponds to relative compactness in the space of Baire class 1 functions.
 The following result (which does not assume countability of the number of features) gives an analogous characterization of the NIP in terms of universal measurability:
 
 \begin{thm}
@@ -1597,7 +1627,7 @@ This is work in progress.
 We have hinted at applications to deep equilibria; see~\cite{alva2024approximability}.
 In another direction, we have hinted at the role additional set-theoretic axioms may play. 
 Since real world computations are finite and hence do not depend on other than the usual set-theoretic axioms, in principle we can assume these axioms and then dispense with them;
-however, this is delicate, since many of our techniques involve infinite sets so we have to check that our assertions are sufficiently simple so as to be \emph{absolute}, i.e. unaffected by additional axioms. 
+however, this is delicate, since many of our techniques involve infinite sets so we have to check that our assertions are sufficiently simple so as to be \emph{absolute}, i.e., unaffected by additional axioms. 
 We hope that this paper, the preceding one~\cite{alva2024approximability}, and the future ones will stimulate interactions among these three seemingly unrelated fields of research.
 
 
