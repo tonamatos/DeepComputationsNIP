@@ -646,23 +646,7 @@ A transformation $\gamma\in\Gamma$ is \emph{$R$-confined} if $\gamma$ restricts 
 A subset $\Delta\subseteq\Gamma$ is \emph{$R$-confined} if each $\gamma\in \Delta$ is.
 \end{defn}
 
-\begin{rem}
-The remark is related to remark~\ref{R:types}. 
-Compositional computational structures as defined above are not real-valued structures in the sense of~\cite{Keisler:2023}.
-However, they can be easily defined alternatively as real-valued structures as follows. We define a CCS as a quintuple $(L,\mathcal{P},\Gamma,\circ,\operatorname{ev})$, where
-\begin{itemize}
-\item
- $(L,\mathcal{P})$ is a computation states structure, 
- \item
- $(\Gamma,\circ)$ is a semigroup,
-\item 
-$\operatorname{ev}: \Gamma\times L\to L: (\gamma,v)\mapsto \operatorname{ev}(\gamma,v)$ is a map giving an action of $\Gamma$ on~$L$
-  (i.e., $\operatorname{ev}(\gamma\delta,v) = \operatorname{ev}(\gamma,\operatorname{ev}(\delta,v))$ for $\gamma,\delta\in\Gamma$ and $v\in L$).
-\end{itemize}
-Then, notationally, we identify each $\gamma\in \Gamma$ with the map  $(\gamma,v)\mapsto \operatorname{ev}(\gamma,v)$.
-This is in fact the definition of CSS given in \cite{alva2024approximability}.
 
-\end{rem}
 
 \begin{prop}\label{prop:confined-compact}
   If $\Delta\subseteq\Gamma$ is confined by an exhaustive sizer collection, then $\overline{\Delta}$ is a compact subset of~$\Lshard^L$.
@@ -677,6 +661,25 @@ This is in fact the definition of CSS given in \cite{alva2024approximability}.
 For a CCS $(L,\mathcal{P},\Gamma)$, we regard the elements of $\Gamma$ as ``standard'' finitary computations, and the elements of $\overline{\Gamma}$, i.e., deep computations, as possibly infinitary limits of standard computations.
 The main goal of this paper is to study the computability, definability and computational complexity of deep computations.
 Since deep computations are defined through a combination of topological concepts (namely, topological closure) and structural and model-theoretic concepts (namely, models and types), we will import technology from both topology and model theory.
+
+\begin{rem}
+The remark is related to remark~\ref{R:types}. 
+Compositional computational structures as defined above are not real-valued structures in the sense of~\cite{Keisler:2023}.
+However, they can be easily defined alternatively as real-valued structures as follows. We define a CCS as a quintuple $(L,\mathcal{P},\Gamma,\circ,\operatorname{ev})$, where
+\begin{itemize}
+\item
+ $(L,\mathcal{P})$ is a computation states structure, 
+ \item
+ $(\Gamma,\circ)$ is a semigroup,
+\item 
+$\operatorname{ev}: \Gamma\times L\to L: (\gamma,v)\mapsto \operatorname{ev}(\gamma,v)$ is a map giving an action of $\Gamma$ on~$L$
+  (i.e., $\operatorname{ev}(\gamma\delta,v) = \operatorname{ev}(\gamma,\operatorname{ev}(\delta,v))$ for $\gamma,\delta\in\Gamma$ and $v\in L$).
+\end{itemize}
+Then, notationally, we identify each $\gamma\in \Gamma$ with the map  $(\gamma,v)\mapsto \operatorname{ev}(\gamma,v)$.
+This is in fact the original definition of CSS given in \cite{alva2024approximability}.
+
+\end{rem}
+
 
 \subsection{Computability and definability of deep computations and the Extendibility Axiom}
 
