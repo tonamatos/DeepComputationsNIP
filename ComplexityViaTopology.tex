@@ -146,9 +146,9 @@ More on this below.
 Deep computations arise as topological limits of standard (continuous) computations.
 %Simplest among these is when the limit is sequential.
 In topology, the \emph{first Baire class}, or \emph{Baire class~1} consists of functions (also called simply \emph{Baire-1}) arising as pointwise limits of sequences of continuous functions.
-Intuitively, the Baire-1 class consists of functions with ``controlled'' discontinuities, and lies just one level of topological complexity above the Baire class 0 which (by definition) consists of continuous functions.
+Intuitively, the Baire-1 class consists of functions with ``controlled'' discontinuities, and lies just one level of topological complexity above the Baire class 0, which (by definition) consists of continuous functions.
 
-We apply a result of Bourgain, Fremlin and Talagrand from the late 70s on compact subsets of the first Baire class to obtain a new ``tame vs wild'' dichotomy for  deep computations~\cite{BFT_1978_PCompactBaire}; 
+We apply a result of Bourgain, Fremlin and Talagrand from the late 1970s on compact subsets of the first Baire class to obtain a new ``tame vs wild'' dichotomy for  deep computations~\cite{BFT_1978_PCompactBaire}; 
 then, we apply a trichotomy of Todorčević, from the late 90s, for \emph{Rosenthal compacta} to identify new tame classes~\cite{Todorcevic_1999_CompactSubsetsBaire}.
 
 A Rosenthal compactum  is a compact topological space that is homeomorphic to a subspace of the space of Baire class~1 functions on some Polish (i.e., separable, completely metrizable) space equipped with the topology of pointwise convergence.
@@ -156,22 +156,22 @@ Rosenthal compacta exhibit ``topological tameness,'' meaning that they behave in
 Since the late 70's, they have played a crucial role in understanding the complexity of structures of functional analysis, especially Banach spaces.
 Todorčević’s trichotomy for Rosenthal compacta has been utilized to settle longstanding problems in topological dynamics and topological entropy~\cite{glasner2022tame}.
 It is noteworthy that Todorčević’s proof relies on sophisticated set-theoretic  forcing and infinite Ramsey theory.
-At the time of writing this paper, decades after his original argument, no elementary proof has been found; 
-in fact, the proof method has been analyzed and exploited further~\cite{Todorcevic:2023,horowitz2019compactsetsbaireclass}.
+At the time of writing this paper, decades after his original argument, there are no elementary proofs of the trichotomy; 
+in fact, Todorčević’s methods have been analyzed and exploited further~\cite{Todorcevic:2023,horowitz2019compactsetsbaireclass}.
 
-Through our Rosetta stone, Rosenthal compacta in topology correspond to the important concept of  \emph{Non Independence Property} (known as ``NIP'') in model theory, identified by Shelah~\cite{Shelah:1971,Shelah:1990}, and to the concepts \emph{VC-dimension} and \emph{Probably Approximately Correct} learning (known as ``PAC learnability'') in statistical learning theory~\cite{Vapnik-Chervonenkis:1971, Vapnik-Chervonenkis:1974, Valiant:1984}.
+Through our Rosetta stone, Rosenthal compacta in topology correspond to the important concept of \emph{No-Independence Property} (known as ``NIP'') in model theory, identified by Shelah~\cite{Shelah:1971,Shelah:1990}, and to the concepts \emph{VC-dimension} and \emph{Probably Approximately Correct} learning (known as ``PAC learnability'') in statistical learning theory~\cite{Vapnik-Chervonenkis:1971, Vapnik-Chervonenkis:1974, Valiant:1984}.
 
 Beyond Todorčević’s trichotomy, we invoke a more recent heptachotomy for separable Rosenthal compacta obtained by Argyros, Dodos and Kanellopoulos~\cite{argyros2008rosenthal}.
 These authors identify seven fundamental ``prototypes" of separable Rosenthal compacta, and show that any non-metrizable separable Rosenthal compactum must contain a ``canonical'' embedding of one of these prototypes.
 
-Fom the point of view of approximation theory, it is noteworthy that in the context of Grothendieck~\cite{Grothendieck:1952} and  Bourgain-Fremlin-Talagrand~\cite{BFT_1978_PCompactBaire}, compactness and sequential compactness coincide; thus, the results of these papers allow us to ensure that deep computations, which in principle are abstract ultrafilter limits (over a potentially uncountable set), can always be approximated by concrete  \emph{sequences} of standard computations.
+Fom the point of view of approximation theory, it is noteworthy that in the context of Grothendieck~\cite{Grothendieck:1952} and  Bourgain-Fremlin-Talagrand~\cite{BFT_1978_PCompactBaire}, compactness and sequential compactness coincide; thus, the results of these papers allow us to ensure that deep computations, which in principle are abstract ultrafilter limits (over a possibly uncountable set), can always be approximated by concrete  \emph{sequences} of standard computations.
 
 We believe that the results presented in this paper show practitioners of computation, or topology, or descriptive set theory, or model theory, how classification invariants used in their field translate into classification invariants of other fields.
 In the interest of accessibility, we do not assume that the reader has previous familiarity with advanced topology, model theory, or computing.
 The only technical prerequisites to read this paper are undergraduate-level topology and measure theory.
 The necessary topological background beyond undergraduate topology is covered in section~\ref{sec:prelim}.
 
-In section \ref{sec:prelim}, we present basic topological and combinatorial preliminaries, and in section~\ref{S:CCS}, we introduce the structural/model-theoretic viewpoint (no previous exposure to model theory is needed).
+In section \ref{sec:prelim}, we present basic topological and combinatorial preliminaries. In section~\ref{S:CCS}, we introduce the structural/model-theoretic viewpoint (no previous exposure to model theory is needed).
 Section~\ref{S:Classification} is devoted to the classification of deep computations.
 
 Throughout the paper, our results pertain to classical models of computation (particularly computations involving real-valued quantities that are known and manipulated to a finite degree of precision).
@@ -188,19 +188,18 @@ In this section we present some preliminaries from general topology and function
 In the interest of completeness, we include some proofs that may be safely skipped by readers familiar with these topics.
 
 Recall that a subset of a topological space is $F_\sigma$ if it is a countable union of closed sets, and $G_\delta$ if it is a countable intersection of closed sets.
-A space is metrizable if its topology agrees with the topology induced by some metric therein.
+A space is metrizable if its topology agrees with the topology induced by some metric thereon.
 Two such metrics inducing the same topology may induce quite different properties in the category of metric spaces. 
 For example, the interval $(0,1)$ with the usual metric (as a subset) of the reals is not complete;
 however, $(0,1)$ is homeomorphic to the real line, which is complete with respect to the usual metric thereon.
 In a metrizable space, every open set is $F_\sigma$; equivalently, every closed set is $G_\delta$.
 
-A \emph{Polish space} is a separable and completely metrizable topological space, i.e., admitting some complete metric inducing its topology.
+A \emph{Polish space} is a separable and completely metrizable topological space, i.e., one admitting a complete metric inducing its topology.
 Although other (possibly incomplete) metrics may induce the same topology, being Polish is a purely topological property.
-One of the most important Polish spaces is the real line~$\mathbb{R}$; the others include the Cantor space $2^\mathbb{N}$ and the Baire space $\mathbb{N}^\mathbb{N}$.
-The class of Polish spaces is closed under countable topological products;
-in particular, the Cantor space~$2^\mathbb{N}$ (the set of all infinite binary sequences, endowed with the product topology), the Baire space $\mathbb{N}^\mathbb{N}$ (the set of all infinite sequences of naturals, also with the product topology), and the space $\mathbb{R}^\mathbb{N}$ of sequences of real numbers are all Polish.
-Recall that the product topology on these spaces is the topology of pointwise convergence: a sequence converges in the space if and only if it converges at each coordinate index.
-
+The class of Polish spaces includes the real line~$\mathbb{R}$ as an important example, and is closed under countable topological products.%
+\footnote{Recall that the product topology is the topology of pointwise convergence.
+  In a product space, a sequence (or a net, or a filter) converges if and only  each coordinate thereof converges.}
+In particular, the Cantor space~$2^\mathbb{N}$ (the set of all infinite binary sequences, endowed with the product topology), the Baire space $\mathbb{N}^\mathbb{N}$ (the set of all infinite sequences of naturals, also with the product topology), and the space $\mathbb{R}^\mathbb{N}$ of sequences of real numbers are Polish spaces, each of considerable interest.
 
 \begin{fact}
 A subset of a Polish space is itself Polish in the subspace topology if and only if it is a $G_{\delta }$ set.
@@ -212,23 +211,23 @@ For a proof, see~\cite[4.3.24]{Engelking:1989}.
 Given two topological spaces $X$ and $Y$ we denote by $C_p(X,Y)$ the set of all continuous functions $f:X\rightarrow Y$ endowed with the topology of pointwise convergence.
 The space $C_p(X, \mathbb{R})$ of continuous real-valued functions on~$X$ is denoted simply~$C_p(X)$.
 A natural question is, how do topological properties of $X$ translate into $C_p(X)$ and vice versa?
-This general question, and the study of these spaces in general, is the concern of $C_p$-theory, an active field of research in general topology which was pioneered by A.~V.~Arhangel’skiĭ and his students in the 1970's and 1980's~\cite{Arkhangelskii:1992}.
-This field has found many applications in model theory and functional analysis.
+This general question, and the study of these spaces in general, is the concern of $C_p$-theory, an active field of research in general topology pioneered by A.~V.~Arhangel’skiĭ and his students in the 1970s and 1980s~\cite{Arkhangelskii:1992}.
+$C_p$-theory has found many applications in model theory and functional analysis.
 For a recent survey, see~\cite{tkachuk2011cp}.
  
-A \emph{Baire class~1} function between topological spaces is a function that can be expressed as the pointwise limit of a sequence of continuous functions.
-In symbols, $f:X\to Y$ is \emph{Baire class~1} if there is a sequence of continuous functions $f_n:X\to Y$ such that for all $x\in X$, $f(x)=\lim_{n\to\infty}f_n(x)$.
-If $X$ and $Y$ are topological spaces, the space of Baire class~1 functions $f:X\rightarrow Y$ endowed with the topology of pointwise convergence is denoted $B_1(X,Y)$ (as above, $B_1(X, \mathbb{R})$ is denoted $B_1(X)$).
-Clearly, $C_p(X,Y)\subseteq B_1(X,Y)\subseteq Y^X$ and we give these the topology (called the \emph{topology of pointwise convergence}) inherited from the product topology of $Y^X$.
+A function $f: X\to Y$ between topological spaces is said to be of \emph{Baire class~1}, or a \emph{Baire-1} function, if there is a sequence $(f_n)_{n\in \mathbb{N}}$ of continuous functions $f_n:X\to Y$ such that $f(x)=\lim_{n\to\infty}f_n(x)$ for all $x\in X$.
+If $X$ and $Y$ are topological spaces, the space of Baire-1 functions $f:X\rightarrow Y$ endowed with the topology of pointwise convergence is denoted $B_1(X,Y)$ (we abbreviate $B_1(X, \mathbb{R})$ as $B_1(X)$);
+thus, $C_p(X,Y)\subseteq B_1(X,Y)\subseteq Y^X$ are topological inclusions.
 The Baire hierarchy of functions was introduced by René-Louis Baire in his 1899 doctoral thesis, \emph{Sur les fonctions de variables réelles}.
 His work moved away from the 19th-century preoccupation with ``pathological'' functions toward a constructive classification based on pointwise limits.
-An elementary fact about Baire class~1 functions is that they are continuous everywhere except on a set of first category (also called a \emph{meager} set, which is a countable union of sets whose closures have empty interior; intuitively, these sets are ``topologically small'').
-Thus, Baire class~1 functions are continuous on a ``topologically large'' subset of their domain.
+A elementary argument shows that Baire-1 functions are continuous everywhere except on a set of the first category (also called a \emph{meager} set, i.e., any countable union of sets whose closures have empty interior; intuitively, these sets are ``topologically small'').
+Thus, Baire-1 functions are continuous on a ``topologically large'' subset of their domain.
 
 A topological space $X$ is \emph{perfectly normal} if it is normal and every closed subset of $X$ is a $G_\delta$ set (equivalently, every open subset of $X$ is an $F_\sigma$ set).
 Every metrizable space (hence, every Polish space) is perfectly normal.
 
 A topological space $X$ is \emph{Baire} if every countable intersection of dense open sets is dense.
+In Baire spaces, a meager subset is “small” in the sense that it includes no nonempty open set.
 The Baire Category Theorem states that every compact Hausdorff or completely metrizable space (hence, every Polish space) is Baire.
 
 The following fact was established by Baire in his groundbreaking thesis.
