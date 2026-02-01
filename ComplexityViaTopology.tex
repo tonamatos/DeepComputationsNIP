@@ -594,9 +594,9 @@ Intuitively, state types capture a notion of ``limit state''.
 
 
 \begin{rem}
-This is a remark for readers versed in model theory. Computation states structures are real-valued structures (see \cite[section 6]{Duenez-Iovino:2017} for a tutorial; 
-see also~\cite{Keisler:2023}), and the class of computation state structures is closed under ultraproducts and ultrapowers. 
-Given a structure $\mathbb{L}=(L,\mathcal{P})$, every type in  $\mathcal{L}\setminus L$ is realized in an ultrapower of $\mathbb{L}$, for if $f\in\mathcal{L}\setminus L$, then, by the definition of topological closure, there exists an indexed  family $(f_i)_{i\in I}$ in $L$ and an ultrafilter $\mathcal{U}$ on $I$ such that $f=\mathcal{U}\lim_i f_i$; this means that $f$ is realized in the $\mathcal{U}$-ultrapower  $\mathbb{L}_\mathcal{U}$ of $\mathbb{L}$; 
+\label{R:types}
+This remark is for readers versed in model theory. Computation states structures are real-valued structures (see~\cite{Keisler:2023}; see also~\cite[section 6]{Duenez-Iovino:2017} for a tutorial), and the class of computation state structures is closed under ultraproducts and ultrapowers. 
+Given a structure $\mathbb{L}=(L,\mathcal{P})$, every type in  $\mathcal{L}\setminus L$ is realized in an ultrapower of $\underline{L}$, for if $f\in\mathcal{L}\setminus L$, then, by the definition of topological closure, there exists an indexed  family $(f_i)_{i\in I}$ in $L$ and an ultrafilter $\mathcal{U}$ on $I$ such that $f=\mathcal{U}\lim_i f_i$; this means that $f$ is realized in the $\mathcal{U}$-ultrapower  $\mathbb{L}_\mathcal{U}$ of $\mathbb{L}$; 
 in fact, $f$ is realized by the element of $\mathbb{L}_\mathcal{U}$ represented by $(f_i)_{i\in I}$. 
 This approach to spaces of types was introduced in Banach space theory by Krivine~\cite{Krivine:1974, Krivine-Maurey:1981,Krivine:1972}.
 \end{rem}
@@ -645,6 +645,24 @@ A collection $R$ of sizers is \emph{exhaustive} if $L = \bigcup_{\rb\in R}L[\rb]
 A transformation $\gamma\in\Gamma$ is \emph{$R$-confined} if $\gamma$ restricts to a map $\gamma|_{L[r_\bullet]}:L[r_\bullet]\to L[r_\bullet]$ (into $L[r_{\bullet}]$ itself) for every $r_\bullet\in R$.
 A subset $\Delta\subseteq\Gamma$ is \emph{$R$-confined} if each $\gamma\in \Delta$ is.
 \end{defn}
+
+\begin{rem}
+The remark is related to remark~\ref{R:types}. 
+Compositional computational structures as defined above are not real-valued structures in the sense of~\cite{Keisler:2023}.
+However, they can be easily defined as real-valued structures as follows. We define a CCS as a quintuple $(L,\mathcal{P},\Gamma,\circ,\operatorname{ev})$, where
+\begin{itemize}
+\item
+ $(L,\mathcal{P})$ is a computation states structure, 
+ \item
+ $(\Gamma,\circ)$ is a semigroup,
+\item 
+$\operatorname{ev}: \Gamma\times L\to L: (\gamma,v)\mapsto \operatorname{ev}(\gamma,v)$ is a map giving an action of $\Gamma$ on~$L$
+  (i.e., $\operatorname{ev}(\gamma\delta,v) = \operatorname{ev}(\gamma,\operatorname{ev}(\delta,v))$ for $\gamma,\delta\in\Gamma$ and $v\in L$).
+\end{itemize}
+Then, notationally, we identify each $\gamma\in \Gamma$ with the map  $(\gamma,v)\mapsto \operatorname{ev}(\gamma,v)$.
+This is the definition of CSS given in \cite{alva2024approximability}.
+
+\end{rem}
 
 \begin{prop}\label{prop:confined-compact}
   If $\Delta\subseteq\Gamma$ is confined by an exhaustive sizer collection, then $\overline{\Delta}$ is a compact subset of~$\Lshard^L$.
