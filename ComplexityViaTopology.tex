@@ -350,8 +350,8 @@ For our purposes, it is more natural to consider only finitely many inequalities
 
 If the word ``finite'' is omitted in the above definitions, we obtain the definitions of \emph{countable} NIP (weaker than finitary NIP) and \emph{countable} IP (stronger than finitary IP), respectively.
 
-If we insist on witnesses $E,F\subseteq \mathbb{N}$ such that $F = E^{\complement}$, we call the respective properties ``BFT-NIP'' (even weaker than countable NIP) and ``BFT-IP'' (even stronger than countable IP).
-Thus, Theorem~\ref{BFT} becomes that statement, for pointwise bounded function collections $A\subseteq C_p(X)$, that $A$ is relatively compact in $B_1(X)$ if and only if $A$ has BFT-NIP.
+If we insist on witnesses $E,F\subseteq \mathbb{N}$ such that $F = E^{\complement}$, we call the respective properties ``BFT-NIP'' and ``BFT-IP''.
+Thus, Theorem~\ref{BFT} becomes (for pointwise bounded function collections $A\subseteq C_p(X)$) that $A$ is relatively compact in $B_1(X)$ if and only if $A$ has BFT-NIP.
 
 Unless otherwise unspecified, IP/NIP shall mean \emph{finitary} IP/NIP henceforth.
 
@@ -362,7 +362,7 @@ Unless otherwise unspecified, IP/NIP shall mean \emph{finitary} IP/NIP hencefort
 \begin{proof}
   Trivially (as per the preceding discussion), finitary NIP implies BFT-NIP.
   Reciprocally, assume that $X$ is compact and $A\subseteq C_p(X)$ has finitary IP.
-  Fix a sequence $\{f_n\}\subseteq A$ and reals $a<b$ such that $X^{f_E}_{\le a}\cap X^{f_F}_{\ge b}\neq\empty$ for every finite disjoint $E,F\subseteq\mathbb{N}$.
+  Fix a sequence $\{f_n\}\subseteq A$ and reals $a<b$ such that $X^{f_E}_{\le a}\cap X^{f_F}_{\ge b}\neq\emptyset$ for every finite disjoint $E,F\subseteq\mathbb{N}$.
   Fix $I\subseteq\mathbb{N}$.
   Since $\{f_n\}\subseteq A\subseteq C_p(X)$ is a sequence of continuous functions, the family $\mathcal{F}_I=\{X^{f_{\{n\}}}_{\le a}:n\in I\}\cup\{X^{f_{\{m\}}}_{\ge a}:m\in I^{\complement}\}$ consists of closed (non-empty) sets.
   Since all finite $E\subseteq I$ and $F\subseteq I^{\complement}$ witness finitary IP for $\{f_n\}$ and $a, b$, then the family $\mathcal{F}_I$ has the finite intersection property.
@@ -380,7 +380,7 @@ For every pointwise bounded  $A\subseteq C_p(X)$, the following properties are a
         \item $A$ has finitary NIP.
     \end{enumerate}
   \end{thm}
-  (The equivalences \emph{(ii)}$\Leftrightarrow$\emph{(iii)}$\Leftrightarrow$\emph{(iv)} hold for arbitrary compact~$X$.)
+  (The equivalence \emph{(ii)}$\Leftrightarrow$\emph{(iv)} hold for arbitrary compact~$X$. The equivalence \emph{(ii)}$\Leftrightarrow$\emph{(iii)} hold for arbitrary~$X$.)
 \begin{proof}
   Corollary of Theorem~\ref{BFT} and Proposition~\ref{prop:BFT-finitary-cpct}.
 \end{proof}
