@@ -589,7 +589,7 @@ Important state spaces include $L=\mathbb{R}^\mathbb{N}$ and $L=\mathbb{R}^n$ fo
 \begin{defn}
 Given a computation states structure $(L,\mathcal{P})$, any element of $\mathbb{R}^\mathcal{P}$  in the image of $L$ under the map $v\mapsto \operatorname{tp}(v)$ will be called a \emph{realized (state) type}.
 The topological closure of the set of realized types in $\mathbb{R}^\mathcal{P}$ (endowed with the pointwise convergence topology) will be called the \emph{space of types} of~$(L,\mathcal{P})$, denoted~$\mathcal{L}$;
-elements $\xi\in \mathcal{L}$ are called \emph{state types}.
+elements $\mathbf{v}\in \mathcal{L}$ are called \emph{state types}.
 Elements of $\mathcal{L}\setminus L$ will be called \emph{unrealized types}.
 \end{defn}
 Intuitively, state types capture a notion of ``limit state''.
@@ -601,9 +601,9 @@ Intuitively, state types capture a notion of ``limit state''.
 Computation states structures are real-valued structures (see~\cite{Keisler:2023}; see also~\cite[section 6]{Duenez-Iovino:2017} for a tutorial);
 they form a class closed under ultraproducts and ultrapowers. 
 In particular, given a structure $\underline{L}=(L,\mathcal{P})$, every type in $\mathcal{L}\setminus L$ is realized in some ultrapower~$\underline{L}^{(\mathcal{U})}$ of~$\underline{L}$.
-Indeed, if $\xi\in\mathcal{L}$ is an arbitrary type, by the well-known of characterization of topological closure in Hausdorff spaces, there exists an indexed  family $(v_i)_{i\in I}$ in~$L$ and an ultrafilter~$\mathcal{U}$ on~$I$ such that $\xi = \mathcal{U}\lim_i v_i$;
-this means that $\xi$ is realized in the $\mathcal{U}$-ultrapower $\underline{L}^{(\mathcal{U})}$ of~$\underline{L}$ (whose universe consists of equivalence classes “modulo~$\mathcal{U}$” of tuples $(v_i)_{i\in I}\in L^{\mathcal{U}}$ which $\mathcal{U}$-converge in type in~$\mathcal{R}^{\mathcal{P}}$, i.e., modulo the relation of having equal $\mathcal{U}$-ultralimit in type);
-in fact, $\xi$ is realized by the element of~$\underline{L}^{(\mathcal{U})}$ represented by $(v_i)_{i\in I}$ modulo~$\mathcal{U}$. 
+Indeed, if $\mathbf{v}\in\mathcal{L}$ is an arbitrary type, by the well-known of characterization of topological closure in Hausdorff spaces, there exists an indexed  family $(v_i)_{i\in I}$ in~$L$ and an ultrafilter~$\mathcal{U}$ on~$I$ such that $\mathbf{v} = \mathcal{U}\lim_i v_i$;
+this means that $\mathbf{v}$ is realized in the $\mathcal{U}$-ultrapower $\underline{L}^{(\mathcal{U})}$ of~$\underline{L}$ (whose universe consists of equivalence classes “modulo~$\mathcal{U}$” of tuples $(v_i)_{i\in I}\in L^{\mathcal{U}}$ which $\mathcal{U}$-converge in type in~$\mathcal{R}^{\mathcal{P}}$, i.e., modulo the relation of having equal $\mathcal{U}$-ultralimit in type).
+In fact, $\mathbf{v}$ is realized by the element of~$\underline{L}^{(\mathcal{U})}$ represented by $(v_i)_{i\in I}$ modulo~$\mathcal{U}$. 
 This approach to spaces of types was introduced in Banach space theory by Krivine~\cite{Krivine:1974, Krivine-Maurey:1981,Krivine:1972}.
 \end{rem}
 
@@ -626,11 +626,11 @@ L[r_\bullet] = L\cap \mathbb{R}^{[\rb]}.
 For a sizer  $r_{\bullet}$, the \emph{$r_{\bullet}$-type shard} is defined as $\mathcal{L}[r_\bullet]=\overline{L[r_\bullet]}$
 (a closed, hence compact subset of $\mathbb{R}^{[\rb]}$).
 
-Let also $\mathcal{L}_{\text{sh}}$ be the union of all type-shards as the sizer $r_{\bullet}$ varies.
+Let also $\mathcal{L}_{\text{sh}}$ (the space of \emph{shard-supported types}) be the union of all type-shards as the sizer $r_{\bullet}$ varies.
 \end{defn}
 
 Evidently, $\mathcal{L}_{\text{sh}}\subseteq \mathcal{L}$, although the inclusion may be proper.
-However, the equality $\mathcal{L}_{\text{sh}} = \mathcal{L}$ holds in the important special case when $\mathcal{P}$ is countable (see~\cite{alva2024approximability}).
+However, the equality $\mathcal{L}_{\text{sh}} = \mathcal{L}$ holds in the important special case when $\mathcal{P}$ is (at most) countable (see~\cite{alva2024approximability}).
 
 
 \subsection{Compositional Computation Structures} 
@@ -645,12 +645,11 @@ A \emph{Compositional Computation Structure} (CCS) is a triple $(L,\mathcal{P},\
  $\Gamma\subseteq L^L$ is a semigroup under composition.
 \end{itemize}
 Elements of the semigroup $\Gamma$ are called the \emph{computations} of the structure $(L,\mathcal{P},\Gamma)$.
-We assume that the identity map $\text{id}$ on~$L$ is an element of~$\Gamma$ (which is thus not merely a semigroup but a monoid of transformations of~$L$).
+We take $L\subseteq \mathbf{R}^{\mathcal{P}}$ as implicitly identified with a subset of the type space~$\mathcal{L} \subseteq \mathbb{R}^{\mathcal{P}}$ of~$(L, \mathcal{P})$.
+We also assume that the identity map $\text{id}$ on~$L$ is an element of~$\Gamma$ (which is thus not merely a semigroup but a monoid of transformations of~$L$).
 
-We topologize $\Gamma$ as a subset of the topological product $L^L$, where the ``exponent''~$L$ serves merely as an index set, but the ``base''~$L$ is topologized by type;
-consequently, one may identify $\Gamma$ with a subset of the topological product $(\mathbb{R}^{\mathcal{P}})^L$.
-More specifically, $\Gamma$ is identified with a subset of~$\mathcal{L}^L$, which is a closed subspace of~$(\mathbb{R}^{\mathcal{P}})^L$.
-Therefore, we have an inclusion $\overline{\Gamma}\subseteq \mathcal{L}^{L}$.
+We topologize $\Gamma$ as a subset of the topological product $L^L$, where the ``exponent''~$L$ serves merely as an index set, but the ``base''~$L\subseteq \mathbb{R}^{\mathcal{P}}$ is topologized as a subspace (as usual).
+In this manner, the semigroup $\Gamma$ is identified with a subset of the topological product~$\mathcal{L}^L \subseteq (\mathbb{R}^{\mathcal{P}})^L$, which leads to an inclusion of the closure $\overline{\Gamma}\subseteq \mathcal{L}^{L}$.
 Elements $\xi\in\overline{\Gamma}$ are called (real-valued) \emph{deep computations} or \emph{ultracomputations}.
 
 A collection $R$ of sizers is \emph{exhaustive} if $L = \bigcup_{\rb\in R}L[\rb]$ (shards $L[\rb]$ exhaust~$L$).
