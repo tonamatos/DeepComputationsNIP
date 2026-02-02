@@ -568,24 +568,27 @@ In this section, we connect function spaces with arbitrary-precision arithmetic 
 We start by summarizing some basic concepts from~\cite{alva2024approximability}.
 
 A \emph{computation states structure} is a pair $(L,\mathcal{P})$, where $L$ is a set whose elements we call \emph{states} and $\mathcal{P}$ is a collection of real-valued functions on $L$ that we call \emph{predicates}.
-For a state $v\in L$, the \emph{type} of a state~$v$ is the indexed family
-\[
-\operatorname{tp}(v)= (P(v))_{P\in \mathcal{P}}\in\mathbb{R}^\mathcal{P}.
-\]
 For each $P\in \mathcal{P}$, we call the value $P(v)$ the $P$-th \emph{feature} of~$v$.
 A \emph{transition} of a computation states structure $(L,\mathcal{P})$ is a map $f:L\to L$.
 
+The \emph{type} of a state $v\in L$ is the indexed family
+\[
+\operatorname{tp}(v)= (P(v))_{P\in \mathcal{P}}\in\mathbb{R}^\mathcal{P}
+\]
+of its features.
 
-Intuitively, $L$ is the set of states of a computation,  and the predicates  $P \in\mathcal{P}$ are primitives that are given and accepted as computable.
-Each state $v\in L$ is uniquely characterized by its type $\operatorname{tp}(v)$, so we may identify $L$ with a subset of~$\mathbb{R}^\mathcal{P}$.
-Important state spaces are $L=\mathbb{R}^\mathbb{N}$ and $L=\mathbb{R}^n$ for some positive integer $n$, endowed with predicate $P_i(v) = v_i$, one each for the $i$-th coordinate of~$v$.
-We regard the space of types as a topological space, endowed with the topology of pointwise convergence induced by the product topology of~$\mathbb{R}^\mathcal{P}$.
-Via the identification $v\mapsto\tp(v)$, the states space~$L$ is correspondingly topologized;
-in particular, for each $P\in \mathcal{P}$, the projection map $v\mapsto P(v)$ is continuous.
+Intuitively, $L$ is the set of states of a computation,  and the predicates $P \in\mathcal{P}$ are primitives that are given and accepted as computable.
+
+We assume that each state $v\in L$ is uniquely characterized by its type $\operatorname{tp}(v)$, so we may identify $L$ with a topological subspace of~$\mathbb{R}^\mathcal{P}$ and topologized as such (i.e., $L$ is identified with its forward image~$\tp[L]\subseteq \mathbb{R}^{\mathcal{P}}$ under the type map).
+As a topological space, $L$ is thus endowed with the topology of pointwise convergence induced by the product topology of~$\mathbb{R}^\mathcal{P}$.
+In particular, for each $P\in \mathcal{P}$, the projection map $v\mapsto P(v)$ is continuous.
+
+Important state spaces include $L=\mathbb{R}^\mathbb{N}$ and $L=\mathbb{R}^n$ for some positive integer~$n$, endowed with predicate $P_i(v) = v_i$ giving the $i$-th coordinate of~$v$ for each~$i$.
+(These are state spaces endowed with either a finite or countable set of predicates.)
 
 \begin{defn}
 Given a computation states structure $(L,\mathcal{P})$, any element of $\mathbb{R}^\mathcal{P}$  in the image of $L$ under the map $v\mapsto \operatorname{tp}(v)$ will be called a \emph{realized (state) type}.
-The topological closure of the set of realized types in $\mathbb{R}^\mathcal{P}$ (endowed with the pointwise convergence topology) will be called the \emph{space of types} of  $(L,\mathcal{P})$, denoted~$\mathcal{L}$;
+The topological closure of the set of realized types in $\mathbb{R}^\mathcal{P}$ (endowed with the pointwise convergence topology) will be called the \emph{space of types} of~$(L,\mathcal{P})$, denoted~$\mathcal{L}$;
 elements $\xi\in \mathcal{L}$ are called \emph{state types}.
 Elements of $\mathcal{L}\setminus L$ will be called \emph{unrealized types}.
 \end{defn}
@@ -594,21 +597,28 @@ Intuitively, state types capture a notion of ``limit state''.
 
 \begin{rem}
 \label{R:types}
-This remark is for readers versed in model theory. Computation states structures are real-valued structures (see~\cite{Keisler:2023}; see also~\cite[section 6]{Duenez-Iovino:2017} for a tutorial), and the class of computation state structures is closed under ultraproducts and ultrapowers. 
-Given a structure $\mathbb{L}=(L,\mathcal{P})$, every type in  $\mathcal{L}\setminus L$ is realized in an ultrapower of $\underline{L}$, for if $f\in\mathcal{L}\setminus L$, then, by the definition of topological closure, there exists an indexed  family $(f_i)_{i\in I}$ in $L$ and an ultrafilter $\mathcal{U}$ on $I$ such that $f=\mathcal{U}\lim_i f_i$; this means that $f$ is realized in the $\mathcal{U}$-ultrapower  $\mathbb{L}_\mathcal{U}$ of $\mathbb{L}$; 
-in fact, $f$ is realized by the element of $\mathbb{L}_\mathcal{U}$ represented by $(f_i)_{i\in I}$. 
+(For readers versed in model theory.)
+Computation states structures are real-valued structures (see~\cite{Keisler:2023}; see also~\cite[section 6]{Duenez-Iovino:2017} for a tutorial);
+they form a class closed under ultraproducts and ultrapowers. 
+In particular, given a structure $\underline{L}=(L,\mathcal{P})$, every type in $\mathcal{L}\setminus L$ is realized in some ultrapower~$\underline{L}^{(\mathcal{U})}$ of~$\underline{L}$.
+Indeed, if $\xi\in\mathcal{L}$ is an arbitrary type, by the well-known of characterization of topological closure in Hausdorff spaces, there exists an indexed  family $(v_i)_{i\in I}$ in~$L$ and an ultrafilter~$\mathcal{U}$ on~$I$ such that $\xi = \mathcal{U}\lim_i v_i$;
+this means that $\xi$ is realized in the $\mathcal{U}$-ultrapower $\underline{L}^{(\mathcal{U})}$ of~$\underline{L}$ (whose universe consists of equivalence classes “modulo~$\mathcal{U}$” of tuples $(v_i)_{i\in I}\in L^{\mathcal{U}}$ which $\mathcal{U}$-converge in type in~$\mathcal{R}^{\mathcal{P}}$, i.e., modulo the relation of having equal $\mathcal{U}$-ultralimit in type);
+in fact, $\xi$ is realized by the element of~$\underline{L}^{(\mathcal{U})}$ represented by $(v_i)_{i\in I}$ modulo~$\mathcal{U}$. 
 This approach to spaces of types was introduced in Banach space theory by Krivine~\cite{Krivine:1974, Krivine-Maurey:1981,Krivine:1972}.
 \end{rem}
 
-
-%As we combine ideas of model theory~\cite{Keisler:2023} and topology~\cite{BFT_1978_PCompactBaire}, we are interested in families of real-valued functions that are pointwise bounded. 
-Since machines have finite memory, the set of inputs and outputs of any individual computation must be bounded; 
-however, the bounds for a particular feature of a computation may depend on the feature.
-This leads us to the concepts of \emph{sizer} and \emph{shard} first introduced in~\cite{alva2024approximability}:
+In order for computation state structures to serve their purpose as models of real-world computing, we must keep in mind that computations involving real-valued quantities can only ever carried out approximately, to a preset degree of precision (i.e., to within acceptable error bounds).
+More subtly, yet equally important in practice, one must also bound the magnitude of real quantities involved in all computations:
+one cannot possibly store—let alone compute with—arbitrarily large numbers!
+Thus, although the collection~$\mathcal{P}$ of predicates may be infinite (possibly, uncountable even), “true” computations must imply choices, at the outset, of bounds for errors and for absolute magnitudes of quantities involved.
+Heuristically, different parts of a computation may require suitably matching (different) error bounds, as well as dealing with quantities of very different sizes.
+Focusing for now on the second of these issues, our results shall generally apply to sets of computations for which arbitrary but fixed bounds for each predicate are set in advance.
+This leads to the concept of \emph{shard} first introduced in~\cite{alva2024approximability}, as per the following definition.
 
 \begin{defn}
+  Fix a computation states structure $\underline{L} = (L, \mathcal{P})$, with $L\subseteq \mathbb{R}^{\mathcal{P}}$ implicitly identified with its type space.
   A \emph{sizer} is a family $r_{\bullet}=(r_P)_{P\in\mathcal{P}}$ of positive real numbers, indexed by~$\mathcal{P}$.
-  Given a sizer $r_\bullet$, let $\mathbb{R}^{[\rb]} = \prod_{P\in\mathcal{P}}[-r_P,r_P]$ (a compact space), and let the $r_\bullet$-\emph{shard} of a states space~$L$ be
+  Given a sizer $r_\bullet$, let $\mathbb{R}^{[\rb]} = \prod_{P\in\mathcal{P}}[-r_P,r_P]$ (a compact space), and let the $r_\bullet$-\emph{shard} of the states space~$L$ be
 \[
 L[r_\bullet] = L\cap \mathbb{R}^{[\rb]}.
 \]
@@ -619,8 +629,8 @@ For a sizer  $r_{\bullet}$, the \emph{$r_{\bullet}$-type shard} is defined as $\
 Let also $\mathcal{L}_{\text{sh}}$ be the union of all type-shards as the sizer $r_{\bullet}$ varies.
 \end{defn}
 
-In general, $\mathcal{L}_{\text{sh}}\subseteq \mathcal{L}$, and the inclusion may be proper.
-However, equality holds in the important special case when $\mathcal{P}$ is countable (see~\cite{alva2024approximability}).
+Evidently, $\mathcal{L}_{\text{sh}}\subseteq \mathcal{L}$, although the inclusion may be proper.
+However, the equality $\mathcal{L}_{\text{sh}} = \mathcal{L}$ holds in the important special case when $\mathcal{P}$ is countable (see~\cite{alva2024approximability}).
 
 
 \subsection{Compositional Computation Structures} 
