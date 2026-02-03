@@ -599,25 +599,15 @@ State subspaces $L\subseteq \mathbb{R}^{\mathbb{N}}$ and $L\subseteq \mathbb{R}^
 (Any states structure having a finite or countable family of predicates is effectively such a subspace.)
 
 \begin{defn}
-Given a computation states structure $(L,\mathcal{P})$, any element of $\mathbb{R}^\mathcal{P}$  in the image of $L$ under the map $v\mapsto \operatorname{tp}(v)$ will be called a \emph{realized (state) type}.
-The topological closure of the set of realized types in $\mathbb{R}^\mathcal{P}$ (endowed with the pointwise convergence topology) will be called the \emph{space of types} of~$(L,\mathcal{P})$, denoted~$\mathcal{L}$;
+Given a computation states structure $(L,\mathcal{P})$, any type $\tp(v)\in \mathbb{R}^{\mathcal{P}}$ of a state $v\in L$ will be called a \emph{realized} (state) type.
+The topological closure of the set of realized types in~$\mathbb{R}^\mathcal{P}$ (endowed with the pointwise convergence topology) will be called the \emph{space of (state) types} of~$(L,\mathcal{P})$, denoted~$\mathcal{L}$;
 elements $\mathbf{v}\in \mathcal{L}$ are called \emph{state types}.
-Elements of $\mathcal{L}\setminus L$ will be called \emph{unrealized types}.
+Elements $\mathbf{v}\in\mathcal{L}\setminus L$ are \emph{unrealized} state types.
 \end{defn}
+
 Intuitively, state types capture a notion of ``limit state''.
-
-
-\begin{rem}
-\label{R:types}
-(For readers versed in model theory.)
-Computation states structures are real-valued structures (see~\cite{Keisler:2023}; see also~\cite[section 6]{Duenez-Iovino:2017} for a tutorial);
-they form a class closed under ultraproducts and ultrapowers. 
-In particular, given a structure $\underline{L}=(L,\mathcal{P})$, every type in $\mathcal{L}\setminus L$ is realized in some ultrapower~$\underline{L}^{(\mathcal{U})}$ of~$\underline{L}$.
-Indeed, if $\mathbf{v}\in\mathcal{L}$ is an arbitrary type, by the well-known of characterization of topological closure in Hausdorff spaces, there exists an indexed  family $(v_i)_{i\in I}$ in~$L$ and an ultrafilter~$\mathcal{U}$ on~$I$ such that $\mathbf{v} = \mathcal{U}\lim_i v_i$;
-this means that $\mathbf{v}$ is realized in the $\mathcal{U}$-ultrapower $\underline{L}^{(\mathcal{U})}$ of~$\underline{L}$ (whose universe consists of equivalence classes “modulo~$\mathcal{U}$” of tuples $(v_i)_{i\in I}\in L^{\mathcal{U}}$ which $\mathcal{U}$-converge in type in~$\mathcal{R}^{\mathcal{P}}$, i.e., modulo the relation of having equal $\mathcal{U}$-ultralimit in type).
-In fact, $\mathbf{v}$ is realized by the element of~$\underline{L}^{(\mathcal{U})}$ represented by $(v_i)_{i\in I}$ modulo~$\mathcal{U}$. 
-This approach to spaces of types was introduced in Banach space theory by Krivine~\cite{Krivine:1974, Krivine-Maurey:1981,Krivine:1972}.
-\end{rem}
+Just as $L$ is identified with a subset of~$\mathcal{L}$, but going in the opposite direction, one may regard unrealized state types as “hyper-states” (when such type is obtained as a sequential limit—or ultralimit—of realized state types, unrealized state types may be called “deep states”).
+For readers versed in model theory, at least for the purpose of realizing state types with parameters in~$L$, the type space $\mathcal{L}$ serves as a “poor man’s” ultraproduct $(\mathcal{L}, \mathcal{P})$ of~$(L, \mathcal{P})$, where the semantic interpretation of any predicate $P$ on $\mathcal{L}\subseteq\mathbb{R}^{\mathcal{P}}$ is as the $P$-th coordinate (projection), which is evidently a continuous extension of the predicate $P(\cdot)$ on~$L\subseteq \mathcal{L}$.
 
 \subsubsection{Bounds on precision and magnitude. Shards}
 \label{sec:shards}
@@ -673,7 +663,7 @@ A subset $\Delta\subseteq\Gamma$ is \emph{$R$-confined} if each $\gamma\in \Delt
 \end{defn}
 
 Unlike its subspace $L^L$ (a topological semigroup), the space $\mathcal{L}^L$ does not have a natural semigroup structure, so ultracomputations are not generally composable.
-Intuitively, such ultracomputations are “final” or “ultimate”.
+Intuitively, ultracomputations are “final” or “ultimat””.
 
 \begin{prop}\label{prop:confined-compact}
   If $\Delta\subseteq\Gamma$ is confined by an exhaustive sizer collection, then $\overline{\Delta}$ is a compact subset of~$\Lshard^L$.
@@ -689,10 +679,11 @@ For a CCS $(L,\mathcal{P},\Gamma)$, we regard the elements of $\Gamma$ as ``stan
 The main goal of this paper is to study the computability, definability and computational complexity of deep computations.
 Since deep computations are defined through a combination of topological concepts (namely, topological closure) and structural and model-theoretic concepts (namely, models and types), we will import technology from both topology and model theory.
 
-\begin{rem}
-(Related to Remark~\ref{R:types}.)
-Compositional computational structures as defined above are not real-valued structures in a literal sense (e.g., as in~\cite{Keisler:2023}).
-However, in a semantically transparent manner, any CSS as above may alternatively be seen (as per its original definition in~\cite{alva2024approximability}) as a real-valued structure $(L,\mathcal{P},\Gamma,\circ,\operatorname{ev})$, where
+\begin{rems}(For readers versed in model theory.)%
+  \footnote{Refer to~\cite{Keisler:2023} where a general framework for real-valued structures is introduced; see also~\cite[section 6]{Duenez-Iovino:2017} for a basic tutorial.}
+  \begin{enumerate}
+  \item Compositional computational structures as defined above are not real-valued structures in a literal sense, because there is no intrinsic structural manner to ensure that $\Gamma$ is realized as a subset of the specific product space $L^L$.
+However, in a semantically transparent manner, any CSS as above may alternatively be seen (per its original definition in~\cite{alva2024approximability}) as a real-valued structure $(L,\mathcal{P},\Gamma,\circ,\operatorname{ev})$, where
 \begin{itemize}
 \item
  $(L,\mathcal{P})$ is a computation states structure, 
@@ -703,7 +694,15 @@ $\operatorname{ev}: \Gamma\times L\to L: (\gamma,v)\mapsto \operatorname{ev}(\ga
   (i.e., $\operatorname{ev}(\gamma\circ\delta,v) = \operatorname{ev}(\gamma,\operatorname{ev}(\delta,v))$ for $\gamma,\delta\in\Gamma$ and $v\in L$).
 \end{itemize}
 Both definitions are reconciled upon identifying $\gamma\in \Gamma$ with the map $(\gamma,v)\mapsto \operatorname{ev}(\gamma,v)$.
-\end{rem}
+
+\item In the preceding sense of real-valued structures, the class of compositional computation structures (for a fixed predicate symbol collection~$\mathcal{P}$) is first-order elementary.
+  The limited notion of state type we have introduced (essentially, quantifier-free state types with parameters of sort $L$ only) may be enriched to state types involving more formulas (e.g., with parameters in~$\Gamma$, or including quantified formulas), and extended to “transform-types” (i.e., types of sort~$\Gamma$).
+  In particular, given a structure $\underline{C}=(L,\mathcal{P}, \Gamma, \circ, \operatorname{ev})$, all types are realized in some ultrapower~$\underline{C}^{(\mathcal{U})}$ of~$\underline{C}$.
+    % Indeed, if $\mathbf{v}\in\mathcal{L}$ is an arbitrary type, by the well-known of characterization of topological closure in Hausdorff spaces, there exists an indexed family $(v_i)_{i\in I}$ in~$L$ and an ultrafilter~$\mathcal{U}$ on~$I$ such that $\mathbf{v} = \mathcal{U}\lim_i v_i$; this means that $\mathbf{v}$ is realized in the $\mathcal{U}$-ultrapower $\underline{L}^{(\mathcal{U})}$ of~$\underline{L}$ (whose universe consists of equivalence classes “modulo~$\mathcal{U}$” of tuples $(v_i)_{i\in I}\in L^{\mathcal{U}}$ which $\mathcal{U}$-converge in type in~$\mathcal{R}^{\mathcal{P}}$, i.e., modulo the relation of having equal $\mathcal{U}$-ultralimit in type).
+    % In fact, $\mathbf{v}$ is realized by the element of~$\underline{L}^{(\mathcal{U})}$ represented by $(v_i)_{i\in I}$ modulo~$\mathcal{U}$.
+    This approach to spaces of types was introduced in Banach space theory by Krivine~\cite{Krivine:1974, Krivine-Maurey:1981,Krivine:1972}.
+\end{enumerate}
+\end{rems}
 
 
 \subsection{Computability and definability of deep computations and the Extendibility Axiom}
