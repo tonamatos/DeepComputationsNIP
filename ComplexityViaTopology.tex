@@ -567,14 +567,13 @@ A structural approach to arbitrary-precision arithmetic}
 In this section, we connect function spaces with arbitrary-precision arithmetic computations.
 We start by summarizing some basic concepts from~\cite{alva2024approximability}.
 
+\subsection{Computation States Structures}
+\label{sec:CSS}
+
 A \emph{computation states structure} is a pair $(L,\mathcal{P})$, where $L$ is a set whose elements we call \emph{states} and $\mathcal{P}$ is a collection of real-valued functions on $L$ that we call \emph{predicates}, also called \emph{features}.
 For each $P\in \mathcal{P}$, we call the value $P(v)$ the $P$-th \emph{(observable) feature} of~$v$.
 
 A \emph{transition} of a computation states structure $(L,\mathcal{P})$ is a map $f:L\to L$.
-
-\subsection{States: types and topology}
-\label{sec:states-types-topology}
-
 
 The \emph{type} of a state $v\in L$ is the indexed family%
 \footnote{As in~§\ref{prop:Baire-identifications} above, we regard each predicate on $L$ as named by a specific formal label~$P$ (a \emph{predicate symbol}) which is given the semantic meaning of a \emph{bona fide} real function $P(\cdot): v\mapsto P(v)$ (the predicate proper) in the computation states structure.
