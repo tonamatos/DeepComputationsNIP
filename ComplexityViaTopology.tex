@@ -606,8 +606,10 @@ Elements $\mathbf{v}\in\mathcal{L}\setminus L$ are \emph{unrealized} state types
 \end{defn}
 
 Intuitively, state types capture a notion of ``limit state''.
-Just as $L$ is identified with a subset of~$\mathcal{L}$, but going in the opposite direction, one may regard unrealized state types as “hyper-states” (when such type is obtained as a sequential limit—or ultralimit—of realized state types, unrealized state types may be called “deep states”).
-For readers versed in model theory, at least for the purpose of realizing state types with parameters in~$L$, the type space $\mathcal{L}$ serves as a “poor man’s” ultraproduct $(\mathcal{L}, \mathcal{P})$ of~$(L, \mathcal{P})$, where the semantic interpretation of any predicate $P$ on $\mathcal{L}\subseteq\mathbb{R}^{\mathcal{P}}$ is as the $P$-th coordinate (projection), which is evidently a continuous extension of the predicate $P(\cdot)$ on~$L\subseteq \mathcal{L}$.
+
+\begin{rem}\label{rem:poor-mans-ultraprod}
+  Just as $L$ is identified with a subset of~$\mathcal{L}$, but going in the opposite direction, one may regard unrealized state types as “hyper-states” (when such type is obtained as a sequential limit—or ultralimit—of realized state types, unrealized state types may be called “deep states”).  For readers versed in model theory, at least for the purpose of realizing state types with parameters in~$L$, the type space $\mathcal{L}$ serves as a “poor man’s” ultraproduct $(\mathcal{L}, \mathcal{P})$ of~$(L, \mathcal{P})$, where the semantic interpretation of any predicate $P$ on $\mathcal{L}\subseteq\mathbb{R}^{\mathcal{P}}$ is as the $P$-th coordinate (projection), which is evidently a continuous extension of the predicate $P(\cdot)$ on~$L\subseteq \mathcal{L}$.
+\end{rem}
 
 \subsubsection{Bounds on precision and magnitude. Shards}
 \label{sec:shards}
@@ -697,10 +699,12 @@ Both definitions are reconciled upon identifying $\gamma\in \Gamma$ with the map
 
 \item In the preceding sense of real-valued structures, the class of compositional computation structures (for a fixed predicate symbol collection~$\mathcal{P}$) is first-order elementary.
   The limited notion of state type we have introduced (essentially, quantifier-free state types with parameters of sort $L$ only) may be enriched to state types involving more formulas (e.g., with parameters in~$\Gamma$, or including quantified formulas), and extended to “transform-types” (i.e., types of sort~$\Gamma$).
-  In particular, given a structure $\underline{C}=(L,\mathcal{P}, \Gamma, \circ, \operatorname{ev})$, all types are realized in some ultrapower~$\underline{C}^{(\mathcal{U})}$ of~$\underline{C}$.
+  In particular, given a structure $\underline{C}=(L,\mathcal{P}, \Gamma, \circ, \operatorname{ev})$, all types are realized in some ultrapower~$\underline{C}^{(\mathcal{U})}$ of~$\underline{C}$ (constructed in the usual manner detailed in the references above).
     % Indeed, if $\mathbf{v}\in\mathcal{L}$ is an arbitrary type, by the well-known of characterization of topological closure in Hausdorff spaces, there exists an indexed family $(v_i)_{i\in I}$ in~$L$ and an ultrafilter~$\mathcal{U}$ on~$I$ such that $\mathbf{v} = \mathcal{U}\lim_i v_i$; this means that $\mathbf{v}$ is realized in the $\mathcal{U}$-ultrapower $\underline{L}^{(\mathcal{U})}$ of~$\underline{L}$ (whose universe consists of equivalence classes “modulo~$\mathcal{U}$” of tuples $(v_i)_{i\in I}\in L^{\mathcal{U}}$ which $\mathcal{U}$-converge in type in~$\mathcal{R}^{\mathcal{P}}$, i.e., modulo the relation of having equal $\mathcal{U}$-ultralimit in type).
     % In fact, $\mathbf{v}$ is realized by the element of~$\underline{L}^{(\mathcal{U})}$ represented by $(v_i)_{i\in I}$ modulo~$\mathcal{U}$.
-    This approach to spaces of types was introduced in Banach space theory by Krivine~\cite{Krivine:1974, Krivine-Maurey:1981,Krivine:1972}.
+  This approach to spaces of types was introduced in Banach space theory by Krivine~\cite{Krivine:1974, Krivine-Maurey:1981,Krivine:1972}.
+
+  (By Remark~\ref{rem:poor-mans-ultraprod}, the ultrapower construction is not necessary to realize state types, as we have defined them, in a computation states structures.)
 \end{enumerate}
 \end{rems}
 
