@@ -567,24 +567,36 @@ A structural approach to arbitrary-precision arithmetic}
 In this section, we connect function spaces with arbitrary-precision arithmetic computations.
 We start by summarizing some basic concepts from~\cite{alva2024approximability}.
 
-A \emph{computation states structure} is a pair $(L,\mathcal{P})$, where $L$ is a set whose elements we call \emph{states} and $\mathcal{P}$ is a collection of real-valued functions on $L$ that we call \emph{predicates}.
-For each $P\in \mathcal{P}$, we call the value $P(v)$ the $P$-th \emph{feature} of~$v$.
+\subsection{Computation States Structures}
+\label{sec:CSS}
+
+A \emph{computation states structure} is a pair $(L,\mathcal{P})$, where $L$ is a set whose elements we call \emph{states} and $\mathcal{P}$ is a collection of real-valued functions on $L$ that we call \emph{predicates}, also called \emph{features}.
+For each $P\in \mathcal{P}$, we call the value $P(v)$ the $P$-th \emph{(observable) feature} of~$v$.
+
 A \emph{transition} of a computation states structure $(L,\mathcal{P})$ is a map $f:L\to L$.
 
-The \emph{type} of a state $v\in L$ is the indexed family
+The \emph{type} of a state $v\in L$ is the indexed family%
+\footnote{As in~§\ref{prop:Baire-identifications} above, we regard each predicate on $L$ as named by a specific formal label~$P$ (a \emph{predicate symbol}) which is given the semantic meaning of a \emph{bona fide} real function $P(\cdot): v\mapsto P(v)$ (the predicate proper) in the computation states structure.
+Such formal symbol~$P$ becomes \emph{de facto} the name of an observable feature having the real value $P(v)$ at any state $v\in L$.
+Whenever $\mathcal{P}$ is used as an index set (e.g., as in the topological product $\mathbb{R}^{\mathcal{P}}$ below), it is regarded as a set of formal symbols.
+This syntactic vs.\ semantic abuse of nomenclature is commonplace in mathematics, but the model-theoretic framework requires contextual awareness of the distinction.
+To disambiguate when necessary, we shall write $P(\cdot)$, implying the semantic meaning of a real function on~$L$, in contrast to~$P$, meant as a purely syntactic symbol.
+Nevertheless, by a standard abuse of nomenclature in appropriate contexts, we may also treat $P$ as a function on states (i.e., take $P$ to mean $P(\cdot)$ proper).}
 \[
 \operatorname{tp}(v)= (P(v))_{P\in \mathcal{P}}\in\mathbb{R}^\mathcal{P}
 \]
 of its features.
 
-Intuitively, $L$ is the set of states of a computation,  and the predicates $P \in\mathcal{P}$ are primitives that are given and accepted as computable.
+Intuitively, $L$ is the set of states of a computation, and the predicates $P \in\mathcal{P}$ are primitives that are given and accepted as computable.
+(I.e., each symbol $P\in \mathcal{P}$ denotes a function $P(\cdot)$ taken as a computational primitive on~$L$.)
 
 We assume that each state $v\in L$ is uniquely characterized by its type $\operatorname{tp}(v)$, so we may identify $L$ with a topological subspace of~$\mathbb{R}^\mathcal{P}$ and topologized as such (i.e., $L$ is identified with its forward image~$\tp[L]\subseteq \mathbb{R}^{\mathcal{P}}$ under the type map).
 As a topological space, $L$ is thus endowed with the topology of pointwise convergence induced by the product topology of~$\mathbb{R}^\mathcal{P}$.
 In particular, for each $P\in \mathcal{P}$, the projection map $v\mapsto P(v)$ is continuous.
 
-Important state spaces include $L=\mathbb{R}^\mathbb{N}$ and $L=\mathbb{R}^n$ for some positive integer~$n$, endowed with predicate $P_i(v) = v_i$ giving the $i$-th coordinate of~$v$ for each~$i$.
-(These are state spaces endowed with either a finite or countable set of predicates.)
+Important state spaces include $L=\mathbb{R}^\mathbb{N}$ (resp., $L=\mathbb{R}^n$ for some positive integer~$n$), endowed with one predicate $P_i(v) = v_i$ (giving the $i$-th coordinate of~$v$) for each~$i\in \mathbb{N}$ (resp., for each $0\le i<n$).
+State subspaces $L\subseteq \mathbb{R}^{\mathbb{N}}$ and $L\subseteq \mathbb{R}^n$ are of primary interest in this paper.
+(Any states structure having a finite or countable family of predicates is effectively such a subspace.)
 
 \begin{defn}
 Given a computation states structure $(L,\mathcal{P})$, any element of $\mathbb{R}^\mathcal{P}$  in the image of $L$ under the map $v\mapsto \operatorname{tp}(v)$ will be called a \emph{realized (state) type}.
@@ -606,6 +618,9 @@ this means that $\mathbf{v}$ is realized in the $\mathcal{U}$-ultrapower $\under
 In fact, $\mathbf{v}$ is realized by the element of~$\underline{L}^{(\mathcal{U})}$ represented by $(v_i)_{i\in I}$ modulo~$\mathcal{U}$. 
 This approach to spaces of types was introduced in Banach space theory by Krivine~\cite{Krivine:1974, Krivine-Maurey:1981,Krivine:1972}.
 \end{rem}
+
+\subsubsection{Bounds on precision and magnitude. Shards}
+\label{sec:shards}
 
 In order for computation state structures to serve their purpose as models of real-world computing, we must keep in mind that computations involving real-valued quantities can only ever carried out approximately, to a preset degree of precision (i.e., to within acceptable error bounds).
 More subtly, yet equally important in practice, one must also bound the magnitude of real quantities involved in all computations:
@@ -645,11 +660,11 @@ A \emph{Compositional Computation Structure} (CCS) is a triple $(L,\mathcal{P},\
  $\Gamma\subseteq L^L$ is a semigroup under composition.
 \end{itemize}
 Elements of the semigroup $\Gamma$ are called the \emph{computations} of the structure $(L,\mathcal{P},\Gamma)$.
-We take $L\subseteq \mathbf{R}^{\mathcal{P}}$ as implicitly identified with a subset of the type space~$\mathcal{L} \subseteq \mathbb{R}^{\mathcal{P}}$ of~$(L, \mathcal{P})$.
+We take $L\subseteq \mathbb{R}^{\mathcal{P}}$ as implicitly identified with a subset of the type space~$\mathcal{L} \subseteq \mathbb{R}^{\mathcal{P}}$ of~$(L, \mathcal{P})$.
 We also assume that the identity map $\text{id}$ on~$L$ is an element of~$\Gamma$ (which is thus not merely a semigroup but a monoid of transformations of~$L$).
 
-We topologize $\Gamma$ as a subset of the topological product $L^L$, where the ``exponent''~$L$ serves merely as an index set, but the ``base''~$L\subseteq \mathbb{R}^{\mathcal{P}}$ is topologized as a subspace (as usual).
-In this manner, the semigroup $\Gamma$ is identified with a subset of the topological product~$\mathcal{L}^L \subseteq (\mathbb{R}^{\mathcal{P}})^L$, which leads to an inclusion of the closure $\overline{\Gamma}\subseteq \mathcal{L}^{L}$.
+We topologize $\Gamma$ as a subset of the topological product $L^L$, where (as usual) the ``exponent''~$L$ serves merely as an index set, but the ``base''~$L\subseteq \mathbb{R}^{\mathcal{P}}$ is topologized as a subspace.
+In this manner, the semigroup $\Gamma$ is identified with a subset of the topological product~$\mathcal{L}^L \subseteq (\mathbb{R}^{\mathcal{P}})^L$, which leads to an inclusion $\overline{\Gamma}\subseteq \mathcal{L}^L$.
 Elements $\xi\in\overline{\Gamma}$ are called (real-valued) \emph{deep computations} or \emph{ultracomputations}.
 
 A collection $R$ of sizers is \emph{exhaustive} if $L = \bigcup_{\rb\in R}L[\rb]$ (shards $L[\rb]$ exhaust~$L$).
@@ -657,7 +672,8 @@ A transformation $\gamma\in\Gamma$ is \emph{$R$-confined} if $\gamma$ restricts 
 A subset $\Delta\subseteq\Gamma$ is \emph{$R$-confined} if each $\gamma\in \Delta$ is.
 \end{defn}
 
-
+Unlike its subspace $L^L$ (a topological semigroup), the space $\mathcal{L}^L$ does not have a natural semigroup structure, so ultracomputations are not generally composable.
+Intuitively, such ultracomputations are “final” or “ultimate”.
 
 \begin{prop}\label{prop:confined-compact}
   If $\Delta\subseteq\Gamma$ is confined by an exhaustive sizer collection, then $\overline{\Delta}$ is a compact subset of~$\Lshard^L$.
@@ -674,21 +690,19 @@ The main goal of this paper is to study the computability, definability and comp
 Since deep computations are defined through a combination of topological concepts (namely, topological closure) and structural and model-theoretic concepts (namely, models and types), we will import technology from both topology and model theory.
 
 \begin{rem}
-The remark is related to remark~\ref{R:types}. 
-Compositional computational structures as defined above are not real-valued structures in the sense of~\cite{Keisler:2023}.
-However, they can be easily defined alternatively as real-valued structures as follows. We define a CCS as a quintuple $(L,\mathcal{P},\Gamma,\circ,\operatorname{ev})$, where
+(Related to Remark~\ref{R:types}.)
+Compositional computational structures as defined above are not real-valued structures in a literal sense (e.g., as in~\cite{Keisler:2023}).
+However, in a semantically transparent manner, any CSS as above may alternatively be seen (as per its original definition in~\cite{alva2024approximability}) as a real-valued structure $(L,\mathcal{P},\Gamma,\circ,\operatorname{ev})$, where
 \begin{itemize}
 \item
  $(L,\mathcal{P})$ is a computation states structure, 
  \item
  $(\Gamma,\circ)$ is a semigroup,
 \item 
-$\operatorname{ev}: \Gamma\times L\to L: (\gamma,v)\mapsto \operatorname{ev}(\gamma,v)$ is a map giving an action of $\Gamma$ on~$L$
-  (i.e., $\operatorname{ev}(\gamma\delta,v) = \operatorname{ev}(\gamma,\operatorname{ev}(\delta,v))$ for $\gamma,\delta\in\Gamma$ and $v\in L$).
+$\operatorname{ev}: \Gamma\times L\to L: (\gamma,v)\mapsto \operatorname{ev}(\gamma,v)$ is a semigroup action of $\Gamma$ on~$L$
+  (i.e., $\operatorname{ev}(\gamma\circ\delta,v) = \operatorname{ev}(\gamma,\operatorname{ev}(\delta,v))$ for $\gamma,\delta\in\Gamma$ and $v\in L$).
 \end{itemize}
-Then, notationally, we identify each $\gamma\in \Gamma$ with the map  $(\gamma,v)\mapsto \operatorname{ev}(\gamma,v)$.
-This is in fact the original definition of CSS given in \cite{alva2024approximability}.
-
+Both definitions are reconciled upon identifying $\gamma\in \Gamma$ with the map $(\gamma,v)\mapsto \operatorname{ev}(\gamma,v)$.
 \end{rem}
 
 
