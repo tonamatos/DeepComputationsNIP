@@ -95,9 +95,9 @@ $^{2}$Department of Mathematics, University of Toronto\\
 }
 
 \begin{abstract}
-We use topological methods to study the complexity of deep computations and limit computations.
-We identify new complexity classes by using topology of function spaces, specifically, the classification of Rosenthal compacta.
-The language of model theory, specifically, the concept of \emph{independence} from Shelah's classification theory, gives us a medium to translate between topology and computation.
+We use topological methods and a suitable framework to study the complexity of limit computations (such as so-called “deep computations” implied by recurrent neural networks).
+By using topology of function spaces —specifically, the classification of Rosenthal compacta— we identify new computational complexity classes.
+The language of model theory, particularly, the concept of \emph{independence} from Shelah's classification theory, provides a medium to translate between topology and computation.
 The theory of Rosenthal compacta allows us to characterize approximability of deep computations, both deterministically and probabilistically.
 \end{abstract}
 
@@ -180,19 +180,20 @@ The final section, Section~\ref{Measure-theoretic NIP}, introduces a probabilist
 \tableofcontents
 
 
-\section{General topological preliminaries:\\
+\section{Topological preliminaries:\\
  From continuity to Baire class~1}
 \label{sec:prelim}
 
-In this section we present some preliminaries from general topology and function space theory.
-In the interest of completeness, we include some proofs that may be safely skipped by readers familiar with these topics.
+In this section we recall notions and results from general topology and function space theory.
+For simplicity, we assume that \emph{all spaces are Hausdorff} unless explicitly stated otherwise.
+% In the interest of completeness, we include some proofs that may be safely skipped by readers familiar with these topics.
 
-Recall that a subset of a topological space is $F_\sigma$ if it is a countable union of closed sets, and $G_\delta$ if it is a countable intersection of closed sets.
-A space is metrizable if its topology agrees with the topology induced by some metric thereon.
-Two such metrics inducing the same topology may induce quite different properties in the category of metric spaces. 
-For example, the interval $(0,1)$ with the usual metric (as a subset) of the reals is not complete;
-however, $(0,1)$ is homeomorphic to the real line, which is complete with respect to the usual metric thereon.
-In a metrizable space, every open set is $F_\sigma$; equivalently, every closed set is $G_\delta$.
+A subset of a topological space is $F_\sigma$ if it is a countable union of closed sets, and $G_\delta$ if it is a countable intersection of closed sets.
+% A space is metrizable if its topology agrees with the topology induced by some metric thereon.
+% Two such metrics inducing the same topology may induce quite different properties in the category of metric spaces. 
+% For example, the interval $(0,1)$ with the usual metric (as a subset) of the reals is not complete;
+% however, $(0,1)$ is homeomorphic to the real line, which is complete with respect to the usual metric thereon.
+In a metric space, every open set is~$F_\sigma$; equivalently, every closed set is~$G_\delta$.
 
 A \emph{Polish space} is a separable and completely metrizable topological space, i.e., one admitting a complete metric inducing its topology.
 Although other (possibly incomplete) metrics may induce the same topology, being Polish is a purely topological property.
@@ -201,35 +202,35 @@ The class of Polish spaces includes the real line~$\mathbb{R}$ as an important e
   In a product space, a sequence (or a net, or a filter) converges if and only  each coordinate thereof converges.}
 In particular, the Cantor space~$2^\mathbb{N}$ (the set of all infinite binary sequences, endowed with the product topology), the Baire space $\mathbb{N}^\mathbb{N}$ (the set of all infinite sequences of naturals, also with the product topology), and the space $\mathbb{R}^\mathbb{N}$ of sequences of real numbers are Polish spaces, each of considerable interest.
 
-\begin{fact}
+\begin{fact}\cite[4.3.24]{Engelking:1989}
 A subset of a Polish space is itself Polish in the subspace topology if and only if it is a $G_{\delta }$ set.
 In particular, closed subsets and open subsets of Polish spaces are also Polish spaces.
 \end{fact}
 
-For a proof, see~\cite[4.3.24]{Engelking:1989}.
+A subset $A$ of a topological space is said to be of the \emph{first category} if $A$ is included in a countable union of closed nowhere dense sets;
+otherwise, $A$ is of the \emph{second category}.
+A first-class subset $A\subseteq X$ is also called a \emph{mager} set;
+its complement $X\setminus A$ is \emph{comeager}.
+A topological space $X$ is \emph{Baire} if every comeager subset thereof is dense.
+In Baire spaces, a meager subset is “everywhere small” in the sense that it includes no nonempty open set.
+The Baire Category Theorem states that every compact Hausdorff or completely metrizable space (hence, every Polish space) is Baire.%
+\footnote{More generally, any Čech-complete space is Baire~\cite[Theorem 3.9.3]{Engelking:1989}.
+(All compact Hausdorff and all complete metric spaces are Čech-complete.)}
 
-Given two topological spaces $X$ and $Y$ we denote by $C_p(X,Y)$ the set of all continuous functions $f:X\rightarrow Y$ endowed with the topology of pointwise convergence.
+Given two topological spaces $X$ and $Y$ we denote by $C_p(X,Y)$ the set of all continuous functions $f:X\rightarrow Y$ endowed with the topology of pointwise convergence, i.e., with the relative (subspace) product topology~$C_p(X,Y)\subseteq Y^X$—where $Y$ carries its topology, but $X$ serves merely as a (discrete) index set stripped of any topology.
 The space $C_p(X, \mathbb{R})$ of continuous real-valued functions on~$X$ is denoted simply~$C_p(X)$.
 A natural question is, how do topological properties of $X$ translate into $C_p(X)$ and vice versa?
-This general question, and the study of these spaces in general, is the concern of $C_p$-theory, an active field of research in general topology pioneered by A.~V.~Arhangel’skiĭ and his students in the 1970s and 1980s~\cite{Arkhangelskii:1992}.
-$C_p$-theory has found many applications in model theory and functional analysis.
-For a recent survey, see~\cite{tkachuk2011cp}.
- 
-A function $f: X\to Y$ between topological spaces is said to be of \emph{Baire class~1}, or a \emph{Baire-1} function, if there is a sequence $(f_n)_{n\in \mathbb{N}}$ of continuous functions $f_n:X\to Y$ such that $f(x)=\lim_{n\to\infty}f_n(x)$ for all $x\in X$.
-If $X$ and $Y$ are topological spaces, the space of Baire-1 functions $f:X\rightarrow Y$ endowed with the topology of pointwise convergence is denoted $B_1(X,Y)$ (we abbreviate $B_1(X, \mathbb{R})$ as $B_1(X)$);
+This general question, and the study of these spaces in general, is the concern of $C_p$-theory.
+
+A function $f\in Y^X$ between topological spaces $X$, $Y$ is said to be of \emph{Baire class~1}, or a \emph{Baire-1} function, if there is a sequence $(f_n)_{n\in \mathbb{N}}\subseteq C_p(X, Y)$ such that $f = \lim_{n\to\infty}f_n$ (i.e., $f(x)=\lim_{n\to\infty}f_n(x)$ for all $x\in X$).
+An elementary argument shows that Baire-1 functions are continuous everywhere except on a set of the first category.
+If $X$ and $Y$ are topological spaces, the space of Baire-1 functions $f:X\rightarrow Y$ endowed with the topology of pointwise convergence is denoted $B_1(X,Y)$;
 thus, $C_p(X,Y)\subseteq B_1(X,Y)\subseteq Y^X$ are topological inclusions.
-The Baire hierarchy of functions was introduced by René-Louis Baire in his 1899 doctoral thesis, \emph{Sur les fonctions de variables réelles}.
-His work moved away from the 19th-century preoccupation with ``pathological'' functions toward a constructive classification based on pointwise limits.
-A elementary argument shows that Baire-1 functions are continuous everywhere except on a set of the first category (also called a \emph{meager} set, i.e., any countable union of sets whose closures have empty interior;
-intuitively, these sets are ``topologically small'', at least in Baire spaces—see below).
-Thus, Baire-1 functions are continuous on a ``topologically large'' subset of their domain.
+We abbreviate $B_1(X, \mathbb{R})$ as $B_1(X)$.
+Relatively compact subsets of $C_p(X)$ and of $B_1(X)$ (particularly for $X$ Polish) are of interest in analysis and topological dynamics.
 
 A topological space $X$ is \emph{perfectly normal} if it is normal and every closed subset of $X$ is a $G_\delta$ set (equivalently, every open subset of $X$ is an $F_\sigma$ set).
 Every metrizable space (hence, every Polish space) is perfectly normal.
-
-A topological space $X$ is \emph{Baire} if every countable intersection of dense open sets is dense.
-In Baire spaces, a meager subset is “small” in the sense that it includes no nonempty open set.
-The Baire Category Theorem states that every compact Hausdorff or completely metrizable space (hence, every Polish space) is Baire.
 
 The following fact was established by Baire in his groundbreaking thesis.
 A proof can be found in~\cite[Section 10]{Todorcevic_1997_TopicsTop}.
@@ -254,21 +255,18 @@ A proof can be found in~\cite[Section 10]{Todorcevic_1997_TopicsTop}.
     \]
 \end{fact}
 
-A subset $L$ of a topological space $X$ is \emph{relatively compact} in $X$ if the closure of $L$ in $X$ is compact.
-Relatively compact subsets of $B_1(X)$ (for $X$ Polish) are of interest in analysis and topological dynamics.
-Recall that a set $A\subseteq\mathbb{R}^X$ of real-valued functions is \emph{pointwise bounded} if for every $x\in X$ there is $M_x \ge 0$ (a \emph{pointwise bound at~$x$}) such that $|f(x)| \le M_x$ for all $f\in A$.
-
 The Lemma below is well known, but we include a proof for the reader's convenience.
 \begin{lem}
-    Let $X$ be a Polish space and $A\subseteq B_1(X)$ be pointwise bounded.
+  Let $X$ be a Polish space and $A\subseteq B_1(X)$ be pointwise bounded.%
+  \footnote{A set $A\subseteq\mathbb{R}^X$ of real-valued functions is \emph{pointwise bounded} if for every $x\in X$ there exists $M_x \ge 0$ (a \emph{pointwise bound at~$x$}) such that $|f(x)| \le M_x$ for all $f\in A$.}
 The following are equivalent:
     \begin{enumerate}[(i)]
         \item
-        $A$ is relatively compact in $B_1(X)$.
+          $A$ is relatively compact in $B_1(X)$, i.e., the closure of $A$ in $B_1(X)$ is compact;
         \item
-        $A$ is relatively countably compact in $B_1(X)$, i.e., every countable subset of $A$ has a limit point in $B_1(X)$.
+        $A$ is relatively countably compact in $B_1(X)$, i.e., every (infinite) countable subset of $A$ has a limit point in $B_1(X)$;
         \item
-        $\overline{A}\subseteq B_1(X)$, where $\overline{A}$ denotes the closure in $\mathbb{R}^X$.
+        $\overline{A}\subseteq B_1(X)$, where $\overline{A}$ denotes the closure of~$A$ in~$\mathbb{R}^X$.
     \end{enumerate}
 \end{lem}
 
@@ -559,6 +557,14 @@ Then, for any finite disjoint $E,F\subseteq\mathbb{N}$ we can choose
     $$L\cap\bigcap_{n\in E}f_n^{-1}(-\infty,a']\cap\bigcap_{n\in F}f_n^{-1}[b',\infty)\neq\emptyset.$$
     This contradicts (i).
 \end{proof}
+
+\subsection*{Historical remarks}
+The Baire hierarchy of functions was introduced by René-Louis Baire in his 1899 doctoral thesis, \emph{Sur les fonctions de variables réelles}.
+His work moved away from the 19th-century preoccupation with ``pathological'' functions toward a constructive classification based on pointwise limits.
+
+$C_p$-theory is an active field of research in general topology pioneered by A.~V.~Arhangel’skiĭ and his students in the 1970s and 1980s~\cite{Arkhangelskii:1992}.
+$C_p$-theory has found many applications in model theory and functional analysis.
+For a recent survey, see~\cite{tkachuk2011cp}.
 
 \section{Compositional Computation Structures: \\
 A structural approach to arbitrary-precision arithmetic}
