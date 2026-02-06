@@ -293,32 +293,43 @@ Thus, $A$ is relatively compact in $B_1(X)$.
 
 \subsection{From Rosenthal's dichotomy to the Bourgain-Fremlin-Talagrand dichotomy to Shelah's NIP}
 
-In metrizable spaces, points in the closure of some subset can always be approximated by a convergent sequence of points in the set.
-For more complicated spaces, such as $C_p$-spaces, this fails in remarkable ways.
-The $n$-th coordinate map $p_n: 2^{\mathbb{N}}\to\{0,1\}$ on the Cantor space $X = 2^\mathbb{N}$ ($= \{0, 1\}^{\mathbb{N}}$) is continuous for each $n\in \mathbb{N}$, and one can show (e.g., \cite[Chapter~1.1]{Todorcevic_1997_TopicsTop}) that $\{p_n\}_{n\in\mathbb{N}}$ has \emph{no} convergent subsequences, in $\mathbb{R}^X$.
-In a sense, this example exhibits the worst failure of sequential convergence possible.
-The closure of $\{p_n\}$ in $\{0, 1\}^X$ (or in $\mathbb{R}^{X}$ for that matter) is homeomorphic to the \emph{Stone-Čech compactification} of the discrete space of natural numbers, usually denoted $\beta\mathbb{N}$, which is an important object of study in general topology.
+In metrizable spaces, the closure of a subset consists of limits of convergent sequences therein.
+In general spaces, including many $C_p$-spaces, such a characterization of closures fails in remarkable ways.
+
+The $n$-th coordinate map $p_n: 2^{\mathbb{N}}\to\{0,1\}$ on the Cantor space $X = 2^\mathbb{N}$ ($= \{0, 1\}^{\mathbb{N}}$) is continuous for each $n\in \mathbb{N}$;
+however,  $(p_n)_{n\in\mathbb{N}}$ has \emph{no} convergent subsequences in $\mathbb{R}^X$ (\cite[Chapter~1.1]{Todorcevic_1997_TopicsTop}).
+In a sense, this example exhibits the worst failure of sequential convergence possible:
+The closure of $\{p_n\}$ in $\{0, 1\}^X$ (or in $\mathbb{R}^X$ for that matter)
+is homeomorphic to the Stone-Čech compactification $\beta\mathbb{N}$ of the (discrete) space of natural numbers. % which is an important object of study in general topology.
+The space $\beta \mathbb{N}$ has cardinality $2^{2^{\omega}}$ (largest among all separable topological spaces) and, effectively, is the set of ultrafilters on~$\mathbb{N}$, which possesses complex and fascinating topological and combinatorial properties.%
+\footnote{Our earlier proof~\cite{alva2024approximability} of the existence of deep equilibria in compositional computational structures relies on a classical result on the existence of idempotent elements of~$\beta \mathbb{N}$.}
 
 The following theorem, proved by Haskell Rosenthal in 1974, is fundamental in functional analysis and captures a sharp division in the behavior of sequences in a Banach space.
 
 \begin{thm}[Rosenthal's Dichotomy, \cite{Rosenthal:1974}]
 \label{T:Rosenthal}
-    If $X$ is Polish and $\{f_n\}\subseteq C_p(X)$ is pointwise bounded, then $\{f_n\}_{n\in\mathbb{N}}$ has a convergent subsequence, or a subsequence whose closure in $\mathbb{R}^X$ is homeomorphic to~$\beta\mathbb{N}$.
+    If $X$ is Polish and $(f_n)_{n\in\mathbb{N}}\subseteq C_p(X)$ is pointwise bounded, then $(f_n)$ has a convergent subsequence, or a subsequence whose closure in $\mathbb{R}^X$ is homeomorphic to~$\beta\mathbb{N}$.
 \end{thm}
 
-Rosenthal's Dichotomy states that a pointwise bounded set of continuous functions contains either a convergent subsequence, or a subsequence whose closure is essentially the same as the example mentioned in the previous paragraphs (i.e., the ``wildest'' possible). The genesis of this theorem was Rosenthal's ``$\ell_1$-Theorem'', which states that a Banach space includes an isomorphic copy of $\ell_1$ (the space of absolutely summable sequences), or else every bounded sequence therein is weakly Cauchy.
+% Rosenthal's Dichotomy states that a pointwise bounded set of continuous functions contains either a convergent subsequence, or a subsequence whose closure is essentially the same as the example mentioned in the previous paragraphs (i.e., the ``wildest'' possible).
+The genesis of the dichotomy was Rosenthal's ``$\ell_1$-Theorem'', which states that a Banach space includes an isomorphic copy of $\ell_1$ (the space of absolutely summable sequences), or else every bounded sequence therein is weakly Cauchy.
 The $\ell_1$-Theorem connects diverse areas:
 Banach space geometry, Ramsey theory, set theory, and topology of function spaces.
 
 As we move from $C_p(X)$ to the larger space $B_1(X)$, a dichotomy paralleling the $\ell_1$-Theorem holds:
 Either every point in the closure of a set of functions is a Baire class~1 function, or there is a sequence in the set behaving in the wildest possible way.
-This result is usually not phrased as a dichotomy, but rather as an equivalence (see Theorem~\ref{BFT} below).
+This result is usually not phrased as a dichotomy in the above manner, but rather as an equivalence (see Theorem~\ref{BFT} below).
 
 First, we introduce some useful notation.
-For any set $A\subseteq \mathbb{R}^X$ and any real $a$, define
+For any $f\in \mathbb{R}^X$ and any real $a$, define
 \begin{align*}
-  X^A_{\le a} &\coloneqq \bigcap_{f\in A}f^{-1}(-\infty,a] = \{x\in X: \text{$f(x)\le a$ for all $f\in A$}\},\\
-  X^A_{\ge a} &\coloneqq \bigcap_{f\in A}f^{-1}[a, +\infty) = \{x\in X: \text{$f(x)\ge a$ for all $f\in A$}\}.
+  X^f_{\le a} &\coloneqq f^{-1}(-\infty,a], &
+  X^f_{\ge a} &\coloneqq f^{-1}[a, +\infty).
+\end{align*}
+For any set $A\subseteq \mathbb{R}^X$ and any real $a$, define (by a slight abuse of notation)
+\begin{align*}
+  X^A_{\le a} &\coloneqq \bigcap_{f\in A}X^f_{\le a} = \{x\in X: \text{$f(x)\le a$ for all $f\in A$}\},\\
+  X^A_{\ge a} &\coloneqq \bigcap_{f\in A}X^f_{\ge a} = \{x\in X: \text{$f(x)\ge a$ for all $f\in A$}\}.
 \end{align*}
 (In case $A=\emptyset$, we define $X^\emptyset_{\ge a} = X = X^\emptyset_{\le a}$.)
 For any sequence $\{f_n\}\subseteq \mathbb{R}^X$ and $I\subseteq \mathbb{N}$, define $I^{\complement} \coloneqq \mathbb{N}\setminus I$ and $f_I \coloneqq \{f_i: i\in I\}$.
@@ -329,8 +340,11 @@ For any sequence $\{f_n\}\subseteq \mathbb{R}^X$ and $I\subseteq \mathbb{N}$, de
 The following are equivalent:
     \begin{enumerate}[(i)]
         \item $A$ is relatively compact in $B_1(X)$.
-        \item For every $\{f_n\}_{n\in\mathbb{N}}\subseteq A$ and every $a<b$ there is $I\subseteq\mathbb{N}$ such that $X_{\le a}^{f_I} \cap X_{\ge b}^{f_{I^{\complement}}} = \emptyset$.
-    \end{enumerate}
+        \item For every $(f_n)_{n\in\mathbb{N}}\subseteq A$ and every $a<b$ there is $I\subseteq\mathbb{N}$ such that
+          \begin{equation*}
+            X_{\le a}^{f_I} \cap X_{\ge b}^{f_{I^{\complement}}} = \emptyset.
+          \end{equation*}
+        \end{enumerate}
 \end{thm}
 (As stated above, the BFT Dichotomy is a particular case of the equivalence (ii)$\Leftrightarrow$(v) in {\cite[Corollary 4G]{BFT_1978_PCompactBaire}}.)
 
@@ -339,10 +353,10 @@ Thus, at least one of $X_{\le a}^{f_I}$ and $X_{\ge b}^{f_{I^{\complement}}}$ is
 For our purposes, it is more natural to consider only finitely many inequalities at a time, which motivates the definitions below.
 
 \begin{defn}\label{def:NIP-fns}
-    We say that a collection of functions \emph{$A\subseteq \mathbb{R}^X$ has the finitary No-Independence Property (NIP)} if, for all sequences $\{f_n\}_{n\in\mathbb{N}}\subseteq A$ and reals $a<b$, there exist finite disjoint sets $E,F\subseteq\mathbb{N}$ such that $X_{\le a}^{f_E} \cap X_{\ge b}^{f_F} = \emptyset$.
-    We say that such $E, F$ \emph{witness finitary NIP for $\{f_n\}$ and $a, b$}.
+    We say that a collection of functions \emph{$A\subseteq \mathbb{R}^X$ has the finitary No-Independence Property (NIP)} if, for all sequences $(f_n)_{n\in\mathbb{N}}\subseteq A$ and reals $a<b$, there exist finite disjoint sets $E,F\subseteq\mathbb{N}$ such that $X_{\le a}^{f_E} \cap X_{\ge b}^{f_F} = \emptyset$.
+    We say that such $E, F$ \emph{witness finitary NIP for $(f_n)$ and $a, b$}.
 
-    A set $A\subseteq \mathbb{R}^X$ \emph{has the finitary Independence Property (IP)} if it does not have finitary NIP, i.e., if there exists a sequence $\{f_n\}_{n\in\mathbb{N}}\subseteq A$ and reals $a<b$ such that for every pair of finite disjoint sets $E,F\subseteq\mathbb{N}$, we have $X_{\le a}^{f_E} \cap X_{\ge b}^{f_F} \ne \emptyset$.
+    A set $A\subseteq \mathbb{R}^X$ \emph{has the finitary Independence Property (IP)} if it does not have finitary NIP, i.e., if there exists a sequence $(f_n)_{n\in\mathbb{N}}\subseteq A$ and reals $a<b$ such that for every pair of finite disjoint sets $E,F\subseteq\mathbb{N}$, we have $X_{\le a}^{f_E} \cap X_{\ge b}^{f_F} \ne \emptyset$.
 \end{defn}
 
 If the word ``finite'' is omitted in the above definitions, we obtain the definitions of \emph{countable} NIP (weaker than finitary NIP) and \emph{countable} IP (stronger than finitary IP), respectively.
@@ -359,11 +373,11 @@ Unless otherwise unspecified, IP/NIP shall mean \emph{finitary} IP/NIP hencefort
 \begin{proof}
   Trivially (as per the preceding discussion), finitary NIP implies BFT-NIP.
   Reciprocally, assume that $X$ is compact and $A\subseteq C_p(X)$ has finitary IP.
-  Fix a sequence $\{f_n\}\subseteq A$ and reals $a<b$ such that $X^{f_E}_{\le a}\cap X^{f_F}_{\ge b}\neq\emptyset$ for every finite disjoint $E,F\subseteq\mathbb{N}$.
+  Fix a sequence $(f_n)\subseteq A$ and reals $a<b$ such that $X^{f_E}_{\le a}\cap X^{f_F}_{\ge b}\neq\emptyset$ for every finite disjoint $E,F\subseteq\mathbb{N}$.
   Fix $I\subseteq\mathbb{N}$.
-  Since $\{f_n\}\subseteq A\subseteq C_p(X)$ is a sequence of continuous functions, the family $\mathcal{F}_I=\{X^{f_{\{n\}}}_{\le a}:n\in I\}\cup\{X^{f_{\{m\}}}_{\ge a}:m\in I^{\complement}\}$ consists of closed (non-empty) sets.
-  Since all finite $E\subseteq I$ and $F\subseteq I^{\complement}$ witness finitary IP for $\{f_n\}$ and $a, b$, then the family $\mathcal{F}_I$ has the finite intersection property.
-  By compactness, $X^{f_I}_{\le a}\cap X^{f_{I^{\complement}}}_{\ge b}=\bigcap\mathcal{F}_I\neq\emptyset$.
+  Since $(f_n)\subseteq A\subseteq C_p(X)$ is a sequence of continuous functions, the collection $\mathcal{F}_I=\{X^{f_n}_{\le a}:n\in I\}\cup\{X^{f_m}_{\ge a}:m\in I^{\complement}\}$ consists of closed (non-empty) sets.
+  Since all finite $E\subseteq I$ and $F\subseteq I^{\complement}$ witness finitary IP for $(f_n)$ and $a, b$, we see that the collection $\mathcal{F}_I$ has the finite intersection property.
+  By compactness, $X^{f_I}_{\le a}\cap X^{f_{I^{\complement}}}_{\ge b} = \bigcap\mathcal{F}_I\neq\emptyset$.
 \end{proof}
 
 \begin{thm}
@@ -410,7 +424,7 @@ A theory with the Independence Property produces the maximum possible number of 
 
  \item[In combinatorics]
    Sauer~\cite{Sauer:1972} and Shelah~\cite{Shelah:1972} proved the following independently:
-   Let $\mathscr{F}$ be a family of subsets of some set $S$.
+   Let $\mathscr{F}$ be a collection of subsets of some set $S$.
    Either:
    for every $n\in\mathbb{N}$ there is a set $A\subseteq S$ with $|A|=n$ such that $|\{S_i\cap A: i\in\mathbb{N}\}|=2^n$ ($\mathscr{F}$ has ``exponential complexity'');
 or: there exists $N\in\mathbb{N}$ such that for every $A\subseteq S$ with $|A|\ge N$, one has
@@ -418,7 +432,7 @@ or: there exists $N\in\mathbb{N}$ such that for every $A\subseteq S$ with $|A|\g
 |\{S_i\cap A: i\in\mathbb{N}\}| \le \sum_{i=0}^{N-1} \binom{|A|}{i}.
 \]
 ($\mathscr{F}$ has ``polynomial complexity'').
-Clearly, any family $\mathscr{F}$ of subsets of a \emph{finite} set $S$ has polynomial complexity.
+Clearly, any collection $\mathscr{F}$ of subsets of a \emph{finite} set $S$ has polynomial complexity.
 The ``polynomial'' name is justified:
 indeed, for fixed $N>0$, as a function of the size $|A| = m > 0$, we have
 \begin{equation*}
@@ -1051,7 +1065,7 @@ $$\psi_w(x)=\begin{cases}
 \end{cases}$$
 In other words, $\psi_w$ determines whether the first $|w|$ bits of a binary sequence is exactly $w$. 
 Let $\Delta=\{\psi_w:w\in 2^{<\mathbb{N}}\}$ and $\Gamma$ be the semigroup generated by $\Delta$. 
-Since the sets $\{x\in 2^\mathbb{N}:x|_{|w|}=w\}$ are open and closed in $2^\mathbb{N}$, then the transitions $\psi_w$ are all continuous.
+Since the sets $\{x\in 2^\mathbb{N}:x|_{|w|}=w\}$ are open and closed in $2^\mathbb{N}$, we see that the transitions $\psi_w$ are all continuous.
 In particular, $(L,\mathcal{P},\Gamma)$ satisfies the Extendibility Axiom.
 
 Let us analyze the set of deep computations of $\Delta$. 
