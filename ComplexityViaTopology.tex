@@ -391,11 +391,12 @@ For every pointwise bounded  $A\subseteq C_p(X)$, the following properties are a
         \item $A$ has finitary NIP.
     \end{enumerate}
   \end{thm}
-  (The equivalence \emph{(ii)}$\Leftrightarrow$\emph{(iv)} hold for arbitrary compact~$X$. The equivalence \emph{(ii)}$\Leftrightarrow$\emph{(iii)} hold for arbitrary~$X$.)
+  (The equivalence \emph{(ii)}$\Leftrightarrow$\emph{(iv)} holds for arbitrary compact~$X$.
+  The equivalence \emph{(ii)}$\Leftrightarrow$\emph{(iii)}, for arbitrary~$X$.)
 \begin{proof}
   Corollary of Theorem~\ref{BFT} and Proposition~\ref{prop:BFT-finitary-cpct}.
 \end{proof}
-Theorem~\ref{BFT2} may be stated as the following dichotomy (under the assumptions):
+Theorem~\ref{BFT2} may be stated as the following dichotomy (under the assumptions) for any compact metrizable~$X$:
 either $A$ is relatively compact in~$B_1(X)$, or $A$ has IP (in either sense).
 
 The Independence Property was first isolated by Saharon Shelah in model theory as a dividing line between theories whose models are ``tame'' (corresponding to NIP) and theories whose models are ``wild" (corresponding to IP).
@@ -417,21 +418,22 @@ In contrast, a theory $T$ is unclassifiable if the number of models of $T$ of a 
 A key fact is that the number of models of $T$ is directly impacted by the number of \emph{types} over sets of parameters in models of $T$; a controlled number of types is a characteristic of a classifiable theory.
 
 
-In Shelah's classification program~\cite{Shelah:1990}, theories without the independence property (called NIP theories, or dependent theories) have a well-behaved, ``tame" structure; the number of types over a set of parameters of size $\kappa$ of such a theory is of polynomially or similar ``slow" growth on $\kappa$.
+In Shelah's classification program~\cite{Shelah:1990}, theories \emph{without} the independence property (called NIP theories, or \emph{dependent} theories) have a well-behaved, ``tame" structure;
+the number of types over a set of parameters of size $\kappa$ of such a theory is of polynomially or similar “slow" growth on~$\kappa$.
 
-In contrast, theories with the Independence Property (called IP theories) are considered ``intractable" or ``wild''.
+In contrast, theories with the Independence Property (called IP theories) are considered “intractable" or “wild”.
 A theory with the Independence Property produces the maximum possible number of types over a set of parameters; for a set of parameters of cardinality $\kappa$, the theory will have $2^{2^{\kappa}}$-many distinct types.
 
  \item[In combinatorics]
    Sauer~\cite{Sauer:1972} and Shelah~\cite{Shelah:1972} proved the following independently:
    Let $\mathscr{F}$ be a collection of subsets of some set $S$.
    Either:
-   for every $n\in\mathbb{N}$ there is a set $A\subseteq S$ with $|A|=n$ such that $|\{S_i\cap A: i\in\mathbb{N}\}|=2^n$ ($\mathscr{F}$ has ``exponential complexity'');
+   for every $n\in\mathbb{N}$ there is a set $A\subseteq S$ with $|A|=n$ such that $|\{S_i\cap A: i\in\mathbb{N}\}|=2^n$ ($\mathscr{F}$ is a collection having ``exponential complexity'');
 or: there exists $N\in\mathbb{N}$ such that for every $A\subseteq S$ with $|A|\ge N$, one has
 \[
 |\{S_i\cap A: i\in\mathbb{N}\}| \le \sum_{i=0}^{N-1} \binom{|A|}{i}.
 \]
-($\mathscr{F}$ has ``polynomial complexity'').
+($\mathscr{F}$ is a collection having ``polynomial complexity'').
 Clearly, any collection $\mathscr{F}$ of subsets of a \emph{finite} set $S$ has polynomial complexity.
 The ``polynomial'' name is justified:
 indeed, for fixed $N>0$, as a function of the size $|A| = m > 0$, we have
@@ -466,12 +468,12 @@ A Rosenthal compactum~$K$ is necessarily Hausdorff since it is a topological sub
 
 Rosenthal compacta possess significant topological and dynamical tameness properties, and play an important role in functional analysis, measure theory, dynamical systems, descriptive set theory, and model theory.
 In this paper, we use them to study deep computations.
-For this, we shall first focus on countable languages, which is the theme of the next subsection.
+% For this, we shall first focus on countable languages, which is the theme of the next subsection.
 
 \subsection{The special case~\texorpdfstring{$B_1(X,\mathbb{R}^\mathcal{P})$}{B\_1(X, R\textasciicircum P)} with~\texorpdfstring{$\mathcal{P}$}{P} countable.}
 
 Fix an arbitrary (at most) countable set~$\mathcal{P}$ whose elements $P\in \mathcal{P}$ will be called \emph{predicate symbols} or \emph{formal predicates}.
-Our present goal is to characterize relatively compact subsets of $B_1(X,\mathbb{R}^\mathcal{P})$, where $X$ is always assumed to be a perfectly normal space (often a Polish space).
+Our present goal is to characterize relatively compact subsets of $B_1(X,\mathbb{R}^\mathcal{P})$, where $X$ is always assumed to be a perfectly normal space (typically a Polish space).
 
 The set $\mathcal{P}$ shall be considered discrete whenever regarded as a topological space.
 Since $C_p(X, \mathbb{R}^{\mathcal{P}})\subseteq B_1(X, \mathbb{R}^{\mathcal{P}})\subseteq (\mathbb{R}^{\mathcal{P}})^X$, the ``ambient'' space $(\mathbb{R}^{\mathcal{P}})^X$ is quite relevant.
@@ -495,19 +497,19 @@ Such identifications view $X$ and $\mathcal{P}$ as mere pointsets (the topology 
 
 For $x\in X$, define the ``left projection'' map
 \begin{equation*}
-  \lambda_x: \mathbb{R}^{X\times\mathcal{P}}\to \mathbb{R}^{\mathcal{P}}: \varphi\mapsto \lambda_x(\varphi)\coloneqq \varphi(x,\cdot);
+  \lambda_x: \mathbb{R}^{X\times\mathcal{P}}\to \mathbb{R}^{\mathcal{P}}: \varphi\mapsto \lambda_x(\varphi)\coloneqq \hat{}\varphi(x);
 %  \lambda_x: \mathbb{R}^X\to \mathbb{R}: f\mapsto \lambda_x(f)\coloneqq f(x)
 \end{equation*}
 % (both denoted $\lambda_x$ by an abuse of notation);
 for $P\in \mathcal{P}$, the ``right projection'' map
 \begin{equation*}
-  \rho_P: \mathbb{R}^{X\times\mathcal{P}}\to \mathbb{R}^X: \varphi\mapsto \varphi(\cdot,P).
+  \rho_P: \mathbb{R}^{X\times\mathcal{P}}\to \mathbb{R}^X: \varphi\mapsto \rho_P(\varphi)\coloneqq \varphi\,\hat{}(P).
   % \rho_P: \mathbb{R}^{\mathcal{P}}\to \mathbb{R}: f\mapsto f(P).
 \end{equation*}
 For fixed $x\in X$ and $P\in \mathcal{P}$, we also have canonical projection maps
 \begin{align*}
-  \pi_x: \mathbb{R}^X\to \mathbb{R}: f\mapsto f(x), &&
-  \pi_P: \mathbb{R}^{\mathcal{P}}\to \mathbb{R}: f\mapsto f(P).
+  \lambda_x: \mathbb{R}^X\to \mathbb{R}: f\mapsto f(x), &&
+  \rho_P: \mathbb{R}^{\mathcal{P}}\to \mathbb{R}: f\mapsto f(P).
 \end{align*}
 When clear from context, rather than using the specific symbols (``$\lambda$'' for left,``$\rho$'' for right) to denote projections, we may use the generic symbol~``$\pi$'';
 thus, $\pi_x$ may mean $\lambda_x$, and $\pi_P$ may mean $\rho_P$.
@@ -535,12 +537,12 @@ Given $A\subseteq Y^X$ and $K\subseteq X$ we write $A|_K:=\{f|_K:f\in A\}$, i.e.
 The following Theorem is a slightly more general version of Theorem \ref{BFT}.
 
 \begin{thm}\label{Generalized BFT}
-    Assume that $\mathcal{P}$ is countable, $X$ is a Polish space, and $A\subseteq C_p(X,\mathbb{R}^\mathcal{P})$ is pointwise bounded in the sense that $\pi_P\circ A$ ($\subseteq C_p(X)$) is pointwise bounded for every $P\in\mathcal{P}$.
+    Assume that $\mathcal{P}$ is countable, $X$ is a Polish space, and $A\subseteq C_p(X,\mathbb{R}^\mathcal{P})$ is pointwise bounded in the sense that $\pi_P[A]$ ($\subseteq C_p(X)$) is pointwise bounded for every $P\in\mathcal{P}$.
 The following are equivalent for every compact $K\subseteq X$:
 
     \begin{enumerate}[(i)]
         \item $A|_K$ is relatively compact in $B_1(K,\mathbb{R}^\mathcal{P})$;
-        \item $\pi_P\circ A|_K$ has NIP for every $P\in\mathcal{P}$.
+        \item $\pi_P[A]|_K$ has NIP for every $P\in\mathcal{P}$.
     \end{enumerate}
 \end{thm}
 \begin{proof}
