@@ -736,54 +736,26 @@ Both definitions are reconciled upon identifying $\gamma\in \Gamma$ with the map
 \end{rems}
 
 
-\subsection{Computability and definability of deep computations and the Extendibility Axiom}
+\subsection{Computability of deep computations and the Extendibility Axiom}
+Let $(L, \mathcal{P})$ be a computation structure with \emph{countable} predicate collection~$\mathcal{P}$.
 
-Let  $f: L\to \mathcal{L}$ be a function that maps each input state type  $(P(v))_{P\in \mathcal{P}}\in\mathbb{R}^\mathcal{P}$ to an output state type $(P\circ f (v))_{P\in \mathcal{P}}\in\mathbb{R}^\mathcal{P}$.
- 
- \begin{enumerate}
- \item
-We will say that $f$ is (first-order) \emph{definable} if for each $Q\in\mathcal{P}$, the output feature $Q{\circ}f: L\to\mathbb{R}$ is a definable predicate in the following sense: 
-For every $\varepsilon>0$ and every compact $K\subseteq L$,  there 
-is an \emph{approximating function} $\varphi_{Q,\,K,\varepsilon}: L\to \mathbb{R}$ that can be built recursively out of a finite number of the (primitively computable) predicates in $\mathcal{P}$
-by a finite number of iterations of the finitary lattice operations $\land$ (=min) and $\lor$ (=max), the operations of $\mathbb{R}^\mathbb{R}$ as a vector algebra (that is, vector addition and multiplication and scalar multiplication) and the operators sup and inf applied on individual variables from $L$, and such that 
-\[
-| \varphi_{Q,\,K,\varepsilon}(v)- Q{\circ}f(v)|\le \varepsilon,
-\qquad
-\text{for all $v\in K$}.
-\]
-
-\emph{Remark:}
-The preceding notion of definability is motivated by model theory;
-it is a special case of the concept of \emph{first-order definability} for real-valued predicates in the model theory of real-valued structures first introduced in \cite{Iovino:1994} for model theory of functional analysis and now standard in model theory (see~\cite{Keisler:2023}).
-The $\land$ (=min) and $\lor$ (=max) operations correspond to the positive Boolean logical connectives ``and'' and ``or", and the sup and inf operators correspond to the first-order quantifiers, $\forall$ and $\exists$.
-
-\item
-We will say that $f$ is $\mathcal{P}$-\emph{computable} if it is definable in the sense defined above under~(1), but without the use of the sup/inf operators; in other words, if for every choice of $Q,K,\varepsilon$, the approximation function $\varphi_{Q,K,\varepsilon}: L\to \mathbb{R}$ can be constructed without any use of sup or inf operators; in other words,
- $\varphi_{Q,K,\varepsilon}$ can be built recursively out of a finite number of the (primitively computable) predicates in $\mathcal{P}$
-by a finite number of iterations of the (primitively computable) finitary lattice operations $\land,\lor$, and the  (primitively computable) operations of $\mathbb{R}^\mathbb{R}$ as a vector algebra.
-
-\emph{Remark:} This is the model-theoretic concept of quantifier-free definability (i.e., definability as given by the preceding paragraph, but without use of quantifiers).
- \end{enumerate}
-  
-
-It is shown in \cite{alva2024approximability} that:
 \begin{enumerate}
-\item For a definable $f: L\to \mathcal{L}$, the approximating functions $\varphi_{Q,\,K,\varepsilon}$ may be taken to be \emph{polynomials} of the input features, and
-\item Definable transforms $f: L\to\mathcal{L}$ are precisely those that extend to continuous $\tilde{f}: \mathcal{L} \to \mathcal{L}$.
+\item A \emph{computable predicate} is any real function $\varphi: L\to \mathbb{R}$ whose restriction to an arbitrary shard is uniformly approximable by polynomials (with real coefficients) in the features~$P(\cdot)$.
+\item A transform $f: L\to \mathcal{L}$ is \emph{computable} if, for each $Q\in\mathcal{P}$, the output feature $Q{\circ}f: L\to\mathbb{R}$ is a computable predicate.
 \end{enumerate}
 
-To summarize, for a function a function $f: L\to \mathcal{L}$, the following conditions are equivalent:
+It is shown in \cite{alva2024approximability} that computable transforms $f: L\to\mathcal{L}$ are precisely those that extend to continuous maps $\tilde{f}: \mathcal{L} \to \mathcal{L}$.
+\end{enumerate}
+
+To summarize, for a function $f: L\to \mathcal{L}$, the following conditions are equivalent:
 
 \begin{itemize}
 \item
-$f$ is $\mathcal{P}$-computable
+$f$ is computable
 \item
-$f$ is definable
+$f$ has is uniformly polynomially approximable features on shards
 \item
-$f$
-$f$  is polynomially approximable 
-\item
-$f$ can be extended to a continuous $\tilde{f}: \mathcal{L} \to \mathcal{L}$.
+$f$ extends to a continuous map~$\mathcal{L}\to \mathcal{L}$.
 \end{itemize}
 
 These equivalences motivate the following definition:
@@ -793,7 +765,6 @@ These equivalences motivate the following definition:
 We say that a CCS $(L,\mathcal{P},\Gamma)$ satisfies the \emph{Extendibility Axiom} if for all $\gamma\in \Gamma$, there is $\tilde\gamma:\mathcal{L}_{\text{sh}}\to\mathcal{L}_{\text{sh}}$ such that for every sizer $r_{\bullet}$ there is a sizer $s_\bullet$ such that $\tilde\gamma|_{\mathcal{L}[r_\bullet]}:\mathcal{L}[r_\bullet]\to\mathcal{L}[s_\bullet]$ is continuous.
 We refer to $\tilde\gamma$ as a \emph{free} extension of~$\gamma$.
 \end{defn}
-
 
 For the rest of the paper, fix for each $\gamma\in\Gamma$ a free extension $\tilde{\gamma}$ of $\gamma$.
 For any $\Delta\subseteq\Gamma$, let $\tilde{\Delta}$ denote $\{\tilde\gamma\colon\gamma\in\Delta\}$.
