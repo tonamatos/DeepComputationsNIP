@@ -25,6 +25,7 @@ pdfkeywords={}
 
 
 \newtheorem{thm}{Theorem}[section]
+\newtheorem*{AxExt}{Extendibility Axiom}
 \newtheorem{cor}[thm]{Corollary}
 \newtheorem{prop}[thm]{Proposition}
 \newtheorem{lem}[thm]{Lemma}
@@ -628,13 +629,13 @@ Elements $\mathbf{v}\in\mathcal{L}\setminus L$ are \emph{unrealized} state types
 \end{defn}
 
 Intuitively, state types capture a notion of ``limit state''.
-The $P$-th coordinate map (natural projection) $\mathbb{R}^{\mathcal{P}}\to \mathbb{R}: \mathbf{v} = (\mathbf{v}_P)_{\mathit{P}\in \mathcal{P}}\mapsto \mathbf{v}_P$, gives a continuous extension to~$\mathcal{L}$ of the predicate $P(\cdot)$ on~$L$;
-abusing notation, the extension will still be denoted~$P(\cdot)$.
+For each $P\in \mathcal{P}$, the $P$-th coordinate map (natural projection) $\mathbb{R}^{\mathcal{P}}\to \mathbb{R}: \mathbf{v} = (\mathbf{v}_Q)_{Q\in \mathcal{P}}\mapsto \mathbf{v}_P$, gives a continuous extension to~$\mathcal{L}$ of the predicate $P(\cdot)$ on~$L$;
+abusing notation, the extension will still be denoted~$P(\cdot)$ (or just~$P$).
 
 \begin{rem}\label{rem:poor-mans-ultraprod}
   Just as $L$ is identified with a subset of~$\mathcal{L}$, but going in the opposite direction, one may regard unrealized state types as “hyper-states” (when such type is obtained as a sequential limit—or ultralimit—of realized state types, unrealized state types may be called “deep states”).
   A comment for readers versed in model theory:
-  at least for the purpose of realizing state types with parameters in~$L$, the type space $(\mathcal{L}, \mathcal{P})$ serves as a “poor man’s” ultraproduct of~$(L, \mathcal{P})$ where each type $\mathbf{v}$ is realized by the very definition of~$\mathcal{L}$.
+  at least for the purpose of realizing state types (with parameters in the original states space~$L$), the type space $(\mathcal{L}, \mathcal{P})$ serves as a “poor man’s” ultraproduct of~$(L, \mathcal{P})$ wherein,  by the very definition of~$\mathcal{L}$, each type $\mathbf{v}$ is realized.
 \end{rem}
 
 \subsubsection{Bounds on precision and magnitude. Shards}
@@ -651,7 +652,7 @@ This leads to the concept of \emph{shard} first introduced in~\cite{alva2024appr
 \begin{defn}
   Fix a computation states structure $\underline{L} = (L, \mathcal{P})$, with $L\subseteq \mathbb{R}^{\mathcal{P}}$ implicitly identified with its type space.
   A \emph{sizer} is a family $r_{\bullet}=(r_P)_{P\in\mathcal{P}}$ of positive real numbers, indexed by~$\mathcal{P}$.
-  Given a sizer $r_\bullet$, let $\mathbb{R}[\rb] = \prod_{P\in\mathcal{P}}[-r_P,r_P]$ (a compact space), and let the $r_\bullet$-\emph{shard} of the states space~$L$ be
+  Given a sizer $r_\bullet$, let $\mathbb{R}[\rb] \coloneqq \prod_{P\in\mathcal{P}}[-r_P,r_P]$ (a compact space), and let the $r_\bullet$-\emph{shard} of the states space~$L$ be
 \[
 L[r_\bullet] = L\cap \mathbb{R}[\rb].
 \]
@@ -678,10 +679,10 @@ A \emph{Compositional Computation Structure} (CCS) is a triple $(L,\mathcal{P},\
  $\Gamma\subseteq L^L$ is a semigroup under composition.
 \end{itemize}
 Elements of the semigroup $\Gamma$ are called the \emph{computations} of the structure $(L,\mathcal{P},\Gamma)$.
-We take $L\subseteq \mathbb{R}^{\mathcal{P}}$ as implicitly identified with a subset of the type space~$\mathcal{L} \subseteq \mathbb{R}^{\mathcal{P}}$ of~$(L, \mathcal{P})$.
+The state space $L$ is implicitly identified with a subset of the type space~$\mathcal{L} \subseteq \mathbb{R}^{\mathcal{P}}$ of~$(L, \mathcal{P})$.
 We also assume that the identity map $\text{id}$ on~$L$ is an element of~$\Gamma$ (which is thus not merely a semigroup but a monoid of transformations of~$L$).
 
-We topologize $\Gamma$ as a subset of the topological product $L^L$, where (as usual) the ``exponent''~$L$ serves merely as an index set, but the ``base''~$L\subseteq \mathbb{R}^{\mathcal{P}}$ is topologized as a subspace.
+We topologize $\Gamma$ as a subset of the topological product $L^L$, where (as usual) the ``exponent''~$L$ serves merely as an index set, but the ``base''~$L\subseteq \mathbb{R}^{\mathcal{P}}$ has the relative product topology (of pointwise convergence).
 In this manner, the semigroup $\Gamma$ is identified with a subset of the topological product~$\mathcal{L}^L \subseteq (\mathbb{R}^{\mathcal{P}})^L$, which leads to an inclusion $\overline{\Gamma}\subseteq \mathcal{L}^L$.
 Elements $\xi\in\overline{\Gamma}$ are called (real-valued) \emph{deep computations} or \emph{ultracomputations}.
 
@@ -711,7 +712,7 @@ Since deep computations are defined through a combination of topological concept
 \begin{rems}(For readers versed in model theory.)%
   \footnote{Refer to~\cite{Keisler:2023} where a general framework for real-valued structures is introduced; see also~\cite[section 6]{Duenez-Iovino:2017} for a basic tutorial.}
   \begin{enumerate}
-  \item Compositional computational structures as defined above are not real-valued structures in a literal sense, because there is no intrinsic structural manner to ensure that $\Gamma$ is realized as a subset of the specific product space $L^L$.
+  \item Compositional computational structures as defined above are not real-valued structures in a literal sense, because there is no intrinsic structural manner to ensure that $\Gamma$ is realized as a literal subset of the product space $L^L$.
 However, in a semantically transparent manner, any CSS as above may alternatively be seen (per its original definition in~\cite{alva2024approximability}) as a real-valued structure $(L,\mathcal{P},\Gamma,\circ,\operatorname{ev})$, where
 \begin{itemize}
 \item
@@ -726,12 +727,11 @@ Both definitions are reconciled upon identifying $\gamma\in \Gamma$ with the map
 
 \item In the preceding sense of real-valued structures, the class of compositional computation structures (for a fixed predicate symbol collection~$\mathcal{P}$) is first-order elementary.
   The limited notion of state type we have introduced (essentially, quantifier-free state types with parameters of sort $L$ only) may be enriched to state types involving more formulas (e.g., with parameters in~$\Gamma$, or including quantified formulas), and extended to “transform-types” (i.e., types of sort~$\Gamma$).
-  In particular, given a structure $\underline{C}=(L,\mathcal{P}, \Gamma, \circ, \operatorname{ev})$, all types are realized in some ultrapower~$\underline{C}^{(\mathcal{U})}$ of~$\underline{C}$ (constructed in the usual manner detailed in the references above).
+  In particular, given a structure $\underline{C}=(L,\mathcal{P}, \Gamma, \circ, \operatorname{ev})$, all types are realized in some ultrapower~$\underline{C}^{(\mathcal{U})}$ of~$\underline{C}$ (constructed in the usual manner detailed in the references above).%
+  \footnote{By contrast (cf., Remark~\ref{rem:poor-mans-ultraprod}), the ultrapower construction is not necessary to realize state types in a computation states structures.}
     % Indeed, if $\mathbf{v}\in\mathcal{L}$ is an arbitrary type, by the well-known of characterization of topological closure in Hausdorff spaces, there exists an indexed family $(v_i)_{i\in I}$ in~$L$ and an ultrafilter~$\mathcal{U}$ on~$I$ such that $\mathbf{v} = \mathcal{U}\lim_i v_i$; this means that $\mathbf{v}$ is realized in the $\mathcal{U}$-ultrapower $\underline{L}^{(\mathcal{U})}$ of~$\underline{L}$ (whose universe consists of equivalence classes “modulo~$\mathcal{U}$” of tuples $(v_i)_{i\in I}\in L^{\mathcal{U}}$ which $\mathcal{U}$-converge in type in~$\mathcal{R}^{\mathcal{P}}$, i.e., modulo the relation of having equal $\mathcal{U}$-ultralimit in type).
     % In fact, $\mathbf{v}$ is realized by the element of~$\underline{L}^{(\mathcal{U})}$ represented by $(v_i)_{i\in I}$ modulo~$\mathcal{U}$.
   This approach to spaces of types was introduced in Banach space theory by Krivine~\cite{Krivine:1974, Krivine-Maurey:1981,Krivine:1972}.
-
-  (By Remark~\ref{rem:poor-mans-ultraprod}, the ultrapower construction is not necessary to realize state types, as we have defined them, in a computation states structures.)
 \end{enumerate}
 \end{rems}
 
@@ -759,16 +759,20 @@ $f$ extends to a continuous map~$\mathcal{L}\to \mathcal{L}$.
 
 These equivalences motivate the following definition:
 
-\begin{defn}
-\label{D:extendibility axiom}
-We say that a CCS $(L,\mathcal{P},\Gamma)$ satisfies the \emph{Extendibility Axiom} if for all $\gamma\in \Gamma$, there is $\tilde\gamma:\mathcal{L}_{\text{sh}}\to\mathcal{L}_{\text{sh}}$ such that for every sizer $r_{\bullet}$ there is a sizer $s_\bullet$ such that $\tilde\gamma|_{\mathcal{L}[r_\bullet]}:\mathcal{L}[r_\bullet]\to\mathcal{L}[s_\bullet]$ is continuous.
-We refer to $\tilde\gamma$ as a \emph{free} extension of~$\gamma$.
-\end{defn}
+A computation $\gamma\in \Gamma$ is \emph{extendable} if it has some extension $\tilde\gamma:\mathcal{L}_{\text{sh}}\to\mathcal{L}_{\text{sh}}$ such that, for every sizer $r_{\bullet}$, there is a sizer $s_\bullet$ such that $\tilde\gamma|_{\mathcal{L}[r_\bullet]}:\mathcal{L}[r_\bullet]\to\mathcal{L}[s_\bullet]$ is continuous.
 
-For the rest of the paper, fix for each $\gamma\in\Gamma$ a free extension $\tilde{\gamma}$ of $\gamma$.
-For any $\Delta\subseteq\Gamma$, let $\tilde{\Delta}$ denote $\{\tilde\gamma\colon\gamma\in\Delta\}$.
+Because $\tilde{\gamma}$ extends $\gamma$ continuously on each compact type-shard, we call it the \emph{$K$-extension} of~$\gamma$;
+such extension is evidently unique (if it exists).
+
+Abusing notation, for any $\Delta\subseteq\Gamma$ consisting of extendable computations, the set $\{\tilde\gamma\colon\gamma\in\Delta\}$ will be denoted $\tilde{\Delta}$.
+
+\begin{AxExt}
+  Every computation $\gamma\in\Gamma$ is extendable.
+\end{AxExt}
 
 For a more detailed discussion of the Extendibility Axiom, we refer the reader to~\cite{alva2024approximability}.
+
+For the rest of the paper, we only consider CSSs satisfying the Extendibility Axiom.
 
 \subsection{Newton's method as a CCS}\label{subsec: Newton method}
 
