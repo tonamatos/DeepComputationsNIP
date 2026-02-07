@@ -302,7 +302,7 @@ In a sense, this example exhibits the worst failure of sequential convergence po
 The closure of $\{p_n\}$ in $\{0, 1\}^X$ (or in $\mathbb{R}^X$ for that matter)
 is homeomorphic to the Stone-Čech compactification $\beta\mathbb{N}$ of the (discrete) space of natural numbers. % which is an important object of study in general topology.
 The space $\beta \mathbb{N}$ has cardinality $2^{2^{\omega}}$ (largest among all separable topological spaces) and, effectively, is the set of ultrafilters on~$\mathbb{N}$, which possesses complex and fascinating topological and combinatorial properties.%
-\footnote{Our earlier proof~\cite{alva2024approximability} of the existence of deep equilibria in compositional computational structures relies on a classical result on the existence of idempotent elements of~$\beta \mathbb{N}$.}
+\footnote{\label{fn:id-ufilters}Our earlier proof~\cite{alva2024approximability} of the existence of deep equilibria in compositional computational structures relies on a classical result on the existence of idempotent elements of~$\beta \mathbb{N}$.}
 
 The following theorem, proved by Haskell Rosenthal in 1974, is fundamental in functional analysis and captures a sharp division in the behavior of sequences in a Banach space.
 
@@ -537,12 +537,12 @@ Given $A\subseteq Y^X$ and $K\subseteq X$ we write $A|_K:=\{f|_K:f\in A\}$, i.e.
 The following Theorem is a slightly more general version of Theorem \ref{BFT}.
 
 \begin{thm}\label{Generalized BFT}
-    Assume that $\mathcal{P}$ is countable, $X$ is a Polish space, and $A\subseteq C_p(X,\mathbb{R}^\mathcal{P})$ is pointwise bounded in the sense that $\pi_P[A]$ ($\subseteq C_p(X)$) is pointwise bounded for every $P\in\mathcal{P}$.
+    Assume that $\mathcal{P}$ is countable, $X$ is a Polish space, and $A\subseteq C_p(X,\mathbb{R}^\mathcal{P})$ is pointwise bounded in the sense that $\pi_P\circ A$ ($\subseteq C_p(X)$) is pointwise bounded for every $P\in\mathcal{P}$.
 The following are equivalent for every compact $K\subseteq X$:
 
     \begin{enumerate}[(i)]
         \item $A|_K$ is relatively compact in $B_1(K,\mathbb{R}^\mathcal{P})$;
-        \item $\pi_P[A]|_K$ has NIP for every $P\in\mathcal{P}$.
+        \item $\pi_P\circ A|_K$ has NIP for every $P\in\mathcal{P}$.
     \end{enumerate}
 \end{thm}
 \begin{proof}
@@ -583,10 +583,10 @@ $C_p$-theory has found many applications in model theory and functional analysis
 For a recent survey, see~\cite{tkachuk2011cp}.
 
 \section{Compositional Computation Structures: \\
-A structural approach to arbitrary-precision arithmetic}
+A structural approach to arbitrary-precision computations}
 \label{S:CCS}
 
-In this section, we connect function spaces with arbitrary-precision arithmetic computations.
+In this section, we connect function spaces with arbitrary-precision computations.
 We start by summarizing some basic concepts from~\cite{alva2024approximability}.
 
 \subsection{Computation States Structures}
@@ -628,9 +628,13 @@ Elements $\mathbf{v}\in\mathcal{L}\setminus L$ are \emph{unrealized} state types
 \end{defn}
 
 Intuitively, state types capture a notion of ``limit state''.
+The $P$-th coordinate map (natural projection) $\mathbb{R}^{\mathcal{P}}\to \mathbf{R}: \mathbf{v} = (\mathbf{v}_P)_{\mathit{P}\in \mathcal{P}}\mapsto \mathbf{v}_P$, gives a continuous extension to~$\mathcal{L}$ of the predicate $P(\cdot)$ on~$L$;
+abusing notation, the extension will still be denoted~$P(\cdot)$.
 
 \begin{rem}\label{rem:poor-mans-ultraprod}
-  Just as $L$ is identified with a subset of~$\mathcal{L}$, but going in the opposite direction, one may regard unrealized state types as “hyper-states” (when such type is obtained as a sequential limit—or ultralimit—of realized state types, unrealized state types may be called “deep states”).  For readers versed in model theory, at least for the purpose of realizing state types with parameters in~$L$, the type space $\mathcal{L}$ serves as a “poor man’s” ultraproduct $(\mathcal{L}, \mathcal{P})$ of~$(L, \mathcal{P})$, where the semantic interpretation of any predicate $P$ on $\mathcal{L}\subseteq\mathbb{R}^{\mathcal{P}}$ is as the $P$-th coordinate (projection), which is evidently a continuous extension of the predicate $P(\cdot)$ on~$L\subseteq \mathcal{L}$.
+  Just as $L$ is identified with a subset of~$\mathcal{L}$, but going in the opposite direction, one may regard unrealized state types as “hyper-states” (when such type is obtained as a sequential limit—or ultralimit—of realized state types, unrealized state types may be called “deep states”).
+  A comment for readers versed in model theory:
+  at least for the purpose of realizing state types with parameters in~$L$, the type space $(\mathcal{L}, \mathcal{P})$ serves as a “poor man’s” ultraproduct of~$(L, \mathcal{P})$ where each type $\mathbf{v}$ is realized by the very definition of~$\mathcal{L}$.
 \end{rem}
 
 \subsubsection{Bounds on precision and magnitude. Shards}
@@ -647,13 +651,13 @@ This leads to the concept of \emph{shard} first introduced in~\cite{alva2024appr
 \begin{defn}
   Fix a computation states structure $\underline{L} = (L, \mathcal{P})$, with $L\subseteq \mathbb{R}^{\mathcal{P}}$ implicitly identified with its type space.
   A \emph{sizer} is a family $r_{\bullet}=(r_P)_{P\in\mathcal{P}}$ of positive real numbers, indexed by~$\mathcal{P}$.
-  Given a sizer $r_\bullet$, let $\mathbb{R}^{[\rb]} = \prod_{P\in\mathcal{P}}[-r_P,r_P]$ (a compact space), and let the $r_\bullet$-\emph{shard} of the states space~$L$ be
+  Given a sizer $r_\bullet$, let $\mathbb{R}[\rb] = \prod_{P\in\mathcal{P}}[-r_P,r_P]$ (a compact space), and let the $r_\bullet$-\emph{shard} of the states space~$L$ be
 \[
-L[r_\bullet] = L\cap \mathbb{R}^{[\rb]}.
+L[r_\bullet] = L\cap \mathbb{R}[\rb].
 \]
 
 For a sizer  $r_{\bullet}$, the \emph{$r_{\bullet}$-type shard} is defined as $\mathcal{L}[r_\bullet]=\overline{L[r_\bullet]}$
-(a closed, hence compact subset of $\mathbb{R}^{[\rb]}$).
+(a closed, hence compact subset of $\mathbb{R}[\rb]$).
 
 Let also $\mathcal{L}_{\text{sh}}$ (the space of \emph{shard-supported types}) be the union of all type-shards as the sizer $r_{\bullet}$ varies.
 \end{defn}
@@ -688,6 +692,7 @@ A subset $\Delta\subseteq\Gamma$ is \emph{$R$-confined} if each $\gamma\in \Delt
 
 Unlike its subspace $L^L$ (a topological semigroup), the space $\mathcal{L}^L$ does not have a natural semigroup structure, so ultracomputations are not generally composable.
 Intuitively, ultracomputations are “final” or “ultimate”.
+% \footnote{Using the semigroup structure of the Stone-Čech semigroup $\beta\Gamma$ one may compose ultracomputations in a certain abstract sense (cf., the semigroup $\beta\mathbb{N}$ mentioned in footnote~\ref{fn:id-ufilters}).}
 
 \begin{prop}\label{prop:confined-compact}
   If $\Delta\subseteq\Gamma$ is confined by an exhaustive sizer collection, then $\overline{\Delta}$ is a compact subset of~$\Lshard^L$.
