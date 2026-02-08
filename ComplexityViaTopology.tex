@@ -784,16 +784,41 @@ For a more detailed discussion of the Extendibility Axiom, we refer the reader t
 \subsection{Newton's method as a CCS}\label{subsec: Newton method}
 We formalize the Newton-Raphson root-finding method as a CCS~\cite{Galantai200025}, \cite[Section~2.3]{Burden2016numerical}.
 
-Recall that any rational map of the complex plane~$\mathbb{C}$ extends continuously to the extended complex plane $\hat{\mathbb{C}} = \mathbb{C}\cup\{\infty\}$.
-The \emph{Riemann sphere} is the unit sphere $S^2\subseteq \mathbb{R}^3$ endowed with the stereographic projection map $\mathrm{StPr}: S^2\to\hat{\mathbb{C}}$, whose \emph{inverse} $\mathrm{StIn}^{-1}: \hat{\mathbb{C}}\rightarrow S^2$ is given by $z \mapsto  (P_1(z), P_2(z), P_3(z))$, where $(P_1(\infty), P_2(\infty), P_3(\infty)) = (0,0,1)$ and, for $z\ne\infty$,
+Let $\hat{\mathbb{C}} = \mathbb{C}\cup\{\infty\}$ be the extended complex plane (the Alexandroff —one-point— compactification of~$\mathbb{C}$).
+We regard the unit sphere $S^2\subseteq \mathbb{R}^3$ as the Riemann sphere and endowed with the stereographic projection map $S^2\to\hat{\mathbb{C}}$ —a topological homeomorphism whose \emph{inverse} $\hat{\mathbb{C}}\rightarrow S^2$ is given by $z \mapsto  (P_1(z), P_2(z), P_3(z))$, where $(P_1(\infty), P_2(\infty), P_3(\infty)) = (0,0,1)$ and, for $z\ne\infty$,
   \begin{align*}
     P_1(z) &= \frac{2{\Re}(z)}{|z|^2+1},&
     P_2(z) &= \frac{2{\Im}(z)}{|z|^2+1},&
     P_3(z) &= \frac{|z|^2-1}{|z|^2+1}.
   \end{align*}
-The extended complex plane $\hat{\mathbb{C}}$ is thus endowed with the real predicates $P_1, P_2, P_3$ with values in~$[-1,1]$, and metrized by the pullback of the usual Euclidean metric on~$S^2$.
+  The extended complex plane $\hat{\mathbb{C}}$ is thus endowed with the real predicates $P_1, P_2, P_3$ with values in~$[-1,1]$;
+  its topology is metrized by the pullback of the usual Euclidean metric on~$S^2$.
 
-Let $p(z)$ be a non-constant polynomial with complex coefficients.
+Let $p = p(z)$ be a non-constant polynomial with complex coefficients.%
+\footnote{The entire discussion of Newton CCSs applies, \emph{mutatis mutandis,} to rational maps~$p$.}
+The \emph{Newton method step} (or \emph{Newton map}) for $p$ is the map
+\begin{equation*}
+  N_p: z \mapsto z-\frac{p(z)}{p'(z)}.
+\end{equation*}
+Now, if one wishes to interpret such map as a (complex-valued) function of a complex variable, its natural domain $\mathbb{C}\setminus \mathcal{Z}(p')$ excludes all roots of~$p'$.
+% where $\mathcal{Z}(q)$ denotes the set of roots (“zero set”) of a given complex polynomial~$q$.
+If one wishes to iterate the Newton map indefinitely, the natural domain is
+\begin{equation*}
+  L_p \coloneqq \mathbb{C}\setminus\bigcup_{n\in \mathbb{N}}N_p^{-n}[\mathcal{Z}(p')]
+  =
+  \{z\in \mathbb{C}: \text{$N_p^{(n)}(z)\notin \mathcal{Z}(p')$ for all $n\in\mathbb{N}$}\}.
+\end{equation*}
+On the other hand, any rational map extends continuously to an analytic (meromorphic) function on the extended complex plane, so $N_p$ naturally defines a map $\hat{\mathbb{C}} \to \hat{\mathbb{C}}$.
+
+Successive iterations of the Newton-Raphson method (i.e., compositional powers~$N_p^{(n)}$) may be regarded as computations of a suitable CCS whose states space is perhaps~$L_p\subseteq\mathbb{C}$, or perhaps the full extended complex plane~$\hat{\mathbb{C}}$.
+In the former case, it is natural to use the predicates $X: z\mapsto \Re(z)$ and $Y: z\mapsto \Im z$;
+in the latter, the predicates $P_1, P_2, P_3$ are necessary because $X,Y$ are not defined at~$\infty$.
+
+An important (if somewhat obvious) point is that the choice of predicates on a CCS greatly affect the topologies of itself and of its type space.
+Thus, the type space of $(L_p, \{X, Y\})$ above is $\mathbb{R}^2$ ($\cong \mathbb{C}$), while the type space of $(\hat{\mathbb{C}}, \{P_1, P_2, P_3\})$ is $S^2$ $\cong \hat{\mathbb{C}}$.
+All $\{P_1, P_2, P_3\}$-types are realized in~$\hat{\mathbb{C}}$, but not all $\{X, Y\}$-types are realized in~$L_p$ (let alone all $\{P_1, P_2, P_3\}$-types).
+
+
 We say that $(L_p,\mathcal{P},\Gamma_p)$ is \emph{Newton's method for $p(z)$} if:
 \begin{itemize}
 \item $\mathcal{P}:=\{P_1,P_2,P_3\}$ as above;
@@ -913,8 +938,7 @@ In Figure~2(\textsc{C}), one sees a Fatou set consisting of solid-color (disconn
 \end{figure}
 
 \begin{prop}
-    Let $p(z)$ be a non-constant polynomial. 
-    $(L_p,\mathcal{P},\Gamma_p)$ satisfies the Extendibility Axiom.
+    If $p(z)$ is a non-constant polynomial, then $(L_p,\mathcal{P},\Gamma_p)$ satisfies the Extendibility Axiom.
 \end{prop}
 
 \begin{proof}
@@ -962,20 +986,13 @@ Let us look at various examples:
 \end{exmp}
 
 \begin{exmp}
-    \textbf{Newton's method for $p(z)=z^3-2z+2$}.
+    \textbf{Newton's method for $p(z) = z^3-2z+2$}.
         Let $B_i$, $B_{\pm1}$ be the basin of the root $r_i$ ($i = 0, \pm1$), and let $B$ be the basin of the attractive cycle 0, 1, 0, 1, \dots.
-        It may be shown that the Fatou set of $N_p$ is $L_p = B \cup \bigcup_{i=0,\pm1}B_i$, each of these four sets being nonempty open.
+        It may be shown that the Fatou set of $N_p$ is $F_p = B \cup \bigcup_{i=0,\pm1}B_i$, each of these four sets being nonempty open.
         Since $B$ is nonempty, $N_p^n$ does not converge pointwise;
-        however, the subsequences $N_p^{2n}$ and $N_p^{2n+1}$ are pointwise convergent two distinct deep computations $f_0$ (constant $0$ on~$B$) and $f_1$ (constant $1$ on~$B$).
-        However, since $\mathcal{L}=S^2$ is compact there is a subsequence of $\tilde{N_p^n}(z)$ that converges to $\infty$.
-        We can extend $f_i:L_p\rightarrow\mathcal{L}$ to $\tilde{f_i}:\mathcal{L}\rightarrow\mathcal{L}$ by:
-        \[
-	\tilde{f_i}(z)=\begin{cases}
-           f_i(z), & \text{if }z\in L_p;\\
-           \infty, & \text{if }z\notin L_p.
-        \end{cases}
-        \]
-        Again, note that $\tilde{f_i}$ for $i=1,2$ are not continuous and that $\tilde{f_i}\in\overline{\tilde{\Gamma}}$.
+        however, the subsequences $N_p^{2n}$ and $N_p^{2n+1}$ are pointwise convergent to two distinct deep computations $f_0$ (constant $0$ on~$B$) and $f_1$ (constant $1$ on~$B$).%
+        \footnote{As remarked above, $\infty$ is a repelling fixed point of $N_p$, hence $f_0(\infty) = \infty = f_1(\infty)$.}
+        The behavior of the iterates $N_p$ on the Julia set $\mathbb{C}\setminus L_p$ is chaotic
 \end{exmp}
 
 \subsection{Finite precision threshold classifiers as a CCS}\label{subsec:finite_prec_threshold}
