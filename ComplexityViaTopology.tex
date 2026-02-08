@@ -567,18 +567,18 @@ The following are equivalent for every $L\subseteq X$:
 \begin{proof}
     We prove the non-trivial implication (i)$\Rightarrow$(ii) only.
 Suppose that (ii) does not hold, i.e., that there are $\{f_n\}_{n\in\mathbb{N}}\subseteq A$ and $a<b$ such that for all finite disjoint $E,F\subseteq\mathbb{N}$:
-    \begin{equation*}
+    \[
 	\overline{L}\cap\bigcap_{n\in E}f_n^{-1}(-\infty,a]\cap\bigcap_{n\in F}f_n^{-1}[b,\infty)\neq\emptyset.
-    \end{equation*}
+    \]
     Pick $a'<b'$ such that $a<a'<b'<b$.
 Then, for any finite disjoint $E,F\subseteq\mathbb{N}$ we can choose
-    \begin{equation*}
+    \[
 	x\in\overline{L}\cap\bigcap_{n\in E}f_n^{-1}(-\infty,a')\cap\bigcap_{n\in F}f_n^{-1}(b',\infty)
-    \end{equation*}
+    \]
     By definition of closure:
-    \begin{equation*}
+    \[
 	L\cap\bigcap_{n\in E}f_n^{-1}(-\infty,a']\cap\bigcap_{n\in F}f_n^{-1}[b',\infty)\neq\emptyset.
-    \end{equation*}
+    \]
     This contradicts (i).
 \end{proof}
 
@@ -937,54 +937,44 @@ Let us look at various examples:
         extended to a projective transformation of $\RP^1 = \mathbb{R}\cup\{\infty\}$ by $\infty \mapsto (P_1(\infty), P_2(\infty)) = (0, 1)$.
         Let $\mathcal{P}=(P_1,P_2)$ and $\Gamma=\{N_p^n:n\in\mathbb{N}\}$, where $N_p: \RP^1\rightarrow\RP^1$ is given by
         \begin{equation*}
-          N_p: x \mapsto x - \frac{x^2-a}{2x}
+          x \mapsto x - \frac{x^2-a}{2x}
           =
           \begin{cases}
             \frac{x^2+a}{2x} & (x\ne0,\infty),\\
             \infty & (x=0, \infty).
           \end{cases}
         \end{equation*}
-        As before, $(L,\mathcal{P},\Gamma)$ is a CCS with $L \coloneqq \RP^1\setminus\{0,\infty\} = \mathbb{R}\setminus\{0\}$.
-        For every initial guess $x\in L$, the limit $f(x)=\lim_{n\rightarrow\infty}N_p^n(x)$ converges pointwise to one of the roots.
-        Moreover,
-        \begin{equation*}
-          f(x)
+        As before, $(L,\mathcal{P},\Gamma)$ is a CCS with $L \coloneqq \RP^1\setminus\{0,\infty\} = \mathbb{R}\setminus\{0\}$ whose type space is $\mathcal{L} = S^1\cong\RP^1$.
+        In fact (with the identification $\mathcal{L}\cong\RP^1$), the (full) sequence if iterates of the Newton map has a pointwise limit $\mathfrak{f}: \mathcal{L}\to \mathcal{L}$, namely
+        \[
+          \mathfrak{f}(x)
+          =
+          \lim_{n\rightarrow\infty}N_p^n(x)
           =
           \begin{cases}
-            \sqrt{a} & (x>0),\\
-            -\sqrt{a} & (x<0).
-          \end{cases}
-        \end{equation*}
-        Notice that $f$ can be extended to $\mathcal{L}$ by
-        \begin{equation*}
-          \tilde{f}(x)=\begin{cases}
-            \sqrt{a}, & (x>0),\\
-            -\sqrt{a}, & (x<0),\\
-            \infty, & (x=0,\infty).
-          \end{cases}
-        \end{equation*}
-        However, $\tilde{f}:\mathcal{L}\rightarrow\mathcal{L}$ is not continuous.
-        The set $\overline{\tilde{\Gamma}}$ of deep computations is $\tilde{\Gamma}\cup\{\tilde{f}\}\subseteq B_1(\mathcal{L},\mathcal{L})$.
+          \sqrt{a} & (x>0),\\
+          -\sqrt{a} & (x<0),\\
+          \infty & (x = 0, \infty).
+        \end{cases}
+        \]
+        Thus, $\mathfrak{f}$ is discontinuous at $x = 0, \infty$.
+        The set of deep computations is $\{N_p^n\}_n\cup\{\mathfrak{f}\}\subseteq B_1(\mathcal{L},\mathcal{L})$.
 \end{exmp}
 
 \begin{exmp}
     \textbf{Newton's method for $p(z)=z^3-2z+2$}.
-        Let $r_1$, $r_2$ and $r_3$ be the three roots of $p(z)$.
-        Let $B_1$, $B_2$ and $B_3$ be their respective basins.
-        Let $B$ be the basin of the attractive cycle $0,1,0,1,\dots$.
-        Then, $L_p=B\cup\bigcup_{i=1}^3 B_i$.
-        Notice that $N_p^n$ does not converge pointwise.
-        However, the subsequences $N_p^{2n}$ and $N_p^{2n+1}$ are pointwise convergent to functions $f_1$ and $f_2$ respectively.
-        $f_1$ and $f_2$ are two distinct deep computations.
-        Note that for $z\notin L_p$, no subsequence of $\tilde{N_p^n}(z)$ converges to a complex number.
+        Let $B_i$, $B_{\pm1}$ be the basin of the root $r_i$ ($i = 0, \pm1$), and let $B$ be the basin of the attractive cycle 0, 1, 0, 1, \dots.
+        It may be shown that the Fatou set of $N_p$ is $L_p = B \cup \bigcup_{i=0,\pm1}B_i$, each of these four sets being nonempty open.
+        Since $B$ is nonempty, $N_p^n$ does not converge pointwise;
+        however, the subsequences $N_p^{2n}$ and $N_p^{2n+1}$ are pointwise convergent two distinct deep computations $f_0$ (constant $0$ on~$B$) and $f_1$ (constant $1$ on~$B$).
         However, since $\mathcal{L}=S^2$ is compact there is a subsequence of $\tilde{N_p^n}(z)$ that converges to $\infty$.
         We can extend $f_i:L_p\rightarrow\mathcal{L}$ to $\tilde{f_i}:\mathcal{L}\rightarrow\mathcal{L}$ by:
-        \begin{equation*}
+        \[
 	\tilde{f_i}(z)=\begin{cases}
            f_i(z), & \text{if }z\in L_p;\\
            \infty, & \text{if }z\notin L_p.
         \end{cases}
-        \end{equation*}
+        \]
         Again, note that $\tilde{f_i}$ for $i=1,2$ are not continuous and that $\tilde{f_i}\in\overline{\tilde{\Gamma}}$.
 \end{exmp}
 
@@ -997,9 +987,11 @@ Notice that $L\subseteq\mathbb{R}^{\mathcal{P}}$ is closed.
 Therefore, $\mathcal{L}=L$.
 We denote by $0^\infty$ the infinite binary sequence consisting of $0$s, and by $1^\infty$ the infinite binary sequence consisting of $1$s.
 The set of finite binary strings is denoted by $2^{<\mathbb{N}}$. This set is naturally ordered by the lexicographic order  $\leq_{\mathrm{lex}}$.
-Given a finite binary string $w$, we consider the transition $\phi_w:L\to L$ given by the rule \begin{equation*}
-	\phi_w(x)=\begin{cases}1^\infty, & \text{if }x|_{|w|}\leq_{\mathrm{lex}}w;\\0^\infty, & \text{otherwise},\end{cases}
-\end{equation*} 
+Given a finite binary string $w$, we consider the transition $\phi_w:L\to L$ given by the rule
+\[
+  \phi_w(x)=\begin{cases}1^\infty, & \text{if }x|_{|w|}\leq_{\mathrm{lex}}w;\\
+    0^\infty, & \text{otherwise},\end{cases}
+\] 
 where $|w|$ is the length of the string $w$ and $x|_{|w|}$ is the prefix of $x$ of length $|w|$.
 That is, $\phi_w(x)$ is equal to the constant sequence of ones if $x|_{|w|}$ comes before or is equal to $w$ in the lexicographic order of strings, and it is equal to the constant sequence of zeros otherwise.
 In words, $\phi_w$ checks if a number is less than or equal to the scalar value of threshold $w$ (the string $w$ is finite, hence the classifier has \emph{finite precision}).
@@ -1011,12 +1003,12 @@ Note that $P_n\circ\phi_w(x)=1$ if and only if $x|_{|w|}$ comes before $w$.
 
 \begin{proof}
     It suffices to prove that $P_n\circ\phi_w:2^{\mathbb{N}}\rightarrow \{0,1\}$ is continuous for all $n\in\mathbb{N}$. For simplicity, let us call $f:=P_n\circ \phi_w$, i.e.,
-    \begin{equation*}
+    \[
 	f(x)=\begin{cases}
         1, & \text{if }x|_{|w|}\leq_{\mathrm{lex}} w;\\
         0, & \text{otherwise}.
     \end{cases}
-    \end{equation*}
+    \]
     We first observe that $f^{-1}(1)=\{x\in 2^{\mathbb{N}}:x|_{|w|}\leq_{\mathrm{lex}} w\}$ is an open set. 
     Fix $x_0\in f^{-1}(1)$. Let $t:=x_0|_{|w|}$ and consider the basic open set $[t]=\{x\in 2^{\mathbb{N}}:x|_{|t|}=t\}$. 
     Then it is not difficult to check that $x_0\in [t]\subseteq f^{-1}(1)$. 
@@ -1088,12 +1080,12 @@ Indeed, $\overline{P_n\circ \Delta}$ contains the \emph{Split Cantor} space for 
 In this subsection we present another example of a CCS with a more complicated set of deep computations. 
 Let $L=2^\mathbb{N}$ and $\mathcal{P}=\{P_n:n\in\mathbb{N}\}$ where $P_n(x)=x(n)$ are the projection maps so clearly $L\subseteq\mathbb{R}^\mathcal{P}$ and $\mathcal{L}=L$ (same computation states structure as subsection \ref{subsec:finite_prec_threshold}).
 For each $w\in 2^{<\mathbb{N}}$, let $\psi_w:L\rightarrow L$ be the transition given by:
-\begin{equation*}
+\[
 	\psi_w(x)=\begin{cases}
     1^\infty, & \text{if }x|_{|w|}=w;\\
     0^\infty, & \text{otherwise}.
 \end{cases}
-\end{equation*}
+\]
 In other words, $\psi_w$ determines whether the first $|w|$ bits of a binary sequence is exactly $w$. 
 Let $\Delta=\{\psi_w:w\in 2^{<\mathbb{N}}\}$ and $\Gamma$ be the semigroup generated by $\Delta$. 
 Since the sets $\{x\in 2^\mathbb{N}:x|_{|w|}=w\}$ are open and closed in $2^\mathbb{N}$, we see that the transitions $\psi_w$ are all continuous.
@@ -1153,9 +1145,10 @@ The following are equivalent.
 
     \begin{enumerate}[(i)]
         \item $\overline{\tilde\Delta|_{\mathcal{L}[r_\bullet]}}\subseteq B_1(\mathcal{L}[r_\bullet],\mathcal{L}[r_\bullet])$ for all $r_\bullet\in R$;
-        \item $\pi_P\circ \Delta|_{L[r_\bullet]}$ satisfies the NIP for all $P\in\mathcal{P}$ and $r_\bullet\in R$; that is, for all $P\in\mathcal{P}$, $r_\bullet\in R$, $a<b$, $\{\gamma_n\}_{n\in\mathbb{N}}\subseteq\Delta$ there are finite disjoint $E,F\subseteq\mathbb{N}$ such that \begin{equation*}
+        \item $\pi_P\circ \Delta|_{L[r_\bullet]}$ satisfies the NIP for all $P\in\mathcal{P}$ and $r_\bullet\in R$; that is, for all $P\in\mathcal{P}$, $r_\bullet\in R$, $a<b$, $\{\gamma_n\}_{n\in\mathbb{N}}\subseteq\Delta$ there are finite disjoint $E,F\subseteq\mathbb{N}$ such that
+    \[
 	L[r_\bullet]\cap\bigcap_{n\in E}(\pi_P\circ\gamma_n)^{-1}(-\infty,a]\cap\bigcap_{n\in F}(\pi_P\circ\gamma_n)^{-1}[b,\infty)=\emptyset.
-\end{equation*}
+    \]
     \end{enumerate}
 
     Moreover, if any (hence all) of the preceding conditions hold, then every deep computation $f\in\overline{\Delta}$ can be extended to a Baire-1 function on shards, i.e., there is $\tilde f:\mathcal{L}_{\text{sh}}\rightarrow \mathcal{L}_{\text{sh}}$ such that $\tilde f|_{\mathcal{L}[r_\bullet]}\in B_1(\mathcal{L}[r_\bullet],\mathcal{L}[r_\bullet])$ for all $r_{\bullet}\in R$.
@@ -1247,18 +1240,18 @@ It is homeomorphic to the space $2^{\mathbb{N}}\times\{0,1\}$ with the lexicogra
     \item \emph{Alexandroff Duplicate}.
 Let $K$ be any compact metric space and consider the Polish space $X=K\sqcup C(K)$, i.e., the disjoint union of $C(K)$ (continuous functions on $K$ with the supremum norm topology) and $K$.
 For each $a\in K$ define $g_a^0,g_a^1:X\rightarrow\mathbb{R}$ as follows:
-    \begin{equation*}
+    \[
 	g_a^0(x)=\begin{cases}
         0, & \text{if }x\in K\\
         x(a), & \text{if }x\in C(K);
     \end{cases}
-    \end{equation*}
-    \begin{equation*}
+    \]
+    \[
 	g_a^1(x)=\begin{cases}
         \delta_a(x), & \text{if }x\in K;\\
         x(a), & \text{if }x\in C(K).
     \end{cases}
-    \end{equation*}
+    \]
     Let $D(K)=\{g_a^0:a\in K\}\cup\{g_a^1:a\in K\}$.
 Observe that all points $g_a^1$ are isolated and that open neighborhoods of $g_{a_0}^0$ are of the form $\{g_a^i:a\in U,i\in\{0,1\}\}\setminus\{g_a^1:a\in F\}$ where $U\subseteq K$ is an open neighborhood of $a_0$ and $F\subseteq K$ is a finite set.
 Another abstract way in which this space is presented is as the space $K\times\{0,1\}$ whose basic open neighborhoods are given as before, identifying $(a,0)\mapsto g_a^0$ and $(a,1)\mapsto g_a^1$.
@@ -1271,13 +1264,13 @@ For example, the closure of the set $\{(v_s,s^\frown 0^\infty):s\in 2^{<\mathbb{
     \item \emph{Extended Alexandroff Duplicate of the Split Cantor}.
 For each finite binary sequence $t\in 2^{<\mathbb{N}}$ let $a_t\in 2^\mathbb{N}$ be the sequence starting with $t$ and ending with $0$'s and let $b_t\in 2^\mathbb{N}$ be the sequence starting with $t$ and ending with $1$'s.
 Define $h_t:2^\mathbb{N}\rightarrow\mathbb{R}$ by
-    \begin{equation*}
+    \[
 	h_t(x)=\begin{cases}
         0, & \text{if }x<a_t;\\
         1/2, & \text{if }a_t\leq x \leq b_t;\\
         1, & \text{if }b_t<x.
     \end{cases}
-    \end{equation*}
+    \]
     Let $\hat{D}(S(2^\mathbb{N}))$ be the pointwise closure of the set $\{h_t:t\in 2^{<\mathbb{N}}\}$.
     The identification $h_t\mapsto (v_t,f_{t^\frown 0^\infty}^+)$ lifts to a homeomorphism between $\hat{D}(S(2^\mathbb{N}))$ and the subspace of $\hat{A}(2^\mathbb{N})\times S(2^\mathbb{N})$ consisting of $(\mathbf{0},f_a^+)$, $(\mathbf{0},f_a^-)$, $(\delta_a,f_a^+)$ and $(v_t,f_{t^\frown 0^\infty}^+)$ for $a\in 2^{\mathbb{N}}$ and $t\in 2^{<\mathbb{N}}$ (see 4.3.7 in \cite{argyros2008rosenthal}).
 Hence, $\hat{D}(S(2^\mathbb{N}))$ is a separable first countable Rosenthal compactum which is not hereditarily separable.
@@ -1339,13 +1332,13 @@ The following examples show that the levels NIP$_i$ ($i=1,2,3$) may be distingui
     Hence, $\Delta$ is NIP$_2$ but not NIP$_3$.
 
     \item Let $(L,\mathcal{P},\Gamma)$ be the CCS given by $L=2^{\mathbb{N}}$, $\mathcal{P}=\{P_n:n\in\mathbb{N}\}$ and $\Gamma$ is the semigroup generated by $\Delta=\{\gamma_t:t\in 2^{<\mathbb{N}}\}$, where $P_n:2^\mathbb{N}\rightarrow\{0,1\}$ is the projection map $P_n(x)=x(n)$ and $\gamma_t:L\rightarrow L$ is given by
-    \begin{equation*}
+    \[
 	\gamma_t(x)=\begin{cases}
         0^\infty, & \text{if }x<_{\text{lex}}t^\frown0^\infty;\\
         (01)^\infty, & \text{if }t^\frown0^\infty\leq_{\text{lex}} x \leq_{\text{lex}} t^\frown1^\infty;\\
         1^\infty, & \text{if }t^\frown1^\infty<_{\text{lex}}x.
     \end{cases}
-    \end{equation*}
+    \]
     where $(01)^\infty$ denotes the sequence of alternating bits: $010101\cdots$. 
     As in the other examples, it is not difficult to see that $(L,\mathcal{P},\Gamma)$ satisfies the Extendibility Axiom.
     For example, the condition $t^\frown0^\infty\leq_{\text{lex}} x \leq_{\text{lex}} t^\frown1^\infty$ is equivalent to $x$ extending $t$.
@@ -1590,9 +1583,9 @@ Suppose that $X$ is a compact Hausdorff space and $A\subseteq \mathbb{R}^X$.
 Let $\mu$ be a Radon probability measure on $X$.
 Given a $\mu$-measurable set $E\subseteq X$, a positive integer $k$ and real numbers $a<b$, we write:
 
-\begin{equation*}
+\[
 	D_k(A,E,a,b)=\bigcup_{f\in A}\{x\in E^{2k}:f(x_{2i})\leq a, \hspace{1mm} f(x_{2i+1})\geq b \hspace{1mm}{\text{ for all }i<k} \}.
-\end{equation*}
+\]
 
 We say that $A$ is \emph{Talagrand $\mu$-stable} if and only if for every $\mu$-measurable set $E\subseteq X$ of positive measure and for every $a<b$ there is a $k\geq 1$ such that
 \[
@@ -1612,9 +1605,9 @@ But first,  let us state  the following useful characterization of measurable fu
         \item $(X,\Sigma,\mu)$ is semi-finite, i.e., for all $E\in\Sigma$ with $\mu(E)=\infty$ there exists $F\subseteq E$ such that $F\in\Sigma$ and $0<\mu(F)<\infty$.
         \item $(X,\Sigma,\mu)$ is saturated, i.e., $E\in\Sigma$ if and only if $E\cap F\in\Sigma$ for all $F\in\Sigma$ with $\mu(F)<\infty$.
         \item $(X,\Sigma,\mu)$ is inner regular with respect to $\mathcal{K}$, i.e., for all $E\in\Sigma$
-        \begin{equation*}
+        \[
 	\mu(E)=\sup\{\mu(K):K\in\mathcal{K} \text{ and } K\subseteq E\}.
-        \end{equation*}
+        \]
     \end{enumerate}
     (In particular, if $X$ is compact Hausdorff, $\mu$ is a Radon probability measure on $X$, $\Sigma$ is the completion of the Borel $\sigma$-algebra by $\mu$, and $\mathcal{K}$ is the collection of compact subsets of $X$, all these conditions hold).
     Then, $f:X\rightarrow\mathbb{R}$ is measurable if and only if for every $K\in\mathcal{K}$ with $0<\mu(K)<\infty$ and $a<b$, either $\mu^*(P)<\mu(K)$ or $\mu^*(Q)<\mu(K)$ where $P=\{x\in K:f(x)\leq a\}$ and $Q=\{x\in K:f(x)\geq b\}$.
