@@ -114,7 +114,12 @@ In this paper we  study asymptotic behavior of computations as parameters of the
 Recently, particular cases of this concept have attracted considerable attention in deep learning research (e.g., Neural Ordinary Differential Equations~\cite{Chen:2018}, Physics-Informed Neural Networks~\cite{Raissi-Perdikaris-Karniadakis:2019}, and Deep Equilibrium Models~\cite{Bai:2019}).
 The formal framework introduced here  provides a unified setting to study these limit phenomena from a foundational viewpoint.
 
+The main result of the paper is the identification of a hierarchy of four distinct complexity classes for limit computations, and seven minimal prototypes. 
+This is obtained by invoking results from topology of spaces of functions.
+Specifically, we apply Todorčević’s trichotomy for function spaces~\cite{Todorcevic_1999_CompactSubsetsBaire} and the Argyros-Dodos-Kanellopoulos heptachotomy~\cite{argyros2008rosenthal} into the realm of limit computations.
+The medium that we use to translate between topology and computation is model theory, specifically, Shelah's classification theory~\cite{Shelah:1990}.
 
+The translation between topology and computation proceeds as follows.
 To every computation in a given computation model, we associate a continuous real-valued function, called the \emph{type} of the computation, that describes the logical properties of this computation with respect to the rest of the model.
 This allows us to view computations in any given computational model as elements of a space of real-valued functions, which is called the \emph{space of types} of the model.
 The idea of embedding models of theories into their type spaces is borrowed from model theory, where types spaces play a central role.
@@ -129,8 +134,6 @@ in logic, the classification of theories developed by Shelah~\cite{Shelah:1990};
 
 In a previous paper~\cite{alva2024approximability}, the authors introduced the concept of limits of computations, which they called \emph{ultracomputations} (given that they arise as ultrafilter limits of standard computations) and \emph{deep computations} (following usage in machine learning~\cite{Bai:2019}).
 There is a technical difference between both designations, but in this paper, to simplify the nomenclature, we will ignore the difference and use only the term ``deep computation’’.
-
-
 
 In \cite{alva2024approximability},  a new ``tame vs wild'' (i.e., polynomially approximable vs nonpolynomially approximable) dichotomy for the complexity of deep computations was proved by invoking a classical result of Grothendieck from the 1950s~\cite{Grothendieck:1952}.
 Under our model-theoretic Rosetta stone, the property of polynomial approximability of computations is identified with continuous extendibility in the sense of topology, and with the notions of \emph{stability} and \emph{type definability} in the sense of model theory.
