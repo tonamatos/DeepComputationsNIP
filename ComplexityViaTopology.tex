@@ -1169,9 +1169,19 @@ This space also contains a discrete subspace of size continuum, namely $\{\delta
 
 \subsection{NIP, Rosenthal compacta, and deep computations}
 
-%Under what conditions are deep computations Baire class~1, and thus well-behaved according to our framework, on type-shards? 
-The following theorem says that, under the assumption that $\mathcal{P}$ is countable, the space of deep computations is a Rosenthal compactum (when restricted to shards) if and only if the set of computations satisfies the NIP feature by feature.
-This will allow us to apply the theory of Rosenthal compacta to the framework of deep computations.
+This is the main section of the paper.
+We use topology of function spaces to obtain a new classification for the complexity of deep computations.
+The main topological result that allows us to attain this new classification is Todorčević's remarkable trichotomy~\cite{Todorcevic_1999_CompactSubsetsBaire}. 
+Our inspiration for this is the work of Glasner and Megrelishvili on topological dynamics~\cite{glasner2022tame}.
+In subsection~\ref{S:trichotomy}, we study the implications of Todorčević's  trichotomy in the context of deep computations;
+then, in subsection~\ref{S:heptachotomy}, we focus on the  more recent heptachotomy for separable Rosenthal compacta proved by Argyros, Dodos and Kanellopoulos~\cite{argyros2008rosenthal}.
+Since our interest is in applications to  the theory of computation, we focus on countable sets of computations, and in compositional computational structures where the set $\mathcal{P}$ of predicates is countable.
+In this section,
+
+
+The following theorem is the cornerstone of the section, as it established the main link between deep computations and Rosenthal compacta; it states that, under the assumption that $\mathcal{P}$ is countable, 
+the space of deep computations is a Rosenthal compactum (when restricted to shards) if and only if the set of computations satisfies the NIP feature by feature.
+
 
 \begin{thm}\label{nip-baire1def}
     Let $(L,\mathcal{P},\Gamma)$ be a compositional computational structure (Definition~\ref{D:CCS}) satisfying the Extendibility Axiom (see Definition~\ref{D:extendibility axiom}) with $\mathcal{P}$ countable.
@@ -1203,12 +1213,9 @@ That every deep computation is a pointwise limit of a countable sequence of comp
 \end{proof}
 
 \subsection{The Todorčević trichotomy, and levels of NIP and PAC learnability}
-
-By Theorem \ref{nip-baire1def}, if $\Delta$ is a countable set of computations satisfying the NIP on features and shards, 
-then for each fixed sizer $r_\bullet$  the set $\overline{\tilde\Delta_{\mathcal{L}[r_\bullet]}}$ is a separable Rosenthal compactum (see Definition~\ref{D:Rosenthal compacta}). 
-In 1999, Todorčević proved a remarkable trichotomy for Rosenthal compacta~\cite{Todorcevic_1999_CompactSubsetsBaire}. 
-In this section, inspired by the work of Glasner and Megrelishvili~\cite{glasner2022tame}, we untilize Todorčević's trichotomy to obtain a hierarchy of distinct levels of NIP and PAC-learnability.
-
+\label{S:trichotomy}
+%By Theorem \ref{nip-baire1def}, if $\Delta$ is a countable set of computations satisfying the NIP on features and shards, 
+%then for each fixed sizer $r_\bullet$  the set $\overline{\tilde\Delta_{\mathcal{L}[r_\bullet]}}$ is a separable Rosenthal compactum (see Definition~\ref{D:Rosenthal compacta}). 
 Recall that a topological space $X$ is \emph{hereditarily separable} if every subspace is separable, and that $X$ is \emph{first countable} if every point in $X$ has a countable local basis.
 Every separable metrizable space is hereditarily separable, and R.
 Pol proved that every hereditarily separable Rosenthal compactum is first countable (see section 10 of \cite{debs2013rosenthal}).
@@ -1229,7 +1236,7 @@ We say that $\Delta$ is:
 \end{defn}
 
 Observe that NIP$_3 \Rightarrow $NIP$_2\Rightarrow $NIP$_1\Rightarrow $NIP.
-We now present some separable and non-separable examples of Rosenthal compacta that show that implications are strict.
+We now present examples separable and non-separable examples of Rosenthal compacta that show that implications are strict.
 These examples are due to Todorčević \cite{Todorcevic_1999_CompactSubsetsBaire}.
 
 \begin{exmps}
@@ -1384,6 +1391,7 @@ This raises the following question:
 \end{question}
 
 \subsection{The Argyros-Dodos-Kanellopoulos heptachotomy, and approximability of deep computation by minimal classes}
+\label{S:heptachotomy}
 
 In the three separable cases given in \ref{E:Rosenthal compacta}, namely, $\hat{A}(2^\mathbb{N})$, $S(2^\mathbb{N})$ and $\hat{D}(S(2^\mathbb{N}))$, the countable dense subsets are indexed by the binary tree $2^{<\mathbb{N}}$.
 This choice of index is useful for two reasons:
