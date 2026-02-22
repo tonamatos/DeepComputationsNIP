@@ -1007,24 +1007,46 @@ Let us look at various examples:
         The behavior of the iterates $N_p$ on the Julia set $\mathbb{C}\setminus L_p$ is chaotic
 \end{exmp}
 
-\subsection{Finite precision threshold classifiers as a CCS}\label{subsec:finite_prec_threshold}
+\subsection{Finite-precision threshold classifiers}\label{subsec:finite_prec_threshold}
 
-Let $L=2^\mathbb{N}$, i.e., the set consisting of all infinite binary sequences with the topology of pointwise convergence.
-Let $\mathcal{P}=\{P_n:n\in\mathbb{N}\}$ equal the collection of projections, i.e., $P_n(x)=x(n)$ for each each $x\in L$ and $n\in\mathbb{N}$.
+Consider the states space $L = 2^\mathbb{N}$ ($= \{0,1\}^{\mathbb{N}}$) consisting of all countable binary sequences $x = (x_n)_{n\in \mathbb{N}}\subseteq\{0,1\}$, endowed with the topology of pointwise convergence.
+Let $\mathcal{P}=\{P_n:n\in\mathbb{N}\}$ be the collection of projections (coordinates) $P_n:x \mapsto x_n$.
 %In other words, $P_n$ is the predicate that reads the $n$th digit of an input sequence.
-Notice that $L\subseteq\mathbb{R}^{\mathcal{P}}$ is closed. 
-Therefore, $\mathcal{L}=L$.
-We denote by $0^\infty$ the infinite binary sequence consisting of $0$s, and by $1^\infty$ the infinite binary sequence consisting of $1$s.
-The set of finite binary strings is denoted by $2^{<\mathbb{N}}$. This set is naturally ordered by the lexicographic order  $\leq_{\mathrm{lex}}$.
-Given a finite binary string $w$, we consider the transition $\phi_w:L\to L$ given by the rule
+Since $2^{\mathbb{N}} \subseteq \mathbb{R}^{\mathbb{N}}$ ($\cong \mathbb{R}^{\mathcal{P}}$) is closed, the type space of $(2^{\mathbb{N}},\mathcal{P})$ is $\mathcal{L} = 2^{\mathbb{N}}$ $(= L)$.
+
+Since both the index set $\mathbb{N}$ is well-ordered, and the value space~$2 = \{0, 1\}$ is also ordered (in the usual way), the states space $2^{\mathbb{N}}$ is lexicographically ordered, say by~$\preccurlyeq$.
+
+For any fixed length $n\in \mathbb{N}$, each finite binary string $y\in 2^n$ will be implicitly identified with its zero-extension to a sequence $\iota(y) = (x_i)_{i\in \mathbb{N}} \in 2^{\mathbb{N}}$, given by
+\begin{equation*}
+  x_i
+  =
+  \begin{cases}
+    y_i & (i<n);\\
+    0 & (i\ge n).
+  \end{cases}  
+\end{equation*}
+The set of all finite binary strings is thus identified with the subset $2^{<\mathbb{N}} \coloneqq \bigcup_{n\in \mathbb{N}}2^n \subseteq 2^{\mathbb{N}}$.
+
+The “inclusion map” $\iota$ above has a natural left inverse, namely the restriction map
+\begin{equation*}
+  \cdot\restriction n: 2^{\mathbb{N}}\to 2^n: x\mapsto x\restriction n\coloneqq(x_i)_{i<n}.
+\end{equation*}
+
+For fixed $w\in2^{<\mathbb{N}}$, consider the transition $\phi_w:L\to L$ given by the rule
 \[
-  \phi_w(x)=\begin{cases}1^\infty, & \text{if }x|_{|w|}\leq_{\mathrm{lex}}w;\\
-    0^\infty, & \text{otherwise},\end{cases}
+  \phi_w(x)
+  =
+  \begin{cases}
+    1_{\bullet} & (x|_{|w|}\leq_{\mathrm{lex}});\\
+    0_{\bullet} & (\text{otherwise}),
+  \end{cases}
 \] 
 where $|w|$ is the length of the string $w$ and $x|_{|w|}$ is the prefix of $x$ of length $|w|$.
 That is, $\phi_w(x)$ is equal to the constant sequence of ones if $x|_{|w|}$ comes before or is equal to $w$ in the lexicographic order of strings, and it is equal to the constant sequence of zeros otherwise.
 In words, $\phi_w$ checks if a number is less than or equal to the scalar value of threshold $w$ (the string $w$ is finite, hence the classifier has \emph{finite precision}).
 Note that $P_n\circ\phi_w(x)=1$ if and only if $x|_{|w|}$ comes before $w$.
+
+Denote by $0_{\bullet}$ (resp., $1_{\bullet}$) the constant sequence with value~$0$ (resp., value~$1$).
 
 \begin{prop}
     $\phi_w:2^{\mathbb{N}}\rightarrow 2^{\mathbb{N}}$ is continuous for all $w\in 2^{<\mathbb{N}}$.
