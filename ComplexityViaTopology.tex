@@ -789,14 +789,11 @@ For a more detailed discussion of the Extendibility Axiom, we refer the reader t
 \subsection{Newton's method as a CCS}\label{subsec: Newton method}
 We formalize the Newton-Raphson root-finding method as a CCS~\cite{Galantai200025}, \cite[Section~2.3]{Burden2016numerical}.
 
-\subsubsection{The extended complex plane}
-\label{sec:cplx-extended}
-
 Let $\hatC = \mathbb{C}\cup\{\infty\}$ be the extended complex plane (the Alexandroff —one-point— compactification of~$\mathbb{C}$).
 We regard the unit sphere $S^2\subseteq \mathbb{R}^3$ as the Riemann sphere and endowed with the stereographic projection map $S^2\to\hatC$ —a topological homeomorphism whose \emph{inverse} $\hatC\rightarrow S^2$ is given by $z \mapsto  (P_1(z), P_2(z), P_3(z))$, where $(P_1(\infty), P_2(\infty), P_3(\infty)) = (0,0,1)$ and, for $z\ne\infty$,
   \begin{align*}
-    P_1(z) &= \frac{2{\Re}(z)}{|z|^2+1},&
-    P_2(z) &= \frac{2{\Im}(z)}{|z|^2+1},&
+    P_1(z) &= \frac{2\,\Re{z}}{|z|^2+1},&
+    P_2(z) &= \frac{2\,\Im{z}}{|z|^2+1},&
     P_3(z) &= \frac{|z|^2-1}{|z|^2+1}.
   \end{align*}
   The extended complex plane $\hatC$ is thus endowed with the real predicates $P_1, P_2, P_3$ with values in~$[-1,1]$;
@@ -805,38 +802,33 @@ We regard the unit sphere $S^2\subseteq \mathbb{R}^3$ as the Riemann sphere and 
 \subsubsection{Newton maps}
 \label{sec:Newton-map}
 
-  Let $p = p(z)$ be a non-constant polynomial with complex coefficients.%
-\footnote{The entire discussion of Newton CCSs applies, \emph{mutatis mutandis,} to rational maps~$p$.}
+Let $p = p(z)$ be a non-constant rational map with complex coefficients.
 The \emph{Newton method step} (or \emph{Newton map}) for $p$ is the map
 \begin{equation}\label{eq:Np}
   N_p: z \mapsto z-\frac{p(z)}{p'(z)}.
 \end{equation}
-Now, if one wishes to interpret such map as a (complex-valued) function of a complex variable, its natural domain $\mathbb{C}\setminus \mathcal{Z}(p')$ excludes all roots of~$p'$.
-% where $\mathcal{Z}(q)$ denotes the set of roots (“zero set”) of a given complex polynomial~$q$.
-If one wishes to iterate the Newton map indefinitely, the natural domain is
-\begin{equation*}
-  L_p \coloneqq \mathbb{C}\setminus\bigcup_{n\in \mathbb{N}}N_p^{-n}[\mathcal{Z}(p')]
-  =
-  \{z\in \mathbb{C}: \text{$N_p^{(n)}(z)\notin \mathcal{Z}(p')$ for all $n\in\mathbb{N}$}\}.
-\end{equation*}
-On the other hand, any rational map extends continuously to an analytic (meromorphic) function on the extended complex plane, so $N_p$ naturally defines a map $\hatC \to \hatC$.
+% Now, if one wishes to interpret such map as a (complex-valued) function of a complex variable $z\in \mathbb{C}$, its natural domain excludes all poles of~$p$ and all roots of~$p'$;
+% if one wishes to iterate the Newton map indefinitely, the natural domain is
+% \begin{equation*}
+%   L_p \coloneqq \mathbb{C}\setminus\bigcup_{n\in \mathbb{N}}N_p^{-n}[\mathcal{Z}(p')\cup \mathcal{Z}(1/p)] \subseteq \mathbb{C},
+% \end{equation*}
+% where $\mathcal{Z}(q)$ denotes the set of zeros of an arbitrary rational~$q(z)$, and $\mathcal{Z}(1/q)$ the set of its poles (i.e., zeros of $1/q(z)$).
+Any rational map extends continuously to an analytic (meromorphic) function on the extended complex plane, so $N_p$ naturally defines a map $\hatC \to \hatC$;
+therefore, successive iterations of the Newton-Raphson method (i.e., compositional powers~$N_p^{(n)}$) may be regarded as computations of a CCS whose states space is $L = \hatC$.
+The natural choice of predicates is $\mathcal{P} = (P_1, P_2, P_3)$,
+the inverse stereographic projection coordinates.
+(The real- and imaginary part maps $z\mapsto\Re{z}$, $z\mapsto\Im{Y}$ are not defined at~$z = \infty$.)
 
-Successive iterations of the Newton-Raphson method (i.e., compositional powers~$N_p^{(n)}$) may be regarded as computations of a suitable CCS whose states space is perhaps~$L_p\subseteq\mathbb{C}$, or perhaps the full extended complex plane~$\hatC$.
-In the former case, it is natural to use the predicates $X: z\mapsto \Re z$ and $Y: z\mapsto \Im z$;
-in the latter, the predicates $P_1, P_2, P_3$ are necessary because $X,Y$ are not defined at~$\infty$.
-
-An important (if somewhat obvious) point is that the choice of predicates on a CCS greatly affect the topologies of itself and of its type space.
-Thus, the type space of $(L_p, \{X, Y\})$ above is $\mathbb{R}^2$ ($\cong \mathbb{C}$), while the type space of $(\hatC, \{P_1, P_2, P_3\})$ is $S^2$ $\cong \hatC$.
-All $\{P_1, P_2, P_3\}$-types are realized in~$\hatC$, but not all $\{X, Y\}$-types are realized in~$L_p$ (let alone all $\{P_1, P_2, P_3\}$-types).
+% An important (if somewhat obvious) point is that the choice of predicates on a CCS greatly affect the topologies of itself and of its type space.
+% Thus, the type space of $(L_p, \{X, Y\})$ above is $\mathbb{R}^2$ ($\cong \mathbb{C}$), while the type space of $(\hatC, \{P_1, P_2, P_3\})$ is $S^2$ $\cong \hatC$.
+% All $\{P_1, P_2, P_3\}$-types are realized in~$\hatC$, but not all $\{X, Y\}$-types are realized in~$L_p$ (let alone all $\{P_1, P_2, P_3\}$-types).
 
 \subsubsection{Newton CCSs}
 \label{sec:Newton-CCS}
-Per the discusion above, we choose to discuss the Newton-Raphson method as a CCS whose states space is the extended complex plane~$\hatC$.
-
-Let $p = p(z)$ be a nonconstant complex polynomial.
-We say that $(\hatC,\mathcal{P},\Gamma_p)$ is \emph{Newton's method for~$p(z)$} if:
+Let $p = p(z)$ be a nonconstant rational map $\hatC\to\hatC$.
+We say that the CCS $(\hatC, \mathcal{P}, \Gamma_p)$ is \emph{Newton's method for~$p(z)$} (or the \emph{Newton CCS for~$p(z)$}) if:
 \begin{itemize}
-\item $\mathcal{P}:=\{P_1,P_2,P_3\}$ are the coordinates of inverse steregraphic projection (as above);
+\item $\mathcal{P}:=(P_1,P_2,P_3)$ are the coordinates of inverse steregraphic projection (as above);
 % \item $L_p\subseteq \hatC$ is the set of all extended complex numbers $z$ having some neighborhood~$U\subseteq \hatC$ such that the sequence $(N_p^{(n)})_{n\in \mathbb{N}}$ of iterates of the corresponding \emph{Newton map}%
 %   \footnote{Implicitly regarded as defined as continuous at $\infty\in\hatC$.}
 %   \begin{equation*}
@@ -846,6 +838,7 @@ We say that $(\hatC,\mathcal{P},\Gamma_p)$ is \emph{Newton's method for~$p(z)$} 
 %   (equivalently, such that the iterates sequence $(N_p^{(n)})_{n\in \mathbb{N}}$ is equicontinuous on compacta $K\subseteq U$~\cite{Sutherland2014JuliaFatou}.)
 \item $\Gamma_p:=\{N_p^{(n)}:n\in\mathbb{N}\}$ consists of iterates of the Newton map $N_p$ in equation~\eqref{eq:Np}.
 \end{itemize}
+The states space $\hatC$ is compact and the Newton map $N_p$ is continuous thereon, so the Extendibility Axiom is satified by Newton CCSs.
 
 % \begin{rems}\hfill
 %     \begin{enumerate}
@@ -859,41 +852,49 @@ We say that $(\hatC,\mathcal{P},\Gamma_p)$ is \emph{Newton's method for~$p(z)$} 
 % \end{rems}
 
 % Given $r\in \hatC$, the set $B_r = \{z\in\mathbb{C}: \lim_{n\rightarrow\infty}N_p^{(n)}(z) = r\}$ is an open set called the \emph{basin} of~$r$.
-Given an initial estimate $z_0$, one hopes for the sequence $N_p^{(\bullet)}(z_0) \coloneqq \bigl(N_p^{(n)}(z_0)\bigr)_n$ of Newton steps applied to~$z_0$ to converge to a root~$r$ of~$p$.
+Given an initial estimate $z_0$, one hopes for the sequence of Newton steps applied to~$z_0$ (namely, $N_p^{(\bullet)}(z_0) \coloneqq (z_n)_{n\in \mathbb{N}}$, where $z_n \coloneqq N_p^{(n)}(z_0)$)
+to converge to a root~$r$ of~$p$.
 
-It is well known —if perhaps surprising at first— that Newton's method fails to converge to any root in many cases.
-For example, consider the polynomial $p(z) = z^3-2z+2$ with Newton map
+\paragraph{A real cubic without rational roots}
+It is well known —if perhaps surprising at first— that Newton's method fails to converge to any root%
+\footnote{Even when~$z = \infty$ happens to be a root of a rational map~$p(z)$.}
+in many cases.
+Consider, as a first example, the polynomial ${\rho}(z) = z^3-2z+2$ with Newton map
 \begin{equation*}
-  N_p(z) = z - \frac{z^3-2z+2}{3z^2-2} = \frac{2z^3-2}{3z^2-2}.
+  N_{\rho}: z \mapsto z - \frac{z^3-2z+2}{3z^2-2} = \frac{2z^3-2}{3z^2-2}.
 \end{equation*}
-Successive Newton steps obtained from the initial guess $z_0=0$ yield the divergent sequence $(N_p^{(\bullet)}(0)) = (0, 1, 0, 1, \dots)$ having sequential limits $0, 1$ —neither a root of~$p$.
+Successive Newton steps obtained from the initial guess $z_0=0$ yield the divergent sequence $N_{\rho}^{(\bullet)}(0) = (0, 1, 0, 1, \dots)$ having sequential limits $0, 1$ —neither a root of~${\rho}$.
 
+\subparagraph{Visualizing Newton interates}
 Assign to each complex point $z\in \mathbb{C}$ an “RGB color” $(R,G,B)\in[0,1]^3$ whose entries give the corresponding (Red/Green/Blue) color intensity;
 thus, $(1,0,0)$ is red, $(0,1,0)$ is green, and $(0,0,1)$ is blue—while, for example, $(0.5, 0., 0.5)$ is a light purple.
-Each of the three distinct roots of~$p$ will be given one of these colors
+Each of the three distinct roots of~${\rho}$ will be given one of these colors
 (the real root $r_0$, red; the roots $r_{+1}$ on the upper- and $r_{-1}$ on the lower half plane, respectively green and blue).
 The RGB color of all other~$z\in \mathbb{C}$ is a convex combination whose relative weights are $1/d_i$ where $d_i = |z-r_i|$ for $i=0, \pm1$;
 this will be called the “standard” color of~$z$:
 the closer $z$ is to root $r_i$, the closer the colors of these points are.%
-\footnote{While $\infty$ is a fixed point of~$N_p$, it is a repeller:
-  if $|z|$ is large, then $N_p(z) = \frac{2}{3}z + O(1)$ has roughly two-thirds its magnitude.
-  Therefore, $\infty$ is not the limit of any subsequence of $N_p^{(\bullet)}(z_0)$ with $z_0$ in the Fatou set of~$N_p$.
-In particular, $\infty$ is a point of the Newton fractal.}
+\footnote{While $\infty$ is a fixed point of~$N_{\rho}$, it is a repeller:
+  if $|z|$ is large, then $N_{\rho}(z) = \frac{2}{3}z + O(1)$ has roughly two-thirds its magnitude.
+  Therefore, $\infty$ is not the limit of any subsequence of $N_{\rho}^{(\bullet)}(z_0)$ with $z_0$ in the Fatou set of~$N_{\rho}$;
+in particular, $\infty$ is a point of the Newton fractal of~${\rho}(z)$.}
 
-Recall that the \emph{Fatou set $\mathcal{F}_q$} of a rational map~$q$ on~$\hatC$ consists of all points that have a compact neighborhood on which some subsequence of the sequence $q^{(\bullet)}$ of iterates of~$q$ converges uniformly;
+Recall that the \emph{Fatou set $\mathcal{F}_q$} of a rational map~$q = q(z)$ on~$\hatC$ consists of all points that have a compact neighborhood on which some subsequence of the sequence $q^{(\bullet)}$ of iterates of~$q$ converges uniformly;
 the \emph{Julia set} $\mathcal{J}_q\coloneqq\hatC\setminus \mathcal{F}_q$ is its complement:
-it is closed and typically a fractal.
-The Julia set of the Newton map~$N_q$ of some rational~$q$ is called the \emph{Newton fractal} of~$q$.
+it is (necessarily closed and) typically a fractal.
+The Julia set of the Newton map~$N_q$ is called the \emph{Newton fractal} of~$q$.
 
 For any $n\in \mathbb{N}$, define a coloring of~$\mathbb{C}$ in the natural way:
-color each $z_0\in \mathbb{C}$ using the standard color of~$z_n\coloneqq N_p^{(n)}(z_0)$.
+color each $z_0\in \mathbb{C}$ using the standard color of~$z_n\coloneqq N_{\rho}^{(n)}(z_0)$.
 At any stage, particularly early ones, the coloring looks “fuzzy” (out of focus) because the coloring function is continuous;
-however, as $n$ increases, the coloring becomes sharper.
-For one thing, for many $z$ in the Fatou set, the (entire) sequence $(z_n)$ converges to one of the three roots;
+however, as $n$ increases, the coloring becomes “sharper”
+(the coloring function has large regions of near-constancy, in the transition areas between which color varies rapidly —i.e., is “nearly discontinuous”).
+For one thing, for many $z_0$ in the Fatou set, the (entire) sequence $(z_n)$ converges to one of the three roots:
 the RGB colors of~$(z_n)$ tend towards (a single one of) red, green or blue correspondingly.
-As immediately recognizable in Figure~\ref{fig:newton}, such $z_0$ lie in large (open connected) regions.
-The Fatou set also contains points~$z_0$ for which some subsequence of $N_p^{(\bullet)}(z_n)$ converges uniformly to $0$ or~$1$ in some compact neighborhood of~$z_0$;
-those points form a region in dark teal color.
+The Fatou set also has an open region consisting of points~$z_0$ for which $(z_n)_{n\in \mathbb{N}}$ has a subsequence converging to $0$ or~$1$ (uniformly on some compact neighborhood of~$z_0$).
+The four open regions are immediately recognizable in Figure~\ref{fig:newton}.
+
+The deep computations of 
+
 \begin{figure}[htbp]
     \centering
     \begin{subfigure}[b]{0.32\textwidth}
@@ -914,20 +915,23 @@ those points form a region in dark teal color.
         \caption{After 100 iterations}
     \end{subfigure}
 
-    \caption{Behavior of iterates of the Newton map for $p(z) = z^3-2z+2$. 
-      In~(\textsc{C}), the “color fuzzines” of~(\textsc{A}) and~(\textsc{B}) has already visually disappeared;
-      only sharply defined open red, green and blue regions (of convergence towards a specific root), as well as dark teal open regions (of divergence) remain visually identifiable:
-      their union (the Fatou set of~$p$) is dense in the limit, and the Newton fractal of~$p$ is the closed nowhere dense complement (the Julia set of~$p$).}
+    \caption{Behavior of iterates of the Newton map for ${\rho}(z) = z^3-2z+2$. 
+      Figure~(\textsc{C}) —where the “color fuzzines” of~(\textsc{A}) and~(\textsc{B}) has already visually disappeared— is \emph{de facto} a depiction of the Fatou and Julia sets of~$N_{\rho}$.
+      The (dense) Fatou set of~$N_{\rho}$ consists of:
+      (\emph{i})~open red, green and blue regions of convergence towards a root $r_0, r_{\pm1}$, and
+      (\emph{ii}) another open region (in teal) of points whose sequence of Newton iterates tends to the orbit $\{0, 1\}$.
+      the Newton fractal of~${\rho}$ (the Julia set of~$N_{\rho}$) is the closed nowhere dense complement of the Fatou set of~$N_{\rho}$.}
     \label{fig:newton}
 \end{figure}
 
-Consider next the $3$-cyclotomic polynomial $p(z) = z^3-1$. 
-The roots of $p(z)$ are the cube roots of unity;
+\paragraph{The Newton fractal of the $3$-cyclotomic polynomial}
+Consider next the $3$-cyclotomic polynomial ${\kappa}(z) = z^3-1$. 
+The roots of ${\kappa}(z)$ are the cube roots of unity $r_0=1$ and $r_{\pm1} = \exp(\pm2\pi i/3)$;
 the Newton map is
 \begin{equation*}
-  N_p: z\mapsto z-\frac{z^3-1}{3z^2}=\frac{2z^3+1}{3z^2}.
+  N_{\kappa}: z\mapsto z-\frac{z^3-1}{3z^2}=\frac{2z^3+1}{3z^2}.
 \end{equation*}
-In Figure~2(\textsc{C}), one sees a Fatou set consisting of solid-color (disconnected) open sets, one in each of the colors red (for the root $r_0=1$), green and blue (for $r_{\pm1} = \exp(\pm2\pi i/3)$, resp.), where the iterates sequence $(z_n) = (p^{(n)}(z_0))_n$ starting with any colored point $z_0$ converges to the corresponding root.
+In Figure~2(\textsc{C}), one sees a Fatou set consisting of solid-color (disconnected) open sets, one in each of the colors red (for $r_0=1$), green and blue (for $r_{\pm1}$, respectively), where the sequence of all iterates $z_n \coloneqq N_{\kappa}^{(n)}(z_0)$ starting with any point $z_0$ converges to the corresponding root.
 (Thus, each solid-color region is the basin of attraction of the respective root).
 
 
@@ -951,19 +955,9 @@ In Figure~2(\textsc{C}), one sees a Fatou set consisting of solid-color (disconn
         \caption{After 100 iterations}
     \end{subfigure}
 
-    \caption{Newton's method approximating $p(z)=z^3-1$.}
+    \caption{Visualization of the Newton iterates of ${\kappa}(z) = z^3 - 1$.}
     \label{fig:newton2}
 \end{figure}
-
-\begin{prop}
-    If $p(z)$ is a non-constant polynomial, then $(L_p,\mathcal{P},\Gamma_p)$ satisfies the Extendibility Axiom.
-\end{prop}
-
-\begin{proof}
-    $N_p:L_p\rightarrow L_p$ is a rational map. 
-    Rational maps can be continuously extended to the extended complex plane, i.e., to $\mathcal{L}$.
-    Composition of rational maps is a rational map, so by the same reasoning, computations $N_p^n:L_p\rightarrow L_p$ can be continuously extended to $\mathcal{L}$.
-\end{proof}
 
 The set of deep computations $\overline{\Gamma}$ might behave different for various polynomials.
 Let us look at various examples:
