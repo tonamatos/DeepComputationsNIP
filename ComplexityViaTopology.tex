@@ -897,30 +897,50 @@ The deep computations of
 
 \begin{figure}[htbp]
     \centering
+    % Row 1: Low iterations
     \begin{subfigure}[b]{0.32\textwidth}
         \centering
         \includegraphics[width=\textwidth]{newton_div1.png}
-        \caption{After 1 iteration}
+        \caption{$n=1$}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{newton_div2.png}
+        \caption{$n=2$}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.32\textwidth}
         \centering
         \includegraphics[width=\textwidth]{newton_div3.png}
-        \caption{After 3 iterations}
+        \caption{$n=3$}
+    \end{subfigure}
+
+    \vspace{1em} % Add some vertical space between rows
+
+    % Row 2: Large n showcasing the 2-cycle
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{newton_div100.png}
+        \caption{$n=100$ (Even)}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.32\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{newton_div100.png}
-        \caption{After 100 iterations}
+        \includegraphics[width=\textwidth]{newton_div101.png}
+        \caption{$n=101$ (Odd)}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{newton_div102.png}
+        \caption{$n=102$ (Even)}
     \end{subfigure}
 
-    \caption{Behavior of iterates of the Newton map for ${\rho}(z) = z^3-2z+2$. 
-      Figure~(\textsc{C}) —where the “color fuzzines” of~(\textsc{A}) and~(\textsc{B}) has already visually disappeared— is \emph{de facto} a depiction of the Fatou and Julia sets of~$N_{\rho}$.
-      The (dense) Fatou set of~$N_{\rho}$ consists of:
-      (\emph{i})~open red, green and blue regions of convergence towards a root $r_0, r_{\pm1}$, and
-      (\emph{ii}) another open region (in teal) of points whose sequence of Newton iterates tends to the orbit $\{0, 1\}$.
-      the Newton fractal of~${\rho}$ (the Julia set of~$N_{\rho}$) is the closed nowhere dense complement of the Fatou set of~$N_{\rho}$.}
+    \caption{Iterates of the Newton map $N_{\rho}$ for $\rho(z) = z^3-2z+2$. 
+    While points in the basins of the three roots (red, green, blue) converge to fixed values, points in the 2-cycle basin oscillate. 
+    Comparing (d), (e), and (f) reveals the subsequential convergence: even iterates converge to the attractor at $z=0$ (cyan), while odd iterates converge to $z=1$ (magenta). 
+    The boundaries between these regions form the Julia set of $N_{\rho}$.}
     \label{fig:newton}
 \end{figure}
 
