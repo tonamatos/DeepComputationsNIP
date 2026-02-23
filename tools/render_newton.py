@@ -13,7 +13,7 @@ HEIGHT = 432
 XMIN, XMAX = -1.5, 0.5 # I used -2, 2 for newton{n}.png and -1.5, 0.5 for the others to zoom in on the interesting part of the fractal. Adjust as needed.
 YMIN, YMAX = -1.0, 1.0
 
-ITERATION_FRAMES = [1, 3, 100, 101, 102]
+ITERATION_FRAMES = [1, 2, 3, 100, 101, 102]
 EPS = 1e-6
 MAX_RADIUS = 1e6
 
