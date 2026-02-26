@@ -191,7 +191,7 @@ The final section, Section~\ref{Measure-theoretic NIP}, introduces a probabilist
 \label{sec:prelim}
 
 In this section we recall notions and results from general topology and function space theory.
-For simplicity, we assume that \emph{all spaces are Hausdorff} unless explicitly stated otherwise.
+For simplicity, we assume that all spaces are Hausdorff unless explicitly stated otherwise.
 % In the interest of completeness, we include some proofs that may be safely skipped by readers familiar with these topics.
 
 A subset of a topological space is $F_\sigma$ if it is a countable union of closed sets, and $G_\delta$ if it is a countable intersection of open sets.
@@ -202,11 +202,11 @@ A subset of a topological space is $F_\sigma$ if it is a countable union of clos
 In a metric space, every open set is~$F_\sigma$; equivalently, every closed set is~$G_\delta$.
 
 A \emph{Polish space} is a separable and completely metrizable topological space, i.e., one admitting a complete metric inducing its topology.
-Although other (possibly incomplete) metrics may induce the same topology, being Polish is a purely topological property.
-The class of Polish spaces includes the real line~$\mathbb{R}$ as an important example, and is closed under countable topological products.%
-\footnote{Recall that the product topology is the topology of pointwise convergence.
-  In a product space, a sequence (or a net, or a filter) converges if and only  each coordinate thereof converges.}
-In particular, the Cantor space~$2^\mathbb{N}$ (the set of all infinite binary sequences, endowed with the product topology), the Baire space $\mathbb{N}^\mathbb{N}$ (the set of all infinite sequences of naturals, also with the product topology), and the space $\mathbb{R}^\mathbb{N}$ of sequences of real numbers are Polish spaces, each of considerable interest.
+%Although other (possibly incomplete) metrics may induce the same topology, being Polish is a purely topological property.
+The class of Polish spaces is closed under countable topological products.
+%\footnote{Recall that the product topology is the topology of pointwise convergence.
+%  In a product space, a sequence (or a net, or a filter) converges if and only  each coordinate thereof converges.}
+Important examples include Cantor space~$2^\mathbb{N}$ (the set of all infinite binary sequences, endowed with the product topology), the Baire space $\mathbb{N}^\mathbb{N}$ (the set of all infinite sequences of naturals, also with the product topology), and the space $\mathbb{R}^\mathbb{N}$ of sequences of real numbers.
 
 \begin{fact}\cite[4.3.24]{Engelking:1989}
 A subset of a Polish space is itself Polish in the subspace topology if and only if it is a $G_{\delta }$ set.
@@ -225,8 +225,8 @@ The Baire Category Theorem states that every compact Hausdorff or completely met
 
 Given two topological spaces $X$ and $Y$ we denote by $C_p(X,Y)$ the set of all continuous functions $f:X\rightarrow Y$ endowed with the topology of pointwise convergence, i.e., with the relative (subspace) product topology~$C_p(X,Y)\subseteq Y^X$—where $Y$ carries its topology, but $X$ serves merely as a (discrete) index set stripped of any topology.
 The space $C_p(X, \mathbb{R})$ of continuous real-valued functions on~$X$ is denoted simply~$C_p(X)$.
-A natural question is, how do topological properties of $X$ translate into $C_p(X)$ and vice versa?
-This general question, and the study of these spaces in general, is the concern of $C_p$-theory.
+%A natural question is, how do topological properties of $X$ translate into $C_p(X)$ and vice versa?
+%This general question, and the study of these spaces in general, is the concern of $C_p$-theory.
 
 A function $f\in Y^X$ between topological spaces $X$, $Y$ is said to be of \emph{Baire class~1}, or a \emph{Baire-1} function, if there is a sequence $(f_n)_{n\in \mathbb{N}}\subseteq C_p(X, Y)$ such that $f = \lim_{n\to\infty}f_n$ (i.e., $f(x)=\lim_{n\to\infty}f_n(x)$ for all $x\in X$).
 An elementary argument shows that Baire-1 functions are continuous everywhere except on a set of the first category.
@@ -238,8 +238,8 @@ Relatively compact subsets of $C_p(X)$ and of $B_1(X)$ (particularly for $X$ Pol
 A topological space $X$ is \emph{perfectly normal} if it is normal and every closed subset of $X$ is a $G_\delta$ set (equivalently, every open subset of $X$ is an $F_\sigma$ set).
 Every metrizable space (hence, every Polish space) is perfectly normal.
 
-The following fact was established by Baire in his groundbreaking thesis.
-A proof can be found in~\cite[Section 10]{Todorcevic_1997_TopicsTop}.
+The following fact was proved by Baire in his groundbreaking thesis.
+For a proof, see~\cite[Section 10]{Todorcevic_1997_TopicsTop}.
 
 \begin{fact}[Baire]\label{baire}
     If $X$ is perfectly normal, then the following conditions are equivalent for a function $f:X\to \mathbb{R}$:
@@ -318,7 +318,7 @@ The following theorem, proved by Haskell Rosenthal in 1974, is fundamental in fu
 \end{thm}
 
 % Rosenthal's Dichotomy states that a pointwise bounded set of continuous functions contains either a convergent subsequence, or a subsequence whose closure is essentially the same as the example mentioned in the previous paragraphs (i.e., the ``wildest'' possible).
-The genesis of the dichotomy was Rosenthal's ``$\ell_1$-Theorem'', which states that a Banach space includes an isomorphic copy of $\ell_1$ (the space of absolutely summable sequences), or else every bounded sequence therein is weakly Cauchy.
+The genesis of the dichotomy was \emph{Rosenthal's $\ell_1$-Theorem}, which states that a Banach space includes an isomorphic copy of $\ell_1$ (the space of absolutely summable sequences), or else every bounded sequence therein is weakly Cauchy.
 The $\ell_1$-Theorem connects diverse areas:
 Banach space geometry, Ramsey theory, set theory, and topology of function spaces.
 
