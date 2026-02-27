@@ -263,41 +263,41 @@ For a proof, see~\cite[Section 10]{Todorcevic_1997_TopicsTop}.
     \]
 \end{fact}
 
-The Lemma below is well known, but we include a proof for the reader's convenience.
-\begin{lem}
-  Let $X$ be a Polish space and $A\subseteq B_1(X)$ be pointwise bounded.%
-  \footnote{A set $A\subseteq\mathbb{R}^X$ of real-valued functions is \emph{pointwise bounded} if for every $x\in X$ there exists $M_x \ge 0$ (a \emph{pointwise bound at~$x$}) such that $|f(x)| \le M_x$ for all $f\in A$.}
-The following are equivalent:
-    \begin{enumerate}[(i)]
-        \item
-          $A$ is relatively compact in $B_1(X)$, i.e., the closure of $A$ in $B_1(X)$ is compact;
-        \item
-        $A$ is relatively countably compact in $B_1(X)$, i.e., every (infinite) countable subset of $A$ has a limit point in $B_1(X)$;
-        \item
-        $\overline{A}\subseteq B_1(X)$, where $\overline{A}$ denotes the closure of~$A$ in~$\mathbb{R}^X$.
-    \end{enumerate}
-\end{lem}
-
-\begin{proof}
-    (i)$\Rightarrow$(ii) Relatively compact subsets of any space are countably compact therein.
-
-    (ii)$\Rightarrow$(iii)
-Consider any $f\in\overline A$ and any countable subset $\{x_i\}_{i\in \mathbb{N}}\subseteq X$.
-We first observe that that there is a sequence $(f_n)_{n\in\mathbb{N}}\subseteq A$ such that $\lim_{n\to\infty}f_n(x_i)=f(x_i)$ for all $i\in \mathbb{N}$.
-(Proof: Since $A$ carries the relative product topology, for each $n\in \mathbb{N}$ there exists $f_n\in A$ such that $|f_n(x_i) - f(x_i)| < \frac{1}{n}$ for all $i \le n$.
-The sequence $(f_n)$ is as claimed.)
-By contradiction, let us assume that $A$ is relatively countably compact in~$B_1(X)$, but there exists some $f\in \overline{A}\setminus B_1(X)$.
-    By Fact \ref{baire}, fix countable $D_0,D_1\subseteq X$ with $\overline {D_0}=\overline{D_1}$, and $a<b$ such that $D_0\subseteq f^{-1}(-\infty,a]$ and $D_1\subseteq f^{-1}[b,\infty)$.
-Per the initial observation, let $\{f_n\}_{n\in\mathbb{N}}\subseteq A$ satisfy $\lim_{n\to\infty}f_n(x)=f(x)$ for all $x\in D_0\cup D_1$ (the latter being a countable set).
-By relative countable compactness of~$A$, there is a limit point $g\in B_1(X)$ of $\{f_n\}_{n\in\mathbb{N}}$;
-clearly, $f$ and $g$ agree on $D_0\cup D_1$.
-But then, $g$ takes values $g(x_i) = f(x_i) \le a$ as well as values $g(x_j) = f(x_j) \ge b > a$ on any open subset of the closed set $\overline{D_0} = \overline{D_1}$, which contradicts the implication (1)$\Rightarrow$(3) of Fact~\ref{baire}.
-
-(iii)$\Rightarrow$(i) For each $x\in X$, let $M_x \ge 0$ be a pointwise bound for~$A$.
-Since $\overline{A}$ is a closed subset of the compact space $\prod_{x\in X}[-M_x,M_x] \subseteq \mathbb{R}^X$, it follows that $\overline{A}$ is compact.
-By~(iii), it is also the closure of~$A$ in $B_1(X)$.
-Thus, $A$ is relatively compact in $B_1(X)$.
-\end{proof}
+%The Lemma below is well known, but we include a proof for the reader's convenience.
+%\begin{lem}
+%  Let $X$ be a Polish space and $A\subseteq B_1(X)$ be pointwise bounded.%
+%  \footnote{A set $A\subseteq\mathbb{R}^X$ of real-valued functions is \emph{pointwise bounded} if for every $x\in X$ there exists $M_x \ge 0$ (a \emph{pointwise bound at~$x$}) such that $|f(x)| \le M_x$ for all $f\in A$.}
+%The following are equivalent:
+%    \begin{enumerate}[(i)]
+%        \item
+%          $A$ is relatively compact in $B_1(X)$, i.e., the closure of $A$ in $B_1(X)$ is compact;
+%        \item
+%        $A$ is relatively countably compact in $B_1(X)$, i.e., every (infinite) countable subset of $A$ has a limit point in $B_1(X)$;
+%        \item
+%        $\overline{A}\subseteq B_1(X)$, where $\overline{A}$ denotes the closure of~$A$ in~$\mathbb{R}^X$.
+%    \end{enumerate}
+%\end{lem}
+%
+%\begin{proof}
+%    (i)$\Rightarrow$(ii) Relatively compact subsets of any space are countably compact therein.
+%
+%    (ii)$\Rightarrow$(iii)
+%Consider any $f\in\overline A$ and any countable subset $\{x_i\}_{i\in \mathbb{N}}\subseteq X$.
+%We first observe that that there is a sequence $(f_n)_{n\in\mathbb{N}}\subseteq A$ such that $\lim_{n\to\infty}f_n(x_i)=f(x_i)$ for all $i\in \mathbb{N}$.
+%(Proof: Since $A$ carries the relative product topology, for each $n\in \mathbb{N}$ there exists $f_n\in A$ such that $|f_n(x_i) - f(x_i)| < \frac{1}{n}$ for all $i \le n$.
+%The sequence $(f_n)$ is as claimed.)
+%By contradiction, let us assume that $A$ is relatively countably compact in~$B_1(X)$, but there exists some $f\in \overline{A}\setminus B_1(X)$.
+%    By Fact \ref{baire}, fix countable $D_0,D_1\subseteq X$ with $\overline {D_0}=\overline{D_1}$, and $a<b$ such that $D_0\subseteq f^{-1}(-\infty,a]$ and $D_1\subseteq f^{-1}[b,\infty)$.
+%Per the initial observation, let $\{f_n\}_{n\in\mathbb{N}}\subseteq A$ satisfy $\lim_{n\to\infty}f_n(x)=f(x)$ for all $x\in D_0\cup D_1$ (the latter being a countable set).
+%By relative countable compactness of~$A$, there is a limit point $g\in B_1(X)$ of $\{f_n\}_{n\in\mathbb{N}}$;
+%clearly, $f$ and $g$ agree on $D_0\cup D_1$.
+%But then, $g$ takes values $g(x_i) = f(x_i) \le a$ as well as values $g(x_j) = f(x_j) \ge b > a$ on any open subset of the closed set $\overline{D_0} = \overline{D_1}$, which contradicts the implication (1)$\Rightarrow$(3) of Fact~\ref{baire}.
+%
+%(iii)$\Rightarrow$(i) For each $x\in X$, let $M_x \ge 0$ be a pointwise bound for~$A$.
+%Since $\overline{A}$ is a closed subset of the compact space $\prod_{x\in X}[-M_x,M_x] \subseteq \mathbb{R}^X$, it follows that $\overline{A}$ is compact.
+%By~(iii), it is also the closure of~$A$ in $B_1(X)$.
+%Thus, $A$ is relatively compact in $B_1(X)$.
+%\end{proof}
 
 \subsection{From Rosenthal's dichotomy to the Bourgain-Fremlin-Talagrand dichotomy to Shelah's NIP}
 
