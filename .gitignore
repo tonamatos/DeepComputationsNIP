@@ -333,3 +333,6 @@ tools/video_renders/
 
 # macOS users declutter
 .DS_Store
+
+# Backup files
+*~
