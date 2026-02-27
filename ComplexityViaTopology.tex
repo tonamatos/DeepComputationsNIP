@@ -900,52 +900,55 @@ The four open regions are immediately recognizable in Figure~\ref{fig:newton}.
 The deep computations of 
 
 \begin{figure}[htbp]
+  \label{fig:z3minus2zplus2}
+  \centering
+  % Row 1: Low iterations
+  \begin{subfigure}[b]{0.32\textwidth}
     \centering
-    % Row 1: Low iterations
-    \begin{subfigure}[b]{0.32\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{newton_div1.png}
-        \caption{$n=1$}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}[b]{0.32\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{newton_div2.png}
-        \caption{$n=2$}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}[b]{0.32\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{newton_div3.png}
-        \caption{$n=3$}
-    \end{subfigure}
+    \includegraphics[width=\textwidth]{newton_div1.png}
+    \caption{$n=1$}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[b]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{newton_div2.png}
+    \caption{$n=2$}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[b]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{newton_div3.png}
+    \caption{$n=3$}
+  \end{subfigure}
 
-    \vspace{1em} % Add some vertical space between rows
+  \vspace{1em} % Add some vertical space between rows
 
-    % Row 2: Large n showcasing the 2-cycle
-    \begin{subfigure}[b]{0.32\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{newton_div100.png}
-        \caption{$n=100$ (Even)}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}[b]{0.32\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{newton_div101.png}
-        \caption{$n=101$ (Odd)}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}[b]{0.32\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{newton_div102.png}
-        \caption{$n=102$ (Even)}
-    \end{subfigure}
+  % Row 2: Large n showcasing the 2-cycle
+  \begin{subfigure}[b]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{newton_div99.png}
+    \caption{$n=99$ (odd)}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[b]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{newton_div100.png}
+    \caption{$n=100$ (even)}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[b]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{newton_div101.png}
+    \caption{$n=101$ (odd)}
+  \end{subfigure}
 
-    \caption{Iterates of the Newton map $N_{\rho}$ for $\rho(z) = z^3-2z+2$. 
-    While points in the basins of the three roots (red, green, blue) converge to fixed values, points in the 2-cycle basin oscillate. 
-    Comparing (d), (e), and (f) reveals the subsequential convergence: even iterates converge to the attractor at $z=0$ (cyan), while odd iterates converge to $z=1$ (magenta). 
-    The boundaries between these regions form the Julia set of $N_{\rho}$.}
-    \label{fig:newton}
+  \caption{Iterates of the Newton map $N_{\rho}$ of $\rho(z) = z^3-2z+2$. 
+    Points in the basin of each root $r_0, r_{\pm1}$ (respectively, red, green and blue) converge to the root.
+    The basin of attraction of the 2-cycle $\{0,1\}$ is the union of magenta and cyan regions;
+    these two colors alternate like semaphore lights:
+    points~$z$ in the cyan region are those whose subsequence $N_{\rho}^{(2\cdot\bullet)}(z)$ of even Newton iterates (resp., $N_{\rho}^{(2\cdot\bullet+1)}(z)$ of odd iterates) has limit $1$ (resp., limit~$0$).
+    For points $z$ in the magenta region, the limits of the even and odd iterate subsequences are exchanged. 
+    The boundaries of colored regions constitute the Newton fractal of~$\rho$.}
 \end{figure}
 
 \paragraph{The Newton fractal of the $3$-cyclotomic polynomial}
