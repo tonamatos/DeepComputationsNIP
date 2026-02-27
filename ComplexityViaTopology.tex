@@ -59,6 +59,8 @@ pdfkeywords={}
 
 \newcommand{\hatC}{\hat{\mathbb{C}}}
 \newcommand{\Lshard}{\mathcal{L}_{\mathrm{sh}}}
+\newcommand{\NIP}{\text{NIP}}
+\newcommand{\sh}{\text{sh}}
 \newcommand{\rb}{r_{\bullet}}
 \newcommand{\RP}{\mathbb{R}\mathbb{P}}
 
@@ -100,7 +102,7 @@ $^{2}$Department of Mathematics, University of Toronto\\
 \begin{abstract}
 We use topological methods and a suitable framework to study the complexity of limit computations (such as so-called “deep computations” implied by recurrent neural networks).
 By using topology of function spaces —specifically, the classification of Rosenthal compacta— we identify new computational complexity classes.
-The language of model theory, particularly, the concept of \emph{independence} from Shelah's classification theory, provides a medium to translate between topology and computation.
+The language of model theory, particularly, the concept of \emph{independence} from Shelah’s classification theory, provides a medium to translate between topology and computation.
 The theory of Rosenthal compacta allows us to characterize approximability of deep computations, both deterministically and probabilistically.
 \end{abstract}
 
@@ -117,7 +119,7 @@ The formal framework introduced here  provides a unified setting to study these 
 The main result of the paper is the identification of a hierarchy of four distinct complexity classes for limit computations.
 This is obtained by invoking a major result about  topology of spaces of functions, namely,
 Todorčević’s trichotomy for Rosenthal compacta~\cite{Todorcevic_1999_CompactSubsetsBaire} and transferring it into the realm of computation.
-The medium that we use to translate between topology and computation is model theory, specifically, Shelah's classification theory~\cite{Shelah:1990}.
+The medium that we use to translate between topology and computation is model theory, specifically, Shelah’s classification theory~\cite{Shelah:1990}.
 
 The translation between topology and computation proceeds as follows.
 To every computation in a given computation model, we associate a continuous real-valued function, called the \emph{type} of the computation, that describes the logical properties of this computation with respect to the rest of the model.
@@ -144,8 +146,8 @@ The ``wild'' part of the dichotomy from~\cite{alva2024approximability} is furthe
 three new levels of  tameness are identified within this new subdivision, and seven distinct minimal prototypes of tameness are detected.
 
 The finer classification results of this paper are obtained through more contemporary topological and model-theoretic tools than in the previous paper~\cite{alva2024approximability}. 
-From the topological side, instead of Grothendieck's classical criterion, we use the modern theory of \emph{Rosenthal compacta}, and from the model theory side, instead of stability, we use \emph{neostability}.
-The main tool imported from neostability   is Shelah's \emph{Independence Property}, or rather, its negation, which is commonly referred to as ``NIP''. 
+From the topological side, instead of Grothendieck’s classical criterion, we use the modern theory of \emph{Rosenthal compacta}, and from the model theory side, instead of stability, we use \emph{neostability}.
+The main tool imported from neostability   is Shelah’s \emph{Independence Property}, or rather, its negation, which is commonly referred to as ``NIP''. 
 More on this below.
 
 
@@ -159,7 +161,7 @@ then, we apply a trichotomy of Todorčević, from the late 90s, for \emph{Rosent
 
 A Rosenthal compactum  is a compact topological space that is homeomorphic to a subspace of the space of Baire class~1 functions on some Polish (i.e., separable, completely metrizable) space equipped with the topology of pointwise convergence.
 Rosenthal compacta exhibit ``topological tameness,'' meaning that they behave in relatively controlled ways.
-Since the late 70's, they have played a crucial role in understanding the complexity of structures of functional analysis, especially Banach spaces.
+Since the late 70’s, they have played a crucial role in understanding the complexity of structures of functional analysis, especially Banach spaces.
 Todorčević’s trichotomy for Rosenthal compacta has been utilized to settle longstanding problems in topological dynamics and topological entropy~\cite{glasner2022tame}.
 It is noteworthy that Todorčević’s proof relies on sophisticated set-theoretic  forcing and infinite Ramsey theory.
 At the time of writing this paper, decades after his original argument, there are no elementary proofs of the trichotomy; 
@@ -263,7 +265,7 @@ For a proof, see~\cite[Section 10]{Todorcevic_1997_TopicsTop}.
     \]
 \end{fact}
 
-The Lemma below is well known, but we include a proof for the reader's convenience.
+The Lemma below is well known, but we include a proof for the reader’s convenience.
 \begin{lem}
   Let $X$ be a Polish space and $A\subseteq B_1(X)$ be pointwise bounded.%
   \footnote{A set $A\subseteq\mathbb{R}^X$ of real-valued functions is \emph{pointwise bounded} if for every $x\in X$ there exists $M_x \ge 0$ (a \emph{pointwise bound at~$x$}) such that $|f(x)| \le M_x$ for all $f\in A$.}
@@ -299,7 +301,7 @@ By~(iii), it is also the closure of~$A$ in $B_1(X)$.
 Thus, $A$ is relatively compact in $B_1(X)$.
 \end{proof}
 
-\subsection{From Rosenthal's dichotomy to the Bourgain-Fremlin-Talagrand dichotomy to Shelah's NIP}
+\subsection{From Rosenthal’s dichotomy to the Bourgain-Fremlin-Talagrand dichotomy to Shelah’s NIP}
 
 In metrizable spaces, the closure of a subset consists of limits of convergent sequences therein.
 In general spaces, including many $C_p$-spaces, such a characterization of closures fails in remarkable ways.
@@ -310,17 +312,17 @@ In a sense, this example exhibits the worst failure of sequential convergence po
 The closure of $\{p_n\}$ in $\{0, 1\}^X$ (or in $\mathbb{R}^X$ for that matter)
 is homeomorphic to the Stone-Čech compactification $\beta\mathbb{N}$ of the (discrete) space of natural numbers. % which is an important object of study in general topology.
 The space $\beta \mathbb{N}$ has cardinality $2^{2^{\omega}}$ (largest among all separable topological spaces) and, effectively, is the set of ultrafilters on~$\mathbb{N}$.%
-\footnote{\label{fn:id-ufilters}Our earlier proof~\cite{alva2024approximability} of the existence of deep equilibria in compositional computational structures relies on a classical result on the existence of idempotent elements of~$\beta \mathbb{N}$.}
+\footnote{\label{fn:id-ufilters}Our earlier proof~\cite{alva2024approximability} of the existence of deep equilibria in compositional computation structures relies on a classical result on the existence of idempotent elements of~$\beta \mathbb{N}$.}
 
 The following theorem, proved by Haskell Rosenthal in 1974, is fundamental in functional analysis and captures a sharp division in the behavior of sequences in a Banach space.
 
-\begin{thm}[Rosenthal's Dichotomy, \cite{Rosenthal:1974}]
+\begin{thm}[Rosenthal’s Dichotomy, \cite{Rosenthal:1974}]
 \label{T:Rosenthal}
     If $X$ is Polish and $(f_n)_{n\in\mathbb{N}}\subseteq C_p(X)$ is pointwise bounded, then $(f_n)$ has a convergent subsequence, or a subsequence whose closure in $\mathbb{R}^X$ is homeomorphic to~$\beta\mathbb{N}$.
 \end{thm}
 
-% Rosenthal's Dichotomy states that a pointwise bounded set of continuous functions contains either a convergent subsequence, or a subsequence whose closure is essentially the same as the example mentioned in the previous paragraphs (i.e., the ``wildest'' possible).
-The genesis of the dichotomy was \emph{Rosenthal's $\ell_1$-Theorem}, which states that a Banach space includes an isomorphic copy of $\ell_1$ (the space of absolutely summable sequences), or else every bounded sequence therein is weakly Cauchy.
+% Rosenthal’s Dichotomy states that a pointwise bounded set of continuous functions contains either a convergent subsequence, or a subsequence whose closure is essentially the same as the example mentioned in the previous paragraphs (i.e., the ``wildest'' possible).
+The genesis of the dichotomy was \emph{Rosenthal’s $\ell_1$-Theorem}, which states that a Banach space includes an isomorphic copy of $\ell_1$ (the space of absolutely summable sequences), or else every bounded sequence therein is weakly Cauchy.
 The $\ell_1$-Theorem connects diverse areas:
 Banach space geometry, Ramsey theory, set theory, and topology of function spaces.
 
@@ -420,13 +422,13 @@ The particular case of the BFT dichotomy (Theorem~\ref{BFT}) when $A$ consists o
 \begin{description}
 
 \item[In model theory]
-Shelah's classification theory is a foundational program in mathematical logic devised to categorize first-order theories based on the complexity and structure of their models.
-A theory $T$ is considered classifiable in Shelah's sense if the number of non-isomorphic models of $T$ of a given cardinality can be described by a bounded number of numerical invariants.
+Shelah’s classification theory is a foundational program in mathematical logic devised to categorize first-order theories based on the complexity and structure of their models.
+A theory $T$ is considered classifiable in Shelah’s sense if the number of non-isomorphic models of $T$ of a given cardinality can be described by a bounded number of numerical invariants.
 In contrast, a theory $T$ is unclassifiable if the number of models of $T$ of a given cardinality is the maximum possible number.
 A key fact is that the number of models of $T$ is directly impacted by the number of \emph{types} over sets of parameters in models of $T$; a controlled number of types is a characteristic of a classifiable theory.
 
 
-In Shelah's classification program~\cite{Shelah:1990}, theories \emph{without} the independence property (called NIP theories, or \emph{dependent} theories) have a well-behaved, ``tame" structure;
+In Shelah’s classification program~\cite{Shelah:1990}, theories \emph{without} the independence property (called NIP theories, or \emph{dependent} theories) have a well-behaved, ``tame" structure;
 the number of types over a set of parameters of size $\kappa$ of such a theory is of polynomially or similar “slow" growth on~$\kappa$.
 
 In contrast, theories with the Independence Property (called IP theories) are considered “intractable" or “wild”.
@@ -673,11 +675,11 @@ L[r_\bullet] = L\cap \mathbb{R}[\rb].
 For a sizer  $r_{\bullet}$, the \emph{$r_{\bullet}$-type shard} is defined as $\mathcal{L}[r_\bullet]=\overline{L[r_\bullet]}$
 (a closed, hence compact subset of $\mathbb{R}[\rb]$).
 
-Let also $\mathcal{L}_{\text{sh}}$ (the space of \emph{shard-supported types}) be the union of all type-shards as the sizer $r_{\bullet}$ varies.
+Let also $\mathcal{L}_{\sh}$ (the space of \emph{shard-supported types}) be the union of all type-shards as the sizer $r_{\bullet}$ varies.
 \end{defn}
 
-Evidently, $\mathcal{L}_{\text{sh}}\subseteq \mathcal{L}$, although the inclusion may be proper.
-However, the equality $\mathcal{L}_{\text{sh}} = \mathcal{L}$ holds in the important special case when $\mathcal{P}$ is (at most) countable (see~\cite{alva2024approximability}).
+Evidently, $\mathcal{L}_{\sh}\subseteq \mathcal{L}$, although the inclusion may be proper.
+However, the equality $\mathcal{L}_{\sh} = \mathcal{L}$ holds in the important special case when $\mathcal{P}$ is (at most) countable (see~\cite{alva2024approximability}).
 
 
 \subsection{Compositional Computation Structures} 
@@ -725,7 +727,7 @@ Since deep computations are defined through a combination of topological concept
 \begin{rems}(For readers versed in model theory.)%
   \footnote{Refer to~\cite{Keisler:2023} where a general framework for real-valued structures is introduced; see also~\cite[section 6]{Duenez-Iovino:2017} for a basic tutorial.}
   \begin{enumerate}
-  \item Compositional computational structures as defined above are not real-valued structures in a literal sense, because there is no intrinsic structural manner to ensure that $\Gamma$ is realized as a literal subset of the product space $L^L$.
+  \item compositional computation structures as defined above are not real-valued structures in a literal sense, because there is no intrinsic structural manner to ensure that $\Gamma$ is realized as a literal subset of the product space $L^L$.
 However, in a semantically transparent manner, any CSS as above may alternatively be seen (per its original definition in~\cite{alva2024approximability}) as a real-valued structure $(L,\mathcal{P},\Gamma,\circ,\operatorname{ev})$, where
 \begin{itemize}
 \item
@@ -772,7 +774,7 @@ $f$ extends to a continuous map~$\mathcal{L}\to \mathcal{L}$.
 
 These equivalences motivate the following definition:
 
-A computation $\gamma\in \Gamma$ is \emph{extendable} if it has some extension $\tilde\gamma:\mathcal{L}_{\text{sh}}\to\mathcal{L}_{\text{sh}}$ such that, for every sizer $r_{\bullet}$, there is a sizer $s_\bullet$ such that $\tilde\gamma|_{\mathcal{L}[r_\bullet]}:\mathcal{L}[r_\bullet]\to\mathcal{L}[s_\bullet]$ is continuous.
+A computation $\gamma\in \Gamma$ is \emph{extendable} if it has some extension $\tilde\gamma:\mathcal{L}_{\sh}\to\mathcal{L}_{\sh}$ such that, for every sizer $r_{\bullet}$, there is a sizer $s_\bullet$ such that $\tilde\gamma|_{\mathcal{L}[r_\bullet]}:\mathcal{L}[r_\bullet]\to\mathcal{L}[s_\bullet]$ is continuous.
 
 Because $\tilde{\gamma}$ extends $\gamma$ continuously on each compact type-shard, we call it the \emph{$K$-extension} of~$\gamma$;
 such extension is evidently unique (if it exists).
@@ -788,7 +790,7 @@ For a more detailed discussion of the Extendibility Axiom, we refer the reader t
 
 \emph{For the rest of the paper, the Extendibility Axiom is imposed on all CSSs.}
 
-\subsection{Newton's method as a CCS}\label{subsec: Newton method}
+\subsection{Newton’s method as a CCS}\label{subsec: Newton method}
 We formalize the Newton-Raphson root-finding method as a CCS~\cite{Galantai200025}, \cite[Section~2.3]{Burden2016numerical}.
 
 Let $\hatC = \mathbb{C}\cup\{\infty\}$ be the extended complex plane (the Alexandroff —one-point— compactification of~$\mathbb{C}$).
@@ -828,7 +830,7 @@ the inverse stereographic projection coordinates.
 \subsubsection{Newton CCSs}
 \label{sec:Newton-CCS}
 Let $p = p(z)$ be a nonconstant rational map $\hatC\to\hatC$.
-We say that the CCS $(\hatC, \mathcal{P}, \Gamma_p)$ is \emph{Newton's method for~$p(z)$} (or the \emph{Newton CCS for~$p(z)$}) if:
+We say that the CCS $(\hatC, \mathcal{P}, \Gamma_p)$ is \emph{Newton’s method for~$p(z)$} (or the \emph{Newton CCS for~$p(z)$}) if:
 \begin{itemize}
 \item $\mathcal{P}:=(P_1,P_2,P_3)$ are the coordinates of inverse steregraphic projection (as above);
 % \item $L_p\subseteq \hatC$ is the set of all extended complex numbers $z$ having some neighborhood~$U\subseteq \hatC$ such that the sequence $(N_p^{(n)})_{n\in \mathbb{N}}$ of iterates of the corresponding \emph{Newton map}%
@@ -858,7 +860,7 @@ Given an initial estimate $z_0$, one hopes for the sequence of Newton steps appl
 to converge to a root~$r$ of~$p$.
 
 \paragraph{A real cubic without rational roots}
-It is well known —if perhaps surprising at first— that Newton's method fails to converge to any root%
+It is well known —if perhaps surprising at first— that Newton’s method fails to converge to any root%
 \footnote{Even when~$z = \infty$ happens to be a root of a rational map~$p(z)$.}
 in many cases.
 Consider, as a first example, the polynomial ${\rho}(z) = z^3-2z+2$ with Newton map
@@ -1020,7 +1022,7 @@ Let us look at various examples:
 \end{exmp}
 
 \begin{exmp}
-    \textbf{Newton's method for $p(z) = z^3-2z+2$}.
+    \textbf{Newton’s method for $p(z) = z^3-2z+2$}.
         Let $B_i$, $B_{\pm1}$ be the basin of the root $r_i$ ($i = 0, \pm1$), and let $B$ be the basin of the attractive cycle 0, 1, 0, 1, \dots.
         It may be shown that the Fatou set of $N_p$ is $F_p = B \cup \bigcup_{i=0,\pm1}B_i$, each of these four sets being nonempty open.
         Since $B$ is nonempty, $N_p^n$ does not converge pointwise;
@@ -1031,46 +1033,41 @@ Let us look at various examples:
 
 \subsection{Finite-precision threshold classifiers}\label{subsec:finite_prec_threshold}
 
-Consider the states space $L = 2^\mathbb{N}$ ($= \{0,1\}^{\mathbb{N}}$) consisting of all countable binary sequences $x = (x_n)_{n\in \mathbb{N}}\subseteq\{0,1\}$, endowed with the topology of pointwise convergence.
-Let $\mathcal{P}=\{P_n:n\in\mathbb{N}\}$ be the collection of projections (coordinates) $P_n:x \mapsto x_n$.
+Consider the states space $L = 2^\mathbb{N}$ ($= \{0,1\}^{\mathbb{N}}$) consisting of all countable binary sequences $x = (x_n)_{n\in \mathbb{N}} \subseteq \{0,1\}$, endowed with the topology of pointwise convergence.
+Let $\mathcal{P} = \{P_n:n\in\mathbb{N}\}$ be the collection of projections (coordinates) $P_n:x \mapsto x_n$.
 %In other words, $P_n$ is the predicate that reads the $n$th digit of an input sequence.
-Since $2^{\mathbb{N}} \subseteq \mathbb{R}^{\mathbb{N}}$ ($\cong \mathbb{R}^{\mathcal{P}}$) is closed, the type space of $(2^{\mathbb{N}},\mathcal{P})$ is $\mathcal{L} = 2^{\mathbb{N}}$ $(= L)$.
+Since $2^{\mathbb{N}} \subseteq \mathbb{R}^{\mathbb{N}}$ ($\cong \mathbb{R}^{\mathcal{P}}$) is closed, the type space of $(2^{\mathbb{N}},\mathcal{P})$ is $\mathcal{L} = 2^{\mathbb{N}}$ ($= L$).
 
-Since both the index set $\mathbb{N}$ is well-ordered, and the value space~$2 = \{0, 1\}$ is also ordered (in the usual way), the states space $2^{\mathbb{N}}$ is lexicographically ordered, say by~$\preccurlyeq$.
+Since the index set $\mathbb{N}$ and the value space~$2 = \{0, 1\}$ are well-ordered, the states space $2^{\mathbb{N}}$ is lexicographically ordered, say by~$\preccurlyeq$.
 
-For any fixed length $n\in \mathbb{N}$, finite binary strings $y\in 2^n$ will be implicitly identified with their zero-extension to sequences $\iota(y) = (x_i)_{i\in \mathbb{N}} \in 2^{\mathbb{N}}$, namely
+The set $2^n$ of finite binary strings (“words”) $w$ of any fixed length $|w| = n$ will be implicitly identified with a subset of~$2^{\mathbb{N}}$ by identifying $w$ with its zero extension $\iota(w) = (x_i)_{i\in \mathbb{N}} \in 2^{\mathbb{N}}$, namely
 \begin{equation*}
   x_i
   =
   \begin{cases}
-    y_i & (i<n);\\
+    w_i & (i<n);\\
     0 & (i\ge n).
   \end{cases}  
 \end{equation*}
 The set of all finite binary strings is thus identified with the subset $2^{<\mathbb{N}} \coloneqq \bigcup_{n\in \mathbb{N}}2^n \subseteq 2^{\mathbb{N}}$.
-
 The “inclusion map” $\iota$ above has a natural left inverse:
 the restriction map
 \begin{align*}
-  \cdot\restriction n: 2^{\mathbb{N}}&\to 2^n\\
-  x&\mapsto x\restriction n\coloneqq(x_i)_{i<n}.
+  \cdot\restriction_n: 2^{\mathbb{N}}&\to 2^n\\
+  x&\mapsto x\restriction_n\coloneqq(x_i)_{i<n}.
 \end{align*}
 
-For fixed $w\in2^{<\mathbb{N}}$, consider the transition $\phi_w:L\to L$ given by the rule
-\[
-  \phi_w(x)
-  =
-  \begin{cases}
-    1_{\bullet} & (x|_{|w|}\leq_{\mathrm{lex}});\\
-    0_{\bullet} & (\text{otherwise}),
-  \end{cases}
-\] 
-where $|w|$ is the length of the string $w$ and $x|_{|w|}$ is the prefix of $x$ of length $|w|$.
-That is, $\phi_w(x)$ is equal to the constant sequence of ones if $x|_{|w|}$ comes before or is equal to $w$ in the lexicographic order of strings, and it is equal to the constant sequence of zeros otherwise.
-In words, $\phi_w$ checks if a number is less than or equal to the scalar value of threshold $w$ (the string $w$ is finite, hence the classifier has \emph{finite precision}).
-Note that $P_n\circ\phi_w(x)=1$ if and only if $x|_{|w|}$ comes before $w$.
-
 Denote by $0_{\bullet}$ (resp., $1_{\bullet}$) the constant sequence with value~$0$ (resp., value~$1$).
+For fixed $w\in2^{<\mathbb{N}}$, consider the transition
+\begin{align*}
+ \phi_w:L&\to L\\
+  x&\mapsto
+  \begin{cases}
+    1_{\bullet}, & x \preccurlyeq w;\\
+    0_{\bullet}, & \text{otherwise.}
+  \end{cases}
+\end{align*}
+Since the string $w$ is finite, we call $\phi_w$ a \emph{finite-precision classifier}.
 
 \begin{prop}
     $\phi_w:2^{\mathbb{N}}\rightarrow 2^{\mathbb{N}}$ is continuous for all $w\in 2^{<\mathbb{N}}$.
@@ -1094,9 +1091,9 @@ Let $\Delta=\{\phi_w:w\in 2^{<\mathbb{N}}\}\cup\{\mathbf{0^{\infty}},\mathbf{1^{
 Let $\Gamma$ be the semigroup generated by $\Delta$.
 The preceding proposition shows that $\Delta$ (and hence $\Gamma$) consists of continuous functions.
 In particular, the CCS $(L,\mathcal{P},\Gamma)$ satisfies the Extendibility Axiom.
-In contrast with Newton's method, the algebraic structure of $\Delta$ is quite simple: composing two classifiers results in something similar to a Boolean logic gate.
+In contrast with Newton’s method, the algebraic structure of $\Delta$ is quite simple: composing two classifiers results in something similar to a Boolean logic gate.
 The topological structure is far more interesting.
-Intuitively, the crucial difference between Newton's method and threshold classifiers is that the complexity of the former comes from \emph{depth}: the semigroup is generated by a single map but its iterates are highly complex.
+Intuitively, the crucial difference between Newton’s method and threshold classifiers is that the complexity of the former comes from \emph{depth}: the semigroup is generated by a single map but its iterates are highly complex.
 The complexity of threshold classification comes from \emph{width}: the semigroup has infinitely many generators, but their compositions are simple.
 
 Intuitively, the closure of $\Delta$ consists of the set of all possible threshold classifiers on the real line, but there are two sorts: the ones that classify strict inequalities and those that classify $\leq$.
@@ -1211,25 +1208,24 @@ This space also contains a discrete subspace of size continuum, namely $\{\delta
 
 This is the main section of the paper.
 We use topology of function spaces to obtain a new hierarchy of complexity classes for deep computations.
-The main topological tool is Todorčević's remarkable trichotomy for Rosenthal's compacta~\cite{Todorcevic_1999_CompactSubsetsBaire}. 
-Our inspiration for this was the work of Glasner and Megrelishvili on tame semigropus in topological dynamics~\cite{glasner2022tame}.
+The main topological tool is Todorčević’s trichotomy for Rosenthal compacta~\cite{Todorcevic_1999_CompactSubsetsBaire}. 
+Our inspiration is the work of Glasner and Megrelishvili on tame semigropus in topological dynamics~\cite{glasner2022tame}.
 
-In subsection~\ref{S:trichotomy}, we study the implications of Todorčević's  trichotomy in the realm of deep computations.
-Then, in subsection~\ref{S:heptachotomy}, we focus on the  more recent heptachotomy for separable Rosenthal compacta proved by Argyros, Dodos and Kanellopoulos~\cite{argyros2008rosenthal}.
-Since our interest is in applications to  the theory of computation, we focus our attention on compositional computational structures $(L,\mathcal{P},\Gamma)$  (Definition~\ref{D:CCS}) where the set $\mathcal{P}$ of predicates is countable,
-and in sets  computation $\Delta\subseteq\Gamma$ of comptations that are countable.
+% In subsection~\ref{S:trichotomy}, we study the implications of Todorčević’s  trichotomy in the realm of deep computations.
+% Then, in subsection~\ref{S:heptachotomy}, we focus on the  more recent heptachotomy for separable Rosenthal compacta proved by Argyros, Dodos and Kanellopoulos~\cite{argyros2008rosenthal}.
+% Since our interest is in applications to  the theory of computation, we focus our attention on compositional computation structures $(L,\mathcal{P},\Gamma)$  (Definition~\ref{D:CCS}) where the set $\mathcal{P}$ of predicates is countable,
+% and in sets  computation $\Delta\subseteq\Gamma$ of comptations that are countable.
 
-
-
-The following theorem is the cornerstone of the section, as it establishes a powerful  link between deep computations and Rosenthal compacta.
+Theorem~\ref{thm:nip-baire1def} below is the cornerstone of the section;
+it establishes a powerful  link between deep computations and Rosenthal compacta.
 It extends the results of~\cite{alva2024approximability} from the setting of continuous deep computations to the more general (and realistic) setting of deep computations of the first  Baire class.
-Informally,  Theorem~\ref{nip-baire1def} states that if  $\mathcal{P}$ and $\Delta\subseteq\Gamma$ are countable, 
+Informally,  Theorem~\ref{thm:nip-baire1def} states that if  $\mathcal{P}$ and $\Delta\subseteq\Gamma$ are countable, 
 then the space of deep computations generated by $\Delta$ is a Rosenthal compactum (when restricted to shards) if and only if $\Delta$ satisfies the NIP feature by feature.
-Furthermore, Theorem~\ref{nip-baire1def}  shows that every deep computation generated by $\Delta$ is a sequential limit (rather than an abstract ultrafilter limit) of computations in $\Delta$.
+Furthermore, Theorem~\ref{thm:nip-baire1def}  shows that every deep computation generated by $\Delta$ is a sequential limit (rather than an abstract ultrafilter limit) of computations in $\Delta$.
 
 
-\begin{thm}\label{nip-baire1def}
-    Let $(L,\mathcal{P},\Gamma)$ be a compositional computational structure (Definition~\ref{D:CCS}) satisfying the Extendibility Axiom (see Definition~\ref{D:extendibility axiom}) with $\mathcal{P}$ countable.
+\begin{thm}\label{thm:nip-baire1def}
+    Let $(L,\mathcal{P},\Gamma)$ be a compositional computation structure (Definition~\ref{D:CCS}) satisfying the Extendibility Axiom (see Definition~\ref{D:extendibility axiom}) with $\mathcal{P}$ countable.
 Let $R$ be an exhaustive collection of sizers,
 and suppose that  $\Delta\subseteq\Gamma$ is $R$-confined.
 Then the following conditions are equivalent:
@@ -1242,24 +1238,24 @@ Then the following conditions are equivalent:
     \]
     \end{enumerate}
 
-    Furthermore, if any (hence all) of the preceding conditions hold, then every deep computation $f\in\overline{\Delta}$ can be extended to a Baire-1 function on shards, i.e., there is $\tilde f:\mathcal{L}_{\text{sh}}\rightarrow \mathcal{L}_{\text{sh}}$ such that $\tilde f|_{\mathcal{L}[r_\bullet]}\in B_1(\mathcal{L}[r_\bullet],\mathcal{L}[r_\bullet])$ for all $r_{\bullet}\in R$.
+    Furthermore, if any (hence all) of the preceding conditions hold, then every deep computation $f\in\overline{\Delta}$ can be extended to a Baire-1 function on shards, i.e., there is $\tilde f:\mathcal{L}_{\sh}\rightarrow \mathcal{L}_{\sh}$ such that $\tilde f|_{\mathcal{L}[r_\bullet]}\in B_1(\mathcal{L}[r_\bullet],\mathcal{L}[r_\bullet])$ for all $r_{\bullet}\in R$.
 In particular, on each shard every deep computation is the pointwise limit of a countable sequence of computations.
 \end{thm}
 
 \begin{proof}
-    Since $\mathcal{P}$ is countable, $\mathcal{L}[r_\bullet]\subseteq\mathbb{R}^\mathcal{P}$ is Polish.
-Also, the Extendibility Axiom implies that $\pi_P\circ \tilde\Delta|_{\mathcal{L}[r_\bullet]}$ is a pointwise bounded set of continuous functions for all $P\in\mathcal{P}$.
+Since $\mathcal{P}$ is countable, $\mathcal{L}[r_\bullet]\subseteq\mathbb{R}^\mathcal{P}$ is Polish.
+The Extendibility Axiom implies that $\pi_P\circ \tilde\Delta|_{\mathcal{L}[r_\bullet]}$ is a pointwise bounded set of continuous functions for all $P\in\mathcal{P}$.
 Hence, Theorem \ref{Generalized BFT} and Lemma \ref{NIP and closure} prove the equivalence of (i) and (ii).
 If (i) holds and $f\in\overline{\Delta}$, then we can write as an ultralimit of computations in $\Delta$, say  $f=\mathcal{U}{\rm lim}_i \gamma_i$.
 Define $\tilde f:=\mathcal{U}{\rm lim}_i \tilde\gamma_i$.
 Then, for all $r_\bullet\in R$ we have $\tilde f|_{\mathcal{L}[r_\bullet]}\in\overline{\tilde\Delta|_{\mathcal{L}[r_\bullet]}}\subseteq B_1(\mathcal{L}[r_\bullet],\mathcal{L}[r_\bullet])$.
-The assertion that every deep computation is a pointwise limit of a countable sequence of computations follows from the fact that for a Polish space $X$,s every compact subset of $B_1(X)$ is Fréchet-Urysohn 
+The assertion that every deep computation is a pointwise limit of a countable sequence of computations follows from the fact that for a Polish space $X$, every compact subset of $B_1(X)$ is Fréchet-Urysohn 
 (that is, a space where any point in the closure of  a set $A$ is the limit of a sequence of points in  $A$; see Theorem 3F in \cite{BFT_1978_PCompactBaire} or Theorem 4.1 in \cite{debs2013rosenthal}).
 \end{proof}
 
 \subsection{The Todorčević trichotomy, and levels of NIP and PAC learnability}
 \label{S:trichotomy}
-%By Theorem \ref{nip-baire1def}, if $\Delta$ is a countable set of computations satisfying the NIP on features and shards, 
+%By Theorem \ref{thm:nip-baire1def}, if $\Delta$ is a countable set of computations satisfying the NIP on features and shards, 
 %then for each fixed sizer $r_\bullet$  the set $\overline{\tilde\Delta_{\mathcal{L}[r_\bullet]}}$ is a separable Rosenthal compactum (see Definition~\ref{D:Rosenthal compacta}). 
 Recall that a topological space $X$ is \emph{hereditarily separable} if every subspace is separable, and that $X$ is \emph{first countable} if every point in $X$ has a countable local basis.
 Every separable metrizable space is hereditarily separable, and R.
@@ -1268,19 +1264,19 @@ This suggests the following definition:
 
 \begin{defn}
     Let $(L,\mathcal{P},\Gamma)$ be a CCS satisfying the Extendibility Axiom and $R$ be an exhaustive collection of sizers.
-Let $\Delta\subseteq\Gamma$ be an $R$-confined countable set of computations satisfying the NIP on shards and features (condition (ii) in Theorem \ref{nip-baire1def}).
+Let $\Delta\subseteq\Gamma$ be an $R$-confined countable set of computations satisfying the NIP on shards and features (condition (ii) in Theorem \ref{thm:nip-baire1def}).
 We say that $\Delta$ is:
     \begin{enumerate}[(i)]
         \item
-        NIP$_1$ if $\overline{\tilde\Delta|_{\mathcal{L}[r_\bullet]}}$ is first countable for every $r_\bullet\in R$.
+        $\NIP_1$ if $\overline{\tilde\Delta|_{\mathcal{L}[r_\bullet]}}$ is first countable for every $r_\bullet\in R$;
         \item
-        NIP$_2$ if $\overline{\tilde\Delta|_{\mathcal{L}[r_\bullet]}}$ is hereditarily separable for every $r_\bullet\in R$.
+        $\NIP_2$ if $\overline{\tilde\Delta|_{\mathcal{L}[r_\bullet]}}$ is hereditarily separable for every $r_\bullet\in R$;
         \item
-        NIP$_3$ if $\overline{\tilde\Delta|_{\mathcal{L}[r_\bullet]}}$ is metrizable for every $r_\bullet\in R$.
+        $\NIP_3$ if $\overline{\tilde\Delta|_{\mathcal{L}[r_\bullet]}}$ is metrizable for every $r_\bullet\in R$.
     \end{enumerate}
 \end{defn}
 
-Observe that NIP$_3 \Rightarrow $NIP$_2\Rightarrow $NIP$_1\Rightarrow $NIP.
+Observe that $\NIP_3 \Rightarrow \NIP_2\Rightarrow \NIP_1\Rightarrow \NIP$.
 We now present examples of separable and non-separable examples Rosenthal compacta that show that implications are strict.
 These examples are due to Todorčević \cite{Todorcevic_1999_CompactSubsetsBaire}.
 
@@ -1302,14 +1298,14 @@ For each finite binary sequence $s\in 2^{<\mathbb{N}}$, let $v_s:2^\mathbb{N}\ri
 Let $\hat{A}(2^\mathbb{N})$ be the pointwise closure of $\{v_s:s\in2^{<\mathbb{N}}\}$, i.e., $\hat{A}(2^\mathbb{N})=A(2^\mathbb{N})\cup\{v_s:s\in 2^{<\mathbb{N}}\}$.
 Note that this space is a separable Rosenthal compactum that is not first countable.
 This is the example discussed in Section \ref{subsec: prefix test}. 
-It is an example of a CCS that is NIP but not NIP$_1$.
+It is an example of a CCS that is NIP but not $\NIP_1$.
 
     \item \emph{Split Cantor}.
 Let $<$ be the lexicographic order in the space $2^\mathbb{N}$ of infinite binary sequences.
 For each $a\in 2^\mathbb{N}$ let $f_a^-:2^\mathbb{N}\rightarrow\mathbb{R}$ be given by $f_a^-(x)=1$ if $x<a$ and $f_a^-(x)=0$ otherwise.
 Let $f_a^+:2^\mathbb{N}\rightarrow\mathbb{R}$ be given by $f_a^+(x)=1$ if $x\leq a$ and $f_a^+(x)=0$ otherwise.
 The Split Cantor is the space $S(2^\mathbb{N})=\{f_a^-:a\in 2^\mathbb{N}\}\cup\{f_a^+:a\in 2^\mathbb{N}\}$.
-This space was obtained as the closure of the space discussed in Section~\ref{subsec:finite_prec_threshold}, thus giving an example that separates NIP$_2$ from NIP$_3$.
+This space was obtained as the closure of the space discussed in Section~\ref{subsec:finite_prec_threshold}, thus giving an example that separates $\NIP_2$ from $\NIP_3$.
 
 This is a well known separable Rosenthal compactum;
 an example of a countable dense subset is the set of all $f_a^+$ and $f_a^-$ where $a$ is an infinite binary sequence that is eventually constant.
@@ -1346,7 +1342,7 @@ As with the Alexandroff compactification $A(2^{\mathbb{N}})$, we can make the sp
 For example, the closure of the set $\{(v_s,s^\frown 0^\infty):s\in 2^{<\mathbb{N}}\}\subseteq \hat{A}(2^{\mathbb{N}})\times 2^{\mathbb{N}}$ is $\{(\mathbf{0},a):a\in 2^{\mathbb{N}}\}\cup \{(\delta_a,a):a\in 2^{\mathbb{N}}\}\cup\{(v_s,s^\frown 0^\infty):s\in 2^{<\mathbb{N}}\}$, where $\{(\mathbf{0},a):a\in 2^{\mathbb{N}}\}\cup \{(\delta_a,a):a\in 2^{\mathbb{N}}\}$ is homeomorphic to $D(2^{\mathbb{N}})$.
 
     \item \emph{Extended Alexandroff Duplicate of the Split Cantor}.
-For each finite binary sequence $t\in 2^{<\mathbb{N}}$, let $a_t\in 2^\mathbb{N}$ be the sequence starting with $t$ and ending with $0$'s and let $b_t\in 2^\mathbb{N}$ be the sequence starting with $t$ and ending with $1$'s.
+For each finite binary sequence $t\in 2^{<\mathbb{N}}$, let $a_t\in 2^\mathbb{N}$ be the sequence starting with $t$ and ending with $0$’s and let $b_t\in 2^\mathbb{N}$ be the sequence starting with $t$ and ending with $1$’s.
 Define $h_t:2^\mathbb{N}\rightarrow\mathbb{R}$ by
     \[
 	h_t(x)=\begin{cases}
@@ -1363,7 +1359,7 @@ In fact, it contains an uncountable discrete subspace.
 
 \end{exmps}
 
-\begin{thm}[Todorčević's Trichotomy, \cite{Todorcevic_1999_CompactSubsetsBaire}, Theorem 3 in \cite{argyros2008rosenthal}]\label{T:Todorcevic trichotomy}
+\begin{thm}[Todorčević’s Trichotomy, \cite{Todorcevic_1999_CompactSubsetsBaire}, Theorem 3 in \cite{argyros2008rosenthal}]\label{T:Todorcevic trichotomy}
     Let $K$ be a separable Rosenthal Compactum.
     \begin{enumerate}[(i)] 
         \item 
@@ -1400,8 +1396,8 @@ We thus have the following classification for separable Rosenthal compacta:
 \end{tikzpicture}
 \end{center}
 
-Todorčević's Trichotomy suggests that in order to distinguish the classes NIP$_i$, the examples in \ref{E:Rosenthal compacta} are essential.
-The following examples show that the levels NIP$_i$ ($i=1,2,3$) may be distinguished by the topological complexity of deep computations.
+Todorčević’s Trichotomy suggests that in order to distinguish the classes $\NIP_i$, the examples in \ref{E:Rosenthal compacta} are essential.
+The following examples show that the levels $\NIP_i$ ($i=1,2,3$) may be distinguished by the topological complexity of deep computations.
 
 \begin{exmps}
 \label{E: NIP levels}
@@ -1409,11 +1405,11 @@ The following examples show that the levels NIP$_i$ ($i=1,2,3$) may be distingui
 \begin{enumerate}
     \item Let $(L,\mathcal{P},\Gamma)$ be the computation of square root (example \ref{E: computation of square roots} with $\Delta=\Gamma$. 
     We saw that $\overline{\tilde{\Delta}}=\tilde{\Delta}\cup\{\tilde{f}\}\subseteq B_1(\mathcal{L},\mathcal{L})$.
-    This corresponds to the Alexandroff compactification of a countable discrete set, which is metrizable. Hence, $\Delta$ is NIP$_3$ but it is not stable, in the sense that $\overline{\tilde{\Delta}}\not\subseteq C(\mathcal{L},\mathcal{L})$.
+    This corresponds to the Alexandroff compactification of a countable discrete set, which is metrizable. Hence, $\Delta$ is $\NIP_3$ but it is not stable, in the sense that $\overline{\tilde{\Delta}}\not\subseteq C(\mathcal{L},\mathcal{L})$.
 
     \item Let $(L,\mathcal{P},\Gamma)$ be the finite precision threshold classifiers (Section~\ref{subsec:finite_prec_threshold}) with $\Delta=\{\phi_w:w\in 2^{<\mathbb{N}}\}\cup\{\mathbf{0^\infty},\mathbf{1^\infty}\}$.
     We saw that $\overline{\Delta}$ is homeomorphic to the Split Cantor space $S(2^\mathbb{N})$ (Example \ref{E:Rosenthal compacta}-(3)), which is hereditarily separable but not metrizable.
-    Hence, $\Delta$ is NIP$_2$ but not NIP$_3$.
+    Hence, $\Delta$ is $\NIP_2$ but not $\NIP_3$.
 
     \item Let $(L,\mathcal{P},\Gamma)$ be the CCS given by $L=2^{\mathbb{N}}$, $\mathcal{P}=\{P_n:n\in\mathbb{N}\}$ and $\Gamma$ is the semigroup generated by $\Delta=\{\gamma_t:t\in 2^{<\mathbb{N}}\}$, where $P_n:2^\mathbb{N}\rightarrow\{0,1\}$ is the projection map $P_n(x)=x(n)$ and $\gamma_t:L\rightarrow L$ is given by
     \[
@@ -1427,19 +1423,19 @@ The following examples show that the levels NIP$_i$ ($i=1,2,3$) may be distingui
     As in the other examples, it is not difficult to see that $(L,\mathcal{P},\Gamma)$ satisfies the Extendibility Axiom.
     For example, the condition $t^\frown0^\infty\leq_{\text{lex}} x \leq_{\text{lex}} t^\frown1^\infty$ is equivalent to $x$ extending $t$.
     Observe that the set of deep computations is homeomorphic to $\hat{D}(S(2^{\mathbb{N}}))$ (see Example \ref{E:Rosenthal compacta}-(5)).
-    Hence, $\Delta$  is NIP$_1$ but not NIP$_2$.
+    Hence, $\Delta$  is $\NIP_1$ but not $\NIP_2$.
 
     \item Let $(L,\mathcal{P},\Gamma)$ be the finite precision prefix test (Section~\ref{subsec: prefix test}) with $\Delta=\{\psi_w:w\in 2^{<\mathbb{N}}\}$.
     We saw that $\overline{\tilde{\Delta}}$ is homeomorphic to the Extended Alexandroff compactification $\hat{A}(2^\mathbb{N})$ (Example \ref{E:Rosenthal compacta}-(3)), which is separable but not first countable.
-    Hence, $\Delta$ is NIP but not NIP$_1$.
+    Hence, $\Delta$ is NIP but not $\NIP_1$.
 \end{enumerate}
 \end{exmps}
 
-The definitions provided here for NIP$_i$ ($i=1,2,3$) are topological.
+The definitions provided here for $\NIP_i$ ($i=1,2,3$) are topological.
 This raises the following question:
 
 \begin{question}
-    Is there a non-topological characterization for NIP$_i$, $i=1,2,3$?
+    Is there a non-topological characterization for $\NIP_i$, $i=1,2,3$?
 \end{question}
 
 \subsection{The Argyros-Dodos-Kanellopoulos heptachotomy, and approximability of deep computation by minimal classes}
@@ -1457,7 +1453,7 @@ Computationally, we are interested in the manner (and the efficiency) in which t
 \item
 Infinite branches of the binary tree $2^{<\mathbb{N}}$ correspond to the Cantor space $2^{\mathbb{N}}$, the canonical perfect set (in the sense that any Polish space with no isolated points contains a copy of $2^{\mathbb{N}}$).
 The use of infinite dimensional Ramsey theory for trees (pioneered by the work of James D. Halpern, Hans Läuchli in \cite{halpern1966partition} and also Keith Milliken in \cite{milliken1981partition}, and Alain Louveau, Saharon Shelah, Boban Velickovic in \cite{louveau_shelah_velickovic_1993}) and perfect sets (Fred Galvin and Andreas Blass in \cite{Blass1981}, Arnold W. Miller in \cite{miller1989infinite}, and Stevo Todorčević in \cite{Todorcevic_1999_CompactSubsetsBaire}) allowed S.A. Argyros, P. Dodos and V. Kanellopoulos in \cite{argyros2008rosenthal} to obtain an improved version of Theorem \ref{T:Todorcevic trichotomy}.
-It is no surprise that Ramsey Theory becomes relevant in the study of Rosenthal compacta as it was a key ingredient in Rosenthal's $\ell_1$ Theorem.
+It is no surprise that Ramsey Theory becomes relevant in the study of Rosenthal compacta as it was a key ingredient in Rosenthal’s $\ell_1$ Theorem.
 For this reason, the main results in \cite{argyros2008rosenthal} (which we cite in this paper) are better explained by indexing Rosenthal compacta with the binary tree.
 \end{enumerate}
 
@@ -1475,7 +1471,7 @@ If $\{f_t:t\in 2^{<\mathbb{N}}\}$ is a pointwise bounded family, we say that $\{
 One of the main results in \cite{argyros2008rosenthal} is that, up to equivalence, there are seven minimal families of Rosenthal compacta and that for every relatively compact $\{f_t:t\in 2^{<\mathbb{N}}\}\subseteq B_1(X)$ there is a dyadic subtree $\{s_t:t\in 2^{<\mathbb{N}}\}$ such that $\{f_{s_t}:t\in 2^{<\mathbb{N}}\}$ is equivalent to one of the minimal families.
 We shall describe the seven minimal families next.
 We follow the same notation as in \cite{argyros2008rosenthal}.
-For any node $t\in 2^{<\mathbb{N}}$, we denote by $t^\frown 0^{\infty}$ ($t^\frown 1^{\infty}$) the infinite binary sequence starting with $t$ and continuing with all $0$'s (respectively, all $1$'s).
+For any node $t\in 2^{<\mathbb{N}}$, we denote by $t^\frown 0^{\infty}$ ($t^\frown 1^{\infty}$) the infinite binary sequence starting with $t$ and continuing with all $0$’s (respectively, all $1$’s).
 Fix a regular dyadic subtree $R=\{s_t:t\in 2^{<\mathbb{N}}\}$ of $2^{<\mathbb{N}}$ (i.e., a dyadic subtree such that every level of $R$ is contained in a level of $2^{<\mathbb{N}}$) with the property that for all $s,s'\in R$, we have $s^\frown 0^{\infty}\neq s'^\frown 0^\infty$ and $s^\frown 1^{\infty}\neq s'^\frown 1^\infty$.
 Given $t\in 2^{<\mathbb{N}}$, let $v_t$ be the characteristic function of the set $\{x\in 2^\mathbb{N}:x \text{ extends } t\}$.
 Let $<$ be the lexicographic order in $2^\mathbb{N}$.
@@ -1546,7 +1542,7 @@ If $X$ is compact, then a function $f:X\rightarrow\mathbb{R}$ is universally mea
 \end{rem}
 
 Intuitively, a function is universally measurable if it is ``measurable no matter which reasonable way you try to measure things on its domain".
-The concept of universal measurability emerged from work of Kallianpur and Sazonov, in the late 1950's and 1960s --- with later developments by Blackwell, Darst and others ---  building on earlier ideas of Gnedenko and Kolmogorov from the 1950s.
+The concept of universal measurability emerged from work of Kallianpur and Sazonov, in the late 1950’s and 1960s --- with later developments by Blackwell, Darst and others ---  building on earlier ideas of Gnedenko and Kolmogorov from the 1950s.
 See~\cite[Chapters 1 and 2]{Pap:2002}.
 
 \begin{notn}
@@ -1605,8 +1601,8 @@ To motivate the definition, let us first recall two facts:
 
 \begin{enumerate}
 \item
-Littlewoood's second principle states that every Lebesgue measurable function is ``nearly continuous''.
-The formal statement of this, which is Luzin's theorem, is that if
+Littlewoood’s second principle states that every Lebesgue measurable function is ``nearly continuous''.
+The formal statement of this, which is Luzin’s theorem, is that if
  $(X,\Sigma ,\mu )$ a Radon measure space and $Y$ is a second-countable topological space (e.g., $Y=\mathbb{R}^\mathcal{P}$ with $\mathcal{P}$ countable) equipped with the Borel $\sigma$-algebra, then any given $f:X\to Y$ is measurable if and only if for every $E\in\Sigma$ and every $\varepsilon>0$ there exists a closed $F\subseteq E$ such that the restriction $f|_F$ is continuous and $\mu(E\backslash F) < \varepsilon$.
 \item
 Computability of deep computations is characterized in terms of continuous extendibility of computations.
@@ -1618,11 +1614,11 @@ These two facts motivate the following definition:
 \begin{defn}
 \label{D:universally essentially computable}
     Let $(L,\mathcal{P},\Gamma)$ be a CCS.
-We say that a transition $f:L\rightarrow L$ is \emph{universally Monte Carlo computable} if and only if there exists $\tilde f:\mathcal{L}_{\text{sh}}\rightarrow \mathcal{L}_{\text{sh}}$ extending $f$ such that for every sizer $r_\bullet$ there is a sizer $s_\bullet$ such that the restriction $\tilde f|_{\mathcal{L}[r_{\bullet}]}:\mathcal{L}[r_\bullet]\rightarrow\mathcal{L}[s_\bullet]$ is universally measurable, i.e., $\pi_P\circ \tilde f|_{\mathcal{L}[r_{\bullet}]}:\mathcal{L}[r_\bullet]\rightarrow [-s_P,s_P]$ is $\mu$-measurable for every Radon probability measure $\mu$ on $\mathcal{L}[r_\bullet]$ and $P\in\mathcal{P}$.
+We say that a transition $f:L\rightarrow L$ is \emph{universally Monte Carlo computable} if and only if there exists $\tilde f:\mathcal{L}_{\sh}\rightarrow \mathcal{L}_{\sh}$ extending $f$ such that for every sizer $r_\bullet$ there is a sizer $s_\bullet$ such that the restriction $\tilde f|_{\mathcal{L}[r_{\bullet}]}:\mathcal{L}[r_\bullet]\rightarrow\mathcal{L}[s_\bullet]$ is universally measurable, i.e., $\pi_P\circ \tilde f|_{\mathcal{L}[r_{\bullet}]}:\mathcal{L}[r_\bullet]\rightarrow [-s_P,s_P]$ is $\mu$-measurable for every Radon probability measure $\mu$ on $\mathcal{L}[r_\bullet]$ and $P\in\mathcal{P}$.
 \end{defn}
 
 \begin{rem}
-    Every Radon measure on a compact space (e.g., $\mathcal{L}_{\text{sh}}$) is finite; hence, by proper normalization, it can be treated as a probability measure.
+    Every Radon measure on a compact space (e.g., $\mathcal{L}_{\sh}$) is finite; hence, by proper normalization, it can be treated as a probability measure.
     For this reason, in the context of Monte Carlo computability (\ref{D:universally essentially computable}), we restrict our attention to Radon probability measures instead of  general Radon measures.
 \end{rem}
 
@@ -1650,7 +1646,7 @@ If $\pi_P\circ\Delta|_{L[r_\bullet]}$ satisfies the NIP for all $P\in\mathcal{P}
     Let $f\in\overline{\Delta}$ be a deep computation.
     Write $f=\mathcal{U}\lim_i\gamma_i$ as an ultralimit of computations in $\Delta$.
     Define $\tilde{f}:=\mathcal{U}\lim_i\tilde{\gamma_i}$.
-    Then, $\tilde{f}:\mathcal{L}_{\text{sh}}\rightarrow \mathcal{L}_{\text{sh}}$ extends $f$.
+    Then, $\tilde{f}:\mathcal{L}_{\sh}\rightarrow \mathcal{L}_{\sh}$ extends $f$.
     Since $\Delta$ is $R$-confined we have that $f:L[r_\bullet]\rightarrow L[r_\bullet]$ and $\tilde{f}:\mathcal{L}[r_\bullet]\rightarrow \mathcal{L}[r_\bullet]$ for all $r_\bullet\in R$.
     Lastly, note that for all $r_\bullet\in R$ and $P\in\mathcal{P}$ we have that $\pi_P \circ \tilde{f}|_{\mathcal{L}[r_\bullet]}\in \overline{\pi_P\circ\tilde\Delta|_{\mathcal{L}[r_\bullet]}}\subseteq M_r(\mathcal{L}[r_\bullet])$.
 \end{proof}
