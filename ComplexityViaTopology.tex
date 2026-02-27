@@ -1049,10 +1049,12 @@ For any fixed length $n\in \mathbb{N}$, finite binary strings $y\in 2^n$ will be
 \end{equation*}
 The set of all finite binary strings is thus identified with the subset $2^{<\mathbb{N}} \coloneqq \bigcup_{n\in \mathbb{N}}2^n \subseteq 2^{\mathbb{N}}$.
 
-The “inclusion map” $\iota$ above has a natural left inverse, namely the restriction map
-\begin{equation*}
-  \cdot\restriction n: 2^{\mathbb{N}}\to 2^n: x\mapsto x\restriction n\coloneqq(x_i)_{i<n}.
-\end{equation*}
+The “inclusion map” $\iota$ above has a natural left inverse:
+the restriction map
+\begin{align*}
+  \cdot\restriction n: 2^{\mathbb{N}}&\to 2^n\\
+  x&\mapsto x\restriction n\coloneqq(x_i)_{i<n}.
+\end{align*}
 
 For fixed $w\in2^{<\mathbb{N}}$, consider the transition $\phi_w:L\to L$ given by the rule
 \[
