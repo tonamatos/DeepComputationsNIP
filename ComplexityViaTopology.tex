@@ -1025,13 +1025,13 @@ Let us look at various examples:
 \end{exmp}
 
 \begin{exmp}
-    \textbf{Newton’s method for $p(z) = z^3-2z+2$}.
-        Let $B_i$, $B_{\pm1}$ be the basin of the root $r_i$ ($i = 0, \pm1$), and let $B$ be the basin of the attractive cycle 0, 1, 0, 1, \dots.
-        It may be shown that the Fatou set of $N_p$ is $F_p = B \cup \bigcup_{i=0,\pm1}B_i$, each of these four sets being nonempty open.
-        Since $B$ is nonempty, $N_p^n$ does not converge pointwise;
-        however, the subsequences $N_p^{2n}$ and $N_p^{2n+1}$ are pointwise convergent to two distinct deep computations $f_0$ (constant $0$ on~$B$) and $f_1$ (constant $1$ on~$B$).%
-        \footnote{As remarked above, $\infty$ is a repelling fixed point of $N_p$, hence $f_0(\infty) = \infty = f_1(\infty)$.}
-        The behavior of the iterates $N_p$ on the Julia set $\mathbb{C}\setminus L_p$ is chaotic
+    \textbf{Newton’s method for $\rho(z) = z^3-2z+2$}.
+        Let $B_i$ be the basin of the root $r_i$ ($i = 0, \pm1$), and let $B_{01}$ be the basin of the attractive cycle 0, 1, 0, 1, \dots.
+        It may be shown that the Fatou set of $N_\rho$ is $F_\rho = B_{01} \cup B_0 \cup B_{+1} \cup B_{-1}$, each of these four sets being nonempty open.
+        Since $B_{01}$ is nonempty, $N_\rho^n$ does not converge pointwise;
+        however, the subsequences $N_\rho^{2n}$ and $N_\rho^{2n+1}$ are pointwise convergent to two distinct deep computations $f_0$ (constant $0$ on~$B_{01}$) and $f_1$ (constant $1$ on~$B_{01}$).%
+        \footnote{As remarked above, $\infty$ is a repelling fixed point of $N_\rho$, hence $f_0(\infty) = \infty = f_1(\infty)$.}
+        The behavior of the iterates $N_\rho$ on the Newton fractal of~$\rho$ (the Julia set $\mathbb{C}\setminus L_\rho$) is chaotic.
 \end{exmp}
 
 \subsection{Finite-precision threshold classifiers}\label{subsec:finite_prec_threshold}
