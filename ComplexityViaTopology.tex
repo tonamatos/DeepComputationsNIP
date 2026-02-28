@@ -1091,7 +1091,7 @@ the semigroup has infinitely many generators, but their compositions are simple.
 Intuitively, the closure $\overline{\Delta}$ consists of the set of all possible threshold classifiers on the real line, but there are two sorts:
 the ones that classify strict inequalities and those that classify $\leq$.
 The members of $\Delta$ are finite-precision approximations of classifiers that check all bits of information.
-But here it gets interesting: what is the difference, in terms of arbitrary-precision arithmetic, between $x<0.5$ and $x\leq0.5$?
+But here it gets interesting: what is the difference, in terms of exact (i.e., infinite-precision) arithmetic, between $x<0.5$ and $x\leq0.5$?
 
 Suppose that $f_a^+$ represents the $\leq$ classifier for a target $a\in L$.
 We identify the scalar truth values with constant sequences, formally $f_a^+:L\to\{0^\infty,1^\infty\}$ is defined by $f_a^+(x)=1^\infty$ if $x\leq_{\mathrm{lex}}a$ and $f_a^+(x)=0^\infty$ otherwise. 
