@@ -1558,12 +1558,12 @@ The following are equivalent for  $f:X\rightarrow Y$:
 
 \begin{proof}
     (i)$\Rightarrow$(ii) is clear since the projection maps $\pi_i$ are measurable and the composition of measurable functions is measurable.
-To prove (ii)$\Rightarrow$(i), suppose that $C=\prod_{i\in I}C_i$ is a measurable cylinder and let $J$ be the finite subset of $I$ such that $C_i\neq Y_i$ for $i\in J$.
-Then, $C=\bigcap_{i\in J}\pi_i^{-1}(C_i)$, so $f^{-1}(C)=\bigcap_{i\in J}(\pi_i\circ f)^{-1}(C_i)$ is universally measurable by assumption.
+To prove (ii)$\Rightarrow$(i), note  that if $C=\prod_{i\in I}C_i$ is a measurable cylinder and $J$ is the finite subset of $I$ such that $C_i\neq Y_i$ for $i\in J$,
+then,  $f^{-1}(C)=\bigcap_{i\in J}(\pi_i\circ f)^{-1}(C_i)$ is universally measurable by assumption.
 \end{proof}
 
 The preceding proposition says that  we can check measurability of a transition just by checking measurability feature by feature.
-This is the same as in the Baire class 1 case (compare with Proposition~\ref{prop:Baire-identifications}).
+This is analogous to Baire class 1 setting (see Proposition~\ref{prop:Baire-identifications}).
 
 The main result in section \ref{S:Classification} is that, as long as we work with countably many features, PAC-learning (or NIP) corresponds to relative compactness in the space of Baire class 1 functions.
 The following result (which does not assume countability of the number of features) gives an analogous characterization of the NIP in terms of universal measurability:
