@@ -1627,14 +1627,13 @@ If $\pi_P\circ\Delta|_{L[r_\bullet]}$ satisfies the NIP for all $P\in\mathcal{P}
 \begin{proof}
     Fix $P\in\mathcal{P}$ and $r_\bullet\in R$.
     By the Extendibility Axiom, $\pi_P\circ\tilde\Delta|_{\mathcal{L}[r_\bullet]}$ is a set of pointwise bounded continuous functions on the compact set $\mathcal{L}[r_\bullet]$.
-    Since $\pi_P\circ\tilde\Delta|_{L[r_\bullet]}=\pi_P\circ\Delta|_{L[r_\bullet]}$ has the NIP, so does $\pi_P\circ\tilde\Delta|_{\mathcal{L}[r_\bullet]}$ by Lemma \ref{NIP and closure}.
+    Since $\pi_P\circ\Delta|_{L[r_\bullet]}$ has the NIP, so does $\pi_P\circ\tilde\Delta|_{L[r_\bullet]}=\pi_P\circ\Delta|_{\mathcal{L}[r_\bullet]}$ by Lemma \ref{NIP and closure}.
     By Theorem \ref{BFT-2F}, we have $\overline{\pi_P\circ\tilde\Delta|_{\mathcal{L}[r_\bullet]}}\subseteq M_r(\mathcal{L}[r_\bullet])$ for all $r_\bullet\in R$ and $P\in\mathcal{P}$.
-    Let $f\in\overline{\Delta}$ be a deep computation.
-    Write $f=\mathcal{U}\lim_i\gamma_i$ as an ultralimit of computations in $\Delta$.
-    Define $\tilde{f}:=\mathcal{U}\lim_i\tilde{\gamma_i}$.
-    Then, $\tilde{f}:\mathcal{L}_{\sh}\rightarrow \mathcal{L}_{\sh}$ extends $f$.
-    Since $\Delta$ is $R$-confined we have that $f:L[r_\bullet]\rightarrow L[r_\bullet]$ and $\tilde{f}:\mathcal{L}[r_\bullet]\rightarrow \mathcal{L}[r_\bullet]$ for all $r_\bullet\in R$.
-    Lastly, note that for all $r_\bullet\in R$ and $P\in\mathcal{P}$ we have that $\pi_P \circ \tilde{f}|_{\mathcal{L}[r_\bullet]}\in \overline{\pi_P\circ\tilde\Delta|_{\mathcal{L}[r_\bullet]}}\subseteq M_r(\mathcal{L}[r_\bullet])$.
+    Let $f\in\overline{\Delta}$ be a deep computation,
+    and write  as an ultralimit  $f=\mathcal{U}\lim_i\gamma_i$ of computations in $\Delta$.
+    Define an extension  $\tilde{f}:\mathcal{L}_{\sh}\rightarrow \mathcal{L}_{\sh}$ by $\tilde{f}:=\mathcal{U}\lim_i\tilde{\gamma_i}$.
+    Since $\Delta$ is $R$-confined we have $f:L[r_\bullet]\rightarrow L[r_\bullet]$ and $\tilde{f}:\mathcal{L}[r_\bullet]\rightarrow \mathcal{L}[r_\bullet]$ for all $r_\bullet\in R$.
+    Lastly, note that for all $r_\bullet\in R$ and $P\in\mathcal{P}$ we have $\pi_P \circ \tilde{f}|_{\mathcal{L}[r_\bullet]}\in \overline{\pi_P\circ\tilde\Delta|_{\mathcal{L}[r_\bullet]}}\subseteq M_r(\mathcal{L}[r_\bullet])$.
 \end{proof}
 
 \begin{question}
