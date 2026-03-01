@@ -1627,13 +1627,13 @@ If $\pi_P\circ\Delta|_{L[r_\bullet]}$ satisfies the NIP for all $P\in\mathcal{P}
 \begin{proof}
     Fix $P\in\mathcal{P}$ and $r_\bullet\in R$.
     By the Extendibility Axiom, $\pi_P\circ\tilde\Delta|_{\mathcal{L}[r_\bullet]}$ is a set of pointwise bounded continuous functions on the compact set $\mathcal{L}[r_\bullet]$.
-    Since $\pi_P\circ\Delta|_{L[r_\bullet]}$ has the NIP, so does $\pi_P\circ\tilde\Delta|_{L[r_\bullet]}=\pi_P\circ\Delta|_{\mathcal{L}[r_\bullet]}$ by Lemma \ref{NIP and closure}.
-    By Theorem \ref{BFT-2F}, we have $\overline{\pi_P\circ\tilde\Delta|_{\mathcal{L}[r_\bullet]}}\subseteq M_r(\mathcal{L}[r_\bullet])$ for all $r_\bullet\in R$ and $P\in\mathcal{P}$.
-    Let $f\in\overline{\Delta}$ be a deep computation,
-    and write  as an ultralimit  $f=\mathcal{U}\lim_i\gamma_i$ of computations in $\Delta$.
-    Define an extension  $\tilde{f}:\mathcal{L}_{\sh}\rightarrow \mathcal{L}_{\sh}$ of $f$ by $\tilde{f}:=\mathcal{U}\lim_i\tilde{\gamma_i}$.
-    Since $\Delta$ is $R$-confined, we have $f:L[r_\bullet]\rightarrow L[r_\bullet]$ and hence $\tilde{f}:\mathcal{L}[r_\bullet]\rightarrow \mathcal{L}[r_\bullet]$ for all $r_\bullet\in R$.
-    Lastly, note that for all $r_\bullet\in R$ and $P\in\mathcal{P}$ we have $\pi_P \circ \tilde{f}|_{\mathcal{L}[r_\bullet]}\in \overline{\pi_P\circ\tilde\Delta|_{\mathcal{L}[r_\bullet]}}\subseteq M_r(\mathcal{L}[r_\bullet])$.
+    Since $\pi_P\circ\Delta|_{L[r_\bullet]}$ has the NIP, so does $\pi_P\circ\tilde\Delta|_{L[r_\bullet]}=\pi_P\circ\Delta|_{\mathcal{L}[r_\bullet]}$,  by Lemma \ref{NIP and closure}.
+    Let $f\in\overline{\Delta}$ be a deep computation;
+     write $f$ as an ultralimit  $f=\mathcal{U}\lim_i\gamma_i$ of computations in $\Delta$, and
+    define an extension  $\tilde{f}:\mathcal{L}_{\sh}\rightarrow \mathcal{L}_{\sh}$ of $f$ naturally by $\tilde{f}:=\mathcal{U}\lim_i\tilde{\gamma_i}$.
+    Since, by hypothesis, $\Delta$ is $R$-confined, we have $f:L[r_\bullet]\rightarrow L[r_\bullet]$ and hence, $\tilde{f}:\mathcal{L}[r_\bullet]\rightarrow \mathcal{L}[r_\bullet]$.
+     Now, by Theorem \ref{BFT-2F}, we have $\overline{\pi_P\circ\tilde\Delta|_{\mathcal{L}[r_\bullet]}}\subseteq M_r(\mathcal{L}[r_\bullet])$;
+      therefore, $\pi_P \circ \tilde{f}|_{\mathcal{L}[r_\bullet]}\in \overline{\pi_P\circ\tilde\Delta|_{\mathcal{L}[r_\bullet]}}\subseteq M_r(\mathcal{L}[r_\bullet])$.
 \end{proof}
 
 \begin{question}
@@ -1646,7 +1646,7 @@ Must $\pi_P\circ\Delta|_{L[r_\bullet]}$ have the NIP for all $P\in\mathcal{P}$ a
 There is another notion closely related to NIP, introduced by Talagrand in \cite{talagrand1984pettis} while studying Pettis integration.
 Suppose that $X$ is a compact Hausdorff space and $A\subseteq \mathbb{R}^X$.
 Let $\mu$ be a Radon probability measure on $X$.
-Given a $\mu$-measurable set $E\subseteq X$, a positive integer $k$ and real numbers $a<b$, we write:
+Given a $\mu$-measurable set $E\subseteq X$, a positive integer $k$ and real numbers $a<b$, let
 
 \[
 	D_k(A,E,a,b)=\bigcup_{f\in A}\{x\in E^{2k}:f(x_{2i})\leq a, \hspace{1mm} f(x_{2i+1})\geq b \hspace{1mm}{\text{ for all }i<k} \}.
@@ -1659,7 +1659,7 @@ We say that $A$ is \emph{Talagrand $\mu$-stable} if and only if for every $\mu$-
 where $\mu^*$ denotes the outer measure (we need to work with outer measure since the sets $D_k(A,E,a,b)$ need not be $\mu^{2k}$-measurable).
 The inequality certainly holds when $A$ is a countable set of continuous (or $\mu$-measurable) functions.
 
-The main result of this section is that deep computations, i.e., limit points of a Talagrand stable set of computations are Monte Carlo computable; this is Theorem~\ref{T:Talagrand stability and Monte Carlo} below.
+The main result of this section is that deep computations that are limit points of a Talagrand stable set of computations are Monte Carlo computable; this is Theorem~\ref{T:Talagrand stability and Monte Carlo} below.
 We now prove that limit points of a Talagrand $\mu$-stable set are $\mu$-measurable.
 But first,  let us state  the following useful characterization of measurable functions (compare with Fact \ref{baire}):
 
