@@ -1231,7 +1231,7 @@ Then the following conditions are equivalent:
 
  Furthermore, if any (hence all) of the preceding conditions hold, then every deep computation $f\in\overline{\Delta}$ can be extended to a Baire-1 function on shards:
  there is $\tilde f:\mathcal{L}_{\sh}\rightarrow \mathcal{L}_{\sh}$ such that $\tilde f|_{\mathcal{L}[r_\bullet]}\in B_1(\mathcal{L}[r_\bullet],\mathcal{L}[r_\bullet])$ for all $r_{\bullet}\in R$.
- In particular, on each shard every deep computation is the pointwise limit of a countable sequence of computations.
+ In particular, on each shard, every deep computation is the pointwise limit of a countable sequence of computations.
 \end{thm}
 
 \begin{proof}
@@ -1521,10 +1521,8 @@ Given a Hausdorff space $X$ and a measurable space $(Y,\Sigma)$, we say that $f:
 When $Y=\mathbb{R}$, we will always take $\Sigma=\mathcal{B}(\mathbb{R})$, the Borel $\sigma$-algebra of $\mathbb{R}$.
 \end{defn}
 
-If $X$ is a compact (Hausdorff) space, then every Radon measure $\mu$ on $X$ is finite. 
-Then, the measure given by $\nu(A):=\mu(A)/\mu(X)$ is a probability measure on $X$ with the same null sets as $\mu$. 
-Hence, Radon measures on compact spaces are equivalent to (Radon) probability measures.
-We summarize this fact in the next remark:
+If $X$ is a compact (Hausdorff) space, then Radon measures on $X$ are finite, and hence, they can be normalized to probability measures.
+We record this as a remark:
 
 \begin{rem} 
 If $X$ is compact, then a function $f:X\rightarrow\mathbb{R}$ is universally measurable if and only if $f^{-1}(U)$ is $\mu$-measurable for every Radon probability measure $\mu$ on $X$ and every open set $U\subseteq\mathbb{R}$.
@@ -1564,7 +1562,7 @@ To prove (ii)$\Rightarrow$(i), suppose that $C=\prod_{i\in I}C_i$ is a measurabl
 Then, $C=\bigcap_{i\in J}\pi_i^{-1}(C_i)$, so $f^{-1}(C)=\bigcap_{i\in J}(\pi_i\circ f)^{-1}(C_i)$ is universally measurable by assumption.
 \end{proof}
 
-The preceding proposition says that a transition map is universally measurable if and only if it is universally measurable on all its features; in other words, we can check measurability of a transition just by checking measurability feature by feature.
+The preceding proposition says that  we can check measurability of a transition just by checking measurability feature by feature.
 This is the same as in the Baire class 1 case (compare with Proposition~\ref{prop:Baire-identifications}).
 
 The main result in section \ref{S:Classification} is that, as long as we work with countably many features, PAC-learning (or NIP) corresponds to relative compactness in the space of Baire class 1 functions.
