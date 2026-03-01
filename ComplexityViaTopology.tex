@@ -1643,7 +1643,7 @@ Must $\pi_P\circ\Delta|_{L[r_\bullet]}$ have the NIP for all $P\in\mathcal{P}$ a
 
 \subsection{Talagrand stability and Monte Carlo computability of deep computations}
 
-There is another notion closely related to NIP, introduced by Talagrand in \cite{talagrand1984pettis} while studying Pettis integration.
+There is another notion d{def}closely related to NIP, introduced by Talagrand in \cite{talagrand1984pettis} while studying Pettis integration.
 Suppose that $X$ is a compact Hausdorff space and $A\subseteq \mathbb{R}^X$.
 Let $\mu$ be a Radon probability measure on $X$.
 Given a $\mu$-measurable set $E\subseteq X$, a positive integer $k$ and real numbers $a<b$, let
@@ -1652,20 +1652,51 @@ Given a $\mu$-measurable set $E\subseteq X$, a positive integer $k$ and real num
 	D_k(A,E,a,b)=\bigcup_{f\in A}\{x\in E^{2k}:f(x_{2i})\leq a, \hspace{1mm} f(x_{2i+1})\geq b \hspace{1mm}{\text{ for all }i<k} \}.
 \]
 
-We say that $A$ is \emph{Talagrand $\mu$-stable} if and only if for every $\mu$-measurable set $E\subseteq X$ of positive measure and for every $a<b$ there is a $k\geq 1$ such that
+
+
+\begin{defn}
+\label{D:Talagrand stable}
+We say that $A$ is \emph{Talagrand $\mu$-stable} if and only if for every $\mu$-measurable set $E\subseteq X$ of positive measure and for every $a<b$ there is $k\geq 1$ such that
 \[
 (\mu^{2k})^*(D_k(A,E,a,b))<(\mu(E))^{2k},
 \]
-where $\mu^*$ denotes the outer measure (we need to work with outer measure since the sets $D_k(A,E,a,b)$ need not be $\mu^{2k}$-measurable).
+where $\mu^*$ denotes the outer measure.
+\end{defn}
+
+Note that in Definition~\ref{D:Talagrand stable} we need outer measure since $D_k(A,E,a,b)$ need not be measurable.
 The inequality certainly holds when $A$ is a countable set of continuous (or $\mu$-measurable) functions.
 
+\begin{rems}
+\label{R:Talgrand stability}
+Let $X$,  $\mu$, $A\subseteq \mathbb{R}^X$, and $\subseteq X$ be as above. Then,
+\begin{enumerate}
+\item
+If $A\subseteq B\subseteq \mathbb{R}^X$, then
+\[
+D_k(A,E,a,b)\subseteq D_k(B,E,a,b).
+\]
+\item
+Any subset of a $\mu$-stable set is $\mu$-stable. (This is immediate from (1).)
+\item
+If  $a<a'<b'<b$,  then
+\[
+D_k(\overline{A},E,a,b)\subseteq D_k(A,E,a',b').
+\]
+[\emph{Proof}: If $x\in D_k(\overline{A},E,a,b)$, then there is $f\in\overline{A}$ such that $f(x_{2i})\leq a<a'$ and $f(x_{2i+1})\geq b>b'$ for all $i<k$.
+By definition of pointwise convergence topology, there exists $g\in A$ such that $g(x_{2i})<a'$ and $g(x_{2i+1})>b'$ for all $i<k$.
+Hence, $x\in D_k(A,E,a',b')$.]
+\item
+If $\overline{A}$ is stable, then $A$ is $\mu$-stable. (This is immediate from (3)).
+\end{enumerate}
+\end{rems}
+
 The main result of this section is that deep computations that are limit points of a Talagrand stable set of computations are Monte Carlo computable; this is Theorem~\ref{T:Talagrand stability and Monte Carlo} below.
-We now prove that limit points of a Talagrand $\mu$-stable set are $\mu$-measurable.
-But first,  let us state  the following useful characterization of measurable functions (compare with Fact \ref{baire}):
+To prove it, we first show that the closure of a Talagrand $\mu$-stable set are $\mu$-measurable (lemma~\ref{talagrand stable is relatively compact}).
+But first,  we need the following useful characterization of measurable functions (compare with Fact \ref{baire}):
 
 \begin{fact}[Lemma 413G in \cite{fremlin2003vol4}]\label{fact: measurable functions characterization}
-    Suppose that $(X,\Sigma,\mu)$ is a measure space and $\mathcal{K}\subseteq\Sigma$ is a collection of measurable sets satisfying the following conditions:
-    \begin{enumerate}
+    Suppose that $(X,\Sigma,\mu)$ is a measure space and let $\mathcal{K}\subseteq\Sigma$ be a collection of measurable sets satisfying the following conditions:
+    \begin{itemize}
         \item $(X,\Sigma,\mu)$ is complete, i.e., for all $E\in\Sigma$ with $\mu(E)=0$ and $F\subseteq E$ we have $F\in\Sigma$.
         \item $(X,\Sigma,\mu)$ is semi-finite, i.e., for all $E\in\Sigma$ with $\mu(E)=\infty$ there exists $F\subseteq E$ such that $F\in\Sigma$ and $0<\mu(F)<\infty$.
         \item $(X,\Sigma,\mu)$ is saturated, i.e., $E\in\Sigma$ if and only if $E\cap F\in\Sigma$ for all $F\in\Sigma$ with $\mu(F)<\infty$.
@@ -1673,9 +1704,9 @@ But first,  let us state  the following useful characterization of measurable fu
         \[
 	\mu(E)=\sup\{\mu(K):K\in\mathcal{K} \text{ and } K\subseteq E\}.
         \]
-    \end{enumerate}
+    \end{itemize}
     (In particular, if $X$ is compact Hausdorff,   $\mathcal{K}$ is the collection of compact subsets of $X$,  $\mu$ is a Radon probability measure on $X$, $\Sigma$ is the completion of the Borel $\sigma$-algebra by $\mu$, and all these conditions hold).
-    Then, $f:X\rightarrow\mathbb{R}$ is measurable if and only if for every $K\in\mathcal{K}$ with $0<\mu(K)<\infty$ and $a<b$, either $\mu^*(P)<\mu(K)$ or $\mu^*(Q)<\mu(K)$ where $P=\{x\in K:f(x)\leq a\}$ and $Q=\{x\in K:f(x)\geq b\}$.
+    Then, $f:X\rightarrow\mathbb{R}$ is measurable if and only if for every $K\in\mathcal{K}$ with $0<\mu(K)<\infty$ and $a<b$, either $\mu^*(P)<\mu(K)$ or $\mu^*(Q)<\mu(K)$, where $P=\{x\in K:f(x)\leq a\}$ and $Q=\{x\in K:f(x)\geq b\}$.
 \end{fact}
 
 The following technical lemma will be instrumental for proving Proposition~\ref{prop:Talagrand implies NIP}, which, in turn, will yield the main result of the subsection, namely Theorem~\ref{T:Talagrand stability and Monte Carlo}.
@@ -1685,36 +1716,12 @@ The following technical lemma will be instrumental for proving Proposition~\ref{
 \end{lem}
 
 \begin{proof}
-    First, we claim that a subset of a $\mu$-stable set is $\mu$-stable.
-    To see this, suppose that $A\subseteq B$ and $B$ is $\mu$-stable.
-    Fix any $\mu$-measurable $E\subseteq X$ of positive measure and $a<b$.
-    Let $k\geq 1$ such that
-    \[
-    (\mu^{2k})^*(D_k(B,E,a,b))<(\mu(E))^{2k}.
-    \]
-    Since $A\subseteq B$, we have $D_k(A,E,a,b)\subseteq D_k(B,E,a,b)$; therefore,
-    \[
-    (\mu^{2k})^*(D_k(A,E,a,b))\leq (\mu^{2k})^*(D_k(B,E,a,b))<(\mu(E))^{2k}.
-    \]
-    We now show that $\overline{A}$ is $\mu$-stable.
-    Fix $E\subseteq X$ measurable with positive measure and $a<b$.
-    Let $a'<b'$ be such that $a<a'<b'<b$.
-    Since $A$ is $\mu$-stable, let $k\geq 1$ be such that
-    \[
-    (\mu^{2k})^*(D_k(A,E,a',b'))<(\mu(E))^{2k}.
-    \]
-    If $x\in D_k(\overline{A},E,a,b)$, then there is $f\in\overline{A}$ such that $f(x_{2i})\leq a<a'$ and $f(x_{2i+1})\geq b>b'$ for all $i<k$.
-    By definition of pointwise convergence topology, there exists $g\in A$ such that $g(x_{2i})<a'$ and $g(x_{2i+1})>b'$ for all $i<k$.
-    Hence, $x\in D_k(A,E,a',b')$.
-    We have shown that $D_k(\overline{A},E,a,b)\subseteq D_k(A,E,a',b')$; hence,
-    \[
-    (\mu^{2k})^*(D_k(\overline{A},E,a,b))\leq (\mu^{2k})^*(D_k(A,E,a',b'))<(\mu(E))^{2k}.
-    \]
-    It suffices to show that $\overline{A}\subseteq \mathscr{M}^0(X,\mu)$.
-    Suppose that there exists $f\in\overline{A}$ such that $f\notin \mathscr{M}^0(X,\mu)$.
+If $A$ is Talagrand $\mu$-stable, so is $\overline{A}$ by Remarks~\ref{R:Talgrand stability}
+    Suppose that $A$  is Talagrand $\mu$-stable. To show that $\overline{A}\subseteq \mathscr{M}^0(X,\mu)$.
+    Suppose, by contradiction,  that there exists $f\in\overline{A}$ such that $f\notin \mathscr{M}^0(X,\mu)$.
     By fact \ref{fact: measurable functions characterization}, there exists a $\mu$-measurable set $E$ of positive measure and $a<b$ such that $\mu^*(P)=\mu^*(Q)=\mu(E)$ where $P=\{x\in E: f(x)\leq a\}$ and $Q=\{x\in E: f(x)\geq b\}$.
     Then, for any $k\geq 1$: $(P\times Q)^k\subseteq D_k(\{f\},E,a,b)$, so $(\mu^{2k})^*(D_k(\{f\},E,a,b))=(\mu^*(P)\mu^*(Q))^k=(\mu(E))^{2k}$.
-    Thus, $\{f\}$ is not $\mu$-stable. However,  we argued above that a subset of a $\mu$-stable set must be $\mu$-stable,
+    Thus, $\{f\}$ is not $\mu$-stable. However, we saw in Remarks~\ref{R:Talgrand stability} that a subset of a $\mu$-stable set must be $\mu$-stable,
     so we have a contradiction.
 \end{proof}
 
