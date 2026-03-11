@@ -1719,12 +1719,13 @@ The following technical lemma will be instrumental for proving Proposition~\ref{
 \end{lem}
 
 \begin{proof}
-If $A$ is Talagrand $\mu$-stable, so is $\overline{A}$ by Remarks~\ref{R:Talgrand stability}
+If $A$ is Talagrand $\mu$-stable, so is $\overline{A}$, by Remarks~\ref{R:Talgrand stability}.
     Suppose that $A$  is Talagrand $\mu$-stable. To show that $\overline{A}\subseteq \mathscr{M}^0(X,\mu)$.
     Suppose, by contradiction,  that there exists $f\in\overline{A}$ such that $f\notin \mathscr{M}^0(X,\mu)$.
     By fact \ref{fact: measurable functions characterization}, there exists a $\mu$-measurable set $E$ of positive measure and $a<b$ such that $\mu^*(P)=\mu^*(Q)=\mu(E)$ where $P=\{x\in E: f(x)\leq a\}$ and $Q=\{x\in E: f(x)\geq b\}$.
     Then, for any $k\geq 1$: $(P\times Q)^k\subseteq D_k(\{f\},E,a,b)$, so $(\mu^{2k})^*(D_k(\{f\},E,a,b))=(\mu^*(P)\mu^*(Q))^k=(\mu(E))^{2k}$.
-    Thus, $\{f\}$ is not $\mu$-stable. However, we saw in Remarks~\ref{R:Talgrand stability} that a subset of a $\mu$-stable set must be $\mu$-stable,
+    Thus, the set $\{f\}$ is not $\mu$-stable. 
+    However, $\{f\}\subseteq\overline{A}$ and we know (Remarks~\ref{R:Talgrand stability}) that a subset of a $\mu$-stable set must be $\mu$-stable,
     so we have a contradiction.
 \end{proof}
 
