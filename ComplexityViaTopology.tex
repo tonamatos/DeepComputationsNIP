@@ -154,7 +154,7 @@ More on this below.
 Deep computations arise as topological limits of standard (continuous) computations.
 %Simplest among these is when the limit is sequential.
 In topology, the \emph{first Baire class}, or \emph{Baire class~1} consists of functions (also called simply \emph{Baire-1}) arising as pointwise limits of sequences of continuous functions.
-Intuitively, the Baire-1 class consists of functions with ``controlled'' discontinuities, and lies just one level of topological complexity above the Baire class 0, which (by definition) consists of continuous functions.
+Intuitively, the first Baire class consists of functions with ``controlled'' discontinuities, and lies just one level of topological complexity above the Baire class 0, which (by definition) consists of continuous functions.
 
 We apply a result of Bourgain, Fremlin and Talagrand from the late 1970s on compact subsets of the first Baire class to obtain a new ``tame vs wild'' dichotomy for  deep computations~\cite{BFT_1978_PCompactBaire}; 
 then, we apply a trichotomy of Todorčević, from the late 90s, for \emph{Rosenthal compacta} to identify new tame classes~\cite{Todorcevic_1999_CompactSubsetsBaire}.
@@ -245,13 +245,14 @@ Every metrizable space (hence, every Polish space) is perfectly normal.
 The following fact was proved by Baire in his groundbreaking thesis.
 For a proof, see~\cite[Section 10]{Todorcevic_1997_TopicsTop}.
 
-\begin{fact}[Baire]\label{baire}
+\begin{fact}[Baire]
+\label{baire}
     If $X$ is perfectly normal, then the following conditions are equivalent for a function $f:X\to \mathbb{R}$:
     \begin{itemize}
         \item[(1)] $f$ is a Baire class~1 function, that is, $f$ is a pointwise limit of continuous functions.
         \item[(2)] $f^{-1}[U]$ is an $F_\sigma$ subset of $X$ whenever $U\subseteq\mathbb{R}$ is open.
     \end{itemize}
-    If, moreover, $X$ is Baire, then (1) and (2) are equivalent to:
+    If $X$ is Baire, then (1) and (2) are equivalent to:
     \begin{itemize}
         \item[(3)] For every closed $F\subseteq X$, the restriction $f|_F$ has a point of continuity.
     \end{itemize}
@@ -1511,7 +1512,6 @@ In this section, the countability assumption is not needed.
 
 \subsection{NIP and Monte Carlo computability of deep computations}
 
-%The \emph{raison d'être} of the Baire class 1 functions is to have a class of functions that are obtained as sequential limit points of continuous functions.
 By Fact~\ref{baire}, for perfectly normal $X$, a function $f$ is in $B_1(X,Y)$ if and only if $f^{-1}[U]$ is an $F_\sigma$ subset of $X$ for every open $U\subseteq Y$.
 This motivates the following definition.
 
@@ -1564,7 +1564,7 @@ then,  $f^{-1}(C)=\bigcap_{i\in J}(\pi_i\circ f)^{-1}(C_i)$ is universally measu
 \end{proof}
 
 The preceding proposition says that  we can check measurability of a transition just by checking measurability feature by feature.
-This is analogous to Baire class 1 setting (see Proposition~\ref{prop:Baire-identifications}).
+This is analogous to the Baire class 1 setting (see Proposition~\ref{prop:Baire-identifications}).
 
 We saw in section \ref{sec:prelim}  that, as long as we work with countably many features, PAC-learning (or NIP) corresponds to relative compactness in the space of Baire class 1 functions (see Theorems~\ref{BFT}, \ref{BFT2}, \ref{Generalized BFT}).
 The following result (which does not assume countability of the number of features) gives an analogous characterization of the NIP in terms of universal measurability:
