@@ -853,6 +853,12 @@ The polynomial ${\rho}(z) = z^3-2z+2$ has Newton map
 \end{equation*}
 Successive Newton steps obtained from the initial guess $z_0=0$ yield the divergent sequence $N_{\rho}^{(\bullet)}(0) = (0, 1, 0, 1, \dots)$ having sequential limits $0, 1$ —neither a root of~${\rho}$.
 
+\paragraph{Fatou and Julia sets}
+Recall that the \emph{Fatou set $\mathcal{F}_p$} consists of all points that have a compact neighborhood on which some subsequence of the sequence $p^{(\bullet)}$ of iterates of~$p$ converges uniformly;
+the \emph{Julia set} $\mathcal{J}_p\coloneqq\hatC\setminus \mathcal{F}_p$ is its complement:
+it is (necessarily closed and) typically a fractal.
+The Julia set of the Newton map~$N_p$ is called the \emph{Newton fractal} of~$p$.
+
 \subparagraph{Visualizing Newton iterates}
 Assign to each complex point $z\in \mathbb{C}$ an “RGB color” $(R,G,B)\in[0,1]^3$ whose entries give the corresponding (Red/Green/Blue) color intensity;
 thus, $(1,0,0)$ is red, $(0,1,0)$ is green, and $(0,0,1)$ is blue—while, for example, $(0.5, 0., 0.5)$ is a light purple.
@@ -866,11 +872,6 @@ the closer $z$ is to root $r_i$, the closer the colors of these points are.%
   Therefore, $\infty$ is not the limit of any subsequence of $N_{\rho}^{(\bullet)}(z_0)$ with $z_0$ in the Fatou set of~$N_{\rho}$;
 in particular, $\infty$ is a point of the Newton fractal of~${\rho}(z)$.}
 
-Recall that the \emph{Fatou set $\mathcal{F}_q$} of a rational map~$q = q(z)$ on~$\hatC$ consists of all points that have a compact neighborhood on which some subsequence of the sequence $q^{(\bullet)}$ of iterates of~$q$ converges uniformly;
-the \emph{Julia set} $\mathcal{J}_q\coloneqq\hatC\setminus \mathcal{F}_q$ is its complement:
-it is (necessarily closed and) typically a fractal.
-The Julia set of the Newton map~$N_q$ is called the \emph{Newton fractal} of~$q$.
-
 For any $n\in \mathbb{N}$, define a coloring of~$\mathbb{C}$ in the natural way:
 color each $z_0\in \mathbb{C}$ using the standard color of~$z_n\coloneqq N_{\rho}^{(n)}(z_0)$.
 At any stage, particularly early ones, the coloring looks “fuzzy” (out of focus) because the coloring function is continuous;
@@ -881,7 +882,7 @@ the RGB colors of~$(z_n)$ tend towards (a single one of) red, green or blue corr
 The Fatou set also has an open region consisting of points~$z_0$ for which $(z_n)_{n\in \mathbb{N}}$ has a subsequence converging to $0$ or~$1$ (uniformly on some compact neighborhood of~$z_0$).
 The four open regions are immediately recognizable in Figure~\ref{fig:newton}.
 
-The deep computations of 
+The deep computations of***
 
 \begin{figure}[htbp]
   \label{fig:z3minus2zplus2}
