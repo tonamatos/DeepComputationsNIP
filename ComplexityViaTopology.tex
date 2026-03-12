@@ -800,11 +800,11 @@ We regard the unit sphere $S^2\subseteq \mathbb{R}^3$ as the Riemann sphere and 
   The extended complex plane $\hatC$ is thus endowed with the real predicates $P_1, P_2, P_3$ with values in~$[-1,1]$;
   its topology is metrized by the pullback of the usual Euclidean metric on~$S^2$.
 
-\subsubsection{Newton maps}
-\label{sec:Newton-map}
+\paragraph{Newton maps}
+\label{par:Newton-map}
 
-Let $p = p(z)$ be a non-constant rational map with complex coefficients.
-The \emph{Newton method step} (or \emph{Newton map}) for $p$ is the map
+Let $p = p(z)$ be a non-constant rational function with complex coefficients —i.e., an analytic (meromorphic) map $\hatC\to\hatC$.
+The \emph{Newton method step} (or \emph{Newton map}) for $p$ is the rational map
 \begin{equation}\label{eq:Np}
   N_p: z \mapsto z-\frac{p(z)}{p'(z)}.
 \end{equation}
@@ -814,32 +814,18 @@ The \emph{Newton method step} (or \emph{Newton map}) for $p$ is the map
 %   L_p \coloneqq \mathbb{C}\setminus\bigcup_{n\in \mathbb{N}}N_p^{-n}[\mathcal{Z}(p')\cup \mathcal{Z}(1/p)] \subseteq \mathbb{C},
 % \end{equation*}
 % where $\mathcal{Z}(q)$ denotes the set of zeros of an arbitrary rational~$q(z)$, and $\mathcal{Z}(1/q)$ the set of its poles (i.e., zeros of $1/q(z)$).
-Any rational map extends continuously to an analytic (meromorphic) function on the extended complex plane, so $N_p$ naturally defines a map $\hatC \to \hatC$;
-therefore, successive iterations of the Newton-Raphson method (i.e., compositional powers~$N_p^{(n)}$) may be regarded as computations of a CCS whose states space is $L = \hatC$.
+Successive iterations of the Newton-Raphson method (i.e., compositional powers~$N_p^{(n)}$) may be regarded as computations of a CCS whose states space is $L = \hatC$.
 The natural choice of predicates is $\mathcal{P} = (P_1, P_2, P_3)$,
 the inverse stereographic projection coordinates.
-(The real- and imaginary part maps $z\mapsto\Re{z}$, $z\mapsto\Im{Y}$ are not defined at~$z = \infty$.)
+(The real- and imaginary part maps $z\mapsto\Re{z}$, $z\mapsto\Im{z}$ are not defined at~$z = \infty$.)
 
 % An important (if somewhat obvious) point is that the choice of predicates on a CCS greatly affect the topologies of itself and of its type space.
 % Thus, the type space of $(L_p, \{X, Y\})$ above is $\mathbb{R}^2$ ($\cong \mathbb{C}$), while the type space of $(\hatC, \{P_1, P_2, P_3\})$ is $S^2$ $\cong \hatC$.
 % All $\{P_1, P_2, P_3\}$-types are realized in~$\hatC$, but not all $\{X, Y\}$-types are realized in~$L_p$ (let alone all $\{P_1, P_2, P_3\}$-types).
 
-\subsubsection{Newton CCSs}
-\label{sec:Newton-CCS}
-Let $p = p(z)$ be a nonconstant rational map $\hatC\to\hatC$.
-We say that the CCS $(\hatC, \mathcal{P}, \Gamma_p)$ is \emph{Newton’s method for~$p(z)$} (or the \emph{Newton CCS for~$p(z)$}) if:
-\begin{itemize}
-\item $\mathcal{P}:=(P_1,P_2,P_3)$ are the coordinates of inverse steregraphic projection (as above);
-% \item $L_p\subseteq \hatC$ is the set of all extended complex numbers $z$ having some neighborhood~$U\subseteq \hatC$ such that the sequence $(N_p^{(n)})_{n\in \mathbb{N}}$ of iterates of the corresponding \emph{Newton map}%
-%   \footnote{Implicitly regarded as defined as continuous at $\infty\in\hatC$.}
-%   \begin{equation*}
-%     N_p:z \mapsto z-\frac{p(z)}{p'(z)}
-%   \end{equation*}
-%   has a subsequence~$(N_p^{(n_i)})_{i\in \mathbb{N}}$ convergent on~$U$, uniformly on compacta
-%   (equivalently, such that the iterates sequence $(N_p^{(n)})_{n\in \mathbb{N}}$ is equicontinuous on compacta $K\subseteq U$~\cite{Sutherland2014JuliaFatou}.)
-\item $\Gamma_p:=\{N_p^{(n)}:n\in\mathbb{N}\}$ consists of iterates of the Newton map $N_p$ in equation~\eqref{eq:Np}.
-\end{itemize}
-The states space $\hatC$ is compact and the Newton map $N_p$ is continuous thereon, so the Extendibility Axiom is satified by Newton CCSs.
+Let $\Gamma_p:=\{N_p^{(n)}:n\in\mathbb{N}\}$ be the semigroup of iterates of the Newton map~\eqref{eq:Np}.
+The CCS $(\hatC, (P_1,P_2,P_3), \Gamma_p)$ is \emph{Newton’s method for~$p(z)$} (or the \emph{Newton CCS for~$p(z)$}).
+Note that the states space $\hatC$ is compact and the Newton map $N_p$ is continuous thereon, so the Extendibility Axiom is satified by Newton CCSs.
 
 % \begin{rems}\hfill
 %     \begin{enumerate}
@@ -855,12 +841,13 @@ The states space $\hatC$ is compact and the Newton map $N_p$ is continuous there
 % Given $r\in \hatC$, the set $B_r = \{z\in\mathbb{C}: \lim_{n\rightarrow\infty}N_p^{(n)}(z) = r\}$ is an open set called the \emph{basin} of~$r$.
 Given an initial estimate $z_0$, one hopes for the sequence of Newton steps applied to~$z_0$ (namely, $N_p^{(\bullet)}(z_0) \coloneqq (z_n)_{n\in \mathbb{N}}$, where $z_n \coloneqq N_p^{(n)}(z_0)$)
 to converge to a root~$r$ of~$p$.
+For initial estimates $z_0$ converging to a root~$r$, any deep computation realizes the transformation $z_0\mapsto r$.
+It is well known —if perhaps surprising at first— that Newton’s method fails to converge to a root $z\in\hatC$.%
+\footnote{By “convergence to the (possible) root $z = \infty\in\hatC$” we mean “proper divergence”;
+  thus, the divergence of Newton steps may be improper.}
 
-\paragraph{A real cubic without rational roots}
-It is well known —if perhaps surprising at first— that Newton’s method fails to converge to any root%
-\footnote{Even when~$z = \infty$ happens to be a root of a rational map~$p(z)$.}
-in many cases.
-Consider, as a first example, the polynomial ${\rho}(z) = z^3-2z+2$ with Newton map
+\paragraph{The cubic  ${\rho}(z) = z^3-2z+2$}
+The polynomial ${\rho}(z) = z^3-2z+2$ has Newton map
 \begin{equation*}
   N_{\rho}: z \mapsto z - \frac{z^3-2z+2}{3z^2-2} = \frac{2z^3-2}{3z^2-2}.
 \end{equation*}
