@@ -318,7 +318,7 @@ The space $\beta \mathbb{N}$ has cardinality $2^{2^{\omega}}$ (largest among all
 The following theorem, proved by Haskell Rosenthal in 1974, is fundamental in functional analysis and captures a sharp division in the behavior of sequences in a Banach space.
 
 \begin{thm}[Rosenthal’s Dichotomy, \cite{Rosenthal:1974}]
-\label{T:Rosenthal}
+\label{thm:Rosenthal}
     If $X$ is Polish and $(f_n)_{n\in\mathbb{N}}\subseteq C_p(X)$ is pointwise bounded, then $(f_n)$ has a convergent subsequence, or a subsequence whose closure in $\mathbb{R}^X$ is homeomorphic to~$\beta\mathbb{N}$.
 \end{thm}
 
@@ -329,7 +329,7 @@ Banach space geometry, Ramsey theory, set theory, and topology of function space
 
 As we move from $C_p(X)$ to the larger space $B_1(X)$, a dichotomy paralleling the $\ell_1$-Theorem holds:
 Either every point in the closure of a set of functions is a Baire class~1 function, or there is a sequence in the set behaving in the wildest possible way.
-This result is usually not phrased as a dichotomy in the above manner, but rather as an equivalence (see Theorem~\ref{BFT} below).
+This result is usually not phrased as a dichotomy in the above manner, but rather as an equivalence (see Theorem~\ref{thm;BFT} below).
 
 First, we introduce some useful notation.
 For any $f\in \mathbb{R}^X$ and any real $a$, define
@@ -346,7 +346,7 @@ For any set $A\subseteq \mathbb{R}^X$ and any real $a$, define (by a slight abus
 For any sequence $\{f_n\}\subseteq \mathbb{R}^X$ and $I\subseteq \mathbb{N}$, define $I^{\complement} \coloneqq \mathbb{N}\setminus I$ and $f_I \coloneqq \{f_i: i\in I\}$.
 
 \begin{thm}[``The BFT Dichotomy''. Bourgain-Fremlin-Talagrand {\cite{BFT_1978_PCompactBaire}}]
-\label{BFT}
+\label{thm:BFT}
     Let $X$ be a Polish space and $A\subseteq C_p(X)$ be pointwise bounded.
 The following are equivalent:
     \begin{enumerate}[(i)]
@@ -359,7 +359,7 @@ The following are equivalent:
 \end{thm}
 (As stated above, the BFT Dichotomy is a particular case of the equivalence (ii)$\Leftrightarrow$(v) in {\cite[Corollary 4G]{BFT_1978_PCompactBaire}}.)
 
-The sets $X_{\le a}^{f_I}$ and $X_{\ge b}^{f_{I^{\complement}}}$ appearing in condition Theorem~\ref{BFT}\emph{(ii)} are defined, respectively, in terms of $|I|$-many inequalities of the form $f_i(x)\le a$, and $|I^{\complement}|$-many of the form $f_j(x)\ge b$.
+The sets $X_{\le a}^{f_I}$ and $X_{\ge b}^{f_{I^{\complement}}}$ appearing in condition Theorem~\ref{thm:BFT}\emph{(ii)} are defined, respectively, in terms of $|I|$-many inequalities of the form $f_i(x)\le a$, and $|I^{\complement}|$-many of the form $f_j(x)\ge b$.
 Thus, at least one of $X_{\le a}^{f_I}$ and $X_{\ge b}^{f_{I^{\complement}}}$ is defined by the satisfaction of infinitely (countably) many inequalities.
 For our purposes, it is more natural to consider only finitely many inequalities at a time, which motivates the definitions below.
 
@@ -373,7 +373,7 @@ For our purposes, it is more natural to consider only finitely many inequalities
 If the word ``finite'' is omitted in the above definitions, we obtain the definitions of \emph{countable} NIP (weaker than finitary NIP) and \emph{countable} IP (stronger than finitary IP), respectively.
 
 If we insist on witnesses $E,F\subseteq \mathbb{N}$ such that $F = E^{\complement}$, we call the respective properties ``BFT-NIP'' and ``BFT-IP''.
-Thus, Theorem~\ref{BFT} becomes (for pointwise bounded function collections $A\subseteq C_p(X)$) that $A$ is relatively compact in $B_1(X)$ if and only if $A$ has BFT-NIP.
+Thus, Theorem~\ref{thm:BFT} becomes (for pointwise bounded function collections $A\subseteq C_p(X)$) that $A$ is relatively compact in $B_1(X)$ if and only if $A$ has BFT-NIP.
 
 Unless otherwise unspecified, IP/NIP shall mean \emph{finitary} IP/NIP henceforth.
 
@@ -392,7 +392,7 @@ Unless otherwise unspecified, IP/NIP shall mean \emph{finitary} IP/NIP hencefort
 \end{proof}
 
 \begin{thm}
-\label{BFT2}
+\label{thm:BFT2}
     Let $X$ be a compact metrizable  (hence Polish) space.
 For every pointwise bounded  $A\subseteq C_p(X)$, the following properties are all equivalent:
         \begin{enumerate}[(i)]
@@ -405,9 +405,9 @@ For every pointwise bounded  $A\subseteq C_p(X)$, the following properties are a
   (The equivalence \emph{(ii)}$\Leftrightarrow$\emph{(iv)} holds for arbitrary compact~$X$.
   The equivalence \emph{(ii)}$\Leftrightarrow$\emph{(iii)}, for arbitrary~$X$.)
 \begin{proof}
-  Corollary of Theorem~\ref{BFT} and Proposition~\ref{prop:BFT-finitary-cpct}.
+  Corollary of Theorem~\ref{thm:BFT} and Proposition~\ref{prop:BFT-finitary-cpct}.
 \end{proof}
-Theorem~\ref{BFT2} may be stated as the following dichotomy (under the assumptions) for any compact metrizable~$X$:
+Theorem~\ref{thm:BFT2} may be stated as the following dichotomy (under the assumptions) for any compact metrizable~$X$:
 either $A$ is relatively compact in~$B_1(X)$, or $A$ has IP (in either sense).
 
 The Independence Property was first isolated by Saharon Shelah in model theory as a dividing line between theories whose models are ``tame'' (corresponding to NIP) and theories whose models are ``wild" (corresponding to IP).
@@ -417,7 +417,7 @@ We will discuss this dividing line in more detail in the next section.
 
 \subsection{NIP as a universal dividing line between polynomial and exponential complexity}
 
-The particular case of the BFT dichotomy (Theorem~\ref{BFT}) when $A$ consists of $\{0,1\}$-valued (i.e., $\{\text{Yes},\text{No}\}$-valued) strings was discovered independently, around 1971-1972 in many foundational contexts related to polynomial (``tame") vs exponential (``wild'') complexity: In model theory, by Saharon Shelah~\cite{Shelah:1971}, \cite{Shelah:1990}, in combinatorics, by Norbert Sauer~\cite{Sauer:1972}, and Shelah~\cite{Shelah:1972}, \cite{Shelah:1990}, and in statistical learning, by Vladimir Vapnik and Alexey Chervonenkis~\cite{Vapnik-Chervonenkis:1971}, \cite{Vapnik-Chervonenkis:1974}.
+The particular case of the BFT dichotomy (Theorem~\ref{thm:BFT}) when $A$ consists of $\{0,1\}$-valued (i.e., $\{\text{Yes},\text{No}\}$-valued) strings was discovered independently, around 1971-1972 in many foundational contexts related to polynomial (``tame") vs exponential (``wild'') complexity: In model theory, by Saharon Shelah~\cite{Shelah:1971}, \cite{Shelah:1990}, in combinatorics, by Norbert Sauer~\cite{Sauer:1972}, and Shelah~\cite{Shelah:1972}, \cite{Shelah:1990}, and in statistical learning, by Vladimir Vapnik and Alexey Chervonenkis~\cite{Vapnik-Chervonenkis:1971}, \cite{Vapnik-Chervonenkis:1974}.
 
 
 \begin{description}
@@ -469,10 +469,10 @@ The Fundamental Theorem of Statistical Learning states that a hypothesis class i
  
 \subsection{Rosenthal compacta}
  
- The universal classification implied by Theorem~\ref{BFT}, as attested by the examples outlined in the preceding section, led to the following definition (by Gilles Godefroy~\cite{Godefroy:1980}):
+ The universal classification implied by Theorem~\ref{thm:BFT}, as attested by the examples outlined in the preceding section, led to the following definition (by Gilles Godefroy~\cite{Godefroy:1980}):
 
 \begin{defn}
-\label{D:Rosenthal compacta}
+\label{def:Rosenthal-compacta}
 A Rosenthal compactum is any topological space realized as a compact subset of the space $B_1(X) = B_1(X, \mathbb{R})$ (equipped with the topology of pointwise convergence) of all real functions of the first Baire class on some Polish space~\(X\).
 \end{defn}
 A Rosenthal compactum~$K$ is necessarily Hausdorff since it is a topological subspace of the Hausdorff product space $\mathbb{R}^X$.
@@ -545,9 +545,9 @@ The Proposition below reduces the study of $\mathbb{R}^{\mathcal{P}}$-valued con
 \end{proof}
 
 Given $A\subseteq Y^X$ and $K\subseteq X$ we write $A|_K:=\{f|_K:f\in A\}$, i.e., the set of all restrictions of functions in $A$ to $K$.
-The following Theorem is a slightly more general version of Theorem \ref{BFT}.
+The following Theorem is a slightly more general version of Theorem \ref{thm:BFT}.
 
-\begin{thm}\label{Generalized BFT}
+\begin{thm}\label{thm:Generalized-BFT}
     Assume that $\mathcal{P}$ is countable, $X$ is a Polish space, and $A\subseteq C_p(X,\mathbb{R}^\mathcal{P})$ is pointwise bounded in the sense that $\pi_P\circ A$ ($\subseteq C_p(X)$) is pointwise bounded for every $P\in\mathcal{P}$.
 The following are equivalent for every compact $K\subseteq X$:
 
@@ -558,12 +558,12 @@ The following are equivalent for every compact $K\subseteq X$:
 \end{thm}
 \begin{proof}
   Compact subsets $K\subseteq X$ are closed, hence also Polish.
-  Therefore, the asserted equivalence follows from Theorems~\ref{BFT} and~\ref{prop:BFT-finitary-cpct}.
+  Therefore, the asserted equivalence follows from Theorems~\ref{thm:BFT} and~\ref{prop:BFT-finitary-cpct}.
 \end{proof}
 
 We conclude this section with an elementary but important observation.
 
-\begin{lem}\label{NIP and closure}
+\begin{lem}\label{lem:NIP-and-closure}
     Assume that $X$ is Hausdorff and that $A\subseteq C_p(X)$.
 The following are equivalent for every $L\subseteq X$:
     \begin{enumerate}[(i)]
@@ -597,7 +597,7 @@ For a recent survey, see~\cite{tkachuk2011cp}.
 
 \section{Compositional Computation Structures: \\
 A structural approach to arbitrary-precision computations}
-\label{S:CCS}
+\label{sec:CCS}
 
 In this section, we connect function spaces with arbitrary-precision computations.
 We start by summarizing some basic concepts from~\cite{alva2024approximability}.
@@ -682,7 +682,7 @@ However, the equality $\mathcal{L}_{\sh} = \mathcal{L}$ holds in the important s
 \subsection{Compositional Computation Structures} 
 
 \begin{defn}
-\label{D:CCS}
+\label{def:CCS}
 A \emph{Compositional Computation Structure} (CCS) is a triple $(L,\mathcal{P},\Gamma)$, where
 \begin{itemize}
 \item
@@ -779,7 +779,7 @@ such extension is evidently unique (if it exists).
 Abusing notation, for any $\Delta\subseteq\Gamma$ consisting of extendable computations, the set $\{\tilde\gamma\colon\gamma\in\Delta\}$ will be denoted $\tilde{\Delta}$.
 
 \begin{AxExt}
-\label{D:extendibility axiom}
+\label{ax:extendibility-axiom}
   Every computation $\gamma\in\Gamma$ is extendable.
 \end{AxExt}
 
@@ -787,7 +787,7 @@ For a more detailed discussion of the Extendibility Axiom, we refer the reader t
 
 \emph{For the rest of the paper, the Extendibility Axiom is imposed on all CSSs.}
 
-\subsection{Newton’s method as a CCS}\label{subsec: Newton method}
+\subsection{Newton’s method as a CCS}\label{sec:Newton-method}
 We formalize the Newton-Raphson root-finding method as a CCS~\cite{Galantai200025}, \cite[Section~2.3]{Burden2016numerical}.
 
 Let $\hatC = \mathbb{C}\cup\{\infty\}$ be the extended complex plane (the Alexandroff —one-point— compactification of~$\mathbb{C}$).
@@ -974,7 +974,7 @@ In Figure~2(\textsc{C}), one sees a Fatou set consisting of solid-color (disconn
 The set of deep computations $\overline{\Gamma}$ might behave different for various polynomials.
 Let us look at various examples:
 
-\begin{exmp}\label{E: computation of square roots}
+\begin{exmp}\label{exa:square-roots-compute}
     \textbf{Computation of square roots}. 
         Let $a$ be a positive real number and $p(x)=x^2-a$. 
         Let $\mathbb{R}\to S^1: x\mapsto (P_1(x),P_2(x))$ be the (inverse) stereographic projection of the real line onto $S^1\subseteq \mathbb{R}^2$, i.e.,
@@ -1125,7 +1125,7 @@ The preceding proposition shows that the topological structure of deep computati
 Indeed, $\overline{P_n\circ \Delta}$ contains the \emph{Split Cantor} space for all $n\in\mathbb{N}$. (see Example~\ref{E:Rosenthal compacta}-(3)).
 
 \subsection{Finite precision prefix test}
-\label{subsec: prefix test}
+\label{sec:prefix-test}
 
 In this subsection we present another example of a CCS with a more complicated set of deep computations. 
 Let $L=2^\mathbb{N}$ and $\mathcal{P}=\{P_n:n\in\mathbb{N}\}$ where $P_n(x)=x(n)$ are the projection maps so clearly $L\subseteq\mathbb{R}^\mathcal{P}$ and $\mathcal{L}=L$ (same computation states structure as subsection \ref{subsec:finite_prec_threshold}).
@@ -1182,7 +1182,7 @@ This shows that our space of deep computations is not first countable.
 This space also contains a discrete subspace of size continuum, namely $\{\delta_a:a\in 2^\mathbb{N}\}$.
 
 \section{Classifying deep computations}
-\label{S:Classification}
+\label{sec:Classification}
 
 \subsection{NIP, Rosenthal compacta, and deep computations}
 
@@ -1193,7 +1193,7 @@ Our inspiration is the work of Glasner and Megrelishvili on tame semigropus in t
 
 % In subsection~\ref{S:trichotomy}, we study the implications of Todorčević’s  trichotomy in the realm of deep computations.
 % Then, in subsection~\ref{S:heptachotomy}, we focus on the  more recent heptachotomy for separable Rosenthal compacta proved by Argyros, Dodos and Kanellopoulos~\cite{argyros2008rosenthal}.
-% Since our interest is in applications to  the theory of computation, we focus our attention on compositional computation structures $(L,\mathcal{P},\Gamma)$  (Definition~\ref{D:CCS}) where the set $\mathcal{P}$ of predicates is countable,
+% Since our interest is in applications to  the theory of computation, we focus our attention on compositional computation structures $(L,\mathcal{P},\Gamma)$  (Definition~\ref{def:CCS}) where the set $\mathcal{P}$ of predicates is countable,
 % and in sets  computation $\Delta\subseteq\Gamma$ of comptations that are countable.
 
 Theorem~\ref{thm:nip-baire1def} below is the cornerstone of the section;
@@ -1205,7 +1205,7 @@ Furthermore, Theorem~\ref{thm:nip-baire1def}  shows that every deep computation 
 
 
 \begin{thm}\label{thm:nip-baire1def}
-    Let $(L,\mathcal{P},\Gamma)$ be a compositional computation structure (Definition~\ref{D:CCS}) satisfying the Extendibility Axiom (see Definition~\ref{D:extendibility axiom}) with $\mathcal{P}$ countable.
+    Let $(L,\mathcal{P},\Gamma)$ be a compositional computation structure (Definition~\ref{def:CCS}) satisfying the Extendibility Axiom (see Definition~\ref{ax:extendibility-axiom}) with $\mathcal{P}$ countable.
 Let $R$ be an exhaustive collection of sizers,
 and suppose that  $\Delta\subseteq\Gamma$ is $R$-confined.
 Then the following conditions are equivalent:
@@ -1226,7 +1226,7 @@ Then the following conditions are equivalent:
 \begin{proof}
 Since $\mathcal{P}$ is countable, $\mathcal{L}[r_\bullet]\subseteq\mathbb{R}^\mathcal{P}$ is Polish.
 The Extendibility Axiom implies that $\pi_P\circ \tilde\Delta|_{\mathcal{L}[r_\bullet]}$ is a pointwise bounded set of continuous functions for all $P\in\mathcal{P}$.
-Hence, Theorem \ref{Generalized BFT} and Lemma \ref{NIP and closure} prove the equivalence of (i) and (ii).
+Hence, Theorem \ref{thm:Generalized-BFT} and Lemma \ref{lem:NIP-and-closure} prove the equivalence of (i) and (ii).
 If (i) holds and $f\in\overline{\Delta}$, then we can write as an ultralimit of computations in $\Delta$, say  $f=\mathcal{U}{\rm lim}_i \gamma_i$.
 Define $\tilde f:=\mathcal{U}{\rm lim}_i \tilde\gamma_i$.
 Then, for all $r_\bullet\in R$ we have $\tilde f|_{\mathcal{L}[r_\bullet]}\in\overline{\tilde\Delta|_{\mathcal{L}[r_\bullet]}}\subseteq B_1(\mathcal{L}[r_\bullet],\mathcal{L}[r_\bullet])$.
@@ -1235,9 +1235,9 @@ The assertion that every deep computation is a pointwise limit of a countable se
 \end{proof}
 
 \subsection{The Todorčević trichotomy, and levels of NIP and PAC learnability}
-\label{S:trichotomy}
+\label{sec:trichotomy}
 %By Theorem \ref{thm:nip-baire1def}, if $\Delta$ is a countable set of computations satisfying the NIP on features and shards, 
-%then for each fixed sizer $r_\bullet$  the set $\overline{\tilde\Delta_{\mathcal{L}[r_\bullet]}}$ is a separable Rosenthal compactum (see Definition~\ref{D:Rosenthal compacta}). 
+%then for each fixed sizer $r_\bullet$  the set $\overline{\tilde\Delta_{\mathcal{L}[r_\bullet]}}$ is a separable Rosenthal compactum (see Definition~\ref{def:Rosenthal-compacta}). 
 Recall that a topological space $X$ is \emph{hereditarily separable} if every subspace is separable, and that $X$ is \emph{first countable} if every point in $X$ has a countable local basis.
 Every separable metrizable space is hereditarily separable, and R.
 Pol proved that every hereditarily separable Rosenthal compactum is first countable (see section 10 of \cite{debs2013rosenthal}).
@@ -1262,7 +1262,7 @@ We now present examples of separable and non-separable examples Rosenthal compac
 These examples are due to Todorčević \cite{Todorcevic_1999_CompactSubsetsBaire}.
 
 \begin{exmps}
-\label{E:Rosenthal compacta}
+\label{exa:Rosenthal-compacta}
 \hfill
 \begin{enumerate}
     \item \emph{Alexandroff compactification of a discrete space of size continuum}.
@@ -1278,7 +1278,7 @@ However, as the next example shows, it can be made separable space by ``softenin
 For each finite binary sequence $s\in 2^{<\mathbb{N}}$, let $v_s:2^\mathbb{N}\rightarrow\mathbb{R}$ be given by $v_s(x)=1$ if $x$ extends $s$ and $v_s(x)=0$ otherwise.
 Let $\hat{A}(2^\mathbb{N})$ be the pointwise closure of $\{v_s:s\in2^{<\mathbb{N}}\}$, i.e., $\hat{A}(2^\mathbb{N})=A(2^\mathbb{N})\cup\{v_s:s\in 2^{<\mathbb{N}}\}$.
 Note that this space is a separable Rosenthal compactum that is not first countable.
-This is the example discussed in Section \ref{subsec: prefix test}. 
+This is the example discussed in Section \ref{sec:prefix-test}. 
 It is an example of a CCS that is NIP but not $\NIP_1$.
 
     \item \emph{Split Cantor}.
@@ -1340,7 +1340,7 @@ In fact, it contains an uncountable discrete subspace.
 
 \end{exmps}
 
-\begin{thm}[Todorčević’s Trichotomy, \cite{Todorcevic_1999_CompactSubsetsBaire}, Theorem 3 in \cite{argyros2008rosenthal}]\label{T:Todorcevic trichotomy}
+\begin{thm}[Todorčević’s Trichotomy, \cite{Todorcevic_1999_CompactSubsetsBaire}, Theorem 3 in \cite{argyros2008rosenthal}]\label{thm:Todorcevic-trichotomy}
     Let $K$ be a separable Rosenthal Compactum.
     \begin{enumerate}[(i)] 
         \item 
@@ -1377,19 +1377,19 @@ We thus have the following classification for separable Rosenthal compacta:
 \end{tikzpicture}
 \end{center}
 
-Todorčević’s Trichotomy suggests that in order to distinguish the classes $\NIP_i$, the examples in \ref{E:Rosenthal compacta} are essential.
+Todorčević’s Trichotomy suggests that in order to distinguish the classes $\NIP_i$, the examples in \ref{exa:Rosenthal-compacta} are essential.
 The following examples show that the levels $\NIP_i$ ($i=1,2,3$) may be distinguished by the topological complexity of deep computations.
 
 \begin{exmps}
-\label{E: NIP levels}
+\label{exa:NIP-levels}
 \hfill
 \begin{enumerate}
-    \item Let $(L,\mathcal{P},\Gamma)$ be the computation of square root (example \ref{E: computation of square roots} with $\Delta=\Gamma$. 
+    \item Let $(L,\mathcal{P},\Gamma)$ be the computation of square root (example \ref{exa:square-roots-compute} with $\Delta=\Gamma$. 
     We saw that $\overline{\tilde{\Delta}}=\tilde{\Delta}\cup\{\tilde{f}\}\subseteq B_1(\mathcal{L},\mathcal{L})$.
     This corresponds to the Alexandroff compactification of a countable discrete set, which is metrizable. Hence, $\Delta$ is $\NIP_3$ but it is not stable, in the sense that $\overline{\tilde{\Delta}}\not\subseteq C(\mathcal{L},\mathcal{L})$.
 
     \item Let $(L,\mathcal{P},\Gamma)$ be the finite precision threshold classifiers (Section~\ref{subsec:finite_prec_threshold}) with $\Delta=\{\phi_w:w\in 2^{<\mathbb{N}}\}\cup\{\mathbf{0^\infty},\mathbf{1^\infty}\}$.
-    We saw that $\overline{\Delta}$ is homeomorphic to the Split Cantor space $S(2^\mathbb{N})$ (Example \ref{E:Rosenthal compacta}-(3)), which is hereditarily separable but not metrizable.
+    We saw that $\overline{\Delta}$ is homeomorphic to the Split Cantor space $S(2^\mathbb{N})$ (Example \ref{exa:Rosenthal-compacta}-(3)), which is hereditarily separable but not metrizable.
     Hence, $\Delta$ is $\NIP_2$ but not $\NIP_3$.
 
     \item Let $(L,\mathcal{P},\Gamma)$ be the CCS given by $L=2^{\mathbb{N}}$, $\mathcal{P}=\{P_n:n\in\mathbb{N}\}$ and $\Gamma$ is the semigroup generated by $\Delta=\{\gamma_t:t\in 2^{<\mathbb{N}}\}$, where $P_n:2^\mathbb{N}\rightarrow\{0,1\}$ is the projection map $P_n(x)=x(n)$ and $\gamma_t:L\rightarrow L$ is given by
@@ -1403,11 +1403,11 @@ The following examples show that the levels $\NIP_i$ ($i=1,2,3$) may be distingu
     where $(01)^\infty$ denotes the sequence of alternating bits: $010101\cdots$. 
     As in the other examples, it is not difficult to see that $(L,\mathcal{P},\Gamma)$ satisfies the Extendibility Axiom.
     For example, the condition $t^\frown0^\infty\leq_{\text{lex}} x \leq_{\text{lex}} t^\frown1^\infty$ is equivalent to $x$ extending $t$.
-    Observe that the set of deep computations is homeomorphic to $\hat{D}(S(2^{\mathbb{N}}))$ (see Example \ref{E:Rosenthal compacta}-(5)).
+    Observe that the set of deep computations is homeomorphic to $\hat{D}(S(2^{\mathbb{N}}))$ (see Example \ref{exa:Rosenthal-compacta}-(5)).
     Hence, $\Delta$  is $\NIP_1$ but not $\NIP_2$.
 
-    \item Let $(L,\mathcal{P},\Gamma)$ be the finite precision prefix test (Section~\ref{subsec: prefix test}) with $\Delta=\{\psi_w:w\in 2^{<\mathbb{N}}\}$.
-    We saw that $\overline{\tilde{\Delta}}$ is homeomorphic to the Extended Alexandroff compactification $\hat{A}(2^\mathbb{N})$ (Example \ref{E:Rosenthal compacta}-(3)), which is separable but not first countable.
+    \item Let $(L,\mathcal{P},\Gamma)$ be the finite precision prefix test (Section~\ref{sec:prefix-test}) with $\Delta=\{\psi_w:w\in 2^{<\mathbb{N}}\}$.
+    We saw that $\overline{\tilde{\Delta}}$ is homeomorphic to the Extended Alexandroff compactification $\hat{A}(2^\mathbb{N})$ (Example \ref{exa:Rosenthal-compacta}-(3)), which is separable but not first countable.
     Hence, $\Delta$ is NIP but not $\NIP_1$.
 \end{enumerate}
 \end{exmps}
@@ -1420,9 +1420,9 @@ This raises the following question:
 \end{question}
 
 \subsection{The Argyros-Dodos-Kanellopoulos heptachotomy, and approximability of deep computation by minimal classes}
-\label{S:heptachotomy}
+\label{sec:heptachotomy}
 
-In the three separable cases given in \ref{E:Rosenthal compacta}, namely, $\hat{A}(2^\mathbb{N})$, $S(2^\mathbb{N})$ and $\hat{D}(S(2^\mathbb{N}))$, the countable dense subsets are indexed by the binary tree $2^{<\mathbb{N}}$.
+In the three separable cases given in \ref{exa:Rosenthal-compacta}, namely, $\hat{A}(2^\mathbb{N})$, $S(2^\mathbb{N})$ and $\hat{D}(S(2^\mathbb{N}))$, the countable dense subsets are indexed by the binary tree $2^{<\mathbb{N}}$.
 This choice of index is useful because our emphasis is computational.
 Real numbers can be represented as infinite binary sequences, i.e., infinite branches of the binary tree $2^{\mathbb{N}}$, and
 we approximate real numbers with elements in $2^{<\mathbb{N}}$, i.e., finite bitstrings.
@@ -1430,7 +1430,7 @@ we approximate real numbers with elements in $2^{<\mathbb{N}}$, i.e., finite bit
 %Computationally, we are interested in the manner (and the efficiency) in which the approximations can occur.
 %\item
 %Infinite branches of the binary tree $2^{<\mathbb{N}}$ correspond to the Cantor space $2^{\mathbb{N}}$, the canonical perfect set (in the sense that any Polish space with no isolated points contains a copy of $2^{\mathbb{N}}$).
-%The use of infinite dimensional Ramsey theory for trees (pioneered by the work of James D. Halpern, Hans Läuchli in \cite{halpern1966partition} and also Keith Milliken in \cite{milliken1981partition}, and Alain Louveau, Saharon Shelah, Boban Velickovic in \cite{louveau_shelah_velickovic_1993}) and perfect sets (Fred Galvin and Andreas Blass in \cite{Blass1981}, Arnold W. Miller in \cite{miller1989infinite}, and Stevo Todorčević in \cite{Todorcevic_1999_CompactSubsetsBaire}) allowed S.A. Argyros, P. Dodos and V. Kanellopoulos in \cite{argyros2008rosenthal} to obtain an improved version of Theorem \ref{T:Todorcevic trichotomy}.
+%The use of infinite dimensional Ramsey theory for trees (pioneered by the work of James D. Halpern, Hans Läuchli in \cite{halpern1966partition} and also Keith Milliken in \cite{milliken1981partition}, and Alain Louveau, Saharon Shelah, Boban Velickovic in \cite{louveau_shelah_velickovic_1993}) and perfect sets (Fred Galvin and Andreas Blass in \cite{Blass1981}, Arnold W. Miller in \cite{miller1989infinite}, and Stevo Todorčević in \cite{Todorcevic_1999_CompactSubsetsBaire}) allowed S.A. Argyros, P. Dodos and V. Kanellopoulos in \cite{argyros2008rosenthal} to obtain an improved version of Theorem \ref{thm:Todorcevic-trichotomy}.
 %It is no surprise that Ramsey Theory becomes relevant in the study of Rosenthal compacta as it was a key ingredient in Rosenthal’s $\ell_1$ Theorem.
 %For this reason, the main results in \cite{argyros2008rosenthal} (which we cite in this paper) are better explained by indexing Rosenthal compacta with the binary tree.
 %\end{enumerate}
@@ -1481,21 +1481,21 @@ Moreover, the families $D_i$ are minimal and mutually non-equivalent.
 
 The implication of this result for deep computations is the following: 
 for any countable set of computations $\Delta$ satisfying the NIP (for some CCS $(L,\mathcal{P},\Gamma)$), we can always find a countable discrete set of deep computations that approximates all the other deep computations.
-For example: in the finite precision prefix test example (subsection \ref{subsec: prefix test}), the prefix test computations (family $D_5$) approximate all other deep computations.
+For example: in the finite precision prefix test example (subsection \ref{sec:prefix-test}), the prefix test computations (family $D_5$) approximate all other deep computations.
 However, note that this discrete set $D_i$ may not consist of continuous functions (i.e., they will not be computable in general).
 For example, functions in $D_3$ are not continuous.
 
 
 \section{Randomized versions of NIP and Monte Carlo computability of deep computations}
-\label{Measure-theoretic NIP} 
+\label{sec:measure-theoretic-NIP} 
 
 In this section, we replace deterministic computability by probabilistic (`Monte Carlo') computability.
 We do not assume that $\mathcal{P}$ is countable.
-(The countability assumption on $\mathcal{P}$ played a crucial role in the proof of Theorem \ref{Generalized BFT}, as it makes $\mathbb{R}^\mathcal{P}$ a Polish space.)
+(The countability assumption on $\mathcal{P}$ played a crucial role in the proof of Theorem \ref{thm:Generalized-BFT}, as it makes $\mathbb{R}^\mathcal{P}$ a Polish space.)
 The main results of the section are Theorem~\ref{T:NIP and Monte Carlo}  (which connects NIP and Monte Carlo computability) and~\ref{T:Talagrand stability and Monte Carlo}  (which connects Talagrand stability and Monte Carlo computability).
 
-Fundamental in this section is a measure-theoretic version of Theorem \ref{Generalized BFT}, namely,  Theorem~\ref{BFT-2F}. 
-For the proof of Theorem \ref{Generalized BFT}, we assumed countability of  $\mathcal{P}$ --- this ensured that $\mathbb{R}^\mathcal{P}$ a Polish space.
+Fundamental in this section is a measure-theoretic version of Theorem \ref{thm:Generalized-BFT}, namely,  Theorem~\ref{BFT-2F}. 
+For the proof of Theorem \ref{thm:Generalized-BFT}, we assumed countability of  $\mathcal{P}$ --- this ensured that $\mathbb{R}^\mathcal{P}$ a Polish space.
 In this section, the countability assumption is not needed.
 
 \subsection{NIP and Monte Carlo computability of deep computations}
@@ -1504,7 +1504,7 @@ By Fact~\ref{baire}, for perfectly normal $X$, a function $f$ is in $B_1(X,Y)$ i
 This motivates the following definition.
 
 \begin{defn}
-\label{D:universal measurability}
+\label{def:universal-measurability}
 Given a Hausdorff space $X$ and a measurable space $(Y,\Sigma)$, we say that $f:X\rightarrow Y$ is \emph{universally measurable} (with respect to $\Sigma$) if $f^{-1}(E)$ is $\mu$-measurable for every Radon measure $\mu$ on $X$ and every $E\in\Sigma$.
 When $Y=\mathbb{R}$, we will always take $\Sigma=\mathcal{B}(\mathbb{R})$, the Borel $\sigma$-algebra of $\mathbb{R}$.
 \end{defn}
@@ -1513,7 +1513,7 @@ If $X$ is a compact (Hausdorff) space, then Radon measures on $X$ are finite, an
 We thus have the following remark:
 
 \begin{rem} 
-\label{R:probability}
+\label{rem:probability}
 If $X$ is compact, then a function $f:X\rightarrow\mathbb{R}$ is universally measurable if and only if $f^{-1}(U)$ is $\mu$-measurable for every Radon probability measure $\mu$ on $X$ and every open set $U\subseteq\mathbb{R}$.
 \end{rem}
 
@@ -1554,12 +1554,12 @@ then,  $f^{-1}(C)=\bigcap_{i\in J}(\pi_i\circ f)^{-1}(C_i)$ is universally measu
 The preceding proposition says that  we can check measurability of a transition just by checking measurability feature by feature.
 This is analogous to the Baire class 1 setting (see Proposition~\ref{prop:Baire-identifications}).
 
-We saw in section \ref{sec:prelim}  that, as long as we work with countably many features, PAC-learning (or NIP) corresponds to relative compactness in the space of Baire class 1 functions (see Theorems~\ref{BFT}, \ref{BFT2}, \ref{Generalized BFT}).
+We saw in section \ref{sec:prelim}  that, as long as we work with countably many features, PAC-learning (or NIP) corresponds to relative compactness in the space of Baire class 1 functions (see Theorems~\ref{thm:BFT}, \ref{thm:BFT2}, \ref{thm:Generalized-BFT}).
 The following result (which does not assume countability of the number of features) gives an analogous characterization of the NIP in terms of universal measurability:
 
 \begin{thm}
 [Bourgain-Fremlin-Talagrand, Theorem 2F in \cite{BFT_1978_PCompactBaire}]
-\label{BFT-2F}
+\label{thm:BFT-2F}
     Let $X$ be a Hausdorff space and $A\subseteq C(X)$ be pointwise bounded.
 The following are equivalent:
     \begin{enumerate}[(i)]
@@ -1588,12 +1588,12 @@ This is at the core of~\cite{alva2024approximability}.
 These two facts motivate the following definition:
 
 \begin{defn}
-\label{D:universally essentially computable}
+\label{def:universally-essentially-computable}
     Let $(L,\mathcal{P},\Gamma)$ be a CCS.
 We say that a transition $f:L\rightarrow L$ is \emph{universally Monte Carlo computable} if and only if there exists $\tilde f:\mathcal{L}_{\sh}\rightarrow \mathcal{L}_{\sh}$ extending $f$ such that for every sizer $r_\bullet$ there is a sizer $s_\bullet$ such that the restriction $\tilde f|_{\mathcal{L}[r_{\bullet}]}:\mathcal{L}[r_\bullet]\rightarrow\mathcal{L}[s_\bullet]$ is universally measurable, i.e., $\pi_P\circ \tilde f|_{\mathcal{L}[r_{\bullet}]}:\mathcal{L}[r_\bullet]\rightarrow [-s_P,s_P]$ is $\mu$-measurable for every Radon probability measure $\mu$ on $\mathcal{L}[r_\bullet]$ and $P\in\mathcal{P}$.
 \end{defn}
 
-Note that,  since $\mathcal{L}_{\sh}$ is compact, by remark~\ref{R:probability}, in the context of Monte Carlo computability, we restrict our attention to Radon probability measures instead of  general Radon measures.
+Note that,  since $\mathcal{L}_{\sh}$ is compact, by remark~\ref{rem:probability}, in the context of Monte Carlo computability, we restrict our attention to Radon probability measures instead of  general Radon measures.
 
 
 
@@ -1601,11 +1601,11 @@ Note that,  since $\mathcal{L}_{\sh}$ is compact, by remark~\ref{R:probability},
 
 %\subsection{Bourgain-Fremlin-Talagrand, NIP, and universal Monte Carlo computability of deep computations}
 %
-%The result in this subsection is a consequence of Theorem~\ref{BFT-2F},
+%The result in this subsection is a consequence of Theorem~\ref{thm:BFT-2F},
 %and it states that PAC-learning (or NIP) implies Monte Carlo computability with respect to any measure.
 
 \begin{thm}
-\label{T:NIP and Monte Carlo}
+\label{thm:NIP-Monte-Carlo}
     Let $(L,\mathcal{P},\Gamma)$ be a CCS satisfying the Extendibility Axiom.
 Let $R$ be an exhaustive collection of sizers.
 Let $\Delta\subseteq\Gamma$ be $R$-confined.
@@ -1615,12 +1615,12 @@ If $\pi_P\circ\Delta|_{L[r_\bullet]}$ satisfies the NIP for all $P\in\mathcal{P}
 \begin{proof}
     Fix $P\in\mathcal{P}$ and $r_\bullet\in R$.
     By the Extendibility Axiom, $\pi_P\circ\tilde\Delta|_{\mathcal{L}[r_\bullet]}$ is a set of pointwise bounded continuous functions on the compact set $\mathcal{L}[r_\bullet]$.
-    Since $\pi_P\circ\Delta|_{L[r_\bullet]}$ has the NIP, so does $\pi_P\circ\tilde\Delta|_{L[r_\bullet]}=\pi_P\circ\Delta|_{\mathcal{L}[r_\bullet]}$,  by Lemma \ref{NIP and closure}.
+    Since $\pi_P\circ\Delta|_{L[r_\bullet]}$ has the NIP, so does $\pi_P\circ\tilde\Delta|_{L[r_\bullet]}=\pi_P\circ\Delta|_{\mathcal{L}[r_\bullet]}$,  by Lemma \ref{lem:NIP-and-closure}.
     Let $f\in\overline{\Delta}$ be a deep computation;
      write $f$ as an ultralimit of computations in $\Delta$, say  $f=\mathcal{U}\lim_i\gamma_i$ , and
     define an extension  $\tilde{f}:\mathcal{L}_{\sh}\rightarrow \mathcal{L}_{\sh}$ of $f$ naturally by $\tilde{f}:=\mathcal{U}\lim_i\tilde{\gamma_i}$.
     Since, by hypothesis, $\Delta$ is $R$-confined, we have $f:L[r_\bullet]\rightarrow L[r_\bullet]$ and hence, $\tilde{f}:\mathcal{L}[r_\bullet]\rightarrow \mathcal{L}[r_\bullet]$.
-     Now, by Theorem \ref{BFT-2F}, we have $\overline{\pi_P\circ\tilde\Delta|_{\mathcal{L}[r_\bullet]}}\subseteq M_r(\mathcal{L}[r_\bullet])$;
+     Now, by Theorem \ref{thm:BFT-2F}, we have $\overline{\pi_P\circ\tilde\Delta|_{\mathcal{L}[r_\bullet]}}\subseteq M_r(\mathcal{L}[r_\bullet])$;
       therefore, $\pi_P \circ \tilde{f}|_{\mathcal{L}[r_\bullet]}\in \overline{\pi_P\circ\tilde\Delta|_{\mathcal{L}[r_\bullet]}}\subseteq M_r(\mathcal{L}[r_\bullet])$.
 \end{proof}
 
@@ -1643,7 +1643,7 @@ Given a $\mu$-measurable set $E\subseteq X$, a positive integer $k$ and real num
 
 
 \begin{defn}
-\label{D:Talagrand stable}
+\label{def:Talagrand-stable}
 We say that $A$ is \emph{Talagrand $\mu$-stable} if and only if for every $\mu$-measurable set $E\subseteq X$ of positive measure and for every $a<b$ there is $k\geq 1$ such that
 \[
 (\mu^{2k})^*(D_k(A,E,a,b))<(\mu(E))^{2k},
@@ -1651,11 +1651,11 @@ We say that $A$ is \emph{Talagrand $\mu$-stable} if and only if for every $\mu$-
 where $\mu^*$ denotes the outer measure.
 \end{defn}
 
-Note that the reference to outer measure in Definition~\ref{D:Talagrand stable} is necessary since $D_k(A,E,a,b)$ need not be measurable.
+Note that the reference to outer measure in Definition~\ref{def:Talagrand-stable} is necessary since $D_k(A,E,a,b)$ need not be measurable.
 The inequality certainly holds when $A$ is a countable set of continuous (or $\mu$-measurable) functions.
 
 \begin{rems}
-\label{R:Talgrand stability}
+\label{rem:Talgrand-stability}
 Let $X$,  $\mu$, $A\subseteq \mathbb{R}^X$, and $\subseteq X$ be as above. Then,
 \begin{enumerate}
 \item
@@ -1685,7 +1685,7 @@ The main result of this section is that deep computations that are limit points 
 To prove it, we first show that the closure of a Talagrand $\mu$-stable set are $\mu$-measurable (lemma~\ref{talagrand stable is relatively compact});
 but first,  we need the following useful characterization of measurable functions (compare with Fact \ref{baire}):
 
-\begin{fact}[Lemma 413G in \cite{fremlin2003vol4}]\label{fact: measurable functions characterization}
+\begin{fact}[Lemma 413G in \cite{fremlin2003vol4}]\label{fact:meas-fns-charn}
     Suppose that $(X,\Sigma,\mu)$ is a measure space and let $\mathcal{K}\subseteq\Sigma$ be a collection of measurable sets satisfying the following conditions:
     \begin{itemize}
         \item $(X,\Sigma,\mu)$ is complete, i.e., for all $E\in\Sigma$ with $\mu(E)=0$ and $F\subseteq E$ we have $F\in\Sigma$.
@@ -1702,18 +1702,18 @@ but first,  we need the following useful characterization of measurable function
 
 The following technical lemma will be instrumental for proving Proposition~\ref{prop:Talagrand implies NIP}, which, in turn, will yield the main result of the subsection, namely Theorem~\ref{T:Talagrand stability and Monte Carlo}.
 
-\begin{lem}\label{talagrand stable is relatively compact}
+\begin{lem}\label{lem:talagrand-stab-relcompct}
     If $A$ is Talagrand $\mu$-stable, then $\overline{A}$ is also Talagrand $\mu$-stable and $\overline{A}\subseteq\mathscr{M}^0(X,\mu)$.
 \end{lem}
 
 \begin{proof}
-If $A$ is Talagrand $\mu$-stable, so is $\overline{A}$, by Remarks~\ref{R:Talgrand stability}.
+If $A$ is Talagrand $\mu$-stable, so is $\overline{A}$, by Remarks~\ref{rem:Talgrand-stability}.
     Suppose that $A$  is Talagrand $\mu$-stable. To show that $\overline{A}\subseteq \mathscr{M}^0(X,\mu)$.
     Suppose, by contradiction,  that there exists $f\in\overline{A}$ such that $f\notin \mathscr{M}^0(X,\mu)$.
-    By fact \ref{fact: measurable functions characterization}, there exists a $\mu$-measurable set $E$ of positive measure and $a<b$ such that $\mu^*(P)=\mu^*(Q)=\mu(E)$ where $P=\{x\in E: f(x)\leq a\}$ and $Q=\{x\in E: f(x)\geq b\}$.
+    By fact \ref{fact:meas-fns-charn}, there exists a $\mu$-measurable set $E$ of positive measure and $a<b$ such that $\mu^*(P)=\mu^*(Q)=\mu(E)$ where $P=\{x\in E: f(x)\leq a\}$ and $Q=\{x\in E: f(x)\geq b\}$.
     Then, for any $k\geq 1$: $(P\times Q)^k\subseteq D_k(\{f\},E,a,b)$, so $(\mu^{2k})^*(D_k(\{f\},E,a,b))=(\mu^*(P)\mu^*(Q))^k=(\mu(E))^{2k}$.
     Thus, the set $\{f\}$ is not $\mu$-stable. 
-    However, $\{f\}\subseteq\overline{A}$ and we know (Remarks~\ref{R:Talgrand stability}) that a subset of a $\mu$-stable set must be $\mu$-stable,
+    However, $\{f\}\subseteq\overline{A}$ and we know (Remarks~\ref{rem:Talgrand-stability}) that a subset of a $\mu$-stable set must be $\mu$-stable,
     so we have a contradiction.
 \end{proof}
 
@@ -1723,26 +1723,26 @@ We say that $A$ is \emph{universally Talagrand stable} if $A$ is Talagrand $\mu$
 
 We first observe that universal Talagrand stability implies NIP:
 
-\begin{prop}\label{prop:Talagrand implies NIP}
+\begin{prop}\label{prop:Talagrand-implies-NIP}
     Let $X$ be a compact Hausdorff space and $A\subseteq C(X)$ be pointwise bounded.
 If $A$ is universally Talagrand stable, then $A$ satisfies the NIP.
 \end{prop}
 
 \begin{proof}
 Suppose that $A$ is universally Talagrand stable.
- By Theorem \ref{BFT-2F}, it suffices to show that $A$ is relatively countably compact in $\mathscr{M}^0(X,\mu)$ for every Radon probability measure $\mu$ on $X$.
-Since, for any such $\mu$,  $A$ is Talagrand $\mu$-stable, Lemma \ref{talagrand stable is relatively compact} gives us $\overline{A}\subseteq\mathscr{M}^0(X,\mu)$.
+ By Theorem \ref{thm:BFT-2F}, it suffices to show that $A$ is relatively countably compact in $\mathscr{M}^0(X,\mu)$ for every Radon probability measure $\mu$ on $X$.
+Since, for any such $\mu$,  $A$ is Talagrand $\mu$-stable, Lemma \ref{lem:talagrand-stab-relcompct} gives us $\overline{A}\subseteq\mathscr{M}^0(X,\mu)$.
 In particular, $A$ is relatively countably compact in $\mathscr{M}^0(X,\mu)$.
 \end{proof}
 
 \begin{cor}
-\label{T:Talagrand stability and Monte Carlo}
+\label{cor:Talagrand-stab-Monte-Carlo}
     Let $(L,\mathcal{P},\Gamma)$ be a CCS satisfying the Extendibility Axiom.
 If $\pi_P\circ\Delta|_{L[r_\bullet]}$ is universally Talagrand stable for all $P\in\mathcal{P}$ and all sizers $r_{\bullet}$, then every deep computation is universally Monte Carlo computable.
 \end{cor}
 
 \begin{proof}
-    This follows directly from Proposition \ref{prop:Talagrand implies NIP} and Theorem~\ref{T:NIP and Monte Carlo}.
+    This follows directly from Proposition \ref{prop:Talagrand-implies-NIP} and Theorem~\ref{thm:NIP-Monte-Carlo}.
 \end{proof}
 
 In the context of deep computations, we have identified two ways to obtain Monte Carlo computability, namely,
@@ -1752,7 +1752,7 @@ The following results show that, even in the simple case of countably many compu
 On the one hand, it is consistent (with respect to the standard ZFC axioms of set theory) that these two classes are the same:
 
 \begin{thm}[Talagrand, Theorem 9-3-1(a) in \cite{talagrand1984pettis}]
-\label{T:nip implies talagrand stability}
+\label{thm:NIP-implies-Talagrand-stab}
     Let $X$ be a compact Hausdorff space and $A\subseteq M_r(X)$ be countable and pointwise bounded.
 Assume that $[0,1]$ is not the union of $<\mathfrak{c}$ closed measure zero sets.
 If $A$ satisfies the NIP, then $A$ is universally Talagrand stable.
