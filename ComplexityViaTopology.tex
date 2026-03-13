@@ -20,6 +20,7 @@ pdfkeywords={}
 \usepackage{graphicx}
 \graphicspath{ {images/} }
 \usepackage{subcaption}
+\usepackage{stmaryrd}
 
 %\usepackage[rgb]{xcolor}
 
@@ -57,12 +58,20 @@ pdfkeywords={}
 
 \DeclareMathOperator{\tp}{tp}
 
+% 
+% Macro definitions: symbols
+%
 \newcommand{\hatC}{\hat{\mathbb{C}}}
 \newcommand{\Lshard}{\mathcal{L}_{\mathrm{sh}}}
 \newcommand{\NIP}{\text{NIP}}
 \newcommand{\sh}{\text{sh}}
 \newcommand{\rb}{r_{\bullet}}
 \newcommand{\RP}{\mathbb{R}\mathbb{P}}
+
+% 
+% Macro definitions: functional
+%
+\newcommand{\Brack}[1]{\left\llbracket{#1}\right\rrbracket}
 
 \makeatletter
 \let\c@equation\c@thm
@@ -1020,45 +1029,49 @@ More explicitly, the unique deep equilibrium $\mathfrak{f}: \RP^1\to\RP^1$ of (t
 
 \subsection{Example: Finite-precision threshold classifiers}\label{subsec:finite_prec_threshold}
 
-Consider the states space $L = 2^\mathbb{N}$ ($= \{0,1\}^{\mathbb{N}}$) consisting of all countable binary sequences $x = (x_n)_{n\in \mathbb{N}} \subseteq \{0,1\}$, endowed with the topology of pointwise convergence.
+Consider the states space $L = 2^\mathbb{N}$ ($= \{0,1\}^{\mathbb{N}}$) consisting of all bit sequences $x = (x_n)_{n\in \mathbb{N}} \subseteq \{0,1\}$.%
+\footnote{Endowed with the topology of pointwise convergence, the product space~$2^{\mathbb{N}}$ is compact and homeomorphic to the Cantor (ternary) subset of the interval~$[0,1]$.}
 Let $\mathcal{P} = (P_n)_{n\in\mathbb{N}}$ be the collection of projections (coordinates) $P_n:x \mapsto x_n$.
 %In other words, $P_n$ is the predicate that reads the $n$th digit of an input sequence.
-Since $2^{\mathbb{N}} \subseteq \mathbb{R}^{\mathbb{N}}$ ($\cong \mathbb{R}^{\mathcal{P}}$) is closed, the type space of $(2^{\mathbb{N}},\mathcal{P})$ is $\mathcal{L} = 2^{\mathbb{N}}$ ($= L$).
+Since $2^{\mathbb{N}} \subseteq \mathbb{R}^{\mathbb{N}}$ ($\cong \mathbb{R}^{\mathcal{P}}$) is closed, the type space of $(2^{\mathbb{N}},\mathcal{P})$ is effectively still $2^{\mathbb{N}}$.
 
-Since the index set $\mathbb{N}$ and the value space~$2 = \{0, 1\}$ are well-ordered, the states space $2^{\mathbb{N}}$ is lexicographically ordered, say by~$\preccurlyeq$.
+For fixed $n\in \mathbb{N}$, we call elements of $2^n = \{0,1\}^n$ \emph{finite bit sequences \emph{(or \emph{binary words})} of length~$n$};
+the finite set $2^n$ is topologized discretely.
 
-The set $2^n$ of finite binary strings $w$ (“words”) of arbitrary fixed length $|w|\coloneqq n$ will be implicitly identified with a subset of~$2^{\mathbb{N}}$ by identifying $w$ with its zero extension $\iota(w) = (x_i)_{i\in \mathbb{N}} \in 2^{\mathbb{N}}$, namely
-\begin{equation*}
-  x_i
-  =
-  \begin{cases}
-    w_i, & i<n;\\
-    0, & i\ge n.
-  \end{cases}  
-\end{equation*}
-The set of all finite binary strings is thus identified with the subset $2^{<\mathbb{N}} \coloneqq \bigcup_{n\in \mathbb{N}}2^n \subseteq 2^{\mathbb{N}}$.
-The “inclusion map” $\iota$ above has a natural left inverse:
-the restriction map
-\begin{align*}
-  \cdot\restriction_n: 2^{\mathbb{N}}&\to 2^n\\
-  x&\mapsto x\restriction_n\coloneqq(x_i)_{i<n}.
-\end{align*}
+The set of words of any finite length is the disjoint union $2^{<\mathbb{N}}\coloneqq \bigsqcup_{n\in \mathbb{N}}2^n$ (a discrete space);
+the (unambiguously defined) length~$n$ of any word~$w\in 2^{<\mathbb{N}}$ is denoted~$|w|$.
+For any fixed lengths $n\le m\in \mathbb{N}$, by restriction, we obtain natural continuous maps
+$2^{\mathbb{N}}\rightarrow 2^m\rightarrow 2^n$.
+The restriction of~$x$ —either a sequence or a word of length $m\ge n$— to a length-$n$ word is denoted $x\restriction_n$ (i.e., $\cdot\restriction_n$ denotes the restriction map onto~$2^n$).
 
-Denote by $0_{\bullet}$ (resp., $1_{\bullet}$) the constant sequence with value~$0$ (resp., value~$1$).
-For any fixed word~$w\in2^n$, consider the transition
-\begin{align*}
- \phi_w: 2^{\mathbb{N}}&\to 2^{\mathbb{N}}\\
-  x&\mapsto
-  \begin{cases}
-    1_{\bullet}, & x\restriction_n \preccurlyeq w;\\
-    0_{\bullet}, & \text{otherwise.}
-  \end{cases}
-\end{align*}
-Such $\phi_w$ are called \emph{finite-precision classifiers}.
+\begin{notn}
+  We will denote%
+\footnote{We choose square brackets \emph{à la} Knuth with a double-strike “blackboard bold” typesetting convention precluding any ambiguity.}
+   Iverson’s bracket by $\Brack{\cdot}$, according to the following convention:
+  for any statement $S$, the value of $\Brack{S}$ is $1$ if $S$ is true, $0$ if false.
+\end{notn}
+Since the index set $\mathbb{N}$ and the value space~$2 = \{0, 1\}$ are well-ordered, the spaces $2^{\mathbb{N}}$ (as well as $2^{<\mathbb{N}}$ and $2^n$ for $n\in \mathbb{N}$) carry a natural lexicographical order henceforth denoted~$\preccurlyeq$.
+Restriction maps $\cdot\restriction_n$ are order-preserving.
 
-Since $\{u\in 2^n: u\preccurlyeq w\}\subseteq 2^n$ is clopen%
-\footnote{$2^n$ is a finite and Hausdorff —hence discrete— topological space.}
-and $\cdot\restriction_n: 2^{\mathbb{N}}\to 2^n$ is evidently continuous, it follows that both $\phi_w^{-1}(1_{\bullet}) = \bigl\{x\in 2^{\mathbb{N}}: x\restriction_n\preccurlyeq w\bigr\}$ and $\phi_w^{-1}(0_{\bullet}) = 2^{\mathbb{N}}\setminus \phi_w^{-1}(1_{\bullet}) = \bigl\{x\in 2^{\mathbb{N}}: x\restriction_n\succ w\bigr\}$ are clopen, so $\phi_w$ is continuous.
+\subsubsection{Finite-precision classifiers and definability}
+\label{sec:fin-prec-class-defin}
+
+% Denote by $0_{\bullet}$ (resp., $1_{\bullet}$) the constant (infinite) sequence with value~$0$ (resp., value~$1$).
+For any fixed word~$w\in2^n$, let $\phi_w\coloneqq\Brack{\cdot\restriction_n \preccurlyeq w}$ be the binary (i.e., $\{0,1\}$-valued) function $2^{\mathbb{N}}\rightarrow 2^n: x\mapsto \Brack{x\restriction_n\preccurlyeq w}$.
+% \begin{align*}
+%  \phi_w: 2^{\mathbb{N}}&\to 2^{\mathbb{N}}\\
+%   x&\mapsto
+%   \begin{cases}
+%     1_{\bullet}, & x\restriction_n \preccurlyeq w;\\
+%     0_{\bullet}, & \text{otherwise.}
+%   \end{cases}
+% \end{align*}
+% Such $\phi_w$ are called \emph{finite-precision classifiers}.
+Since both $\Brack{\cdot\preccurlyeq w}$ and $\cdot\restriction_n$ are continuous, so is $\phi_w$, which will be called a \emph{finite-precision threshold classifier}.
+Clearly, the classifier $\phi_w$ may be expressed as a Boolean combination%
+\footnote{In other words, finite-precision classifiers are \emph{definable} in the sense of real-valued logic (sans quantifiers) whose connectives are vector-lattice operations (maximum, minimum, and linear combinations), plus logical constants (i.e., real constants) as nullary connectives.}
+of the 2-valued predicates $P_i(w)$ for $i<n$
+(i.e., $\phi_w$ may be expressed in terms of the values $P_i(w)$ using the binary operations $\vee$ —maximum— and $\wedge$ —minimum— plus the unary negation operation $\neg: r\mapsto 1-r$ that exchanges the logical values $0$ and~$1$).
 
 Let $\Delta = \{\phi_w:w\in 2^{<\mathbb{N}}\} \cup \{\mathbf{0}, \mathbf{1}\}$, where $\mathbf{0},\mathbf{1}: 2^{\mathbb{N}}\rightarrow 2^{\mathbb{N}}$ are the constant maps $x\mapsto0_{\bullet}$ and $x\mapsto1_{\bullet}$, respectively. 
 Let $\Gamma$ be the semigroup generated by $\Delta$.
