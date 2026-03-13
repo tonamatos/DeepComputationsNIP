@@ -787,9 +787,8 @@ For a more detailed discussion of the Extendibility Axiom, we refer the reader t
 
 \emph{For the rest of the paper, the Extendibility Axiom is imposed on all CSSs.}
 
-\subsection{Newton’s method as a CCS}\label{sec:Newton-method}
-We formalize the Newton-Raphson root-finding method as a CCS~\cite{Galantai200025}, \cite[Section~2.3]{Burden2016numerical}.
-
+\section{Examples of  Compositional Computation Structures}
+We begin by formalizing the Newton-Raphson root-finding method as a CCS~\cite{Galantai200025}, \cite[Section~2.3]{Burden2016numerical}.
 Let $\hatC = \mathbb{C}\cup\{\infty\}$ be the extended complex plane (the Alexandroff —one-point— compactification of~$\mathbb{C}$).
 We regard the unit sphere $S^2\subseteq \mathbb{R}^3$ as the Riemann sphere and endowed with the stereographic projection map $S^2\to\hatC$ —a topological homeomorphism whose \emph{inverse} $\hatC\rightarrow S^2$ is given by $z \mapsto  (P_1(z), P_2(z), P_3(z))$, where $(P_1(\infty), P_2(\infty), P_3(\infty)) = (0,0,1)$ and, for $z\ne\infty$,
   \begin{align*}
@@ -800,9 +799,8 @@ We regard the unit sphere $S^2\subseteq \mathbb{R}^3$ as the Riemann sphere and 
   The extended complex plane $\hatC$ is thus endowed with the real predicates $P_1, P_2, P_3$ with values in~$[-1,1]$;
   its topology is metrized by the pullback of the usual Euclidean metric on~$S^2$.
 
-\paragraph{Newton maps}
-\label{par:Newton-map}
-
+\subsubsection*{Newton  CCSs:  steps and fractals} 
+\label{sec:Newton-map}
 Let $p = p(z)$ be a non-constant rational function with complex coefficients —i.e., an analytic (meromorphic) map $\hatC\to\hatC$.
 The \emph{Newton method step} (or \emph{Newton map}) for $p$ is the rational map
 \begin{equation}\label{eq:Np}
@@ -823,6 +821,8 @@ the inverse stereographic projection coordinates.
 % Thus, the type space of $(L_p, \{X, Y\})$ above is $\mathbb{R}^2$ ($\cong \mathbb{C}$), while the type space of $(\hatC, \{P_1, P_2, P_3\})$ is $S^2$ $\cong \hatC$.
 % All $\{P_1, P_2, P_3\}$-types are realized in~$\hatC$, but not all $\{X, Y\}$-types are realized in~$L_p$ (let alone all $\{P_1, P_2, P_3\}$-types).
 
+\paragraph{Newton CCSs}
+\label{sec:Newton-CCS}
 Let $\Gamma_p:=\{N_p^{(n)}:n\in\mathbb{N}\}$ be the semigroup of iterates of the Newton map~\eqref{eq:Np}.
 The CCS $(\hatC, (P_1,P_2,P_3), \Gamma_p)$ is \emph{Newton’s method for~$p(z)$} (or the \emph{Newton CCS for~$p(z)$}).
 Note that the states space $\hatC$ is compact and the Newton map $N_p$ is continuous thereon, so the Extendibility Axiom is satified by Newton CCSs.
@@ -841,17 +841,10 @@ Note that the states space $\hatC$ is compact and the Newton map $N_p$ is contin
 % Given $r\in \hatC$, the set $B_r = \{z\in\mathbb{C}: \lim_{n\rightarrow\infty}N_p^{(n)}(z) = r\}$ is an open set called the \emph{basin} of~$r$.
 Given an initial estimate $z_0$, one hopes for the sequence of Newton steps applied to~$z_0$ (namely, $N_p^{(\bullet)}(z_0) \coloneqq (z_n)_{n\in \mathbb{N}}$, where $z_n \coloneqq N_p^{(n)}(z_0)$)
 to converge to a root~$r$ of~$p$.
-For initial estimates $z_0$ converging to a root~$r$, any deep computation realizes the transformation $z_0\mapsto r$.
-It is well known —if perhaps surprising at first— that Newton’s method fails to converge to a root $z\in\hatC$.%
-\footnote{By “convergence to the (possible) root $z = \infty\in\hatC$” we mean “proper divergence”;
-  thus, the divergence of Newton steps may be improper.}
-
-\paragraph{The cubic  ${\rho}(z) = z^3-2z+2$}
-The polynomial ${\rho}(z) = z^3-2z+2$ has Newton map
-\begin{equation*}
-  N_{\rho}: z \mapsto z - \frac{z^3-2z+2}{3z^2-2} = \frac{2z^3-2}{3z^2-2}.
-\end{equation*}
-Successive Newton steps obtained from the initial guess $z_0=0$ yield the divergent sequence $N_{\rho}^{(\bullet)}(0) = (0, 1, 0, 1, \dots)$ having sequential limits $0, 1$ —neither a root of~${\rho}$.
+% For initial estimates $z_0$ converging to a root~$r$, any deep computation realizes the transformation $z_0\mapsto r$.
+% It is well known —if perhaps surprising at first— that Newton’s method fails to converge to a root $z\in\hatC$.%
+% \footnote{By “convergence to the (possible) root $z = \infty\in\hatC$” we mean “proper divergence”;
+%   thus, the divergence of Newton steps may be improper.}
 
 \paragraph{Fatou and Julia sets}
 Recall that the \emph{Fatou set $\mathcal{F}_p$} consists of all points that have a compact neighborhood on which some subsequence of the sequence $p^{(\bullet)}$ of iterates of~$p$ converges uniformly;
@@ -859,7 +852,17 @@ the \emph{Julia set} $\mathcal{J}_p\coloneqq\hatC\setminus \mathcal{F}_p$ is its
 it is (necessarily closed and) typically a fractal.
 The Julia set of the Newton map~$N_p$ is called the \emph{Newton fractal} of~$p$.
 
-\subparagraph{Visualizing Newton iterates}
+\subsection{Example: Newton’s CCS for the cubic ${\rho}(z) = z^3-2z+2$}
+\label{sec:Newton-cubic}
+The polynomial ${\rho}(z) = z^3-2z+2$ has Newton map
+\begin{equation*}
+  N_{\rho}: z \mapsto z - \frac{z^3-2z+2}{3z^2-2} = \frac{2z^3-2}{3z^2-2}.
+\end{equation*}
+Denote the real root of $\rho$ by $r_0$; the roots in the upper- and the lower half plane, by $r_{+}$ and $r_{-}$, respectively.
+
+ Successive Newton steps obtained from the initial guess $z_0=0$ yield the divergent sequence $N_{\rho}^{(\bullet)}(0) = (0, 1, 0, 1, \dots)$ having sequential limits $0, 1$ —neither a root of~${\rho}$.
+
+\subsubsection{Visualizing Newton iterates}
 Assign to each complex point $z\in \mathbb{C}$ an “RGB color” $(R,G,B)\in[0,1]^3$ whose entries give the corresponding (Red/Green/Blue) color intensity;
 thus, $(1,0,0)$ is red, $(0,1,0)$ is green, and $(0,0,1)$ is blue—while, for example, $(0.5, 0., 0.5)$ is a light purple.
 Each of the three distinct roots of~${\rho}$ will be given one of these colors
@@ -882,7 +885,12 @@ the RGB colors of~$(z_n)$ tend towards (a single one of) red, green or blue corr
 The Fatou set also has an open region consisting of points~$z_0$ for which $(z_n)_{n\in \mathbb{N}}$ has a subsequence converging to $0$ or~$1$ (uniformly on some compact neighborhood of~$z_0$).
 The four open regions are immediately recognizable in Figure~\ref{fig:newton}.
 
-The deep computations of***
+ Let $B_0, B_+, B_-$ be the respective basins of the roots $r_0, r_+, r_-$, and let $B_{01}$ be the basin of the attractive cycle 0, 1, 0, 1, \dots.
+ It may be shown that the Fatou set of $N_\rho$ is $F_\rho = B_{01} \cup B_0 \cup B_{+} \cup B_{-}$, each of these four sets being nonempty open.
+ Since $B_{01}$ is nonempty, $N_\rho^{(\bullet)}$ does not converge pointwise;
+ however, its subsequences of even/odd iterates are pointwise convergent on~$B_{01}$ to two distinct deep computations $f_0$ (constant $0$ on~$B_{01}$) and $f_1$ (constant $1$ on~$B_{01}$).%
+ \footnote{As remarked above, $\infty$ is a repelling fixed point of $N_\rho$, hence $f_0(\infty) = \infty = f_1(\infty)$.}
+ The behavior of iterates $N^{(n)}_\rho$ on the Newton fractal of~$\rho$ (the Julia set of~$\rho$) is chaotic.
 
 \begin{figure}[htbp]
   \centering
@@ -936,14 +944,14 @@ The deep computations of***
   \label{fig:newton}
 \end{figure}
 
-\paragraph{The Newton fractal of the $3$-cyclotomic polynomial}
+\subsection{Example: Newton's CCS for $3$-cyclotomic $\kappa(z) = z^{3}-1$}
 Consider next the $3$-cyclotomic polynomial ${\kappa}(z) = z^3-1$. 
-The roots of ${\kappa}(z)$ are the cube roots of unity $r_0=1$ and $r_{\pm1} = \exp(\pm2\pi i/3)$;
+The roots of the $3$-cyclotomic polynomial ${\kappa}(z) = z^3-1$ are the cube roots of unity $r_0=1$ and $r_{\pm} = \exp(\pm2\pi i/3)$;
 the Newton map is
 \begin{equation*}
   N_{\kappa}: z\mapsto z-\frac{z^3-1}{3z^2}=\frac{2z^3+1}{3z^2}.
 \end{equation*}
-In Figure~2(\textsc{C}), one sees a Fatou set consisting of solid-color (disconnected) open sets, one in each of the colors red (for $r_0=1$), green and blue (for $r_{\pm1}$, respectively), where the sequence of all iterates $z_n \coloneqq N_{\kappa}^{(n)}(z_0)$ starting with any point $z_0$ converges to the corresponding root.
+In Figure~2(\textsc{C}), one sees a Fatou set consisting of solid-color (disconnected) open sets, one in each of the colors red (for $r_0=1$), green and blue (for $r_{\pm1}$, respectively), where the sequence of all iterates $z_n \coloneqq N_{\kappa}^{(n)}(z_0)$ starting with a arbitrary initial point $z_0$ converges to the corresponding root.
 (Thus, each solid-color region is the basin of attraction of the respective root).
 
 
@@ -971,55 +979,41 @@ In Figure~2(\textsc{C}), one sees a Fatou set consisting of solid-color (disconn
     \label{fig:newton2}
 \end{figure}
 
-The set of deep computations $\overline{\Gamma}$ might behave different for various polynomials.
-Let us look at various examples:
+\subsection{Example: Square roots}\label{exa:square-roots-compute}
+Let $\mathbb{R}\to S^1: x\mapsto (P_1(x),P_2(x))$ be the (inverse) stereographic projection of the real line onto $S^1\subseteq \mathbb{R}^2$, i.e.,
+\begin{align*}
+ P_1(x) &= \frac{2x}{x^2+1}, &
+ P_2(x) &= \frac{x^2-1}{x^2+1},
+\end{align*}
+extended to a projective transformation of the real projective line $\RP^1 = \mathbb{R}\cup\{\infty\}$ by $\infty \mapsto (P_1(\infty), P_2(\infty)) = (0, 1)$;
+this gives a compact CCS $\underline{\mathfrak{L}} = (\RP^1, (P_1, P_2))$.
+Fix a real number $a>0$, and let $p(x)=x^2-a$. 
+The Newton map $N_p$ is
+\begin{equation*}
+  x \mapsto x - \frac{x^2-a}{2x}
+  =
+  \begin{cases}
+   \frac{x^2+a}{2x}, & x\ne0,\infty;\\
+   \infty, & x=0, \infty.
+  \end{cases}
+\end{equation*}
+These Newton steps converge to one of the square roots $\pm\sqrt{a}$ starting from any initial point $x_0\ne0,\infty$.
+More explicitly, the unique deep equilibrium $\mathfrak{f}: \RP^1\to\RP^1$ of (the sequence of iterates of) $N_p$ is given by
+\[
+ \mathfrak{f}(x)
+ =
+ \lim_{n\rightarrow\infty}N_p^n(x)
+ =
+ \begin{cases}
+  \sqrt{a} & (x>0),\\
+  -\sqrt{a} & (x<0),\\
+  \infty & (x = 0, \infty).
+ \end{cases}
+ \]
+ Thus, $\mathfrak{f}$ is discontinuous at $x = 0, \infty$.
+ % The set of deep computations is $\{N_p^n\}_n\cup\{\mathfrak{f}\}\subseteq B_1(\mathcal{L},\mathcal{L})$.
 
-\begin{exmp}\label{exa:square-roots-compute}
-    \textbf{Computation of square roots}. 
-        Let $a$ be a positive real number and $p(x)=x^2-a$. 
-        Let $\mathbb{R}\to S^1: x\mapsto (P_1(x),P_2(x))$ be the (inverse) stereographic projection of the real line onto $S^1\subseteq \mathbb{R}^2$, i.e.,
-        \begin{align*}
-          P_1(x) &= \frac{2x}{x^2+1}, &
-          P_2(x) &= \frac{x^2-1}{x^2+1},
-        \end{align*}
-        extended to a projective transformation of $\RP^1 = \mathbb{R}\cup\{\infty\}$ by $\infty \mapsto (P_1(\infty), P_2(\infty)) = (0, 1)$.
-        Let $\mathcal{P}=(P_1,P_2)$ and $\Gamma=\{N_p^n:n\in\mathbb{N}\}$, where $N_p: \RP^1\rightarrow\RP^1$ is given by
-        \begin{equation*}
-          x \mapsto x - \frac{x^2-a}{2x}
-          =
-          \begin{cases}
-            \frac{x^2+a}{2x} & (x\ne0,\infty),\\
-            \infty & (x=0, \infty).
-          \end{cases}
-        \end{equation*}
-        As before, $(L,\mathcal{P},\Gamma)$ is a CCS with $L \coloneqq \RP^1\setminus\{0,\infty\} = \mathbb{R}\setminus\{0\}$ whose type space is $\mathcal{L} = S^1\cong\RP^1$.
-        In fact (with the identification $\mathcal{L}\cong\RP^1$), the (full) sequence if iterates of the Newton map has a pointwise limit $\mathfrak{f}: \mathcal{L}\to \mathcal{L}$, namely
-        \[
-          \mathfrak{f}(x)
-          =
-          \lim_{n\rightarrow\infty}N_p^n(x)
-          =
-          \begin{cases}
-          \sqrt{a} & (x>0),\\
-          -\sqrt{a} & (x<0),\\
-          \infty & (x = 0, \infty).
-        \end{cases}
-        \]
-        Thus, $\mathfrak{f}$ is discontinuous at $x = 0, \infty$.
-        The set of deep computations is $\{N_p^n\}_n\cup\{\mathfrak{f}\}\subseteq B_1(\mathcal{L},\mathcal{L})$.
-\end{exmp}
-
-\begin{exmp}
-    \textbf{Newton’s method for $\rho(z) = z^3-2z+2$}.
-        Let $B_i$ be the basin of the root $r_i$ ($i = 0, \pm1$), and let $B_{01}$ be the basin of the attractive cycle 0, 1, 0, 1, \dots.
-        It may be shown that the Fatou set of $N_\rho$ is $F_\rho = B_{01} \cup B_0 \cup B_{+1} \cup B_{-1}$, each of these four sets being nonempty open.
-        Since $B_{01}$ is nonempty, $N_\rho^n$ does not converge pointwise;
-        however, the subsequences $N_\rho^{2n}$ and $N_\rho^{2n+1}$ are pointwise convergent to two distinct deep computations $f_0$ (constant $0$ on~$B_{01}$) and $f_1$ (constant $1$ on~$B_{01}$).%
-        \footnote{As remarked above, $\infty$ is a repelling fixed point of $N_\rho$, hence $f_0(\infty) = \infty = f_1(\infty)$.}
-        The behavior of the iterates $N_\rho$ on the Newton fractal of~$\rho$ (the Julia set $\mathbb{C}\setminus L_\rho$) is chaotic.
-\end{exmp}
-
-\subsection{Finite-precision threshold classifiers}\label{subsec:finite_prec_threshold}
+\subsection{Example: Finite-precision threshold classifiers}\label{subsec:finite_prec_threshold}
 
 Consider the states space $L = 2^\mathbb{N}$ ($= \{0,1\}^{\mathbb{N}}$) consisting of all countable binary sequences $x = (x_n)_{n\in \mathbb{N}} \subseteq \{0,1\}$, endowed with the topology of pointwise convergence.
 Let $\mathcal{P} = \{P_n:n\in\mathbb{N}\}$ be the collection of projections (coordinates) $P_n:x \mapsto x_n$.
@@ -1124,7 +1118,7 @@ Note that if $a$ is the constant zero, then $f_a^-=\mathbf{0^{\infty}}$.
 The preceding proposition shows that the topological structure of deep computations can be complicated.
 Indeed, $\overline{P_n\circ \Delta}$ contains the \emph{Split Cantor} space for all $n\in\mathbb{N}$. (see Example~\ref{exa:Rosenthal-compacta}-(3)).
 
-\subsection{Finite precision prefix test}
+\subsection{Example: Finite precision prefix test}
 \label{sec:prefix-test}
 
 In this subsection we present another example of a CCS with a more complicated set of deep computations. 
