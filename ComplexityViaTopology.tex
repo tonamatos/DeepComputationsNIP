@@ -179,11 +179,11 @@ In the interest of accessibility, we do not assume that the reader has previous 
 The only technical prerequisites to read this paper are undergraduate-level topology and measure theory.
 The necessary topological background beyond undergraduate topology is covered in section~\ref{sec:prelim}.
 
-In section \ref{sec:prelim}, we present basic topological and combinatorial preliminaries. In section~\ref{S:CCS}, we introduce the structural/model-theoretic viewpoint (no previous exposure to model theory is needed).
-Section~\ref{S:Classification} is devoted to the classification of deep computations.
+In section \ref{sec:prelim}, we present basic topological and combinatorial preliminaries. In section~\ref{sec:CCS}, we introduce the structural/model-theoretic viewpoint (no previous exposure to model theory is needed).
+Section~\ref{sec:Classification} is devoted to the classification of deep computations.
 
 Throughout the paper, our results pertain to classical models of computation (particularly computations involving real-valued quantities that are known and manipulated to a finite degree of precision).
-The final section, Section~\ref{Measure-theoretic NIP}, introduces a probabilistic viewpoint, the development of which we intend to extend in future research.
+The final section, Section~\ref{sec:measure-theoretic-NIP}, introduces a probabilistic viewpoint, the development of which we intend to extend in future research.
 
 \tableofcontents
 
@@ -329,7 +329,7 @@ Banach space geometry, Ramsey theory, set theory, and topology of function space
 
 As we move from $C_p(X)$ to the larger space $B_1(X)$, a dichotomy paralleling the $\ell_1$-Theorem holds:
 Either every point in the closure of a set of functions is a Baire class~1 function, or there is a sequence in the set behaving in the wildest possible way.
-This result is usually not phrased as a dichotomy in the above manner, but rather as an equivalence (see Theorem~\ref{thm;BFT} below).
+This result is usually not phrased as a dichotomy in the above manner, but rather as an equivalence (see Theorem~\ref{thm:BFT} below).
 
 First, we introduce some useful notation.
 For any $f\in \mathbb{R}^X$ and any real $a$, define
@@ -885,7 +885,6 @@ The four open regions are immediately recognizable in Figure~\ref{fig:newton}.
 The deep computations of***
 
 \begin{figure}[htbp]
-  \label{fig:z3minus2zplus2}
   \centering
   % Row 1: Low iterations
   \begin{subfigure}[b]{0.32\textwidth}
@@ -934,6 +933,7 @@ The deep computations of***
     points~$z$ in the cyan region are those whose subsequence $N_{\rho}^{(2\cdot\bullet)}(z)$ of even Newton iterates (resp., $N_{\rho}^{(2\cdot\bullet+1)}(z)$ of odd iterates) has limit $1$ (resp., limit~$0$).
     For points $z$ in the magenta region, the limits of the even and odd iterate subsequences are exchanged. 
     The boundaries of colored regions constitute the Newton fractal of~$\rho$.}
+  \label{fig:newton}
 \end{figure}
 
 \paragraph{The Newton fractal of the $3$-cyclotomic polynomial}
@@ -1122,7 +1122,7 @@ Note that if $a$ is the constant zero, then $f_a^-=\mathbf{0^{\infty}}$.
 \end{proof}
 
 The preceding proposition shows that the topological structure of deep computations can be complicated.
-Indeed, $\overline{P_n\circ \Delta}$ contains the \emph{Split Cantor} space for all $n\in\mathbb{N}$. (see Example~\ref{E:Rosenthal compacta}-(3)).
+Indeed, $\overline{P_n\circ \Delta}$ contains the \emph{Split Cantor} space for all $n\in\mathbb{N}$. (see Example~\ref{exa:Rosenthal-compacta}-(3)).
 
 \subsection{Finite precision prefix test}
 \label{sec:prefix-test}
@@ -1174,7 +1174,7 @@ These equality tests $\delta_a$ are not all the deep computations. The other dee
     Hence, $\psi_{w_n}(x)=0^\infty$ for large enough $n$.
 \end{proof}
 
-In fact, $\overline{\Delta}=\Delta\cup\{\delta_a:a\in 2^\mathbb{N}\}\cup\{\mathbf{0^\infty}\}$ and this space is known as the \emph{Extended Alexandroff compactification of $2^\mathbb{N}$} (see Example \ref{E:Rosenthal compacta}-(2)).
+In fact, $\overline{\Delta}=\Delta\cup\{\delta_a:a\in 2^\mathbb{N}\}\cup\{\mathbf{0^\infty}\}$ and this space is known as the \emph{Extended Alexandroff compactification of $2^\mathbb{N}$} (see Example \ref{exa:Rosenthal-compacta}-(2)).
 One key topological property about this space is that $\mathbf{0^\infty}$ is not a $G_\delta$ point, i.e., $\{\mathbf{0^\infty}\}$ is not a countable intersection of open sets.
 Moreover, $\mathbf{0^\infty}$ is the only non-$G_\delta$ point.
 It is well-known that in a Hausdorff, first countable space every point is $G_\delta$. 
@@ -1191,8 +1191,8 @@ We use topology of function spaces to obtain a new hierarchy of complexity class
 The main topological tool is Todorčević’s trichotomy for Rosenthal compacta~\cite{Todorcevic_1999_CompactSubsetsBaire}. 
 Our inspiration is the work of Glasner and Megrelishvili on tame semigropus in topological dynamics~\cite{glasner2022tame}.
 
-% In subsection~\ref{S:trichotomy}, we study the implications of Todorčević’s  trichotomy in the realm of deep computations.
-% Then, in subsection~\ref{S:heptachotomy}, we focus on the  more recent heptachotomy for separable Rosenthal compacta proved by Argyros, Dodos and Kanellopoulos~\cite{argyros2008rosenthal}.
+% In subsection~\ref{sec:trichotomy}, we study the implications of Todorčević’s  trichotomy in the realm of deep computations.
+% Then, in subsection~\ref{sec:heptachotomy}, we focus on the  more recent heptachotomy for separable Rosenthal compacta proved by Argyros, Dodos and Kanellopoulos~\cite{argyros2008rosenthal}.
 % Since our interest is in applications to  the theory of computation, we focus our attention on compositional computation structures $(L,\mathcal{P},\Gamma)$  (Definition~\ref{def:CCS}) where the set $\mathcal{P}$ of predicates is countable,
 % and in sets  computation $\Delta\subseteq\Gamma$ of comptations that are countable.
 
@@ -1492,10 +1492,10 @@ For example, functions in $D_3$ are not continuous.
 In this section, we replace deterministic computability by probabilistic (`Monte Carlo') computability.
 We do not assume that $\mathcal{P}$ is countable.
 (The countability assumption on $\mathcal{P}$ played a crucial role in the proof of Theorem \ref{thm:Generalized-BFT}, as it makes $\mathbb{R}^\mathcal{P}$ a Polish space.)
-The main results of the section are Theorem~\ref{T:NIP and Monte Carlo}  (which connects NIP and Monte Carlo computability) and~\ref{T:Talagrand stability and Monte Carlo}  (which connects Talagrand stability and Monte Carlo computability).
+The main results of the section are Theorem~\ref{thm:NIP-Monte-Carlo}  (which connects NIP and Monte Carlo computability) and~\ref{cor:Talagrand-stab-Monte-Carlo}  (which connects Talagrand stability and Monte Carlo computability).
 
-Fundamental in this section is a measure-theoretic version of Theorem \ref{thm:Generalized-BFT}, namely,  Theorem~\ref{BFT-2F}. 
-For the proof of Theorem \ref{thm:Generalized-BFT}, we assumed countability of  $\mathcal{P}$ --- this ensured that $\mathbb{R}^\mathcal{P}$ a Polish space.
+Fundamental in this section is a measure-theoretic version of Theorem \ref{thm:Generalized-BFT}, namely, Theorem~\ref{thm:BFT-2F}. 
+For the proof of Theorem \ref{thm:Generalized-BFT}, we assumed countability of $\mathcal{P}$ ---this ensured that $\mathbb{R}^\mathcal{P}$ a Polish space.
 In this section, the countability assumption is not needed.
 
 \subsection{NIP and Monte Carlo computability of deep computations}
@@ -1572,7 +1572,7 @@ The following are equivalent:
     \end{enumerate}
 \end{thm}
 
-This result allows us to formalize the concept of a deep computation being \emph{Monte Carlo computable}, which we define below (Definition~\ref{D:universally essentially computable}).
+This result allows us to formalize the concept of a deep computation being \emph{Monte Carlo computable}, which we define below (Definition~\ref{def:universally-essentially-computable}).
 To motivate the definition, let us first recall two facts:
 
 \begin{enumerate}
@@ -1681,8 +1681,8 @@ If $A$ is stable, then $\overline{A}$ is $\mu$-stable. (This is immediate from (
 \end{enumerate}
 \end{rems}
 
-The main result of this section is that deep computations that are limit points of a Talagrand stable set of computations are Monte Carlo computable; this is Theorem~\ref{T:Talagrand stability and Monte Carlo} below.
-To prove it, we first show that the closure of a Talagrand $\mu$-stable set are $\mu$-measurable (lemma~\ref{talagrand stable is relatively compact});
+The main result of this section is that deep computations that are limit points of a Talagrand stable set of computations are Monte Carlo computable; this is Corollary~\ref{cor:Talagrand-stab-Monte-Carlo} below.
+To prove it, we first show that the closure of a Talagrand $\mu$-stable set are $\mu$-measurable (lemma~\ref{lem:talagrand-stab-relcpct});
 but first,  we need the following useful characterization of measurable functions (compare with Fact \ref{baire}):
 
 \begin{fact}[Lemma 413G in \cite{fremlin2003vol4}]\label{fact:meas-fns-charn}
@@ -1700,9 +1700,9 @@ but first,  we need the following useful characterization of measurable function
     Then, $f:X\rightarrow\mathbb{R}$ is measurable if and only if for every $K\in\mathcal{K}$ with $0<\mu(K)<\infty$ and $a<b$, either $\mu^*(P)<\mu(K)$ or $\mu^*(Q)<\mu(K)$, where $P=\{x\in K:f(x)\leq a\}$ and $Q=\{x\in K:f(x)\geq b\}$.
 \end{fact}
 
-The following technical lemma will be instrumental for proving Proposition~\ref{prop:Talagrand implies NIP}, which, in turn, will yield the main result of the subsection, namely Theorem~\ref{T:Talagrand stability and Monte Carlo}.
+The following technical lemma will be instrumental for proving Proposition~\ref{prop:Talagrand-implies-NIP}, which, in turn, will yield the main result of the subsection, namely Corollary~\ref{cor:Talagrand-stab-Monte-Carlo}
 
-\begin{lem}\label{lem:talagrand-stab-relcompct}
+\begin{lem}\label{lem:talagrand-stab-relcpct}
     If $A$ is Talagrand $\mu$-stable, then $\overline{A}$ is also Talagrand $\mu$-stable and $\overline{A}\subseteq\mathscr{M}^0(X,\mu)$.
 \end{lem}
 
@@ -1731,7 +1731,7 @@ If $A$ is universally Talagrand stable, then $A$ satisfies the NIP.
 \begin{proof}
 Suppose that $A$ is universally Talagrand stable.
  By Theorem \ref{thm:BFT-2F}, it suffices to show that $A$ is relatively countably compact in $\mathscr{M}^0(X,\mu)$ for every Radon probability measure $\mu$ on $X$.
-Since, for any such $\mu$,  $A$ is Talagrand $\mu$-stable, Lemma \ref{lem:talagrand-stab-relcompct} gives us $\overline{A}\subseteq\mathscr{M}^0(X,\mu)$.
+Since, for any such $\mu$,  $A$ is Talagrand $\mu$-stable, Lemma \ref{lem:talagrand-stab-relcpct} gives us $\overline{A}\subseteq\mathscr{M}^0(X,\mu)$.
 In particular, $A$ is relatively countably compact in $\mathscr{M}^0(X,\mu)$.
 \end{proof}
 
