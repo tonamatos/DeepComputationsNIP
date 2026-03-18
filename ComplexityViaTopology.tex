@@ -1038,18 +1038,20 @@ Since $2^{\mathbb{N}} \subseteq \mathbb{R}^{\mathbb{N}}$ ($\cong \mathbb{R}^{\ma
 For fixed $n\in \mathbb{N}$, we call elements of $2^n = \{0,1\}^n$ \emph{finite bit sequences \emph{(or \emph{binary words})} of length~$n$};
 the finite set $2^n$ is topologized discretely.
 
-The set of words of any finite length is the disjoint union $2^{<\mathbb{N}}\coloneqq \bigsqcup_{n\in \mathbb{N}}2^n$ (a discrete space);
+The set of all finite-length words is the disjoint union $2^{<\mathbb{N}}\coloneqq \bigsqcup_{n\in \mathbb{N}}2^n$ (a discrete space);
 the (unambiguously defined) length~$n$ of any word~$w\in 2^{<\mathbb{N}}$ is denoted~$|w|$.
 Given lengths $n, m\in \mathbb{N}$, we have a concatenation operation%
 \footnote{When context is clear, the concatenation $v\frown w$ may be denoted simply $vw$.}
 $2^m\times 2^n\to 2^{m+n}: (v,w)\mapsto v\frown w$;
-such concatenations give a binary operation on~$2^{\mathbb{N}}$.
-In case $m\ge n$, we also have natural continuous restriction maps (projections)
+such concatenations altogether yield a semigroup structure on~$2^{\mathbb{N}}$ —indeed, a monoid with the empty word $()\in 2^0$ as identity.
+The more general concatenation operation $2^{<\mathbb{N}}\times 2^{\mathbb{N}}\to 2^{\mathbb{N}}: (w,x)\mapsto w\frown x$ is a continuous action of $2^{<\mathbb{N}}$ on~$2^{\mathbb{N}}$.
+
+For $m\ge n$, we also have natural continuous restriction maps (projections)
 $2^{\mathbb{N}}\rightarrow 2^m\rightarrow 2^n$.
 The restriction of~$x$ —either a sequence or a word of length $m\ge n$— to a length-$n$ word is denoted $x\restriction_n$ (i.e., $\cdot\restriction_n$ projects onto~$2^n$).
 
 Since the index set $\mathbb{N}$ and the value space~$2 = \{0, 1\}$ are well-ordered, the spaces $2^{\mathbb{N}}$ (as well as $2^{<\mathbb{N}}$ and $2^n$ for $n\in \mathbb{N}$) carry a natural lexicographical order henceforth denoted~$\preccurlyeq$.
-Restriction maps $\cdot\restriction_n$ are order-preserving.
+The action of $2^{<\mathbb{N}}$ on~$2^{\mathbb{N}}$ is order-preserving, as are all restriction maps~$\cdot\restriction_n$.
 
 \subsubsection{Finite-precision classifiers and definability}
 \label{sec:fin-prec-class-defin}
