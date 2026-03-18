@@ -1050,8 +1050,9 @@ For $m\ge n$, we also have natural continuous restriction maps (projections)
 $2^{\mathbb{N}}\rightarrow 2^m\rightarrow 2^n$.
 The restriction of~$x$ —either a sequence or a word of length $m\ge n$— to a length-$n$ word is denoted $x\restriction_n$ (i.e., $\cdot\restriction_n$ projects onto~$2^n$).
 
-Since the index set $\mathbb{N}$ and the value space~$2 = \{0, 1\}$ are well-ordered, the spaces $2^{\mathbb{N}}$ (as well as $2^{<\mathbb{N}}$ and $2^n$ for $n\in \mathbb{N}$) carry a natural lexicographical order henceforth denoted~$\preccurlyeq$.
-The action of $2^{<\mathbb{N}}$ on~$2^{\mathbb{N}}$ is order-preserving, as are all restriction maps~$\cdot\restriction_n$.
+Since the index set $\mathbb{N}$ and the value space~$2 = \{0, 1\}$ are well-ordered, the spaces $2^{\mathbb{N}}$ (as well as $2^{<\mathbb{N}}$ and $2^n$ for $n\in \mathbb{N}$) carry a natural lexicographical order henceforth denoted~$\preccurlyeq$;
+the order topology coincides with the (product) topology of~$2^{\mathbb{N}}$.
+The action of $2^{<\mathbb{N}}$ on~$2^{\mathbb{N}}$ is order-preserving (and continuous), as are all restriction maps~$\cdot\restriction_n$.
 
 \subsubsection{Finite-precision classifiers and definability}
 \label{sec:fin-prec-class-defin}
@@ -1067,22 +1068,25 @@ The action of $2^{<\mathbb{N}}$ on~$2^{\mathbb{N}}$ is order-preserving, as are 
 \end{notn}
 
 % Denote by $0_{\bullet}$ (resp., $1_{\bullet}$) the constant (infinite) sequence with value~$0$ (resp., value~$1$).
-For any fixed word~$w\in2^n$, let $\phi_w\coloneqq\Brack{\cdot\restriction_n \preccurlyeq w}$ be the relation $x\mapsto \Brack{x\restriction_n\preccurlyeq w}$ on~$2^{\mathbb{N}}$.
+For any fixed word~$w\in2^n$, let $\overline{\phi}_w\coloneqq\Brack{\cdot\restriction_n \preccurlyeq w}$ (resp., $\widehat{\phi}_w\coloneqq\Brack{\cdot\restriction_n \prec w}$) be the relation $x\mapsto \Brack{x\restriction_n\preccurlyeq w}$ (resp., $x\mapsto \Brack{x\restriction_n\prec w}$) on~$2^{\mathbb{N}}$.
 % \begin{align*}
-%  \phi_w: 2^{\mathbb{N}}&\to 2^{\mathbb{N}}\\
+%  \overline{\phi}_w: 2^{\mathbb{N}}&\to 2^{\mathbb{N}}\\
 %   x&\mapsto
 %   \begin{cases}
 %     1_{\bullet}, & x\restriction_n \preccurlyeq w;\\
 %     0_{\bullet}, & \text{otherwise.}
 %   \end{cases}
 % \end{align*}
-% Such $\phi_w$ are called \emph{finite-precision classifiers}.
-Since both $\Brack{\cdot\preccurlyeq w}$ and $\cdot\restriction_n$ are continuous, so is $\phi_w$, which will be called a \emph{finite-precision threshold classifier}.
-(For $n=0$, there is only one “zeroth-precision” classifier $\phi_{()}$ equal to the identically true relation $\mathbf{1}\equiv 1$ on~$2^{\mathbb{N}}$.)
-A moment’s reflection shows that any such classifier $\phi_w$ can be expressed as a Boolean combination%
+% Such $\overline{\phi}_w$ are called \emph{finite-precision classifiers}.
+Clearly, $\cdot\restriction_n$, $\Brack{\cdot\preccurlyeq w}$ and $\Brack{\cdot\prec w}$ (for a \emph{finite} word~$w$) are continuous, so $\overline{\phi}_w$ and $\widehat{\phi}_w$ are also continuous;
+they will be called \emph{finite-precision threshold classifiers}.
+For $n=0$, such “zeroth-precision” classifiers are the relations $\overline{\phi}_{()} = \mathbf{1}$ (identically true) and $\widehat{\phi}_{()}$ (identically false).
+A moment’s reflection shows that any such classifier can be expressed as a Boolean combination%
 \footnote{In other words, finite-precision classifiers are \emph{definable} in the sense of real-valued logic (sans quantifiers) whose connectives are vector-lattice operations (maximum, minimum, and linear combinations), plus logical constants (i.e., real constants) as nullary connectives.}
 of the first $n$ coordinates $P_i(x)=x_i$ ($i<n$) of its argument~$x\in 2^{\mathbb{N}}$
-(i.e., $\phi_w(x)$ may be obtained from entries $x_i$ of $x\restriction_n$ using the operations of maximum, minimum and negation $\neg: r\mapsto 1-r$ in place of classical Boolean connectives).
+(i.e., $\phi_w(x)$ may be obtained from entries $x_i$ of $x\restriction_n$ using the operations of maximum, minimum and negation $\neg: r\mapsto 1-r$ in place of classical Boolean connectives).%
+\footnote{The constant relations $\mathbf{0}$, $\mathbf{1}$ are obtained per the usual convention:
+  the conjunction (resp., disjunction) of an empty set of propositions is $\mathbf{1}$ (resp.,~$\mathbf{0}$).}
 
 \subsubsection{Infinite-precision threshold classifiers}
 \label{sec:infin-prec-class}
