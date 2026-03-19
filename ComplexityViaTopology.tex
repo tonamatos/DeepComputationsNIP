@@ -58,6 +58,33 @@ pdfkeywords={}
 
 \DeclareMathOperator{\tp}{tp}
 
+
+% 
+% Macro definitions: decorators
+%
+
+%%% Overarc \arc{…}
+\makeatletter
+\DeclareFontFamily{U}{tipa}{}
+\DeclareFontShape{U}{tipa}{m}{n}{<->tipa10}{}
+\newcommand{\arc@char}{{\usefont{U}{tipa}{m}{n}\symbol{62}}}%
+
+\newcommand{\arc}[1]{\mathpalette\arc@arc{#1}}
+
+\newcommand{\arc@arc}[2]{%
+  \sbox0{$\m@th#1#2$}%
+  \vbox{
+    \hbox{\resizebox{\wd0}{\height}{\arc@char}}
+    \nointerlineskip
+    \box0
+  }%
+}
+\makeatother
+
+
+% \newcommand{\tarc}{\mbox{\large$\frown$}}
+% \newcommand{\arc}[2][-3ex]{{#2}{\kern #1{\raisebox{1.5ex}{\tarc}}}}
+
 % 
 % Macro definitions: symbols
 %
@@ -495,7 +522,7 @@ In this paper, we use them to study deep computations.
 Fix an arbitrary (at most) countable set~$\mathcal{P}$ whose elements $P\in \mathcal{P}$ will be called \emph{predicate symbols} or \emph{formal predicates}.
 Our present goal is to characterize relatively compact subsets of $B_1(X,\mathbb{R}^\mathcal{P})$, where $X$ is always assumed to be a perfectly normal space (typically a Polish space).
 
-The set $\mathcal{P}$ shall be considered discrete whenever regarded as a topological space.
+The set $\mathcal{P}$ shall be considered discrete whenever garded as a topological space.
 Since $C_p(X, \mathbb{R}^{\mathcal{P}})\subseteq B_1(X, \mathbb{R}^{\mathcal{P}})\subseteq (\mathbb{R}^{\mathcal{P}})^X$, the ``ambient'' space $(\mathbb{R}^{\mathcal{P}})^X$ is quite relevant.
 The product $X\times \mathcal{P}$ will be regarded as either a pointset, or as a topological product depending on context.
 We have natural homeomorphic identifications
@@ -1037,22 +1064,25 @@ Since $2^{\mathbb{N}} \subseteq \mathbb{R}^{\mathbb{N}}$ ($\cong \mathbb{R}^{\ma
 
 For fixed $n\in \mathbb{N}$, we call elements of $2^n = \{0,1\}^n$ \emph{finite bit sequences \emph{(or \emph{binary words})} of length~$n$};
 the finite set $2^n$ is topologized discretely.
+The constant $0$ and $1$ elements of $2^n$ are denoted $0_{\bullet}$ and $1_{\bullet}$, respectively.
 
 The set of all finite-length words is the disjoint union $2^{<\mathbb{N}}\coloneqq \bigsqcup_{n\in \mathbb{N}}2^n$ (a discrete space);
 the (unambiguously defined) length~$n$ of any word~$w\in 2^{<\mathbb{N}}$ is denoted~$|w|$.
-Given lengths $n, m\in \mathbb{N}$, we have a concatenation operation%
-\footnote{When context is clear, the concatenation $v\frown w$ may be denoted simply $vw$.}
-$2^m\times 2^n\to 2^{m+n}: (v,w)\mapsto v\frown w$;
-such concatenations altogether yield a semigroup structure on~$2^{\mathbb{N}}$ —indeed, a monoid with the empty word $()\in 2^0$ as identity.
-The more general concatenation operation $2^{<\mathbb{N}}\times 2^{\mathbb{N}}\to 2^{\mathbb{N}}: (w,x)\mapsto w\frown x$ is a continuous action of $2^{<\mathbb{N}}$ on~$2^{\mathbb{N}}$.
-
 For $m\ge n$, we also have natural continuous restriction maps (projections)
 $2^{\mathbb{N}}\rightarrow 2^m\rightarrow 2^n$.
 The restriction of~$x$ —either a sequence or a word of length $m\ge n$— to a length-$n$ word is denoted $x\restriction_n$ (i.e., $\cdot\restriction_n$ projects onto~$2^n$).
-
-Since the index set $\mathbb{N}$ and the value space~$2 = \{0, 1\}$ are well-ordered, the spaces $2^{\mathbb{N}}$ (as well as $2^{<\mathbb{N}}$ and $2^n$ for $n\in \mathbb{N}$) carry a natural lexicographical order henceforth denoted~$\preccurlyeq$;
+Since the index set $\mathbb{N}$ and the value space~$2 = \{0, 1\}$ are well-ordered, the spaces $2^{\mathbb{N}}$ (as well as $2^{<\mathbb{N}}$ and $2^n$ for $n\in \mathbb{N}$) carry a natural lexicographical order henceforth denoted~$\preceq$;
 the order topology coincides with the (product) topology of~$2^{\mathbb{N}}$.
-The action of $2^{<\mathbb{N}}$ on~$2^{\mathbb{N}}$ is order-preserving (and continuous), as are all restriction maps~$\cdot\restriction_n$.
+All restriction maps~$\cdot\restriction_n$ are continuous and order-preserving.
+
+\subsubsection{Concatenation action and prefixes}
+\label{sec:concat}
+Given lengths $n, m\in \mathbb{N}$, we have a concatenation operation $2^m\times 2^n\to 2^{m+n}: (v,w)\mapsto \arc{vw}$;
+% \footnote{When context is clear, the concatenation $\arc{vw}$ may be denoted simply $vw$.}
+such concatenations altogether yield a semigroup structure on~$2^{<\mathbb{N}}$ —more precisely, a monoid with the empty word $()\in 2^0$ as identity.
+The more general concatenation operation $2^{<\mathbb{N}}\times 2^{\mathbb{N}}\to 2^{\mathbb{N}}: (w,x)\mapsto \arc{wx}$ is a continuous and order-preserving action of $2^{<\mathbb{N}}$ on~$2^{\mathbb{N}}$.
+\emph{Prefixing} by a given word $w\in 2^{<\mathbb{N}}$ means applying the operation $\arc{w\cdot}: x\mapsto \arc{wx}$;
+when used as the name of the prefixing operation~$\arc{w\cdot}$, we call $w$ a \emph{prefix}.
 
 \subsubsection{Finite-precision classifiers and definability}
 \label{sec:fin-prec-class-defin}
@@ -1068,52 +1098,64 @@ The action of $2^{<\mathbb{N}}$ on~$2^{\mathbb{N}}$ is order-preserving (and con
 \end{notn}
 
 % Denote by $0_{\bullet}$ (resp., $1_{\bullet}$) the constant (infinite) sequence with value~$0$ (resp., value~$1$).
-For any fixed word~$w\in2^n$, let $\phi_w\coloneqq\Brack{\cdot\restriction_n \preccurlyeq w}$ be the relation $x\mapsto \Brack{x\restriction_n\preccurlyeq w}$ on~$2^{\mathbb{N}}$.
+For any fixed word~$w\in2^n$, let ${\preccurlyeq}_nw\coloneqq\Brack{\cdot\restriction_n \preceq w}$ be the relation $x\mapsto \Brack{x\restriction_n\preceq w}$ on~$2^{\mathbb{N}}$.
+We shall write $x{\preccurlyeq}_nw$ to mean $x\restriction_nw$
+(i.e., the relation symbol ${\preccurlyeq_n}$ takes its argument $x$ on the left).
+The subscript $n$ is used only for emphasis and optional, since its value is determined uniquely by the condition $w\in 2^n$.
 % \begin{align*}
 %  \overline{\phi}_w: 2^{\mathbb{N}}&\to 2^{\mathbb{N}}\\
 %   x&\mapsto
 %   \begin{cases}
-%     1_{\bullet}, & x\restriction_n \preccurlyeq w;\\
+%     1_{\bullet}, & x\restriction_n \preceq w;\\
 %     0_{\bullet}, & \text{otherwise.}
 %   \end{cases}
 % \end{align*}
-% Such $\phi_w$ are called \emph{finite-precision classifiers}.
-Since both $\Brack{\cdot\preccurlyeq w}$ and $\cdot\restriction_n$ are continuous, so is $\phi_w$, which will be called a \emph{finite-precision threshold classifier}.
-For $n=0$, there is only one “zeroth-precision” classifier $\phi_{()}$:
-the identically true relation $\mathbf{1}$ on~$2^{\mathbb{N}}$;
-although insubstantial for our purposes, the subsequent discussion is simpler if we regard (as we shall) the identically false relation $\mathbf{0}$ as finite-precision threshold classifier.
-A moment’s reflection shows that any such classifier can be expressed as a Boolean combination%
+% Such ${\preccurlyeq}w$ are called \emph{finite-precision classifiers}.
+Since both $\Brack{\cdot\preceq w}$ and $\cdot\restriction_n$ are continuous, so is ${\preccurlyeq}_nw$, which will be called a \emph{precision-$n$ threshold classifier};
+any such relation ${\preccurlyeq}_nw$ is a \emph{finite-precision threshold classifier}.
+For $n=0$, there is only one “zeroth-precision” classifier ${\preccurlyeq}_0{()}$:
+the identically true relation $\mathbf{1}$ on~$2^{\mathbb{N}}$.
+Although insubstantial for our purposes, the subsequent discussion is simpler if we regard (as we shall) the identically false relation $\mathbf{0}$ as finite-precision threshold classifier, denoted ${\prec}0_{\bullet}$
+—it is a threshold classifier with negative precision~$n=-1$, so to speak.
+
+We remark that the statement “$x\preccurlyeq_nw$” has identical semantics to “$x\preceq w1_{\bullet}$” (not to “$x\preceq w0_{\bullet}$”) in the usual ordering semantics of $2^{\mathbb{N}}$ which depend on all entries of~$x$, not just those of $x\restriction_n$.
+We will henceforth write $\vec{w}$ for the sequence $w1_{\bullet}$ ($w$ prefixing~$1_{\bullet}$).
+
+A moment’s reflection shows that any finite-precision classifier can be expressed as a Boolean combination%
 \footnote{In other words, finite-precision classifiers are \emph{definable} in the sense of real-valued logic (sans quantifiers) whose connectives are vector-lattice operations (maximum, minimum, and linear combinations), plus logical constants (i.e., real constants) as nullary connectives.}
 of the first $n$ coordinates $P_i(x)=x_i$ ($i<n$) of its argument~$x\in 2^{\mathbb{N}}$
-(i.e., $\phi_w(x)$ may be obtained from entries $x_i$ of $x\restriction_n$ using the operations of maximum, minimum and negation $\neg: r\mapsto 1-r$ in place of classical Boolean connectives).%
+(i.e., $x{\preccurlyeq}_nw$ may be obtained from entries $x_i$ of $x\restriction_n$ using the operations of maximum, minimum and negation $\neg: r\mapsto 1-r$ in place of classical Boolean connectives).%
 \footnote{The constant relations $\mathbf{0}$, $\mathbf{1}$ are obtained per the usual convention:
   the conjunction (resp., disjunction) of an empty set of propositions is $\mathbf{1}$ (resp.,~$\mathbf{0}$).}
 
 \subsubsection{Infinite-precision threshold classifiers}
 \label{sec:infin-prec-class}
-% Let $(w_n)_n\subseteq 2^{<\mathbb{N}}$ be any sequence, and $\coloneqq(\phi_{w_n})_n$
-Let $\phi_{\bullet} = (\phi_n)_n\subseteq C_p(2^{\mathbb{N}}, \{0,1\})\subseteq C_p(2^{\mathbb{N}})$ be any sequence of finite-precision threshold classifiers.
-Since each $\phi_n$ is non-increasing function on~$2^{\mathbb{N}}$ for all~$n$, the same holds for any accumulation point $\varphi$ of $\phi_{\bullet}$.
-It is easily shown that such accumulation points $\varphi$, henceforth called \emph{general threshold classifiers}, must have one of the forms%
-% \footnote{The identically true relation $\mathbf{1} = \phi_{()}$ is a general classifier.
+% Let $(w_n)_n\subseteq 2^{<\mathbb{N}}$ be any sequence, and $\coloneqq({\preccurlyeq}{w_n})_n$
+Let $\varphi_{\bullet} = (\varphi_n)_n\subseteq C_p(2^{\mathbb{N}}, \{0,1\})\subseteq C_p(2^{\mathbb{N}})$ be any sequence of finite-precision threshold classifiers.
+Since each $\varphi_n$ is non-increasing function on~$2^{\mathbb{N}}$ for all~$n$, the same holds for any accumulation point $\varphi$ of $\varphi_{\bullet}$.
+It is easily shown that such accumulation points~$\varphi$, henceforth called \emph{general threshold classifiers}, must have one of the forms%
+% \footnote{The identically true relation $\mathbf{1} = {\preccurlyeq}{()}$ is a general classifier.
 %   However, the identically false relation $\mathbf{0}$ —although of the form $\widehat{\phi}_{0_{\bullet}}$— is not a general classifier, because all general classifiers $\varphi$ satisfy~$\varphi(0_{\bullet}) = 1$.
 %   \label{fn:constant-relations}}
 \begin{itemize}
-\item $\overline{\phi}_z \coloneqq \Brack{\cdot\preccurlyeq z}$, or
-\item $\widehat{\phi}_z \coloneqq \Brack{\cdot\prec z}$
+\item $\Brack{\cdot\preceq z}$, denoted ${\preccurlyeq}z$, or
+\item $\Brack{\cdot\prec z}$, denoted ${\prec}z$
 \end{itemize}
-for some $z\in 2^{\mathbb{N}}$.
-(Note that $\mathbf{0} = \widehat{\phi}_{0_{\bullet}}$, where $0_{\bullet}$ is the constant-zero element of~$2^{\mathbb{N}}$.)
-Note that the finite-precision classifiers $\phi_w$ corresponding to words $w\in 2^n$ are general classifiers of the (first) general form:
-$\phi_w = \overline{\phi}_{\vec{w}}$
-—where the sequence $\vec{w}\coloneqq w\frown 1_{\bullet}$ extends $w$ by values $\vec{w}_i=1$ for $i\ge n$.
-Since (countably many) sequences of the form $\vec{w}$ for words $w\in 2^{<\mathbb{N}}$ are dense in~$2^{\mathbb{N}}$, one sees that general classifiers are \emph{sequential} limits of finite classifiers~$\phi_w$, i.e., Baire-$1$ functions on~$2^{\mathbb{N}}$.
+for some sequence $z\in 2^{\mathbb{N}}$.
+There should be no confusion with the notation ${\preccurlyeq}w$ above, since the latter is only used when $w\in 2^{<\mathbb{N}}$ is a word;
+for clarity, we may always write ${\preccurlyeq}_nw$ where $n=|w|$.
 
-A general threshold classifier \emph{not} of the form $\phi_w$ ($=\overline{\phi}_{\vec{w}}$) for any finite word~$w$ is said to be of \emph{infinite-precision};
+Any finite-precision classifier is a general classifier.
+Indeed, ${\prec}0_{\bullet}$ is the false relation $\mathbf{0}$ (in agreement with our earlier convention);
+other finite-precision classifiers are of the form ${\preccurlyeq}_nw = \Brack{\cdot\preceq\vec{w}}$ (i.e., ${\preceq}\arc{w1_{\bullet}}$) as remarked above.
+
+Since (countably many) sequences of the form $\vec{w}$ for words $w\in 2^{<\mathbb{N}}$ are dense in~$2^{\mathbb{N}}$, one sees that general classifiers are \emph{sequential} limits of finite classifiers~${\preccurlyeq}w$, i.e., Baire-$1$ functions on~$2^{\mathbb{N}}$.
+
+A general threshold classifier not of finite precision is called \emph{of infinite-precision};
 such infinite-precision classifiers are \emph{discontinuous} Baire-1 functions on~$2^{\mathbb{N}}$:
-the sole common point of discontinuity of an infinite-precision classifier $\overline{\phi}_w$ or $\widehat{\phi}_w$ is~$w$.
+the sole point of discontinuity of an infinite-precision classifier ${\preccurlyeq}z$ or ${\prec}z$ is~$z$.
 
-Let $\Delta = \{\phi_w:w\in 2^{<\mathbb{N}}\} \cup \{\mathbf{0}, \mathbf{1}\}$, where $\mathbf{0},\mathbf{1}: 2^{\mathbb{N}}\rightarrow 2^{\mathbb{N}}$ are the constant maps $x\mapsto0_{\bullet}$ and $x\mapsto1_{\bullet}$, respectively. 
+Let $\Delta = \{{\preccurlyeq}w:w\in 2^{<\mathbb{N}}\} \cup \{\mathbf{0}, \mathbf{1}\}$, where $\mathbf{0},\mathbf{1}: 2^{\mathbb{N}}\rightarrow 2^{\mathbb{N}}$ are the constant maps $x\mapsto0_{\bullet}$ and $x\mapsto1_{\bullet}$, respectively. 
 Let $\Gamma$ be the semigroup generated by $\Delta$.
 The preceding proposition shows that $\Delta$ (and hence $\Gamma$) consists of continuous functions.
 In particular, the CCS $(L,\mathcal{P},\Gamma)$ satisfies the Extendibility Axiom.
@@ -1143,13 +1185,13 @@ Note that if $a$ is the constant zero, then $f_a^-=\mathbf{0^{\infty}}$.
 \begin{proof}
     First, we show that $f_a^+\in \overline{\Delta}$. If $a=1^\infty$, then $f_a^+=\mathbf{1^\infty}\in \Delta$. 
     If $a$ is not identically $1$, we argue that the pointwise limit of the threshold classifiers on $w_n:=a|_n^\frown1$ (that is, the sequence obtained from appending a $1$ to the first $n$ bits of $a$) is precisely $f_a^+$.
-    Specifically, for every $x\in L$, we intend to prove that $\lim_{n\to\infty}\phi_{w_n}(x)=f_a^+(x)$.
+    Specifically, for every $x\in L$, we intend to prove that $\lim_{n\to\infty}{\preccurlyeq}{w_n}(x)=f_a^+(x)$.
     Assume that $x>_{\mathrm{lex}}a$.
     Let $m$ be the least index at which the two sequences differ.
     Then $a(m)=0<1=x(m)$, and for all $n\geq m$, $w_n$ agrees with $a$ up to $m$. 
-    Crucially, $w_n(m)=0<1=x(m)$, which implies that $w_n<_{\mathrm{lex}}x|_{n+1}$, and hence $\phi_{w_n}(x)=0^{\infty}=f_a^+(x)$ for large enough $n$.
+    Crucially, $w_n(m)=0<1=x(m)$, which implies that $w_n<_{\mathrm{lex}}x|_{n+1}$, and hence ${\preccurlyeq}{w_n}(x)=0^{\infty}=f_a^+(x)$ for large enough $n$.
     If $x\leq_{\rm lex}a$, then $x|_{n+1}\leq_{\rm lex}w_n$ for all $n\in\mathbb{N}$.
-    Hence, $\phi_{w_n}(x)=1^\infty=f_a^+(x)$ for all $n\in\mathbb{N}$.
+    Hence, ${\preccurlyeq}{w_n}(x)=1^\infty=f_a^+(x)$ for all $n\in\mathbb{N}$.
 
     Now, we prove that $f_a^-\in\overline{\Delta}$. 
     If $a$ is the constant zero, then $f_a^-=\mathbf{0^{\infty}}\in\Delta$.
@@ -1158,12 +1200,12 @@ Note that if $a$ is the constant zero, then $f_a^-=\mathbf{0^{\infty}}$.
         \item 
         If $a$ is eventually zero ($a$ is often called a \emph{dyadic rational}), that is $a=u^\frown1^\frown0^\infty$ (here $^\frown$ denotes concatenation) for some finite $u$.
         Let $w_n:=u^\frown0^\frown1^n<_{\mathrm{lex}}a$.
-        We claim that $\lim_{n\to\infty}\phi_{w_n}(x)=f_a^-(x)$.
+        We claim that $\lim_{n\to\infty}{\preccurlyeq}{w_n}(x)=f_a^-(x)$.
         Assume that $x<_{\rm lex}a$.
         Then, $x|_{|w_n|}\leq_{\rm lex}w_n$ for large enough $n$.
-        Hence, $\phi_{w_n}(x)=1^\infty=f_a^-(x)$ for large enough $n$.
+        Hence, ${\preccurlyeq}{w_n}(x)=1^\infty=f_a^-(x)$ for large enough $n$.
         Now assume that $x\geq_{\rm lex}a$.
-        Then, $w_n<_{\rm lex} a|_{|w_n|}\leq_{\rm lex} x|_{|w_n|}$ so $\phi_{w_n}(x)=0^\infty=f_a^-(x)$ for all $n\in\mathbb{N}$.
+        Then, $w_n<_{\rm lex} a|_{|w_n|}\leq_{\rm lex} x|_{|w_n|}$ so ${\preccurlyeq}{w_n}(x)=0^\infty=f_a^-(x)$ for all $n\in\mathbb{N}$.
 
         \item 
         If $a$ is not eventually zero, enumerate the indices of all positive bits in $a$, $\{n\in\mathbb{N}:a(n)=1\}$, strictly increasingly as $\{n_k:k\in\mathbb{N}\}$ (this is possible as the former set is infinite by assumption).
