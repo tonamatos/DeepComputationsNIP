@@ -1068,7 +1068,7 @@ The action of $2^{<\mathbb{N}}$ on~$2^{\mathbb{N}}$ is order-preserving (and con
 \end{notn}
 
 % Denote by $0_{\bullet}$ (resp., $1_{\bullet}$) the constant (infinite) sequence with value~$0$ (resp., value~$1$).
-For any fixed word~$w\in2^n$, let $\overline{\phi}_w\coloneqq\Brack{\cdot\restriction_n \preccurlyeq w}$ (resp., $\widehat{\phi}_w\coloneqq\Brack{\cdot\restriction_n \prec w}$) be the relation $x\mapsto \Brack{x\restriction_n\preccurlyeq w}$ (resp., $x\mapsto \Brack{x\restriction_n\prec w}$) on~$2^{\mathbb{N}}$.
+For any fixed word~$w\in2^n$, let $\phi_w\coloneqq\Brack{\cdot\restriction_n \preccurlyeq w}$ be the relation $x\mapsto \Brack{x\restriction_n\preccurlyeq w}$ on~$2^{\mathbb{N}}$.
 % \begin{align*}
 %  \overline{\phi}_w: 2^{\mathbb{N}}&\to 2^{\mathbb{N}}\\
 %   x&\mapsto
@@ -1077,10 +1077,11 @@ For any fixed word~$w\in2^n$, let $\overline{\phi}_w\coloneqq\Brack{\cdot\restri
 %     0_{\bullet}, & \text{otherwise.}
 %   \end{cases}
 % \end{align*}
-% Such $\overline{\phi}_w$ are called \emph{finite-precision classifiers}.
-Clearly, $\cdot\restriction_n$, $\Brack{\cdot\preccurlyeq w}$ and $\Brack{\cdot\prec w}$ (for a \emph{finite} word~$w$) are continuous, so $\overline{\phi}_w$ and $\widehat{\phi}_w$ are also continuous;
-they will be called \emph{finite-precision threshold classifiers}.
-For $n=0$, such “zeroth-precision” classifiers are the relations $\overline{\phi}_{()} = \mathbf{1}$ (identically true) and $\widehat{\phi}_{()}$ (identically false).
+% Such $\phi_w$ are called \emph{finite-precision classifiers}.
+Since both $\Brack{\cdot\preccurlyeq w}$ and $\cdot\restriction_n$ are continuous, so is $\phi_w$, which will be called a \emph{finite-precision threshold classifier}.
+For $n=0$, there is only one “zeroth-precision” classifier $\phi_{()}$:
+the identically true relation $\mathbf{1}$ on~$2^{\mathbb{N}}$;
+although insubstantial for our purposes, the subsequent discussion is simpler if we regard (as we shall) the identically false relation $\mathbf{0}$ as finite-precision threshold classifier.
 A moment’s reflection shows that any such classifier can be expressed as a Boolean combination%
 \footnote{In other words, finite-precision classifiers are \emph{definable} in the sense of real-valued logic (sans quantifiers) whose connectives are vector-lattice operations (maximum, minimum, and linear combinations), plus logical constants (i.e., real constants) as nullary connectives.}
 of the first $n$ coordinates $P_i(x)=x_i$ ($i<n$) of its argument~$x\in 2^{\mathbb{N}}$
@@ -1091,20 +1092,22 @@ of the first $n$ coordinates $P_i(x)=x_i$ ($i<n$) of its argument~$x\in 2^{\math
 \subsubsection{Infinite-precision threshold classifiers}
 \label{sec:infin-prec-class}
 % Let $(w_n)_n\subseteq 2^{<\mathbb{N}}$ be any sequence, and $\coloneqq(\phi_{w_n})_n$
-Let $(\phi_n)_n\subseteq C_p(2^{\mathbb{N}}, \{0,1\})\subseteq C_p(2^{\mathbb{N}})$ be any sequence of finite-precision threshold classifiers.
-Since each $\phi_n$ is non-increasing function on~$2^{\mathbb{N}}$, which is well-ordered by~$\preccurlyeq$, it is easy to see that any accumulation point of $(\phi_n)_n$ is a relation having one of the following forms:%
-\footnote{The identically true relation $\mathbf{1} = \phi_{()}$ is a general classifier, but the identically false relation $\mathbf{0} = \widehat{\phi}_{0_{\bullet}}$ is not.
-  \label{fn:constant-relations}}
+Let $\phi_{\bullet} = (\phi_n)_n\subseteq C_p(2^{\mathbb{N}}, \{0,1\})\subseteq C_p(2^{\mathbb{N}})$ be any sequence of finite-precision threshold classifiers.
+Since each $\phi_n$ is non-increasing function on~$2^{\mathbb{N}}$ for all~$n$, the same holds for any accumulation point $\varphi$ of $\phi_{\bullet}$.
+It is easily shown that such accumulation points $\varphi$, henceforth called \emph{general threshold classifiers}, must have one of the forms%
+% \footnote{The identically true relation $\mathbf{1} = \phi_{()}$ is a general classifier.
+%   However, the identically false relation $\mathbf{0}$ —although of the form $\widehat{\phi}_{0_{\bullet}}$— is not a general classifier, because all general classifiers $\varphi$ satisfy~$\varphi(0_{\bullet}) = 1$.
+%   \label{fn:constant-relations}}
 \begin{itemize}
-\item $\overline{\phi}_z \coloneqq \Brack{\cdot\preccurlyeq z}$ for some $z\in 2^{\mathbb{N}}$, or
-\item $\widehat{\phi}_z \coloneqq \Brack{\cdot\prec z}$ for some $z\in 2^{\mathbb{N}}$, $z\ne 0_{\bullet}$
-  (where $0_{\bullet}$ is the constant zero element of~$2^{\mathbb{N}}$).
+\item $\overline{\phi}_z \coloneqq \Brack{\cdot\preccurlyeq z}$, or
+\item $\widehat{\phi}_z \coloneqq \Brack{\cdot\prec z}$
 \end{itemize}
-Such  will be called \emph{general threshold classifiers}.
-Note that the finite-precision classifiers $\phi_w$ corresponding to words $w\in 2^n$ are still of the (first) general form:
+for some $z\in 2^{\mathbb{N}}$.
+(Note that $\mathbf{0} = \widehat{\phi}_{0_{\bullet}}$, where $0_{\bullet}$ is the constant-zero element of~$2^{\mathbb{N}}$.)
+Note that the finite-precision classifiers $\phi_w$ corresponding to words $w\in 2^n$ are general classifiers of the (first) general form:
 $\phi_w = \overline{\phi}_{\vec{w}}$
 —where the sequence $\vec{w}\coloneqq w\frown 1_{\bullet}$ extends $w$ by values $\vec{w}_i=1$ for $i\ge n$.
-Using the well-ordering of $2^{\mathbb{N}}$ and the obvious fact that the (countably many) sequences of the form $\vec{w}$ for words $w\in 2^{<\mathbb{N}}$ is dense, it is easy to show that general classifiers $\varphi$ are Baire-$1$ —specifically, sequential limits of finite classifiers $\phi_w$.
+Since (countably many) sequences of the form $\vec{w}$ for words $w\in 2^{<\mathbb{N}}$ are dense in~$2^{\mathbb{N}}$, one sees that general classifiers are \emph{sequential} limits of finite classifiers~$\phi_w$, i.e., Baire-$1$ functions on~$2^{\mathbb{N}}$.
 
 A general threshold classifier \emph{not} of the form $\phi_w$ ($=\overline{\phi}_{\vec{w}}$) for any finite word~$w$ is said to be of \emph{infinite-precision};
 such infinite-precision classifiers are \emph{discontinuous} Baire-1 functions on~$2^{\mathbb{N}}$:
