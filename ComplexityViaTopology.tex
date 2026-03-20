@@ -1151,7 +1151,7 @@ Although insubstantial for our purposes, the subsequent discussion is simpler if
 —intuitively, a threshold classifier with negative precision~$n = -1$.
 
 We remark that the statement “$x\preccurlyeq_nw$” has identical semantics to “$x\preceq \arc{w1_{\bullet}}$” (\emph{not} to “$x\preceq \arc{w0_{\bullet}}$”) in the usual ordering semantics of $2^{\mathbb{N}}$ which depend on all entries of~$x$, not just those of $x{\restr}_n$.
-We will henceforth write $\vec{w}$ for the sequence $w1_{\bullet}$ ($w$ prefixing~$1_{\bullet}$).
+% We will henceforth write $\vec{w}$ for the sequence $w1_{\bullet}$ ($w$ prefixing~$1_{\bullet}$).
 
 A moment’s reflection shows that any finite-precision classifier can be expressed as a Boolean combination%
 \footnote{In other words, finite-precision classifiers are \emph{definable} in the sense of real-valued logic (sans quantifiers) whose connectives are vector-lattice operations (maximum, minimum, and linear combinations), plus logical constants (i.e., real constants) as nullary connectives.}
@@ -1165,23 +1165,21 @@ of the first $n$ coordinates $P_i(x)=x_i$ ($i<n$) of its argument~$x\in 2^{\math
 % Let $(w_n)_n\subseteq 2^{<\mathbb{N}}$ be any sequence, and $\coloneqq({\preccurlyeq}{w_n})_n$
 Let $\varphi_{\bullet} = (\varphi_n)_n\subseteq C_p(2^{\mathbb{N}}, \{0,1\})\subseteq C_p(2^{\mathbb{N}})$ be any sequence of finite-precision threshold classifiers.
 Since each $\varphi_n$ is non-increasing function on~$2^{\mathbb{N}}$ for all~$n$, the same holds for any accumulation point $\varphi$ of $\varphi_{\bullet}$.
-It is easily shown that such accumulation points~$\varphi$, henceforth called \emph{general threshold classifiers}, must have one of the forms%
+It is easily shown that such accumulation points~$\varphi$, henceforth called \emph{general threshold classifiers}, are (unary) relations having, for some sequence $z\in 2^{\mathbb{N}}$, one of the forms%
 % \footnote{The identically true relation $\mathbf{1} = {\preccurlyeq}{()}$ is a general classifier.
 %   However, the identically false relation $\mathbf{0}$ —although of the form $\widehat{\phi}_{0_{\bullet}}$— is not a general classifier, because all general classifiers $\varphi$ satisfy~$\varphi(0_{\bullet}) = 1$.
 %   \label{fn:constant-relations}}
 \begin{itemize}
-\item $\Brack{\cdot\preceq z}$, denoted ${\preccurlyeq}z$, or
-\item $\Brack{\cdot\prec z}$, denoted ${\prec}z$
+\item $\Brack{\cdot\preceq z}$, denoted simply “${\preceq}z$”, or
+\item $\Brack{\cdot\prec z}$, denoted “${\prec}z$”.
 \end{itemize}
-for some sequence $z\in 2^{\mathbb{N}}$.
-There should be no confusion with the notation ${\preccurlyeq}w$ above, since the latter is only used when $w\in 2^{<\mathbb{N}}$ is a word;
-for clarity, one may always write ${\preccurlyeq}_nw$ where $n=|w|$.
+% There should be no confusion with the notation ${\preccurlyeq}w$ above, since the latter is only used when $w\in 2^{<\mathbb{N}}$ is a word;
+% for clarity, one may always write ${\preccurlyeq}_nw$ instead of the potentially ambiguous~${\preccurlyeq}w$.
 
 Any finite-precision classifier is a general classifier.
 Indeed, ${\prec}0_{\bullet}$ is the false relation $\mathbf{0}$ (in agreement with our earlier convention);
-other finite-precision classifiers are of the form ${\preccurlyeq}_nw = \Brack{\cdot\preceq\vec{w}}$ (i.e., ${\preceq}\arc{w1_{\bullet}}$) as remarked above.
-
-Since (countably many) sequences of the form $\vec{w}$ for words $w\in 2^{<\mathbb{N}}$ are dense in~$2^{\mathbb{N}}$, one sees that general classifiers are \emph{sequential} limits of finite classifiers~${\preccurlyeq}w$, i.e., Baire-$1$ functions on~$2^{\mathbb{N}}$.
+all other finite-precision classifiers are of the form ${\preccurlyeq}_nw$ and hence identical to the general classifier ${\preceq}\arc{w1_{\bullet}}$, as remarked above.
+Since (countably many) sequences of the form $\arc{w1_{\bullet}}$ for words $w\in 2^{<\mathbb{N}}$ are dense in~$2^{\mathbb{N}}$, one sees that general classifiers are \emph{sequential} limits of finite classifiers, hence are Baire-$1$ functions on~$2^{\mathbb{N}}$.
 
 A general threshold classifier not of finite precision is called \emph{of infinite-precision};
 such infinite-precision classifiers are \emph{discontinuous} Baire-1 functions on~$2^{\mathbb{N}}$:
