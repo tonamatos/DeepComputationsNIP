@@ -1185,10 +1185,11 @@ Since (countably many) sequences of the form $\arc{w1_{\bullet}}$ for words $w\i
 A general threshold classifier not of finite precision is called \emph{of infinite-precision};
 such infinite-precision classifiers are \emph{discontinuous} Baire-1 functions on~$2^{\mathbb{N}}$:
 the sole point of discontinuity of an infinite-precision classifier ${\preccurlyeq}x$ or ${\prec}x$ is~$x$.
-When these relations are regarded as elements of $B_1(2^{\mathbb{N}})$, we will denote  ${\preceq}x$ by $\bar{x}$, and ${\prec}x$ by~$\hat{x}$.
+Unlike finite-precision classifiers, those of infinite precision are not definable, i.e., admit no (finite) Boolean expression in the coordinates~$x_i$.
 
 \paragraph{Split Cantor}
-Per the preceding discussion, threshold classifiers constitute a set
+When threshold classifiers are regarded as elements of $B_1(2^{\mathbb{N}})$, we will denote ${\preceq}x$ by $\bar{x}$, and ${\prec}x$ by~$\hat{x}$.
+Per the preceding discussion, such classifiers constitute a set
 \begin{equation*}
   \cancel{C} = \widehat{C} \cup \overline{C} \subseteq B_1(2^{\mathbb{N}})
 \end{equation*}
@@ -1208,8 +1209,11 @@ Thus, $\cancel{C}$ is \emph{not} homeomorphic to the product $\{0,1\}\times 2^{\
                                                \overline{C} \cong 2^{\mathbb{N}}\times\{1\}: \bar{x}\mapsto(x,1).
 \end{align*}
 Each of these two parts is homeomorphic to the Cantor set~$2^{\mathbb{N}}$, but they are \emph{not} open;
-indeed, each is essentially dense:
-$\mathrm{Cl}(\widehat{C}) = \cancel{C}\setminus\{1_{\bullet}\}$ and $\mathrm{Cl}(\overline{C}) = \cancel{C}\setminus\{0_{\bullet}\}$.
+indeed, each is basically dense:%
+\footnote{The constant relations $\mathbf{0}$, $\mathbf{1}$ are isolated points of~$\cancel{C}$.}
+$\mathrm{Cl}(\widehat{C}) = \cancel{C}\setminus\{\mathbf{1}\}$ and $\mathrm{Cl}(\overline{C}) = \cancel{C}\setminus\{\mathbf{0}\}$.
+
+The upshot is that, starting from a countable set of quite simple finite-precision classifiers (nonincreasing boolean functions) on Cantor space, their accumulation points (“ultraclassifiers”, so to speak) constitute a much more complicated split Cantor $\cancel{C}\subseteq B_1(2^{\mathbb{N}})$.
 
 \subsection{Example: Finite precision prefix test}
 \label{sec:prefix-test}
