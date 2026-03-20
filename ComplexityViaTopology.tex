@@ -1091,10 +1091,10 @@ All restriction maps~$\cdot\restriction_n$ are continuous and order-preserving.
 Given lengths $n, m\in \mathbb{N}$, we have a concatenation operation $2^m\times 2^n\to 2^{m+n}: (v,w)\mapsto \arc{vw}$;
 % \footnote{When context is clear, the concatenation $\arc{vw}$ may be denoted simply $vw$.}
 such concatenations altogether yield a semigroup structure on~$2^{<\mathbb{N}}$ —more precisely, a monoid with the empty word $()\in 2^0$ as identity.
-The more general concatenation operation $2^{<\mathbb{N}}\times 2^{\mathbb{N}}\to 2^{\mathbb{N}}: (w,x)\mapsto \arc{wx}$ is a continuous and order-preserving action of $2^{<\mathbb{N}}$ on~$2^{\mathbb{N}}$.
-\emph{Prefixing} by a given word $w\in 2^{<\mathbb{N}}$ means applying the operation $\arc{w\cdot}: x\mapsto \arc{wx}$;
-when used as the name of the prefixing operation~$\arc{w\cdot}$, we call $w$ a \emph{prefix}.
-In this manner, we obtain the \emph{Cantor-prefixing CCS}
+The more general concatenation operation $2^{<\mathbb{N}}\times 2^{\mathbb{N}}\to 2^{\mathbb{N}}: (w,x)\mapsto \arc{wx}$ is a continuous and order-preserving action of $2^{<\mathbb{N}}$ on~$2^{\mathbb{N}}$;
+we shall call it the \emph{prefixing action}.
+Thus, \emph{prefixing by a given word $w\in 2^{<\mathbb{N}}$} means applying the operation $\arc{w\cdot}: x\mapsto \arc{wx}$.
+In this manner, we obtain the \emph{Cantor prefixes CCS}
 \begin{equation*}
   \arc{\mathcal{C}} = \langle2^{\mathbb{N}}, (\bullet_i)_{i\in \mathbb{N}}, 2^{<\mathbb{N}}, \arc{\,\cdot\cdot\,}\rangle
 \end{equation*}
@@ -1110,7 +1110,7 @@ namely, an arbitrary $m\in \mathbb{N}$ acts on $2^{\mathbb{N}}$ by the map
 \end{equation*}
 Here, $\ola{0}: 2^{\mathbb{N}}\to2^{\mathbb{N}}$ is the identity $x\mapsto x$, and the equality $(\ola{m+n})x = \ola{m}(\ola{n}x)$ for $m,n\in \mathbb{N}$ holds identically (i.e., the additive semigroup (monoid) $(\mathbb{N},0,+)$ is represented as the semigroup of shifts of~$2^{\mathbb{N}}$).
 Let $\ola{\mathbb{N}} = \{\ola{m}: m\in \mathbb{N}\}$ be the semigroup of all shifts.
-This gives the \emph{Bernoulli-Cantor CCS}
+This gives the \emph{Cantor shifts} (or \emph{Cantor-Bernoulli}) CCS
 \begin{equation*}
   \mathcal{B} = \langle2^{\mathbb{N}}, (\bullet_n)_{n\in \mathbb{N}}, \mathbb{N}, (\ola{n})_{n\in\mathbb{N}}\rangle.
 \end{equation*}
