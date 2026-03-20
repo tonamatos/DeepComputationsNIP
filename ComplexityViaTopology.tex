@@ -62,7 +62,9 @@ pdfkeywords={}
 % 
 % Macro definitions: decorators
 %
-
+%%% Overleft arrow \ola
+\newcommand{\ora}{\overrightarrow}%[1]{\reflectbox{$\vec{\reflectbox{\!$#1$}}$}}
+\newcommand{\ola}{\overleftarrow}%[1]{\reflectbox{$\vec{\reflectbox{\!$#1$}}$}}
 %%% Overarc \arc{…}
 \makeatletter
 \DeclareFontFamily{U}{tipa}{}
@@ -1054,35 +1056,49 @@ More explicitly, the unique deep equilibrium $\mathfrak{f}: \RP^1\to\RP^1$ of (t
  % The basin of attraction of $x=\sqrt{a}$ is $(0,\infty)$, of $-\sqrt{a}$ is $(\infty,0)$, and of $\infty$ is $\{0,\infty\}$.
  % The set of deep computations is $\{N_p^n\}_n\cup\{\mathfrak{f}\}\subseteq B_1(\mathcal{L},\mathcal{L})$.
 
-\subsection{Example: Finite-precision threshold classifiers}\label{subsec:finite_prec_threshold}
+\subsection{Example: Computations on Cantor’s set}\label{subsec:finite_prec_threshold}
 
-Consider the states space $L = 2^\mathbb{N}$ ($= \{0,1\}^{\mathbb{N}}$) consisting of all bit sequences $x = (x_n)_{n\in \mathbb{N}} \subseteq \{0,1\}$.%
-\footnote{Endowed with the topology of pointwise convergence, the product space~$2^{\mathbb{N}}$ is compact and homeomorphic to the Cantor (ternary) subset of the interval~$[0,1]$.}
+Consider the states space $L = 2^\mathbb{N}$ ($= \{0,1\}^{\mathbb{N}}$) consisting of all bit sequences $x = (x_n)_{n\in \mathbb{N}} \subseteq \{0,1\}$.
+The product space~$2^{\mathbb{N}}$ is compact%
+\footnote{The topology on the space $2 = \{0,1\}$ is discrete.}
+and homeomorphic to the Cantor (ternary) subset of the interval~$[0,1]$.
 Let $\mathcal{P} = (P_n)_{n\in\mathbb{N}}$ be the collection of projections (coordinates) $P_n:x \mapsto x_n$.
 %In other words, $P_n$ is the predicate that reads the $n$th digit of an input sequence.
 Since $2^{\mathbb{N}} \subseteq \mathbb{R}^{\mathbb{N}}$ ($\cong \mathbb{R}^{\mathcal{P}}$) is closed, the type space of $(2^{\mathbb{N}},\mathcal{P})$ is effectively still $2^{\mathbb{N}}$.
+The constant $0$ and $1$ elements of $2^\mathbb{N}$ are denoted $0_{\bullet}$ and $1_{\bullet}$, respectively.
+In this way, we obtain the \emph{Cantor computation states structure (CSS)} $\mathcal{C} = (2^{\mathbb{N}},(P_i)_{i\in \mathbb{N}})$.
 
+\subsubsection{The concatenation action of words}
+\label{sec:concat}
 For fixed $n\in \mathbb{N}$, we call elements of $2^n = \{0,1\}^n$ \emph{finite bit sequences \emph{(or \emph{binary words})} of length~$n$};
 the finite set $2^n$ is topologized discretely.
-The constant $0$ and $1$ elements of $2^n$ are denoted $0_{\bullet}$ and $1_{\bullet}$, respectively.
 
 The set of all finite-length words is the disjoint union $2^{<\mathbb{N}}\coloneqq \bigsqcup_{n\in \mathbb{N}}2^n$ (a discrete space);
 the (unambiguously defined) length~$n$ of any word~$w\in 2^{<\mathbb{N}}$ is denoted~$|w|$.
 For $m\ge n$, we also have natural continuous restriction maps (projections)
 $2^{\mathbb{N}}\rightarrow 2^m\rightarrow 2^n$.
 The restriction of~$x$ —either a sequence or a word of length $m\ge n$— to a length-$n$ word is denoted $x\restriction_n$ (i.e., $\cdot\restriction_n$ projects onto~$2^n$).
-Since the index set $\mathbb{N}$ and the value space~$2 = \{0, 1\}$ are well-ordered, the spaces $2^{\mathbb{N}}$ (as well as $2^{<\mathbb{N}}$ and $2^n$ for $n\in \mathbb{N}$) carry a natural lexicographical order henceforth denoted~$\preceq$;
+Since the index set $\mathbb{N}$ and the value space~$2 = \{0, 1\}$ are well-ordered, the spaces $2^{\mathbb{N}}$ as well as $2^{<\mathbb{N}}$ and $2^n$ for $n\in \mathbb{N}$ carry a natural lexicographical order henceforth denoted~$\preceq$;
 the order topology coincides with the (product) topology of~$2^{\mathbb{N}}$.
 All restriction maps~$\cdot\restriction_n$ are continuous and order-preserving.
 
-\subsubsection{Concatenation action and prefixes}
-\label{sec:concat}
 Given lengths $n, m\in \mathbb{N}$, we have a concatenation operation $2^m\times 2^n\to 2^{m+n}: (v,w)\mapsto \arc{vw}$;
 % \footnote{When context is clear, the concatenation $\arc{vw}$ may be denoted simply $vw$.}
 such concatenations altogether yield a semigroup structure on~$2^{<\mathbb{N}}$ —more precisely, a monoid with the empty word $()\in 2^0$ as identity.
 The more general concatenation operation $2^{<\mathbb{N}}\times 2^{\mathbb{N}}\to 2^{\mathbb{N}}: (w,x)\mapsto \arc{wx}$ is a continuous and order-preserving action of $2^{<\mathbb{N}}$ on~$2^{\mathbb{N}}$.
 \emph{Prefixing} by a given word $w\in 2^{<\mathbb{N}}$ means applying the operation $\arc{w\cdot}: x\mapsto \arc{wx}$;
 when used as the name of the prefixing operation~$\arc{w\cdot}$, we call $w$ a \emph{prefix}.
+
+\subsubsection{Shift action}
+\label{sec:shifts}
+An altogether different action on $2^{\mathbb{N}}$ is given by shift operations;
+namely, a fixed $m\in \mathbb{N}$ acts on $2^{\mathbb{N}}$ by the map
+\begin{equation*}
+  \ola{m} : x = (x_i)_{i\in \mathbb{N}}\mapsto \ola{m}x
+  \coloneq (x_{m+i})_{i\in \mathbb{N}}.
+\end{equation*}
+Here, $\ola{0}: 2^{\mathbb{N}}\to2^{\mathbb{N}}$ is the identity, and the equality $(\ola{m+n})x = \ola{m}(\ola{n}x)$ for $m,n\in \mathbb{N}$ holds identically (i.e., the additive semigroup (monoid) $(\mathbb{N},0,+)$ is represented as the semigroup of shifts of~$2^{\mathbb{N}}$).
+Let $\ola{\mathbb{N}} = \{\ola{m}: m\in \mathbb{N}\}$ be the semigroup of all shifts.
 
 \subsubsection{Finite-precision classifiers and definability}
 \label{sec:fin-prec-class-defin}
@@ -1143,7 +1159,7 @@ It is easily shown that such accumulation points~$\varphi$, henceforth called \e
 \end{itemize}
 for some sequence $z\in 2^{\mathbb{N}}$.
 There should be no confusion with the notation ${\preccurlyeq}w$ above, since the latter is only used when $w\in 2^{<\mathbb{N}}$ is a word;
-for clarity, we may always write ${\preccurlyeq}_nw$ where $n=|w|$.
+for clarity, one may always write ${\preccurlyeq}_nw$ where $n=|w|$.
 
 Any finite-precision classifier is a general classifier.
 Indeed, ${\prec}0_{\bullet}$ is the false relation $\mathbf{0}$ (in agreement with our earlier convention);
