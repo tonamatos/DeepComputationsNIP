@@ -1062,11 +1062,17 @@ Consider the states space $L = 2^\mathbb{N}$ ($= \{0,1\}^{\mathbb{N}}$) consisti
 The product space~$2^{\mathbb{N}}$ is compact%
 \footnote{The topology on the space $2 = \{0,1\}$ is discrete.}
 and homeomorphic to the Cantor (ternary) subset of the interval~$[0,1]$.
-Let $\mathcal{P} = (P_n)_{n\in\mathbb{N}}$ be the collection of projections (coordinates) $P_n:x \mapsto x_n$.
+Consider the predicate collection $\mathcal{P} = (\bullet_n)_{n\in\mathbb{N}}$ of projections (coordinates)
+\begin{equation*}
+  \bullet_n: 2^{\mathbb{N}}\to\{0,1\}: x \mapsto x_n.
+\end{equation*}
 %In other words, $P_n$ is the predicate that reads the $n$th digit of an input sequence.
-Since $2^{\mathbb{N}} \subseteq \mathbb{R}^{\mathbb{N}}$ ($\cong \mathbb{R}^{\mathcal{P}}$) is closed, the type space of $(2^{\mathbb{N}},\mathcal{P})$ is effectively still $2^{\mathbb{N}}$.
-The constant $0$ and $1$ elements of $2^\mathbb{N}$ are denoted $0_{\bullet}$ and $1_{\bullet}$, respectively.
-In this way, we obtain the \emph{Cantor computation states structure (CSS)} $\mathcal{C} = (2^{\mathbb{N}},(P_i)_{i\in \mathbb{N}})$.
+Since $2^{\mathbb{N}} \subseteq \mathbb{R}^{\mathbb{N}}$ ($\cong \mathbb{R}^{\mathcal{P}}$) is closed, the type space of $(2^{\mathbb{N}}, (\bullet_n)_{n\in \mathbb{N}})$ is effectively still~$2^{\mathbb{N}}$.
+The constant $0$ and $1$ elements of $2^\mathbb{N}$ will be denoted $0_{\bullet}$ and $1_{\bullet}$, respectively.
+In this way, we obtain the \emph{Cantor computation states structure (CSS)}
+\begin{equation*}
+  \mathcal{C} = (2^{\mathbb{N}},(\bullet_i)_{i\in \mathbb{N}}).
+\end{equation*}
 
 \subsubsection{The concatenation action of words}
 \label{sec:concat}
@@ -1088,17 +1094,26 @@ such concatenations altogether yield a semigroup structure on~$2^{<\mathbb{N}}$ 
 The more general concatenation operation $2^{<\mathbb{N}}\times 2^{\mathbb{N}}\to 2^{\mathbb{N}}: (w,x)\mapsto \arc{wx}$ is a continuous and order-preserving action of $2^{<\mathbb{N}}$ on~$2^{\mathbb{N}}$.
 \emph{Prefixing} by a given word $w\in 2^{<\mathbb{N}}$ means applying the operation $\arc{w\cdot}: x\mapsto \arc{wx}$;
 when used as the name of the prefixing operation~$\arc{w\cdot}$, we call $w$ a \emph{prefix}.
+In this manner, we obtain the \emph{Cantor-prefixing CCS}
+\begin{equation*}
+  \arc{\mathcal{C}} = \langle2^{\mathbb{N}}, (\bullet_i)_{i\in \mathbb{N}}, 2^{<\mathbb{N}}, \arc{\,\cdot\cdot\,}\rangle
+\end{equation*}
+where, by an abuse of nomenclature, the operation $\arc{\,\cdot\cdot\,}$ denotes both the concatenation $(v,w)\mapsto\arc{vw}$ on $2^{<\mathbb{N}}$ and the prefixing $(w,x)\mapsto\arc{wx}$ of~$2^{<\mathbb{N}}$ on~$2^{\mathbb{N}}$.
 
 \subsubsection{Shift action}
 \label{sec:shifts}
-An altogether different action on $2^{\mathbb{N}}$ is given by shift operations;
-namely, a fixed $m\in \mathbb{N}$ acts on $2^{\mathbb{N}}$ by the map
+An altogether different action on $2^{\mathbb{N}}$ is given by shift operations (“Bernoulli shifts”);
+namely, an arbitrary $m\in \mathbb{N}$ acts on $2^{\mathbb{N}}$ by the map
 \begin{equation*}
   \ola{m} : x = (x_i)_{i\in \mathbb{N}}\mapsto \ola{m}x
   \coloneq (x_{m+i})_{i\in \mathbb{N}}.
 \end{equation*}
-Here, $\ola{0}: 2^{\mathbb{N}}\to2^{\mathbb{N}}$ is the identity, and the equality $(\ola{m+n})x = \ola{m}(\ola{n}x)$ for $m,n\in \mathbb{N}$ holds identically (i.e., the additive semigroup (monoid) $(\mathbb{N},0,+)$ is represented as the semigroup of shifts of~$2^{\mathbb{N}}$).
+Here, $\ola{0}: 2^{\mathbb{N}}\to2^{\mathbb{N}}$ is the identity $x\mapsto x$, and the equality $(\ola{m+n})x = \ola{m}(\ola{n}x)$ for $m,n\in \mathbb{N}$ holds identically (i.e., the additive semigroup (monoid) $(\mathbb{N},0,+)$ is represented as the semigroup of shifts of~$2^{\mathbb{N}}$).
 Let $\ola{\mathbb{N}} = \{\ola{m}: m\in \mathbb{N}\}$ be the semigroup of all shifts.
+This gives the \emph{Bernoulli-Cantor CCS}
+\begin{equation*}
+  \mathcal{B} = \langle2^{\mathbb{N}}, (\bullet_n)_{n\in \mathbb{N}}, \mathbb{N}, (\ola{n})_{n\in\mathbb{N}}\rangle.
+\end{equation*}
 
 \subsubsection{Finite-precision classifiers and definability}
 \label{sec:fin-prec-class-defin}
@@ -1115,8 +1130,8 @@ Let $\ola{\mathbb{N}} = \{\ola{m}: m\in \mathbb{N}\}$ be the semigroup of all sh
 
 % Denote by $0_{\bullet}$ (resp., $1_{\bullet}$) the constant (infinite) sequence with value~$0$ (resp., value~$1$).
 For any fixed word~$w\in2^n$, let ${\preccurlyeq}_nw\coloneqq\Brack{\cdot\restriction_n \preceq w}$ be the relation $x\mapsto \Brack{x\restriction_n\preceq w}$ on~$2^{\mathbb{N}}$.
-We shall write $x{\preccurlyeq}_nw$ to mean $x\restriction_nw$
-(i.e., the relation symbol ${\preccurlyeq_n}$ takes its argument $x$ on the left).
+We shall write $x{\preccurlyeq}_nw$ with the meaning of $x\restriction_nw$ or $\Brack{x\restriction_nw}$, depending on context
+(i.e., the symbol “${\preccurlyeq}_nw$” names a unary relation taking its argument $x$ on the left).
 The subscript $n$ is used only for emphasis and optional, since its value is determined uniquely by the condition $w\in 2^n$.
 % \begin{align*}
 %  \overline{\phi}_w: 2^{\mathbb{N}}&\to 2^{\mathbb{N}}\\
