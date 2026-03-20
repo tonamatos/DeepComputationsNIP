@@ -95,6 +95,7 @@ pdfkeywords={}
 \newcommand{\NIP}{\text{NIP}}
 \newcommand{\sh}{\text{sh}}
 \newcommand{\rb}{r_{\bullet}}
+\newcommand{\restr}{{\restriction}}  % Fixes excessive spacing of binary operation \restriction
 \newcommand{\RP}{\mathbb{R}\mathbb{P}}
 
 % 
@@ -751,7 +752,7 @@ Intuitively, ultracomputations are “final” or “ultimate”.
 \begin{proof}
   Assume that $R$ confines~$\Delta$.
   For each $v\in L$, let $\rb^{(v)}\in R$ be a sizer such that $v\in L[\rb^{(v)}]$.
-  An arbitrary $\gamma\in\Delta$ restricts to a map $\gamma\restriction L[\rb^{(v)}]: L[\rb^{(v)}]\to L[\rb^{(v)}]$, so $\Gamma \subseteq K \coloneqq \prod_{v\in L}\mathcal{L}[\rb^{(v)}]$.
+  An arbitrary $\gamma\in\Delta$ restricts to a map $\gamma\restr L[\rb^{(v)}]: L[\rb^{(v)}]\to L[\rb^{(v)}]$, so $\Gamma \subseteq K \coloneqq \prod_{v\in L}\mathcal{L}[\rb^{(v)}]$.
   The space~$K$ is a product of compact spaces, hence compact, so $\overline{\Gamma}$ is a closed, hence compact subset thereof, and a subset of~$\Lshard^L\supseteq K$ \emph{a fortiori}.
 \end{proof}
 
@@ -1083,10 +1084,10 @@ The set of all finite-length words is the disjoint union $2^{<\mathbb{N}}\colone
 the (unambiguously defined) length~$n$ of any word~$w\in 2^{<\mathbb{N}}$ is denoted~$|w|$.
 For $m\ge n$, we also have natural continuous restriction maps (projections)
 $2^{\mathbb{N}}\rightarrow 2^m\rightarrow 2^n$.
-The restriction of~$x$ —either a sequence or a word of length $m\ge n$— to a length-$n$ word is denoted $x\restriction_n$ (i.e., $\cdot\restriction_n$ projects onto~$2^n$).
+The restriction of~$x$ —either a sequence or a word of length $m\ge n$— to a length-$n$ word is denoted $x\restr_n$ (i.e., $\cdot\restr_n$ projects onto~$2^n$).
 Since the index set $\mathbb{N}$ and the value space~$2 = \{0, 1\}$ are well-ordered, the spaces $2^{\mathbb{N}}$ as well as $2^{<\mathbb{N}}$ and $2^n$ for $n\in \mathbb{N}$ carry a natural lexicographical order henceforth denoted~$\preceq$;
 the order topology coincides with the (product) topology of~$2^{\mathbb{N}}$.
-All restriction maps~$\cdot\restriction_n$ are continuous and order-preserving.
+All restriction maps~$\cdot\restr_n$ are continuous and order-preserving.
 
 Given lengths $n, m\in \mathbb{N}$, we have a concatenation operation $2^m\times 2^n\to 2^{m+n}: (v,w)\mapsto \arc{vw}$;
 % \footnote{When context is clear, the concatenation $\arc{vw}$ may be denoted simply $vw$.}
@@ -1129,33 +1130,33 @@ This gives the \emph{Cantor shifts} (or \emph{Cantor-Bernoulli}) CCS
 \end{notn}
 
 % Denote by $0_{\bullet}$ (resp., $1_{\bullet}$) the constant (infinite) sequence with value~$0$ (resp., value~$1$).
-For any fixed word~$w\in2^n$, let ${\preccurlyeq}_nw\coloneqq\Brack{\cdot\restriction_n \preceq w}$ be the relation $x\mapsto \Brack{x\restriction_n\preceq w}$ on~$2^{\mathbb{N}}$.
-We shall write $x{\preccurlyeq}_nw$ with the meaning of $x\restriction_nw$ or $\Brack{x\restriction_nw}$, depending on context
-(i.e., the symbol “${\preccurlyeq}_nw$” names a unary relation taking its argument $x$ on the left).
+For any fixed word~$w\in2^n$, let ${\preccurlyeq}_nw$ be the relation $\Brack{\cdot\restr_n \preceq w}: x\mapsto \Brack{x\restr_n\preceq w}$ on~$2^{\mathbb{N}}$.
+We shall write $x{\preccurlyeq}_nw$ with the meaning of $x\restr_nw$ or $\Brack{x\restr_nw}$, depending on context
+(thus, “${\preccurlyeq}_nw$” names a unary relation taking its argument $x$ on the left).
 The subscript $n$ is used only for emphasis and optional, since its value is determined uniquely by the condition $w\in 2^n$.
 % \begin{align*}
 %  \overline{\phi}_w: 2^{\mathbb{N}}&\to 2^{\mathbb{N}}\\
 %   x&\mapsto
 %   \begin{cases}
-%     1_{\bullet}, & x\restriction_n \preceq w;\\
+%     1_{\bullet}, & x\restr_n \preceq w;\\
 %     0_{\bullet}, & \text{otherwise.}
 %   \end{cases}
 % \end{align*}
 % Such ${\preccurlyeq}w$ are called \emph{finite-precision classifiers}.
-Since both $\Brack{\cdot\preceq w}$ and $\cdot\restriction_n$ are continuous, so is ${\preccurlyeq}_nw$, which will be called a \emph{precision-$n$ threshold classifier};
+Since both $\Brack{\cdot\preceq w}$ and $\cdot\restr_n$ are continuous, so is ${\preccurlyeq}_nw$, which will be called a \emph{precision-$n$ threshold classifier};
 any such relation ${\preccurlyeq}_nw$ is a \emph{finite-precision threshold classifier}.
 For $n=0$, there is only one “zeroth-precision” classifier ${\preccurlyeq}_0{()}$:
 the identically true relation $\mathbf{1}$ on~$2^{\mathbb{N}}$.
 Although insubstantial for our purposes, the subsequent discussion is simpler if we regard (as we shall) the identically false relation $\mathbf{0}$ as finite-precision threshold classifier, denoted ${\prec}0_{\bullet}$
-—it is a threshold classifier with negative precision~$n=-1$, so to speak.
+—intuitively, a threshold classifier with negative precision~$n = -1$.
 
-We remark that the statement “$x\preccurlyeq_nw$” has identical semantics to “$x\preceq w1_{\bullet}$” (not to “$x\preceq w0_{\bullet}$”) in the usual ordering semantics of $2^{\mathbb{N}}$ which depend on all entries of~$x$, not just those of $x\restriction_n$.
+We remark that the statement “$x\preccurlyeq_nw$” has identical semantics to “$x\preceq \arc{w1_{\bullet}}$” (\emph{not} to “$x\preceq \arc{w0_{\bullet}}$”) in the usual ordering semantics of $2^{\mathbb{N}}$ which depend on all entries of~$x$, not just those of $x{\restr}_n$.
 We will henceforth write $\vec{w}$ for the sequence $w1_{\bullet}$ ($w$ prefixing~$1_{\bullet}$).
 
 A moment’s reflection shows that any finite-precision classifier can be expressed as a Boolean combination%
 \footnote{In other words, finite-precision classifiers are \emph{definable} in the sense of real-valued logic (sans quantifiers) whose connectives are vector-lattice operations (maximum, minimum, and linear combinations), plus logical constants (i.e., real constants) as nullary connectives.}
 of the first $n$ coordinates $P_i(x)=x_i$ ($i<n$) of its argument~$x\in 2^{\mathbb{N}}$
-(i.e., $x{\preccurlyeq}_nw$ may be obtained from entries $x_i$ of $x\restriction_n$ using the operations of maximum, minimum and negation $\neg: r\mapsto 1-r$ in place of classical Boolean connectives).%
+(i.e., $x{\preccurlyeq}_nw$ may be obtained from entries $x_i$ of $x\restr_n$ using the operations of maximum, minimum and negation $\neg: r\mapsto 1-r$ in place of classical Boolean connectives).%
 \footnote{The constant relations $\mathbf{0}$, $\mathbf{1}$ are obtained per the usual convention:
   the conjunction (resp., disjunction) of an empty set of propositions is $\mathbf{1}$ (resp.,~$\mathbf{0}$).}
 
