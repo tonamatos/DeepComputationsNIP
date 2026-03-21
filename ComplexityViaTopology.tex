@@ -1393,17 +1393,21 @@ It is an example of a CCS that is NIP but not $\NIP_1$.
       % of the form $\widehat{w0_{\bullet}}$, $\widehat{w1_{\bullet}}$, $\overline{w0_{\bullet}}$ or $\overline{w1_{\bullet}}$ for some $w\in2^{<\mathbb{N}}$.
 
     \item \emph{Alexandroff Duplicate}.
-Let $K$ be any compact metric space, and consider the Polish space $X=K\sqcup \mathrm{C}(K)$, i.e., the disjoint union of $K$ and $\mathrm{C}(K)$ (the space of real-valued continuous functions on $K$ with the supremum norm topology).
-For each $a\in K$ define $g_a^0,g_a^1:X\rightarrow\mathbb{R}$ as follows:
+      Let $K$ be any compact metric space.
+      Construct the space $X = K\sqcup \mathrm{C}(K)$, i.e., the disjoint union of $K$ and the space $\mathrm{C}(K)$ of real-valued continuous functions on $K$ with the Banach topology of uniform convergence (supremum-norm topology).
+      Clearly, $X$ is Polish.
+For each $a\in K$, define $g_a^0,g_a^1:X\rightarrow\mathbb{R}$ as follows:
     \[
-	g_a^0(x)=\begin{cases}
+      g_a^0(x)
+      =
+      \begin{cases}
         0, & \text{if }x\in K\\
         x(a), & \text{if }x\in \mathrm{C}(K);
-    \end{cases}
+      \end{cases}
     \]
     \[
 	g_a^1(x)=\begin{cases}
-        \delta_a(x), & \text{if }x\in K;\\
+        \Brack{a = x}, & \text{if }x\in K;\\
         x(a), & \text{if }x\in \mathrm{C}(K).
     \end{cases}
     \]
