@@ -1228,8 +1228,8 @@ One sees that all finite-prefix tests are continuous maps $2^{\mathbb{N}}\to\{0,
 moreover, given~$w$ (of length~$n$), the formula $x\equiv_n\!w$ is explicitly definable as suitable boolean combination of the entries of $x\restr_n$.
 The test ${\equiv}w$ will also be denoted $\widetilde{w}$ when thought of as a $\{0,1\}$ valued function on~$2^{\mathbb{N}}$.
 
-\subsubsection{Value tests}
-\label{sec:value-tests}
+\subsubsection{Ultra-prefix tests and equality}
+\label{sec:ultraprefix-tests}
 % Let $\varphi_{\bullet} = (\varphi_n)_n\subseteq C_p(2^{\mathbb{N}}, \{0,1\})\subseteq C_p(2^{\mathbb{N}})$ be any sequence of prefix tests.
  \emph{Ultra-prefix tests} are relations $2^{\mathbb{N}}\to\{0,1\}$ that belong to the closure of prefix tests in the topology of pointwise convergence.
 
@@ -1281,12 +1281,13 @@ The test ${\equiv}w$ will also be denoted $\widetilde{w}$ when thought of as a $
 % (resembling the notations ${\preceq}y$ and $\bar{y}$ of~§~\ref{sec:infin-prec-class}).
 Unlike finite-prefix tests, equality tests are discontinuous.
 
-The space $\mathcal{A} = \widetilde{\mathcal{A}} \cup \bbar{\mathcal{A}} \cup \{0_{\bullet}\}$ is (homeomorphic to) the \emph{extended Alexandroff compactification of~$2^{\mathbb{N}}$}.
-This space possesses key topological property that $\mathbf{0}$ is not a $G_\delta$ point, i.e., $\{\mathbf{0}\}$ is not a countable intersection of open sets;
+\paragraph{Extended Alexandroff compactification}
+The space $\mathcal{A} = \widetilde{\mathcal{A}} \cup (\bbar{\mathcal{A}} \cup \{0_{\bullet}\})$ is (homeomorphic to) the \emph{extended Alexandroff compactification of~$2^{\mathbb{N}}$}.
+The subspace $\bbar{\mathcal{A}}$ is discrete of size continuum with Alexandroff one-point compactification $\bbar{\mathcal{A}} \cup \{0_{\bullet}\}$.
+The space~$\mathcal{A}$ possesses key topological property that $\mathbf{0}$ is not a $G_\delta$ point, i.e., $\{\mathbf{0}\}$ is not a countable intersection of open sets;
 $\mathbf{0}$ is the only such non-$G_\delta$ point.
 It follows that the space of ultra-prefix tests is not first-countable
 (in a first-countable Hausdorff space all points are~$G_\delta$). 
-The subspace $\bbar{\mathcal{A}}$ is discrete of size continuum.
 
 \section{Classifying deep computations}
 \label{sec:Classification}
