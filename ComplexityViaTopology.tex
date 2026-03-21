@@ -94,6 +94,7 @@ pdfkeywords={}
 % Macro definitions: symbols
 %
 \newcommand{\hatC}{\hat{\mathbb{C}}}
+\newcommand{\Cp}{\mathrm{C}_{\mathrm{p}}}
 \newcommand{\Lshard}{\mathcal{L}_{\mathrm{sh}}}
 \newcommand{\NIP}{\text{NIP}}
 \newcommand{\sh}{\text{sh}}
@@ -167,7 +168,7 @@ The translation between topology and computation proceeds as follows.
 To every computation in a given computation model, we associate a continuous real-valued function, called the \emph{type} of the computation, that describes the logical properties of this computation with respect to the rest of the model.
 This association allows us to view computations in any given computational model as elements of a space of real-valued functions, which is called the \emph{space of types} of the model.
 The idea of embedding models of theories into their type spaces is borrowed from model theory, where type spaces play a central role.
-The embedding of computations into spaces of types then allows us to utilize the vast theory of topology of function spaces, known as \emph{$C_p$-theory}, to obtain results about complexity of topological limits of computations.
+The embedding of computations into spaces of types then allows us to utilize the vast theory of topology of function spaces, known as \emph{$\Cp$-theory}, to obtain results about complexity of topological limits of computations.
 As we shall indicate next, recent classification results for spaces of functions provide an elegant and powerful machinery to classify computations according to their levels of ``tameness’’ or ``wildness’’, with the former corresponding roughly to polynomial approximability and the latter to exponential approximability.
 The model-theoretic viewpoint of spaces of types thus becomes a ``Rosetta stone’’ that allows us to interconnect various classification programs: 
 in topology, the classification of Rosenthal compacta pioneered by Todorčević~\cite{Todorcevic_1999_CompactSubsetsBaire}; 
@@ -269,17 +270,17 @@ Equivalently, $X$ is Baire if any countable intersection of open dense sets rema
 The Baire Category Theorem states that compact Hausdorff spaces and all completely metrizable spaces (hence, all Polish spaces) are Baire.%
 \footnote{More generally, any Čech-complete space is Baire~\cite[Theorem 3.9.3]{Engelking:1989}.}
 
-Given two topological spaces $X$ and $Y$ we denote by $C_p(X,Y)$ the set of all continuous functions $f:X\rightarrow Y$ endowed with the topology of pointwise convergence, i.e., with the relative (subspace) product topology~$C_p(X,Y)\subseteq Y^X$—where $Y$ carries its topology, but $X$ serves merely as a (discrete) index set stripped of any topology.
-The space $C_p(X, \mathbb{R})$ of continuous real-valued functions on~$X$ is denoted simply~$C_p(X)$.
-%A natural question is, how do topological properties of $X$ translate into $C_p(X)$ and vice versa?
-%This general question, and the study of these spaces in general, is the concern of $C_p$-theory.
+Given two topological spaces $X$ and $Y$ we denote by $\Cp(X,Y)$ the set of all continuous functions $f:X\rightarrow Y$ endowed with the topology of pointwise convergence, i.e., with the relative (subspace) product topology~$\Cp(X,Y)\subseteq Y^X$—where $Y$ carries its topology, but $X$ serves merely as a (discrete) index set stripped of any topology.
+The space $\Cp(X, \mathbb{R})$ of continuous real-valued functions on~$X$ is denoted simply~$\Cp(X)$.
+%A natural question is, how do topological properties of $X$ translate into $\Cp(X)$ and vice versa?
+%This general question, and the study of these spaces in general, is the concern of $\Cp$-theory.
 
-A function $f\in Y^X$ between topological spaces $X$, $Y$ is said to be of \emph{Baire class~1}, or a \emph{Baire-1} function, if there is a sequence $(f_n)_{n\in \mathbb{N}}\subseteq C_p(X, Y)$ such that $f = \lim_{n\to\infty}f_n$ (i.e., $f(x)=\lim_{n\to\infty}f_n(x)$ for all $x\in X$).
+A function $f\in Y^X$ between topological spaces $X$, $Y$ is said to be of \emph{Baire class~1}, or a \emph{Baire-1} function, if there is a sequence $(f_n)_{n\in \mathbb{N}}\subseteq \Cp(X, Y)$ such that $f = \lim_{n\to\infty}f_n$ (i.e., $f(x)=\lim_{n\to\infty}f_n(x)$ for all $x\in X$).
 An elementary argument shows that Baire-1 functions are continuous everywhere except on a set of the first category.
-If $X$ and $Y$ are topological spaces, the space of Baire-1 functions $f:X\rightarrow Y$ endowed with the topology of pointwise convergence is denoted $B_1(X,Y)$;
-thus, $C_p(X,Y)\subseteq B_1(X,Y)\subseteq Y^X$ are topological inclusions.
-We abbreviate $B_1(X, \mathbb{R})$ as $B_1(X)$.
-Relatively compact subsets of $C_p(X)$ and of $B_1(X)$ (particularly for $X$ Polish) are of interest in analysis and topological dynamics.
+If $X$ and $Y$ are topological spaces, the space of Baire-1 functions $f:X\rightarrow Y$ endowed with the topology of pointwise convergence is denoted $\mathrm{B}_1(X,Y)$;
+thus, $\Cp(X,Y)\subseteq \mathrm{B}_1(X,Y)\subseteq Y^X$ are topological inclusions.
+We abbreviate $\mathrm{B}_1(X, \mathbb{R})$ as $\mathrm{B}_1(X)$.
+Relatively compact subsets of $\Cp(X)$ and of $\mathrm{B}_1(X)$ (particularly for $X$ Polish) are of interest in analysis and topological dynamics.
 
 A topological space $X$ is \emph{perfectly normal} if it is normal and every closed subset of $X$ is a $G_\delta$ set (equivalently, every open subset of $X$ is an $F_\sigma$ set).
 Every metrizable space (hence, every Polish space) is perfectly normal.
@@ -298,7 +299,7 @@ For a proof, see~\cite[Section 10]{Todorcevic_1997_TopicsTop}.
     \begin{itemize}
         \item[(3)] For every closed $F\subseteq X$, the restriction $f|_F$ has a point of continuity.
     \end{itemize}
-    Moreover, if $X$ is Polish and $f\notin B_1(X)$, then there exist countable $D_0,D_1\subseteq X$ and reals $a<b$ such that
+    Moreover, if $X$ is Polish and $f\notin \mathrm{B}_1(X)$, then there exist countable $D_0,D_1\subseteq X$ and reals $a<b$ such that
     \[
     D_0\subseteq f^{-1}(-\infty,a],
     \quad
@@ -310,16 +311,16 @@ For a proof, see~\cite[Section 10]{Todorcevic_1997_TopicsTop}.
 
 %The Lemma below is well known, but we include a proof for the reader's convenience.
 %\begin{lem}
-%  Let $X$ be a Polish space and $A\subseteq B_1(X)$ be pointwise bounded.%
+%  Let $X$ be a Polish space and $A\subseteq \mathrm{B}_1(X)$ be pointwise bounded.%
 %  \footnote{A set $A\subseteq\mathbb{R}^X$ of real-valued functions is \emph{pointwise bounded} if for every $x\in X$ there exists $M_x \ge 0$ (a \emph{pointwise bound at~$x$}) such that $|f(x)| \le M_x$ for all $f\in A$.}
 %The following are equivalent:
 %    \begin{enumerate}[(i)]
 %        \item
-%          $A$ is relatively compact in $B_1(X)$, i.e., the closure of $A$ in $B_1(X)$ is compact;
+%          $A$ is relatively compact in $\mathrm{B}_1(X)$, i.e., the closure of $A$ in $\mathrm{B}_1(X)$ is compact;
 %        \item
-%        $A$ is relatively countably compact in $B_1(X)$, i.e., every (infinite) countable subset of $A$ has a limit point in $B_1(X)$;
+%        $A$ is relatively countably compact in $\mathrm{B}_1(X)$, i.e., every (infinite) countable subset of $A$ has a limit point in $\mathrm{B}_1(X)$;
 %        \item
-%        $\overline{A}\subseteq B_1(X)$, where $\overline{A}$ denotes the closure of~$A$ in~$\mathbb{R}^X$.
+%        $\overline{A}\subseteq \mathrm{B}_1(X)$, where $\overline{A}$ denotes the closure of~$A$ in~$\mathbb{R}^X$.
 %    \end{enumerate}
 %\end{lem}
 %
@@ -331,23 +332,23 @@ For a proof, see~\cite[Section 10]{Todorcevic_1997_TopicsTop}.
 %We first observe that that there is a sequence $(f_n)_{n\in\mathbb{N}}\subseteq A$ such that $\lim_{n\to\infty}f_n(x_i)=f(x_i)$ for all $i\in \mathbb{N}$.
 %(Proof: Since $A$ carries the relative product topology, for each $n\in \mathbb{N}$ there exists $f_n\in A$ such that $|f_n(x_i) - f(x_i)| < \frac{1}{n}$ for all $i \le n$.
 %The sequence $(f_n)$ is as claimed.)
-%By contradiction, let us assume that $A$ is relatively countably compact in~$B_1(X)$, but there exists some $f\in \overline{A}\setminus B_1(X)$.
+%By contradiction, let us assume that $A$ is relatively countably compact in~$\mathrm{B}_1(X)$, but there exists some $f\in \overline{A}\setminus \mathrm{B}_1(X)$.
 %    By Fact \ref{baire}, fix countable $D_0,D_1\subseteq X$ with $\overline {D_0}=\overline{D_1}$, and $a<b$ such that $D_0\subseteq f^{-1}(-\infty,a]$ and $D_1\subseteq f^{-1}[b,\infty)$.
 %Per the initial observation, let $\{f_n\}_{n\in\mathbb{N}}\subseteq A$ satisfy $\lim_{n\to\infty}f_n(x)=f(x)$ for all $x\in D_0\cup D_1$ (the latter being a countable set).
-%By relative countable compactness of~$A$, there is a limit point $g\in B_1(X)$ of $\{f_n\}_{n\in\mathbb{N}}$;
+%By relative countable compactness of~$A$, there is a limit point $g\in \mathrm{B}_1(X)$ of $\{f_n\}_{n\in\mathbb{N}}$;
 %clearly, $f$ and $g$ agree on $D_0\cup D_1$.
 %But then, $g$ takes values $g(x_i) = f(x_i) \le a$ as well as values $g(x_j) = f(x_j) \ge b > a$ on any open subset of the closed set $\overline{D_0} = \overline{D_1}$, which contradicts the implication (1)$\Rightarrow$(3) of Fact~\ref{baire}.
 %
 %(iii)$\Rightarrow$(i) For each $x\in X$, let $M_x \ge 0$ be a pointwise bound for~$A$.
 %Since $\overline{A}$ is a closed subset of the compact space $\prod_{x\in X}[-M_x,M_x] \subseteq \mathbb{R}^X$, it follows that $\overline{A}$ is compact.
-%By~(iii), it is also the closure of~$A$ in $B_1(X)$.
-%Thus, $A$ is relatively compact in $B_1(X)$.
+%By~(iii), it is also the closure of~$A$ in $\mathrm{B}_1(X)$.
+%Thus, $A$ is relatively compact in $\mathrm{B}_1(X)$.
 %\end{proof}
 
 \subsection{From Rosenthal’s dichotomy to the Bourgain-Fremlin-Talagrand dichotomy to Shelah’s NIP}
 
 In metrizable spaces, the closure of a subset consists of limits of convergent sequences therein.
-In general spaces, including many $C_p$-spaces, such a characterization of closures fails in remarkable ways.
+In general spaces, including many $\Cp$-spaces, such a characterization of closures fails in remarkable ways.
 
 The $n$-th coordinate map $p_n: 2^{\mathbb{N}}\to\{0,1\}$ on the Cantor space $X = 2^\mathbb{N}$ ($= \{0, 1\}^{\mathbb{N}}$) is continuous for each $n\in \mathbb{N}$;
 however,  $(p_n)_{n\in\mathbb{N}}$ has \emph{no} convergent subsequences in $\mathbb{R}^X$ (\cite[Chapter~1.1]{Todorcevic_1997_TopicsTop}).
@@ -361,7 +362,7 @@ The following theorem, proved by Haskell Rosenthal in 1974, is fundamental in fu
 
 \begin{thm}[Rosenthal’s Dichotomy, \cite{Rosenthal:1974}]
 \label{thm:Rosenthal}
-    If $X$ is Polish and $(f_n)_{n\in\mathbb{N}}\subseteq C_p(X)$ is pointwise bounded, then $(f_n)$ has a convergent subsequence, or a subsequence whose closure in $\mathbb{R}^X$ is homeomorphic to~$\beta\mathbb{N}$.
+    If $X$ is Polish and $(f_n)_{n\in\mathbb{N}}\subseteq \Cp(X)$ is pointwise bounded, then $(f_n)$ has a convergent subsequence, or a subsequence whose closure in $\mathbb{R}^X$ is homeomorphic to~$\beta\mathbb{N}$.
 \end{thm}
 
 % Rosenthal’s Dichotomy states that a pointwise bounded set of continuous functions contains either a convergent subsequence, or a subsequence whose closure is essentially the same as the example mentioned in the previous paragraphs (i.e., the ``wildest'' possible).
@@ -369,7 +370,7 @@ The genesis of the dichotomy was \emph{Rosenthal’s $\ell_1$-Theorem}, which st
 The $\ell_1$-Theorem connects diverse areas:
 Banach space geometry, Ramsey theory, set theory, and topology of function spaces.
 
-As we move from $C_p(X)$ to the larger space $B_1(X)$, a dichotomy paralleling the $\ell_1$-Theorem holds:
+As we move from $\Cp(X)$ to the larger space $\mathrm{B}_1(X)$, a dichotomy paralleling the $\ell_1$-Theorem holds:
 Either every point in the closure of a set of functions is a Baire class~1 function, or there is a sequence in the set behaving in the wildest possible way.
 This result is usually not phrased as a dichotomy in the above manner, but rather as an equivalence (see Theorem~\ref{thm:BFT} below).
 
@@ -389,10 +390,10 @@ For any sequence $\{f_n\}\subseteq \mathbb{R}^X$ and $I\subseteq \mathbb{N}$, de
 
 \begin{thm}[``The BFT Dichotomy''. Bourgain-Fremlin-Talagrand {\cite{BFT_1978_PCompactBaire}}]
 \label{thm:BFT}
-    Let $X$ be a Polish space and $A\subseteq C_p(X)$ be pointwise bounded.
+    Let $X$ be a Polish space and $A\subseteq \Cp(X)$ be pointwise bounded.
 The following are equivalent:
     \begin{enumerate}[(i)]
-        \item $A$ is relatively compact in $B_1(X)$.
+        \item $A$ is relatively compact in $\mathrm{B}_1(X)$.
         \item For every $(f_n)_{n\in\mathbb{N}}\subseteq A$ and every $a<b$ there is $I\subseteq\mathbb{N}$ such that
           \begin{equation*}
             X_{\le a}^{f_I} \cap X_{\ge b}^{f_{I^{\complement}}} = \emptyset.
@@ -415,20 +416,20 @@ For our purposes, it is more natural to consider only finitely many inequalities
 If the word ``finite'' is omitted in the above definitions, we obtain the definitions of \emph{countable} NIP (weaker than finitary NIP) and \emph{countable} IP (stronger than finitary IP), respectively.
 
 If we insist on witnesses $E,F\subseteq \mathbb{N}$ such that $F = E^{\complement}$, we call the respective properties ``BFT-NIP'' and ``BFT-IP''.
-Thus, Theorem~\ref{thm:BFT} becomes (for pointwise bounded function collections $A\subseteq C_p(X)$) that $A$ is relatively compact in $B_1(X)$ if and only if $A$ has BFT-NIP.
+Thus, Theorem~\ref{thm:BFT} becomes (for pointwise bounded function collections $A\subseteq \Cp(X)$) that $A$ is relatively compact in $\mathrm{B}_1(X)$ if and only if $A$ has BFT-NIP.
 
 Unless otherwise unspecified, IP/NIP shall mean \emph{finitary} IP/NIP henceforth.
 
 \begin{prop}\label{prop:BFT-finitary-cpct}
-  If $X$ is compact and $A\subseteq C_p(X)$, then $A$ has BFT-NIP if and only if it has finitary NIP.
+  If $X$ is compact and $A\subseteq \Cp(X)$, then $A$ has BFT-NIP if and only if it has finitary NIP.
 \end{prop}
 (No pointwise boundedness is assumed of~$A$.)
 \begin{proof}
   Trivially (as per the preceding discussion), finitary NIP implies BFT-NIP.
-  Reciprocally, assume that $X$ is compact and $A\subseteq C_p(X)$ has finitary IP.
+  Reciprocally, assume that $X$ is compact and $A\subseteq \Cp(X)$ has finitary IP.
   Fix a sequence $(f_n)\subseteq A$ and reals $a<b$ such that $X^{f_E}_{\le a}\cap X^{f_F}_{\ge b}\neq\emptyset$ for every finite disjoint $E,F\subseteq\mathbb{N}$.
   Fix $I\subseteq\mathbb{N}$.
-  Since $(f_n)\subseteq A\subseteq C_p(X)$ is a sequence of continuous functions, the collection $\mathcal{F}_I=\{X^{f_n}_{\le a}:n\in I\}\cup\{X^{f_m}_{\ge a}:m\in I^{\complement}\}$ consists of closed (non-empty) sets.
+  Since $(f_n)\subseteq A\subseteq \Cp(X)$ is a sequence of continuous functions, the collection $\mathcal{F}_I=\{X^{f_n}_{\le a}:n\in I\}\cup\{X^{f_m}_{\ge a}:m\in I^{\complement}\}$ consists of closed (non-empty) sets.
   Since all finite $E\subseteq I$ and $F\subseteq I^{\complement}$ witness finitary IP for $(f_n)$ and $a, b$, we see that the collection $\mathcal{F}_I$ has the finite intersection property.
   By compactness, $X^{f_I}_{\le a}\cap X^{f_{I^{\complement}}}_{\ge b} = \bigcap\mathcal{F}_I\neq\emptyset$.
 \end{proof}
@@ -436,9 +437,9 @@ Unless otherwise unspecified, IP/NIP shall mean \emph{finitary} IP/NIP hencefort
 \begin{thm}
 \label{thm:BFT2}
     Let $X$ be a compact metrizable  (hence Polish) space.
-For every pointwise bounded  $A\subseteq C_p(X)$, the following properties are all equivalent:
+For every pointwise bounded  $A\subseteq \Cp(X)$, the following properties are all equivalent:
         \begin{enumerate}[(i)]
-        \item $A$ is relatively compact in~$B_1(X)$;
+        \item $A$ is relatively compact in~$\mathrm{B}_1(X)$;
         \item $A$ has BFT-NIP;
         \item $A$ has countable NIP;
         \item $A$ has finitary NIP.
@@ -450,7 +451,7 @@ For every pointwise bounded  $A\subseteq C_p(X)$, the following properties are a
   Corollary of Theorem~\ref{thm:BFT} and Proposition~\ref{prop:BFT-finitary-cpct}.
 \end{proof}
 Theorem~\ref{thm:BFT2} may be stated as the following dichotomy (under the assumptions) for any compact metrizable~$X$:
-either $A$ is relatively compact in~$B_1(X)$, or $A$ has IP (in either sense).
+either $A$ is relatively compact in~$\mathrm{B}_1(X)$, or $A$ has IP (in either sense).
 
 The Independence Property was first isolated by Saharon Shelah in model theory as a dividing line between theories whose models are ``tame'' (corresponding to NIP) and theories whose models are ``wild" (corresponding to IP).
 See~\cite[Definition 4.1]{Shelah:1971}, \cite{Shelah:1990}.
@@ -515,7 +516,7 @@ The Fundamental Theorem of Statistical Learning states that a hypothesis class i
 
 \begin{defn}
 \label{def:Rosenthal-compacta}
-A Rosenthal compactum is any topological space realized as a compact subset of the space $B_1(X) = B_1(X, \mathbb{R})$ (equipped with the topology of pointwise convergence) of all real functions of the first Baire class on some Polish space~\(X\).
+A Rosenthal compactum is any topological space realized as a compact subset of the space $\mathrm{B}_1(X) = \mathrm{B}_1(X, \mathbb{R})$ (equipped with the topology of pointwise convergence) of all real functions of the first Baire class on some Polish space~\(X\).
 \end{defn}
 A Rosenthal compactum~$K$ is necessarily Hausdorff since it is a topological subspace of the Hausdorff product space $\mathbb{R}^X$.
 
@@ -523,13 +524,13 @@ Rosenthal compacta possess significant topological and dynamical tameness proper
 In this paper, we use them to study deep computations.
 % For this, we shall first focus on countable languages, which is the theme of the next subsection.
 
-\subsection{The special case~\texorpdfstring{$B_1(X,\mathbb{R}^\mathcal{P})$}{B\_1(X, R\textasciicircum P)} with~\texorpdfstring{$\mathcal{P}$}{P} countable}
+\subsection{The special case~\texorpdfstring{$\mathrm{B}_1(X,\mathbb{R}^\mathcal{P})$}{B\_1(X, R\textasciicircum P)} with~\texorpdfstring{$\mathcal{P}$}{P} countable}
 
 Fix an arbitrary (at most) countable set~$\mathcal{P}$ whose elements $P\in \mathcal{P}$ will be called \emph{predicate symbols} or \emph{formal predicates}.
-Our present goal is to characterize relatively compact subsets of $B_1(X,\mathbb{R}^\mathcal{P})$, where $X$ is always assumed to be a perfectly normal space (typically a Polish space).
+Our present goal is to characterize relatively compact subsets of $\mathrm{B}_1(X,\mathbb{R}^\mathcal{P})$, where $X$ is always assumed to be a perfectly normal space (typically a Polish space).
 
 The set $\mathcal{P}$ shall be considered discrete whenever garded as a topological space.
-Since $C_p(X, \mathbb{R}^{\mathcal{P}})\subseteq B_1(X, \mathbb{R}^{\mathcal{P}})\subseteq (\mathbb{R}^{\mathcal{P}})^X$, the ``ambient'' space $(\mathbb{R}^{\mathcal{P}})^X$ is quite relevant.
+Since $\Cp(X, \mathbb{R}^{\mathcal{P}})\subseteq \mathrm{B}_1(X, \mathbb{R}^{\mathcal{P}})\subseteq (\mathbb{R}^{\mathcal{P}})^X$, the ``ambient'' space $(\mathbb{R}^{\mathcal{P}})^X$ is quite relevant.
 The product $X\times \mathcal{P}$ will be regarded as either a pointset, or as a topological product depending on context.
 We have natural homeomorphic identifications
 \begin{equation*}
@@ -575,13 +576,13 @@ The Proposition below reduces the study of $\mathbb{R}^{\mathcal{P}}$-valued con
 \begin{prop}\label{prop:Baire-identifications}
   The identification $(\mathbb{R}^{\mathcal{P}})^X \cong \mathbb{R}^{X\times \mathcal{P}} \cong (\mathbb{R}^X)^{\mathcal{P}}$ induces identifications
   \begin{align*}
-      C_p(X, \mathbb{R}^{\mathcal{P}}) \cong C_p(X\times \mathcal{P}) \cong C_p(X)^{\mathcal{P}}, &&
-      B_1(X, \mathbb{R}^{\mathcal{P}}) \cong B_1(X\times \mathcal{P}) \cong B_1(X)^{\mathcal{P}}.
+      \Cp(X, \mathbb{R}^{\mathcal{P}}) \cong \Cp(X\times \mathcal{P}) \cong \Cp(X)^{\mathcal{P}}, &&
+      \mathrm{B}_1(X, \mathbb{R}^{\mathcal{P}}) \cong \mathrm{B}_1(X\times \mathcal{P}) \cong \mathrm{B}_1(X)^{\mathcal{P}}.
   \end{align*}
 \end{prop}
 (The cardinality of $\mathcal{P}$ plays no role.)
 \begin{proof}
-  The identification of $C_p$-spaces follows trivially from the definition of topological product and the fact that $\mathcal{P}$ is discrete:
+  The identification of $\Cp$-spaces follows trivially from the definition of topological product and the fact that $\mathcal{P}$ is discrete:
   a continuous map $X\to \mathbb{R}^{\mathcal{P}}$ is precisely a $\mathcal{P}$-indexed family of continuous functions $X\to \mathbb{R}$, and these correspond to continuous functions $X\times \mathcal{P}\to \mathbb{R}$.
   The identification of Baire-1 spaces follows immediately, since it is defined in terms of the purely topological notion of limit (in the ambient space) of sequences of continuous functions.
 \end{proof}
@@ -590,11 +591,11 @@ Given $A\subseteq Y^X$ and $K\subseteq X$ we write $A|_K:=\{f|_K:f\in A\}$, i.e.
 The following Theorem is a slightly more general version of Theorem \ref{thm:BFT}.
 
 \begin{thm}\label{thm:Generalized-BFT}
-    Assume that $\mathcal{P}$ is countable, $X$ is a Polish space, and $A\subseteq C_p(X,\mathbb{R}^\mathcal{P})$ is pointwise bounded in the sense that $\pi_P\circ A$ ($\subseteq C_p(X)$) is pointwise bounded for every $P\in\mathcal{P}$.
+    Assume that $\mathcal{P}$ is countable, $X$ is a Polish space, and $A\subseteq \Cp(X,\mathbb{R}^\mathcal{P})$ is pointwise bounded in the sense that $\pi_P\circ A$ ($\subseteq \Cp(X)$) is pointwise bounded for every $P\in\mathcal{P}$.
 The following are equivalent for every compact $K\subseteq X$:
 
     \begin{enumerate}[(i)]
-        \item $A|_K$ is relatively compact in $B_1(K,\mathbb{R}^\mathcal{P})$;
+        \item $A|_K$ is relatively compact in $\mathrm{B}_1(K,\mathbb{R}^\mathcal{P})$;
         \item $\pi_P\circ A|_K$ has NIP for every $P\in\mathcal{P}$.
     \end{enumerate}
 \end{thm}
@@ -606,7 +607,7 @@ The following are equivalent for every compact $K\subseteq X$:
 We conclude this section with an elementary but important observation.
 
 \begin{lem}\label{lem:NIP-and-closure}
-    Assume that $X$ is Hausdorff and that $A\subseteq C_p(X)$.
+    Assume that $X$ is Hausdorff and that $A\subseteq \Cp(X)$.
 The following are equivalent for every $L\subseteq X$:
     \begin{enumerate}[(i)]
         \item
@@ -633,7 +634,7 @@ The following are equivalent for every $L\subseteq X$:
 
 \subsection*{Historical remarks}
 The Baire hierarchy of functions was introduced by René-Louis Baire in his 1899 doctoral thesis, \emph{Sur les fonctions de variables réelles}.
-The field of $C_p$-theory was pioneered by A.~V.~Arhangel’skiĭ and his students in the 1970s and 1980s~\cite{Arkhangelskii:1992}, and
+The field of $\Cp$-theory was pioneered by A.~V.~Arhangel’skiĭ and his students in the 1970s and 1980s~\cite{Arkhangelskii:1992}, and
 it has found many applications in model theory and functional analysis.
 For a recent survey, see~\cite{tkachuk2011cp}.
 
@@ -1058,7 +1059,7 @@ More explicitly, the unique deep equilibrium $\mathfrak{f}: \RP^1\to\RP^1$ of (t
  \]
  Thus, $\mathfrak{f}$ is discontinuous at $x = 0, \infty$.
  % The basin of attraction of $x=\sqrt{a}$ is $(0,\infty)$, of $-\sqrt{a}$ is $(\infty,0)$, and of $\infty$ is $\{0,\infty\}$.
- % The set of deep computations is $\{N_p^n\}_n\cup\{\mathfrak{f}\}\subseteq B_1(\mathcal{L},\mathcal{L})$.
+ % The set of deep computations is $\{N_p^n\}_n\cup\{\mathfrak{f}\}\subseteq \mathrm{B}_1(\mathcal{L},\mathcal{L})$.
 
 \subsection{Example: Threshold classifiers on Cantor’s set}\label{sec:Cantor-classifiers}
 
@@ -1166,7 +1167,7 @@ of the first $n$ coordinates $P_i(x)=x_i$ ($i<n$) of its argument~$x\in 2^{\math
 \subsubsection{Infinite-precision threshold classifiers}
 \label{sec:infin-prec-class}
 % Let $(w_n)_n\subseteq 2^{<\mathbb{N}}$ be any sequence, and $\coloneqq({\preccurlyeq}{w_n})_n$
-% Let $\varphi_{\bullet} = (\varphi_n)_n\subseteq C_p(2^{\mathbb{N}}, \{0,1\})\subseteq C_p(2^{\mathbb{N}})$ be any sequence of finite-precision threshold classifiers.
+% Let $\varphi_{\bullet} = (\varphi_n)_n\subseteq \Cp(2^{\mathbb{N}}, \{0,1\})\subseteq \Cp(2^{\mathbb{N}})$ be any sequence of finite-precision threshold classifiers.
 \emph{Threshold ultra-classifiers} are relations $2^{\mathbb{N}}\to\{0,1\}$ in the closure of the set of finite-precision classifiers.
 Since each finite-precision classifier is a non-increasing function on~$2^{\mathbb{N}}$, the same holds for any ultra-classifier.
 It is easily shown that such ultra-classifiers have, for some sequence $z\in 2^{\mathbb{N}}$, one of the forms%
@@ -1191,10 +1192,10 @@ the sole point of discontinuity of an infinite-precision classifier ${\preccurly
 Unlike finite-precision classifiers, those of infinite precision are not definable, i.e., admit no (finite) Boolean expression in the coordinates~$x_i$.
 
 \paragraph{Split Cantor}
-When threshold classifiers are regarded as elements of $B_1(2^{\mathbb{N}})$, we will denote ${\preceq}x$ by $\bar{x}$, and ${\prec}x$ by~$\hat{x}$.
+When threshold classifiers are regarded as elements of $\mathrm{B}_1(2^{\mathbb{N}})$, we will denote ${\preceq}x$ by $\bar{x}$, and ${\prec}x$ by~$\hat{x}$.
 Per the preceding discussion, such classifiers constitute a set
 \begin{equation*}
-  \cancel{C} = \widehat{C} \cup \overline{C} \subseteq B_1(2^{\mathbb{N}})
+  \cancel{C} = \widehat{C} \cup \overline{C} \subseteq \mathrm{B}_1(2^{\mathbb{N}})
 \end{equation*}
 consisting of two parts
 \begin{align*}
@@ -1216,7 +1217,7 @@ indeed, each is basically dense:%
 \footnote{The constant relations $\mathbf{0}$, $\mathbf{1}$ are isolated points of~$\cancel{C}$.}
 $\mathrm{Cl}(\widehat{C}) = \cancel{C}\setminus\{\mathbf{1}\}$ and $\mathrm{Cl}(\overline{C}) = \cancel{C}\setminus\{\mathbf{0}\}$.
 
-The upshot is that, starting from a countable set of quite simple finite-precision classifiers (nonincreasing boolean functions) on Cantor space, ultraclassifiers form a much more complicated split Cantor $\cancel{C}\subseteq B_1(2^{\mathbb{N}})$.
+The upshot is that, starting from a countable set of quite simple finite-precision classifiers (nonincreasing boolean functions) on Cantor space, ultraclassifiers form a much more complicated split Cantor $\cancel{C}\subseteq \mathrm{B}_1(2^{\mathbb{N}})$.
 
 \subsection{Example: Prefix tests}
 \label{sec:prefix-test}
@@ -1230,7 +1231,7 @@ The test ${\equiv}w$ will also be denoted $\widetilde{w}$ when thought of as a $
 
 \subsubsection{Ultra-prefix tests and equality}
 \label{sec:ultraprefix-tests}
-% Let $\varphi_{\bullet} = (\varphi_n)_n\subseteq C_p(2^{\mathbb{N}}, \{0,1\})\subseteq C_p(2^{\mathbb{N}})$ be any sequence of prefix tests.
+% Let $\varphi_{\bullet} = (\varphi_n)_n\subseteq \Cp(2^{\mathbb{N}}, \{0,1\})\subseteq \Cp(2^{\mathbb{N}})$ be any sequence of prefix tests.
  \emph{Ultra-prefix tests} are relations $2^{\mathbb{N}}\to\{0,1\}$ that belong to the closure of prefix tests in the topology of pointwise convergence.
 
 \begin{prop}\label{prop:zero-ultraprefix}
@@ -1281,12 +1282,14 @@ The test ${\equiv}w$ will also be denoted $\widetilde{w}$ when thought of as a $
 % (resembling the notations ${\preceq}y$ and $\bar{y}$ of~§~\ref{sec:infin-prec-class}).
 Unlike finite-prefix tests, equality tests are discontinuous.
 
-\paragraph{Extended Alexandroff compactification}
-The space $\mathcal{A} = \widetilde{\mathcal{A}} \cup (\bbar{\mathcal{A}} \cup \{0_{\bullet}\})$ is compact and (homeomorphic to) the \emph{extended Alexandroff compactification of~$2^{\mathbb{N}}$}.
-The subspace $\bbar{\mathcal{A}}$ is discrete of size continuum with Alexandroff one-point compactification $\bbar{\mathcal{A}} \cup \{0_{\bullet}\}$.
-The space~$\mathcal{A}$ possesses key topological property that $\mathbf{0}$ is not a $G_\delta$ point, i.e., $\{\mathbf{0}\}$ is not a countable intersection of open sets;
+\subsubsection{Extended Alexandroff compactification}\label{sec:extended-alexandroff}
+The set $\mathcal{D}_{\mathfrak{c}}\coloneqq\{\bbar{x}: x\in 2^{\mathbb{N}}\} \subseteq \mathrm{B}_1(2^{\mathbb{N}})$ is \emph{discrete} of size~$\mathfrak{c}$ (continuum);
+its Alexandroff (one-point) compactification is $\mathcal{A}\coloneqq \mathcal{D}_{\mathfrak{c}}\cup\{\mathbf{0}\}$.
+Let $\mathcal{A}^{\complement}\coloneqq\{\widetilde{w}: w\in 2^{<\mathbb{N}}\}$.
+The compact space $\mathcal{A}_{\mathrm{E}} = \mathcal{A}\cup \mathcal{A}^{\complement} \subseteq \mathrm{B}_1(2^{\mathbb{N}})$ extends the Alexandroff compactification $\mathcal{A}$ by the countable set~$\mathcal{A}^{\complement}$.
+The point $\mathbf{0}\in \mathcal{A}_{\mathrm{E}}$ is not a $G_\delta$ point, i.e., $\{\mathbf{0}\}$ is not a countable intersection of open sets;
 $\mathbf{0}$ is the only such non-$G_\delta$ point.
-It follows that the space of ultra-prefix tests is not first-countable
+This key topological property implies that the space of ultra-prefix tests is not first-countable
 (in a first-countable Hausdorff space all points are~$G_\delta$). 
 
 \section{Classifying deep computations}
@@ -1319,7 +1322,7 @@ and suppose that  $\Delta\subseteq\Gamma$ is $R$-confined.
 Then the following conditions are equivalent:
 
 \begin{enumerate}[(i)]
- \item $\overline{\tilde\Delta|_{\mathcal{L}[r_\bullet]}}\subseteq B_1(\mathcal{L}[r_\bullet],\mathcal{L}[r_\bullet])$ for all $r_\bullet\in R$;
+ \item $\overline{\tilde\Delta|_{\mathcal{L}[r_\bullet]}}\subseteq \mathrm{B}_1(\mathcal{L}[r_\bullet],\mathcal{L}[r_\bullet])$ for all $r_\bullet\in R$;
  \item $\pi_P\circ \Delta|_{L[r_\bullet]}$ satisfies the NIP for all $P\in\mathcal{P}$ and $r_\bullet\in R$; that is, for all $P\in\mathcal{P}$, $r_\bullet\in R$, $a<b$, $\{\gamma_n\}_{n\in\mathbb{N}}\subseteq\Delta$ there are finite disjoint $E,F\subseteq\mathbb{N}$ such that
 \[
  L[r_\bullet]\cap\bigcap_{n\in E}(\pi_P\circ\gamma_n)^{-1}(-\infty,a]\cap\bigcap_{n\in F}(\pi_P\circ\gamma_n)^{-1}[b,\infty)=\emptyset.
@@ -1327,7 +1330,7 @@ Then the following conditions are equivalent:
 \end{enumerate}
 
  Furthermore, if any (hence all) of the preceding conditions hold, then every deep computation $f\in\overline{\Delta}$ can be extended to a Baire-1 function on shards:
- there is $\tilde f:\mathcal{L}_{\sh}\rightarrow \mathcal{L}_{\sh}$ such that $\tilde f|_{\mathcal{L}[r_\bullet]}\in B_1(\mathcal{L}[r_\bullet],\mathcal{L}[r_\bullet])$ for all $r_{\bullet}\in R$.
+ there is $\tilde f:\mathcal{L}_{\sh}\rightarrow \mathcal{L}_{\sh}$ such that $\tilde f|_{\mathcal{L}[r_\bullet]}\in \mathrm{B}_1(\mathcal{L}[r_\bullet],\mathcal{L}[r_\bullet])$ for all $r_{\bullet}\in R$.
  In particular, on each shard, every deep computation is the pointwise limit of a countable sequence of computations.
 \end{thm}
 
@@ -1337,8 +1340,8 @@ The Extendibility Axiom implies that $\pi_P\circ \tilde\Delta|_{\mathcal{L}[r_\b
 Hence, Theorem \ref{thm:Generalized-BFT} and Lemma \ref{lem:NIP-and-closure} prove the equivalence of (i) and (ii).
 If (i) holds and $f\in\overline{\Delta}$, then we can write as an ultralimit of computations in $\Delta$, say  $f=\mathcal{U}{\rm lim}_i \gamma_i$.
 Define $\tilde f:=\mathcal{U}{\rm lim}_i \tilde\gamma_i$.
-Then, for all $r_\bullet\in R$ we have $\tilde f|_{\mathcal{L}[r_\bullet]}\in\overline{\tilde\Delta|_{\mathcal{L}[r_\bullet]}}\subseteq B_1(\mathcal{L}[r_\bullet],\mathcal{L}[r_\bullet])$.
-The assertion that every deep computation is a pointwise limit of a countable sequence of computations follows from the fact that for a Polish space $X$, every compact subset of $B_1(X)$ is Fréchet-Urysohn 
+Then, for all $r_\bullet\in R$ we have $\tilde f|_{\mathcal{L}[r_\bullet]}\in\overline{\tilde\Delta|_{\mathcal{L}[r_\bullet]}}\subseteq \mathrm{B}_1(\mathcal{L}[r_\bullet],\mathcal{L}[r_\bullet])$.
+The assertion that every deep computation is a pointwise limit of a countable sequence of computations follows from the fact that for a Polish space $X$, every compact subset of $\mathrm{B}_1(X)$ is Fréchet-Urysohn 
 (that is, a space where any point in the closure of  a set $A$ is the limit of a sequence of points in  $A$; see Theorem 3F in \cite{BFT_1978_PCompactBaire} or Theorem 4.1 in \cite{debs2013rosenthal}).
 \end{proof}
 
@@ -1373,62 +1376,50 @@ These examples are due to Todorčević \cite{Todorcevic_1999_CompactSubsetsBaire
 \label{exa:Rosenthal-compacta}
 \hfill
 \begin{enumerate}
-    \item \emph{Alexandroff compactification of a discrete space of size continuum}.
-For each $a\in 2^\mathbb{N}$ consider the map $\delta_a:2^\mathbb{N}\rightarrow\mathbb{R}$ given by $\delta_a(x)=1$ if $x=a$ and $\delta_a(x)=0$ otherwise.
-Let $A(2^\mathbb{N})=\{\delta_a:a\in 2^\mathbb{N}\}\cup\{\mathbf{0}\}$, where $\mathbf{0}$ is the zero map.
-Notice that $A(2^\mathbb{N})$ is a compact subset of $B_1(2^\mathbb{N})$;
-in fact, $\{\delta_a:a\in 2^\mathbb{N}\}$ is an uncountable discrete subspace of $B_1(2^\mathbb{N})$, and its pointwise closure is precisely $A(2^\mathbb{N})$.
-Hence, this is a Rosenthal compactum that is not hereditarily separable (and therefore not first countable).
-In particular, this space is not separable.
-However, as the next example shows, it can be made separable space by ``softening'' the neighborhoods of each point through the addition of a countable set.
+\item \emph{Alexandroff compactification of a discrete space of size continuum}.
+  The subset $\mathcal{A} = \mathcal{D}_{\mathfrak{c}}\cup\{\mathbf{0}\} \subseteq \mathrm{B}_1(2^{\mathbb{N}})$ in~§\ref{sec:extended-alexandroff} is the Alexandroff (one-point) compactification of the continuum-size discrete set~$\mathcal{D}_{\mathfrak{c}} = \{\bbar{x}: x\in 2^{\mathbb{N}}\}$.
+Hence, $\mathcal{A}$ is a Rosenthal compactum that is not hereditarily separable (and therefore not first countable).
+In particular, $\mathcal{A}$ is not separable.
 
     \item \emph{Extended Alexandroff compactification}.
-For each finite binary sequence $s\in 2^{<\mathbb{N}}$, let $v_s:2^\mathbb{N}\rightarrow\mathbb{R}$ be given by $v_s(x)=1$ if $x$ extends $s$ and $v_s(x)=0$ otherwise.
-Let $\hat{A}(2^\mathbb{N})$ be the pointwise closure of $\{v_s:s\in2^{<\mathbb{N}}\}$, i.e., $\hat{A}(2^\mathbb{N})=A(2^\mathbb{N})\cup\{v_s:s\in 2^{<\mathbb{N}}\}$.
-Note that this space is a separable Rosenthal compactum that is not first countable.
-This is the example discussed in Section \ref{sec:prefix-test}. 
+The Alexandroff compactification $\mathcal{A}$ of $\mathcal{D}_{\mathfrak{c}}$ above can be embedded into a separable compactum of $\mathrm{B}_1(2^{\mathbb{N}})$ by adding a countable set $\mathcal{A}^{\complement}$ of new points that “soften” neighborhoods in~$\mathcal{A}$, yielding the extended compactification $\mathcal{A}_{\mathrm{E}} = \mathcal{A}\cup \mathcal{A}^{\complement}$ of~§\ref{sec:extended-alexandroff}.
+However, the separable Rosenthal compactum $\mathcal{A}_{\mathrm{E}}$ is not first countable.
 It is an example of a CCS that is NIP but not $\NIP_1$.
 
     \item \emph{Split Cantor}.
-Let $<$ be the lexicographic order in the space $2^\mathbb{N}$ of infinite binary sequences.
-For each $a\in 2^\mathbb{N}$ let $f_a^-:2^\mathbb{N}\rightarrow\mathbb{R}$ be given by $f_a^-(x)=1$ if $x<a$ and $f_a^-(x)=0$ otherwise.
-Let $f_a^+:2^\mathbb{N}\rightarrow\mathbb{R}$ be given by $f_a^+(x)=1$ if $x\leq a$ and $f_a^+(x)=0$ otherwise.
-The Split Cantor is the space $S(2^\mathbb{N})=\{f_a^-:a\in 2^\mathbb{N}\}\cup\{f_a^+:a\in 2^\mathbb{N}\}$.
-This space was obtained as the closure of the space discussed in Section~\ref{sec:Cantor-classifiers}, thus giving an example that separates $\NIP_2$ from $\NIP_3$.
-
-This is a well known separable Rosenthal compactum;
-an example of a countable dense subset is the set of all $f_a^+$ and $f_a^-$ where $a$ is an infinite binary sequence that is eventually constant.
-Moreover, it is hereditarily separable, but it is not metrizable.
-It is homeomorphic to the space $2^{\mathbb{N}}\times\{0,1\}$ with the lexicographic order topology via the identification $(a,1)\mapsto f_a^+$ and $(a,0)\mapsto f_a^-$.
+      The split Cantor set $\cancel{C}$ is a separable Rosenthal compactum that is $\NIP_2$ but not $\NIP_3$;
+      it is hereditarily separable, but it is not metrizable.
+      The set of all finite-precision classifiers is countable dense in~$\cancel{C}$.
+      % of the form $\widehat{w0_{\bullet}}$, $\widehat{w1_{\bullet}}$, $\overline{w0_{\bullet}}$ or $\overline{w1_{\bullet}}$ for some $w\in2^{<\mathbb{N}}$.
 
     \item \emph{Alexandroff Duplicate}.
-Let $K$ be any compact metric space, and consider the Polish space $X=K\sqcup C(K)$, i.e., the disjoint union of $K$ and $C(K)$ (the space of real-valued continuous functions on $K$ with the supremum norm topology).
+Let $K$ be any compact metric space, and consider the Polish space $X=K\sqcup \mathrm{C}(K)$, i.e., the disjoint union of $K$ and $\mathrm{C}(K)$ (the space of real-valued continuous functions on $K$ with the supremum norm topology).
 For each $a\in K$ define $g_a^0,g_a^1:X\rightarrow\mathbb{R}$ as follows:
     \[
 	g_a^0(x)=\begin{cases}
         0, & \text{if }x\in K\\
-        x(a), & \text{if }x\in C(K);
+        x(a), & \text{if }x\in \mathrm{C}(K);
     \end{cases}
     \]
     \[
 	g_a^1(x)=\begin{cases}
         \delta_a(x), & \text{if }x\in K;\\
-        x(a), & \text{if }x\in C(K).
+        x(a), & \text{if }x\in \mathrm{C}(K).
     \end{cases}
     \]
-    Let $D(K)=\{g_a^0:a\in K\}\cup\{g_a^1:a\in K\}$.
+    Let $\mathrm{D}(K)=\{g_a^0:a\in K\}\cup\{g_a^1:a\in K\}$.
 Observe that all points $g_a^1$ are isolated and that open neighborhoods of $g_{a_0}^0$ are of the form $\{g_a^i:a\in U,i\in\{0,1\}\}\setminus\{g_a^1:a\in F\}$ where $U\subseteq K$ is an open neighborhood of $a_0$ and $F\subseteq K$ is a finite set.
 
 Another way to present this space  is as the space $K\times\{0,1\}$ with the identifications
 $(a,0)\mapsto g_a^0$ and $(a,1)\mapsto g_a^1$ and the
 basic open neighborhoods are given asabove.
-We can also embed $D(K)$ into the product $A(K)\times K$ by identifying $(a,0)\mapsto (\mathbf{0},a)$ and $(a,1)\mapsto (\delta_a,a)$.
+We can also embed $\mathrm{D}(K)$ into the product $A(K)\times K$ by identifying $(a,0)\mapsto (\mathbf{0},a)$ and $(a,1)\mapsto (\delta_a,a)$.
 
-Notice that $D(K)$ is a first countable Rosenthal compactum.
+Notice that $\mathrm{D}(K)$ is a first countable Rosenthal compactum.
 It is not separable if $K$ is uncountable; thus, we typically study the interesting case when $K=2^\mathbb{N}$.
 
-As with the Alexandroff compactification $A(2^{\mathbb{N}})$, we can make the space $D(2^{\mathbb{N}})$ separable  by ``softening'' the neighborhoods of each point through the addition of a countable set.
-For example, the closure of the set $\{(v_s,s^\frown 0^\infty):s\in 2^{<\mathbb{N}}\}\subseteq \hat{A}(2^{\mathbb{N}})\times 2^{\mathbb{N}}$ is $\{(\mathbf{0},a):a\in 2^{\mathbb{N}}\}\cup \{(\delta_a,a):a\in 2^{\mathbb{N}}\}\cup\{(v_s,s^\frown 0^\infty):s\in 2^{<\mathbb{N}}\}$, where $\{(\mathbf{0},a):a\in 2^{\mathbb{N}}\}\cup \{(\delta_a,a):a\in 2^{\mathbb{N}}\}$ is homeomorphic to $D(2^{\mathbb{N}})$.
+As with the Alexandroff compactification $A(2^{\mathbb{N}})$, we can make the space $\mathrm{D}(2^{\mathbb{N}})$ separable  by ``softening'' the neighborhoods of each point through the addition of a countable set.
+For example, the closure of the set $\{(v_s,s^\frown 0^\infty):s\in 2^{<\mathbb{N}}\}\subseteq \hat{A}(2^{\mathbb{N}})\times 2^{\mathbb{N}}$ is $\{(\mathbf{0},a):a\in 2^{\mathbb{N}}\}\cup \{(\delta_a,a):a\in 2^{\mathbb{N}}\}\cup\{(v_s,s^\frown 0^\infty):s\in 2^{<\mathbb{N}}\}$, where $\{(\mathbf{0},a):a\in 2^{\mathbb{N}}\}\cup \{(\delta_a,a):a\in 2^{\mathbb{N}}\}$ is homeomorphic to $\mathrm{D}(2^{\mathbb{N}})$.
 
     \item \emph{Extended Alexandroff Duplicate of the Split Cantor}.
 For each finite binary sequence $t\in 2^{<\mathbb{N}}$, let $a_t\in 2^\mathbb{N}$ be the sequence starting with $t$ and ending with $0$’s and let $b_t\in 2^\mathbb{N}$ be the sequence starting with $t$ and ending with $1$’s.
@@ -1454,7 +1445,7 @@ In fact, it contains an uncountable discrete subspace.
         \item 
         If $K$ is hereditarily separable but non-metrizable, then $S(2^\mathbb{N})$ embeds into $K$.
         \item 
-        If $K$ is first countable but not hereditarily separable, then either $D(2^\mathbb{N})$ or $\hat{D}(S(2^\mathbb{N}))$ embeds into $K$.
+        If $K$ is first countable but not hereditarily separable, then either $\mathrm{D}(2^\mathbb{N})$ or $\hat{D}(S(2^\mathbb{N}))$ embeds into $K$.
         \item
          If $K$ is not first countable, then $A(2^\mathbb{N})$ embeds into $K$.
     \end{enumerate}
@@ -1477,7 +1468,7 @@ We thus have the following classification for separable Rosenthal compacta:
   child {node {$K$ is not metrizable}
     child {node {$K$ is hereditarily separable \\ (copy of $S(2^\mathbb{N})$) \hspace{2cm}}}
     child {node {\hspace{2cm} $K$ is not hereditarily separable}
-      child {node {$K$ is first countable \\ (copy of $D(2^\mathbb{N})$ or $\hat{D}(S(2^\mathbb{N}))$)}}
+      child {node {$K$ is first countable \\ (copy of $\mathrm{D}(2^\mathbb{N})$ or $\hat{D}(S(2^\mathbb{N}))$)}}
       child {node {$K$ is not first countable \\ (copy of $A(2^\mathbb{N})$)}}
     }
   };
@@ -1493,8 +1484,8 @@ The following examples show that the levels $\NIP_i$ ($i=1,2,3$) may be distingu
 \hfill
 \begin{enumerate}
     \item Let $(L,\mathcal{P},\Gamma)$ be the computation of square root (example \ref{exa:square-roots-compute} with $\Delta=\Gamma$. 
-    We saw that $\overline{\tilde{\Delta}}=\tilde{\Delta}\cup\{\tilde{f}\}\subseteq B_1(\mathcal{L},\mathcal{L})$.
-    This corresponds to the Alexandroff compactification of a countable discrete set, which is metrizable. Hence, $\Delta$ is $\NIP_3$ but it is not stable, in the sense that $\overline{\tilde{\Delta}}\not\subseteq C(\mathcal{L},\mathcal{L})$.
+    We saw that $\overline{\tilde{\Delta}}=\tilde{\Delta}\cup\{\tilde{f}\}\subseteq \mathrm{B}_1(\mathcal{L},\mathcal{L})$.
+    This corresponds to the Alexandroff compactification of a countable discrete set, which is metrizable. Hence, $\Delta$ is $\NIP_3$ but it is not stable, in the sense that $\overline{\tilde{\Delta}}\not\subseteq \mathrm{C}(\mathcal{L},\mathcal{L})$.
 
     \item Let $(L,\mathcal{P},\Gamma)$ be the finite precision threshold classifiers (Section~\ref{sec:Cantor-classifiers}) with $\Delta=\{\phi_w:w\in 2^{<\mathbb{N}}\}\cup\{\mathbf{0^\infty},\mathbf{1^\infty}\}$.
     We saw that $\overline{\Delta}$ is homeomorphic to the Split Cantor space $S(2^\mathbb{N})$ (Example \ref{exa:Rosenthal-compacta}-(3)), which is hereditarily separable but not metrizable.
@@ -1554,7 +1545,7 @@ If $\{f_t:t\in 2^{<\mathbb{N}}\}$ is a pointwise bounded family, we say that $\{
  \end{enumerate}
 \end{defn}
 
-One of the main results in \cite{argyros2008rosenthal} is that, up to equivalence, there are seven minimal families of Rosenthal compacta and that for every relatively compact $\{f_t:t\in 2^{<\mathbb{N}}\}\subseteq B_1(X)$ there is a dyadic subtree $\{s_t:t\in 2^{<\mathbb{N}}\}$ such that $\{f_{s_t}:t\in 2^{<\mathbb{N}}\}$ is equivalent to one of the minimal families.
+One of the main results in \cite{argyros2008rosenthal} is that, up to equivalence, there are seven minimal families of Rosenthal compacta and that for every relatively compact $\{f_t:t\in 2^{<\mathbb{N}}\}\subseteq \mathrm{B}_1(X)$ there is a dyadic subtree $\{s_t:t\in 2^{<\mathbb{N}}\}$ such that $\{f_{s_t}:t\in 2^{<\mathbb{N}}\}$ is equivalent to one of the minimal families.
 We shall describe the seven minimal families next.
 We follow the same notation as in \cite{argyros2008rosenthal}.
 For any node $t\in 2^{<\mathbb{N}}$, we denote by $t^\frown 0^{\infty}$ ($t^\frown 1^{\infty}$) the infinite binary sequence starting with $t$ and continuing with all $0$’s (respectively, all $1$’s).
@@ -1583,7 +1574,7 @@ This is discrete in $\overline{D_7}=\hat{D}(S(2^{\mathbb{N}}))$.
 
 \begin{thm}[Heptachotomy of minimal families, Theorem 2 in \cite{argyros2008rosenthal}]
     Let $X$ be Polish.
-For every relatively compact $\{f_{t}:t\in 2^{<\mathbb{N}}\}\subseteq B_1(X)$, there exists $i=1,2,\dots, 7$ and a regular dyadic subtree $\{s_t:t\in 2^{<\mathbb{N}}\}$ of $2^{<\mathbb{N}}$ such that $\{f_{s_t}:t\in 2^{<\mathbb{N}}\}$ is equivalent to $D_i$.
+For every relatively compact $\{f_{t}:t\in 2^{<\mathbb{N}}\}\subseteq \mathrm{B}_1(X)$, there exists $i=1,2,\dots, 7$ and a regular dyadic subtree $\{s_t:t\in 2^{<\mathbb{N}}\}$ of $2^{<\mathbb{N}}$ such that $\{f_{s_t}:t\in 2^{<\mathbb{N}}\}$ is equivalent to $D_i$.
 Moreover, the families $D_i$ are minimal and mutually non-equivalent.
 \end{thm}
 
@@ -1608,7 +1599,7 @@ In this section, the countability assumption is not needed.
 
 \subsection{NIP and Monte Carlo computability of deep computations}
 
-By Fact~\ref{baire}, for perfectly normal $X$, a function $f$ is in $B_1(X,Y)$ if and only if $f^{-1}[U]$ is an $F_\sigma$ subset of $X$ for every open $U\subseteq Y$.
+By Fact~\ref{baire}, for perfectly normal $X$, a function $f$ is in $\mathrm{B}_1(X,Y)$ if and only if $f^{-1}[U]$ is an $F_\sigma$ subset of $X$ for every open $U\subseteq Y$.
 This motivates the following definition.
 
 \begin{defn}
@@ -1668,7 +1659,7 @@ The following result (which does not assume countability $\mathcal{P}$) gives an
 \begin{thm}
 [Bourgain-Fremlin-Talagrand, Theorem 2F in \cite{BFT_1978_PCompactBaire}]
 \label{thm:BFT-2F}
-    Let $X$ be a Hausdorff space and $A\subseteq C(X)$ be pointwise bounded.
+    Let $X$ be a Hausdorff space and $A\subseteq \mathrm{C}(X)$ be pointwise bounded.
 The following are equivalent:
     \begin{enumerate}[(i)]
         \item
@@ -1832,7 +1823,7 @@ We say that $A$ is \emph{universally Talagrand stable} if $A$ is Talagrand $\mu$
 We first observe that universal Talagrand stability implies NIP:
 
 \begin{prop}\label{prop:Talagrand-implies-NIP}
-    Let $X$ be a compact Hausdorff space and $A\subseteq C(X)$ be pointwise bounded.
+    Let $X$ be a compact Hausdorff space and $A\subseteq \mathrm{C}(X)$ be pointwise bounded.
 If $A$ is universally Talagrand stable, then $A$ satisfies the NIP.
 \end{prop}
 
@@ -1875,7 +1866,7 @@ On the other hand, the opposite is also consistent for the particular case of th
 \end{thm}
 
 Notice that the preceding two results apply to sets of measurable functions, a class of functions larger than the class of continuous functions.
-However, by the Extendibility Axiom, finitary computations are continuous, i.e., if $A$ is a set of computations, then $A\subseteq C_p(X)$.
+However, by the Extendibility Axiom, finitary computations are continuous, i.e., if $A$ is a set of computations, then $A\subseteq \Cp(X)$.
 
 
 
