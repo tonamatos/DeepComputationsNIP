@@ -66,6 +66,8 @@ pdfkeywords={}
 %%% Overleft arrow \ola
 \newcommand{\ora}{\overrightarrow}%[1]{\reflectbox{$\vec{\reflectbox{\!$#1$}}$}}
 \newcommand{\ola}{\overleftarrow}%[1]{\reflectbox{$\vec{\reflectbox{\!$#1$}}$}}
+%%% Double overbar
+\newcommand*{\bbar}[1]{\overline{\overline{#1}}}
 %%% Overarc \arc{…}
 \makeatletter
 \DeclareFontFamily{U}{tipa}{}
@@ -1058,7 +1060,7 @@ More explicitly, the unique deep equilibrium $\mathfrak{f}: \RP^1\to\RP^1$ of (t
  % The basin of attraction of $x=\sqrt{a}$ is $(0,\infty)$, of $-\sqrt{a}$ is $(\infty,0)$, and of $\infty$ is $\{0,\infty\}$.
  % The set of deep computations is $\{N_p^n\}_n\cup\{\mathfrak{f}\}\subseteq B_1(\mathcal{L},\mathcal{L})$.
 
-\subsection{Example: Computations on Cantor’s set}\label{subsec:finite_prec_threshold}
+\subsection{Example: Threshold classifiers on Cantor’s set}\label{sec:Cantor-classifiers}
 
 Consider the states space $L = 2^\mathbb{N}$ ($= \{0,1\}^{\mathbb{N}}$) consisting of all bit sequences $x = (x_n)_{n\in \mathbb{N}} \subseteq \{0,1\}$.
 The product space~$2^{\mathbb{N}}$ is compact%
@@ -1166,9 +1168,9 @@ of the first $n$ coordinates $P_i(x)=x_i$ ($i<n$) of its argument~$x\in 2^{\math
 % Let $(w_n)_n\subseteq 2^{<\mathbb{N}}$ be any sequence, and $\coloneqq({\preccurlyeq}{w_n})_n$
 Let $\varphi_{\bullet} = (\varphi_n)_n\subseteq C_p(2^{\mathbb{N}}, \{0,1\})\subseteq C_p(2^{\mathbb{N}})$ be any sequence of finite-precision threshold classifiers.
 Since each $\varphi_n$ is non-increasing function on~$2^{\mathbb{N}}$ for all~$n$, the same holds for any accumulation point $\varphi$ of $\varphi_{\bullet}$.
-It is easily shown that such accumulation points~$\varphi$, henceforth called \emph{general threshold classifiers}, are (unary) relations having, for some sequence $z\in 2^{\mathbb{N}}$, one of the forms%
-% \footnote{The identically true relation $\mathbf{1} = {\preccurlyeq}{()}$ is a general classifier.
-%   However, the identically false relation $\mathbf{0}$ —although of the form $\widehat{\phi}_{0_{\bullet}}$— is not a general classifier, because all general classifiers $\varphi$ satisfy~$\varphi(0_{\bullet}) = 1$.
+It is easily shown that such accumulation points~$\varphi$, henceforth called \emph{ultra-classifiers}, are (unary) relations having, for some sequence $z\in 2^{\mathbb{N}}$, one of the forms%
+% \footnote{The identically true relation $\mathbf{1} = {\preccurlyeq}{()}$ is an ultra-classifier.
+%   However, the identically false relation $\mathbf{0}$ —although of the form $\widehat{\phi}_{0_{\bullet}}$— is not an ultra-classifier, because all ultra-classifiers $\varphi$ satisfy~$\varphi(0_{\bullet}) = 1$.
 %   \label{fn:constant-relations}}
 \begin{itemize}
 \item $\Brack{\cdot\preceq z}$, denoted simply “${\preceq}z$”, or
@@ -1177,12 +1179,12 @@ It is easily shown that such accumulation points~$\varphi$, henceforth called \e
 % There should be no confusion with the notation ${\preccurlyeq}w$ above, since the latter is only used when $w\in 2^{<\mathbb{N}}$ is a word;
 % for clarity, one may always write ${\preccurlyeq}_nw$ instead of the potentially ambiguous~${\preccurlyeq}w$.
 
-Any finite-precision classifier is a general classifier.
+Any finite-precision classifier is an ultra-classifier.
 Indeed, ${\prec}0_{\bullet}$ is the false relation $\mathbf{0}$ (in agreement with our earlier convention);
-all other finite-precision classifiers are of the form ${\preccurlyeq}_nw$ and hence identical to the general classifier ${\preceq}\arc{w1_{\bullet}}$, as remarked above.
-Since (countably many) sequences of the form $\arc{w1_{\bullet}}$ for words $w\in 2^{<\mathbb{N}}$ are dense in~$2^{\mathbb{N}}$, one sees that general classifiers are \emph{sequential} limits of finite classifiers, hence are Baire-$1$ functions on~$2^{\mathbb{N}}$.
+all other finite-precision classifiers are of the form ${\preccurlyeq}_nw$ and hence identical to the ultra-classifier ${\preceq}\arc{w1_{\bullet}}$, as remarked above.
+Since (countably many) sequences of the form $\arc{w1_{\bullet}}$ for words $w\in 2^{<\mathbb{N}}$ are dense in~$2^{\mathbb{N}}$, one sees that ultra-classifiers are \emph{sequential} limits of finite classifiers, hence are Baire-$1$ functions on~$2^{\mathbb{N}}$.
 
-A general threshold classifier not of finite precision is called \emph{of infinite-precision};
+An ultra-classifier not of finite precision is called \emph{of infinite-precision};
 such infinite-precision classifiers are \emph{discontinuous} Baire-1 functions on~$2^{\mathbb{N}}$:
 the sole point of discontinuity of an infinite-precision classifier ${\preccurlyeq}x$ or ${\prec}x$ is~$x$.
 Unlike finite-precision classifiers, those of infinite precision are not definable, i.e., admit no (finite) Boolean expression in the coordinates~$x_i$.
@@ -1215,62 +1217,75 @@ $\mathrm{Cl}(\widehat{C}) = \cancel{C}\setminus\{\mathbf{1}\}$ and $\mathrm{Cl}(
 
 The upshot is that, starting from a countable set of quite simple finite-precision classifiers (nonincreasing boolean functions) on Cantor space, their accumulation points (“ultraclassifiers”, so to speak) constitute a much more complicated split Cantor $\cancel{C}\subseteq B_1(2^{\mathbb{N}})$.
 
-\subsection{Example: Finite precision prefix test}
+\subsection{Example: Prefix tests}
 \label{sec:prefix-test}
+Let $\mathcal{C} = (2^{\mathbb{N}},(\bullet_i)_{i\in \mathbb{N}})$ be the Cantor CSS of Section~§\ref{sec:Cantor-classifiers}.
+For each $w\in 2^{<\mathbb{N}}$, let ${\equiv}_nw$ be the unary $\{0,1\}$-valued relation $\Brack{\,\cdot\,\restr_n = w}: x\mapsto\Brack{x\restr_n = w}$ which holds if and only if $w$ is the $n$-prefix of~$x$ (i.e., the initial $n$-word of~$x$);
+any relation ${\equiv}_nw$ will be called an \emph{$n$-prefix test}, or simply a \emph{finite-prefix test}, when $n$ is otherwise unspecified.
+As for finite-precision classifiers in~§\ref{sec:Cantor-classifiers} above, the subscript $n$ in ${\equiv}_nw$ is determined as~$n = |w|$ and thus optional.
+One sees that all finite-prefix tests are continuous maps $2^{\mathbb{N}}\to\{0,1\}$;
+moreover, given~$w$ (of length~$n$), the formula $x\equiv_n\!w$ is explicitly definable as suitable boolean combination of the entries of $x\restr_n$.
+The test ${\equiv}w$ will also be denoted $\widetilde{w}$ when thought of as a $\{0,1\}$ valued function on~$2^{\mathbb{N}}$.
 
-In this subsection we present another example of a CCS with a more complicated set of deep computations. 
-Let $L=2^\mathbb{N}$ and $\mathcal{P}=\{P_n:n\in\mathbb{N}\}$ where $P_n(x)=x(n)$ are the projection maps so clearly $L\subseteq\mathbb{R}^\mathcal{P}$ and $\mathcal{L}=L$ (same computation states structure as subsection \ref{subsec:finite_prec_threshold}).
-For each $w\in 2^{<\mathbb{N}}$, let $\psi_w: L\rightarrow L$ be the transition given by:
-\begin{equation*}
-  \psi_w(x)
-  =
-  \begin{cases}
-    1^\infty, & \text{if }x|_{|w|}=w;\\
-    0^\infty, & \text{otherwise}.
-  \end{cases}
-\end{equation*}
-In other words, $\psi_w$ determines whether the first $|w|$ bits of a binary sequence is exactly $w$. 
-Let $\Delta=\{\psi_w:w\in 2^{<\mathbb{N}}\}$ and $\Gamma$ be the semigroup generated by $\Delta$. 
-Since the sets $\{x\in 2^\mathbb{N}:x|_{|w|}=w\}$ are open and closed in $2^\mathbb{N}$, we see that the transitions $\psi_w$ are all continuous.
-In particular, $(L,\mathcal{P},\Gamma)$ satisfies the Extendibility Axiom.
+\subsubsection{Value tests}
+\label{sec:value-tests}
+% Let $\varphi_{\bullet} = (\varphi_n)_n\subseteq C_p(2^{\mathbb{N}}, \{0,1\})\subseteq C_p(2^{\mathbb{N}})$ be any sequence of prefix tests.
+ \emph{Ultra-prefix tests} are relations $2^{\mathbb{N}}\to\{0,1\}$ that belong to the closure of prefix tests in the topology of pointwise convergence.
 
-Let us analyze the set of deep computations of $\Delta$. 
-The idea of these finite precision prefix tests $\psi_w$ is that they are approximating the equality relation on infinite binary sequences.
-For a given $a\in 2^\mathbb{N}$, let $\delta_a:L\rightarrow\{0^\infty,1^\infty\}$ be the indicator function at $a$, i.e., $\delta_a(x)=1^\infty$ if $x=a$ and $\delta_a(x)=0^\infty$ otherwise.
-
-\begin{prop}
-    $\delta_a\in\overline{\Delta}$ for all $a\in 2^\mathbb{N}$.
+\begin{prop}\label{prop:zero-ultraprefix}
+  The identically false relation $\mathbf{0}$ is an ultra-prefix test.
 \end{prop}
-
 \begin{proof}
-    Fix $a\in 2^\mathbb{N}$, and let  $w_n:=a|_n$ for each $n\in\mathbb{N}$. 
-    We claim that $\lim_{n\rightarrow\infty}\psi_{w_n}(x)=\delta_a(x)$ for all $x\in L$. 
-    If $x=a$, then $x|_{|w_n|}=w_n$ for all $n$ and so $\psi_{w_n}(x)=1^\infty=\delta_a(x)$ for all $n$.
-    If $x\neq a$, then $x|_{|w_n|}\neq w_n$ for large enough $n$.
-    Hence, $\psi_{w_n}(x)=0^\infty=\delta_a(x)$ for large enough $n$.
+  It suffices to show that the sets
+  \begin{align*}
+    W^{\not{\equiv}}_x &\coloneq \{w\in 2^{<\mathbb{N}}: x\not\equiv w\}&
+                                    (x\in 2^{\mathbb{N}})
+  \end{align*}
+  are a filter sub-base on~$2^{<\mathbb{N}}$, i.e., that for any finite collection $(x_i)_{i<m} \subseteq 2^{\mathbb{N}}$, the corresponding family $(W^{\not{\equiv}}_i)_{i<m} \coloneq (W^{\not{\equiv}}_{x_i})_{i<m}$ has nonempty intersection.%
+  \footnote{From the definition of the sets $W^{\not{\equiv}}_x$, it should be evident that $\mathbf{0}$ is an ultra-prefix if \emph{and only if} they altogether form a filter sub-base.\label{fn:zero-ultraprefix}}
+  Let $k\in \mathbb{N}$ satisfy%
+  \footnote{One may trivially take $k=m$, but the flow of the proof is obscured.}
+  $2^k>m$;
+  thus, at most $m$-many distinct $k$-words $w\in 2^k$ are of the form $w = x_i$ for some $i<m$;
+  some $k$-word $w^{*}\in 2^k$ is not of that form;
+  the intersection $\bigcap_{i<m}W^{\not{\equiv}}_i$ contains~$w^{*}$, hence is nonempty.
 \end{proof}
 
-These equality tests $\delta_a$ are not all the deep computations. The other deep computation we are missing is the constant map $\mathbf{0^\infty}$.
+% It is clear from the proof of Proposition~\ref{prop:zero-ultraprefix} above (cf., footnote~\footref{fn:zero-ultraprefix}) that
 
-\begin{prop}
-    $\mathbf{0^\infty}\in\overline{\Delta}$.
+\begin{prop}\label{prop:ultra-prefixes}
+  Any ultra-prefix test is either the constant $0_{\bullet}$, a finite-prefix test, or an \emph{equality test}
+  \begin{equation*}
+    \bbar{x}: 2^{\mathbb{N}}\to\{0,1\}: y\mapsto \Brack{y = x}
+  \end{equation*}
+  for some fixed $x\in 2^{\mathbb{N}}$.
+  Such equality tests are Baire-$1$ on~$2^{\mathbb{N}}$.
 \end{prop}
-
 \begin{proof}
-    To show that $\mathbf{0^\infty}\in\overline{\Delta}$, for each $n\in\mathbb{N}$,  consider, ${w_n=1^n}^\frown 0$, i.e., the string consisting of $n$ consecutive $1$s followed by a $0$. 
-    If $x=1^\infty$, then $x|_{|w_n|}\neq w_n$ for all $n\in\mathbb{N}$.
-    Hence, $\psi_{w_n}(x)=0^\infty$ for all $n\in\mathbb{N}$.
-    If $x\neq 1^\infty$, let $N$ be the smallest such that $x(N)=0$.
-    Then, $x|_{|w_n|}\neq w_n$ for all $n>N$.
-    Hence, $\psi_{w_n}(x)=0^\infty$ for large enough $n$.
+  From the proof of Proposition~\ref{prop:zero-ultraprefix} and the remark in footnote\footref{fn:zero-ultraprefix}, one sees that any non-zero ultra-prefix~$\varphi$ is necessarily an accumulation point of a finite union of sets of the form $\widetilde{W}_x \coloneq \{\widetilde{w}: x\equiv w\in 2^{\mathbb{N}}\}$, and therefore must be an accumulation point of some (single) such set~$\widetilde{W}_{\!x^{*}}$ for some $x^{*}\in 2^{\mathbb{N}}$.
+  % All finite-prefix tests $\widetilde{w}$ ($=\widetilde{x^{*}\restr_n}$ for some $n\in \mathbb{N}$) are accumulation points of
+  One readily sees that $\widetilde{W}_{\!x^{*}} = \{\widetilde{w_n}: n\in \mathbb{N}\}$ where $w_n \coloneqq x^{*}\restr_n$.
+  It remains to show that $\bbar{x^{*}}$ is the sole limit point of $(\widetilde{w_n})_{n\in \mathbb{N}}$, and sequentially so in the pointwise topology.
+  Indeed, for all $y\in 2^{\mathbb{N}}$, we have
+  \begin{equation*}
+    \lim_{n\to\infty}\widetilde{w_n}(y)
+    =
+    \lim_{n\rightarrow\infty}\Brack{y\equiv_nx^{*}\restr_n}
+    =
+    \Brack{y= x^{*}}
+    =
+    \bbar{x^{*}}(y).\qedhere
+  \end{equation*}
 \end{proof}
+% (resembling the notations ${\preceq}y$ and $\bar{y}$ of~§~\ref{sec:infin-prec-class}).
+Unlike finite-prefix tests, equality tests are discontinuous.
 
-In fact, $\overline{\Delta}=\Delta\cup\{\delta_a:a\in 2^\mathbb{N}\}\cup\{\mathbf{0^\infty}\}$ and this space is known as the \emph{Extended Alexandroff compactification of $2^\mathbb{N}$} (see Example \ref{exa:Rosenthal-compacta}-(2)).
-One key topological property about this space is that $\mathbf{0^\infty}$ is not a $G_\delta$ point, i.e., $\{\mathbf{0^\infty}\}$ is not a countable intersection of open sets.
-Moreover, $\mathbf{0^\infty}$ is the only non-$G_\delta$ point.
-It is well-known that in a Hausdorff, first countable space every point is $G_\delta$. 
-This shows that our space of deep computations is not first countable. 
-This space also contains a discrete subspace of size continuum, namely $\{\delta_a:a\in 2^\mathbb{N}\}$.
+The space $\mathcal{A} = \widetilde{\mathcal{A}} \cup \bbar{\mathcal{A}} \cup \{0_{\bullet}\}$ is (homeomorphic to) the \emph{extended Alexandroff compactification of~$2^{\mathbb{N}}$}.
+This space possesses key topological property that $\mathbf{0}$ is not a $G_\delta$ point, i.e., $\{\mathbf{0}\}$ is not a countable intersection of open sets;
+$\mathbf{0}$ is the only such non-$G_\delta$ point.
+It follows that the space of ultra-prefix tests is not first-countable
+(in a first-countable Hausdorff space all points are~$G_\delta$). 
+The subspace $\bbar{\mathcal{A}}$ is discrete of size continuum.
 
 \section{Classifying deep computations}
 \label{sec:Classification}
@@ -1377,7 +1392,7 @@ Let $<$ be the lexicographic order in the space $2^\mathbb{N}$ of infinite binar
 For each $a\in 2^\mathbb{N}$ let $f_a^-:2^\mathbb{N}\rightarrow\mathbb{R}$ be given by $f_a^-(x)=1$ if $x<a$ and $f_a^-(x)=0$ otherwise.
 Let $f_a^+:2^\mathbb{N}\rightarrow\mathbb{R}$ be given by $f_a^+(x)=1$ if $x\leq a$ and $f_a^+(x)=0$ otherwise.
 The Split Cantor is the space $S(2^\mathbb{N})=\{f_a^-:a\in 2^\mathbb{N}\}\cup\{f_a^+:a\in 2^\mathbb{N}\}$.
-This space was obtained as the closure of the space discussed in Section~\ref{subsec:finite_prec_threshold}, thus giving an example that separates $\NIP_2$ from $\NIP_3$.
+This space was obtained as the closure of the space discussed in Section~\ref{sec:Cantor-classifiers}, thus giving an example that separates $\NIP_2$ from $\NIP_3$.
 
 This is a well known separable Rosenthal compactum;
 an example of a countable dense subset is the set of all $f_a^+$ and $f_a^-$ where $a$ is an infinite binary sequence that is eventually constant.
@@ -1479,7 +1494,7 @@ The following examples show that the levels $\NIP_i$ ($i=1,2,3$) may be distingu
     We saw that $\overline{\tilde{\Delta}}=\tilde{\Delta}\cup\{\tilde{f}\}\subseteq B_1(\mathcal{L},\mathcal{L})$.
     This corresponds to the Alexandroff compactification of a countable discrete set, which is metrizable. Hence, $\Delta$ is $\NIP_3$ but it is not stable, in the sense that $\overline{\tilde{\Delta}}\not\subseteq C(\mathcal{L},\mathcal{L})$.
 
-    \item Let $(L,\mathcal{P},\Gamma)$ be the finite precision threshold classifiers (Section~\ref{subsec:finite_prec_threshold}) with $\Delta=\{\phi_w:w\in 2^{<\mathbb{N}}\}\cup\{\mathbf{0^\infty},\mathbf{1^\infty}\}$.
+    \item Let $(L,\mathcal{P},\Gamma)$ be the finite precision threshold classifiers (Section~\ref{sec:Cantor-classifiers}) with $\Delta=\{\phi_w:w\in 2^{<\mathbb{N}}\}\cup\{\mathbf{0^\infty},\mathbf{1^\infty}\}$.
     We saw that $\overline{\Delta}$ is homeomorphic to the Split Cantor space $S(2^\mathbb{N})$ (Example \ref{exa:Rosenthal-compacta}-(3)), which is hereditarily separable but not metrizable.
     Hence, $\Delta$ is $\NIP_2$ but not $\NIP_3$.
 
