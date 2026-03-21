@@ -1166,9 +1166,10 @@ of the first $n$ coordinates $P_i(x)=x_i$ ($i<n$) of its argument~$x\in 2^{\math
 \subsubsection{Infinite-precision threshold classifiers}
 \label{sec:infin-prec-class}
 % Let $(w_n)_n\subseteq 2^{<\mathbb{N}}$ be any sequence, and $\coloneqq({\preccurlyeq}{w_n})_n$
-Let $\varphi_{\bullet} = (\varphi_n)_n\subseteq C_p(2^{\mathbb{N}}, \{0,1\})\subseteq C_p(2^{\mathbb{N}})$ be any sequence of finite-precision threshold classifiers.
-Since each $\varphi_n$ is non-increasing function on~$2^{\mathbb{N}}$ for all~$n$, the same holds for any accumulation point $\varphi$ of $\varphi_{\bullet}$.
-It is easily shown that such accumulation points~$\varphi$, henceforth called \emph{ultra-classifiers}, are (unary) relations having, for some sequence $z\in 2^{\mathbb{N}}$, one of the forms%
+% Let $\varphi_{\bullet} = (\varphi_n)_n\subseteq C_p(2^{\mathbb{N}}, \{0,1\})\subseteq C_p(2^{\mathbb{N}})$ be any sequence of finite-precision threshold classifiers.
+\emph{Threshold ultra-classifiers} are relations $2^{\mathbb{N}}\to\{0,1\}$ in the closure of the set of finite-precision classifiers.
+Since each finite-precision classifier is a non-increasing function on~$2^{\mathbb{N}}$, the same holds for any ultra-classifier.
+It is easily shown that such ultra-classifiers have, for some sequence $z\in 2^{\mathbb{N}}$, one of the forms%
 % \footnote{The identically true relation $\mathbf{1} = {\preccurlyeq}{()}$ is an ultra-classifier.
 %   However, the identically false relation $\mathbf{0}$ —although of the form $\widehat{\phi}_{0_{\bullet}}$— is not an ultra-classifier, because all ultra-classifiers $\varphi$ satisfy~$\varphi(0_{\bullet}) = 1$.
 %   \label{fn:constant-relations}}
@@ -1181,7 +1182,7 @@ It is easily shown that such accumulation points~$\varphi$, henceforth called \e
 
 Any finite-precision classifier is an ultra-classifier.
 Indeed, ${\prec}0_{\bullet}$ is the false relation $\mathbf{0}$ (in agreement with our earlier convention);
-all other finite-precision classifiers are of the form ${\preccurlyeq}_nw$ and hence identical to the ultra-classifier ${\preceq}\arc{w1_{\bullet}}$, as remarked above.
+all other finite-precision classifiers are of the form ${\preccurlyeq}_nw$ and hence identical to the ultra-classifier ${\preceq}\arc{w1_{\bullet}}$ as remarked above.
 Since (countably many) sequences of the form $\arc{w1_{\bullet}}$ for words $w\in 2^{<\mathbb{N}}$ are dense in~$2^{\mathbb{N}}$, one sees that ultra-classifiers are \emph{sequential} limits of finite classifiers, hence are Baire-$1$ functions on~$2^{\mathbb{N}}$.
 
 An ultra-classifier not of finite precision is called \emph{of infinite-precision};
@@ -1215,7 +1216,7 @@ indeed, each is basically dense:%
 \footnote{The constant relations $\mathbf{0}$, $\mathbf{1}$ are isolated points of~$\cancel{C}$.}
 $\mathrm{Cl}(\widehat{C}) = \cancel{C}\setminus\{\mathbf{1}\}$ and $\mathrm{Cl}(\overline{C}) = \cancel{C}\setminus\{\mathbf{0}\}$.
 
-The upshot is that, starting from a countable set of quite simple finite-precision classifiers (nonincreasing boolean functions) on Cantor space, their accumulation points (“ultraclassifiers”, so to speak) constitute a much more complicated split Cantor $\cancel{C}\subseteq B_1(2^{\mathbb{N}})$.
+The upshot is that, starting from a countable set of quite simple finite-precision classifiers (nonincreasing boolean functions) on Cantor space, ultraclassifiers form a much more complicated split Cantor $\cancel{C}\subseteq B_1(2^{\mathbb{N}})$.
 
 \subsection{Example: Prefix tests}
 \label{sec:prefix-test}
