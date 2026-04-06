@@ -348,7 +348,7 @@ For a proof, see~\cite[Section 10]{Todorcevic_1997_TopicsTop}.
 \subsection{From Rosenthal’s dichotomy to the Bourgain-Fremlin-Talagrand dichotomy to Shelah’s NIP}
 
 In metrizable spaces, the closure of a subset consists of limits of convergent sequences therein.
-In general spaces, including many $\Cp$-spaces, such a characterization of closures fails in remarkable ways.
+In general, such a characterization of the closure fails in remarkable ways.
 
 The $n$-th coordinate map $p_n: 2^{\mathbb{N}}\to\{0,1\}$ on the Cantor space $X = 2^\mathbb{N}$ ($= \{0, 1\}^{\mathbb{N}}$) is continuous for each $n\in \mathbb{N}$;
 however,  $(p_n)_{n\in\mathbb{N}}$ has \emph{no} convergent subsequences in $\mathbb{R}^X$ (\cite[Chapter~1.1]{Todorcevic_1997_TopicsTop}).
@@ -370,8 +370,7 @@ The genesis of the dichotomy was \emph{Rosenthal’s $\ell_1$-Theorem}, which st
 The $\ell_1$-Theorem connects diverse areas:
 Banach space geometry, Ramsey theory, set theory, and topology of function spaces.
 
-As we move from $\Cp(X)$ to the larger space $\mathrm{B}_1(X)$, a dichotomy paralleling the $\ell_1$-Theorem holds:
-Either every point in the closure of a set of functions is a Baire class~1 function, or there is a sequence in the set behaving in the wildest possible way.
+As we move from $\Cp(X)$ to the larger space $\mathrm{B}_1(X)$, a dichotomy paralleling the $\ell_1$-Theorem holds.
 This result is usually not phrased as a dichotomy in the above manner, but rather as an equivalence (see Theorem~\ref{thm:BFT} below).
 
 First, we introduce some useful notation.
@@ -529,9 +528,9 @@ In this paper, we use them to study deep computations.
 Fix an arbitrary (at most) countable set~$\mathcal{P}$ whose elements $P\in \mathcal{P}$ will be called \emph{predicate symbols} or \emph{formal predicates}.
 Our present goal is to characterize relatively compact subsets of $\mathrm{B}_1(X,\mathbb{R}^\mathcal{P})$, where $X$ is always assumed to be a perfectly normal space (typically a Polish space).
 
-The set $\mathcal{P}$ shall be considered discrete whenever garded as a topological space.
+The set $\mathcal{P}$ shall be considered discrete whenever regarded as a topological space.
 Since $\Cp(X, \mathbb{R}^{\mathcal{P}})\subseteq \mathrm{B}_1(X, \mathbb{R}^{\mathcal{P}})\subseteq (\mathbb{R}^{\mathcal{P}})^X$, the ``ambient'' space $(\mathbb{R}^{\mathcal{P}})^X$ is quite relevant.
-The product $X\times \mathcal{P}$ will be regarded as either a pointset, or as a topological product depending on context.
+The product $X\times \mathcal{P}$ will be regarded as either a point set, or as a topological product depending on context.
 We have natural homeomorphic identifications
 \begin{equation*}
   (\mathbb{R}^{\mathcal{P}})^X \cong \mathbb{R}^{X\times \mathcal{P}} \cong (\mathbb{R}^X)^{\mathcal{P}},
@@ -546,7 +545,7 @@ where
   \hat{}\varphi(x)\coloneqq \varphi(x, \cdot)\in \mathbb{R}^{\mathcal{P}}, &&
   \varphi\,\hat{}(P)\coloneqq \varphi(\cdot, P) \in \mathbb{R}^X.
 \end{align*}
-Such identifications view $X$ and $\mathcal{P}$ as mere pointsets (the topology of~$X$ in particular plays no role).
+Such identifications view $X$ and $\mathcal{P}$ as mere point sets (the topology of~$X$ in particular plays no role).
 % They may be used implicitly, so $\varphi(x)$ means\ $\hat{}\varphi(x)$, and $\varphi(P)$ means $\varphi\,\hat{}(P)$.
 
 For $x\in X$, define the ``left projection'' map
@@ -655,7 +654,7 @@ A \emph{transition} of a computation states structure $(L,\mathcal{P})$ is a map
 
 The \emph{type} of a state $v\in L$ is the indexed family%
 \footnote{As in~§\ref{prop:Baire-identifications} above, we regard each predicate on $L$ as named by a specific formal label~$P$ (a \emph{predicate symbol}) which is given the semantic meaning of a \emph{bona fide} real function $P(\cdot): v\mapsto P(v)$ (the predicate proper) in the computation states structure.
-Such formal symbol~$P$ becomes \emph{de facto} the name of an observable feature having the real value $P(v)$ at any state $v\in L$.
+Such a formal symbol~$P$ becomes \emph{de facto} the name of an observable feature having the real value $P(v)$ at any state $v\in L$.
 Whenever $\mathcal{P}$ is used as an index set (e.g., as in the topological product $\mathbb{R}^{\mathcal{P}}$ below), it is regarded as a set of formal symbols.
 This syntactic vs.\ semantic abuse of nomenclature is commonplace in mathematics, but the model-theoretic framework requires contextual awareness of the distinction.
 To disambiguate when necessary, we shall write $P(\cdot)$, implying the semantic meaning of a real function on~$L$, in contrast to~$P$, meant as a purely syntactic symbol.
@@ -807,7 +806,7 @@ To summarize, for a function $f: L\to \mathcal{L}$, the following conditions are
 \item
 $f$ is computable
 \item
-$f$ has is uniformly polynomially approximable features on shards
+$f$ has uniformly polynomially approximable features on shards
 \item
 $f$ extends to a continuous map~$\mathcal{L}\to \mathcal{L}$.
 \end{itemize}
@@ -1088,7 +1087,7 @@ The set of all finite-length words is the disjoint union $2^{<\mathbb{N}}\colone
 the (unambiguously defined) length~$n$ of any word~$w\in 2^{<\mathbb{N}}$ is denoted~$|w|$.
 For $m\ge n$, we also have natural continuous restriction maps (projections)
 $2^{\mathbb{N}}\rightarrow 2^m\rightarrow 2^n$.
-The restriction of~$x$ —either a sequence or a word of length $m\ge n$— to a length-$n$ word is denoted $x\restr_n$ (i.e., $\cdot\restr_n$ projects onto~$2^n$).
+The restriction of~$x$ — either a sequence or a word of length $m\ge n$— to a length-$n$ word is denoted $x\restr_n$ (i.e., $\cdot\restr_n$ projects onto~$2^n$).
 Since the index set $\mathbb{N}$ and the value space~$2 = \{0, 1\}$ are well-ordered, the spaces $2^{\mathbb{N}}$ as well as $2^{<\mathbb{N}}$ and $2^n$ for $n\in \mathbb{N}$ carry a natural lexicographical order henceforth denoted~$\preceq$;
 the order topology coincides with the (product) topology of~$2^{\mathbb{N}}$.
 All restriction maps~$\cdot\restr_n$ are continuous and order-preserving.
@@ -1213,11 +1212,11 @@ Thus, $\cancel{C}$ is \emph{not} homeomorphic to the product $\{0,1\}\times 2^{\
                                                \overline{C} \cong 2^{\mathbb{N}}\times\{1\}: \bar{x}\mapsto(x,1).
 \end{align*}
 Each of these two parts is homeomorphic to the Cantor set~$2^{\mathbb{N}}$, but they are \emph{not} open;
-indeed, each is basically dense:%
+indeed, each is essentially dense:%
 \footnote{The constant relations $\mathbf{0}$, $\mathbf{1}$ are isolated points of~$\cancel{C}$.}
 $\mathrm{Cl}(\widehat{C}) = \cancel{C}\setminus\{\mathbf{1}\}$ and $\mathrm{Cl}(\overline{C}) = \cancel{C}\setminus\{\mathbf{0}\}$.
 
-The upshot is that, starting from a countable set of quite simple finite-precision classifiers (nonincreasing boolean functions) on Cantor space, ultraclassifiers form a much more complicated split Cantor $\cancel{C}\subseteq \mathrm{B}_1(2^{\mathbb{N}})$.
+The upshot is that, starting from a countable set of quite simple finite-precision classifiers (nonincreasing Boolean functions) on Cantor space, ultraclassifiers form a much more complicated split Cantor $\cancel{C}\subseteq \mathrm{B}_1(2^{\mathbb{N}})$.
 
 \subsection{Example: Prefix tests}
 \label{sec:prefix-test}
@@ -1226,7 +1225,7 @@ For each $w\in 2^{<\mathbb{N}}$, let ${\equiv}_nw$ be the unary $\{0,1\}$-valued
 any relation ${\equiv}_nw$ will be called an \emph{$n$-prefix test}, or simply a \emph{finite-prefix test}, when $n$ is otherwise unspecified.
 As for finite-precision classifiers in~§\ref{sec:Cantor-classifiers} above, the subscript $n$ in ${\equiv}_nw$ is determined as~$n = |w|$ and thus optional.
 One sees that all finite-prefix tests are continuous maps $2^{\mathbb{N}}\to\{0,1\}$;
-moreover, given~$w$ (of length~$n$), the formula $x\equiv_n\!w$ is explicitly definable as suitable boolean combination of the entries of $x\restr_n$.
+moreover, given~$w$ (of length~$n$), the formula $x\equiv_n\!w$ is explicitly definable as suitable Boolean combination of the entries of $x\restr_n$.
 The test ${\equiv}w$ will also be denoted $\widetilde{w}$ when thought of as a $\{0,1\}$ valued function on~$2^{\mathbb{N}}$.
 
 \subsubsection{Ultra-prefix tests and equality}
@@ -1811,9 +1810,9 @@ The following technical lemma will be instrumental for proving Proposition~\ref{
 
 \begin{proof}
 If $A$ is Talagrand $\mu$-stable, so is $\overline{A}$, by Remarks~\ref{rem:Talgrand-stability}.
-    Suppose that $A$  is Talagrand $\mu$-stable. To show that $\overline{A}\subseteq \mathscr{M}^0(X,\mu)$.
-    Suppose, by contradiction,  that there exists $f\in\overline{A}$ such that $f\notin \mathscr{M}^0(X,\mu)$.
-    By fact \ref{fact:meas-fns-charn}, there exists a $\mu$-measurable set $E$ of positive measure and $a<b$ such that $\mu^*(P)=\mu^*(Q)=\mu(E)$ where $P=\{x\in E: f(x)\leq a\}$ and $Q=\{x\in E: f(x)\geq b\}$.
+    Suppose that $A$  is Talagrand $\mu$-stable to show that $\overline{A}\subseteq \mathscr{M}^0(X,\mu)$.
+    Assume, for the sake of contradiction that there exists $f\in\overline{A}$ such that $f\notin \mathscr{M}^0(X,\mu)$.
+    By Fact \ref{fact:meas-fns-charn}, there exists a $\mu$-measurable set $E$ of positive measure and $a<b$ such that $\mu^*(P)=\mu^*(Q)=\mu(E)$ where $P=\{x\in E: f(x)\leq a\}$ and $Q=\{x\in E: f(x)\geq b\}$.
     Then, for any $k\geq 1$: $(P\times Q)^k\subseteq D_k(\{f\},E,a,b)$, so $(\mu^{2k})^*(D_k(\{f\},E,a,b))=(\mu^*(P)\mu^*(Q))^k=(\mu(E))^{2k}$.
     Thus, the set $\{f\}$ is not $\mu$-stable. 
     However, $\{f\}\subseteq\overline{A}$ and we know (Remarks~\ref{rem:Talgrand-stability}) that a subset of a $\mu$-stable set must be $\mu$-stable,
