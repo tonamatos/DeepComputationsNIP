@@ -144,11 +144,11 @@ $^{2}$Department of Mathematics, University of Toronto\\
 }
 
 \begin{abstract}
-We use topological methods and a suitable framework to study the complexity of limit computations (such as so-called “deep computations” implied by recurrent neural networks).
+We use topological methods and a suitable framework to study the complexity of limit computations (such as so-called “deep computations” arising in recurrent neural networks).
 By using topology of function spaces —specifically, the classification of Rosenthal compacta— we identify new computational complexity classes.
-These classes form a strict hierarchy, each level of which is realized by classical algorithms, among them the power method, Bresenham’s line algorithm and Newton’s method; for iterative algorithms, the hierarchy coincides with a hierarchy of tame dynamical systems.
+These classes form a strict hierarchy, each level of which is realized by classical computations such as the power method and Bresenham’s line algorithm, while Newton’s method on the Riemann sphere lies outside it; for iterative algorithms, the hierarchy coincides with a hierarchy of tame dynamical systems.
 The language of model theory, particularly, the concept of \emph{independence} from Shelah’s classification theory, provides a medium to translate between topology and computation.
-The theory of Rosenthal compacta allows us to characterize approximability of deep computations, both deterministically and probabilistically.
+Rosenthal compacta, and their measure-theoretic counterpart, give conditions for deep computations to be approximable, deterministically and probabilistically.
 \end{abstract}
 
 \maketitle
@@ -161,14 +161,14 @@ In this paper we  study asymptotic behavior of computations as parameters of the
 Recently, particular cases of this concept have attracted considerable attention in deep learning research (e.g., Neural Ordinary Differential Equations~\cite{Chen:2018}, Physics-Informed Neural Networks~\cite{Raissi-Perdikaris-Karniadakis:2019}, and Deep Equilibrium Models~\cite{Bai:2019}).
 The formal framework introduced here  provides a unified setting to study these limit phenomena from a foundational viewpoint.
 
-The main result of the paper is the identification of a hierarchy of four distinct complexity classes for limit computations.
+The main result of the paper is the identification of a hierarchy of four distinct classes of tame limit computations, below the stable ones.
 This is obtained by invoking a major result about  topology of spaces of functions, namely,
 Todorčević’s trichotomy for Rosenthal compacta~\cite{Todorcevic_1999_CompactSubsetsBaire} and transferring it into the realm of computation.
 The medium that we use to translate between topology and computation is model theory, specifically, Shelah’s classification theory~\cite{Shelah:1990}.
 
 The translation between topology and computation proceeds as follows.
-To every computation in a given computation model, we associate a continuous real-valued function, called the \emph{type} of the computation, that describes the logical properties of this computation with respect to the rest of the model.
-This association allows us to view computations in any given computational model as elements of a space of real-valued functions, which is called the \emph{space of types} of the model.
+To every state of a computation we associate its \emph{type}, the list of values of the basic predicates of the model at that state, which describes the logical properties of the state with respect to the rest of the model.
+The types form a space of real-valued functions, called the \emph{space of types} of the model, and computations act on spaces of types.
 The idea of embedding models of theories into their type spaces is borrowed from model theory, where type spaces play a central role.
 The embedding of computations into spaces of types then allows us to utilize the vast theory of topology of function spaces, known as \emph{$\Cp$-theory}, to obtain results about complexity of topological limits of computations.
 As we shall indicate next, recent classification results for spaces of functions provide an elegant and powerful machinery to classify computations according to their levels of ``tameness’’ or ``wildness’’, in the sense of Shelah’s independence property, which in combinatorics separates polynomial from exponential growth (Section~\ref{sec:NIP-poly-exp}).
@@ -201,13 +201,10 @@ Deep computations arise as topological limits of standard (continuous) computati
 In topology, the \emph{first Baire class}, or \emph{Baire class~1} consists of functions (also called simply \emph{Baire-1}) arising as pointwise limits of sequences of continuous functions.
 Intuitively, the first Baire class consists of functions with ``controlled'' discontinuities, and lies just one level of topological complexity above the Baire class 0, which (by definition) consists of continuous functions.
 
-We apply a result of Bourgain, Fremlin and Talagrand from the late 1970s on compact subsets of the first Baire class to obtain a new ``tame vs wild'' dichotomy for  deep computations~\cite{BFT_1978_PCompactBaire}; 
-then, we apply a trichotomy of Todorčević, from the late 90s, for \emph{Rosenthal compacta} to identify new tame classes~\cite{Todorcevic_1999_CompactSubsetsBaire}.
-
 A Rosenthal compactum  is a compact topological space that is homeomorphic to a subspace of the space of Baire class~1 functions on some Polish (i.e., separable, completely metrizable) space equipped with the topology of pointwise convergence.
 Rosenthal compacta exhibit ``topological tameness,'' meaning that they behave in relatively controlled ways.
 Since the late 70’s, they have played a crucial role in understanding the complexity of structures of functional analysis, especially Banach spaces.
-Todorčević’s trichotomy for Rosenthal compacta has been utilized to settle longstanding problems in topological dynamics and topological entropy~\cite{glasner2022tame}.
+Todorčević’s trichotomy for Rosenthal compacta has been used to organize the tame dynamical systems into a hierarchy~\cite{glasner2022tame}.
 It is noteworthy that Todorčević’s proof relies on sophisticated set-theoretic  forcing and infinite Ramsey theory.
 At the time of writing this paper, decades after his original argument, there are no elementary proofs of the trichotomy; 
 in fact, Todorčević’s methods have been analyzed and exploited further~\cite{Todorcevic:2023,horowitz2019compactsetsbaireclass}.
@@ -215,9 +212,9 @@ in fact, Todorčević’s methods have been analyzed and exploited further~\cite
 Through our Rosetta stone, Rosenthal compacta in topology correspond to the important concept of \emph{No-Independence Property} (known as ``NIP'') in model theory, identified by Shelah~\cite{Shelah:1971,Shelah:1990}, and to the concepts \emph{VC-dimension} and \emph{Probably Approximately Correct} learning (known as ``PAC learnability'') in statistical learning theory~\cite{Vapnik-Chervonenkis:1971, Vapnik-Chervonenkis:1974, Valiant:1984}.
 
 Beyond Todorčević’s trichotomy, we invoke a more recent heptachotomy for separable Rosenthal compacta obtained by Argyros, Dodos and Kanellopoulos~\cite{argyros2008rosenthal}.
-These authors identify seven fundamental ``prototypes" of separable Rosenthal compacta, and show that any non-metrizable separable Rosenthal compactum must contain a ``canonical'' embedding of one of these prototypes.
+These authors identify seven minimal ``prototype'' families of functions indexed by the binary tree, and show that every relatively compact family of Baire class~1 functions indexed by the binary tree contains, along a dyadic subtree, a family equivalent to one of them.
 
-From the point of view of approximation theory, it is noteworthy that in the context of Grothendieck~\cite{Grothendieck:1952} and  Bourgain-Fremlin-Talagrand~\cite{BFT_1978_PCompactBaire}, compactness and sequential compactness coincide; thus, the results of these papers allow us to ensure that deep computations, which in principle are abstract ultrafilter limits (over a possibly uncountable set), can always be approximated by concrete  \emph{sequences} of standard computations.
+From the point of view of approximation theory, it is noteworthy that in the context of Grothendieck~\cite{Grothendieck:1952} and  Bourgain-Fremlin-Talagrand~\cite{BFT_1978_PCompactBaire}, compactness and sequential compactness coincide; thus, the results of these papers ensure that, when the computations are $\NIP$, deep computations, which in principle are abstract ultrafilter limits (over a possibly uncountable set), can be approximated by concrete \emph{sequences} of standard computations.
 
 We believe that the results presented in this paper show practitioners of computation, or topology, or descriptive set theory, or model theory, how classification invariants used in their field translate into classification invariants of other fields.
 In the interest of accessibility, we do not assume that the reader has previous familiarity with advanced topology, model theory, or computing.
@@ -225,7 +222,7 @@ The only technical prerequisites to read this paper are undergraduate-level topo
 The necessary topological background beyond undergraduate topology is covered in section~\ref{sec:prelim}.
 
 \subsection*{Main results}
-Theorem~\ref{thm:nip-baire1def} shows that a countable set of computations with countably many predicates satisfies the $\NIP$, feature by feature and on shards, if and only if its deep computations form a Rosenthal compactum; in that case every deep computation is the limit of a \emph{sequence} of computations.
+Theorem~\ref{thm:nip-baire1def} shows that, when there are countably many predicates, a set of computations satisfies the $\NIP$, feature by feature and on shards, if and only if its deep computations are of the first Baire class on each shard, that is, form Rosenthal compacta; in that case every deep computation is the limit of a \emph{sequence} of computations.
 Using Todorčević’s trichotomy, we then define three levels of tameness (Definition~\ref{def:NIP-levels}) and obtain the hierarchy
 \[
 \text{stable}\Rightarrow\NIP_3\Rightarrow\NIP_2\Rightarrow\NIP_1\Rightarrow\NIP,
@@ -242,7 +239,7 @@ In Section~\ref{sec:CCS}, we introduce compositional computation structures, the
 Section~\ref{sec:Classification} is devoted to the classification of deep computations; it contains the main theorems.
 The remaining sections are examples and a generalization.
 Section~\ref{sec:examples} treats Newton’s method, threshold classifiers and prefix tests in detail, and Section~\ref{sec:iterative} places examples at every level of the hierarchy, including classical iterative algorithms.
-The final section, Section~\ref{sec:measure-theoretic-NIP}, replaces topological limits by a probabilistic viewpoint, the development of which we intend to extend in future research.
+The final section, Section~\ref{sec:measure-theoretic-NIP}, replaces topological limits by a probabilistic viewpoint, the development of which we intend to extend in future research; it ends with the question whether $\NIP$ and Talagrand stability can differ for countable sets of computations (Question~\ref{q:NIP-vs-Talagrand}).
 
 Throughout the paper, our results pertain to classical models of computation (particularly computations involving real-valued quantities that are known and manipulated to a finite degree of precision).
 
