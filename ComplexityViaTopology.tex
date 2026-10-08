@@ -1757,7 +1757,7 @@ To motivate the definition, let us first recall two facts:
 
 \begin{enumerate}
 \item
-Littlewoood’s second principle states that every Lebesgue measurable function is ``nearly continuous''.
+Littlewood’s second principle states that every Lebesgue measurable function is ``nearly continuous''.
 The formal statement of this, which is Luzin’s theorem, is that if
  $(X,\Sigma ,\mu )$ a Radon measure space and $Y$ is a second-countable topological space (e.g., $Y=\mathbb{R}^\mathcal{P}$ with $\mathcal{P}$ countable) equipped with the Borel $\sigma$-algebra, then any given $f:X\to Y$ is measurable if and only if for every $E\in\Sigma$ and every $\varepsilon>0$ there exists a closed $F\subseteq E$ such that the restriction $f|_F$ is continuous and $\mu(E\backslash F) < \varepsilon$.
 \item
@@ -1773,7 +1773,7 @@ These two facts motivate the following definition:
 We say that a transition $f:L\rightarrow L$ is \emph{universally Monte Carlo computable} if and only if there exists an extension $\tilde f:\mathcal{L}_{\sh}\rightarrow \mathcal{L}_{\sh}$ of $f$  satisfying the following property: for every sizer $r_\bullet$ there is a sizer $s_\bullet$ such that the restriction $\tilde f|_{\mathcal{L}[r_{\bullet}]}:\mathcal{L}[r_\bullet]\rightarrow\mathcal{L}[s_\bullet]$ is universally measurable, i.e., $\pi_P\circ \tilde f|_{\mathcal{L}[r_{\bullet}]}:\mathcal{L}[r_\bullet]\rightarrow [-s_P,s_P]$ is $\mu$-measurable for every Radon probability measure $\mu$ on $\mathcal{L}[r_\bullet]$ and $P\in\mathcal{P}$.
 \end{defn}
 
-Note that,  since $\mathcal{L}_{\sh}$ is compact, by remark~\ref{rem:probability}, in the context of Monte Carlo computability, we restrict our attention to Radon probability measures instead of  general Radon measures.
+Note that, since each type-shard $\mathcal{L}[r_\bullet]$ is compact, by Remark~\ref{rem:probability}, in the context of Monte Carlo computability, we restrict our attention to Radon probability measures instead of  general Radon measures.
 
 
 
@@ -1789,7 +1789,7 @@ Note that,  since $\mathcal{L}_{\sh}$ is compact, by remark~\ref{rem:probability
     Let $(L,\mathcal{P},\Gamma)$ be a CCS satisfying the Extendibility Axiom.
 Let $R$ be an exhaustive collection of sizers.
 Let $\Delta\subseteq\Gamma$ be $R$-confined.
-If $\pi_P\circ\Delta|_{L[r_\bullet]}$ satisfies the NIP for all $P\in\mathcal{P}$ and all $r_{\bullet}\in R$, then every deep computation in $\Delta$ is universally Monte Carlo computable.
+If $\pi_P\circ\Delta|_{L[r_\bullet]}$ satisfies the NIP for all $P\in\mathcal{P}$ and all $r_{\bullet}\in R$, then every deep computation in $\overline{\Delta}$ is universally Monte Carlo computable.
 \end{thm}
 
 \begin{proof}
@@ -1835,8 +1835,8 @@ Note that the reference to outer measure in Definition~\ref{def:Talagrand-stable
 The inequality certainly holds when $A$ is a countable set of continuous (or $\mu$-measurable) functions.
 
 \begin{rems}
-\label{rem:Talgrand-stability}
-Let $X$,  $\mu$, $A\subseteq \mathbb{R}^X$, and $\subseteq X$ be as above. Then,
+\label{rem:Talagrand-stability}
+Let $X$,  $\mu$, $A\subseteq \mathbb{R}^X$, and $E\subseteq X$ be as above. Then,
 \begin{enumerate}
 \item
 If $A\subseteq B\subseteq \mathbb{R}^X$, then
@@ -1854,10 +1854,10 @@ By definition of pointwise convergence topology, there exists $g\in A$ such that
 Hence, $x\in D_k(A,E,a',b')$.]
 
 \item
-Any subset of a $\mu$-stable set is $\mu$-stable. (This is immediate from (1).)
+Any subset of a Talagrand $\mu$-stable set is Talagrand $\mu$-stable. (This is immediate from (1).)
 
 \item
-If $A$ is stable, then $\overline{A}$ is $\mu$-stable. (This is immediate from (2).)
+If $A$ is Talagrand $\mu$-stable, then so is $\overline{A}$. (This is immediate from (2).)
 \end{enumerate}
 \end{rems}
 
@@ -1877,7 +1877,7 @@ but first,  we need the following useful characterization of measurable function
         \]
     \end{itemize}
     (In particular, if $X$ is compact Hausdorff,   $\mathcal{K}$ is the collection of compact subsets of $X$,  $\mu$ is a Radon probability measure on $X$, $\Sigma$ is the completion of the Borel $\sigma$-algebra by $\mu$, and all these conditions hold).
-    Then, $f:X\rightarrow\mathbb{R}$ is measurable if and only if for every $K\in\mathcal{K}$ with $0<\mu(K)<\infty$ and $a<b$, either $\mu^*(P)<\mu(K)$ or $\mu^*(Q)<\mu(K)$, where $P=\{x\in K:f(x)\leq a\}$ and $Q=\{x\in K:f(x)\geq b\}$.
+    Then, $f:X\rightarrow\mathbb{R}$ is measurable if and only if for every $K\in\mathcal{K}$ with $0<\mu(K)<\infty$ and $a<b$, either $\mu^*(K_{\le a})<\mu(K)$ or $\mu^*(K_{\ge b})<\mu(K)$, where $K_{\le a}=\{x\in K:f(x)\leq a\}$ and $K_{\ge b}=\{x\in K:f(x)\geq b\}$.
 \end{fact}
 
 The following technical lemma will be instrumental for proving Proposition~\ref{prop:Talagrand-implies-NIP}, which, in turn, will yield the main result of the subsection, namely Corollary~\ref{cor:Talagrand-stab-Monte-Carlo}
@@ -1887,13 +1887,13 @@ The following technical lemma will be instrumental for proving Proposition~\ref{
 \end{lem}
 
 \begin{proof}
-If $A$ is Talagrand $\mu$-stable, so is $\overline{A}$, by Remarks~\ref{rem:Talgrand-stability}.
+If $A$ is Talagrand $\mu$-stable, so is $\overline{A}$, by Remarks~\ref{rem:Talagrand-stability}.
     Suppose that $A$  is Talagrand $\mu$-stable to show that $\overline{A}\subseteq \mathscr{M}^0(X,\mu)$.
     Assume, for the sake of contradiction that there exists $f\in\overline{A}$ such that $f\notin \mathscr{M}^0(X,\mu)$.
-    By Fact \ref{fact:meas-fns-charn}, there exists a $\mu$-measurable set $E$ of positive measure and $a<b$ such that $\mu^*(P)=\mu^*(Q)=\mu(E)$ where $P=\{x\in E: f(x)\leq a\}$ and $Q=\{x\in E: f(x)\geq b\}$.
-    Then, for any $k\geq 1$: $(P\times Q)^k\subseteq D_k(\{f\},E,a,b)$, so $(\mu^{2k})^*(D_k(\{f\},E,a,b))=(\mu^*(P)\mu^*(Q))^k=(\mu(E))^{2k}$.
-    Thus, the set $\{f\}$ is not $\mu$-stable. 
-    However, $\{f\}\subseteq\overline{A}$ and we know (Remarks~\ref{rem:Talgrand-stability}) that a subset of a $\mu$-stable set must be $\mu$-stable,
+    By Fact \ref{fact:meas-fns-charn}, there exists a $\mu$-measurable set $E$ of positive measure and $a<b$ such that $\mu^*(E_{\le a})=\mu^*(E_{\ge b})=\mu(E)$ where $E_{\le a}=\{x\in E: f(x)\leq a\}$ and $E_{\ge b}=\{x\in E: f(x)\geq b\}$.
+    Then, for any $k\geq 1$: $(E_{\le a}\times E_{\ge b})^k\subseteq D_k(\{f\},E,a,b)$, so $(\mu^{2k})^*(D_k(\{f\},E,a,b))=(\mu^*(E_{\le a})\mu^*(E_{\ge b}))^k=(\mu(E))^{2k}$.
+    Thus, the set $\{f\}$ is not Talagrand $\mu$-stable. 
+    However, $\{f\}\subseteq\overline{A}$ and we know (Remarks~\ref{rem:Talagrand-stability}) that a subset of a Talagrand $\mu$-stable set must be Talagrand $\mu$-stable,
     so we have a contradiction.
 \end{proof}
 
@@ -1917,8 +1917,8 @@ In particular, $A$ is relatively countably compact in $\mathscr{M}^0(X,\mu)$.
 
 \begin{cor}
 \label{cor:Talagrand-stab-Monte-Carlo}
-    Let $(L,\mathcal{P},\Gamma)$ be a CCS satisfying the Extendibility Axiom.
-If $\pi_P\circ\Delta|_{L[r_\bullet]}$ is universally Talagrand stable for all $P\in\mathcal{P}$ and all sizers $r_{\bullet}$, then every deep computation is universally Monte Carlo computable.
+    Let $(L,\mathcal{P},\Gamma)$ be a CCS satisfying the Extendibility Axiom, let $R$ be an exhaustive collection of sizers, and let $\Delta\subseteq\Gamma$ be $R$-confined.
+If $\pi_P\circ\Delta|_{L[r_\bullet]}$ is universally Talagrand stable for all $P\in\mathcal{P}$ and all $r_{\bullet}\in R$, then every deep computation in $\overline{\Delta}$ is universally Monte Carlo computable.
 \end{cor}
 
 \begin{proof}
@@ -1948,6 +1948,12 @@ On the other hand, the opposite is also consistent for the particular case of th
 
 Notice that the preceding two results apply to sets of measurable functions, a class of functions larger than the class of continuous functions.
 However, by the Extendibility Axiom, finitary computations are continuous, i.e., if $A$ is a set of computations, then $A\subseteq \Cp(X)$.
+The example of Fremlin and Shelah therefore does not settle the question for computations, and we leave it open.
+
+\begin{question}\label{q:NIP-vs-Talagrand}
+Is it consistent with the usual axioms of set theory that some countable, pointwise bounded set of continuous functions on a compact Hausdorff space satisfies the $\NIP$ but is not universally Talagrand stable?
+Equivalently, can the two routes to Monte Carlo computability of deep computations, $\NIP$ and universal Talagrand stability, differ for countable sets of computations?
+\end{question}
 
 
 
