@@ -972,6 +972,31 @@ We thus have the following classification for separable Rosenthal compacta:
 \end{tikzpicture}
 \end{center}
 
+The three levels can also be read without topology, as statements about how many inputs are needed to tell deep computations apart.
+Fix $r_\bullet\in R$ and write $K_{r_\bullet}=\overline{\tilde\Delta|_{\mathcal{L}[r_\bullet]}}$.
+Identify each $f\in K_{r_\bullet}$ with the real-valued function $(P,x)\mapsto P(f(x))$ on $X_{r_\bullet}=\mathcal{P}\times\mathcal{L}[r_\bullet]$, whose points we call \emph{tests}: a test applies the feature $P$ to the output on the input $x$.
+The topology of pointwise convergence on $K_{r_\bullet}$ is then the topology of pointwise convergence on tests.
+A set $D$ of tests \emph{separates} a set of deep computations if any two of them differ on some test in $D$.
+
+\begin{prop}\label{prop:levels-tests}
+Let $\Delta$ be as in Definition~\ref{def:NIP-levels} and $r_\bullet\in R$.
+\begin{enumerate}[(i)]
+\item $K_{r_\bullet}$ is metrizable if and only if one countable set of tests separates $K_{r_\bullet}$.
+\item $K_{r_\bullet}$ is first countable if and only if every $f\in K_{r_\bullet}$ is \emph{countably determined}: some countable set $D_f$ of tests separates $f$ from every other member of $K_{r_\bullet}$.
+\item $K_{r_\bullet}$ is hereditarily separable if and only if there is no set $E\subseteq K_{r_\bullet}$ of cardinality $2^{\aleph_0}$ whose members are \emph{finitely separated}: for each $f\in E$ there are finitely many tests and $\varepsilon_f>0$ such that every $g\in E\setminus\{f\}$ differs from $f$ by at least $\varepsilon_f$ on one of them.
+\end{enumerate}
+\end{prop}
+
+\begin{proof}
+(i) If a countable set $D$ of tests separates $K_{r_\bullet}$, restriction to $D$ is a continuous injection of the compact space $K_{r_\bullet}$ into the metrizable space $\mathbb{R}^D$, hence a homeomorphism onto its image.
+Conversely, if $K_{r_\bullet}$ is metrizable, then $K_{r_\bullet}\times K_{r_\bullet}$ is second countable, so the open set $\{(f,g):f\ne g\}$ is Lindel\"of; it is covered by the open sets $\{(f,g):f(t)\ne g(t)\}$, for tests $t$, and a countable subcover gives the required set $D$.
+(ii) If $f$ is countably determined, $\{f\}$ is a countable intersection of open sets, and in a compact Hausdorff space such a point has a countable base of neighbourhoods.
+Conversely, if $(U_k)$ is a countable base at $f$ and each $U_k$ contains a basic neighbourhood defined by a finite set $F_k$ of tests, then $D_f=\bigcup_kF_k$ works.
+(iii) A set is finitely separated exactly when it is a discrete subspace, and, by Theorem~\ref{thm:nip-baire1def}, $K_{r_\bullet}$ is a separable Rosenthal compactum; for such compacta, hereditary separability is equivalent to the absence of discrete subspaces of cardinality $2^{\aleph_0}$, by a theorem of Todorčević~\cite{Todorcevic_1999_CompactSubsetsBaire} (see also~\cite[Theorem~0.4]{glasner2022tame}).
+\end{proof}
+
+Thus $\Delta$ is $\NIP_3$ when one countable set of tests decides every deep computation, $\NIP_1$ when each deep computation is decided by countably many tests of its own, and $\NIP_2$ when no continuum of deep computations can be told apart one by one with finitely many tests.
+
 Section~\ref{sec:iterative} gives computations at each level of the hierarchy, and shows that every implication between the classes stable, $\NIP_3$, $\NIP_2$, $\NIP_1$ and $\NIP$ is strict.
 
 The definitions of $\NIP_1$, $\NIP_2$ and $\NIP_3$ given here are topological; whether they admit a non-topological characterization is Question~\ref{q:NIP-levels}.
@@ -1023,8 +1048,8 @@ For every relatively compact $\{f_{t}:t\in 2^{<\mathbb{N}}\}\subseteq \mathrm{B}
 Moreover, the families $D_i$ are minimal and mutually non-equivalent.
 \end{thm}
 
-The implication of this result for deep computations is the following.
-The building blocks of the families $D_1,\dots,D_7$ are primitives of binary search on
+The implication of this result for deep computations is the following:
+the building blocks of the families $D_1,\dots,D_7$ are primitives of binary search on
 $2^{\mathbb{N}}$, the space of binary expansions.
 A node $t\in2^{<\mathbb{N}}$ is a dyadic interval
 $[t^\frown0^\infty,t^\frown1^\infty]$, the set of inputs that round to $t$ at
@@ -1497,8 +1522,10 @@ The example of Fremlin and Shelah therefore does not settle the question for com
 We collect the questions left open by this paper.
 The first concerns the hierarchy of Section~\ref{sec:trichotomy}, whose levels were defined through the topology of the space of deep computations.
 
+Proposition~\ref{prop:levels-tests} describes the three levels by the number of tests needed to tell deep computations apart, but these descriptions still involve infinitely many tests.
+
 \begin{question}\label{q:NIP-levels}
-Is there a non-topological characterization of $\NIP_1$, $\NIP_2$ and $\NIP_3$, for instance a combinatorial one, in the spirit of the characterization of $\NIP$ in Theorem~\ref{thm:nip-baire1def}?
+Is there a finitary, combinatorial characterization of $\NIP_1$, $\NIP_2$ and $\NIP_3$, in the spirit of the characterization of $\NIP$ by finite patterns in Theorem~\ref{thm:nip-baire1def}?
 \end{question}
 
 Theorem~\ref{thm:NIP-Monte-Carlo} shows that $\NIP$ suffices for Monte Carlo computability; we do not know whether it is necessary.
