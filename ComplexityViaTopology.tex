@@ -24,9 +24,6 @@ pdfkeywords={}
 \usepackage{cancel}
 \usepackage{array}
 
-%\usepackage[rgb]{xcolor}
-
-
 \newtheorem{thm}{Theorem}[section]
 \newtheorem*{AxExt}{Extendibility Axiom}
 \newtheorem{cor}[thm]{Corollary}
@@ -37,7 +34,6 @@ pdfkeywords={}
 \newtheorem*{claim}{Claim}
 \newtheorem{fact}[thm]{Fact}
 \newtheorem{ppty}[thm]{Property}
-
 
 \theoremstyle{definition}
 \newtheorem{defn}[thm]{Definition}
@@ -60,16 +56,9 @@ pdfkeywords={}
 
 \DeclareMathOperator{\tp}{tp}
 
-
-% 
-% Macro definitions: decorators
-%
-%%% Overleft arrow \ola
-\newcommand{\ora}{\overrightarrow}%[1]{\reflectbox{$\vec{\reflectbox{\!$#1$}}$}}
-\newcommand{\ola}{\overleftarrow}%[1]{\reflectbox{$\vec{\reflectbox{\!$#1$}}$}}
-%%% Double overbar
+\newcommand{\ora}{\overrightarrow}%
+\newcommand{\ola}{\overleftarrow}%
 \newcommand*{\bbar}[1]{\overline{\overline{#1}}}
-%%% Overarc \arc{…}
 \makeatletter
 \DeclareFontFamily{U}{tipa}{}
 \DeclareFontShape{U}{tipa}{m}{n}{<->tipa10}{}
@@ -87,25 +76,15 @@ pdfkeywords={}
 }
 \makeatother
 
-
-% \newcommand{\tarc}{\mbox{\large$\frown$}}
-% \newcommand{\arc}[2][-3ex]{{#2}{\kern #1{\raisebox{1.5ex}{\tarc}}}}
-
-% 
-% Macro definitions: symbols
-%
 \newcommand{\hatC}{\hat{\mathbb{C}}}
 \newcommand{\Cp}{\mathrm{C}_{\mathrm{p}}}
 \newcommand{\Lshard}{\mathcal{L}_{\mathrm{sh}}}
 \newcommand{\NIP}{\text{NIP}}
 \newcommand{\sh}{\text{sh}}
 \newcommand{\rb}{r_{\bullet}}
-\newcommand{\restr}{{\restriction}}  % Fixes excessive spacing of binary operation \restriction
+\newcommand{\restr}{{\restriction}}
 \newcommand{\RP}{\mathbb{R}\mathbb{P}}
 
-% 
-% Macro definitions: functional
-%
 \newcommand{\Brack}[1]{\left\llbracket{#1}\right\rrbracket}
 
 \makeatletter
@@ -113,9 +92,6 @@ pdfkeywords={}
 \makeatother
 \numberwithin{equation}{section}
 
-%\bibliographystyle{plain}
-
-%--------Meta Data: Fill in your info------
 \title[Complexity of deep computations via topology of function spaces]{Complexity of deep computations\\ via topology of function spaces}
 
 \author[Dueñez, Iovino, Matos-Wiederhold, Salvetti, Tall]{
@@ -125,10 +101,6 @@ Tonatiuh Matos-Wiederhold$^{2}$ \qquad
 Luciano Salvetti$^{2}$ \qquad
 Franklin D. Tall$^{2}$
 }
-
-%\usepackage{lineno}
-%\linenumbers
-
 
 \date{\today}
 \subjclass[2000]{54H30, 68T27, 68T07, 03C98, 03D15, 05D10}
@@ -153,8 +125,6 @@ Rosenthal compacta, and their measure-theoretic counterpart, give conditions for
 
 \maketitle
 
-
-
 \section*{Introduction}
 
 In this paper we  study asymptotic behavior of computations as parameters of the computation tend towards a limit, e.g., the depth of a neural network tending to infinity, or the time interval between layers of a time-series network tending toward zero.
@@ -172,12 +142,10 @@ The types form a space of real-valued functions, called the \emph{space of types
 The idea of embedding models of theories into their type spaces is borrowed from model theory, where type spaces play a central role.
 The embedding of computations into spaces of types then allows us to utilize the vast theory of topology of function spaces, known as \emph{$\Cp$-theory}, to obtain results about complexity of topological limits of computations.
 As we shall indicate next, recent classification results for spaces of functions provide an elegant and powerful machinery to classify computations according to their levels of ``tameness’’ or ``wildness’’, in the sense of Shelah’s independence property, which in combinatorics separates polynomial from exponential growth (Section~\ref{sec:NIP-poly-exp}).
-The model-theoretic viewpoint of spaces of types thus becomes a ``Rosetta stone’’ that allows us to interconnect various classification programs: 
-in topology, the classification of Rosenthal compacta pioneered by Todorčević~\cite{Todorcevic_1999_CompactSubsetsBaire}; 
+The model-theoretic viewpoint of spaces of types thus becomes a ``Rosetta stone’’ that allows us to interconnect various classification programs:
+in topology, the classification of Rosenthal compacta pioneered by Todorčević~\cite{Todorcevic_1999_CompactSubsetsBaire};
 in logic, the classification of theories developed by Shelah~\cite{Shelah:1990}; and in statistical learning,
  the notions of PAC learning and VC dimension pioneered by Vapnik and Chervonenkis~\cite{Vapnik-Chervonenkis:1974, Vapnik-Chervonenkis:1971}.
-
-
 
 In a previous paper~\cite{alva2024approximability}, the authors introduced the concept of limits of computations, which they called \emph{ultracomputations} (given that they arise as ultrafilter limits of standard computations) and \emph{deep computations} (following usage in machine learning~\cite{Bai:2019}).
 There is a technical difference between both designations, but in this paper, to simplify the nomenclature, we will ignore the difference and use primarily the term ``deep computation’’.
@@ -185,19 +153,16 @@ There is a technical difference between both designations, but in this paper, to
 In \cite{alva2024approximability}, a dichotomy between \emph{stable} (polynomially approximable) and unstable classes of deep computations was proved by invoking a classical result of Grothendieck from the 1950s~\cite{Grothendieck:1952}.
 Under our model-theoretic Rosetta stone, the property of polynomial approximability of computations is identified with continuous extendibility in the sense of topology, and with the notions of \emph{stability} and \emph{type definability} in the sense of model theory.
 
-In this paper, we refine the dichotomy of \cite{alva2024approximability}, and obtain new complexity classes for deep computation. 
-%Both the topological and model-theoretic tools are considerably more sophisticated.
+In this paper, we refine the dichotomy of \cite{alva2024approximability}, and obtain new complexity classes for deep computation.
 An unstable class of deep computations may still be \emph{tame}, in the sense that it does not have the independence property, or \emph{wild}, in the sense that it does;
 within the tame unstable classes we identify three new levels, and seven distinct minimal prototypes.
 
-The finer classification results of this paper are obtained through more contemporary topological and model-theoretic tools than in the previous paper~\cite{alva2024approximability}. 
+The finer classification results of this paper are obtained through more contemporary topological and model-theoretic tools than in the previous paper~\cite{alva2024approximability}.
 From the topological side, instead of Grothendieck’s classical criterion, we use the modern theory of \emph{Rosenthal compacta}, and from the model theory side, instead of stability, we use \emph{neostability}.
-The main tool imported from neostability   is Shelah’s \emph{Independence Property}, or rather, its negation, which is commonly referred to as ``NIP''. 
+The main tool imported from neostability   is Shelah’s \emph{Independence Property}, or rather, its negation, which is commonly referred to as ``NIP''.
 More on this below.
 
-
 Deep computations arise as topological limits of standard (continuous) computations.
-%Simplest among these is when the limit is sequential.
 In topology, the \emph{first Baire class}, or \emph{Baire class~1} consists of functions (also called simply \emph{Baire-1}) arising as pointwise limits of sequences of continuous functions.
 Intuitively, the first Baire class consists of functions with ``controlled'' discontinuities, and lies just one level of topological complexity above the Baire class 0, which (by definition) consists of continuous functions.
 
@@ -206,7 +171,7 @@ Rosenthal compacta exhibit ``topological tameness,'' meaning that they behave in
 Since the late 70’s, they have played a crucial role in understanding the complexity of structures of functional analysis, especially Banach spaces.
 Todorčević’s trichotomy for Rosenthal compacta has been used to organize the tame dynamical systems into a hierarchy~\cite{glasner2022tame}.
 It is noteworthy that Todorčević’s proof relies on sophisticated set-theoretic  forcing and infinite Ramsey theory.
-At the time of writing this paper, decades after his original argument, there are no elementary proofs of the trichotomy; 
+At the time of writing this paper, decades after his original argument, there are no elementary proofs of the trichotomy;
 in fact, Todorčević’s methods have been analyzed and exploited further~\cite{Todorcevic:2023,horowitz2019compactsetsbaireclass}.
 
 Through our Rosetta stone, Rosenthal compacta in topology correspond to the important concept of \emph{No-Independence Property} (known as ``NIP'') in model theory, identified by Shelah~\cite{Shelah:1971,Shelah:1990}, and to the concepts \emph{VC-dimension} and \emph{Probably Approximately Correct} learning (known as ``PAC learnability'') in statistical learning theory~\cite{Vapnik-Chervonenkis:1971, Vapnik-Chervonenkis:1974, Valiant:1984}.
@@ -245,27 +210,18 @@ Throughout the paper, our results pertain to classical models of computation (pa
 
 \tableofcontents
 
-
 \section{Topological preliminaries:\\
  From continuity to Baire class~1}
 \label{sec:prelim}
 
 In this section we recall notions and results from general topology and function space theory.
 For simplicity, we assume that all spaces are Hausdorff unless explicitly stated otherwise.
-% In the interest of completeness, we include some proofs that may be safely skipped by readers familiar with these topics.
 
 A subset of a topological space is $F_\sigma$ if it is a countable union of closed sets, and $G_\delta$ if it is a countable intersection of open sets.
-% A space is metrizable if its topology agrees with the topology induced by some metric thereon.
-% Two such metrics inducing the same topology may induce quite different properties in the category of metric spaces. 
-% For example, the interval $(0,1)$ with the usual metric (as a subset) of the reals is not complete;
-% however, $(0,1)$ is homeomorphic to the real line, which is complete with respect to the usual metric thereon.
 In a metric space, every open set is~$F_\sigma$; equivalently, every closed set is~$G_\delta$.
 
 A \emph{Polish space} is a separable and completely metrizable topological space, i.e., one admitting a complete metric that induces its topology.
-%Although other (possibly incomplete) metrics may induce the same topology, being Polish is a purely topological property.
 The class of Polish spaces is closed under countable topological products.
-%\footnote{Recall that the product topology is the topology of pointwise convergence.
-%  In a product space, a sequence (or a net, or a filter) converges if and only  each coordinate thereof converges.}
 Classical examples of Polish spaces (besides the real line) include the Cantor space~$2^\mathbb{N}$ (the set of all infinite binary sequences, endowed with the product topology), the Baire space $\mathbb{N}^\mathbb{N}$ (the set of all infinite sequences of naturals, also with the product topology), and the space $\mathbb{R}^\mathbb{N}$ of sequences of real numbers.
 
 \begin{fact}\cite[4.3.24]{Engelking:1989}
@@ -287,8 +243,6 @@ The Baire Category Theorem states that compact Hausdorff spaces and all complete
 
 Given two topological spaces $X$ and $Y$ we denote by $\Cp(X,Y)$ the set of all continuous functions $f:X\rightarrow Y$ endowed with the topology of pointwise convergence, i.e., with the relative (subspace) product topology~$\Cp(X,Y)\subseteq Y^X$—where $Y$ carries its topology, but $X$ serves merely as a (discrete) index set stripped of any topology.
 The space $\Cp(X, \mathbb{R})$ of continuous real-valued functions on~$X$ is denoted simply~$\Cp(X)$.
-%A natural question is, how do topological properties of $X$ translate into $\Cp(X)$ and vice versa?
-%This general question, and the study of these spaces in general, is the concern of $\Cp$-theory.
 
 A function $f\in Y^X$ between topological spaces $X$, $Y$ is said to be of \emph{Baire class~1}, or a \emph{Baire-1} function, if there is a sequence $(f_n)_{n\in \mathbb{N}}\subseteq \Cp(X, Y)$ such that $f = \lim_{n\to\infty}f_n$ (i.e., $f(x)=\lim_{n\to\infty}f_n(x)$ for all $x\in X$).
 An elementary argument shows that Baire-1 functions are continuous everywhere except on a set of the first category.
@@ -324,42 +278,6 @@ For a proof, see~\cite[Section 10]{Todorcevic_1997_TopicsTop}.
     \]
 \end{fact}
 
-%The Lemma below is well known, but we include a proof for the reader's convenience.
-%\begin{lem}
-%  Let $X$ be a Polish space and $A\subseteq \mathrm{B}_1(X)$ be pointwise bounded.%
-%  \footnote{A set $A\subseteq\mathbb{R}^X$ of real-valued functions is \emph{pointwise bounded} if for every $x\in X$ there exists $M_x \ge 0$ (a \emph{pointwise bound at~$x$}) such that $|f(x)| \le M_x$ for all $f\in A$.}
-%The following are equivalent:
-%    \begin{enumerate}[(i)]
-%        \item
-%          $A$ is relatively compact in $\mathrm{B}_1(X)$, i.e., the closure of $A$ in $\mathrm{B}_1(X)$ is compact;
-%        \item
-%        $A$ is relatively countably compact in $\mathrm{B}_1(X)$, i.e., every (infinite) countable subset of $A$ has a limit point in $\mathrm{B}_1(X)$;
-%        \item
-%        $\overline{A}\subseteq \mathrm{B}_1(X)$, where $\overline{A}$ denotes the closure of~$A$ in~$\mathbb{R}^X$.
-%    \end{enumerate}
-%\end{lem}
-%
-%\begin{proof}
-%    (i)$\Rightarrow$(ii) Relatively compact subsets of any space are countably compact therein.
-%
-%    (ii)$\Rightarrow$(iii)
-%Consider any $f\in\overline A$ and any countable subset $\{x_i\}_{i\in \mathbb{N}}\subseteq X$.
-%We first observe that that there is a sequence $(f_n)_{n\in\mathbb{N}}\subseteq A$ such that $\lim_{n\to\infty}f_n(x_i)=f(x_i)$ for all $i\in \mathbb{N}$.
-%(Proof: Since $A$ carries the relative product topology, for each $n\in \mathbb{N}$ there exists $f_n\in A$ such that $|f_n(x_i) - f(x_i)| < \frac{1}{n}$ for all $i \le n$.
-%The sequence $(f_n)$ is as claimed.)
-%By contradiction, let us assume that $A$ is relatively countably compact in~$\mathrm{B}_1(X)$, but there exists some $f\in \overline{A}\setminus \mathrm{B}_1(X)$.
-%    By Fact \ref{baire}, fix countable $D_0,D_1\subseteq X$ with $\overline {D_0}=\overline{D_1}$, and $a<b$ such that $D_0\subseteq f^{-1}(-\infty,a]$ and $D_1\subseteq f^{-1}[b,\infty)$.
-%Per the initial observation, let $\{f_n\}_{n\in\mathbb{N}}\subseteq A$ satisfy $\lim_{n\to\infty}f_n(x)=f(x)$ for all $x\in D_0\cup D_1$ (the latter being a countable set).
-%By relative countable compactness of~$A$, there is a limit point $g\in \mathrm{B}_1(X)$ of $\{f_n\}_{n\in\mathbb{N}}$;
-%clearly, $f$ and $g$ agree on $D_0\cup D_1$.
-%But then, $g$ takes values $g(x_i) = f(x_i) \le a$ as well as values $g(x_j) = f(x_j) \ge b > a$ on any open subset of the closed set $\overline{D_0} = \overline{D_1}$, which contradicts the implication (1)$\Rightarrow$(3) of Fact~\ref{baire}.
-%
-%(iii)$\Rightarrow$(i) For each $x\in X$, let $M_x \ge 0$ be a pointwise bound for~$A$.
-%Since $\overline{A}$ is a closed subset of the compact space $\prod_{x\in X}[-M_x,M_x] \subseteq \mathbb{R}^X$, it follows that $\overline{A}$ is compact.
-%By~(iii), it is also the closure of~$A$ in $\mathrm{B}_1(X)$.
-%Thus, $A$ is relatively compact in $\mathrm{B}_1(X)$.
-%\end{proof}
-
 \subsection{From Rosenthal’s dichotomy to the Bourgain-Fremlin-Talagrand dichotomy to Shelah’s NIP}
 
 In metrizable spaces, the closure of a subset consists of limits of convergent sequences therein.
@@ -369,7 +287,7 @@ The $n$-th coordinate map $p_n: 2^{\mathbb{N}}\to\{0,1\}$ on the Cantor space $X
 however,  $(p_n)_{n\in\mathbb{N}}$ has \emph{no} convergent subsequences in $\mathbb{R}^X$ (\cite[Chapter~1.1]{Todorcevic_1997_TopicsTop}).
 In a sense, this example exhibits the worst failure of sequential convergence possible:
 The closure of $\{p_n\}$ in $\{0, 1\}^X$ (or in $\mathbb{R}^X$ for that matter)
-is homeomorphic to the Stone-Čech compactification $\beta\mathbb{N}$ of the (discrete) space of natural numbers. % which is an important object of study in general topology.
+is homeomorphic to the Stone-Čech compactification $\beta\mathbb{N}$ of the (discrete) space of natural numbers.
 The space $\beta \mathbb{N}$ has cardinality $2^{2^{\omega}}$ (largest among all separable topological spaces) and, effectively, is the set of ultrafilters on~$\mathbb{N}$.%
 \footnote{\label{fn:id-ufilters}Our earlier proof~\cite{alva2024approximability} of the existence of deep equilibria in compositional computation structures relies on a classical result on the existence of idempotent elements of~$\beta \mathbb{N}$.}
 
@@ -380,7 +298,6 @@ The following theorem, proved by Haskell Rosenthal in 1974, is fundamental in fu
     If $X$ is Polish and $(f_n)_{n\in\mathbb{N}}\subseteq \Cp(X)$ is pointwise bounded, then $(f_n)$ has a convergent subsequence, or a subsequence whose closure in $\mathbb{R}^X$ is homeomorphic to~$\beta\mathbb{N}$.
 \end{thm}
 
-% Rosenthal’s Dichotomy states that a pointwise bounded set of continuous functions contains either a convergent subsequence, or a subsequence whose closure is essentially the same as the example mentioned in the previous paragraphs (i.e., the ``wildest'' possible).
 The genesis of the dichotomy was \emph{Rosenthal’s $\ell_1$-Theorem}, which states that a Banach space includes an isomorphic copy of $\ell_1$ (the space of absolutely summable sequences), or else every bounded sequence therein is weakly Cauchy.
 The $\ell_1$-Theorem connects diverse areas:
 Banach space geometry, Ramsey theory, set theory, and topology of function spaces.
@@ -471,12 +388,10 @@ The Independence Property was first isolated by Saharon Shelah in model theory a
 See~\cite[Definition 4.1]{Shelah:1971}, \cite{Shelah:1990}.
 We will discuss this dividing line in more detail in the next section.
 
-
 \subsection{NIP as a universal dividing line between polynomial and exponential complexity}
 \label{sec:NIP-poly-exp}
 
 The particular case of the BFT dichotomy (Theorem~\ref{thm:BFT}) when $A$ consists of $\{0,1\}$-valued (i.e., $\{\text{Yes},\text{No}\}$-valued) strings was discovered independently, around 1971-1972 in many foundational contexts related to polynomial (``tame") vs exponential (``wild'') complexity: In model theory, by Saharon Shelah~\cite{Shelah:1971}, \cite{Shelah:1990}, in combinatorics, by Norbert Sauer~\cite{Sauer:1972}, and Shelah~\cite{Shelah:1972}, \cite{Shelah:1990}, and in statistical learning, by Vladimir Vapnik and Alexey Chervonenkis~\cite{Vapnik-Chervonenkis:1971}, \cite{Vapnik-Chervonenkis:1974}.
-
 
 \begin{description}
 
@@ -485,7 +400,6 @@ Shelah’s classification theory is a foundational program in mathematical logic
 A theory $T$ is considered classifiable in Shelah’s sense if the number of non-isomorphic models of $T$ of a given cardinality can be described by a bounded number of numerical invariants.
 In contrast, a theory $T$ is unclassifiable if the number of models of $T$ of a given cardinality is the maximum possible number.
 A key fact is that the number of models of $T$ is directly impacted by the number of \emph{types} over sets of parameters in models of $T$; a controlled number of types is a characteristic of a classifiable theory.
-
 
 In Shelah’s classification program~\cite{Shelah:1990}, theories \emph{without} the independence property (called NIP theories, or \emph{dependent} theories) have a well-behaved, ``tame" structure;
 the number of types over a set of parameters of size $\kappa$ of such a theory is of polynomially or similar “slow" growth on~$\kappa$.
@@ -522,11 +436,11 @@ it is a core concept in machine learning.
 If such an integer $N$ does not exist, we say that the VC-dimension of $\mathscr{F}$ is infinite.
 The lemma provides upper bounds on the number of data points (sample size) needed to learn a concept class of known VC dimension~$d$ up to a given admissible error in the statistical sense.
 The Fundamental Theorem of Statistical Learning states that a hypothesis class is PAC-learnable (PAC stands for ``Probably Approximately Correct'') if and only if its VC dimension is finite.
- 
+
 \end{description}
- 
+
 \subsection{Rosenthal compacta}
- 
+
  The universal classification implied by Theorem~\ref{thm:BFT}, as attested by the examples outlined in the preceding section, led to the following definition (by Gilles Godefroy~\cite{Godefroy:1980}):
 
 \begin{defn}
@@ -537,7 +451,6 @@ A Rosenthal compactum~$K$ is necessarily Hausdorff since it is a topological sub
 
 Rosenthal compacta possess significant topological and dynamical tameness properties, and play an important role in functional analysis, measure theory, dynamical systems, descriptive set theory, and model theory.
 In this paper, we use them to study deep computations.
-% For this, we shall first focus on countable languages, which is the theme of the next subsection.
 
 \subsection{The special case~\texorpdfstring{$\mathrm{B}_1(X,\mathbb{R}^\mathcal{P})$}{B\_1(X, R\textasciicircum P)} with~\texorpdfstring{$\mathcal{P}$}{P} countable}
 
@@ -556,24 +469,20 @@ given by
   \mathbb{R}^{X\times \mathcal{P}} \to (\mathbb{R}^{\mathcal{P}})^X: \varphi &\mapsto {\hat{}}\varphi \\
   \mathbb{R}^{X\times \mathcal{P}} \to (\mathbb{R}^X)^{\mathcal{P}}: \varphi &\mapsto \varphi{\,\hat{}},
 \end{align*}
-where 
+where
 \begin{align*}
   \hat{}\varphi(x)\coloneqq \varphi(x, \cdot)\in \mathbb{R}^{\mathcal{P}}, &&
   \varphi\,\hat{}(P)\coloneqq \varphi(\cdot, P) \in \mathbb{R}^X.
 \end{align*}
 Such identifications view $X$ and $\mathcal{P}$ as mere point sets (the topology of~$X$ in particular plays no role).
-% They may be used implicitly, so $\varphi(x)$ means\ $\hat{}\varphi(x)$, and $\varphi(P)$ means $\varphi\,\hat{}(P)$.
 
 For $x\in X$, define the ``left projection'' map
 \begin{equation*}
   \lambda_x: \mathbb{R}^{X\times\mathcal{P}}\to \mathbb{R}^{\mathcal{P}}: \varphi\mapsto \lambda_x(\varphi)\coloneqq \hat{}\varphi(x);
-%  \lambda_x: \mathbb{R}^X\to \mathbb{R}: f\mapsto \lambda_x(f)\coloneqq f(x)
 \end{equation*}
-% (both denoted $\lambda_x$ by an abuse of notation);
 for $P\in \mathcal{P}$, the ``right projection'' map
 \begin{equation*}
   \rho_P: \mathbb{R}^{X\times\mathcal{P}}\to \mathbb{R}^X: \varphi\mapsto \rho_P(\varphi)\coloneqq \varphi\,\hat{}(P).
-  % \rho_P: \mathbb{R}^{\mathcal{P}}\to \mathbb{R}: f\mapsto f(P).
 \end{equation*}
 For fixed $x\in X$ and $P\in \mathcal{P}$, we also have canonical projection maps
 \begin{align*}
@@ -582,11 +491,8 @@ For fixed $x\in X$ and $P\in \mathcal{P}$, we also have canonical projection map
 \end{align*}
 When clear from context, rather than using the specific symbols (``$\lambda$'' for left,``$\rho$'' for right) to denote projections, we may use the generic symbol~``$\pi$'';
 thus, $\pi_x$ may mean $\lambda_x$, and $\pi_P$ may mean $\rho_P$.
-%We may also use the standard notations $\varphi(x,\cdot)$ for $\lambda_x(\varphi)$, and $\varphi(\cdot,P)$ for $\rho_P(\varphi)$.
 
 The Proposition below reduces the study of $\mathbb{R}^{\mathcal{P}}$-valued continuous or Baire-1 functions on~$X$ to the special case of real-valued ones.
-
-%In fact, $\mathbb{R}$ and any other Polish space is embeddable as a closed subspace of $\mathbb{R}^\mathcal{P}$.
 
 \begin{prop}\label{prop:Baire-identifications}
   The identification $(\mathbb{R}^{\mathcal{P}})^X \cong \mathbb{R}^{X\times \mathcal{P}} \cong (\mathbb{R}^X)^{\mathcal{P}}$ induces identifications
@@ -821,8 +727,7 @@ Let also $\mathcal{L}_{\sh}$ (the space of \emph{shard-supported types}) be the 
 Evidently, $\mathcal{L}_{\sh}\subseteq \mathcal{L}$, although the inclusion may be proper.
 However, the equality $\mathcal{L}_{\sh} = \mathcal{L}$ holds in the important special case when $\mathcal{P}$ is (at most) countable (see~\cite{alva2024approximability}).
 
-
-\subsection{Compositional Computation Structures} 
+\subsection{Compositional Computation Structures}
 
 \begin{defn}
 \label{def:CCS}
@@ -848,7 +753,6 @@ A subset $\Delta\subseteq\Gamma$ is \emph{$R$-confined} if each $\gamma\in \Delt
 
 Unlike its subspace $L^L$ (a topological semigroup), the space $\mathcal{L}^L$ does not have a natural semigroup structure, so ultracomputations are not generally composable.
 Intuitively, ultracomputations are “final” or “ultimate”.
-% \footnote{Using the semigroup structure of the Stone-Čech semigroup $\beta\Gamma$ one may compose ultracomputations in a certain abstract sense (cf., the semigroup $\beta\mathbb{N}$ mentioned in footnote~\ref{fn:id-ufilters}).}
 
 \begin{prop}\label{prop:confined-compact}
   If $\Delta\subseteq\Gamma$ is confined by an exhaustive sizer collection, then $\overline{\Delta}$ is a compact subset of~$\Lshard^L$.
@@ -871,10 +775,10 @@ Since deep computations are defined through a combination of topological concept
 However, in a semantically transparent manner, any CSS as above may alternatively be seen (per its original definition in~\cite{alva2024approximability}) as a real-valued structure $(L,\mathcal{P},\Gamma,\circ,\operatorname{ev})$, where
 \begin{itemize}
 \item
- $(L,\mathcal{P})$ is a computation states structure, 
+ $(L,\mathcal{P})$ is a computation states structure,
  \item
  $(\Gamma,\circ)$ is a semigroup,
-\item 
+\item
 $\operatorname{ev}: \Gamma\times L\to L: (\gamma,v)\mapsto \operatorname{ev}(\gamma,v)$ is a semigroup action of $\Gamma$ on~$L$
   (i.e., $\operatorname{ev}(\gamma\circ\delta,v) = \operatorname{ev}(\gamma,\operatorname{ev}(\delta,v))$ for $\gamma,\delta\in\Gamma$ and $v\in L$).
 \end{itemize}
@@ -884,12 +788,9 @@ Both definitions are reconciled upon identifying $\gamma\in \Gamma$ with the map
   The limited notion of state type we have introduced (essentially, quantifier-free state types with parameters of sort $L$ only) may be enriched to state types involving more formulas (e.g., with parameters in~$\Gamma$, or including quantified formulas), and extended to “transform-types” (i.e., types of sort~$\Gamma$).
   In particular, given a structure $\underline{C}=(L,\mathcal{P}, \Gamma, \circ, \operatorname{ev})$, all types are realized in some ultrapower~$\underline{C}^{(\mathcal{U})}$ of~$\underline{C}$ (constructed in the usual manner detailed in the references above).%
   \footnote{By contrast (cf., Remark~\ref{rem:poor-mans-ultraprod}), the ultrapower construction is not necessary to realize state types in a computation states structures.}
-    % Indeed, if $\mathbf{v}\in\mathcal{L}$ is an arbitrary type, by the well-known of characterization of topological closure in Hausdorff spaces, there exists an indexed family $(v_i)_{i\in I}$ in~$L$ and an ultrafilter~$\mathcal{U}$ on~$I$ such that $\mathbf{v} = \mathcal{U}\lim_i v_i$; this means that $\mathbf{v}$ is realized in the $\mathcal{U}$-ultrapower $\underline{L}^{(\mathcal{U})}$ of~$\underline{L}$ (whose universe consists of equivalence classes “modulo~$\mathcal{U}$” of tuples $(v_i)_{i\in I}\in L^{\mathcal{U}}$ which $\mathcal{U}$-converge in type in~$\mathcal{R}^{\mathcal{P}}$, i.e., modulo the relation of having equal $\mathcal{U}$-ultralimit in type).
-    % In fact, $\mathbf{v}$ is realized by the element of~$\underline{L}^{(\mathcal{U})}$ represented by $(v_i)_{i\in I}$ modulo~$\mathcal{U}$.
   This approach to spaces of types was introduced in Banach space theory by Krivine~\cite{Krivine:1974, Krivine-Maurey:1981,Krivine:1972}.
 \end{enumerate}
 \end{rems}
-
 
 \subsection{Computability of deep computations and the Extendibility Axiom}
 Let $(L, \mathcal{P})$ be a computation structure with \emph{countable} predicate collection~$\mathcal{P}$.
@@ -985,7 +886,6 @@ function that does not depend on $f$, and composing it with the register
 predicate gives~$f$.
 \end{proof}
 
-
 \subsection{Two motivating examples}
 \label{sec:preview}
 Before developing the classification, we describe two computations whose deep computations behave very differently.
@@ -1033,21 +933,15 @@ Theorem~\ref{thm:nip-baire1def} characterizes the sets of computations whose dee
 
 This is the main section of the paper.
 We use topology of function spaces to obtain a new hierarchy of complexity classes for deep computations.
-The main topological tool is Todorčević’s trichotomy for Rosenthal compacta~\cite{Todorcevic_1999_CompactSubsetsBaire}. 
+The main topological tool is Todorčević’s trichotomy for Rosenthal compacta~\cite{Todorcevic_1999_CompactSubsetsBaire}.
 Our inspiration is the work of Glasner and Megrelishvili on tame semigropus in topological dynamics~\cite{glasner2022tame}.
-
-% In subsection~\ref{sec:trichotomy}, we study the implications of Todorčević’s  trichotomy in the realm of deep computations.
-% Then, in subsection~\ref{sec:heptachotomy}, we focus on the  more recent heptachotomy for separable Rosenthal compacta proved by Argyros, Dodos and Kanellopoulos~\cite{argyros2008rosenthal}.
-% Since our interest is in applications to  the theory of computation, we focus our attention on compositional computation structures $(L,\mathcal{P},\Gamma)$  (Definition~\ref{def:CCS}) where the set $\mathcal{P}$ of predicates is countable,
-% and in sets  computation $\Delta\subseteq\Gamma$ of comptations that are countable.
 
 Theorem~\ref{thm:nip-baire1def} below is the cornerstone of the section;
 it establishes a powerful  link between deep computations and Rosenthal compacta.
 It extends the results of~\cite{alva2024approximability} from the setting of continuous deep computations to the more general (and realistic) setting of deep computations of the first  Baire class.
-Informally,  Theorem~\ref{thm:nip-baire1def} states that if  $\mathcal{P}$ and $\Delta\subseteq\Gamma$ are countable, 
+Informally,  Theorem~\ref{thm:nip-baire1def} states that if  $\mathcal{P}$ and $\Delta\subseteq\Gamma$ are countable,
 then the space of deep computations generated by $\Delta$ is a Rosenthal compactum (when restricted to shards) if and only if $\Delta$ satisfies the NIP feature by feature.
 Furthermore, Theorem~\ref{thm:nip-baire1def}  shows that every deep computation generated by $\Delta$ is a sequential limit (rather than an abstract ultrafilter limit) of computations in $\Delta$.
-
 
 \begin{thm}\label{thm:nip-baire1def}
     Let $(L,\mathcal{P},\Gamma)$ be a compositional computation structure (Definition~\ref{def:CCS}) satisfying the Extendibility Axiom (see Definition~\ref{ax:extendibility-axiom}) with $\mathcal{P}$ countable.
@@ -1075,14 +969,12 @@ Hence, Theorem \ref{thm:Generalized-BFT} and Lemma \ref{lem:NIP-and-closure} pro
 If (i) holds and $f\in\overline{\Delta}$, then we can write as an ultralimit of computations in $\Delta$, say  $f=\mathcal{U}{\rm lim}_i \gamma_i$.
 Define $\tilde f:=\mathcal{U}{\rm lim}_i \tilde\gamma_i$.
 Then, for all $r_\bullet\in R$ we have $\tilde f|_{\mathcal{L}[r_\bullet]}\in\overline{\tilde\Delta|_{\mathcal{L}[r_\bullet]}}\subseteq \mathrm{B}_1(\mathcal{L}[r_\bullet],\mathcal{L}[r_\bullet])$.
-The assertion that every deep computation is a pointwise limit of a countable sequence of computations follows from the fact that for a Polish space $X$, every compact subset of $\mathrm{B}_1(X)$ is Fréchet-Urysohn 
+The assertion that every deep computation is a pointwise limit of a countable sequence of computations follows from the fact that for a Polish space $X$, every compact subset of $\mathrm{B}_1(X)$ is Fréchet-Urysohn
 (that is, a space where any point in the closure of  a set $A$ is the limit of a sequence of points in  $A$; see Theorem 3F in \cite{BFT_1978_PCompactBaire} or Theorem 4.1 in \cite{debs2013rosenthal}).
 \end{proof}
 
 \subsection{The Todorčević trichotomy, and levels of NIP and PAC learnability}
 \label{sec:trichotomy}
-%By Theorem \ref{thm:nip-baire1def}, if $\Delta$ is a countable set of computations satisfying the NIP on features and shards, 
-%then for each fixed sizer $r_\bullet$  the set $\overline{\tilde\Delta_{\mathcal{L}[r_\bullet]}}$ is a separable Rosenthal compactum (see Definition~\ref{def:Rosenthal-compacta}). 
 Recall from Section~\ref{sec:five-compacta} the notions of hereditarily separable and first countable spaces.
 Every separable metrizable space is hereditarily separable, and R.
 Pol proved that every hereditarily separable Rosenthal compactum is first countable (see section 10 of \cite{debs2013rosenthal}).
@@ -1112,10 +1004,10 @@ Todorčević proved that these examples are canonical \cite{Todorcevic_1999_Comp
 
 \begin{thm}[Todorčević’s Trichotomy, \cite{Todorcevic_1999_CompactSubsetsBaire}, Theorem 3 in \cite{argyros2008rosenthal}]\label{thm:Todorcevic-trichotomy}
     Let $K$ be a separable Rosenthal Compactum.
-    \begin{enumerate}[(i)] 
-        \item 
+    \begin{enumerate}[(i)]
+        \item
         If $K$ is hereditarily separable but non-metrizable, then $S(2^\mathbb{N})$ embeds into $K$.
-        \item 
+        \item
         If $K$ is first countable but not hereditarily separable, then either $\mathrm{D}(2^\mathbb{N})$ or $\hat{D}(S(2^\mathbb{N}))$ embeds into $K$.
         \item
          If $K$ is not first countable, then $A(2^\mathbb{N})$ embeds into $K$.
@@ -1163,14 +1055,6 @@ In the three separable cases of Section~\ref{sec:five-compacta}, namely, $\hat{A
 This choice of index is useful because our emphasis is computational.
 Real numbers can be represented as infinite binary sequences, i.e., infinite branches of the binary tree $2^{\mathbb{N}}$, and
 we approximate real numbers with elements in $2^{<\mathbb{N}}$, i.e., finite bitstrings.
-%Indexing standard computations with finite bitstrings allow us to better understand how deep computations arise and how they get approximated.
-%Computationally, we are interested in the manner (and the efficiency) in which the approximations can occur.
-%\item
-%Infinite branches of the binary tree $2^{<\mathbb{N}}$ correspond to the Cantor space $2^{\mathbb{N}}$, the canonical perfect set (in the sense that any Polish space with no isolated points contains a copy of $2^{\mathbb{N}}$).
-%The use of infinite dimensional Ramsey theory for trees (pioneered by the work of James D. Halpern, Hans Läuchli in \cite{halpern1966partition} and also Keith Milliken in \cite{milliken1981partition}, and Alain Louveau, Saharon Shelah, Boban Velickovic in \cite{louveau_shelah_velickovic_1993}) and perfect sets (Fred Galvin and Andreas Blass in \cite{Blass1981}, Arnold W. Miller in \cite{miller1989infinite}, and Stevo Todorčević in \cite{Todorcevic_1999_CompactSubsetsBaire}) allowed S.A. Argyros, P. Dodos and V. Kanellopoulos in \cite{argyros2008rosenthal} to obtain an improved version of Theorem \ref{thm:Todorcevic-trichotomy}.
-%It is no surprise that Ramsey Theory becomes relevant in the study of Rosenthal compacta as it was a key ingredient in Rosenthal’s $\ell_1$ Theorem.
-%For this reason, the main results in \cite{argyros2008rosenthal} (which we cite in this paper) are better explained by indexing Rosenthal compacta with the binary tree.
-%\end{enumerate}
 
 \begin{defn}
 Let $X$ be a Polish space.
@@ -1256,8 +1140,6 @@ By the theorem of Argyros, Dodos and Kanellopoulos, every $\NIP$ family of
 computations indexed by the binary tree contains, along a dyadic subtree, one
 of these seven primitives.
 
-
-
 \section{Examples of  Compositional Computation Structures}
 \label{sec:examples}
 We now turn from the general theory to examples.
@@ -1275,27 +1157,17 @@ We regard the unit sphere $S^2\subseteq \mathbb{R}^3$ as the Riemann sphere and 
   The extended complex plane $\hatC$ is thus endowed with the real predicates $P_1, P_2, P_3$ with values in~$[-1,1]$;
   its topology is metrized by the pullback of the usual Euclidean metric on~$S^2$.
 
-\subsubsection*{Newton  CCSs:  steps and fractals} 
+\subsubsection*{Newton  CCSs:  steps and fractals}
 \label{sec:Newton-map}
 Let $p = p(z)$ be a non-constant rational function with complex coefficients —i.e., an analytic (meromorphic) map $\hatC\to\hatC$.
 The \emph{Newton method step} (or \emph{Newton map}) for $p$ is the rational map
 \begin{equation}\label{eq:Np}
   N_p: z \mapsto z-\frac{p(z)}{p'(z)}.
 \end{equation}
-% Now, if one wishes to interpret such map as a (complex-valued) function of a complex variable $z\in \mathbb{C}$, its natural domain excludes all poles of~$p$ and all roots of~$p'$;
-% if one wishes to iterate the Newton map indefinitely, the natural domain is
-% \begin{equation*}
-%   L_p \coloneqq \mathbb{C}\setminus\bigcup_{n\in \mathbb{N}}N_p^{-n}[\mathcal{Z}(p')\cup \mathcal{Z}(1/p)] \subseteq \mathbb{C},
-% \end{equation*}
-% where $\mathcal{Z}(q)$ denotes the set of zeros of an arbitrary rational~$q(z)$, and $\mathcal{Z}(1/q)$ the set of its poles (i.e., zeros of $1/q(z)$).
 Successive iterations of the Newton-Raphson method (i.e., compositional powers~$N_p^{(n)}$) may be regarded as computations of a CCS whose states space is $L = \hatC$.
 The natural choice of predicates is $\mathcal{P} = (P_1, P_2, P_3)$,
 the inverse stereographic projection coordinates.
 (The real- and imaginary part maps $z\mapsto\Re{z}$, $z\mapsto\Im{z}$ are not defined at~$z = \infty$.)
-
-% An important (if somewhat obvious) point is that the choice of predicates on a CCS greatly affect the topologies of itself and of its type space.
-% Thus, the type space of $(L_p, \{X, Y\})$ above is $\mathbb{R}^2$ ($\cong \mathbb{C}$), while the type space of $(\hatC, \{P_1, P_2, P_3\})$ is $S^2$ $\cong \hatC$.
-% All $\{P_1, P_2, P_3\}$-types are realized in~$\hatC$, but not all $\{X, Y\}$-types are realized in~$L_p$ (let alone all $\{P_1, P_2, P_3\}$-types).
 
 \paragraph{Newton CCSs}
 \label{sec:Newton-CCS}
@@ -1303,24 +1175,8 @@ Let $\Gamma_p:=\{N_p^{(n)}:n\in\mathbb{N}\}$ be the semigroup of iterates of the
 The CCS $(\hatC, (P_1,P_2,P_3), \Gamma_p)$ is \emph{Newton’s method for~$p(z)$} (or the \emph{Newton CCS for~$p(z)$}).
 Note that the states space $\hatC$ is compact and the Newton map $N_p$ is continuous thereon, so the Extendibility Axiom is satified by Newton CCSs.
 
-% \begin{rems}\hfill
-%     \begin{enumerate}
-%     \item The set $L_p$ is the \emph{Fatou set} (its complement $\hatC\setminus L_p$ the \emph{Julia set}) of $N_p$~\cite[Section~2]{Blanchard1984}.
-%     \item The Fatou set $L_p$ is open, completely invariant under iterations of $N_p$ (i.e., $N_p[L_p] =L_p = N_p^{-1}[L_p]$) and dense in $\hatC$~\cite[Corollary 4.6]{Blanchard1984};
-%       % Hence, its closure $\mathcal{L}$ in $\mathbb{R}^\mathcal{P}$ is the Riemann sphere $S^2$ (i.e., the extended complex plane).
-%         therefore, the Newton map $N_p$ (along with all its iterates) gives a function $L_p\to L_p$.
-%         % \item $\Gamma_p$ is the semigroup generated by $\{N_p\}$.
-%         % Thus, $(L_p,\mathcal{P},\Gamma_p)$ is a CCS.
-%     \end{enumerate}
-% \end{rems}
-
-% Given $r\in \hatC$, the set $B_r = \{z\in\mathbb{C}: \lim_{n\rightarrow\infty}N_p^{(n)}(z) = r\}$ is an open set called the \emph{basin} of~$r$.
 Given an initial estimate $z_0$, one hopes for the sequence of Newton steps applied to~$z_0$ (namely, $N_p^{(\bullet)}(z_0) \coloneqq (z_n)_{n\in \mathbb{N}}$, where $z_n \coloneqq N_p^{(n)}(z_0)$)
 to converge to a root~$r$ of~$p$.
-% For initial estimates $z_0$ converging to a root~$r$, any deep computation realizes the transformation $z_0\mapsto r$.
-% It is well known —if perhaps surprising at first— that Newton’s method fails to converge to a root $z\in\hatC$.%
-% \footnote{By “convergence to the (possible) root $z = \infty\in\hatC$” we mean “proper divergence”;
-%   thus, the divergence of Newton steps may be improper.}
 
 \paragraph{Fatou and Julia sets}
 Recall that the \emph{Fatou set $\mathcal{F}_p$} consists of all points that have a compact neighborhood on which some subsequence of the sequence $p^{(\bullet)}$ of iterates of~$p$ converges uniformly;
@@ -1358,10 +1214,8 @@ These regions are visible in Figure~\ref{fig:newton}, which shows the limits of 
  \footnote{As remarked above, $\infty$ is a repelling fixed point of $N_\rho$, hence $f_0(\infty) = \infty = f_1(\infty)$.}
  The behavior of iterates $N^{(n)}_\rho$ on the Newton fractal of~$\rho$ (the Julia set of~$\rho$) is chaotic.
 
-
-
 \subsection{Example: Newton's CCS for $3$-cyclotomic $\kappa(z) = z^{3}-1$}
-Consider next the $3$-cyclotomic polynomial ${\kappa}(z) = z^3-1$. 
+Consider next the $3$-cyclotomic polynomial ${\kappa}(z) = z^3-1$.
 The roots of the $3$-cyclotomic polynomial ${\kappa}(z) = z^3-1$ are the cube roots of unity $r_0=1$ and $r_{\pm} = \exp(\pm2\pi i/3)$;
 the Newton map is
 \begin{equation*}
@@ -1369,7 +1223,6 @@ the Newton map is
 \end{equation*}
 In Figure~\ref{fig:newton2}, with the same coloring, the Fatou set consists of open regions in the three colors blue (for $r_0=1$), teal and ochre (for $r_{+}$ and $r_{-}$), on which the sequence of all iterates $z_n \coloneqq N_{\kappa}^{(n)}(z_0)$ converges to the corresponding root.
 Each region is the basin of attraction of its root; unlike $N_\rho$, the map $N_\kappa$ has no attracting cycle, and the iterates converge on the whole Fatou set.
-
 
 \begin{figure}[htbp]
   \centering
@@ -1420,10 +1273,6 @@ More explicitly, the unique deep equilibrium $\mathfrak{f}: \RP^1\to\RP^1$ of (t
  \]
  Thus, $\mathfrak{f}$ is discontinuous at $x = 0, \infty$ (Figure~\ref{fig:sqrt}).
 
-
- % The basin of attraction of $x=\sqrt{a}$ is $(0,\infty)$, of $-\sqrt{a}$ is $(\infty,0)$, and of $\infty$ is $\{0,\infty\}$.
- % The set of deep computations is $\{N_p^n\}_n\cup\{\mathfrak{f}\}\subseteq \mathrm{B}_1(\mathcal{L},\mathcal{L})$.
-
 \subsection{Example: Threshold classifiers on Cantor’s set}\label{sec:Cantor-classifiers}
 
 Consider the states space $L = 2^\mathbb{N}$ ($= \{0,1\}^{\mathbb{N}}$) consisting of all bit sequences $x = (x_n)_{n\in \mathbb{N}} \subseteq \{0,1\}$.
@@ -1434,7 +1283,6 @@ Consider the predicate collection $\mathcal{P} = (\bullet_n)_{n\in\mathbb{N}}$ o
 \begin{equation*}
   \bullet_n: 2^{\mathbb{N}}\to\{0,1\}: x \mapsto x_n.
 \end{equation*}
-%In other words, $P_n$ is the predicate that reads the $n$th digit of an input sequence.
 Since $2^{\mathbb{N}} \subseteq \mathbb{R}^{\mathbb{N}}$ ($\cong \mathbb{R}^{\mathcal{P}}$) is closed, the type space of $(2^{\mathbb{N}}, (\bullet_n)_{n\in \mathbb{N}})$ is effectively still~$2^{\mathbb{N}}$.
 The constant $0$ and $1$ elements of $2^\mathbb{N}$ will be denoted $0_{\bullet}$ and $1_{\bullet}$, respectively.
 In this way, we obtain the \emph{Cantor computation states structure (CSS)}
@@ -1457,7 +1305,6 @@ the order topology coincides with the (product) topology of~$2^{\mathbb{N}}$.
 All restriction maps~$\cdot\restr_n$ are continuous and order-preserving.
 
 Given lengths $n, m\in \mathbb{N}$, we have a concatenation operation $2^m\times 2^n\to 2^{m+n}: (v,w)\mapsto \arc{vw}$;
-% \footnote{When context is clear, the concatenation $\arc{vw}$ may be denoted simply $vw$.}
 such concatenations altogether yield a semigroup structure on~$2^{<\mathbb{N}}$ —more precisely, a monoid with the empty word $()\in 2^0$ as identity.
 The more general concatenation operation $2^{<\mathbb{N}}\times 2^{\mathbb{N}}\to 2^{\mathbb{N}}: (w,x)\mapsto \arc{wx}$ is a continuous and order-preserving action of $2^{<\mathbb{N}}$ on~$2^{\mathbb{N}}$;
 we shall call it the \emph{prefixing action}.
@@ -1496,20 +1343,10 @@ This gives the \emph{Cantor shifts} (or \emph{Cantor-Bernoulli}) CCS
  thus, for any statement $\mathtt{S}$, the value of $\Brack{\mathtt{S}}$ is $1$ if $\mathtt{S}$ is true, $0$ if false.
 \end{notn}
 
-% Denote by $0_{\bullet}$ (resp., $1_{\bullet}$) the constant (infinite) sequence with value~$0$ (resp., value~$1$).
 For any fixed word~$w\in2^n$, let ${\preccurlyeq}_nw$ be the relation $\Brack{\cdot\restr_n \preceq w}: x\mapsto \Brack{x\restr_n\preceq w}$ on~$2^{\mathbb{N}}$.
 We shall write $x{\preccurlyeq}_nw$ with the meaning of $x\restr_nw$ or $\Brack{x\restr_nw}$, depending on context
 (thus, “${\preccurlyeq}_nw$” names a unary relation taking its argument $x$ on the left).
 The subscript $n$ is used only for emphasis and optional, since its value is determined uniquely by the condition $w\in 2^n$.
-% \begin{align*}
-%  \overline{\phi}_w: 2^{\mathbb{N}}&\to 2^{\mathbb{N}}\\
-%   x&\mapsto
-%   \begin{cases}
-%     1_{\bullet}, & x\restr_n \preceq w;\\
-%     0_{\bullet}, & \text{otherwise.}
-%   \end{cases}
-% \end{align*}
-% Such ${\preccurlyeq}w$ are called \emph{finite-precision classifiers}.
 Since both $\Brack{\cdot\preceq w}$ and $\cdot\restr_n$ are continuous, so is ${\preccurlyeq}_nw$, which will be called a \emph{precision-$n$ threshold classifier};
 any such relation ${\preccurlyeq}_nw$ is a \emph{finite-precision threshold classifier}.
 For $n=0$, there is only one “zeroth-precision” classifier ${\preccurlyeq}_0{()}$:
@@ -1518,7 +1355,6 @@ Although insubstantial for our purposes, the subsequent discussion is simpler if
 —intuitively, a threshold classifier with negative precision~$n = -1$.
 
 We remark that the statement “$x\preccurlyeq_nw$” has identical semantics to “$x\preceq \arc{w1_{\bullet}}$” (\emph{not} to “$x\preceq \arc{w0_{\bullet}}$”) in the usual ordering semantics of $2^{\mathbb{N}}$ which depend on all entries of~$x$, not just those of $x{\restr}_n$.
-% We will henceforth write $\vec{w}$ for the sequence $w1_{\bullet}$ ($w$ prefixing~$1_{\bullet}$).
 
 A moment’s reflection shows that any finite-precision classifier can be expressed as a Boolean combination%
 \footnote{In other words, finite-precision classifiers are \emph{definable} in the sense of real-valued logic (sans quantifiers) whose connectives are vector-lattice operations (maximum, minimum, and linear combinations), plus logical constants (i.e., real constants) as nullary connectives.}
@@ -1529,20 +1365,13 @@ of the first $n$ coordinates $P_i(x)=x_i$ ($i<n$) of its argument~$x\in 2^{\math
 
 \subsubsection{Infinite-precision threshold classifiers}
 \label{sec:infin-prec-class}
-% Let $(w_n)_n\subseteq 2^{<\mathbb{N}}$ be any sequence, and $\coloneqq({\preccurlyeq}{w_n})_n$
-% Let $\varphi_{\bullet} = (\varphi_n)_n\subseteq \Cp(2^{\mathbb{N}}, \{0,1\})\subseteq \Cp(2^{\mathbb{N}})$ be any sequence of finite-precision threshold classifiers.
 \emph{Threshold ultra-classifiers} are relations $2^{\mathbb{N}}\to\{0,1\}$ in the closure of the set of finite-precision classifiers.
 Since each finite-precision classifier is a non-increasing function on~$2^{\mathbb{N}}$, the same holds for any ultra-classifier.
 It is easily shown that such ultra-classifiers have, for some sequence $z\in 2^{\mathbb{N}}$, one of the forms%
-% \footnote{The identically true relation $\mathbf{1} = {\preccurlyeq}{()}$ is an ultra-classifier.
-%   However, the identically false relation $\mathbf{0}$ —although of the form $\widehat{\phi}_{0_{\bullet}}$— is not an ultra-classifier, because all ultra-classifiers $\varphi$ satisfy~$\varphi(0_{\bullet}) = 1$.
-%   \label{fn:constant-relations}}
 \begin{itemize}
 \item $\Brack{\cdot\preceq z}$, denoted simply “${\preceq}z$”, or
 \item $\Brack{\cdot\prec z}$, denoted “${\prec}z$”.
 \end{itemize}
-% There should be no confusion with the notation ${\preccurlyeq}w$ above, since the latter is only used when $w\in 2^{<\mathbb{N}}$ is a word;
-% for clarity, one may always write ${\preccurlyeq}_nw$ instead of the potentially ambiguous~${\preccurlyeq}w$.
 
 Any finite-precision classifier is an ultra-classifier.
 Indeed, ${\prec}0_{\bullet}$ is the false relation $\mathbf{0}$ (in agreement with our earlier convention);
@@ -1596,7 +1425,6 @@ The test ${\equiv}w$ will also be denoted $\widetilde{w}$ when thought of as a $
 
 \subsubsection{Ultra-prefix tests and equality}
 \label{sec:ultraprefix-tests}
-% Let $\varphi_{\bullet} = (\varphi_n)_n\subseteq \Cp(2^{\mathbb{N}}, \{0,1\})\subseteq \Cp(2^{\mathbb{N}})$ be any sequence of prefix tests.
  \emph{Ultra-prefix tests} are relations $2^{\mathbb{N}}\to\{0,1\}$ that belong to the closure of prefix tests in the topology of pointwise convergence.
 
 \begin{prop}\label{prop:zero-ultraprefix}
@@ -1618,8 +1446,6 @@ The test ${\equiv}w$ will also be denoted $\widetilde{w}$ when thought of as a $
   the intersection $\bigcap_{i<m}W^{\not{\equiv}}_i$ contains~$w^{*}$, hence is nonempty.
 \end{proof}
 
-% It is clear from the proof of Proposition~\ref{prop:zero-ultraprefix} above (cf., footnote~\footref{fn:zero-ultraprefix}) that
-
 \begin{prop}\label{prop:ultra-prefixes}
   Any ultra-prefix test is either the constant $0_{\bullet}$, a finite-prefix test, or an \emph{equality test}
   \begin{equation*}
@@ -1630,7 +1456,6 @@ The test ${\equiv}w$ will also be denoted $\widetilde{w}$ when thought of as a $
 \end{prop}
 \begin{proof}
   From the proof of Proposition~\ref{prop:zero-ultraprefix} and the remark in footnote\footref{fn:zero-ultraprefix}, one sees that any non-zero ultra-prefix~$\varphi$ is necessarily an accumulation point of a finite union of sets of the form $\widetilde{W}_x \coloneq \{\widetilde{w}: x\equiv w\in 2^{\mathbb{N}}\}$, and therefore must be an accumulation point of some (single) such set~$\widetilde{W}_{\!x^{*}}$ for some $x^{*}\in 2^{\mathbb{N}}$.
-  % All finite-prefix tests $\widetilde{w}$ ($=\widetilde{x^{*}\restr_n}$ for some $n\in \mathbb{N}$) are accumulation points of
   One readily sees that $\widetilde{W}_{\!x^{*}} = \{\widetilde{w_n}: n\in \mathbb{N}\}$ where $w_n \coloneqq x^{*}\restr_n$.
   It remains to show that $\bbar{x^{*}}$ is the sole limit point of $(\widetilde{w_n})_{n\in \mathbb{N}}$, and sequentially so in the pointwise topology.
   Indeed, for all $y\in 2^{\mathbb{N}}$, we have
@@ -1644,7 +1469,6 @@ The test ${\equiv}w$ will also be denoted $\widetilde{w}$ when thought of as a $
     \bbar{x^{*}}(y).\qedhere
   \end{equation*}
 \end{proof}
-% (resembling the notations ${\preceq}y$ and $\bar{y}$ of~§~\ref{sec:infin-prec-class}).
 Unlike finite-prefix tests, equality tests are discontinuous.
 
 \subsubsection{Extended Alexandroff compactification}\label{sec:extended-alexandroff}
@@ -1655,13 +1479,13 @@ The compact space $\mathcal{A}_{\mathrm{E}} = \mathcal{A}\cup \mathcal{A}^{\comp
 The point $\mathbf{0}\in \mathcal{A}_{\mathrm{E}}$ is not a $G_\delta$ point, i.e., $\{\mathbf{0}\}$ is not a countable intersection of open sets;
 $\mathbf{0}$ is the only such non-$G_\delta$ point.
 This key topological property implies that the space of ultra-prefix tests is not first-countable
-(in a first-countable Hausdorff space all points are~$G_\delta$). 
+(in a first-countable Hausdorff space all points are~$G_\delta$).
 In the notation of Section~\ref{sec:five-compacta}, the prefix test $\widetilde w$ is $v_w$ and the equality test $\bbar x$ is $\delta_x$, so $\mathcal{A}=A(2^{\mathbb{N}})$ and $\mathcal{A}_{\mathrm{E}}=\hat A(2^{\mathbb{N}})$.
 
 \input{computations_hierarchy}
 
 \section{Randomized versions of NIP and Monte Carlo computability of deep computations}
-\label{sec:measure-theoretic-NIP} 
+\label{sec:measure-theoretic-NIP}
 
 Sections~\ref{sec:Classification}--\ref{sec:iterative} studied deep computations as \emph{topological} limits: pointwise limits of computations, of the first Baire class on the type shards, and approximated by sequences of computations.
 That theory rests on the type shards being Polish, and hence on the assumption that the set $\mathcal{P}$ of predicates is countable (it is used in the proof of Theorem~\ref{thm:Generalized-BFT}).
@@ -1671,9 +1495,7 @@ The role of the Bourgain--Fremlin--Talagrand dichotomy is taken by its measure-t
 
 The main results of the section are Theorem~\ref{thm:NIP-Monte-Carlo}, which connects NIP and Monte Carlo computability, and~\ref{cor:Talagrand-stab-Monte-Carlo}, which connects Talagrand stability and Monte Carlo computability.
 
-Fundamental in this section is a measure-theoretic version of Theorem \ref{thm:Generalized-BFT}, namely, Theorem~\ref{thm:BFT-2F}. 
-%For the proof of Theorem \ref{thm:Generalized-BFT}, we assumed countability of $\mathcal{P}$ ---this ensured that $\mathbb{R}^\mathcal{P}$ a Polish space.
-%In this section, the countability assumption is not needed.
+Fundamental in this section is a measure-theoretic version of Theorem \ref{thm:Generalized-BFT}, namely, Theorem~\ref{thm:BFT-2F}.
 
 \subsection{NIP and Monte Carlo computability of deep computations}
 
@@ -1689,7 +1511,7 @@ When $Y=\mathbb{R}$, we will always take $\Sigma=\mathcal{B}(\mathbb{R})$, the B
 If $X$ is a compact (Hausdorff) space, then Radon measures on $X$ are finite, and hence, through renormalization, we can regard them as probability measures.
 We thus have the following remark:
 
-\begin{rem} 
+\begin{rem}
 \label{rem:probability}
 If $X$ is compact, then a function $f:X\rightarrow\mathbb{R}$ is universally measurable if and only if $f^{-1}(U)$ is $\mu$-measurable for every Radon probability measure $\mu$ on $X$ and every open set $U\subseteq\mathbb{R}$.
 \end{rem}
@@ -1704,7 +1526,7 @@ Given a fixed Radon measure $\mu$ on $X$, the collection of all $\mu$-measurable
 \end{notn}
 
 In the context of deep computations, we are interested in transition maps of a state space $L\subseteq \mathbb{R}^\mathcal{P}$ into itself.
-In the product space $\mathbb{R}^\mathcal{P}$, we have two natural $\sigma$-algebras: 
+In the product space $\mathbb{R}^\mathcal{P}$, we have two natural $\sigma$-algebras:
 the Borel $\sigma$-algebra, i.e., the $\sigma$-algebra generated by open sets in $\mathbb{R}^\mathcal{P}$, and the cylinder $\sigma$-algebra (i.e., the $\sigma$-algebra generated by the sub-basic open sets in $\mathbb{R}^\mathcal{P}$, that is, the set $\pi_i^{-1}(U)$ with $U\subseteq \mathbb{R}$ open).
 In general, the cylinder $\sigma$-algebra is strictly smaller; however,  when $\mathcal{P}$ is countable, both $\sigma$-algebras coincide.
 We will use the cylinder $\sigma$-algebra to define universally measurable maps $f:\mathbb{R}^\mathcal{P}\rightarrow\mathbb{R}^\mathcal{P}$.
@@ -1742,7 +1564,7 @@ The following are equivalent:
     \begin{enumerate}[(i)]
         \item
         $\overline{A}\subseteq M_r(X)$.
-        \item 
+        \item
         For every compact $K\subseteq X$, $A|_K$ satisfies the NIP.
         \item
         For every Radon measure $\mu$ on $X$, $A$ is relatively countably compact in $\mathscr{M}^0(X,\mu)$, i.e., every countable subset of $A$ has a limit point in $\mathscr{M}^0(X,\mu)$.
@@ -1771,15 +1593,6 @@ We say that a transition $f:L\rightarrow L$ is \emph{universally Monte Carlo com
 \end{defn}
 
 Note that, since each type-shard $\mathcal{L}[r_\bullet]$ is compact, by Remark~\ref{rem:probability}, in the context of Monte Carlo computability, we restrict our attention to Radon probability measures instead of  general Radon measures.
-
-
-
-%\subsection{Universal Monte Carlo computability of deep computations}% delete this and move contents before BFT-2F
-
-%\subsection{Bourgain-Fremlin-Talagrand, NIP, and universal Monte Carlo computability of deep computations}
-%
-%The result in this subsection is a consequence of Theorem~\ref{thm:BFT-2F},
-%and it states that PAC-learning (or NIP) implies Monte Carlo computability with respect to any measure.
 
 \begin{thm}
 \label{thm:NIP-Monte-Carlo}
@@ -1816,8 +1629,6 @@ Given a $\mu$-measurable set $E\subseteq X$, a positive integer $k$ and real num
 \[
 	D_k(A,E,a,b)=\bigcup_{f\in A}\{x\in E^{2k}:f(x_{2i})\leq a, \hspace{1mm} f(x_{2i+1})\geq b \hspace{1mm}{\text{ for all }i<k} \}.
 \]
-
-
 
 \begin{defn}
 \label{def:Talagrand-stable}
@@ -1889,7 +1700,7 @@ If $A$ is Talagrand $\mu$-stable, so is $\overline{A}$, by Remarks~\ref{rem:Tala
     Assume, for the sake of contradiction that there exists $f\in\overline{A}$ such that $f\notin \mathscr{M}^0(X,\mu)$.
     By Fact \ref{fact:meas-fns-charn}, there exists a $\mu$-measurable set $E$ of positive measure and $a<b$ such that $\mu^*(E_{\le a})=\mu^*(E_{\ge b})=\mu(E)$ where $E_{\le a}=\{x\in E: f(x)\leq a\}$ and $E_{\ge b}=\{x\in E: f(x)\geq b\}$.
     Then, for any $k\geq 1$: $(E_{\le a}\times E_{\ge b})^k\subseteq D_k(\{f\},E,a,b)$, so $(\mu^{2k})^*(D_k(\{f\},E,a,b))=(\mu^*(E_{\le a})\mu^*(E_{\ge b}))^k=(\mu(E))^{2k}$.
-    Thus, the set $\{f\}$ is not Talagrand $\mu$-stable. 
+    Thus, the set $\{f\}$ is not Talagrand $\mu$-stable.
     However, $\{f\}\subseteq\overline{A}$ and we know (Remarks~\ref{rem:Talagrand-stability}) that a subset of a Talagrand $\mu$-stable set must be Talagrand $\mu$-stable,
     so we have a contradiction.
 \end{proof}
@@ -1923,9 +1734,9 @@ If $\pi_P\circ\Delta|_{L[r_\bullet]}$ is universally Talagrand stable for all $P
 \end{proof}
 
 In the context of deep computations, we have identified two ways to obtain Monte Carlo computability, namely,
-NIP/PAC and Talagrand stability. 
-It is natural to ask whether these two notions are equivalent. 
-The following results show that, even in the simple case of countably many computations, this question is sensitive to the set-theoretic axioms. 
+NIP/PAC and Talagrand stability.
+It is natural to ask whether these two notions are equivalent.
+The following results show that, even in the simple case of countably many computations, this question is sensitive to the set-theoretic axioms.
 On the one hand, it is consistent (with respect to the standard ZFC axioms of set theory) that these two classes are the same:
 
 \begin{thm}[Talagrand, Theorem 9-3-1(a) in \cite{talagrand1984pettis}]
@@ -1952,38 +1763,7 @@ Is it consistent with the usual axioms of set theory that some countable, pointw
 Equivalently, can the two routes to Monte Carlo computability of deep computations, $\NIP$ and universal Talagrand stability, differ for countable sets of computations?
 \end{question}
 
-
-
-%\section{Conclusion}
-%
-%We have seen how the tools of model theory and the topology of function spaces can give us new insights into classifying the difficulty of computations.
-%In future papers, we plan to extend this research in a variety of directions. 
-%A direction of particular interest to us  is replacing classical computation by quantum computation.
-%Topologically, we expect to extend some of our results  to $K$-countably determined (Lindelöf $\Sigma$) spaces or  $K$-analytic spaces, which have previously been used in functional analysis --- see e.g., Kakol \emph{et al}~\cite{Kakol-Kubis-Lopez-Pellicer-Sobota:2025}.
-%Our restricting our considerations to continuous and Baire class~1 functions can be relaxed by applying more high-powered model-theoretic and topological techniques. 
-%This is work in progress. 
-%We have hinted at applications to deep equilibria; see~\cite{alva2024approximability}.
-%In another direction, we have hinted at the role additional set-theoretic axioms may play. 
-%Since real world computations are finite and hence do not depend on other than the usual set-theoretic axioms, in principle we can assume these axioms and then dispense with them;
-%however, this is delicate, since many of our techniques involve infinite sets so we have to check that our assertions are sufficiently simple so as to be \emph{absolute}, i.e., unaffected by additional axioms. 
-%We hope that this paper, the preceding one~\cite{alva2024approximability}, and the future ones will stimulate interactions among these three seemingly unrelated fields of research.
-%
-%
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%\begin{thebibliography}{9}
-
-
-
 \bibliographystyle{alpha}
-%\nocite{*}
 \bibliography{bib}
 
-%\end{thebibliography}
 \end{document}
