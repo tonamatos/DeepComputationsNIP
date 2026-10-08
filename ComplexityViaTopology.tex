@@ -146,6 +146,7 @@ $^{2}$Department of Mathematics, University of Toronto\\
 \begin{abstract}
 We use topological methods and a suitable framework to study the complexity of limit computations (such as so-called “deep computations” implied by recurrent neural networks).
 By using topology of function spaces —specifically, the classification of Rosenthal compacta— we identify new computational complexity classes.
+These classes form a strict hierarchy, each level of which is realized by classical algorithms, among them the power method, Bresenham’s line algorithm and Newton’s method; for iterative algorithms, the hierarchy coincides with a hierarchy of tame dynamical systems.
 The language of model theory, particularly, the concept of \emph{independence} from Shelah’s classification theory, provides a medium to translate between topology and computation.
 The theory of Rosenthal compacta allows us to characterize approximability of deep computations, both deterministically and probabilistically.
 \end{abstract}
@@ -237,13 +238,13 @@ Finally, Theorem~\ref{thm:NIP-Monte-Carlo} and Corollary~\ref{cor:Talagrand-stab
 
 \subsection*{Organization of the paper}
 In Section~\ref{sec:prelim}, we present the topological and combinatorial preliminaries, including five canonical Rosenthal compacta (Section~\ref{sec:five-compacta}).
-In Section~\ref{sec:CCS}, we introduce compositional computation structures, the structural and model-theoretic viewpoint (no previous exposure to model theory is needed), together with stability and the register construction.
+In Section~\ref{sec:CCS}, we introduce compositional computation structures, the structural and model-theoretic viewpoint (no previous exposure to model theory is needed), together with stability and the register construction; the section ends with two motivating examples, Newton’s method for square roots and Newton’s method on the Riemann sphere, whose different behaviors the classification is designed to separate (Section~\ref{sec:preview}).
 Section~\ref{sec:Classification} is devoted to the classification of deep computations; it contains the main theorems.
 The remaining sections are examples and a generalization.
-Section~\ref{sec:examples} presents Newton’s method, threshold classifiers and prefix tests in detail, and Section~\ref{sec:iterative} places examples at every level of the hierarchy, including classical iterative algorithms.
+Section~\ref{sec:examples} treats Newton’s method, threshold classifiers and prefix tests in detail, and Section~\ref{sec:iterative} places examples at every level of the hierarchy, including classical iterative algorithms.
+The final section, Section~\ref{sec:measure-theoretic-NIP}, replaces topological limits by a probabilistic viewpoint, the development of which we intend to extend in future research.
 
 Throughout the paper, our results pertain to classical models of computation (particularly computations involving real-valued quantities that are known and manipulated to a finite degree of precision).
-The final section, Section~\ref{sec:measure-theoretic-NIP}, introduces a probabilistic viewpoint, the development of which we intend to extend in future research.
 
 \tableofcontents
 
@@ -987,6 +988,47 @@ function that does not depend on $f$, and composing it with the register
 predicate gives~$f$.
 \end{proof}
 
+
+\subsection{Two motivating examples}
+\label{sec:preview}
+Before developing the classification, we describe two computations whose deep computations behave very differently.
+Both are treated in detail in Section~\ref{sec:examples}.
+
+\emph{Square roots.}
+Newton’s method for $p(x)=x^2-a$, with $a>0$, acts on the real projective line $\RP^1=\mathbb{R}\cup\{\infty\}$ by $N_p(x)=(x^2+a)/(2x)$.
+Its iterates are continuous, and they converge pointwise to the map $\mathfrak f$ that sends every positive number to $\sqrt a$, every negative number to $-\sqrt a$, and $0$ and $\infty$ to~$\infty$ (Figure~\ref{fig:sqrt}).
+The deep computations are the iterates together with~$\mathfrak f$.
+The map $\mathfrak f$ is discontinuous, so it is not computable and the iterates are not stable; but it is the limit of a \emph{sequence} of computations, and the space of deep computations is countable.
+
+\emph{Newton’s method on the Riemann sphere.}
+For $\rho(z)=z^3-2z+2$, Newton’s method on the Riemann sphere $\hatC$ behaves in three ways at once (Figure~\ref{fig:newton}).
+On the basins of the three roots the iterates converge.
+On the basin of the cycle $0\mapsto1\mapsto0$ they do not: the even and the odd iterates converge to two different deep computations.
+On the common boundary of these basins, a fractal set, the iterates are chaotic, and for the simpler polynomial $z^2-1$ we shall see that some deep computations are not even limits of sequences of computations (Proposition~\ref{prop:Newton-wild}).
+
+The classification of Section~\ref{sec:Classification} is designed to separate such behaviors.
+Theorem~\ref{thm:nip-baire1def} characterizes the sets of computations whose deep computations are limits of sequences, as for square roots, and Todorčević’s trichotomy measures how complicated the space of such deep computations can be.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.78\textwidth]{sqrt_newton.pdf}
+  \caption{Newton iterates $N_p^n$ for $p(x)=x^2-a$ on the real projective line, drawn on the circle with $\infty$ at both ends of each axis.
+    The continuous maps $N_p^n$ converge pointwise to the deep computation $\mathfrak f$, which sends the positive half line to $\sqrt a$, the negative half line to $-\sqrt a$, and $0$ and $\infty$ to~$\infty$.}
+  \label{fig:sqrt}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=\textwidth]{newton_cubic.pdf}
+  \caption{The deep computations of Newton’s method for $\rho(z)=z^3-2z+2$: the limits of the even iterates $N_\rho^{(2k)}$ and of the odd iterates $N_\rho^{(2k+1)}$, on the whole plane and near the point~$1$.
+    Points in the basins of the real root and of the roots in the upper and lower half planes (white circles) are blue, teal and ochre, darker where convergence is slower.
+    The remaining open region is the basin of the superattracting cycle $0\mapsto1\mapsto0$ (white squares).
+    A point there is pink if the iterate in question is near~$0$ and crimson if it is near~$1$, so the two colors exchange between even and odd iterates:
+    the two deep computations agree on the basins of the roots and differ on the basin of the cycle.
+    The boundaries of the colored regions form the Newton fractal of~$\rho$.}
+  \label{fig:newton}
+\end{figure}
+
 \section{Classifying deep computations}
 \label{sec:Classification}
 
@@ -1319,17 +1361,7 @@ These regions are visible in Figure~\ref{fig:newton}, which shows the limits of 
  \footnote{As remarked above, $\infty$ is a repelling fixed point of $N_\rho$, hence $f_0(\infty) = \infty = f_1(\infty)$.}
  The behavior of iterates $N^{(n)}_\rho$ on the Newton fractal of~$\rho$ (the Julia set of~$\rho$) is chaotic.
 
-\begin{figure}[htbp]
-  \centering
-  \includegraphics[width=\textwidth]{newton_cubic.pdf}
-  \caption{The deep computations of Newton’s method for $\rho(z)=z^3-2z+2$: the limits of the even iterates $N_\rho^{(2k)}$ and of the odd iterates $N_\rho^{(2k+1)}$, on the whole plane and near the point~$1$.
-    Points in the basins of the roots $r_0$, $r_+$, $r_-$ (white circles) are blue, teal and ochre, darker where convergence is slower.
-    The remaining open region is the basin of the superattracting cycle $0\mapsto1\mapsto0$ (white squares).
-    A point there is pink if the iterate in question is near~$0$ and crimson if it is near~$1$, so the two colors exchange between even and odd iterates:
-    the two deep computations agree on the basins of the roots and differ on the basin of the cycle.
-    The boundaries of the colored regions form the Newton fractal of~$\rho$.}
-  \label{fig:newton}
-\end{figure}
+
 
 \subsection{Example: Newton's CCS for $3$-cyclotomic $\kappa(z) = z^{3}-1$}
 Consider next the $3$-cyclotomic polynomial ${\kappa}(z) = z^3-1$. 
@@ -1391,13 +1423,7 @@ More explicitly, the unique deep equilibrium $\mathfrak{f}: \RP^1\to\RP^1$ of (t
  \]
  Thus, $\mathfrak{f}$ is discontinuous at $x = 0, \infty$ (Figure~\ref{fig:sqrt}).
 
-\begin{figure}[htbp]
-  \centering
-  \includegraphics[width=0.78\textwidth]{sqrt_newton.pdf}
-  \caption{Newton iterates $N_p^n$ for $p(x)=x^2-a$ on the real projective line, drawn on the circle with $\infty$ at both ends of each axis.
-    The continuous maps $N_p^n$ converge pointwise to the deep computation $\mathfrak f$, which sends the positive half line to $\sqrt a$, the negative half line to $-\sqrt a$, and $0$ and $\infty$ to~$\infty$.}
-  \label{fig:sqrt}
-\end{figure}
+
  % The basin of attraction of $x=\sqrt{a}$ is $(0,\infty)$, of $-\sqrt{a}$ is $(\infty,0)$, and of $\infty$ is $\{0,\infty\}$.
  % The set of deep computations is $\{N_p^n\}_n\cup\{\mathfrak{f}\}\subseteq \mathrm{B}_1(\mathcal{L},\mathcal{L})$.
 
