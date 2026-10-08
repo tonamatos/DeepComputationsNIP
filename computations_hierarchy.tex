@@ -1,0 +1,407 @@
+%======================================================================
+\section{Computations across the hierarchy}
+\label{sec:iterative}
+
+In this section we place examples of computations at every level of the
+hierarchy
+\[
+\text{stable}\Rightarrow\NIP_3\Rightarrow\NIP_2\Rightarrow\NIP_1\Rightarrow\NIP,
+\]
+and show that each implication is strict.
+For each level we give two examples.
+The first is one of the static examples of Section~\ref{sec:examples},
+turned into a CCS by the register construction of
+Definition~\ref{def:register}; its deep computations are one of the five
+compacta of Section~\ref{sec:five-compacta}.
+The second is a classical iterative algorithm, a single step map applied over
+and over.
+For iterative algorithms, the hierarchy coincides with a hierarchy studied in
+topological dynamics by Glasner and Megrelishvili~\cite{glasner2022tame}, and
+we begin with this observation.
+Table~\ref{tab:hierarchy} at the end of the section summarizes the examples.
+
+\subsection{Iterative algorithms and tame dynamics}
+A \emph{cascade CCS} is a compositional computation structure
+$(L,\mathcal{P},\Gamma)$ in which $L$ is a compact metrizable space,
+$\mathcal{P}$ is a countable family of bounded continuous predicates that
+separates the points of~$L$, and $\Gamma=\{\gamma^n:n\in\mathbb{N}\}$ is the
+semigroup of iterates of a single continuous map $\gamma\colon L\to L$.
+Since $\mathcal{P}$ separates points and $L$ is compact, the map
+$v\mapsto\tp(v)$ is a homeomorphism of $L$ onto the space of types, so $L$ is
+covered by a single shard, every type is realized, and the Extendibility Axiom
+holds with $\tilde\gamma=\gamma$.
+The deep computations of a cascade CCS form the pointwise closure
+\[
+E(L,\gamma)=\overline{\{\gamma^n:n\in\mathbb{N}\}}\subseteq L^L ,
+\]
+which is the \emph{enveloping semigroup} of the dynamical system $(L,\gamma)$
+introduced by Ellis.
+A dynamical system is called \emph{tame} if its enveloping semigroup consists of
+Baire class~$1$ maps~\cite{Kohler1995,Glasner2006}.
+Theorem~\ref{thm:nip-baire1def} therefore reads as follows.
+
+\begin{prop}\label{prop:cascade-tame}
+A cascade CCS is $\NIP$ if and only if the dynamical system $(L,\gamma)$ is
+tame.
+In that case it is $\NIP_1$, $\NIP_2$ or $\NIP_3$ if and only if $E(L,\gamma)$ is,
+respectively, first countable, hereditarily separable or metrizable.
+\end{prop}
+
+For metrizable systems, Glasner and Megrelishvili call these three classes
+\emph{tame$_1$}, \emph{tame$_2$} and \emph{hereditarily non-sensitive}, and
+prove that they are strictly nested~\cite[Proposition~0.6]{glasner2022tame}.
+The dynamical point of view supplies a criterion for wildness.
+By a theorem of Kerr and Li~\cite{KerrLi2007}, a tame system given by a
+homeomorphism has topological entropy zero.
+An algorithm that produces information at a positive exponential rate, such as
+a pseudorandom number generator, is wild by design; a numerical method that
+settles down is tame.
+
+
+\subsection{Stable and metrizable}
+\label{sec:ex-NIP3}
+\emph{A stable example: rotation.}
+Let $L=\mathbb{T}=\mathbb{R}/\mathbb{Z}$, with the predicates $\cos2\pi x$ and
+$\sin2\pi x$, and let $\gamma(x)=x+\alpha$ with $\alpha$ irrational.
+A pointwise limit of rotations is a rotation, and the rotations $n\alpha$ are
+dense, so the deep computations are all the rotations
+$x\mapsto x+c$, $c\in\mathbb{T}$.
+They are continuous, so the rotation CCS is stable, and its space of deep
+computations is the circle group, a metrizable compactum.
+
+\emph{$\NIP_3$ but not stable: square roots.}
+The square-root CCS of Section~\ref{exa:square-roots-compute} has the deep
+computations $\Gamma\cup\{\mathfrak f\}$, a countable compactum, hence
+metrizable; and $\mathfrak f$ is discontinuous at $0$ and $\infty$.
+So it is $\NIP_3$ but not stable.
+
+\emph{$\NIP_3$ but not stable: the power method.}
+The power method computes a dominant eigenvector of a matrix by repeated
+multiplication and normalization.
+Let $A=\operatorname{diag}(\lambda_1,\dots,\lambda_d)$ with
+$\lambda_1>\lambda_2>\cdots>\lambda_d>0$, let $L=\RP^{d-1}$, and let
+$\mathcal{P}$ consist of the predicates
+$p_{ij}([v])=v_iv_j/\|v\|^2$, the entries of the orthogonal projection onto the
+line $[v]$.
+The step of the algorithm is $\gamma([v])=[Av]$.
+For $[v]\in\RP^{d-1}$, let $i(v)$ be the least index with $v_i\ne0$, and put
+$\pi([v])=[e_{i(v)}]$.
+
+\begin{prop}\label{prop:power}
+The deep computations of the power method are
+$E(L,\gamma)=\{\gamma^n:n\in\mathbb{N}\}\cup\{\pi\}$.
+Hence the power method is $\NIP_3$.
+Its only nontrivial deep computation $\pi$ is of Baire class~$1$ and
+discontinuous, so the power method is not stable.
+\end{prop}
+
+\begin{proof}
+For $i=i(v)$, we have $\lambda_i^{-n}A^nv=v_ie_i+\sum_{j>i}(\lambda_j/\lambda_i)^nv_je_j\to v_ie_i$,
+so $\gamma^n\to\pi$ pointwise.
+Every cluster point of $\{\gamma^n\}$ is therefore either some $\gamma^m$ or
+$\pi$, and $E(L,\gamma)$ is a countable compact Hausdorff space, hence
+metrizable.
+The map $\pi$ is a pointwise limit of continuous maps, and it is
+discontinuous at every $[v]$ with $i(v)>1$, since $[v+te_1]\to[v]$ as $t\to0$
+while $\pi([v+te_1])=[e_1]\ne\pi([v])$.
+\end{proof}
+
+The deep computation $\pi$, \emph{the dominant eigenvector of the input}, is
+not computable in the sense of Section~\ref{sec:CCS}, since it does not extend
+continuously to the space of types; yet it is the limit of a sequence of
+computations, and the closure in which it lives is as simple as possible.
+
+
+\subsection{Hereditarily separable but not metrizable}
+\label{sec:ex-NIP2}
+\emph{Threshold classifiers.}
+By Lemma~\ref{lem:register}, the finite-precision threshold classifiers of
+Section~\ref{sec:Cantor-classifiers} form a register CCS whose deep
+computations are the ultra-classifiers.
+Their space is a copy of $S(2^{\mathbb{N}})$
+(Section~\ref{sec:infin-prec-class}), so this CCS is $\NIP_2$ but not $\NIP_3$.
+The classifiers are $\NIP$ because the sets they define are initial segments of
+the lexicographic order, and no infinite family of initial segments is
+independent.
+
+\emph{Drawing a line.}
+Let $0<\alpha<1$ be irrational.
+To draw the line $y=\alpha x+\rho$ on a screen, Bresenham's
+algorithm~\cite{Bresenham1965} moves one pixel to the right at each step and
+decides whether to move one pixel up.
+The $n$-th decision is
+$b_n(\rho)=\lfloor(n+1)\alpha+\rho\rfloor-\lfloor n\alpha+\rho\rfloor
+=\Brack{\{n\alpha+\rho\}\in[1-\alpha,1)}$, where $\{\cdot\}$ denotes the
+fractional part, and the state of the algorithm is the error term $\rho$
+modulo~$1$.
+The step $\rho\mapsto\rho+\alpha$ is a rotation of the circle
+$\mathbb{T}=\mathbb{R}/\mathbb{Z}$, but the decision bit is not a continuous
+function of~$\rho$.
+The standard remedy~\cite{MorseHedlund1940,Lothaire2002} is to take as states
+the decision sequences themselves.
+
+Let $D=\{-k\alpha:k\in\mathbb{Z}\}\subseteq\mathbb{T}$, a countable dense set
+containing both endpoints $0$ and $1-\alpha$ of the decision interval.
+The \emph{split circle} $\mathbb{T}_D$ is obtained from $\mathbb{T}$ by replacing
+each $t\in D$ by two points $t^-<t^+$, with the circular order topology; it is
+a compact metrizable space, homeomorphic to the Cantor set.
+The rotation by $\alpha$ preserves $D$ and lifts to a homeomorphism $R$ of
+$\mathbb{T}_D$ that preserves the labels $\pm$.
+The decision interval becomes clopen in $\mathbb{T}_D$, and the coding map
+$\mathbb{T}_D\to2^{\mathbb{Z}}$, $y\mapsto(\Brack{R^ny\in[1-\alpha,1)})_{n\in\mathbb{Z}}$,
+is a homeomorphism onto the \emph{Sturmian shift} $X_\alpha$ that conjugates $R$
+to the shift~$\sigma$.
+The \emph{Bresenham CCS} has states $L=X_\alpha$, the coordinate predicates, and
+the semigroup $\Gamma=\{\sigma^n:n\in\mathbb{N}\}$.
+
+For $c\in\mathbb{T}$, let $R_c^+$ (respectively $R_c^-$) be the map of
+$\mathbb{T}_D$ that sends a point over $y_0$ to $(y_0+c)^+$ (respectively
+$(y_0+c)^-$) when $y_0+c\in D$, and to $y_0+c$ otherwise.
+The \emph{double arrow circle} $\mathbb{D}$ is $\mathbb{T}\times\{-,+\}$ with the
+lexicographic circular order and its order topology; it is compact, first
+countable, hereditarily separable and not metrizable~\cite[3.10.C]{Engelking:1989}.
+
+\begin{thm}\label{thm:Bresenham}
+The Bresenham CCS is $\NIP$.
+Its deep computations are
+\[
+E(X_\alpha,\sigma)=\{\sigma^n:n\in\mathbb{N}\}\cup\{R_c^+,R_c^-:c\in\mathbb{T}\},
+\]
+where each $\sigma^n$ is isolated and $c^\pm\mapsto R_c^\pm$ is a homeomorphism
+of $\mathbb{D}$ onto the remaining part.
+In particular, the Bresenham CCS is $\NIP_2$ but not $\NIP_3$.
+\end{thm}
+
+\begin{proof}
+For $\NIP$, note that the $j$-th coordinate of $\sigma^n y$ is $1$ exactly when
+$R^{n+j}y$ lies in the clopen arc $[1-\alpha,1)$ of $\mathbb{T}_D$, that is, when
+$y$ lies in an arc of $\mathbb{T}_D$.
+A family of arcs of a circularly ordered set has Vapnik--Chervonenkis dimension
+at most~$3$, so it has no infinite independent subfamily, and the predicates
+$P_j\circ\sigma^n$ are $\{0,1\}$-valued.
+
+For the deep computations, let $\gamma$ be the limit of $\sigma^{n_i}$ along an
+ultrafilter, and let $c=\lim n_i\alpha$ in $\mathbb{T}$.
+If $n_i$ is eventually constant, then $\gamma$ is a power of $\sigma$.
+Otherwise, since the points $n\alpha$ are distinct, the ultrafilter decides
+whether $n_i\alpha$ approaches $c$ from the right or from the left.
+In the first case, for every point $y$ over $y_0$ the points $R^{n_i}y$ over
+$y_0+n_i\alpha$ approach $y_0+c$ strictly from the right, and they converge
+in $\mathbb{T}_D$ to $(y_0+c)^+$ if $y_0+c\in D$ and to $y_0+c$ otherwise; so
+$\gamma=R_c^+$.
+The second case gives $R_c^-$.
+Conversely, every $c$ is approached from both sides by the points $n\alpha$
+with $n\ge N$, for every $N$, so every $R_c^\pm$ is a deep computation, and
+$R_c^+\ne R_c^-$, since they differ at the points over $d-c$ with $d\in D$.
+The same argument shows that $c_i^{\varepsilon_i}\to c^+$ in $\mathbb{D}$ implies
+$R_{c_i}^{\varepsilon_i}\to R_c^+$ pointwise, and symmetrically for $c^-$; so
+$c^\pm\mapsto R_c^\pm$ is a continuous bijection from the compact space
+$\mathbb{D}$ onto a Hausdorff space, hence a homeomorphism.
+Finally, fix $d\in D$ and consider the two points
+$(d-n\alpha)^\pm$ of $\mathbb{T}_D$, which $\sigma^n$ sends to $d^-$ and $d^+$.
+Every map $R_c^\pm$ sends them to the same point, and so does every pointwise
+limit of $\sigma^{m_i}$ with $m_i\to\infty$, by the argument above.
+A net of such maps, or of maps $\sigma^m$ with $m\ne n$ taken from a bounded set of exponents, cannot converge to $\sigma^n$, so $\sigma^n$ is isolated.
+Thus $E(X_\alpha,\sigma)$ is the union of a countable set and a copy of
+$\mathbb{D}$; it is hereditarily separable and not metrizable.
+\end{proof}
+
+The two deep computations $R_c^+$ and $R_c^-$ are the two ways of drawing the
+line infinitely far away, where the accumulated error has reached $c$: they
+agree except at the pixels where the line passes exactly through a corner,
+and there they apply the two opposite rounding conventions.
+Figure~\ref{fig:bresenham} shows the two conventions.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=\textwidth]{bresenham.pdf}
+  \caption{Left: the pixels drawn by Bresenham’s algorithm for $\alpha=(\sqrt5-1)/2$, with the decision bits $b_n$.
+    Right: where the line passes exactly through a pixel corner, the deep computations $R_c^+$ and $R_c^-$ break the tie in opposite directions; they agree on every other pixel.}
+  \label{fig:bresenham}
+\end{figure}
+The split Cantor set of the threshold classifiers of
+Section~\ref{sec:Cantor-classifiers} is the same phenomenon in a static form.
+
+
+\subsection{First countable but not hereditarily separable}
+\label{sec:ex-NIP1}
+\emph{Three-way comparison.}
+For $t\in2^{<\mathbb{N}}$, let $h_t\colon2^{\mathbb{N}}\to\{0,\frac12,1\}$ take the
+value $0$ below the interval $[t^\frown0^\infty,t^\frown1^\infty]$, the value
+$\frac12$ on it, and $1$ above it.
+This is one step of a binary search with three outcomes, as in a search tree:
+the input lies below, inside or above the dyadic interval of~$t$.
+Each $h_t$ is continuous, and its superlevel sets are final segments of the
+lexicographic order, so the family $\{h_t\}$ is $\NIP$.
+The map $h_t\mapsto(v_t,f^+_{t^\frown0^\infty})$ extends to a homeomorphism of
+the closure of $\{h_t\}$ onto $\hat D(S(2^{\mathbb{N}}))$
+\cite[4.3.7]{argyros2008rosenthal}.
+By Lemma~\ref{lem:register}, the register CCS of the three-way comparisons is
+$\NIP_1$ but not $\NIP_2$.
+
+\emph{Drawing a line in space.}
+Let $\alpha$ and $\beta$ be irrational numbers in $(0,1)$ such that $1,\alpha,\beta$
+are linearly independent over $\mathbb{Q}$.
+To draw a line in $\mathbb{Z}^3$ with direction $(1,\alpha,\beta)$, the
+three-dimensional Bresenham algorithm runs the planar algorithm in two
+coordinates at once.
+Its CCS has states $L=X_\alpha\times X_\beta$, the coordinate predicates of
+both factors, and the semigroup generated by $\sigma\times\sigma$.
+
+\begin{thm}\label{thm:Bresenham3}
+The three-dimensional Bresenham CCS is $\NIP_1$ but not $\NIP_2$.
+\end{thm}
+
+\begin{proof}
+Each predicate is a coordinate of one factor, so the CCS is $\NIP$ by
+Theorem~\ref{thm:Bresenham}.
+The deep computations form a closed subspace of
+$E(X_\alpha,\sigma)\times E(X_\beta,\sigma)$, which is first countable as a
+product of two first countable spaces; so the CCS is $\NIP_1$.
+By Kronecker's theorem, the points $(n\alpha,n\beta)$ with $n\ge N$ are dense in
+$\mathbb{T}^2$ for every $N$, so every point $(c,c')$ is approached by them from
+inside each of the four open quadrants at $(c,c')$; arguing as in the proof of
+Theorem~\ref{thm:Bresenham}, every pair $(R_c^\varepsilon,R_{c'}^{\varepsilon'})$
+is a deep computation.
+Consider the pairs $(R_c^+,R_{-c}^+)$, for $c\in\mathbb{T}$.
+In $\mathbb{D}\times\mathbb{D}$, a neighborhood of $(c^+,(-c)^+)$ is
+$[c^+,(c+\delta)^-)\times[(-c)^+,(-c+\delta)^-)$, and it contains
+$(s^+,(-s)^+)$ only if $c\le s<c+\delta$ and $-c\le -s<-c+\delta$, that is,
+only if $s=c$.
+So these pairs form an uncountable discrete subspace, and the space of deep
+computations is not hereditarily separable.
+\end{proof}
+
+The uncountable discrete set consists of the deep computations that break
+ties upward in both coordinates at points where the two accumulated errors are
+opposite.
+Each of the two planar algorithms is $\NIP_2$, and drawing in two directions at
+once leaves the class: like the Sorgenfrey plane, a product of two
+hereditarily separable spaces need not be hereditarily separable.
+Compare \cite[Proposition~4.1]{glasner2022tame}, where a product of two
+tame$_2$ systems is shown not to be tame$_2$.
+
+
+\subsection{NIP but not first countable}
+\label{sec:ex-NIP}
+\emph{Prefix tests.}
+By Lemma~\ref{lem:register}, the prefix tests of Section~\ref{sec:prefix-test}
+form a register CCS whose deep computations are the ultra-prefix tests, a copy
+of $\hat A(2^{\mathbb{N}})$ (Section~\ref{sec:extended-alexandroff}).
+Any two prefix tests are either nested or disjoint, so no infinite family of
+them is independent, and the CCS is $\NIP$ but not $\NIP_1$.
+
+\emph{Tolerance tests.}
+Floating-point code does not test real numbers for equality; it tests whether
+$|x-a|$ is below a tolerance.
+For a rational $q\in[0,1]$ and $n\ge1$, let $h_{q,n}(x)=\max(0,1-n|x-q|)$, the
+degree to which $x$ equals $q$ at precision $1/n$.
+The \emph{tolerance CCS} is the register CCS (Definition~\ref{def:register}) of
+the family $\{h_{q,n}\}$ on $X=[0,1]$: the \emph{tolerance test} $\gamma_{q,n}$
+writes $h_{q,n}(x)$ into the register.
+
+\begin{prop}\label{prop:tolerance}
+The tolerance CCS is $\NIP$ but not $\NIP_1$.
+Its deep computations include the exact equality tests
+$(x,y)\mapsto(x,\Brack{x=a})$ for every real $a\in[0,1]$, and the test
+$(x,y)\mapsto(x,0)$ that never succeeds.
+\end{prop}
+
+\begin{proof}
+By Lemma~\ref{lem:register}, it suffices to consider the functions $h_{q,n}$.
+For $\NIP$, the sets $\{h_{q,n}\ge b\}$ are intervals, and an independent
+sequence of the $h_{q,n}$ would give an independent sequence of intervals, which
+does not exist.
+Given $a$, choose rationals $q_k\to a$ and integers $n_k\to\infty$ with
+$n_k|q_k-a|\to0$; then $h_{q_k,n_k}(a)\to1$ and $h_{q_k,n_k}(x)\to0$ for
+$x\ne a$, so $\Brack{x=a}$ is a deep computation.
+Exact equality tests at distinct points $a_k$ converge pointwise to~$0$.
+The pointwise topology on $\{\Brack{\,\cdot=a}:a\in[0,1]\}\cup\{0\}$ is that of the
+Alexandroff compactification of a discrete set of size continuum, which is not
+first countable at~$0$; hence neither is the space of deep computations.
+\end{proof}
+
+Exact equality is thus the deep computation of tolerance testing (Figure~\ref{fig:tolerance}).
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.78\textwidth]{tolerance.pdf}
+  \caption{Tolerance tests $h_{q,n}$ with $q\to a$ and $n\to\infty$, chosen so that $n|q-a|\to0$, converge pointwise to the exact equality test $\Brack{x=a}$, which is $1$ at $a$ and $0$ elsewhere.}
+  \label{fig:tolerance}
+\end{figure}
+The failure of first countability has a concrete meaning: a neighborhood of
+the test that never succeeds is specified by finitely many inputs at which the
+test must fail, and no countable family of such specifications suffices,
+because exact tests can succeed at uncountably many inputs.
+
+
+\subsection{Beyond NIP: Newton's method on the Riemann sphere}
+Newton's method on the Riemann sphere is chaotic on its Julia set, and the
+chaos is visible to the predicates of the CCS.
+For a polynomial $p$ of degree $m\ge2$ with simple roots, the Newton map
+$N_p$ is a rational map of degree~$m$, whose topological entropy is
+$\log m>0$~\cite{Lyubich1983}, and positive entropy is incompatible with
+tameness for invertible systems~\cite{KerrLi2007}.
+The Newton map is not invertible, so we do not claim the general statement here;
+for square roots the independence can be exhibited by hand.
+
+\begin{prop}\label{prop:Newton-wild}
+Let $p(z)=z^2-1$, and let $N(z)=\frac12\bigl(z+\frac1z\bigr)$ be its Newton map on
+$\hatC$.
+The functions $P_2\circ N^{3k}$, $k\in\mathbb{N}$, form an independent sequence:
+for all finite disjoint sets $E,F\subseteq\mathbb{N}$ there is $z\in\hatC$ with
+$P_2(N^{3k}z)\ge\frac12$ for $k\in E$ and $P_2(N^{3k}z)\le-\frac12$ for $k\in F$.
+In particular, the Newton CCS of $p$ is not $\NIP$.
+\end{prop}
+
+\begin{proof}
+The Möbius transformation $\phi(z)=(z-1)/(z+1)$ conjugates $N$ to the squaring
+map: $\phi(N(z))=\phi(z)^2$.
+It maps the imaginary axis, together with $\infty$, onto the unit circle, with
+$\phi^{-1}(e^{i\theta})=i\cot(\theta/2)$.
+Hence, for $z=i\cot(\theta/2)$, we have $N^n(z)=i\cot(2^{n}\theta/2)$ and
+\[
+P_2\bigl(N^n(z)\bigr)=\frac{2\cot(2^{n-1}\theta)}{\cot^2(2^{n-1}\theta)+1}=\sin(2^n\theta).
+\]
+Write $\theta=2\pi\sum_{j\ge1}x_j2^{-j}$ with bits $x_j$.
+The fractional part of $2^{3k}\theta/2\pi$ has binary expansion
+$0.x_{3k+1}x_{3k+2}x_{3k+3}\cdots$.
+If $(x_{3k+1},x_{3k+2},x_{3k+3})=(0,1,0)$, this fractional part lies in
+$[\frac14,\frac38]$, so $\sin(2^{3k}\theta)\ge\sin\frac{3\pi}{4}>\frac12$; if the block
+is $(1,1,0)$, it lies in $[\frac34,\frac78]$, so $\sin(2^{3k}\theta)<-\frac12$.
+Choosing the block $(0,1,0)$ for $k\in E$ and $(1,1,0)$ for $k\in F$ gives the
+required~$z$.
+\end{proof}
+
+The same algorithm is tame on the real line.
+The Julia set of $N$ is the imaginary axis together with $\infty$, which meets
+$\RP^1$ only at~$\infty$, and on $\RP^1$ the iterates converge to the deep
+computation of Example~\ref{exa:square-roots-compute}.
+Whether Newton's method is tame depends on the space of states, not on the
+formula for the step.
+
+
+\subsection{Summary}
+Table~\ref{tab:hierarchy} collects the examples of this section.
+
+\begin{table}[ht]
+\centering
+\small
+\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{>{\raggedright\arraybackslash}p{2.3cm}>{\raggedright\arraybackslash}p{2.7cm}>{\raggedright\arraybackslash}p{2.6cm}>{\raggedright\arraybackslash}p{3.0cm}}
+\hline
+Level & Static example & Iterative algorithm & Deep computations contain\\
+\hline
+stable & --- & rotation & the circle group\\
+$\NIP_3$, not stable & square roots & power method & a countable compactum\\
+$\NIP_2$, not $\NIP_3$ & threshold classifiers & Bresenham, plane & $S(2^{\mathbb{N}})$; a double arrow circle\\
+$\NIP_1$, not $\NIP_2$ & three-way comparison & Bresenham, space & $\hat D(S(2^{\mathbb{N}}))$; $\mathbb{D}\times\mathbb{D}$\\
+$\NIP$, not $\NIP_1$ & prefix tests & --- & $\hat A(2^{\mathbb{N}})$\\
+& tolerance tests & & $A(2^{\mathbb{N}})$\\
+not $\NIP$ & --- & Newton on $\hatC$ & ---\\
+\hline
+\end{tabular}
+\vspace{6pt}
+\caption{Computations at each level of the hierarchy.}
+\label{tab:hierarchy}
+\end{table}

@@ -22,6 +22,7 @@ pdfkeywords={}
 \usepackage{subcaption}
 \usepackage{stmaryrd}
 \usepackage{cancel}
+\usepackage{array}
 
 %\usepackage[rgb]{xcolor}
 
@@ -169,7 +170,7 @@ To every computation in a given computation model, we associate a continuous rea
 This association allows us to view computations in any given computational model as elements of a space of real-valued functions, which is called the \emph{space of types} of the model.
 The idea of embedding models of theories into their type spaces is borrowed from model theory, where type spaces play a central role.
 The embedding of computations into spaces of types then allows us to utilize the vast theory of topology of function spaces, known as \emph{$\Cp$-theory}, to obtain results about complexity of topological limits of computations.
-As we shall indicate next, recent classification results for spaces of functions provide an elegant and powerful machinery to classify computations according to their levels of ``tameness’’ or ``wildness’’, with the former corresponding roughly to polynomial approximability and the latter to exponential approximability.
+As we shall indicate next, recent classification results for spaces of functions provide an elegant and powerful machinery to classify computations according to their levels of ``tameness’’ or ``wildness’’, in the sense of Shelah’s independence property, which in combinatorics separates polynomial from exponential growth (Section~\ref{sec:NIP-poly-exp}).
 The model-theoretic viewpoint of spaces of types thus becomes a ``Rosetta stone’’ that allows us to interconnect various classification programs: 
 in topology, the classification of Rosenthal compacta pioneered by Todorčević~\cite{Todorcevic_1999_CompactSubsetsBaire}; 
 in logic, the classification of theories developed by Shelah~\cite{Shelah:1990}; and in statistical learning,
@@ -180,13 +181,13 @@ in logic, the classification of theories developed by Shelah~\cite{Shelah:1990};
 In a previous paper~\cite{alva2024approximability}, the authors introduced the concept of limits of computations, which they called \emph{ultracomputations} (given that they arise as ultrafilter limits of standard computations) and \emph{deep computations} (following usage in machine learning~\cite{Bai:2019}).
 There is a technical difference between both designations, but in this paper, to simplify the nomenclature, we will ignore the difference and use primarily the term ``deep computation’’.
 
-In \cite{alva2024approximability},  a new ``tame vs wild'' (i.e., polynomially approximable vs nonpolynomially approximable) dichotomy for the complexity of deep computations was proved by invoking a classical result of Grothendieck from the 1950s~\cite{Grothendieck:1952}.
+In \cite{alva2024approximability}, a dichotomy between \emph{stable} (polynomially approximable) and unstable classes of deep computations was proved by invoking a classical result of Grothendieck from the 1950s~\cite{Grothendieck:1952}.
 Under our model-theoretic Rosetta stone, the property of polynomial approximability of computations is identified with continuous extendibility in the sense of topology, and with the notions of \emph{stability} and \emph{type definability} in the sense of model theory.
 
 In this paper, we refine the dichotomy of \cite{alva2024approximability}, and obtain new complexity classes for deep computation. 
 %Both the topological and model-theoretic tools are considerably more sophisticated.
-The ``wild'' part of the dichotomy from~\cite{alva2024approximability} is further subdivided between ``tame'' and ``wild''  classes;
-three new levels of  tameness are identified within this new subdivision, and seven distinct minimal prototypes of tameness are detected.
+An unstable class of deep computations may still be \emph{tame}, in the sense that it does not have the independence property, or \emph{wild}, in the sense that it does;
+within the tame unstable classes we identify three new levels, and seven distinct minimal prototypes.
 
 The finer classification results of this paper are obtained through more contemporary topological and model-theoretic tools than in the previous paper~\cite{alva2024approximability}. 
 From the topological side, instead of Grothendieck’s classical criterion, we use the modern theory of \emph{Rosenthal compacta}, and from the model theory side, instead of stability, we use \emph{neostability}.
@@ -222,8 +223,23 @@ In the interest of accessibility, we do not assume that the reader has previous 
 The only technical prerequisites to read this paper are undergraduate-level topology and measure theory.
 The necessary topological background beyond undergraduate topology is covered in section~\ref{sec:prelim}.
 
-In section \ref{sec:prelim}, we present basic topological and combinatorial preliminaries. In section~\ref{sec:CCS}, we introduce the structural/model-theoretic viewpoint (no previous exposure to model theory is needed).
-Section~\ref{sec:Classification} is devoted to the classification of deep computations.
+\subsection*{Main results}
+Theorem~\ref{thm:nip-baire1def} shows that a countable set of computations with countably many predicates satisfies the $\NIP$, feature by feature and on shards, if and only if its deep computations form a Rosenthal compactum; in that case every deep computation is the limit of a \emph{sequence} of computations.
+Using Todorčević’s trichotomy, we then define three levels of tameness (Definition~\ref{def:NIP-levels}) and obtain the hierarchy
+\[
+\text{stable}\Rightarrow\NIP_3\Rightarrow\NIP_2\Rightarrow\NIP_1\Rightarrow\NIP,
+\]
+in which every implication is strict.
+Section~\ref{sec:iterative} realizes each level by a classical algorithm: a rotation is stable; the power method is $\NIP_3$ but not stable; Bresenham’s line algorithm in the plane is $\NIP_2$ but not $\NIP_3$, and in space $\NIP_1$ but not $\NIP_2$; tolerance tests, whose deep computations are exact equality tests, are $\NIP$ but not $\NIP_1$; and Newton’s method on the Riemann sphere is not $\NIP$.
+For iterative algorithms the hierarchy coincides with the hierarchy of tame dynamical systems of Glasner and Megrelishvili~\cite{glasner2022tame}.
+The heptachotomy of Argyros, Dodos and Kanellopoulos then shows that every tame family of computations indexed by the binary tree contains, along a dyadic subtree, one of seven minimal families, which we read as primitives of binary search (Section~\ref{sec:heptachotomy}).
+Finally, Theorem~\ref{thm:NIP-Monte-Carlo} and Corollary~\ref{cor:Talagrand-stab-Monte-Carlo} relate $\NIP$ and Talagrand stability to Monte Carlo computability of deep computations.
+
+\subsection*{Organization of the paper}
+In Section~\ref{sec:prelim}, we present the topological and combinatorial preliminaries, including five canonical Rosenthal compacta (Section~\ref{sec:five-compacta}).
+In Section~\ref{sec:CCS}, we introduce compositional computation structures, the structural and model-theoretic viewpoint (no previous exposure to model theory is needed), together with stability and the register construction.
+Section~\ref{sec:examples} presents the first examples: Newton’s method, threshold classifiers and prefix tests.
+Section~\ref{sec:Classification} is devoted to the classification of deep computations, and Section~\ref{sec:iterative} places examples at every level of the resulting hierarchy.
 
 Throughout the paper, our results pertain to classical models of computation (particularly computations involving real-valued quantities that are known and manipulated to a finite degree of precision).
 The final section, Section~\ref{sec:measure-theoretic-NIP}, introduces a probabilistic viewpoint, the development of which we intend to extend in future research.
@@ -458,6 +474,7 @@ We will discuss this dividing line in more detail in the next section.
 
 
 \subsection{NIP as a universal dividing line between polynomial and exponential complexity}
+\label{sec:NIP-poly-exp}
 
 The particular case of the BFT dichotomy (Theorem~\ref{thm:BFT}) when $A$ consists of $\{0,1\}$-valued (i.e., $\{\text{Yes},\text{No}\}$-valued) strings was discovered independently, around 1971-1972 in many foundational contexts related to polynomial (``tame") vs exponential (``wild'') complexity: In model theory, by Saharon Shelah~\cite{Shelah:1971}, \cite{Shelah:1990}, in combinatorics, by Norbert Sauer~\cite{Sauer:1972}, and Shelah~\cite{Shelah:1972}, \cite{Shelah:1990}, and in statistical learning, by Vladimir Vapnik and Alexey Chervonenkis~\cite{Vapnik-Chervonenkis:1971}, \cite{Vapnik-Chervonenkis:1974}.
 
@@ -630,6 +647,83 @@ The following are equivalent for every $L\subseteq X$:
     \]
     contradicting (i).
 \end{proof}
+
+\subsection{Five canonical Rosenthal compacta}
+\label{sec:five-compacta}
+Five Rosenthal compacta, all built on the Cantor set, recur throughout the
+paper: they are the canonical members of the classes in Todorčević's
+trichotomy (Theorem~\ref{thm:Todorcevic-trichotomy}), and the deep
+computations of our examples are copies of them.
+We fix their notation here.
+
+Let $2^{\mathbb{N}}$ carry the product topology and the lexicographic order~$<$,
+whose order topology is the product topology.
+For a finite word $t\in2^{<\mathbb{N}}$, let $t^\frown0^\infty$ and
+$t^\frown1^\infty$ be the sequences that begin with $t$ and continue with
+all $0$'s, respectively all $1$'s; the set of sequences extending $t$ is the
+clopen interval $[t^\frown0^\infty,t^\frown1^\infty]$.
+We use the following functions $2^{\mathbb{N}}\to\{0,1\}$:
+\begin{itemize}
+\item the \emph{prefix test} $v_t$, the characteristic function of the set of
+sequences extending~$t$;
+\item the \emph{equality test} $\delta_a$, the characteristic function of
+$\{a\}$, for $a\in2^{\mathbb{N}}$;
+\item the \emph{threshold tests} $f^+_a$ and $f^-_a$, the characteristic
+functions of $\{x:a\le x\}$ and of $\{x:a<x\}$, for $a\in2^{\mathbb{N}}$.
+\end{itemize}
+Prefix tests are continuous, and so are $f^+_{t^\frown0^\infty}$ and
+$f^-_{t^\frown1^\infty}$, which depend only on the first $|t|$ bits of~$x$;
+equality tests, and threshold tests at other points, are discontinuous Baire
+class~$1$ functions.
+All closures below are taken in the topology of pointwise convergence.
+
+\begin{enumerate}
+\item The \emph{Alexandroff compactification}
+$A(2^{\mathbb{N}})=\{\delta_a:a\in2^{\mathbb{N}}\}\cup\{\mathbf 0\}$.
+Each $\delta_a$ is isolated, and a neighborhood of $\mathbf 0$ omits only
+finitely many $\delta_a$.
+It is not separable, and not first countable at~$\mathbf 0$.
+\item The \emph{extended Alexandroff compactification}
+$\hat A(2^{\mathbb{N}})=\overline{\{v_t:t\in2^{<\mathbb{N}}\}}=
+\{v_t:t\in2^{<\mathbb{N}}\}\cup A(2^{\mathbb{N}})$.
+Along a branch $a$, the prefix tests $v_{a\restr n}$ converge to $\delta_a$;
+along an antichain they converge to $\mathbf 0$.
+It is separable and not first countable.
+\item The \emph{split Cantor set}
+$S(2^{\mathbb{N}})=\{f^+_a,f^-_a:a\in2^{\mathbb{N}}\}$.
+The continuous thresholds $f^+_{t^\frown0^\infty}$, together with the
+isolated point $\mathbf 0=f^-_{1^\infty}$, form a countable dense subset:
+thresholds approaching $a$ from below converge to $f^+_a$, and from above to
+$f^-_a$.
+It is separable, first countable and hereditarily separable, but not
+metrizable.
+\item The \emph{Alexandroff duplicate}
+$D(2^{\mathbb{N}})=\{(\mathbf 0,a),(\delta_a,a):a\in2^{\mathbb{N}}\}\subseteq
+A(2^{\mathbb{N}})\times2^{\mathbb{N}}$.
+The points $(\delta_a,a)$ are isolated, and a neighborhood of $(\mathbf 0,a)$
+contains $(\mathbf 0,b)$ and $(\delta_b,b)$ for all $b$ near~$a$ with finitely
+many exceptions.
+It is first countable but not separable.
+Its separable extension is
+$\hat D(2^{\mathbb{N}})=\overline{\{(v_t,t^\frown0^\infty):t\in2^{<\mathbb{N}}\}}=
+D(2^{\mathbb{N}})\cup\{(v_t,t^\frown0^\infty):t\in2^{<\mathbb{N}}\}$.
+\item The \emph{extended duplicate of the split Cantor set}
+\[
+\hat D(S(2^{\mathbb{N}}))=\overline{\{(v_t,f^+_{t^\frown0^\infty})\}_{t}}\subseteq\hat A(2^{\mathbb{N}})\times S(2^{\mathbb{N}}),
+\]
+which consists of the points $(v_t,f^+_{t^\frown0^\infty})$ and, for
+$a\in2^{\mathbb{N}}$, the points $(\delta_a,f^+_a)$, $(\mathbf 0,f^+_a)$ and
+$(\mathbf 0,f^-_a)$ \cite[4.3.7]{argyros2008rosenthal}.
+Along a branch $a$, the thresholds $t^\frown0^\infty$ increase to $a$, which
+gives the points $(\delta_a,f^+_a)$.
+It is separable and first countable, but the points $(\delta_a,f^+_a)$ form an
+uncountable discrete subspace, so it is not hereditarily separable.
+\end{enumerate}
+
+The same constructions apply with $2^{\mathbb{N}}$ replaced by another compact
+metric space~$K$; we write $A(K)$, $D(K)$, and so on.
+A compactum of size continuum, such as $A([0,1])$, is homeomorphic to
+$A(2^{\mathbb{N}})$.
 
 \subsection*{Historical remarks}
 The Baire hierarchy of functions was introduced by René-Louis Baire in his 1899 doctoral thesis, \emph{Sur les fonctions de variables réelles}.
@@ -827,9 +921,65 @@ Abusing notation, for any $\Delta\subseteq\Gamma$ consisting of extendable compu
 
 For a more detailed discussion of the Extendibility Axiom, we refer the reader to~\cite{alva2024approximability}.
 
-\emph{For the rest of the paper, the Extendibility Axiom is imposed on all CSSs.}
+\emph{For the rest of the paper, the Extendibility Axiom is imposed on all CCSs.}
+
+\subsection{Stability and register computations}
+\label{sec:stable-register}
+The computable maps are the continuous ones.
+At the top of the hierarchy of this paper sit the sets of computations all of
+whose deep computations are computable.
+
+\begin{defn}\label{def:stable}
+A set $\Delta\subseteq\Gamma$ of computations is \emph{stable} if, for every sizer
+$r_\bullet$, every deep computation in $\overline{\tilde\Delta|_{\mathcal{L}[r_\bullet]}}$
+is continuous, that is, computable.
+\end{defn}
+
+This is the class studied in~\cite{alva2024approximability}, where it is
+characterized by Grothendieck's double limit criterion and identified with
+stability in the sense of model theory.
+
+Many computations of interest are tests: they compute a value from the input
+and store it, without changing the input.
+The following construction turns any family of such tests into a CCS.
+
+\begin{defn}\label{def:register}
+Let $X$ be a compact metrizable space with a countable family $\mathcal{P}_X$ of
+continuous predicates that separates its points, and let $F$ be a family of
+continuous functions $X\to[0,1]$.
+The \emph{register CCS} of $F$ has states $L=X\times[0,1]$, whose points
+$(x,y)$ are an input $x$ and a register~$y$; its predicates are those of
+$\mathcal{P}_X$, applied to $x$, together with the register predicate
+$(x,y)\mapsto y$; and its computations are
+\[
+\Gamma_F=\{\gamma_f:f\in F\}\cup\{\mathrm{id}\},\qquad \gamma_f(x,y)=(x,f(x)).
+\]
+\end{defn}
+
+\begin{lem}\label{lem:register}
+In the register CCS of $F$, the set $\Gamma_F$ is a semigroup, the space of
+types is $L$ itself, and the Extendibility Axiom holds.
+The deep computations of $\{\gamma_f:f\in F\}$ are the maps $(x,y)\mapsto(x,g(x))$
+with $g$ in the pointwise closure $\overline F$, and $\gamma_g\mapsto g$ is a
+homeomorphism onto $\overline F$.
+The set $\{\gamma_f:f\in F\}$ satisfies the $\NIP$ if and only if $F$ does.
+\end{lem}
+
+\begin{proof}
+We have $\gamma_f\circ\gamma_g=\gamma_f$, so $\Gamma_F$ is closed under
+composition.
+The predicates are continuous and separate the points of the compact space
+$L$, so $v\mapsto\tp(v)$ is a homeomorphism onto the space of types, which
+is a single shard, and each $\gamma_f$ is its own continuous extension.
+A net $\gamma_{f_i}$ converges pointwise exactly when $f_i$ does, since the first
+coordinate is constant.
+For the last statement, composing $\gamma_f$ with an input predicate gives a
+function that does not depend on $f$, and composing it with the register
+predicate gives~$f$.
+\end{proof}
 
 \section{Examples of  Compositional Computation Structures}
+\label{sec:examples}
 We begin by formalizing the Newton-Raphson root-finding method as a CCS~\cite{Galantai200025}, \cite[Section~2.3]{Burden2016numerical}.
 Let $\hatC = \mathbb{C}\cup\{\infty\}$ be the extended complex plane (the Alexandroff —one-point— compactification of~$\mathbb{C}$).
 We regard the unit sphere $S^2\subseteq \mathbb{R}^3$ as the Riemann sphere and endowed with the stereographic projection map $S^2\to\hatC$ —a topological homeomorphism whose \emph{inverse} $\hatC\rightarrow S^2$ is given by $z \mapsto  (P_1(z), P_2(z), P_3(z))$, where $(P_1(\infty), P_2(\infty), P_3(\infty)) = (0,0,1)$ and, for $z\ne\infty$,
@@ -905,27 +1055,17 @@ Denote the real root of $\rho$ by $r_0$; the roots in the upper- and the lower h
  Successive Newton steps obtained from the initial guess $z_0=0$ yield the divergent sequence $N_{\rho}^{(\bullet)}(0) = (0, 1, 0, 1, \dots)$ having sequential limits $0, 1$ —neither a root of~${\rho}$.
 
 \subsubsection{Visualizing Newton iterates}
-Assign to each complex point $z\in \mathbb{C}$ an “RGB color” $(R,G,B)\in[0,1]^3$ whose entries give the corresponding (Red/Green/Blue) color intensity;
-thus, $(1,0,0)$ is red, $(0,1,0)$ is green, and $(0,0,1)$ is blue—while, for example, $(0.5, 0, 0.5)$ is a light purple.
-Each of the three distinct roots of~${\rho}$ will be given one of these colors
-(the real root $r_0$, red; the roots $r_{+1}$ on the upper- and $r_{-1}$ on the lower half plane, respectively green and blue).
-The RGB color of all other~$z\in \mathbb{C}$ is a convex combination whose relative weights are $1/d_i$ where $d_i = |z-r_i|$ for $i=0, \pm1$;
-this will be called the “standard” color of~$z$:
-the closer $z$ is to root $r_i$, the closer the colors of these points are.%
+Each of the three roots of~${\rho}$ is given a color: the real root $r_0$ blue, the root $r_{+}$ in the upper half plane teal, and the root $r_{-}$ in the lower half plane ochre.
+For $n\in\mathbb{N}$, color each $z_0\in\mathbb{C}$ by blending the three colors with relative weights $|z_n-r_i|^{-3}$, where $z_n\coloneqq N_{\rho}^{(n)}(z_0)$.%
 \footnote{While $\infty$ is a fixed point of~$N_{\rho}$, it is a repeller:
   if $|z|$ is large, then $N_{\rho}(z) = \frac{2}{3}z + O(1)$ has roughly two-thirds its magnitude.
   Therefore, $\infty$ is not the limit of any subsequence of $N_{\rho}^{(\bullet)}(z_0)$ with $z_0$ in the Fatou set of~$N_{\rho}$;
 in particular, $\infty$ is a point of the Newton fractal of~${\rho}(z)$.}
-
-For any $n\in \mathbb{N}$, define a coloring of~$\mathbb{C}$ in the natural way:
-color each $z_0\in \mathbb{C}$ using the standard color of~$z_n\coloneqq N_{\rho}^{(n)}(z_0)$.
-At any stage, particularly early ones, the coloring looks “fuzzy” (out of focus) because the coloring function is continuous;
-however, as $n$ increases, the coloring becomes “sharper”
-(the coloring function has large regions of near-constancy, in the transition areas between which color varies rapidly —i.e., is “nearly discontinuous”).
-For one thing, for many $z_0$ in the Fatou set, the (entire) sequence $(z_n)$ converges to one of the three roots:
-the RGB colors of~$(z_n)$ tend towards (a single one of) red, green or blue correspondingly.
-The Fatou set also has an open region consisting of points~$z_0$ for which $(z_n)_{n\in \mathbb{N}}$ has a subsequence converging to $0$ or~$1$ (uniformly on some compact neighborhood of~$z_0$).
-The four open regions are immediately recognizable in Figure~\ref{fig:newton}.
+At early stages the coloring is blurred, because it is a continuous function of~$z_0$;
+as $n$ increases it becomes sharper, with large regions of near-constancy separated by narrow regions where the color varies rapidly, that is, where the coloring is nearly discontinuous.
+For many $z_0$ in the Fatou set, the sequence $(z_n)$ converges to one of the three roots, and the color of $z_0$ tends to that root’s color.
+The Fatou set also has an open region of points~$z_0$ for which the even iterates converge to one of the points $0$, $1$ and the odd iterates to the other.
+These regions are visible in Figure~\ref{fig:newton}, which shows the limits of the even and of the odd iterates.
 
  Let $B_0, B_+, B_-$ be the respective basins of the roots $r_0, r_+, r_-$, and let $B_{01}$ be the basin of the attractive cycle 0, 1, 0, 1, \dots.
  It may be shown that the Fatou set of $N_\rho$ is $F_\rho = B_{01} \cup B_0 \cup B_{+} \cup B_{-}$, each of these four sets being nonempty open.
@@ -936,53 +1076,13 @@ The four open regions are immediately recognizable in Figure~\ref{fig:newton}.
 
 \begin{figure}[htbp]
   \centering
-  % Row 1: Low iterations
-  \begin{subfigure}[b]{0.32\textwidth}
-    \centering
-    \includegraphics[width=\textwidth]{newton_div1.png}
-    \caption{$n=1$}
-  \end{subfigure}
-  \hfill
-  \begin{subfigure}[b]{0.32\textwidth}
-    \centering
-    \includegraphics[width=\textwidth]{newton_div2.png}
-    \caption{$n=2$}
-  \end{subfigure}
-  \hfill
-  \begin{subfigure}[b]{0.32\textwidth}
-    \centering
-    \includegraphics[width=\textwidth]{newton_div3.png}
-    \caption{$n=3$}
-  \end{subfigure}
-
-  \vspace{1em} % Add some vertical space between rows
-
-  % Row 2: Large n showcasing the 2-cycle
-  \begin{subfigure}[b]{0.32\textwidth}
-    \centering
-    \includegraphics[width=\textwidth]{newton_div99.png}
-    \caption{$n=99$ (odd)}
-  \end{subfigure}
-  \hfill
-  \begin{subfigure}[b]{0.32\textwidth}
-    \centering
-    \includegraphics[width=\textwidth]{newton_div100.png}
-    \caption{$n=100$ (even)}
-  \end{subfigure}
-  \hfill
-  \begin{subfigure}[b]{0.32\textwidth}
-    \centering
-    \includegraphics[width=\textwidth]{newton_div101.png}
-    \caption{$n=101$ (odd)}
-  \end{subfigure}
-
-  \caption{Iterates of the Newton map $N_{\rho}$ of $\rho(z) = z^3-2z+2$. 
-    Points in the basin of each root $r_0, r_{\pm1}$ (respectively, red, green and blue) converge to the root.
-    The basin of attraction of the 2-cycle $\{0,1\}$ is the union of magenta and cyan regions;
-    these two colors alternate like semaphore lights:
-    points~$z$ in the cyan region are those whose subsequence $N_{\rho}^{(2\cdot\bullet)}(z)$ of even Newton iterates (resp., $N_{\rho}^{(2\cdot\bullet+1)}(z)$ of odd iterates) has limit $1$ (resp., limit~$0$).
-    For points $z$ in the magenta region, the limits of the even and odd iterate subsequences are exchanged. 
-    The boundaries of colored regions constitute the Newton fractal of~$\rho$.}
+  \includegraphics[width=\textwidth]{newton_cubic.pdf}
+  \caption{The deep computations of Newton’s method for $\rho(z)=z^3-2z+2$: the limits of the even iterates $N_\rho^{(2k)}$ and of the odd iterates $N_\rho^{(2k+1)}$, on the whole plane and near the point~$1$.
+    Points in the basins of the roots $r_0$, $r_+$, $r_-$ (white circles) are blue, teal and ochre, darker where convergence is slower.
+    The remaining open region is the basin of the superattracting cycle $0\mapsto1\mapsto0$ (white squares).
+    A point there is pink if the iterate in question is near~$0$ and crimson if it is near~$1$, so the two colors exchange between even and odd iterates:
+    the two deep computations agree on the basins of the roots and differ on the basin of the cycle.
+    The boundaries of the colored regions form the Newton fractal of~$\rho$.}
   \label{fig:newton}
 \end{figure}
 
@@ -993,33 +1093,21 @@ the Newton map is
 \begin{equation*}
   N_{\kappa}: z\mapsto z-\frac{z^3-1}{3z^2}=\frac{2z^3+1}{3z^2}.
 \end{equation*}
-In Figure~2(\textsc{C}), one sees a Fatou set consisting of solid-color (disconnected) open sets, one in each of the colors red (for $r_0=1$), green and blue (for $r_{\pm1}$, respectively), where the sequence of all iterates $z_n \coloneqq N_{\kappa}^{(n)}(z_0)$ starting with a arbitrary initial point $z_0$ converges to the corresponding root.
-(Thus, each solid-color region is the basin of attraction of the respective root).
+In Figure~\ref{fig:newton2}, with the same coloring, the Fatou set consists of open regions in the three colors blue (for $r_0=1$), teal and ochre (for $r_{+}$ and $r_{-}$), on which the sequence of all iterates $z_n \coloneqq N_{\kappa}^{(n)}(z_0)$ converges to the corresponding root.
+Each region is the basin of attraction of its root; unlike $N_\rho$, the map $N_\kappa$ has no attracting cycle, and the iterates converge on the whole Fatou set.
 
 
 \begin{figure}[htbp]
-    \centering
-    \begin{subfigure}[b]{0.32\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{newton1.png}
-        \caption{After 1 iteration}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}[b]{0.32\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{newton3.png}
-        \caption{After 3 iterations}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}[b]{0.32\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{newton100.png}
-        \caption{After 100 iterations}
-    \end{subfigure}
-
-    \caption{Visualization of the Newton iterates of ${\kappa}(z) = z^3 - 1$.}
-    \label{fig:newton2}
+  \centering
+  \includegraphics[width=\textwidth]{newton_cyclotomic.pdf}
+  \caption{Newton’s method for $\kappa(z)=z^3-1$ after one and three iterations, and its limit.
+    The coloring blends the colors of the three cube roots of unity (white circles) according to the distance of $N_\kappa^{(n)}(z)$ to each of them; the limit is constant on each basin and discontinuous across the Newton fractal.}
+  \label{fig:newton2}
 \end{figure}
+
+On the Riemann sphere, Newton's method is chaotic on its Julia set, and this
+chaos is visible to the predicates $P_1,P_2,P_3$: Newton CCSs on the Riemann sphere can fail to be $\NIP$
+(see Proposition~\ref{prop:Newton-wild}).
 
 \subsection{Example: Square roots}\label{exa:square-roots-compute}
 When $p: \hatC\to\hatC$ has real coefficients, it restricts to a map $\RP^1\to\RP^1$ on the real-projective line $\RP^1 = \mathbb{R}\cup\{\infty\}$.
@@ -1056,7 +1144,15 @@ More explicitly, the unique deep equilibrium $\mathfrak{f}: \RP^1\to\RP^1$ of (t
   \infty. & x = 0, \infty.
  \end{cases}
  \]
- Thus, $\mathfrak{f}$ is discontinuous at $x = 0, \infty$.
+ Thus, $\mathfrak{f}$ is discontinuous at $x = 0, \infty$ (Figure~\ref{fig:sqrt}).
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.78\textwidth]{sqrt_newton.pdf}
+  \caption{Newton iterates $N_p^n$ for $p(x)=x^2-a$ on the real projective line, drawn on the circle with $\infty$ at both ends of each axis.
+    The continuous maps $N_p^n$ converge pointwise to the deep computation $\mathfrak f$, which sends the positive half line to $\sqrt a$, the negative half line to $-\sqrt a$, and $0$ and $\infty$ to~$\infty$.}
+  \label{fig:sqrt}
+\end{figure}
  % The basin of attraction of $x=\sqrt{a}$ is $(0,\infty)$, of $-\sqrt{a}$ is $(\infty,0)$, and of $\infty$ is $\{0,\infty\}$.
  % The set of deep computations is $\{N_p^n\}_n\cup\{\mathfrak{f}\}\subseteq \mathrm{B}_1(\mathcal{L},\mathcal{L})$.
 
@@ -1216,6 +1312,8 @@ indeed, each is essentially dense:%
 \footnote{The constant relations $\mathbf{0}$, $\mathbf{1}$ are isolated points of~$\cancel{C}$.}
 $\mathrm{Cl}(\widehat{C}) = \cancel{C}\setminus\{\mathbf{1}\}$ and $\mathrm{Cl}(\overline{C}) = \cancel{C}\setminus\{\mathbf{0}\}$.
 
+In the notation of Section~\ref{sec:five-compacta}, we have $\bar z=1-f^-_z$ and $\hat z=1-f^+_z$, so the map $\varphi\mapsto1-\varphi$ is a homeomorphism of $\cancel{C}$ onto the split Cantor set $S(2^{\mathbb{N}})$.
+
 The upshot is that, starting from a countable set of quite simple finite-precision classifiers (nonincreasing Boolean functions) on Cantor space, ultraclassifiers form a much more complicated split Cantor $\cancel{C}\subseteq \mathrm{B}_1(2^{\mathbb{N}})$.
 
 \subsection{Example: Prefix tests}
@@ -1290,6 +1388,7 @@ The point $\mathbf{0}\in \mathcal{A}_{\mathrm{E}}$ is not a $G_\delta$ point, i.
 $\mathbf{0}$ is the only such non-$G_\delta$ point.
 This key topological property implies that the space of ultra-prefix tests is not first-countable
 (in a first-countable Hausdorff space all points are~$G_\delta$). 
+In the notation of Section~\ref{sec:five-compacta}, the prefix test $\widetilde w$ is $v_w$ and the equality test $\bbar x$ is $\delta_x$, so $\mathcal{A}=A(2^{\mathbb{N}})$ and $\mathcal{A}_{\mathrm{E}}=\hat A(2^{\mathbb{N}})$.
 
 \section{Classifying deep computations}
 \label{sec:Classification}
@@ -1353,7 +1452,7 @@ Every separable metrizable space is hereditarily separable, and R.
 Pol proved that every hereditarily separable Rosenthal compactum is first countable (see section 10 of \cite{debs2013rosenthal}).
 This suggests the following definition:
 
-\begin{defn}
+\begin{defn}\label{def:NIP-levels}
     Let $(L,\mathcal{P},\Gamma)$ be a CCS satisfying the Extendibility Axiom and $R$ be an exhaustive collection of sizers.
 Let $\Delta\subseteq\Gamma$ be an $R$-confined countable set of computations satisfying the NIP on shards and features (condition (ii) in Theorem \ref{thm:nip-baire1def}).
 We say that $\Delta$ is:
@@ -1368,79 +1467,12 @@ We say that $\Delta$ is:
 \end{defn}
 
 Observe that $\NIP_3 \Rightarrow \NIP_2\Rightarrow \NIP_1\Rightarrow \NIP$.
-We now present examples of separable and non-separable examples Rosenthal compacta that show that implications are strict.
-These examples are due to Todorčević \cite{Todorcevic_1999_CompactSubsetsBaire}.
-
-\begin{exmps}
-\label{exa:Rosenthal-compacta}
-\hfill
-\begin{enumerate}
-\item \emph{Alexandroff compactification of a discrete space of size continuum}.
-  The subset $\mathcal{A} = \mathcal{D}_{\mathfrak{c}}\cup\{\mathbf{0}\} \subseteq \mathrm{B}_1(2^{\mathbb{N}})$ in~§\ref{sec:extended-alexandroff} is the Alexandroff (one-point) compactification of the continuum-size discrete set~$\mathcal{D}_{\mathfrak{c}} = \{\bbar{x}: x\in 2^{\mathbb{N}}\}$.
-Hence, $\mathcal{A}$ is a Rosenthal compactum that is not hereditarily separable (and therefore not first countable).
-In particular, $\mathcal{A}$ is not separable.
-
-    \item \emph{Extended Alexandroff compactification}.
-The Alexandroff compactification $\mathcal{A}$ of $\mathcal{D}_{\mathfrak{c}}$ above can be embedded into a separable compactum of $\mathrm{B}_1(2^{\mathbb{N}})$ by adding a countable set $\mathcal{A}^{\complement}$ of new points that “soften” neighborhoods in~$\mathcal{A}$, yielding the extended compactification $\mathcal{A}_{\mathrm{E}} = \mathcal{A}\cup \mathcal{A}^{\complement}$ of~§\ref{sec:extended-alexandroff}.
-However, the separable Rosenthal compactum $\mathcal{A}_{\mathrm{E}}$ is not first countable.
-It is an example of a CCS that is NIP but not $\NIP_1$.
-
-    \item \emph{Split Cantor}.
-      The split Cantor set $\cancel{C}$ is a separable Rosenthal compactum that is $\NIP_2$ but not $\NIP_3$;
-      it is hereditarily separable, but it is not metrizable.
-      The set of all finite-precision classifiers is countable dense in~$\cancel{C}$.
-      % of the form $\widehat{w0_{\bullet}}$, $\widehat{w1_{\bullet}}$, $\overline{w0_{\bullet}}$ or $\overline{w1_{\bullet}}$ for some $w\in2^{<\mathbb{N}}$.
-
-    \item \emph{Alexandroff Duplicate}.
-      Let $K$ be any compact metric space.
-      Construct the space $X = K\sqcup \mathrm{C}(K)$, i.e., the disjoint union of $K$ and the space $\mathrm{C}(K)$ of real-valued continuous functions on $K$ with the Banach topology of uniform convergence (supremum-norm topology).
-      Clearly, $X$ is Polish.
-For each $a\in K$, define $g_a^0,g_a^1:X\rightarrow\mathbb{R}$ as follows:
-    \[
-      g_a^0(x)
-      =
-      \begin{cases}
-        0, & \text{if }x\in K\\
-        x(a), & \text{if }x\in \mathrm{C}(K);
-      \end{cases}
-    \]
-    \[
-	g_a^1(x)=\begin{cases}
-        \Brack{a = x}, & \text{if }x\in K;\\
-        x(a), & \text{if }x\in \mathrm{C}(K).
-    \end{cases}
-    \]
-    Let $\mathrm{D}(K)=\{g_a^0:a\in K\}\cup\{g_a^1:a\in K\}$.
-Observe that all points $g_a^1$ are isolated and that open neighborhoods of $g_{a_0}^0$ are of the form $\{g_a^i:a\in U,i\in\{0,1\}\}\setminus\{g_a^1:a\in F\}$ where $U\subseteq K$ is an open neighborhood of $a_0$ and $F\subseteq K$ is a finite set.
-
-Another way to present this space  is as the space $K\times\{0,1\}$ with the identifications
-$(a,0)\mapsto g_a^0$ and $(a,1)\mapsto g_a^1$ and the
-basic open neighborhoods are given asabove.
-We can also embed $\mathrm{D}(K)$ into the product $A(K)\times K$ by identifying $(a,0)\mapsto (\mathbf{0},a)$ and $(a,1)\mapsto (\delta_a,a)$.
-
-Notice that $\mathrm{D}(K)$ is a first countable Rosenthal compactum.
-It is not separable if $K$ is uncountable; thus, we typically study the interesting case when $K=2^\mathbb{N}$.
-
-As with the Alexandroff compactification $A(2^{\mathbb{N}})$, we can make the space $\mathrm{D}(2^{\mathbb{N}})$ separable  by ``softening'' the neighborhoods of each point through the addition of a countable set.
-For example, the closure of the set $\{(v_s,s^\frown 0^\infty):s\in 2^{<\mathbb{N}}\}\subseteq \hat{A}(2^{\mathbb{N}})\times 2^{\mathbb{N}}$ is $\{(\mathbf{0},a):a\in 2^{\mathbb{N}}\}\cup \{(\delta_a,a):a\in 2^{\mathbb{N}}\}\cup\{(v_s,s^\frown 0^\infty):s\in 2^{<\mathbb{N}}\}$, where $\{(\mathbf{0},a):a\in 2^{\mathbb{N}}\}\cup \{(\delta_a,a):a\in 2^{\mathbb{N}}\}$ is homeomorphic to $\mathrm{D}(2^{\mathbb{N}})$.
-
-    \item \emph{Extended Alexandroff Duplicate of the Split Cantor}.
-For each finite binary sequence $t\in 2^{<\mathbb{N}}$, let $a_t\in 2^\mathbb{N}$ be the sequence starting with $t$ and ending with $0$’s and let $b_t\in 2^\mathbb{N}$ be the sequence starting with $t$ and ending with $1$’s.
-Define $h_t:2^\mathbb{N}\rightarrow\mathbb{R}$ by
-    \[
-	h_t(x)=\begin{cases}
-        0, & \text{if }x<a_t;\\
-        1/2, & \text{if }a_t\leq x \leq b_t;\\
-        1, & \text{if }b_t<x.
-    \end{cases}
-    \]
-    Let $\hat{D}(S(2^\mathbb{N}))$ be the pointwise closure of the set $\{h_t:t\in 2^{<\mathbb{N}}\}$.
-    The identification $h_t\mapsto (v_t,f_{t^\frown 0^\infty}^+)$ lifts to a homeomorphism between $\hat{D}(S(2^\mathbb{N}))$ and the subspace of $\hat{A}(2^\mathbb{N})\times S(2^\mathbb{N})$ consisting of $(\mathbf{0},f_a^+)$, $(\mathbf{0},f_a^-)$, $(\delta_a,f_a^+)$ and $(v_t,f_{t^\frown 0^\infty}^+)$ for $a\in 2^{\mathbb{N}}$ and $t\in 2^{<\mathbb{N}}$ (see 4.3.7 in \cite{argyros2008rosenthal}).
-Hence, $\hat{D}(S(2^\mathbb{N}))$ is a separable first countable Rosenthal compactum that is not hereditarily separable.
-In fact, it contains an uncountable discrete subspace.
-\end{enumerate}
-
-\end{exmps}
+Moreover, a countable stable set of computations (Definition~\ref{def:stable}) is $\NIP_3$: on each shard its deep computations form a separable compact subset of a countable product of spaces $\Cp(\mathcal{L}[r_\bullet])$, that is, a separable Eberlein compactum, and separable Eberlein compacta are metrizable~\cite{Arkhangelskii:1992}.
+The five compacta of Section~\ref{sec:five-compacta} show that the converse implications fail for Rosenthal compacta:
+$\hat A(2^{\mathbb{N}})$ is separable but not first countable;
+$\hat D(S(2^{\mathbb{N}}))$ and $\hat D(2^{\mathbb{N}})$ are separable and first countable but not hereditarily separable;
+and $S(2^{\mathbb{N}})$ is hereditarily separable but not metrizable.
+Todorčević proved that these examples are canonical \cite{Todorcevic_1999_CompactSubsetsBaire}.
 
 \begin{thm}[Todorčević’s Trichotomy, \cite{Todorcevic_1999_CompactSubsetsBaire}, Theorem 3 in \cite{argyros2008rosenthal}]\label{thm:Todorcevic-trichotomy}
     Let $K$ be a separable Rosenthal Compactum.
@@ -1479,40 +1511,7 @@ We thus have the following classification for separable Rosenthal compacta:
 \end{tikzpicture}
 \end{center}
 
-Todorčević’s Trichotomy suggests that in order to distinguish the classes $\NIP_i$, the examples in \ref{exa:Rosenthal-compacta} are essential.
-The following examples show that the levels $\NIP_i$ ($i=1,2,3$) may be distinguished by the topological complexity of deep computations.
-
-\begin{exmps}
-\label{exa:NIP-levels}
-\hfill
-\begin{enumerate}
-    \item Let $(L,\mathcal{P},\Gamma)$ be the computation of square root (example \ref{exa:square-roots-compute} with $\Delta=\Gamma$. 
-    We saw that $\overline{\tilde{\Delta}}=\tilde{\Delta}\cup\{\tilde{f}\}\subseteq \mathrm{B}_1(\mathcal{L},\mathcal{L})$.
-    This corresponds to the Alexandroff compactification of a countable discrete set, which is metrizable. Hence, $\Delta$ is $\NIP_3$ but it is not stable, in the sense that $\overline{\tilde{\Delta}}\not\subseteq \mathrm{C}(\mathcal{L},\mathcal{L})$.
-
-    \item Let $(L,\mathcal{P},\Gamma)$ be the finite precision threshold classifiers (Section~\ref{sec:Cantor-classifiers}) with $\Delta=\{\phi_w:w\in 2^{<\mathbb{N}}\}\cup\{\mathbf{0^\infty},\mathbf{1^\infty}\}$.
-    We saw that $\overline{\Delta}$ is homeomorphic to the Split Cantor space $S(2^\mathbb{N})$ (Example \ref{exa:Rosenthal-compacta}-(3)), which is hereditarily separable but not metrizable.
-    Hence, $\Delta$ is $\NIP_2$ but not $\NIP_3$.
-
-    \item Let $(L,\mathcal{P},\Gamma)$ be the CCS given by $L=2^{\mathbb{N}}$, $\mathcal{P}=\{P_n:n\in\mathbb{N}\}$ and $\Gamma$ is the semigroup generated by $\Delta=\{\gamma_t:t\in 2^{<\mathbb{N}}\}$, where $P_n:2^\mathbb{N}\rightarrow\{0,1\}$ is the projection map $P_n(x)=x(n)$ and $\gamma_t:L\rightarrow L$ is given by
-    \[
-	\gamma_t(x)=\begin{cases}
-        0^\infty, & \text{if }x<_{\text{lex}}t^\frown0^\infty;\\
-        (01)^\infty, & \text{if }t^\frown0^\infty\leq_{\text{lex}} x \leq_{\text{lex}} t^\frown1^\infty;\\
-        1^\infty, & \text{if }t^\frown1^\infty<_{\text{lex}}x.
-    \end{cases}
-    \]
-    where $(01)^\infty$ denotes the sequence of alternating bits: $010101\cdots$. 
-    As in the other examples, it is not difficult to see that $(L,\mathcal{P},\Gamma)$ satisfies the Extendibility Axiom.
-    For example, the condition $t^\frown0^\infty\leq_{\text{lex}} x \leq_{\text{lex}} t^\frown1^\infty$ is equivalent to $x$ extending $t$.
-    Observe that the set of deep computations is homeomorphic to $\hat{D}(S(2^{\mathbb{N}}))$ (see Example \ref{exa:Rosenthal-compacta}-(5)).
-    Hence, $\Delta$  is $\NIP_1$ but not $\NIP_2$.
-
-    \item Let $(L,\mathcal{P},\Gamma)$ be the finite precision prefix test (Section~\ref{sec:prefix-test}) with $\Delta=\{\psi_w:w\in 2^{<\mathbb{N}}\}$.
-    We saw that $\overline{\tilde{\Delta}}$ is homeomorphic to the Extended Alexandroff compactification $\hat{A}(2^\mathbb{N})$ (Example \ref{exa:Rosenthal-compacta}-(3)), which is separable but not first countable.
-    Hence, $\Delta$ is NIP but not $\NIP_1$.
-\end{enumerate}
-\end{exmps}
+Section~\ref{sec:iterative} gives computations at each level of the hierarchy, and shows that every implication between the classes stable, $\NIP_3$, $\NIP_2$, $\NIP_1$ and $\NIP$ is strict.
 
 The definitions provided here for $\NIP_i$ ($i=1,2,3$) are topological.
 This raises the following question:
@@ -1524,7 +1523,7 @@ This raises the following question:
 \subsection{The Argyros-Dodos-Kanellopoulos heptachotomy, and approximability of deep computation by minimal classes}
 \label{sec:heptachotomy}
 
-In the three separable cases given in \ref{exa:Rosenthal-compacta}, namely, $\hat{A}(2^\mathbb{N})$, $S(2^\mathbb{N})$ and $\hat{D}(S(2^\mathbb{N}))$, the countable dense subsets are indexed by the binary tree $2^{<\mathbb{N}}$.
+In the three separable cases of Section~\ref{sec:five-compacta}, namely, $\hat{A}(2^\mathbb{N})$, $S(2^\mathbb{N})$ and $\hat{D}(S(2^\mathbb{N}))$, the countable dense subsets are indexed by the binary tree $2^{<\mathbb{N}}$.
 This choice of index is useful because our emphasis is computational.
 Real numbers can be represented as infinite binary sequences, i.e., infinite branches of the binary tree $2^{\mathbb{N}}$, and
 we approximate real numbers with elements in $2^{<\mathbb{N}}$, i.e., finite bitstrings.
@@ -1553,16 +1552,14 @@ We shall describe the seven minimal families next.
 We follow the same notation as in \cite{argyros2008rosenthal}.
 For any node $t\in 2^{<\mathbb{N}}$, we denote by $t^\frown 0^{\infty}$ ($t^\frown 1^{\infty}$) the infinite binary sequence starting with $t$ and continuing with all $0$’s (respectively, all $1$’s).
 Fix a regular dyadic subtree $R=\{s_t:t\in 2^{<\mathbb{N}}\}$ of $2^{<\mathbb{N}}$ (i.e., a dyadic subtree such that every level of $R$ is contained in a level of $2^{<\mathbb{N}}$) with the property that for all $s,s'\in R$, we have $s^\frown 0^{\infty}\neq s'^\frown 0^\infty$ and $s^\frown 1^{\infty}\neq s'^\frown 1^\infty$.
-Given $t\in 2^{<\mathbb{N}}$, let $v_t$ be the characteristic function of the set $\{x\in 2^\mathbb{N}:x \text{ extends } t\}$.
-Let $<$ be the lexicographic order in $2^\mathbb{N}$.
-Given $a\in 2^{\mathbb{N}}$, let $f^+_a:2^{\mathbb{N}}\rightarrow\{0,1\}$ be the characteristic function of $\{x\in 2^{\mathbb{N}}:a\leq x\}$ and let $f^-_a:2^{\mathbb{N}}\rightarrow\{0,1\}$ be the characteristic function of $\{x\in 2^{\mathbb{N}}:a>x\}$.
+We use the prefix tests $v_t$ and the threshold tests $f^\pm_a$ of Section~\ref{sec:five-compacta}.
 Given two maps $f,g:2^{\mathbb{N}}\rightarrow\mathbb{R}$ we denote by $(f,g):2^{\mathbb{N}}\sqcup 2^{\mathbb{N}}\rightarrow\mathbb{R}$ the function which is $f$ on the first copy of $2^{\mathbb{N}}$ and $g$ on the second copy of $2^{\mathbb{N}}$.
 
 \begin{enumerate}
     \item $D_1=\{\frac{1}{|t|+1}v_t:t\in 2^{<\mathbb{N}}\}$.
-This is discrete in $\overline{D_1}=A(2^{\mathbb{N}})$.
+Its closure is $D_1\cup\{\mathbf 0\}$, the one-point compactification of a countable discrete set.
     \item $D_2=\{s_t^\frown 0^{\infty}:t\in 2^{<\mathbb{N}}\}$.
-This is discrete in $\overline{D_2}=2^{\leq N}$.
+This is discrete in $\overline{D_2}=2^{\leq\mathbb{N}}$.
     \item $D_3=\{f^+_{s_t^\frown 0^\infty}:t\in 2^{<\mathbb{N}}\}$.
 This is discrete in $\overline{D_3}=S(2^{\mathbb{N}})$.
     \item $D_4=\{f^-_{s_t^\frown 1^\infty}:t\in 2^{<\mathbb{N}}\}$.
@@ -1571,7 +1568,7 @@ This is discrete in $\overline{D_4}=S(2^{\mathbb{N}})$.
 This is discrete in $\overline{D_5}=\hat{A}(2^{\mathbb{N}})$.
     \item $D_6=\{(v_{s_t},s_t^\frown 0^\infty):t\in 2^{<\mathbb{N}}\}$.
 This is discrete in $\overline{D_6}=\hat{D}(2^{\mathbb{N}})$.
-    \item $D_7=\{(v_{s_t},x^+_{s_t^\frown 0^\infty}):t\in 2^{<\mathbb{N}}\}$.
+    \item $D_7=\{(v_{s_t},f^+_{s_t^\frown 0^\infty}):t\in 2^{<\mathbb{N}}\}$.
 This is discrete in $\overline{D_7}=\hat{D}(S(2^{\mathbb{N}}))$.
 \end{enumerate}
 
@@ -1581,12 +1578,50 @@ For every relatively compact $\{f_{t}:t\in 2^{<\mathbb{N}}\}\subseteq \mathrm{B}
 Moreover, the families $D_i$ are minimal and mutually non-equivalent.
 \end{thm}
 
-The implication of this result for deep computations is the following: 
-for any countable set of computations $\Delta$ satisfying the NIP (for some CCS $(L,\mathcal{P},\Gamma)$), we can always find a countable discrete set of deep computations that approximates all the other deep computations.
-For example: in the finite precision prefix test example (subsection \ref{sec:prefix-test}), the prefix test computations (family $D_5$) approximate all other deep computations.
-However, note that this discrete set $D_i$ may not consist of continuous functions (i.e., they will not be computable in general).
-For example, functions in $D_3$ are not continuous.
+The implication of this result for deep computations is the following.
+The building blocks of the families $D_1,\dots,D_7$ are primitives of binary search on
+$2^{\mathbb{N}}$, the space of binary expansions.
+A node $t\in2^{<\mathbb{N}}$ is a dyadic interval
+$[t^\frown0^\infty,t^\frown1^\infty]$, the set of inputs that round to $t$ at
+precision $|t|$.
+The prefix test $v_t$ asks whether the input rounds to $t$; the point
+$t^\frown0^\infty$ is the rounded value itself; the comparisons
+$f^+_{t^\frown0^\infty}$ and $f^-_{t^\frown1^\infty}$ ask whether the input lies
+to the right of the left endpoint, or strictly to the right of the right
+endpoint, of the interval.
+Table~\ref{tab:hepta-search} reads the seven families accordingly.
 
+\begin{table}[ht]
+\centering
+\small
+\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{>{\raggedright\arraybackslash}p{1.1cm}>{\raggedright\arraybackslash}p{4.3cm}>{\raggedright\arraybackslash}p{5.9cm}}
+\hline
+Family & Computation at node $t$ & Deep computations\\
+\hline
+$D_1$ & prefix test weighted by $1/(|t|+1)$ & the test that never succeeds: confidence vanishes with depth\\
+$D_2$ & return the rounded value $t^\frown0^\infty$ & the exact input: successive approximation\\
+$D_3$ & compare with the left endpoint & comparison with an arbitrary real, ties broken upward\\
+$D_4$ & compare with the right endpoint & comparison with an arbitrary real, ties broken downward\\
+$D_5$ & prefix test & exact equality, or no match\\
+$D_6$ & prefix test and rounded value & a dictionary lookup that returns its key\\
+$D_7$ & prefix test and comparison & a three-way comparison: below, inside or above\\
+\hline
+\end{tabular}
+\vspace{6pt}
+\caption{The minimal families of Argyros, Dodos and Kanellopoulos as primitives of binary search.}
+\label{tab:hepta-search}
+\end{table}
+
+The three-way comparison of Section~\ref{sec:ex-NIP1}, one step of a binary
+search with three outcomes, has the same closure as $D_7$.
+By the theorem of Argyros, Dodos and Kanellopoulos, every $\NIP$ family of
+computations indexed by the binary tree contains, along a dyadic subtree, one
+of these seven primitives.
+
+
+
+\input{computations_hierarchy}
 
 \section{Randomized versions of NIP and Monte Carlo computability of deep computations}
 \label{sec:measure-theoretic-NIP} 
