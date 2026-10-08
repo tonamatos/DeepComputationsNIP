@@ -105,9 +105,9 @@ discontinuous at every $[v]$ with $i(v)>1$, since $[v+te_1]\to[v]$ as $t\to0$
 while $\pi([v+te_1])=[e_1]\ne\pi([v])$.
 \end{proof}
 
-The deep computation $\pi$, \emph{the dominant eigenvector of the input}, is
-not computable in the sense of Section~\ref{sec:CCS}, since it does not extend
-continuously to the space of types; yet it is the limit of a sequence of
+The deep computation $\pi$, which returns \emph{the dominant eigenvector of the
+input}, is not computable in the sense of Section~\ref{sec:CCS}, since it does not
+extend continuously to the space of types; yet it is the limit of a sequence of
 computations, and the closure in which it lives is as simple as possible.
 
 
@@ -172,12 +172,12 @@ In particular, the Bresenham CCS is $\NIP_2$ but not $\NIP_3$.
 \end{thm}
 
 \begin{proof}
-For $\NIP$, note that the $j$-th coordinate of $\sigma^n y$ is $1$ exactly when
-$R^{n+j}y$ lies in the clopen arc $[1-\alpha,1)$ of $\mathbb{T}_D$, that is, when
-$y$ lies in an arc of $\mathbb{T}_D$.
+For $\NIP$, note that the predicates $P_j\circ\sigma^n$ are $\{0,1\}$-valued, and
+that the $j$-th coordinate of $\sigma^n y$ is $1$ exactly when $R^{n+j}y$ lies in
+the clopen arc $[1-\alpha,1)$ of $\mathbb{T}_D$, that is, when $y$ lies in an arc
+of $\mathbb{T}_D$.
 A family of arcs of a circularly ordered set has Vapnik--Chervonenkis dimension
-at most~$3$, so it has no infinite independent subfamily, and the predicates
-$P_j\circ\sigma^n$ are $\{0,1\}$-valued.
+at most~$3$, so it has no infinite independent subfamily.
 
 For the deep computations, let $\gamma$ be the limit of $\sigma^{n_i}$ along an
 ultrafilter, and let $c=\lim n_i\alpha$ in $\mathbb{T}$.
@@ -200,7 +200,7 @@ Finally, fix $d\in D$ and consider the two points
 $(d-n\alpha)^\pm$ of $\mathbb{T}_D$, which $\sigma^n$ sends to $d^-$ and $d^+$.
 Every map $R_c^\pm$ sends them to the same point, and so does every pointwise
 limit of $\sigma^{m_i}$ with $m_i\to\infty$, by the argument above.
-A net of such maps, or of maps $\sigma^m$ with $m\ne n$ taken from a bounded set of exponents, cannot converge to $\sigma^n$, so $\sigma^n$ is isolated.
+Hence no net of such maps, and no net of maps $\sigma^m$ with $m\ne n$ and $m$ bounded, converges to $\sigma^n$, so $\sigma^n$ is isolated.
 Thus $E(X_\alpha,\sigma)$ is the union of a countable set and a copy of
 $\mathbb{D}$; it is hereditarily separable and not metrizable.
 \end{proof}

@@ -5,9 +5,9 @@
 \usepackage[mathcal]{eucal}
 \usepackage[hidelinks]{hyperref}
 \hypersetup{
-pdftitle={Complexity of deep computations via topology of function spaces}
+pdftitle={Complexity of deep computations via topology of function spaces},
 pdfsubject={Mathematics, Set Theory},
-pdfauthor={Luciano Salvetti, Tonatiuh Matos-Wiederhold},
+pdfauthor={Eduardo Dueñez, José Iovino, Tonatiuh Matos-Wiederhold, Luciano Salvetti, Franklin D. Tall},
 pdfkeywords={}
 }
 \usepackage{amsmath,amssymb}
@@ -135,7 +135,7 @@ That paper proved a dichotomy between \emph{stable} (polynomially approximable) 
 
 In this paper we refine that dichotomy.
 An unstable class of deep computations may still be \emph{tame}, in the sense that it does not have Shelah's independence property, or \emph{wild}, in the sense that it does.
-Within the tame unstable classes we identify three new levels, which together with the tame class itself give a strict hierarchy of four classes below the stable ones, and seven minimal prototypes.
+Within the tame unstable classes we identify three new levels, which give a strict hierarchy of four tame classes below the stable ones, and seven minimal prototypes of tame families.
 The tools are more recent than those of~\cite{alva2024approximability}: on the topological side, the theory of \emph{Rosenthal compacta} replaces Grothendieck's criterion; on the model-theoretic side, \emph{neostability} replaces stability, and the main notion is the negation of the independence property, commonly called ``NIP''.
 
 The translation between topology and computation goes through model theory.
@@ -348,7 +348,7 @@ For every pointwise bounded  $A\subseteq \Cp(X)$, the following properties are a
 Theorem~\ref{thm:BFT2} may be stated as the following dichotomy (under the assumptions) for any compact metrizable~$X$:
 either $A$ is relatively compact in~$\mathrm{B}_1(X)$, or $A$ has IP (in either sense).
 
-The Independence Property was first isolated by Saharon Shelah in model theory as a dividing line between theories whose models are ``tame'' (corresponding to NIP) and theories whose models are ``wild" (corresponding to IP).
+The Independence Property was first isolated by Saharon Shelah in model theory as a dividing line between theories whose models are ``tame'' (corresponding to NIP) and theories whose models are ``wild'' (corresponding to IP).
 See~\cite[Definition 4.1]{Shelah:1971}, \cite{Shelah:1990}.
 We discuss this dividing line in Section~\ref{sec:NIP-poly-exp}.
 
@@ -545,7 +545,10 @@ $A(2^{\mathbb{N}})$.
 \subsection{NIP as a universal dividing line between polynomial and exponential complexity}
 \label{sec:NIP-poly-exp}
 
-The particular case of the BFT dichotomy (Theorem~\ref{thm:BFT}) when $A$ consists of $\{0,1\}$-valued (i.e., $\{\text{Yes},\text{No}\}$-valued) strings was discovered independently, around 1971-1972 in many foundational contexts related to polynomial (``tame") vs exponential (``wild'') complexity: In model theory, by Saharon Shelah~\cite{Shelah:1971}, \cite{Shelah:1990}, in combinatorics, by Norbert Sauer~\cite{Sauer:1972}, and Shelah~\cite{Shelah:1972}, \cite{Shelah:1990}, and in statistical learning, by Vladimir Vapnik and Alexey Chervonenkis~\cite{Vapnik-Chervonenkis:1971}, \cite{Vapnik-Chervonenkis:1974}.
+The particular case of the BFT dichotomy (Theorem~\ref{thm:BFT}) in which $A$ consists of $\{0,1\}$-valued (i.e., yes/no-valued) functions was discovered independently around 1971--1972 in three foundational contexts, each separating polynomial (``tame'') from exponential (``wild'') complexity:
+in model theory, by Saharon Shelah~\cite{Shelah:1971,Shelah:1990};
+in combinatorics, by Norbert Sauer~\cite{Sauer:1972} and by Shelah~\cite{Shelah:1972,Shelah:1990};
+and in statistical learning, by Vladimir Vapnik and Alexey Chervonenkis~\cite{Vapnik-Chervonenkis:1971,Vapnik-Chervonenkis:1974}.
 
 \begin{description}
 
@@ -555,10 +558,10 @@ A theory $T$ is considered classifiable in Shelah’s sense if the number of non
 In contrast, a theory $T$ is unclassifiable if the number of models of $T$ of a given cardinality is the maximum possible number.
 A key fact is that the number of models of $T$ is directly impacted by the number of \emph{types} over sets of parameters in models of $T$; a controlled number of types is a characteristic of a classifiable theory.
 
-In Shelah’s classification program~\cite{Shelah:1990}, theories \emph{without} the independence property (called NIP theories, or \emph{dependent} theories) have a well-behaved, ``tame" structure;
-the number of types over a set of parameters of size $\kappa$ of such a theory is of polynomially or similar “slow" growth on~$\kappa$.
+In Shelah’s classification program~\cite{Shelah:1990}, theories \emph{without} the independence property (called NIP theories, or \emph{dependent} theories) have a well-behaved, ``tame'' structure:
+the number of types over a set of parameters of size $\kappa$ grows slowly (polynomially, or nearly so) in~$\kappa$.
 
-In contrast, theories with the Independence Property (called IP theories) are considered “intractable" or “wild”.
+In contrast, theories with the Independence Property (called IP theories) are considered ``intractable'' or ``wild''.
 A theory with the Independence Property produces the maximum possible number of types over a set of parameters; for a set of parameters of cardinality $\kappa$, the theory will have $2^{2^{\kappa}}$-many distinct types.
 
  \item[In combinatorics]
@@ -578,10 +581,9 @@ indeed, for fixed $N>0$, as a function of the size $|A| = m > 0$, we have
   \sum_{i=0}^{N-1} \binom{m}{i}
   \le \sum_{i=0}^{N-1}\frac{m^{i}}{i!}
   \le \left( \sum_{i=0}^{N-1}\frac{1}{i!} \right)\cdot m^{N-1}
-  < e\cdot m^{N-1} = O \left( m^N \right).
+  < e\cdot m^{N-1},
 \end{equation*}
-(More precisely, the order of magnitude is $O(m^{N-1})$:
-polynomial in $m$ for $N$ fixed.)
+which is polynomial in $m$ for fixed~$N$.
 
  \item[In machine learning]
 Readers familiar with statistical learning may recognize the Sauer-Shelah lemma as the dichotomy discovered and proved slightly earlier (1971) by Vapnik and Chervonenkis~\cite{Vapnik-Chervonenkis:1971, Vapnik-Chervonenkis:1974} to address uniform convergence in statistics.
@@ -615,7 +617,7 @@ For each $P\in \mathcal{P}$, we call the value $P(v)$ the $P$-th \emph{(observab
 A \emph{transition} of a computation states structure $(L,\mathcal{P})$ is a map $f:L\to L$.
 
 The \emph{type} of a state $v\in L$ is the indexed family%
-\footnote{As in~§\ref{prop:Baire-identifications} above, we regard each predicate on $L$ as named by a specific formal label~$P$ (a \emph{predicate symbol}) which is given the semantic meaning of a \emph{bona fide} real function $P(\cdot): v\mapsto P(v)$ (the predicate proper) in the computation states structure.
+\footnote{As in Proposition~\ref{prop:Baire-identifications} above, we regard each predicate on $L$ as named by a specific formal label~$P$ (a \emph{predicate symbol}) which is given the semantic meaning of a \emph{bona fide} real function $P(\cdot): v\mapsto P(v)$ (the predicate proper) in the computation states structure.
 Such a formal symbol~$P$ becomes \emph{de facto} the name of an observable feature having the real value $P(v)$ at any state $v\in L$.
 Whenever $\mathcal{P}$ is used as an index set (e.g., as in the topological product $\mathbb{R}^{\mathcal{P}}$ below), it is regarded as a set of formal symbols.
 This syntactic vs.\ semantic abuse of nomenclature is commonplace in mathematics, but the model-theoretic framework requires contextual awareness of the distinction.
@@ -649,7 +651,7 @@ For each $P\in \mathcal{P}$, the $P$-th coordinate map (natural projection) $\ma
 abusing notation, the extension will still be denoted~$P(\cdot)$ (or just~$P$).
 
 \begin{rem}\label{rem:poor-mans-ultraprod}
-  Just as $L$ is identified with a subset of~$\mathcal{L}$, but going in the opposite direction, one may regard unrealized state types as “hyper-states” (when such type is obtained as a sequential limit—or ultralimit—of realized state types, unrealized state types may be called “deep states”).
+  One may regard unrealized state types as ``hyper-states''; when such a type is obtained as a sequential limit (or ultralimit) of realized state types, it may be called a ``deep state''.
   A comment for readers versed in model theory:
   at least for the purpose of realizing state types (with parameters in the original states space~$L$), the type space $(\mathcal{L}, \mathcal{P})$ serves as a “poor man’s” ultraproduct of~$(L, \mathcal{P})$ wherein,  by the very definition of~$\mathcal{L}$, each type $\mathbf{v}$ is realized.
 \end{rem}
@@ -657,10 +659,10 @@ abusing notation, the extension will still be denoted~$P(\cdot)$ (or just~$P$).
 \subsubsection{Bounds on precision and magnitude. Shards}
 \label{sec:shards}
 
-In order for computation state structures to serve their purpose as models of real-world computing, we must keep in mind that computations involving real-valued quantities can only ever carried out approximately, to a preset degree of precision (i.e., to within acceptable error bounds).
+In order for computation state structures to serve their purpose as models of real-world computing, we must keep in mind that computations involving real-valued quantities can only ever be carried out approximately, to a preset degree of precision (i.e., to within acceptable error bounds).
 More subtly, yet equally important in practice, one must also bound the magnitude of real quantities involved in all computations:
 one cannot possibly store—let alone compute with—arbitrarily large numbers!
-Thus, although the collection~$\mathcal{P}$ of predicates may be infinite (possibly, uncountable even), “true” computations must imply choices, at the outset, of bounds for errors and for absolute magnitudes of quantities involved.
+Thus, although the collection~$\mathcal{P}$ of predicates may be infinite (possibly, uncountable even), actual computations involve choices, made at the outset, of bounds for errors and for absolute magnitudes of quantities involved.
 Heuristically, different parts of a computation may require suitably matching (different) error bounds, as well as dealing with quantities of very different sizes.
 Focusing for now on the second of these issues, our results shall generally apply to sets of computations for which arbitrary but fixed bounds for each predicate are set in advance.
 This leads to the concept of \emph{shard} first introduced in~\cite{alva2024approximability}, as per the following definition.
@@ -718,13 +720,11 @@ Intuitively, ultracomputations are “final” or “ultimate”.
 \end{proof}
 
 For a CCS $(L,\mathcal{P},\Gamma)$, we regard the elements of $\Gamma$ as ``standard'' finitary computations, and the elements of $\overline{\Gamma}$, i.e., deep computations, as possibly infinitary limits of standard computations.
-The main goal of this paper is to study the computability, definability and computational complexity of deep computations.
-Since deep computations are defined through a combination of topological concepts (namely, topological closure) and structural and model-theoretic concepts (namely, models and types), we will import technology from both topology and model theory.
 
 \begin{rems}(For readers versed in model theory.)%
   \footnote{Refer to~\cite{Keisler:2023} where a general framework for real-valued structures is introduced; see also~\cite[section 6]{Duenez-Iovino:2017} for a basic tutorial.}
   \begin{enumerate}
-  \item compositional computation structures as defined above are not real-valued structures in a literal sense, because there is no intrinsic structural manner to ensure that $\Gamma$ is realized as a literal subset of the product space $L^L$.
+  \item Compositional computation structures as defined above are not real-valued structures in a literal sense, because there is no intrinsic structural manner to ensure that $\Gamma$ is realized as a literal subset of the product space $L^L$.
 However, in a semantically transparent manner, any CCS as above may alternatively be seen (per its original definition in~\cite{alva2024approximability}) as a real-valued structure $(L,\mathcal{P},\Gamma,\circ,\operatorname{ev})$, where
 \begin{itemize}
 \item
@@ -740,13 +740,13 @@ Both definitions are reconciled upon identifying $\gamma\in \Gamma$ with the map
 \item In the preceding sense of real-valued structures, the class of compositional computation structures (for a fixed predicate symbol collection~$\mathcal{P}$) is first-order elementary.
   The limited notion of state type we have introduced (essentially, quantifier-free state types with parameters of sort $L$ only) may be enriched to state types involving more formulas (e.g., with parameters in~$\Gamma$, or including quantified formulas), and extended to “transform-types” (i.e., types of sort~$\Gamma$).
   In particular, given a structure $\underline{C}=(L,\mathcal{P}, \Gamma, \circ, \operatorname{ev})$, all types are realized in some ultrapower~$\underline{C}^{(\mathcal{U})}$ of~$\underline{C}$ (constructed in the usual manner detailed in the references above).%
-  \footnote{By contrast (cf., Remark~\ref{rem:poor-mans-ultraprod}), the ultrapower construction is not necessary to realize state types in a computation states structures.}
+  \footnote{By contrast (cf., Remark~\ref{rem:poor-mans-ultraprod}), the ultrapower construction is not necessary to realize state types in a computation states structure.}
   This approach to spaces of types was introduced in Banach space theory by Krivine~\cite{Krivine:1974, Krivine-Maurey:1981,Krivine:1972}.
 \end{enumerate}
 \end{rems}
 
 \subsection{Computability of deep computations and the Extendibility Axiom}
-Let $(L, \mathcal{P})$ be a computation structure with \emph{countable} predicate collection~$\mathcal{P}$.
+Let $(L, \mathcal{P})$ be a computation states structure with \emph{countable} predicate collection~$\mathcal{P}$.
 
 \begin{enumerate}
 \item A \emph{computable predicate} is any real function $\varphi: L\to \mathbb{R}$ whose restriction to an arbitrary shard is uniformly approximable by polynomials (with real coefficients) in the features~$P(\cdot)$.
@@ -758,8 +758,7 @@ This motivates the following definition.
 
 A computation $\gamma\in \Gamma$ is \emph{extendable} if it has some extension $\tilde\gamma:\mathcal{L}_{\sh}\to\mathcal{L}_{\sh}$ such that, for every sizer $r_{\bullet}$, there is a sizer $s_\bullet$ such that $\tilde\gamma|_{\mathcal{L}[r_\bullet]}:\mathcal{L}[r_\bullet]\to\mathcal{L}[s_\bullet]$ is continuous.
 
-Because $\tilde{\gamma}$ extends $\gamma$ continuously on each compact type-shard, we call it the \emph{$K$-extension} of~$\gamma$;
-such extension is evidently unique (if it exists).
+Such an extension is unique if it exists, since it is continuous on each type shard and $L[\rb]$ is dense in~$\mathcal{L}[\rb]$.
 
 Abusing notation, for any $\Delta\subseteq\Gamma$ consisting of extendable computations, the set $\{\tilde\gamma\colon\gamma\in\Delta\}$ will be denoted $\tilde{\Delta}$.
 
@@ -881,7 +880,7 @@ Our inspiration is the work of Glasner and Megrelishvili on tame semigroups in t
 Theorem~\ref{thm:nip-baire1def}, the cornerstone of the section, extends the results of~\cite{alva2024approximability} from continuous deep computations to deep computations of the first Baire class.
 
 \begin{thm}\label{thm:nip-baire1def}
-    Let $(L,\mathcal{P},\Gamma)$ be a compositional computation structure (Definition~\ref{def:CCS}) satisfying the Extendibility Axiom (see Definition~\ref{ax:extendibility-axiom}) with $\mathcal{P}$ countable.
+    Let $(L,\mathcal{P},\Gamma)$ be a compositional computation structure (Definition~\ref{def:CCS}) satisfying the Extendibility Axiom, with $\mathcal{P}$ countable.
 Let $R$ be an exhaustive collection of sizers,
 and suppose that  $\Delta\subseteq\Gamma$ is $R$-confined.
 Then the following conditions are equivalent:
@@ -908,11 +907,10 @@ The assertion that every deep computation is a pointwise limit of a countable se
 (that is, a space where any point in the closure of  a set $A$ is the limit of a sequence of points in  $A$; see Theorem 3F in \cite{BFT_1978_PCompactBaire} or Theorem 4.1 in \cite{debs2013rosenthal}).
 \end{proof}
 
-\subsection{The Todorčević trichotomy, and levels of NIP and PAC learnability}
+\subsection{The Todorčević trichotomy and levels of NIP}
 \label{sec:trichotomy}
 Recall from Section~\ref{sec:five-compacta} the notions of hereditarily separable and first countable spaces.
-Every separable metrizable space is hereditarily separable, and R.
-Pol proved that every hereditarily separable Rosenthal compactum is first countable (see section 10 of \cite{debs2013rosenthal}).
+Every separable metrizable space is hereditarily separable, and R.~Pol proved that every hereditarily separable Rosenthal compactum is first countable (see section 10 of \cite{debs2013rosenthal}).
 This suggests the following definition:
 
 \begin{defn}\label{def:NIP-levels}
@@ -938,7 +936,7 @@ and $S(2^{\mathbb{N}})$ is hereditarily separable but not metrizable.
 Todorčević proved that these examples are canonical \cite{Todorcevic_1999_CompactSubsetsBaire}.
 
 \begin{thm}[Todorčević’s Trichotomy, \cite{Todorcevic_1999_CompactSubsetsBaire}, Theorem 3 in \cite{argyros2008rosenthal}]\label{thm:Todorcevic-trichotomy}
-    Let $K$ be a separable Rosenthal Compactum.
+    Let $K$ be a separable Rosenthal compactum.
     \begin{enumerate}[(i)]
         \item
         If $K$ is hereditarily separable but non-metrizable, then $S(2^\mathbb{N})$ embeds into $K$.
@@ -978,32 +976,29 @@ Section~\ref{sec:iterative} gives computations at each level of the hierarchy, a
 
 The definitions of $\NIP_1$, $\NIP_2$ and $\NIP_3$ given here are topological; whether they admit a non-topological characterization is Question~\ref{q:NIP-levels}.
 
-\subsection{The Argyros-Dodos-Kanellopoulos heptachotomy, and approximability of deep computation by minimal classes}
+\subsection{The Argyros--Dodos--Kanellopoulos heptachotomy and binary search}
 \label{sec:heptachotomy}
 
-In the three separable cases of Section~\ref{sec:five-compacta}, namely, $\hat{A}(2^\mathbb{N})$, $S(2^\mathbb{N})$ and $\hat{D}(S(2^\mathbb{N}))$, the countable dense subsets are indexed by the binary tree $2^{<\mathbb{N}}$.
-This choice of index is useful because our emphasis is computational.
-Real numbers can be represented as infinite binary sequences, i.e., infinite branches of the binary tree $2^{\mathbb{N}}$, and
-we approximate real numbers with elements in $2^{<\mathbb{N}}$, i.e., finite bitstrings.
+In the separable compacta of Section~\ref{sec:five-compacta}, the countable dense subsets are indexed by the binary tree $2^{<\mathbb{N}}$.
+This indexing suits our computational emphasis: real numbers are represented by infinite binary sequences, i.e., branches of the binary tree, and approximated by finite bitstrings, i.e., its nodes.
 
 \begin{defn}
 Let $X$ be a Polish space.
 
 \begin{enumerate}
 \item
-If $I$ is countable and $\{f_i:i\in I\}\subseteq\mathbb{R}^X$, $\{g_i:i\in I\}\subseteq\mathbb{R}^X$ are two pointwise families by $I$, we say that $\{f_i:i\in\ I\}$ and $\{g_i:i\in I\}$ are \emph{equivalent} if and only if the map $f_i\mapsto g_i$ is extended to a homeomorphism from $\overline{\{f_i:i\in I\}}$ to $\overline{\{g_i:i\in I\}}$.
+If $I$ is countable and $\{f_i:i\in I\}\subseteq\mathbb{R}^X$, $\{g_i:i\in I\}\subseteq\mathbb{R}^X$ are two families indexed by $I$, we say that they are \emph{equivalent} if the map $f_i\mapsto g_i$ extends to a homeomorphism from $\overline{\{f_i:i\in I\}}$ to $\overline{\{g_i:i\in I\}}$.
 \item
-If $\{f_t:t\in 2^{<\mathbb{N}}\}$ is a pointwise bounded family, we say that $\{f_t:t\in 2^{<\mathbb{N}}\}$ is \emph{minimal} if and only if for every dyadic subtree $\{s_t:t\in 2^{<\mathbb{N}}\}$ of $2^{<\mathbb{N}}$, $\{f_{s_t}:t\in 2^{<\mathbb{N}}\}$ is equivalent to $\{f_t:t\in 2^{<\mathbb{N}}\}$.
+If $\{f_t:t\in 2^{<\mathbb{N}}\}$ is a pointwise bounded family, we say that it is \emph{minimal} if for every dyadic subtree $\{s_t:t\in 2^{<\mathbb{N}}\}$ of $2^{<\mathbb{N}}$, $\{f_{s_t}:t\in 2^{<\mathbb{N}}\}$ is equivalent to $\{f_t:t\in 2^{<\mathbb{N}}\}$.
  \end{enumerate}
 \end{defn}
 
-One of the main results in \cite{argyros2008rosenthal} is that, up to equivalence, there are seven minimal families of Rosenthal compacta and that for every relatively compact $\{f_t:t\in 2^{<\mathbb{N}}\}\subseteq \mathrm{B}_1(X)$ there is a dyadic subtree $\{s_t:t\in 2^{<\mathbb{N}}\}$ such that $\{f_{s_t}:t\in 2^{<\mathbb{N}}\}$ is equivalent to one of the minimal families.
+One of the main results in \cite{argyros2008rosenthal} is that, up to equivalence, there are seven minimal families and that for every relatively compact $\{f_t:t\in 2^{<\mathbb{N}}\}\subseteq \mathrm{B}_1(X)$ there is a dyadic subtree $\{s_t:t\in 2^{<\mathbb{N}}\}$ such that $\{f_{s_t}:t\in 2^{<\mathbb{N}}\}$ is equivalent to one of the minimal families.
 We shall describe the seven minimal families next.
-We follow the same notation as in \cite{argyros2008rosenthal}.
-For any node $t\in 2^{<\mathbb{N}}$, we denote by $t^\frown 0^{\infty}$ ($t^\frown 1^{\infty}$) the infinite binary sequence starting with $t$ and continuing with all $0$’s (respectively, all $1$’s).
+We follow the notation of \cite{argyros2008rosenthal}.
 Fix a regular dyadic subtree $T=\{s_t:t\in 2^{<\mathbb{N}}\}$ of $2^{<\mathbb{N}}$ (i.e., a dyadic subtree such that every level of $T$ is contained in a level of $2^{<\mathbb{N}}$) with the property that for all $s,s'\in T$, we have $s^\frown 0^{\infty}\neq s'^\frown 0^\infty$ and $s^\frown 1^{\infty}\neq s'^\frown 1^\infty$.
 We use the prefix tests $v_t$ and the threshold tests $f^\pm_a$ of Section~\ref{sec:five-compacta}.
-Given two maps $f,g:2^{\mathbb{N}}\rightarrow\mathbb{R}$ we denote by $(f,g):2^{\mathbb{N}}\sqcup 2^{\mathbb{N}}\rightarrow\mathbb{R}$ the function which is $f$ on the first copy of $2^{\mathbb{N}}$ and $g$ on the second copy of $2^{\mathbb{N}}$.
+A pair $(f,g)$ of functions on $2^{\mathbb{N}}$ is regarded as a single function on the disjoint union $2^{\mathbb{N}}\sqcup2^{\mathbb{N}}$.
 
 \begin{enumerate}
     \item $D_1=\{\frac{1}{|t|+1}v_t:t\in 2^{<\mathbb{N}}\}$.
@@ -1077,7 +1072,7 @@ Section~\ref{sec:iterative} then places these and other computations at each lev
 
 We begin by formalizing the Newton-Raphson root-finding method as a CCS~\cite{Galantai200025}, \cite[Section~2.3]{Burden2016numerical}.
 Let $\hatC = \mathbb{C}\cup\{\infty\}$ be the extended complex plane (the Alexandroff —one-point— compactification of~$\mathbb{C}$).
-We regard the unit sphere $S^2\subseteq \mathbb{R}^3$ as the Riemann sphere and endowed with the stereographic projection map $S^2\to\hatC$ —a topological homeomorphism whose \emph{inverse} $\hatC\rightarrow S^2$ is given by $z \mapsto  (P_1(z), P_2(z), P_3(z))$, where $(P_1(\infty), P_2(\infty), P_3(\infty)) = (0,0,1)$ and, for $z\ne\infty$,
+We identify $\hatC$ with the unit sphere $S^2\subseteq \mathbb{R}^3$ (the Riemann sphere) through the inverse stereographic projection $z \mapsto  (P_1(z), P_2(z), P_3(z))$, a homeomorphism $\hatC\to S^2$, where $(P_1(\infty), P_2(\infty), P_3(\infty)) = (0,0,1)$ and, for $z\ne\infty$,
   \begin{align*}
     P_1(z) &= \frac{2\,\Re{z}}{|z|^2+1},&
     P_2(z) &= \frac{2\,\Im{z}}{|z|^2+1},&
@@ -1098,8 +1093,6 @@ The natural choice of predicates is $\mathcal{P} = (P_1, P_2, P_3)$,
 the inverse stereographic projection coordinates.
 (The real- and imaginary part maps $z\mapsto\Re{z}$, $z\mapsto\Im{z}$ are not defined at~$z = \infty$.)
 
-\paragraph{Newton CCSs}
-\label{sec:Newton-CCS}
 Let $\Gamma_p:=\{N_p^{(n)}:n\in\mathbb{N}\}$ be the semigroup of iterates of the Newton map~\eqref{eq:Np}.
 The CCS $(\hatC, (P_1,P_2,P_3), \Gamma_p)$ is \emph{Newton’s method for~$p(z)$} (or the \emph{Newton CCS for~$p(z)$}).
 Note that the states space $\hatC$ is compact and the Newton map $N_p$ is continuous thereon, so the Extendibility Axiom is satisfied by Newton CCSs.
@@ -1108,7 +1101,7 @@ Given an initial estimate $z_0$, one hopes for the sequence of Newton steps appl
 to converge to a root~$r$ of~$p$.
 
 \paragraph{Fatou and Julia sets}
-Recall that the \emph{Fatou set $\mathcal{F}_p$} consists of all points that have a compact neighborhood on which some subsequence of the sequence $p^{(\bullet)}$ of iterates of~$p$ converges uniformly;
+Recall that the \emph{Fatou set $\mathcal{F}_p$} consists of all points that have a neighborhood on which every sequence of iterates of~$p$ has a uniformly convergent subsequence;
 the \emph{Julia set} $\mathcal{J}_p\coloneqq\hatC\setminus \mathcal{F}_p$ is its complement:
 it is (necessarily closed and) typically a fractal.
 The Julia set of the Newton map~$N_p$ is called the \emph{Newton fractal} of~$p$.
@@ -1175,8 +1168,7 @@ Let $\mathbb{R}\to S^1: x\mapsto (P_1(x),P_2(x))$ be the (inverse) stereographic
  P_2(x) &= \frac{x^2-1}{x^2+1},
 \end{align*}
 extended to a projective transformation of the real projective line $\RP^1 = \mathbb{R}\cup\{\infty\}$ by $\infty \mapsto (P_1(\infty), P_2(\infty)) = (0, 1)$;
-this gives a compact CCS $\underline{\mathfrak{L}} = (\RP^1, (P_1, P_2))$.
-As above, consider the quadratic polynomial $p(x)=x^2-a$ for some fixed real number $a>0$.
+this gives a compact computation states structure $(\RP^1, (P_1, P_2))$.
 The Newton map $N_p$ is
 \begin{equation*}
   x \mapsto x - \frac{x^2-a}{2x}
@@ -1196,7 +1188,7 @@ More explicitly, the unique deep equilibrium $\mathfrak{f}: \RP^1\to\RP^1$ of (t
  \begin{cases}
   \sqrt{a}, & x\in(0,\infty);\\
   -\sqrt{a}, & x\in(\infty,0);\\
-  \infty. & x = 0, \infty.
+  \infty, & x = 0, \infty.
  \end{cases}
  \]
  Thus, $\mathfrak{f}$ is discontinuous at $x = 0, \infty$ (Figure~\ref{fig:sqrt}).
@@ -1271,7 +1263,7 @@ We thus have the following remark:
 If $X$ is compact, then a function $f:X\rightarrow\mathbb{R}$ is universally measurable if and only if $f^{-1}(U)$ is $\mu$-measurable for every Radon probability measure $\mu$ on $X$ and every open set $U\subseteq\mathbb{R}$.
 \end{rem}
 
-Intuitively, a function is universally measurable if it is ``measurable no matter which reasonable way you try to measure things on its domain".
+Intuitively, a function is universally measurable if it is ``measurable no matter which reasonable way you try to measure things on its domain''.
 The concept of universal measurability emerged from work of Kallianpur and Sazonov, in the late 1950’s and 1960s --- with later developments by Blackwell, Darst and others ---  building on earlier ideas of Gnedenko and Kolmogorov from the 1950s.
 See~\cite[Chapters 1 and 2]{Pap:2002}.
 
