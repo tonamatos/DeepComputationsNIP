@@ -238,8 +238,9 @@ Finally, Theorem~\ref{thm:NIP-Monte-Carlo} and Corollary~\ref{cor:Talagrand-stab
 \subsection*{Organization of the paper}
 In Section~\ref{sec:prelim}, we present the topological and combinatorial preliminaries, including five canonical Rosenthal compacta (Section~\ref{sec:five-compacta}).
 In Section~\ref{sec:CCS}, we introduce compositional computation structures, the structural and model-theoretic viewpoint (no previous exposure to model theory is needed), together with stability and the register construction.
-Section~\ref{sec:examples} presents the first examples: Newton’s method, threshold classifiers and prefix tests.
-Section~\ref{sec:Classification} is devoted to the classification of deep computations, and Section~\ref{sec:iterative} places examples at every level of the resulting hierarchy.
+Section~\ref{sec:Classification} is devoted to the classification of deep computations; it contains the main theorems.
+The remaining sections are examples and a generalization.
+Section~\ref{sec:examples} presents Newton’s method, threshold classifiers and prefix tests in detail, and Section~\ref{sec:iterative} places examples at every level of the hierarchy, including classical iterative algorithms.
 
 Throughout the paper, our results pertain to classical models of computation (particularly computations involving real-valued quantities that are known and manipulated to a finite degree of precision).
 The final section, Section~\ref{sec:measure-theoretic-NIP}, introduces a probabilistic viewpoint, the development of which we intend to extend in future research.
@@ -655,9 +656,17 @@ paper: they are the canonical members of the classes in Todorčević's
 trichotomy (Theorem~\ref{thm:Todorcevic-trichotomy}), and the deep
 computations of our examples are copies of them.
 We fix their notation here.
+Recall that a topological space is \emph{separable} if it has a countable dense
+subset, \emph{hereditarily separable} if every subspace is separable, and
+\emph{first countable} if every point has a countable base of neighborhoods.
 
 Let $2^{\mathbb{N}}$ carry the product topology and the lexicographic order~$<$,
 whose order topology is the product topology.
+For a finite word $t\in2^{<\mathbb{N}}$ we write $|t|$ for its length, and for
+$a\in2^{\mathbb{N}}$ we write $a\restr n$ for the word formed by the first $n$
+bits of~$a$.
+Two words are \emph{comparable} if one extends the other, and an
+\emph{antichain} is a set of pairwise incomparable words.
 For a finite word $t\in2^{<\mathbb{N}}$, let $t^\frown0^\infty$ and
 $t^\frown1^\infty$ be the sequences that begin with $t$ and continue with
 all $0$'s, respectively all $1$'s; the set of sequences extending $t$ is the
@@ -686,7 +695,7 @@ It is not separable, and not first countable at~$\mathbf 0$.
 \item The \emph{extended Alexandroff compactification}
 $\hat A(2^{\mathbb{N}})=\overline{\{v_t:t\in2^{<\mathbb{N}}\}}=
 \{v_t:t\in2^{<\mathbb{N}}\}\cup A(2^{\mathbb{N}})$.
-Along a branch $a$, the prefix tests $v_{a\restr n}$ converge to $\delta_a$;
+As $n\to\infty$, the prefix tests $v_{a\restr n}$ converge to $\delta_a$;
 along an antichain they converge to $\mathbf 0$.
 It is separable and not first countable.
 \item The \emph{split Cantor set}
@@ -714,7 +723,7 @@ D(2^{\mathbb{N}})\cup\{(v_t,t^\frown0^\infty):t\in2^{<\mathbb{N}}\}$.
 which consists of the points $(v_t,f^+_{t^\frown0^\infty})$ and, for
 $a\in2^{\mathbb{N}}$, the points $(\delta_a,f^+_a)$, $(\mathbf 0,f^+_a)$ and
 $(\mathbf 0,f^-_a)$ \cite[4.3.7]{argyros2008rosenthal}.
-Along a branch $a$, the thresholds $t^\frown0^\infty$ increase to $a$, which
+Along the words $t=a\restr n$, the thresholds $t^\frown0^\infty$ increase to $a$, which
 gives the points $(\delta_a,f^+_a)$.
 It is separable and first countable, but the points $(\delta_a,f^+_a)$ form an
 uncountable discrete subspace, so it is not hereditarily separable.
@@ -978,8 +987,244 @@ function that does not depend on $f$, and composing it with the register
 predicate gives~$f$.
 \end{proof}
 
+\section{Classifying deep computations}
+\label{sec:Classification}
+
+\subsection{NIP, Rosenthal compacta, and deep computations}
+
+This is the main section of the paper.
+We use topology of function spaces to obtain a new hierarchy of complexity classes for deep computations.
+The main topological tool is Todorčević’s trichotomy for Rosenthal compacta~\cite{Todorcevic_1999_CompactSubsetsBaire}. 
+Our inspiration is the work of Glasner and Megrelishvili on tame semigropus in topological dynamics~\cite{glasner2022tame}.
+
+% In subsection~\ref{sec:trichotomy}, we study the implications of Todorčević’s  trichotomy in the realm of deep computations.
+% Then, in subsection~\ref{sec:heptachotomy}, we focus on the  more recent heptachotomy for separable Rosenthal compacta proved by Argyros, Dodos and Kanellopoulos~\cite{argyros2008rosenthal}.
+% Since our interest is in applications to  the theory of computation, we focus our attention on compositional computation structures $(L,\mathcal{P},\Gamma)$  (Definition~\ref{def:CCS}) where the set $\mathcal{P}$ of predicates is countable,
+% and in sets  computation $\Delta\subseteq\Gamma$ of comptations that are countable.
+
+Theorem~\ref{thm:nip-baire1def} below is the cornerstone of the section;
+it establishes a powerful  link between deep computations and Rosenthal compacta.
+It extends the results of~\cite{alva2024approximability} from the setting of continuous deep computations to the more general (and realistic) setting of deep computations of the first  Baire class.
+Informally,  Theorem~\ref{thm:nip-baire1def} states that if  $\mathcal{P}$ and $\Delta\subseteq\Gamma$ are countable, 
+then the space of deep computations generated by $\Delta$ is a Rosenthal compactum (when restricted to shards) if and only if $\Delta$ satisfies the NIP feature by feature.
+Furthermore, Theorem~\ref{thm:nip-baire1def}  shows that every deep computation generated by $\Delta$ is a sequential limit (rather than an abstract ultrafilter limit) of computations in $\Delta$.
+
+
+\begin{thm}\label{thm:nip-baire1def}
+    Let $(L,\mathcal{P},\Gamma)$ be a compositional computation structure (Definition~\ref{def:CCS}) satisfying the Extendibility Axiom (see Definition~\ref{ax:extendibility-axiom}) with $\mathcal{P}$ countable.
+Let $R$ be an exhaustive collection of sizers,
+and suppose that  $\Delta\subseteq\Gamma$ is $R$-confined.
+Then the following conditions are equivalent:
+
+\begin{enumerate}[(i)]
+ \item $\overline{\tilde\Delta|_{\mathcal{L}[r_\bullet]}}\subseteq \mathrm{B}_1(\mathcal{L}[r_\bullet],\mathcal{L}[r_\bullet])$ for all $r_\bullet\in R$;
+ \item $\pi_P\circ \Delta|_{L[r_\bullet]}$ satisfies the NIP for all $P\in\mathcal{P}$ and $r_\bullet\in R$; that is, for all $P\in\mathcal{P}$, $r_\bullet\in R$, $a<b$, $\{\gamma_n\}_{n\in\mathbb{N}}\subseteq\Delta$ there are finite disjoint $E,F\subseteq\mathbb{N}$ such that
+\[
+ L[r_\bullet]\cap\bigcap_{n\in E}(\pi_P\circ\gamma_n)^{-1}(-\infty,a]\cap\bigcap_{n\in F}(\pi_P\circ\gamma_n)^{-1}[b,\infty)=\emptyset.
+\]
+\end{enumerate}
+
+ Furthermore, if any (hence all) of the preceding conditions hold, then every deep computation $f\in\overline{\Delta}$ can be extended to a Baire-1 function on shards:
+ there is $\tilde f:\mathcal{L}_{\sh}\rightarrow \mathcal{L}_{\sh}$ such that $\tilde f|_{\mathcal{L}[r_\bullet]}\in \mathrm{B}_1(\mathcal{L}[r_\bullet],\mathcal{L}[r_\bullet])$ for all $r_{\bullet}\in R$.
+ In particular, on each shard, every deep computation is the pointwise limit of a countable sequence of computations.
+\end{thm}
+
+\begin{proof}
+Since $\mathcal{P}$ is countable, $\mathcal{L}[r_\bullet]\subseteq\mathbb{R}^\mathcal{P}$ is Polish.
+The Extendibility Axiom implies that $\pi_P\circ \tilde\Delta|_{\mathcal{L}[r_\bullet]}$ is a pointwise bounded set of continuous functions for all $P\in\mathcal{P}$.
+Hence, Theorem \ref{thm:Generalized-BFT} and Lemma \ref{lem:NIP-and-closure} prove the equivalence of (i) and (ii).
+If (i) holds and $f\in\overline{\Delta}$, then we can write as an ultralimit of computations in $\Delta$, say  $f=\mathcal{U}{\rm lim}_i \gamma_i$.
+Define $\tilde f:=\mathcal{U}{\rm lim}_i \tilde\gamma_i$.
+Then, for all $r_\bullet\in R$ we have $\tilde f|_{\mathcal{L}[r_\bullet]}\in\overline{\tilde\Delta|_{\mathcal{L}[r_\bullet]}}\subseteq \mathrm{B}_1(\mathcal{L}[r_\bullet],\mathcal{L}[r_\bullet])$.
+The assertion that every deep computation is a pointwise limit of a countable sequence of computations follows from the fact that for a Polish space $X$, every compact subset of $\mathrm{B}_1(X)$ is Fréchet-Urysohn 
+(that is, a space where any point in the closure of  a set $A$ is the limit of a sequence of points in  $A$; see Theorem 3F in \cite{BFT_1978_PCompactBaire} or Theorem 4.1 in \cite{debs2013rosenthal}).
+\end{proof}
+
+\subsection{The Todorčević trichotomy, and levels of NIP and PAC learnability}
+\label{sec:trichotomy}
+%By Theorem \ref{thm:nip-baire1def}, if $\Delta$ is a countable set of computations satisfying the NIP on features and shards, 
+%then for each fixed sizer $r_\bullet$  the set $\overline{\tilde\Delta_{\mathcal{L}[r_\bullet]}}$ is a separable Rosenthal compactum (see Definition~\ref{def:Rosenthal-compacta}). 
+Recall from Section~\ref{sec:five-compacta} the notions of hereditarily separable and first countable spaces.
+Every separable metrizable space is hereditarily separable, and R.
+Pol proved that every hereditarily separable Rosenthal compactum is first countable (see section 10 of \cite{debs2013rosenthal}).
+This suggests the following definition:
+
+\begin{defn}\label{def:NIP-levels}
+    Let $(L,\mathcal{P},\Gamma)$ be a CCS satisfying the Extendibility Axiom and $R$ be an exhaustive collection of sizers.
+Let $\Delta\subseteq\Gamma$ be an $R$-confined countable set of computations satisfying the NIP on shards and features (condition (ii) in Theorem \ref{thm:nip-baire1def}).
+We say that $\Delta$ is:
+    \begin{enumerate}[(i)]
+        \item
+        $\NIP_1$ if $\overline{\tilde\Delta|_{\mathcal{L}[r_\bullet]}}$ is first countable for every $r_\bullet\in R$;
+        \item
+        $\NIP_2$ if $\overline{\tilde\Delta|_{\mathcal{L}[r_\bullet]}}$ is hereditarily separable for every $r_\bullet\in R$;
+        \item
+        $\NIP_3$ if $\overline{\tilde\Delta|_{\mathcal{L}[r_\bullet]}}$ is metrizable for every $r_\bullet\in R$.
+    \end{enumerate}
+\end{defn}
+
+Observe that $\NIP_3 \Rightarrow \NIP_2\Rightarrow \NIP_1\Rightarrow \NIP$.
+Moreover, a countable stable set of computations (Definition~\ref{def:stable}) is $\NIP_3$: on each shard its deep computations form a separable compact subset of a countable product of spaces $\Cp(\mathcal{L}[r_\bullet])$, that is, a separable Eberlein compactum, and separable Eberlein compacta are metrizable~\cite{Arkhangelskii:1992}.
+The five compacta of Section~\ref{sec:five-compacta} show that the converse implications fail for Rosenthal compacta:
+$\hat A(2^{\mathbb{N}})$ is separable but not first countable;
+$\hat D(S(2^{\mathbb{N}}))$ and $\hat D(2^{\mathbb{N}})$ are separable and first countable but not hereditarily separable;
+and $S(2^{\mathbb{N}})$ is hereditarily separable but not metrizable.
+Todorčević proved that these examples are canonical \cite{Todorcevic_1999_CompactSubsetsBaire}.
+
+\begin{thm}[Todorčević’s Trichotomy, \cite{Todorcevic_1999_CompactSubsetsBaire}, Theorem 3 in \cite{argyros2008rosenthal}]\label{thm:Todorcevic-trichotomy}
+    Let $K$ be a separable Rosenthal Compactum.
+    \begin{enumerate}[(i)] 
+        \item 
+        If $K$ is hereditarily separable but non-metrizable, then $S(2^\mathbb{N})$ embeds into $K$.
+        \item 
+        If $K$ is first countable but not hereditarily separable, then either $\mathrm{D}(2^\mathbb{N})$ or $\hat{D}(S(2^\mathbb{N}))$ embeds into $K$.
+        \item
+         If $K$ is not first countable, then $A(2^\mathbb{N})$ embeds into $K$.
+    \end{enumerate}
+\end{thm}
+
+We thus have the following classification for separable Rosenthal compacta:
+
+\begin{center}
+\begin{tikzpicture}[
+  grow=down,
+  sibling distance=10em,
+  level distance=4em,
+  edge from parent/.style={draw,-latex},
+  every node/.style={font=\small,align=center}
+  ]
+
+\node {$K$ is separable Rosenthal compactum}
+  child {node {$K$ is metrizable}
+  }
+  child {node {$K$ is not metrizable}
+    child {node {$K$ is hereditarily separable \\ (copy of $S(2^\mathbb{N})$) \hspace{2cm}}}
+    child {node {\hspace{2cm} $K$ is not hereditarily separable}
+      child {node {$K$ is first countable \\ (copy of $\mathrm{D}(2^\mathbb{N})$ or $\hat{D}(S(2^\mathbb{N}))$)}}
+      child {node {$K$ is not first countable \\ (copy of $A(2^\mathbb{N})$)}}
+    }
+  };
+
+\end{tikzpicture}
+\end{center}
+
+Section~\ref{sec:iterative} gives computations at each level of the hierarchy, and shows that every implication between the classes stable, $\NIP_3$, $\NIP_2$, $\NIP_1$ and $\NIP$ is strict.
+
+The definitions provided here for $\NIP_i$ ($i=1,2,3$) are topological.
+This raises the following question:
+
+\begin{question}
+    Is there a non-topological characterization for $\NIP_i$, $i=1,2,3$?
+\end{question}
+
+\subsection{The Argyros-Dodos-Kanellopoulos heptachotomy, and approximability of deep computation by minimal classes}
+\label{sec:heptachotomy}
+
+In the three separable cases of Section~\ref{sec:five-compacta}, namely, $\hat{A}(2^\mathbb{N})$, $S(2^\mathbb{N})$ and $\hat{D}(S(2^\mathbb{N}))$, the countable dense subsets are indexed by the binary tree $2^{<\mathbb{N}}$.
+This choice of index is useful because our emphasis is computational.
+Real numbers can be represented as infinite binary sequences, i.e., infinite branches of the binary tree $2^{\mathbb{N}}$, and
+we approximate real numbers with elements in $2^{<\mathbb{N}}$, i.e., finite bitstrings.
+%Indexing standard computations with finite bitstrings allow us to better understand how deep computations arise and how they get approximated.
+%Computationally, we are interested in the manner (and the efficiency) in which the approximations can occur.
+%\item
+%Infinite branches of the binary tree $2^{<\mathbb{N}}$ correspond to the Cantor space $2^{\mathbb{N}}$, the canonical perfect set (in the sense that any Polish space with no isolated points contains a copy of $2^{\mathbb{N}}$).
+%The use of infinite dimensional Ramsey theory for trees (pioneered by the work of James D. Halpern, Hans Läuchli in \cite{halpern1966partition} and also Keith Milliken in \cite{milliken1981partition}, and Alain Louveau, Saharon Shelah, Boban Velickovic in \cite{louveau_shelah_velickovic_1993}) and perfect sets (Fred Galvin and Andreas Blass in \cite{Blass1981}, Arnold W. Miller in \cite{miller1989infinite}, and Stevo Todorčević in \cite{Todorcevic_1999_CompactSubsetsBaire}) allowed S.A. Argyros, P. Dodos and V. Kanellopoulos in \cite{argyros2008rosenthal} to obtain an improved version of Theorem \ref{thm:Todorcevic-trichotomy}.
+%It is no surprise that Ramsey Theory becomes relevant in the study of Rosenthal compacta as it was a key ingredient in Rosenthal’s $\ell_1$ Theorem.
+%For this reason, the main results in \cite{argyros2008rosenthal} (which we cite in this paper) are better explained by indexing Rosenthal compacta with the binary tree.
+%\end{enumerate}
+
+\begin{defn}
+Let $X$ be a Polish space.
+
+\begin{enumerate}
+\item
+If $I$ is countable and $\{f_i:i\in I\}\subseteq\mathbb{R}^X$, $\{g_i:i\in I\}\subseteq\mathbb{R}^X$ are two pointwise families by $I$, we say that $\{f_i:i\in\ I\}$ and $\{g_i:i\in I\}$ are \emph{equivalent} if and only if the map $f_i\mapsto g_i$ is extended to a homeomorphism from $\overline{\{f_i:i\in I\}}$ to $\overline{\{g_i:i\in I\}}$.
+\item
+If $\{f_t:t\in 2^{<\mathbb{N}}\}$ is a pointwise bounded family, we say that $\{f_t:t\in 2^{<\mathbb{N}}\}$ is \emph{minimal} if and only if for every dyadic subtree $\{s_t:t\in 2^{<\mathbb{N}}\}$ of $2^{<\mathbb{N}}$, $\{f_{s_t}:t\in 2^{<\mathbb{N}}\}$ is equivalent to $\{f_t:t\in 2^{<\mathbb{N}}\}$.
+ \end{enumerate}
+\end{defn}
+
+One of the main results in \cite{argyros2008rosenthal} is that, up to equivalence, there are seven minimal families of Rosenthal compacta and that for every relatively compact $\{f_t:t\in 2^{<\mathbb{N}}\}\subseteq \mathrm{B}_1(X)$ there is a dyadic subtree $\{s_t:t\in 2^{<\mathbb{N}}\}$ such that $\{f_{s_t}:t\in 2^{<\mathbb{N}}\}$ is equivalent to one of the minimal families.
+We shall describe the seven minimal families next.
+We follow the same notation as in \cite{argyros2008rosenthal}.
+For any node $t\in 2^{<\mathbb{N}}$, we denote by $t^\frown 0^{\infty}$ ($t^\frown 1^{\infty}$) the infinite binary sequence starting with $t$ and continuing with all $0$’s (respectively, all $1$’s).
+Fix a regular dyadic subtree $R=\{s_t:t\in 2^{<\mathbb{N}}\}$ of $2^{<\mathbb{N}}$ (i.e., a dyadic subtree such that every level of $R$ is contained in a level of $2^{<\mathbb{N}}$) with the property that for all $s,s'\in R$, we have $s^\frown 0^{\infty}\neq s'^\frown 0^\infty$ and $s^\frown 1^{\infty}\neq s'^\frown 1^\infty$.
+We use the prefix tests $v_t$ and the threshold tests $f^\pm_a$ of Section~\ref{sec:five-compacta}.
+Given two maps $f,g:2^{\mathbb{N}}\rightarrow\mathbb{R}$ we denote by $(f,g):2^{\mathbb{N}}\sqcup 2^{\mathbb{N}}\rightarrow\mathbb{R}$ the function which is $f$ on the first copy of $2^{\mathbb{N}}$ and $g$ on the second copy of $2^{\mathbb{N}}$.
+
+\begin{enumerate}
+    \item $D_1=\{\frac{1}{|t|+1}v_t:t\in 2^{<\mathbb{N}}\}$.
+Its closure is $D_1\cup\{\mathbf 0\}$, the one-point compactification of a countable discrete set.
+    \item $D_2=\{s_t^\frown 0^{\infty}:t\in 2^{<\mathbb{N}}\}$.
+This is discrete in $\overline{D_2}=2^{\leq\mathbb{N}}$.
+    \item $D_3=\{f^+_{s_t^\frown 0^\infty}:t\in 2^{<\mathbb{N}}\}$.
+This is discrete in $\overline{D_3}=S(2^{\mathbb{N}})$.
+    \item $D_4=\{f^-_{s_t^\frown 1^\infty}:t\in 2^{<\mathbb{N}}\}$.
+This is discrete in $\overline{D_4}=S(2^{\mathbb{N}})$.
+    \item $D_5=\{v_t:t\in 2^{<\mathbb{N}}\}$.
+This is discrete in $\overline{D_5}=\hat{A}(2^{\mathbb{N}})$.
+    \item $D_6=\{(v_{s_t},s_t^\frown 0^\infty):t\in 2^{<\mathbb{N}}\}$.
+This is discrete in $\overline{D_6}=\hat{D}(2^{\mathbb{N}})$.
+    \item $D_7=\{(v_{s_t},f^+_{s_t^\frown 0^\infty}):t\in 2^{<\mathbb{N}}\}$.
+This is discrete in $\overline{D_7}=\hat{D}(S(2^{\mathbb{N}}))$.
+\end{enumerate}
+
+\begin{thm}[Heptachotomy of minimal families, Theorem 2 in \cite{argyros2008rosenthal}]
+    Let $X$ be Polish.
+For every relatively compact $\{f_{t}:t\in 2^{<\mathbb{N}}\}\subseteq \mathrm{B}_1(X)$, there exists $i=1,2,\dots, 7$ and a regular dyadic subtree $\{s_t:t\in 2^{<\mathbb{N}}\}$ of $2^{<\mathbb{N}}$ such that $\{f_{s_t}:t\in 2^{<\mathbb{N}}\}$ is equivalent to $D_i$.
+Moreover, the families $D_i$ are minimal and mutually non-equivalent.
+\end{thm}
+
+The implication of this result for deep computations is the following.
+The building blocks of the families $D_1,\dots,D_7$ are primitives of binary search on
+$2^{\mathbb{N}}$, the space of binary expansions.
+A node $t\in2^{<\mathbb{N}}$ is a dyadic interval
+$[t^\frown0^\infty,t^\frown1^\infty]$, the set of inputs that round to $t$ at
+precision $|t|$.
+The prefix test $v_t$ asks whether the input rounds to $t$; the point
+$t^\frown0^\infty$ is the rounded value itself; the comparisons
+$f^+_{t^\frown0^\infty}$ and $f^-_{t^\frown1^\infty}$ ask whether the input lies
+to the right of the left endpoint, or strictly to the right of the right
+endpoint, of the interval.
+Table~\ref{tab:hepta-search} reads the seven families accordingly.
+
+\begin{table}[ht]
+\centering
+\small
+\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{>{\raggedright\arraybackslash}p{1.1cm}>{\raggedright\arraybackslash}p{4.3cm}>{\raggedright\arraybackslash}p{5.9cm}}
+\hline
+Family & Computation at node $t$ & Deep computations\\
+\hline
+$D_1$ & prefix test weighted by $1/(|t|+1)$ & the test that never succeeds: confidence vanishes with depth\\
+$D_2$ & return the rounded value $t^\frown0^\infty$ & the exact input: successive approximation\\
+$D_3$ & compare with the left endpoint & comparison with an arbitrary real, ties broken upward\\
+$D_4$ & compare with the right endpoint & comparison with an arbitrary real, ties broken downward\\
+$D_5$ & prefix test & exact equality, or no match\\
+$D_6$ & prefix test and rounded value & a dictionary lookup that returns its key\\
+$D_7$ & prefix test and comparison & a three-way comparison: below, inside or above\\
+\hline
+\end{tabular}
+\vspace{6pt}
+\caption{The minimal families of Argyros, Dodos and Kanellopoulos as primitives of binary search.}
+\label{tab:hepta-search}
+\end{table}
+
+In Section~\ref{sec:ex-NIP1} we define the three-way comparison, one step of a
+binary search with three outcomes, and show that its closure is the closure
+of~$D_7$.
+By the theorem of Argyros, Dodos and Kanellopoulos, every $\NIP$ family of
+computations indexed by the binary tree contains, along a dyadic subtree, one
+of these seven primitives.
+
+
+
 \section{Examples of  Compositional Computation Structures}
 \label{sec:examples}
+We now turn from the general theory to examples.
+This section presents four computation structures in detail and computes their deep computations explicitly: Newton’s method on the Riemann sphere, whose deep computations can be wild; Newton’s method for square roots on the real line; threshold classifiers; and prefix tests on the Cantor set.
+Section~\ref{sec:iterative} then places these and other computations at each level of the hierarchy of Section~\ref{sec:Classification}.
+
 We begin by formalizing the Newton-Raphson root-finding method as a CCS~\cite{Galantai200025}, \cite[Section~2.3]{Burden2016numerical}.
 Let $\hatC = \mathbb{C}\cup\{\infty\}$ be the extended complex plane (the Alexandroff —one-point— compactification of~$\mathbb{C}$).
 We regard the unit sphere $S^2\subseteq \mathbb{R}^3$ as the Riemann sphere and endowed with the stereographic projection map $S^2\to\hatC$ —a topological homeomorphism whose \emph{inverse} $\hatC\rightarrow S^2$ is given by $z \mapsto  (P_1(z), P_2(z), P_3(z))$, where $(P_1(\infty), P_2(\infty), P_3(\infty)) = (0,0,1)$ and, for $z\ne\infty$,
@@ -1390,245 +1635,17 @@ This key topological property implies that the space of ultra-prefix tests is no
 (in a first-countable Hausdorff space all points are~$G_\delta$). 
 In the notation of Section~\ref{sec:five-compacta}, the prefix test $\widetilde w$ is $v_w$ and the equality test $\bbar x$ is $\delta_x$, so $\mathcal{A}=A(2^{\mathbb{N}})$ and $\mathcal{A}_{\mathrm{E}}=\hat A(2^{\mathbb{N}})$.
 
-\section{Classifying deep computations}
-\label{sec:Classification}
-
-\subsection{NIP, Rosenthal compacta, and deep computations}
-
-This is the main section of the paper.
-We use topology of function spaces to obtain a new hierarchy of complexity classes for deep computations.
-The main topological tool is Todorčević’s trichotomy for Rosenthal compacta~\cite{Todorcevic_1999_CompactSubsetsBaire}. 
-Our inspiration is the work of Glasner and Megrelishvili on tame semigropus in topological dynamics~\cite{glasner2022tame}.
-
-% In subsection~\ref{sec:trichotomy}, we study the implications of Todorčević’s  trichotomy in the realm of deep computations.
-% Then, in subsection~\ref{sec:heptachotomy}, we focus on the  more recent heptachotomy for separable Rosenthal compacta proved by Argyros, Dodos and Kanellopoulos~\cite{argyros2008rosenthal}.
-% Since our interest is in applications to  the theory of computation, we focus our attention on compositional computation structures $(L,\mathcal{P},\Gamma)$  (Definition~\ref{def:CCS}) where the set $\mathcal{P}$ of predicates is countable,
-% and in sets  computation $\Delta\subseteq\Gamma$ of comptations that are countable.
-
-Theorem~\ref{thm:nip-baire1def} below is the cornerstone of the section;
-it establishes a powerful  link between deep computations and Rosenthal compacta.
-It extends the results of~\cite{alva2024approximability} from the setting of continuous deep computations to the more general (and realistic) setting of deep computations of the first  Baire class.
-Informally,  Theorem~\ref{thm:nip-baire1def} states that if  $\mathcal{P}$ and $\Delta\subseteq\Gamma$ are countable, 
-then the space of deep computations generated by $\Delta$ is a Rosenthal compactum (when restricted to shards) if and only if $\Delta$ satisfies the NIP feature by feature.
-Furthermore, Theorem~\ref{thm:nip-baire1def}  shows that every deep computation generated by $\Delta$ is a sequential limit (rather than an abstract ultrafilter limit) of computations in $\Delta$.
-
-
-\begin{thm}\label{thm:nip-baire1def}
-    Let $(L,\mathcal{P},\Gamma)$ be a compositional computation structure (Definition~\ref{def:CCS}) satisfying the Extendibility Axiom (see Definition~\ref{ax:extendibility-axiom}) with $\mathcal{P}$ countable.
-Let $R$ be an exhaustive collection of sizers,
-and suppose that  $\Delta\subseteq\Gamma$ is $R$-confined.
-Then the following conditions are equivalent:
-
-\begin{enumerate}[(i)]
- \item $\overline{\tilde\Delta|_{\mathcal{L}[r_\bullet]}}\subseteq \mathrm{B}_1(\mathcal{L}[r_\bullet],\mathcal{L}[r_\bullet])$ for all $r_\bullet\in R$;
- \item $\pi_P\circ \Delta|_{L[r_\bullet]}$ satisfies the NIP for all $P\in\mathcal{P}$ and $r_\bullet\in R$; that is, for all $P\in\mathcal{P}$, $r_\bullet\in R$, $a<b$, $\{\gamma_n\}_{n\in\mathbb{N}}\subseteq\Delta$ there are finite disjoint $E,F\subseteq\mathbb{N}$ such that
-\[
- L[r_\bullet]\cap\bigcap_{n\in E}(\pi_P\circ\gamma_n)^{-1}(-\infty,a]\cap\bigcap_{n\in F}(\pi_P\circ\gamma_n)^{-1}[b,\infty)=\emptyset.
-\]
-\end{enumerate}
-
- Furthermore, if any (hence all) of the preceding conditions hold, then every deep computation $f\in\overline{\Delta}$ can be extended to a Baire-1 function on shards:
- there is $\tilde f:\mathcal{L}_{\sh}\rightarrow \mathcal{L}_{\sh}$ such that $\tilde f|_{\mathcal{L}[r_\bullet]}\in \mathrm{B}_1(\mathcal{L}[r_\bullet],\mathcal{L}[r_\bullet])$ for all $r_{\bullet}\in R$.
- In particular, on each shard, every deep computation is the pointwise limit of a countable sequence of computations.
-\end{thm}
-
-\begin{proof}
-Since $\mathcal{P}$ is countable, $\mathcal{L}[r_\bullet]\subseteq\mathbb{R}^\mathcal{P}$ is Polish.
-The Extendibility Axiom implies that $\pi_P\circ \tilde\Delta|_{\mathcal{L}[r_\bullet]}$ is a pointwise bounded set of continuous functions for all $P\in\mathcal{P}$.
-Hence, Theorem \ref{thm:Generalized-BFT} and Lemma \ref{lem:NIP-and-closure} prove the equivalence of (i) and (ii).
-If (i) holds and $f\in\overline{\Delta}$, then we can write as an ultralimit of computations in $\Delta$, say  $f=\mathcal{U}{\rm lim}_i \gamma_i$.
-Define $\tilde f:=\mathcal{U}{\rm lim}_i \tilde\gamma_i$.
-Then, for all $r_\bullet\in R$ we have $\tilde f|_{\mathcal{L}[r_\bullet]}\in\overline{\tilde\Delta|_{\mathcal{L}[r_\bullet]}}\subseteq \mathrm{B}_1(\mathcal{L}[r_\bullet],\mathcal{L}[r_\bullet])$.
-The assertion that every deep computation is a pointwise limit of a countable sequence of computations follows from the fact that for a Polish space $X$, every compact subset of $\mathrm{B}_1(X)$ is Fréchet-Urysohn 
-(that is, a space where any point in the closure of  a set $A$ is the limit of a sequence of points in  $A$; see Theorem 3F in \cite{BFT_1978_PCompactBaire} or Theorem 4.1 in \cite{debs2013rosenthal}).
-\end{proof}
-
-\subsection{The Todorčević trichotomy, and levels of NIP and PAC learnability}
-\label{sec:trichotomy}
-%By Theorem \ref{thm:nip-baire1def}, if $\Delta$ is a countable set of computations satisfying the NIP on features and shards, 
-%then for each fixed sizer $r_\bullet$  the set $\overline{\tilde\Delta_{\mathcal{L}[r_\bullet]}}$ is a separable Rosenthal compactum (see Definition~\ref{def:Rosenthal-compacta}). 
-Recall that a topological space $X$ is \emph{hereditarily separable} if every subspace is separable, and that $X$ is \emph{first countable} if every point in $X$ has a countable local basis.
-Every separable metrizable space is hereditarily separable, and R.
-Pol proved that every hereditarily separable Rosenthal compactum is first countable (see section 10 of \cite{debs2013rosenthal}).
-This suggests the following definition:
-
-\begin{defn}\label{def:NIP-levels}
-    Let $(L,\mathcal{P},\Gamma)$ be a CCS satisfying the Extendibility Axiom and $R$ be an exhaustive collection of sizers.
-Let $\Delta\subseteq\Gamma$ be an $R$-confined countable set of computations satisfying the NIP on shards and features (condition (ii) in Theorem \ref{thm:nip-baire1def}).
-We say that $\Delta$ is:
-    \begin{enumerate}[(i)]
-        \item
-        $\NIP_1$ if $\overline{\tilde\Delta|_{\mathcal{L}[r_\bullet]}}$ is first countable for every $r_\bullet\in R$;
-        \item
-        $\NIP_2$ if $\overline{\tilde\Delta|_{\mathcal{L}[r_\bullet]}}$ is hereditarily separable for every $r_\bullet\in R$;
-        \item
-        $\NIP_3$ if $\overline{\tilde\Delta|_{\mathcal{L}[r_\bullet]}}$ is metrizable for every $r_\bullet\in R$.
-    \end{enumerate}
-\end{defn}
-
-Observe that $\NIP_3 \Rightarrow \NIP_2\Rightarrow \NIP_1\Rightarrow \NIP$.
-Moreover, a countable stable set of computations (Definition~\ref{def:stable}) is $\NIP_3$: on each shard its deep computations form a separable compact subset of a countable product of spaces $\Cp(\mathcal{L}[r_\bullet])$, that is, a separable Eberlein compactum, and separable Eberlein compacta are metrizable~\cite{Arkhangelskii:1992}.
-The five compacta of Section~\ref{sec:five-compacta} show that the converse implications fail for Rosenthal compacta:
-$\hat A(2^{\mathbb{N}})$ is separable but not first countable;
-$\hat D(S(2^{\mathbb{N}}))$ and $\hat D(2^{\mathbb{N}})$ are separable and first countable but not hereditarily separable;
-and $S(2^{\mathbb{N}})$ is hereditarily separable but not metrizable.
-Todorčević proved that these examples are canonical \cite{Todorcevic_1999_CompactSubsetsBaire}.
-
-\begin{thm}[Todorčević’s Trichotomy, \cite{Todorcevic_1999_CompactSubsetsBaire}, Theorem 3 in \cite{argyros2008rosenthal}]\label{thm:Todorcevic-trichotomy}
-    Let $K$ be a separable Rosenthal Compactum.
-    \begin{enumerate}[(i)] 
-        \item 
-        If $K$ is hereditarily separable but non-metrizable, then $S(2^\mathbb{N})$ embeds into $K$.
-        \item 
-        If $K$ is first countable but not hereditarily separable, then either $\mathrm{D}(2^\mathbb{N})$ or $\hat{D}(S(2^\mathbb{N}))$ embeds into $K$.
-        \item
-         If $K$ is not first countable, then $A(2^\mathbb{N})$ embeds into $K$.
-    \end{enumerate}
-\end{thm}
-
-We thus have the following classification for separable Rosenthal compacta:
-
-\begin{center}
-\begin{tikzpicture}[
-  grow=down,
-  sibling distance=10em,
-  level distance=4em,
-  edge from parent/.style={draw,-latex},
-  every node/.style={font=\small,align=center}
-  ]
-
-\node {$K$ is separable Rosenthal compactum}
-  child {node {$K$ is metrizable}
-  }
-  child {node {$K$ is not metrizable}
-    child {node {$K$ is hereditarily separable \\ (copy of $S(2^\mathbb{N})$) \hspace{2cm}}}
-    child {node {\hspace{2cm} $K$ is not hereditarily separable}
-      child {node {$K$ is first countable \\ (copy of $\mathrm{D}(2^\mathbb{N})$ or $\hat{D}(S(2^\mathbb{N}))$)}}
-      child {node {$K$ is not first countable \\ (copy of $A(2^\mathbb{N})$)}}
-    }
-  };
-
-\end{tikzpicture}
-\end{center}
-
-Section~\ref{sec:iterative} gives computations at each level of the hierarchy, and shows that every implication between the classes stable, $\NIP_3$, $\NIP_2$, $\NIP_1$ and $\NIP$ is strict.
-
-The definitions provided here for $\NIP_i$ ($i=1,2,3$) are topological.
-This raises the following question:
-
-\begin{question}
-    Is there a non-topological characterization for $\NIP_i$, $i=1,2,3$?
-\end{question}
-
-\subsection{The Argyros-Dodos-Kanellopoulos heptachotomy, and approximability of deep computation by minimal classes}
-\label{sec:heptachotomy}
-
-In the three separable cases of Section~\ref{sec:five-compacta}, namely, $\hat{A}(2^\mathbb{N})$, $S(2^\mathbb{N})$ and $\hat{D}(S(2^\mathbb{N}))$, the countable dense subsets are indexed by the binary tree $2^{<\mathbb{N}}$.
-This choice of index is useful because our emphasis is computational.
-Real numbers can be represented as infinite binary sequences, i.e., infinite branches of the binary tree $2^{\mathbb{N}}$, and
-we approximate real numbers with elements in $2^{<\mathbb{N}}$, i.e., finite bitstrings.
-%Indexing standard computations with finite bitstrings allow us to better understand how deep computations arise and how they get approximated.
-%Computationally, we are interested in the manner (and the efficiency) in which the approximations can occur.
-%\item
-%Infinite branches of the binary tree $2^{<\mathbb{N}}$ correspond to the Cantor space $2^{\mathbb{N}}$, the canonical perfect set (in the sense that any Polish space with no isolated points contains a copy of $2^{\mathbb{N}}$).
-%The use of infinite dimensional Ramsey theory for trees (pioneered by the work of James D. Halpern, Hans Läuchli in \cite{halpern1966partition} and also Keith Milliken in \cite{milliken1981partition}, and Alain Louveau, Saharon Shelah, Boban Velickovic in \cite{louveau_shelah_velickovic_1993}) and perfect sets (Fred Galvin and Andreas Blass in \cite{Blass1981}, Arnold W. Miller in \cite{miller1989infinite}, and Stevo Todorčević in \cite{Todorcevic_1999_CompactSubsetsBaire}) allowed S.A. Argyros, P. Dodos and V. Kanellopoulos in \cite{argyros2008rosenthal} to obtain an improved version of Theorem \ref{thm:Todorcevic-trichotomy}.
-%It is no surprise that Ramsey Theory becomes relevant in the study of Rosenthal compacta as it was a key ingredient in Rosenthal’s $\ell_1$ Theorem.
-%For this reason, the main results in \cite{argyros2008rosenthal} (which we cite in this paper) are better explained by indexing Rosenthal compacta with the binary tree.
-%\end{enumerate}
-
-\begin{defn}
-Let $X$ be a Polish space.
-
-\begin{enumerate}
-\item
-If $I$ is countable and $\{f_i:i\in I\}\subseteq\mathbb{R}^X$, $\{g_i:i\in I\}\subseteq\mathbb{R}^X$ are two pointwise families by $I$, we say that $\{f_i:i\in\ I\}$ and $\{g_i:i\in I\}$ are \emph{equivalent} if and only if the map $f_i\mapsto g_i$ is extended to a homeomorphism from $\overline{\{f_i:i\in I\}}$ to $\overline{\{g_i:i\in I\}}$.
-\item
-If $\{f_t:t\in 2^{<\mathbb{N}}\}$ is a pointwise bounded family, we say that $\{f_t:t\in 2^{<\mathbb{N}}\}$ is \emph{minimal} if and only if for every dyadic subtree $\{s_t:t\in 2^{<\mathbb{N}}\}$ of $2^{<\mathbb{N}}$, $\{f_{s_t}:t\in 2^{<\mathbb{N}}\}$ is equivalent to $\{f_t:t\in 2^{<\mathbb{N}}\}$.
- \end{enumerate}
-\end{defn}
-
-One of the main results in \cite{argyros2008rosenthal} is that, up to equivalence, there are seven minimal families of Rosenthal compacta and that for every relatively compact $\{f_t:t\in 2^{<\mathbb{N}}\}\subseteq \mathrm{B}_1(X)$ there is a dyadic subtree $\{s_t:t\in 2^{<\mathbb{N}}\}$ such that $\{f_{s_t}:t\in 2^{<\mathbb{N}}\}$ is equivalent to one of the minimal families.
-We shall describe the seven minimal families next.
-We follow the same notation as in \cite{argyros2008rosenthal}.
-For any node $t\in 2^{<\mathbb{N}}$, we denote by $t^\frown 0^{\infty}$ ($t^\frown 1^{\infty}$) the infinite binary sequence starting with $t$ and continuing with all $0$’s (respectively, all $1$’s).
-Fix a regular dyadic subtree $R=\{s_t:t\in 2^{<\mathbb{N}}\}$ of $2^{<\mathbb{N}}$ (i.e., a dyadic subtree such that every level of $R$ is contained in a level of $2^{<\mathbb{N}}$) with the property that for all $s,s'\in R$, we have $s^\frown 0^{\infty}\neq s'^\frown 0^\infty$ and $s^\frown 1^{\infty}\neq s'^\frown 1^\infty$.
-We use the prefix tests $v_t$ and the threshold tests $f^\pm_a$ of Section~\ref{sec:five-compacta}.
-Given two maps $f,g:2^{\mathbb{N}}\rightarrow\mathbb{R}$ we denote by $(f,g):2^{\mathbb{N}}\sqcup 2^{\mathbb{N}}\rightarrow\mathbb{R}$ the function which is $f$ on the first copy of $2^{\mathbb{N}}$ and $g$ on the second copy of $2^{\mathbb{N}}$.
-
-\begin{enumerate}
-    \item $D_1=\{\frac{1}{|t|+1}v_t:t\in 2^{<\mathbb{N}}\}$.
-Its closure is $D_1\cup\{\mathbf 0\}$, the one-point compactification of a countable discrete set.
-    \item $D_2=\{s_t^\frown 0^{\infty}:t\in 2^{<\mathbb{N}}\}$.
-This is discrete in $\overline{D_2}=2^{\leq\mathbb{N}}$.
-    \item $D_3=\{f^+_{s_t^\frown 0^\infty}:t\in 2^{<\mathbb{N}}\}$.
-This is discrete in $\overline{D_3}=S(2^{\mathbb{N}})$.
-    \item $D_4=\{f^-_{s_t^\frown 1^\infty}:t\in 2^{<\mathbb{N}}\}$.
-This is discrete in $\overline{D_4}=S(2^{\mathbb{N}})$.
-    \item $D_5=\{v_t:t\in 2^{<\mathbb{N}}\}$.
-This is discrete in $\overline{D_5}=\hat{A}(2^{\mathbb{N}})$.
-    \item $D_6=\{(v_{s_t},s_t^\frown 0^\infty):t\in 2^{<\mathbb{N}}\}$.
-This is discrete in $\overline{D_6}=\hat{D}(2^{\mathbb{N}})$.
-    \item $D_7=\{(v_{s_t},f^+_{s_t^\frown 0^\infty}):t\in 2^{<\mathbb{N}}\}$.
-This is discrete in $\overline{D_7}=\hat{D}(S(2^{\mathbb{N}}))$.
-\end{enumerate}
-
-\begin{thm}[Heptachotomy of minimal families, Theorem 2 in \cite{argyros2008rosenthal}]
-    Let $X$ be Polish.
-For every relatively compact $\{f_{t}:t\in 2^{<\mathbb{N}}\}\subseteq \mathrm{B}_1(X)$, there exists $i=1,2,\dots, 7$ and a regular dyadic subtree $\{s_t:t\in 2^{<\mathbb{N}}\}$ of $2^{<\mathbb{N}}$ such that $\{f_{s_t}:t\in 2^{<\mathbb{N}}\}$ is equivalent to $D_i$.
-Moreover, the families $D_i$ are minimal and mutually non-equivalent.
-\end{thm}
-
-The implication of this result for deep computations is the following.
-The building blocks of the families $D_1,\dots,D_7$ are primitives of binary search on
-$2^{\mathbb{N}}$, the space of binary expansions.
-A node $t\in2^{<\mathbb{N}}$ is a dyadic interval
-$[t^\frown0^\infty,t^\frown1^\infty]$, the set of inputs that round to $t$ at
-precision $|t|$.
-The prefix test $v_t$ asks whether the input rounds to $t$; the point
-$t^\frown0^\infty$ is the rounded value itself; the comparisons
-$f^+_{t^\frown0^\infty}$ and $f^-_{t^\frown1^\infty}$ ask whether the input lies
-to the right of the left endpoint, or strictly to the right of the right
-endpoint, of the interval.
-Table~\ref{tab:hepta-search} reads the seven families accordingly.
-
-\begin{table}[ht]
-\centering
-\small
-\renewcommand{\arraystretch}{1.25}
-\begin{tabular}{>{\raggedright\arraybackslash}p{1.1cm}>{\raggedright\arraybackslash}p{4.3cm}>{\raggedright\arraybackslash}p{5.9cm}}
-\hline
-Family & Computation at node $t$ & Deep computations\\
-\hline
-$D_1$ & prefix test weighted by $1/(|t|+1)$ & the test that never succeeds: confidence vanishes with depth\\
-$D_2$ & return the rounded value $t^\frown0^\infty$ & the exact input: successive approximation\\
-$D_3$ & compare with the left endpoint & comparison with an arbitrary real, ties broken upward\\
-$D_4$ & compare with the right endpoint & comparison with an arbitrary real, ties broken downward\\
-$D_5$ & prefix test & exact equality, or no match\\
-$D_6$ & prefix test and rounded value & a dictionary lookup that returns its key\\
-$D_7$ & prefix test and comparison & a three-way comparison: below, inside or above\\
-\hline
-\end{tabular}
-\vspace{6pt}
-\caption{The minimal families of Argyros, Dodos and Kanellopoulos as primitives of binary search.}
-\label{tab:hepta-search}
-\end{table}
-
-The three-way comparison of Section~\ref{sec:ex-NIP1}, one step of a binary
-search with three outcomes, has the same closure as $D_7$.
-By the theorem of Argyros, Dodos and Kanellopoulos, every $\NIP$ family of
-computations indexed by the binary tree contains, along a dyadic subtree, one
-of these seven primitives.
-
-
-
 \input{computations_hierarchy}
 
 \section{Randomized versions of NIP and Monte Carlo computability of deep computations}
 \label{sec:measure-theoretic-NIP} 
 
-In this section, we replace deterministic computability by probabilistic (`Monte Carlo') computability.
-We do not assume that $\mathcal{P}$ is countable.
-(The countability assumption on $\mathcal{P}$ played a crucial role in the proof of Theorem \ref{thm:Generalized-BFT}, as it makes $\mathbb{R}^\mathcal{P}$ a Polish space.)
+Sections~\ref{sec:Classification}--\ref{sec:iterative} studied deep computations as \emph{topological} limits: pointwise limits of computations, of the first Baire class on the type shards, and approximated by sequences of computations.
+That theory rests on the type shards being Polish, and hence on the assumption that the set $\mathcal{P}$ of predicates is countable (it is used in the proof of Theorem~\ref{thm:Generalized-BFT}).
+In this section we drop that assumption and replace topology by measure: instead of asking that a deep computation be of the first Baire class, we ask that it be \emph{universally measurable}, that is, measurable with respect to every Radon probability measure on the type shards, so that it can be evaluated almost surely by random sampling.
+We call such deep computations Monte Carlo computable.
+The role of the Bourgain--Fremlin--Talagrand dichotomy is taken by its measure-theoretic form (Theorem~\ref{thm:BFT-2F}), and that of $\NIP$ is shared with Talagrand stability.
+
 The main results of the section are Theorem~\ref{thm:NIP-Monte-Carlo}, which connects NIP and Monte Carlo computability, and~\ref{cor:Talagrand-stab-Monte-Carlo}, which connects Talagrand stability and Monte Carlo computability.
 
 Fundamental in this section is a measure-theoretic version of Theorem \ref{thm:Generalized-BFT}, namely, Theorem~\ref{thm:BFT-2F}. 
