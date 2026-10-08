@@ -1,4 +1,3 @@
-%======================================================================
 \section{Computations across the hierarchy}
 \label{sec:iterative}
 
@@ -8,8 +7,8 @@ hierarchy
 \text{stable}\Rightarrow\NIP_3\Rightarrow\NIP_2\Rightarrow\NIP_1\Rightarrow\NIP,
 \]
 and show that each implication is strict.
-For each level we give two examples.
-The first is one of the static examples of Section~\ref{sec:examples},
+For most levels we give two kinds of example.
+The first is a static example from Section~\ref{sec:examples},
 turned into a CCS by the register construction of
 Definition~\ref{def:register}; its deep computations are one of the five
 compacta of Section~\ref{sec:five-compacta}.
@@ -119,9 +118,9 @@ By Lemma~\ref{lem:register}, the finite-precision threshold classifiers of
 Section~\ref{sec:Cantor-classifiers} form a register CCS whose deep
 computations are the ultra-classifiers.
 Their space is a copy of $S(2^{\mathbb{N}})$
-(Section~\ref{sec:infin-prec-class}), so this CCS is $\NIP_2$ but not $\NIP_3$.
-The classifiers are $\NIP$ because the sets they define are initial segments of
-the lexicographic order, and no infinite family of initial segments is
+(Section~\ref{sec:Cantor-classifiers}), so this CCS is $\NIP_2$ but not $\NIP_3$.
+The classifiers are $\NIP$ because the sets they define are final segments of
+the lexicographic order, and no infinite family of final segments is
 independent.
 
 \emph{Drawing a line.}
@@ -287,7 +286,7 @@ tame$_2$ systems is shown not to be tame$_2$.
 \emph{Prefix tests.}
 By Lemma~\ref{lem:register}, the prefix tests of Section~\ref{sec:prefix-test}
 form a register CCS whose deep computations are the ultra-prefix tests, a copy
-of $\hat A(2^{\mathbb{N}})$ (Section~\ref{sec:extended-alexandroff}).
+of $\hat A(2^{\mathbb{N}})$ (Proposition~\ref{prop:ultra-prefixes}).
 Any two prefix tests are either nested or disjoint, so no infinite family of
 them is independent, and the CCS is $\NIP$ but not $\NIP_1$.
 
@@ -376,7 +375,7 @@ required~$z$.
 The same algorithm is tame on the real line.
 The Julia set of $N$ is the imaginary axis together with $\infty$, which meets
 $\RP^1$ only at~$\infty$, and on $\RP^1$ the iterates converge to the deep
-computation of Example~\ref{exa:square-roots-compute}.
+computation of Section~\ref{exa:square-roots-compute}.
 Whether Newton's method is tame depends on the space of states, not on the
 formula for the step.
 

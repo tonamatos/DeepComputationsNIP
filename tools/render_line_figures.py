@@ -11,7 +11,9 @@ plt.rcParams.update({"font.family": "Latin Modern Roman", "mathtext.fontset": "c
                      "font.size": 8, "axes.linewidth": 0.5,
                      "xtick.major.width": 0.5, "ytick.major.width": 0.5,
                      "xtick.major.size": 2.5, "ytick.major.size": 2.5})
-BLUE = "#2f5d93"; TEAL = "#3f9a8a"; OCHRE = "#c98f2e"; CRIMSON = "#8c2457"; GREY = "#9a9a9a"
+import sys, os
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from palette import MAIN as BLUE, ACCENT as CRIMSON, RAMP as BLUE_RAMP
 
 def clean(ax):
     for s in ("top", "right"):
@@ -27,7 +29,7 @@ def N(x):
 def ang(y):
     return 2 * np.arctan(y)  # infinity -> +-pi
 fig, ax = plt.subplots(figsize=(3.9, 2.25))
-cols = ["#c9d6e8", "#93add0", "#5f86b8", "#2f5d93"]
+cols = BLUE_RAMP
 y = x.copy()
 for k, n in enumerate([1, 2, 3, 6]):
     while True:
@@ -108,7 +110,7 @@ fig.savefig("bresenham.png", dpi=140, bbox_inches="tight", pad_inches=0.02)
 a = 0.55
 xx = np.linspace(0, 1, 4001)
 fig, ax = plt.subplots(figsize=(3.9, 1.8))
-cols = ["#c9d6e8", "#93add0", "#5f86b8", "#2f5d93"]
+cols = BLUE_RAMP
 for k, n in enumerate([4, 10, 30, 120]):
     q = a + 0.6 / n**1.5
     ax.plot(xx, np.maximum(0, 1 - n * np.abs(xx - q)), color=cols[k], lw=1.0, label=fr"$h_{{q,{n}}}$")

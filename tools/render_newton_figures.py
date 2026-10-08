@@ -12,8 +12,11 @@ plt.rcParams.update({"font.family": "Latin Modern Roman", "mathtext.fontset": "c
 def hexrgb(h):
     h = h.lstrip("#"); return np.array([int(h[i:i+2], 16) for i in (0, 2, 4)]) / 255.0
 
-ROOT_COLS = [hexrgb("#2f5d93"), hexrgb("#3f9a8a"), hexrgb("#c98f2e")]  # blue, teal, ochre
-CYC_COLS = [hexrgb("#f3c9d8"), hexrgb("#8c2457")]                       # pale lilac (near 0), deep violet (near 1)
+import sys, os
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from palette import NEWTON_ROOT_COLORS, NEWTON_CYCLE_COLORS, NEWTON_SLOW_FADE
+ROOT_COLS = [hexrgb(c) for c in NEWTON_ROOT_COLORS]   # purple, orchid, gold
+CYC_COLS = [hexrgb(c) for c in NEWTON_CYCLE_COLORS]   # lilac (near 0), plum (near 1)
 
 def newton_iter(f, df, Z, n):
     Z = Z.copy()
@@ -38,9 +41,9 @@ def converge_info(f, df, Z0, roots, nmax=200, tol=1e-6):
     return idx, cnt, Z
 
 def shade(col, t):
-    # t in [0,1]: 0 = fast (full colour), 1 = slow (darker)
+    # t in [0,1]: 0 = fast (full colour), 1 = slow (faded toward white)
     t = np.clip(t, 0, 1)[..., None]
-    return col * (1 - 0.55 * t) + 0.0 * t
+    return col + (1 - col) * NEWTON_SLOW_FADE * t
 
 def blend_image(Z, roots, p=3.0):
     d = np.stack([np.abs(Z - r) for r in roots], -1)
