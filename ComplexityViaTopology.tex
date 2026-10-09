@@ -103,8 +103,8 @@ Franklin D. Tall$^{2}$
 }
 
 \date{\today}
-\subjclass[2000]{54H30, 68T27, 68T07, 03C98, 03D15, 05D10}
-\keywords{Deep computations, deep equilibrium models, deep learning, physics-informed networks, computational complexity, independence property, NIP, infinite Ramsey theory, Baire class~1 functions, Rosenthal compacta, Todorčević trichotomy, Bourgain-Fremlin-Talagrand}
+\subjclass[2020]{Primary 68Q15, 03C45, 54H30; Secondary 03C98, 03D15, 05D10, 26A21, 37B05, 54C35, 68T07}
+\keywords{Deep computations, limit computations, complexity classes, deep learning, recurrent neural networks, deep equilibrium models, compositional computation structures, independence property, NIP, model theory, Rosenthal compacta, Baire class~1 functions, Todorčević trichotomy, Argyros--Dodos--Kanellopoulos heptachotomy, Bourgain--Fremlin--Talagrand theorem, tame dynamical systems, infinite Ramsey theory}
 
 \begin{document}
 
@@ -637,7 +637,7 @@ In particular, for each $P\in \mathcal{P}$, the projection map $v\mapsto P(v)$ i
 
 Important state spaces include $L=\mathbb{R}^\mathbb{N}$ (resp., $L=\mathbb{R}^n$ for some positive integer~$n$), endowed with one predicate $P_i(v) = v_i$ (giving the $i$-th coordinate of~$v$) for each~$i\in \mathbb{N}$ (resp., for each $0\le i<n$).
 State subspaces $L\subseteq \mathbb{R}^{\mathbb{N}}$ and $L\subseteq \mathbb{R}^n$ are of primary interest in this paper.
-(Any states structure having a finite or countable family of predicates is effectively such a subspace.)
+(Any computation states structure having a finite or countable family of predicates is effectively such a subspace.)
 
 \begin{defn}
 Given a computation states structure $(L,\mathcal{P})$, any type $\tp(v)\in \mathbb{R}^{\mathcal{P}}$ of a state $v\in L$ will be called a \emph{realized} (state) type.
@@ -659,7 +659,7 @@ abusing notation, the extension will still be denoted~$P(\cdot)$ (or just~$P$).
 \subsubsection{Bounds on precision and magnitude. Shards}
 \label{sec:shards}
 
-In order for computation state structures to serve their purpose as models of real-world computing, we must keep in mind that computations involving real-valued quantities can only ever be carried out approximately, to a preset degree of precision (i.e., to within acceptable error bounds).
+In order for computation states structures to serve their purpose as models of real-world computing, we must keep in mind that computations involving real-valued quantities can only ever be carried out approximately, to a preset degree of precision (i.e., to within acceptable error bounds).
 More subtly, yet equally important in practice, one must also bound the magnitude of real quantities involved in all computations:
 one cannot possibly store—let alone compute with—arbitrarily large numbers!
 Thus, although the collection~$\mathcal{P}$ of predicates may be infinite (possibly, uncountable even), actual computations involve choices, made at the outset, of bounds for errors and for absolute magnitudes of quantities involved.
@@ -688,7 +688,7 @@ However, the equality $\mathcal{L}_{\sh} = \mathcal{L}$ holds in the important s
 
 \begin{defn}
 \label{def:CCS}
-A \emph{Compositional Computation Structure} (CCS) is a triple $(L,\mathcal{P},\Gamma)$, where
+A \emph{compositional computation structure} (CCS) is a triple $(L,\mathcal{P},\Gamma)$, where
 \begin{itemize}
 \item
  $(L,\mathcal{P})$ is a computation states structure, and
@@ -1092,7 +1092,7 @@ of these seven primitives.
 
 \section{Examples of  Compositional Computation Structures}
 \label{sec:examples}
-We now turn from the general theory to examples, and compute the deep computations of five computation structures explicitly: Newton’s method on the Riemann sphere for two cubic polynomials (Sections~\ref{sec:Newton-cubic} and~\ref{sec:Newton-cyclotomic}), Newton’s method for square roots on the real line (Section~\ref{exa:square-roots-compute}), and threshold classifiers and prefix tests on the Cantor set (Sections~\ref{sec:Cantor-classifiers} and~\ref{sec:prefix-test}).
+We now turn from the general theory to examples, and compute the deep computations of five compositional computation structures explicitly: Newton’s method on the Riemann sphere for two cubic polynomials (Sections~\ref{sec:Newton-cubic} and~\ref{sec:Newton-cyclotomic}), Newton’s method for square roots on the real line (Section~\ref{exa:square-roots-compute}), and threshold classifiers and prefix tests on the Cantor set (Sections~\ref{sec:Cantor-classifiers} and~\ref{sec:prefix-test}).
 Section~\ref{sec:iterative} then places these and other computations at each level of the hierarchy of Section~\ref{sec:Classification}.
 
 We begin by formalizing the Newton-Raphson root-finding method as a CCS~\cite{Galantai200025}, \cite[Section~2.3]{Burden2016numerical}.
@@ -1235,7 +1235,7 @@ A countable family of simple Boolean tests thus produces, in the limit, a compac
 
 \subsection{Example: Prefix tests}
 \label{sec:prefix-test}
-On the same Cantor states structure, the \emph{prefix test} $v_t$, for $t\in2^{<\mathbb{N}}$, asks whether the input begins with~$t$.
+On the same computation states structure on the Cantor space, the \emph{prefix test} $v_t$, for $t\in2^{<\mathbb{N}}$, asks whether the input begins with~$t$.
 It is continuous, and it is a Boolean combination of the coordinates $x_0,\dots,x_{|t|-1}$.
 The \emph{ultra-prefix tests} are the pointwise limits of prefix tests.
 
