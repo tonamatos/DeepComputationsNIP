@@ -187,7 +187,7 @@ Section~\ref{sec:iterative} realizes each level by a classical algorithm:
 \item the power method is $\NIP_3$ but not stable; 
 \item Bresenham’s line algorithm is
   \begin{itemize}
-  \item $\NIP_2$ but not $\NIP_3$ in $2$-dimensions (in the plane);
+  \item $\NIP_2$ but not $\NIP_3$ in $2$-dimensions (in the plane),
   \item $\NIP_1$ but not $\NIP_2$ in $3$-dimensions;
   \end{itemize}
 \item tolerance tests, whose deep computations are exact equality tests, are $\NIP$ but not $\NIP_1$; 
@@ -482,89 +482,68 @@ The following are equivalent for every $L\subseteq X$:
 
 \subsection{Five canonical Rosenthal compacta}
 \label{sec:five-compacta}
-Five Rosenthal compacta, all built on the Cantor set, recur throughout the
-paper: they are the canonical members of the classes in Todorčević's
-trichotomy (Theorem~\ref{thm:Todorcevic-trichotomy}), and the deep
-computations of our examples are copies of them.
+Five Rosenthal compacta, all built on the Cantor set, recur throughout the paper:
+they are the canonical members of the classes in Todorčević's trichotomy (Theorem~\ref{thm:Todorcevic-trichotomy}), and the deep computations of our examples are copies of them.
 We fix their notation here.
-Recall that a topological space is \emph{separable} if it has a countable dense
-subset, \emph{hereditarily separable} if every subspace is separable, and
-\emph{first countable} if every point has a countable base of neighborhoods.
+Recall that a topological space is \emph{separable} if it has a countable dense subset, \emph{hereditarily separable} if every subspace is separable, and \emph{first countable} if every point has a countable base of neighborhoods.
 
-Let $2^{\mathbb{N}}$ carry the product topology and the lexicographic order~$<$,
-whose order topology is the product topology.
-For a finite word $t\in2^{<\mathbb{N}}$ we write $|t|$ for its length, and for
-$a\in2^{\mathbb{N}}$ we write $a\restr n$ for the word formed by the first $n$
-bits of~$a$.
-Two words are \emph{comparable} if one extends the other, and an
-\emph{antichain} is a set of pairwise incomparable words.
-For a finite word $t\in2^{<\mathbb{N}}$, let $t^\frown0^\infty$ and
-$t^\frown1^\infty$ be the sequences that begin with $t$ and continue with
-all $0$'s, respectively all $1$'s; the set of sequences extending $t$ is the
-clopen interval $[t^\frown0^\infty,t^\frown1^\infty]$.
-We use the following functions $2^{\mathbb{N}}\to\{0,1\}$:
-\begin{itemize}
-\item the \emph{prefix test} $v_t$, the characteristic function of the set of
-sequences extending~$t$;
-\item the \emph{equality test} $\delta_a$, the characteristic function of
-$\{a\}$, for $a\in2^{\mathbb{N}}$;
-\item the \emph{threshold tests} $f^+_a$ and $f^-_a$, the characteristic
-functions of $\{x:a\le x\}$ and of $\{x:a<x\}$, for $a\in2^{\mathbb{N}}$.
-\end{itemize}
-Prefix tests are continuous, and so are $f^+_{t^\frown0^\infty}$ and
-$f^-_{t^\frown1^\infty}$, which depend only on the first $|t|$ bits of~$x$;
-equality tests, and threshold tests at other points, are discontinuous Baire
-class~$1$ functions.
-All closures below are taken in the topology of pointwise convergence.
+Let $2^{\mathbb{N}}$ carry the product topology and the lexicographic order~$<$ (whose order topology is the product topology).
+The length of a finite word $t\in2^{<\mathbb{N}}$ is denoted~$|t|$;
+for $a\in2^{\mathbb{N}}$, we write $a\restr n$ for the word formed by the first $n$ bits of~$a$.
+Two words are \emph{comparable} if one extends the other, and an \emph{antichain} is a set of pairwise incomparable words.
+For a finite word $t\in2^{<\mathbb{N}}$, let $t^\frown0^\infty$ and $t^\frown1^\infty$ be the sequences that begin with $t$ and continue with
+all $0$'s, respectively all $1$'s; the set of sequences extending $t$ is the clopen interval $[t^\frown0^\infty,t^\frown1^\infty]$.
+
 For a statement~$S$, we write $\Brack{S}$ for its truth value: $1$ if $S$ is true and $0$ if it is false.
+We introduce the following functions $2^{\mathbb{N}}\to\{0,1\}$:
+\begin{itemize}
+\item the \emph{prefix test} $v_t\coloneqq \Brack{\cdot{\restriction}|t| = t}$, the characteristic function of the set of sequences extending a fixed~$t\in2^{<\mathbb{N}}$
+(here, $x{\restriction}n = x_{<n} = (x_i)_{i<n}\in 2^n\subseteq2^{<\mathbb{N}}$ is the truncation of $x\in2^{\mathbb{N}}$ to a string of finite length~$n\in \mathbb{N}$);
+\item the \emph{equality test} $\delta_a\coloneqq\Brack{\cdot = a}$, the characteristic function of the singleton $\{a\}$ for fixed~$a\in2^{\mathbb{N}}$;
+\item the \emph{threshold tests} $\chi_{[a}\coloneqq\Brack{a\le \cdot}$ and $\chi_{(a}\coloneqq\Brack{a<\cdot}$, the characteristic functions of the final intervals $\{x:a\le x\}$ (closed) and~$\{x:a<x\}$ (open), for fixed~$a\in2^{\mathbb{N}}$;
+the special case $\mathbf{0}\coloneqq \chi_{(1^\infty}$ is the identically zero function.
+\end{itemize}
+Prefix tests are continuous, and so are $\chi_{[t^\frown0^\infty}$ and
+$\chi_{(t^\frown1^\infty}$ —the all depend only on the first $|t|$ bits of its argument in~$2^{\mathbb{N}}$;
+equality tests, and threshold tests at other points, are discontinuous Baire class~$1$ functions.
+All closures below are taken in the topology of pointwise convergence.
 
 \begin{enumerate}
 \item The \emph{Alexandroff compactification}
-$A(2^{\mathbb{N}})=\{\delta_a:a\in2^{\mathbb{N}}\}\cup\{\mathbf 0\}$.
-Each $\delta_a$ is isolated, and a neighborhood of $\mathbf 0$ omits only
-finitely many $\delta_a$.
-It is not separable, and not first countable at~$\mathbf 0$.
+$A(2^{\mathbb{N}})=\{\delta_a:a\in2^{\mathbb{N}}\}\cup\{\mathbf{0}\}$.
+Each $\delta_a$ is isolated, and a neighborhood of $\mathbf{0}$ omits only finitely many $\delta_a$.
+Thus, $A(2^{\mathbb{N}})$ is not separable, nor first countable at~$\mathbf{0}$.
 \item The \emph{extended Alexandroff compactification}
-$\hat A(2^{\mathbb{N}})=\overline{\{v_t:t\in2^{<\mathbb{N}}\}}=
+$\hat{A}(2^{\mathbb{N}})=\overline{\{v_t:t\in2^{<\mathbb{N}}\}}=
 \{v_t:t\in2^{<\mathbb{N}}\}\cup A(2^{\mathbb{N}})$.
 As $n\to\infty$, the prefix tests $v_{a\restr n}$ converge to $\delta_a$;
-along an antichain they converge to $\mathbf 0$.
-It is separable and not first countable.
+along an antichain they converge to $\mathbf{0}$.
+Thus, $\hat{A}(2^{\mathbb{N}})$ is separable but not first countable.
 \item The \emph{split Cantor set}
-$S(2^{\mathbb{N}})=\{f^+_a,f^-_a:a\in2^{\mathbb{N}}\}$.
-The continuous thresholds $f^+_{t^\frown0^\infty}$, together with the
-isolated point $\mathbf 0=f^-_{1^\infty}$, form a countable dense subset:
-thresholds approaching $a$ from below converge to $f^+_a$, and from above to
-$f^-_a$.
-It is separable, first countable and hereditarily separable, but not
-metrizable.
+$S(2^{\mathbb{N}})=\{\chi_{[a},\chi_{(a}:a\in2^{\mathbb{N}}\}$.
+The continuous thresholds $\chi_{[t^\frown0^\infty}$, together with the isolated point $\mathbf{0}=\chi_{(1^\infty}$, form a countable dense subset:
+thresholds approaching $a$ from below converge to $\chi_{[a}$, and from above to~$\chi_{(a}$.
+Thus, $S(2^{\mathbb{N}})$ is separable, first countable and hereditarily separable, but not metrizable.
 \item The \emph{Alexandroff duplicate}
-$D(2^{\mathbb{N}})=\{(\mathbf 0,a),(\delta_a,a):a\in2^{\mathbb{N}}\}\subseteq
-A(2^{\mathbb{N}})\times2^{\mathbb{N}}$.
-The points $(\delta_a,a)$ are isolated, and a neighborhood of $(\mathbf 0,a)$
-contains $(\mathbf 0,b)$ and $(\delta_b,b)$ for all $b$ near~$a$ with finitely
-many exceptions.
-It is first countable but not separable.
-Its separable extension is
-$\hat D(2^{\mathbb{N}})=\overline{\{(v_t,t^\frown0^\infty):t\in2^{<\mathbb{N}}\}}=
+$D(2^{\mathbb{N}})=\{(\mathbf{0},a),(\delta_a,a):a\in2^{\mathbb{N}}\}\subseteq A(2^{\mathbb{N}})\times2^{\mathbb{N}}$.
+The points $(\delta_a,a)$ are isolated, and a neighborhood of $(\mathbf{0},a)$ contains $(\mathbf{0},b)$ and $(\delta_b,b)$ for all $b$ near~$a$ with finitely many exceptions.
+Thus, $D(2^{\mathbb{N}})$ is first countable but not separable;
+its separable extension is
+$\hat{D}(2^{\mathbb{N}})=\overline{\{(v_t,t^\frown0^\infty):t\in2^{<\mathbb{N}}\}}=
 D(2^{\mathbb{N}})\cup\{(v_t,t^\frown0^\infty):t\in2^{<\mathbb{N}}\}$.
 \item The \emph{extended duplicate of the split Cantor set}
 \[
-\hat D(S(2^{\mathbb{N}}))=\overline{\{(v_t,f^+_{t^\frown0^\infty})\}_{t}}\subseteq\hat A(2^{\mathbb{N}})\times S(2^{\mathbb{N}}),
+\hat{D}(S(2^{\mathbb{N}}))=\overline{\{(v_t,\chi_{[t^\frown0^\infty})\}_{t}}\subseteq\hat{A}(2^{\mathbb{N}})\times S(2^{\mathbb{N}}),
 \]
-which consists of the points $(v_t,f^+_{t^\frown0^\infty})$ and, for
-$a\in2^{\mathbb{N}}$, the points $(\delta_a,f^+_a)$, $(\mathbf 0,f^+_a)$ and
-$(\mathbf 0,f^-_a)$ \cite[4.3.7]{argyros2008rosenthal}.
-Along the words $t=a\restr n$, the thresholds $t^\frown0^\infty$ increase to $a$, which
-gives the points $(\delta_a,f^+_a)$.
-It is separable and first countable, but the points $(\delta_a,f^+_a)$ form an
-uncountable discrete subspace, so it is not hereditarily separable.
+which consists of the points $(v_t,\chi_{[t^\frown0^\infty})$ and, for $a\in2^{\mathbb{N}}$, the points $(\delta_a,\chi_{[a})$, $(\mathbf{0},\chi_{[a})$ and
+$(\mathbf{0},\chi_{(a})$ \cite[4.3.7]{argyros2008rosenthal}.
+Along the words $t=a\restr n$, the thresholds $t^\frown0^\infty$ increase to $a$, which gives the points $(\delta_a,\chi_{[a})$.
+Thus, $\hat{D}(S(2^{\mathbb{N}}))$ is separable and first countable;
+since, the points $(\delta_a,\chi_{[a})$ form an uncountable discrete subspace, it is not hereditarily separable.
 \end{enumerate}
 
-The same constructions apply with $2^{\mathbb{N}}$ replaced by another compact
-metric space~$K$; we write $A(K)$, $D(K)$, and so on.
-A compactum of size continuum, such as $A([0,1])$, is homeomorphic to
-$A(2^{\mathbb{N}})$.
+The same constructions apply with $2^{\mathbb{N}}$ replaced by another compact metric space~$K$; we write $A(K)$, $D(K)$, and so on.
+A compactum of size continuum, such as $A([0,1])$, is homeomorphic to~$A(2^{\mathbb{N}})$.
 
 \subsection{NIP as a universal dividing line between polynomial and exponential complexity}
 \label{sec:NIP-poly-exp}
@@ -954,8 +933,8 @@ We say that $\Delta$ is:
 Observe that $\NIP_3 \Rightarrow \NIP_2\Rightarrow \NIP_1\Rightarrow \NIP$.
 Moreover, a countable stable set of computations (Definition~\ref{def:stable}) is $\NIP_3$: on each shard its deep computations form a separable compact subset of a countable product of spaces $\Cp(\mathcal{L}[r_\bullet])$, that is, a separable Eberlein compactum, and separable Eberlein compacta are metrizable~\cite{Arkhangelskii:1992}.
 The five compacta of Section~\ref{sec:five-compacta} show that the converse implications fail for Rosenthal compacta:
-$\hat A(2^{\mathbb{N}})$ is separable but not first countable;
-$\hat D(S(2^{\mathbb{N}}))$ and $\hat D(2^{\mathbb{N}})$ are separable and first countable but not hereditarily separable;
+$\hat{A}(2^{\mathbb{N}})$ is separable but not first countable;
+$\hat{D}(S(2^{\mathbb{N}}))$ and $\hat{D}(2^{\mathbb{N}})$ are separable and first countable but not hereditarily separable;
 and $S(2^{\mathbb{N}})$ is hereditarily separable but not metrizable.
 Todorčević proved that these examples are canonical \cite{Todorcevic_1999_CompactSubsetsBaire}.
 
@@ -1051,18 +1030,18 @@ A pair $(f,g)$ of functions on $2^{\mathbb{N}}$ is regarded as a single function
 
 \begin{enumerate}
     \item $D_1=\{\frac{1}{|t|+1}v_t:t\in 2^{<\mathbb{N}}\}$.
-Its closure is $D_1\cup\{\mathbf 0\}$, the one-point compactification of a countable discrete set.
+Its closure is $D_1\cup\{\mathbf{0}\}$, the one-point compactification of a countable discrete set.
     \item $D_2=\{s_t^\frown 0^{\infty}:t\in 2^{<\mathbb{N}}\}$.
 This is discrete in $\overline{D_2}=2^{\leq\mathbb{N}}$.
-    \item $D_3=\{f^+_{s_t^\frown 0^\infty}:t\in 2^{<\mathbb{N}}\}$.
+    \item $D_3=\{\chi_{[s_t^\frown 0^\infty}:t\in 2^{<\mathbb{N}}\}$.
 This is discrete in $\overline{D_3}=S(2^{\mathbb{N}})$.
-    \item $D_4=\{f^-_{s_t^\frown 1^\infty}:t\in 2^{<\mathbb{N}}\}$.
+    \item $D_4=\{\chi_{(s_t^\frown 1^\infty}:t\in 2^{<\mathbb{N}}\}$.
 This is discrete in $\overline{D_4}=S(2^{\mathbb{N}})$.
     \item $D_5=\{v_t:t\in 2^{<\mathbb{N}}\}$.
 This is discrete in $\overline{D_5}=\hat{A}(2^{\mathbb{N}})$.
     \item $D_6=\{(v_{s_t},s_t^\frown 0^\infty):t\in 2^{<\mathbb{N}}\}$.
 This is discrete in $\overline{D_6}=\hat{D}(2^{\mathbb{N}})$.
-    \item $D_7=\{(v_{s_t},f^+_{s_t^\frown 0^\infty}):t\in 2^{<\mathbb{N}}\}$.
+    \item $D_7=\{(v_{s_t},\chi_{[s_t^\frown 0^\infty}):t\in 2^{<\mathbb{N}}\}$.
 This is discrete in $\overline{D_7}=\hat{D}(S(2^{\mathbb{N}}))$.
 \end{enumerate}
 
@@ -1080,7 +1059,7 @@ $[t^\frown0^\infty,t^\frown1^\infty]$, the set of inputs that round to $t$ at
 precision $|t|$.
 The prefix test $v_t$ asks whether the input rounds to $t$; the point
 $t^\frown0^\infty$ is the rounded value itself; the comparisons
-$f^+_{t^\frown0^\infty}$ and $f^-_{t^\frown1^\infty}$ ask whether the input lies
+$\chi_{[t^\frown0^\infty}$ and $\chi_{(t^\frown1^\infty}$ ask whether the input lies
 to the right of the left endpoint, or strictly to the right of the right
 endpoint, of the interval.
 Table~\ref{tab:hepta-search} reads the seven families accordingly.
@@ -1247,14 +1226,14 @@ The Cantor space $2^{\mathbb{N}}$, with the coordinate predicates $P_n(x)=x_n$, 
 Since $2^{\mathbb{N}}$ is closed in $\mathbb{R}^{\mathbb{N}}$, it is its own space of types.
 We use the notation of Section~\ref{sec:five-compacta}.
 
-A \emph{finite-precision threshold classifier} decides whether the input lies at or above a dyadic threshold: for $t\in2^{<\mathbb{N}}$, it is the threshold test $f^+_{t^\frown0^\infty}$.
+A \emph{finite-precision threshold classifier} decides whether the input lies at or above a dyadic threshold: for $t\in2^{<\mathbb{N}}$, it is the threshold test $\chi_{[t^\frown0^\infty}$.
 It depends only on the first $|t|$ bits of the input, so it is continuous, and it is a Boolean combination of the coordinates $x_0,\dots,x_{|t|-1}$.
-We also count the constant $\mathbf 0=f^-_{1^\infty}$, the classifier that never fires, as a finite-precision classifier.
+We also count the constant $\mathbf{0}=\chi_{(1^\infty}$, the classifier that never fires, as a finite-precision classifier.
 
 The \emph{threshold ultra-classifiers} are the pointwise limits of finite-precision classifiers.
-By item~(3) of Section~\ref{sec:five-compacta}, they are exactly the threshold tests $f^+_a$ and $f^-_a$ for $a\in2^{\mathbb{N}}$: thresholds increasing to~$a$ give $f^+_a$, and thresholds decreasing to~$a$ give $f^-_a$.
+By item~(3) of Section~\ref{sec:five-compacta}, they are exactly the threshold tests $\chi_{[a}$ and $\chi_{(a}$ for $a\in2^{\mathbb{N}}$: thresholds increasing to~$a$ give $\chi_{[a}$, and thresholds decreasing to~$a$ give $\chi_{(a}$.
 Thus the space of ultra-classifiers is the split Cantor set $S(2^{\mathbb{N}})$.
-Apart from the thresholds of the form $f^+_{t^\frown0^\infty}$ and $f^-_{t^\frown1^\infty}$, an ultra-classifier is discontinuous at its threshold~$a$, and, unlike a finite-precision classifier, it is not a Boolean combination of finitely many coordinates.
+Apart from the thresholds of the form $\chi_{[t^\frown0^\infty}$ and $\chi_{(t^\frown1^\infty}$, an ultra-classifier is discontinuous at its threshold~$a$, and, unlike a finite-precision classifier, it is not a Boolean combination of finitely many coordinates.
 A countable family of simple Boolean tests thus produces, in the limit, a compactum that is not metrizable.
 
 \subsection{Example: Prefix tests}
@@ -1265,7 +1244,7 @@ The \emph{ultra-prefix tests} are the pointwise limits of prefix tests.
 
 \begin{prop}\label{prop:ultra-prefixes}
   The ultra-prefix tests are the prefix tests~$v_t$, the constant~$\mathbf{0}$, and the equality tests~$\delta_a$ for $a\in 2^{\mathbb{N}}$.
-  Each of them is a sequential limit of prefix tests, hence Baire-$1$ on~$2^{\mathbb{N}}$, and the space of ultra-prefix tests is the extended Alexandroff compactification $\hat A(2^{\mathbb{N}})$.
+  Each of them is a sequential limit of prefix tests, hence Baire-$1$ on~$2^{\mathbb{N}}$, and the space of ultra-prefix tests is the extended Alexandroff compactification $\hat{A}(2^{\mathbb{N}})$.
 \end{prop}
 \begin{proof}
   For $a\in2^{\mathbb{N}}$ we have $v_{a\restr n}(y)=\Brack{y\restr n=a\restr n}\to\Brack{y=a}$, so $v_{a\restr n}\to\delta_a$.
@@ -1278,7 +1257,7 @@ The \emph{ultra-prefix tests} are the pointwise limits of prefix tests.
   Hence $\varphi$ vanishes off~$a$, that is, $\varphi=\delta_a$ or $\varphi=\mathbf{0}$.
 \end{proof}
 Unlike prefix tests, equality tests are discontinuous.
-As noted in Section~\ref{sec:five-compacta}, the space $\hat A(2^{\mathbb{N}})$ is not first countable: every neighborhood of~$\mathbf 0$ contains all but finitely many of the uncountably many tests~$\delta_a$, so no countable family of neighborhoods of~$\mathbf 0$ has intersection~$\{\mathbf 0\}$.
+As noted in Section~\ref{sec:five-compacta}, the space $\hat{A}(2^{\mathbb{N}})$ is not first countable: every neighborhood of~$\mathbf{0}$ contains all but finitely many of the uncountably many tests~$\delta_a$, so no countable family of neighborhoods of~$\mathbf{0}$ has intersection~$\{\mathbf{0}\}$.
 
 \input{computations_hierarchy}
 
