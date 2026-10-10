@@ -131,24 +131,30 @@ The formal framework introduced here provides a unified setting to study these l
 
 In a previous paper~\cite{alva2024approximability}, the authors introduced limits of computations, which they called \emph{ultracomputations}, since they arise as ultrafilter limits of standard computations, and \emph{deep computations}, following usage in machine learning~\cite{Bai:2019}.
 There is a technical difference between the two notions, but here we ignore it and speak of deep computations.
-That paper proved a dichotomy between \emph{stable} (polynomially approximable) and unstable classes of deep computations, using a classical criterion of Grothendieck~\cite{Grothendieck:1952}; polynomial approximability of computations corresponds to continuous extendibility in topology, and to \emph{stability} and \emph{type definability} in model theory.
+Using a classical criterion of Grothendieck~\cite{Grothendieck:1952}, that paper proved a dichotomy between \emph{stable} (polynomially approximable) and unstable classes of deep computations.
+Polynomial approximability of computations corresponds to continuous extendibility in topology, and to \emph{stability} and \emph{type definability} in model theory.
 
 In this paper we refine that dichotomy.
-An unstable class of deep computations may still be \emph{tame}, in the sense that it does not have Shelah's independence property, or \emph{wild}, in the sense that it does.
-Within the tame unstable classes we identify three new levels, which give a strict hierarchy of four tame classes below the stable ones, and seven minimal prototypes of tame families.
-The tools are more recent than those of~\cite{alva2024approximability}: on the topological side, the theory of \emph{Rosenthal compacta} replaces Grothendieck's criterion; on the model-theoretic side, \emph{neostability} replaces stability, and the main notion is the negation of the independence property, commonly called ``NIP''.
+An unstable class of deep computations may be \emph{wild} (i.e., has Shelah's \emph{Independence Property “IP”}); otherwise, tame (when it is \emph{“NIP”} —i.e., does \emph{not} have IP).
+Within the tame unstable classes we identify three new levels giving a strict hierarchy of four tame classes beyond the stable ones, and seven minimal prototypes of tame families.
+The tools are more recent than those used in the first paper of this series~\cite{alva2024approximability}:
+on the topological side, the theory of \emph{Rosenthal compacta} replaces Grothendieck's criterion;
+on the model-theoretic side, \emph{neostability} replaces stability.
 
 The translation between topology and computation goes through model theory.
-To every state of a computation we associate its \emph{type}, the list of values of the basic predicates of the model at that state, which describes the logical properties of the state with respect to the rest of the model.
-The types form a space of real-valued functions, the \emph{space of types}, on which computations act; the idea of embedding models into their type spaces is central in model theory.
-This embedding lets us use the theory of function spaces, known as \emph{$\Cp$-theory}, to study topological limits of computations.
-The space of types thus becomes a ``Rosetta stone'' connecting three classification programs:
+To every intermediate state of a computation we associate its \emph{type}:
+a “lookup table” of all observed (real) values of features of the computation at that instant.
+% describing the logical properties of the state with respect to the rest of the model.
+Those types form a space of real-valued functions, the \emph{space of types}, on which computations act;
+the idea of embedding models into their type spaces is central in model theory.
+This embedding allows using the theory of function spaces (known as \emph{$\Cp$-theory}) to study topological limits of computations.
+The space of types thus becomes a “Rosetta stone” connecting three classification programs:
 in topology, the classification of Rosenthal compacta pioneered by Todorčević~\cite{Todorcevic_1999_CompactSubsetsBaire};
 in logic, the classification of theories developed by Shelah~\cite{Shelah:1971,Shelah:1990}; and in statistical learning, VC dimension and PAC learnability~\cite{Vapnik-Chervonenkis:1971, Vapnik-Chervonenkis:1974, Valiant:1984}.
 Under this correspondence, Rosenthal compacta correspond to NIP and to finite VC dimension, which in combinatorics separate polynomial from exponential growth (Section~\ref{sec:NIP-poly-exp}).
 
 Deep computations arise as topological limits of standard (continuous) computations.
-The pointwise limits of sequences of continuous functions form the \emph{first Baire class}, one level of topological complexity above the continuous functions; intuitively, functions of Baire class~1 have ``controlled'' discontinuities.
+The pointwise limits of sequences of continuous functions form the \emph{first Baire class}, one level of topological complexity above the continuous functions; intuitively, functions of Baire class~1 have “controlled” discontinuities.
 A \emph{Rosenthal compactum} is a compact space of Baire class~1 functions on a Polish (i.e., separable, completely metrizable) space, with the topology of pointwise convergence.
 Since the late 1970s, Rosenthal compacta have played a central role in functional analysis, especially in the theory of Banach spaces, and Todorčević’s trichotomy for them~\cite{Todorcevic_1999_CompactSubsetsBaire} has been used to organize the tame dynamical systems into a hierarchy~\cite{glasner2022tame}.
 Todorčević’s proof relies on set-theoretic forcing and infinite Ramsey theory; decades later there is still no elementary proof, and his methods continue to be analyzed and exploited~\cite{Todorcevic:2023,horowitz2019compactsetsbaireclass}.
