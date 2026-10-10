@@ -146,38 +146,55 @@ The translation between topology and computation goes through model theory.
 To every intermediate state of a computation we associate its \emph{type}:
 a “lookup table” of all observed (real) values of features of the computation at that instant.
 % describing the logical properties of the state with respect to the rest of the model.
-Those types form a space of real-valued functions, the \emph{space of types}, on which computations act;
+Those types form a space of real-valued functions —the \emph{space of types}— on which computations act;
 the idea of embedding models into their type spaces is central in model theory.
 This embedding allows using the theory of function spaces (known as \emph{$\Cp$-theory}) to study topological limits of computations.
 The space of types thus becomes a “Rosetta stone” connecting three classification programs:
 in topology, the classification of Rosenthal compacta pioneered by Todorčević~\cite{Todorcevic_1999_CompactSubsetsBaire};
 in logic, the classification of theories developed by Shelah~\cite{Shelah:1971,Shelah:1990}; and in statistical learning, VC dimension and PAC learnability~\cite{Vapnik-Chervonenkis:1971, Vapnik-Chervonenkis:1974, Valiant:1984}.
-Under this correspondence, Rosenthal compacta correspond to NIP and to finite VC dimension, which in combinatorics separate polynomial from exponential growth (Section~\ref{sec:NIP-poly-exp}).
+In such manner, Rosenthal compacta correspond to NIP —and also to an equivalent notion: finiteness of VC dimension~(Section~\ref{sec:NIP-poly-exp}).
+% —a combinatorial criterion separating “polynomial from exponential growth”
 
 Deep computations arise as topological limits of standard (continuous) computations.
-The pointwise limits of sequences of continuous functions form the \emph{first Baire class}, one level of topological complexity above the continuous functions; intuitively, functions of Baire class~1 have “controlled” discontinuities.
-A \emph{Rosenthal compactum} is a compact space of Baire class~1 functions on a Polish (i.e., separable, completely metrizable) space, with the topology of pointwise convergence.
-Since the late 1970s, Rosenthal compacta have played a central role in functional analysis, especially in the theory of Banach spaces, and Todorčević’s trichotomy for them~\cite{Todorcevic_1999_CompactSubsetsBaire} has been used to organize the tame dynamical systems into a hierarchy~\cite{glasner2022tame}.
+Pointwise limits of sequences of continuous functions form the \emph{first Baire class} —one topological rung above the class of continuous functions (intuitively, functions of Baire class~1 have “controlled” discontinuities).
+A \emph{Rosenthal compactum} is a space of Baire class~1 functions, on a Polish (i.e., separable, completely metrizable) space, that is compact under the topology of \emph{pointwise} convergence.
+Since the late 1970s, Rosenthal compacta have played a central role in functional analysis, especially in the theory of Banach spaces;
+the corresponding Todorčević’s trichotomy for such compacta~\cite{Todorcevic_1999_CompactSubsetsBaire} has been used to organize tame dynamical systems into a hierarchy~\cite{glasner2022tame}.
 Todorčević’s proof relies on set-theoretic forcing and infinite Ramsey theory; decades later there is still no elementary proof, and his methods continue to be analyzed and exploited~\cite{Todorcevic:2023,horowitz2019compactsetsbaireclass}.
-Beyond the trichotomy, we use the heptachotomy of Argyros, Dodos and Kanellopoulos~\cite{argyros2008rosenthal}, which identifies seven minimal families of Baire class~1 functions indexed by the binary tree: every relatively compact family indexed by the binary tree contains, along a dyadic subtree, a family equivalent to one of them.
+Going beyond Todorčević’s trichotomy, Argyros, Dodos and Kanellopoulos~\cite{argyros2008rosenthal} have identified an heptachotomy consisting of seven minimal families of Baire class~1 functions, which we also use.
+% EDUARDO: Comment below is devoid of context here.
+% indexed by the binary tree: every relatively compact family indexed by the binary tree contains, along a dyadic subtree, a family equivalent to one of them.
 
-From the point of view of approximation, it is noteworthy that in the settings of Grothendieck~\cite{Grothendieck:1952} and of Bourgain, Fremlin and Talagrand~\cite{BFT_1978_PCompactBaire}, compactness and sequential compactness coincide.
-Consequently, when the computations are $\NIP$, deep computations, which in principle are abstract ultrafilter limits over a possibly uncountable set, can be approximated by concrete \emph{sequences} of standard computations.
+From the point of view of approximation, it is noteworthy that \emph{compactness and sequential compactness coincide} in both the setting of Grothendieck~\cite{Grothendieck:1952}, and that of Bourgain, Fremlin and Talagrand~\cite{BFT_1978_PCompactBaire}.
+Consequently, when the computations are $\NIP$, deep computations (which are, in principle, nonconstructive ultrafilter limits over a possibly uncountable set) can be approximated by \emph{sequences} of standard computations.
 
 We believe that the results presented in this paper show practitioners of computation, topology, descriptive set theory, or model theory how classification invariants used in their field translate into classification invariants of the other fields.
 In the interest of accessibility, we do not assume familiarity with advanced topology, model theory, or computing.
 The only technical prerequisites are undergraduate-level topology and measure theory; the necessary background beyond them is covered in Section~\ref{sec:prelim}.
 
 \subsection*{Main results}
-Theorem~\ref{thm:nip-baire1def} shows that, when there are countably many predicates, a set of computations satisfies the $\NIP$, feature by feature and on shards, if and only if its deep computations are of the first Baire class on each shard, that is, form Rosenthal compacta; in that case every deep computation is the limit of a \emph{sequence} of computations.
-Using Todorčević’s trichotomy, we then define three levels of tameness (Definition~\ref{def:NIP-levels}) and obtain the hierarchy
+Theorem~\ref{thm:nip-baire1def} shows that, when there are countably many predicates, a set of computations satisfies the $\NIP$ (one observable feature at a time, when restricted to “cylindrical state sets” that we call \emph{shards}) if and only if its deep computations are of the first Baire class on each shard;
+equivalently, when the set of all such ultracomputations is a Rosenthal compactum;
+moreover, in such case, every deep computation is the limit of a \emph{sequence} of computations.
+Using Todorčević’s trichotomy, we define three levels of tameness (Definition~\ref{def:NIP-levels}) and obtain the hierarchy
 \[
 \text{stable}\Rightarrow\NIP_3\Rightarrow\NIP_2\Rightarrow\NIP_1\Rightarrow\NIP,
 \]
 in which every implication is strict.
-Section~\ref{sec:iterative} realizes each level by a classical algorithm: a rotation is stable; the power method is $\NIP_3$ but not stable; Bresenham’s line algorithm in the plane is $\NIP_2$ but not $\NIP_3$, and in space $\NIP_1$ but not $\NIP_2$; tolerance tests, whose deep computations are exact equality tests, are $\NIP$ but not $\NIP_1$; and Newton’s method on the Riemann sphere is not $\NIP$.
-For iterative algorithms the hierarchy coincides with the hierarchy of tame dynamical systems of Glasner and Megrelishvili~\cite{glasner2022tame}.
-The heptachotomy of Argyros, Dodos and Kanellopoulos then shows that every tame family of computations indexed by the binary tree contains, along a dyadic subtree, one of seven minimal families, which we read as primitives of binary search (Section~\ref{sec:heptachotomy}).
+Section~\ref{sec:iterative} realizes each level by a classical algorithm:
+\begin{itemize}
+\item a rotation is stable; 
+\item the power method is $\NIP_3$ but not stable; 
+\item Bresenham’s line algorithm is
+  \begin{itemize}
+  \item $\NIP_2$ but not $\NIP_3$ in $2$-dimensions (in the plane);
+  \item $\NIP_1$ but not $\NIP_2$ in $3$-dimensions;
+  \end{itemize}
+\item tolerance tests, whose deep computations are exact equality tests, are $\NIP$ but not $\NIP_1$; 
+\item Newton’s method to find polynomial roots on the extended complex plane is not~$\NIP$.
+\end{itemize}
+For iterative algorithms, the hierarchy coincides with that of tame dynamical systems due to Glasner and Megrelishvili~\cite{glasner2022tame}.
+The heptachotomy of Argyros, Dodos and Kanellopoulos then shows that every tame family of computations indexed by binary tree contains, along a dyadic subtree, one of seven minimal families, which we read as primitives of binary search (Section~\ref{sec:heptachotomy}).
 Finally, Theorem~\ref{thm:NIP-Monte-Carlo} and Corollary~\ref{cor:Talagrand-stab-Monte-Carlo} relate $\NIP$ and Talagrand stability to Monte Carlo computability of deep computations.
 
 \subsection*{Organization of the paper}
