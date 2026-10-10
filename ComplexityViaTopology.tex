@@ -118,7 +118,8 @@ $^{2}$Department of Mathematics, University of Toronto\\
 \begin{abstract}
 We use topological methods and a suitable framework to study the complexity of limit computations (such as the “deep computations” arising in recurrent neural networks).
 By using topology of function spaces —specifically, the classification of Rosenthal compacta— we identify new computational complexity classes.
-These classes form a strict hierarchy, each level of which is realized by classical computations such as the power method and Bresenham’s line algorithm, while Newton’s method on the Riemann sphere lies outside it; for iterative algorithms, the hierarchy coincides with a hierarchy of tame dynamical systems.
+These classes form a strict hierarchy, each level of which is realized by classical computations such as the power method and Bresenham’s line algorithm, while Newton’s method transcends it.
+For iterative algorithms, the hierarchy coincides with a hierarchy of tame dynamical systems.
 The language of model theory, particularly, the concept of \emph{independence} from Shelah’s classification theory, provides a medium to translate between topology and computation.
 Rosenthal compacta, and their measure-theoretic counterpart, give conditions for deep computations to be approximable, deterministically and probabilistically.
 \end{abstract}
@@ -300,7 +301,7 @@ For any set $A\subseteq \mathbb{R}^X$ and any real $a$, define (by a slight abus
 (In case $A=\emptyset$, we define $X^\emptyset_{\ge a} = X = X^\emptyset_{\le a}$.)
 For any sequence $\{f_n\}\subseteq \mathbb{R}^X$ and $I\subseteq \mathbb{N}$, define $I^{\complement} \coloneqq \mathbb{N}\setminus I$ and $f_I \coloneqq \{f_i: i\in I\}$.
 
-\begin{thm}[``The BFT Dichotomy''. Bourgain-Fremlin-Talagrand {\cite{BFT_1978_PCompactBaire}}]
+\begin{thm}[“The BFT Dichotomy”. Bourgain-Fremlin-Talagrand {\cite{BFT_1978_PCompactBaire}}]
 \label{thm:BFT}
     Let $X$ be a Polish space and $A\subseteq \Cp(X)$ be pointwise bounded.
 The following are equivalent:
@@ -325,9 +326,9 @@ For our purposes, it is more natural to consider only finitely many inequalities
     A set $A\subseteq \mathbb{R}^X$ \emph{has the finitary Independence Property (IP)} if it does not have finitary NIP, i.e., if there exists a sequence $(f_n)_{n\in\mathbb{N}}\subseteq A$ and reals $a<b$ such that for every pair of finite disjoint sets $E,F\subseteq\mathbb{N}$, we have $X_{\le a}^{f_E} \cap X_{\ge b}^{f_F} \ne \emptyset$.
 \end{defn}
 
-If the word ``finite'' is omitted in the above definitions, we obtain the definitions of \emph{countable} NIP (weaker than finitary NIP) and \emph{countable} IP (stronger than finitary IP), respectively.
+If the word “finite” is omitted in the above definitions, we obtain the definitions of \emph{countable} NIP (weaker than finitary NIP) and \emph{countable} IP (stronger than finitary IP), respectively.
 
-If we insist on witnesses $E,F\subseteq \mathbb{N}$ such that $F = E^{\complement}$, we call the respective properties ``BFT-NIP'' and ``BFT-IP''.
+If we insist on witnesses $E,F\subseteq \mathbb{N}$ such that $F = E^{\complement}$, we call the respective properties “BFT-NIP” and “BFT-IP”.
 Thus, Theorem~\ref{thm:BFT} becomes (for pointwise bounded function collections $A\subseteq \Cp(X)$) that $A$ is relatively compact in $\mathrm{B}_1(X)$ if and only if $A$ has BFT-NIP.
 
 Unless otherwise specified, IP/NIP shall mean \emph{finitary} IP/NIP henceforth.
@@ -354,7 +355,7 @@ For every pointwise bounded  $A\subseteq \Cp(X)$, the following properties are a
 Theorem~\ref{thm:BFT2} may be stated as the following dichotomy (under the assumptions) for any compact metrizable~$X$:
 either $A$ is relatively compact in~$\mathrm{B}_1(X)$, or $A$ has IP (in either sense).
 
-The Independence Property was first isolated by Saharon Shelah in model theory as a dividing line between theories whose models are ``tame'' (corresponding to NIP) and theories whose models are ``wild'' (corresponding to IP).
+The Independence Property was first isolated by Saharon Shelah in model theory as a dividing line between theories whose models are “tame” (corresponding to NIP) and theories whose models are “wild” (corresponding to IP).
 See~\cite[Definition 4.1]{Shelah:1971}, \cite{Shelah:1990}.
 We discuss this dividing line in Section~\ref{sec:NIP-poly-exp}.
 
@@ -377,7 +378,7 @@ Fix an arbitrary (at most) countable set~$\mathcal{P}$ whose elements $P\in \mat
 Our present goal is to characterize relatively compact subsets of $\mathrm{B}_1(X,\mathbb{R}^\mathcal{P})$, where $X$ is always assumed to be a perfectly normal space (typically a Polish space).
 
 The set $\mathcal{P}$ shall be considered discrete whenever regarded as a topological space.
-Since $\Cp(X, \mathbb{R}^{\mathcal{P}})\subseteq \mathrm{B}_1(X, \mathbb{R}^{\mathcal{P}})\subseteq (\mathbb{R}^{\mathcal{P}})^X$, the ``ambient'' space $(\mathbb{R}^{\mathcal{P}})^X$ is quite relevant.
+Since $\Cp(X, \mathbb{R}^{\mathcal{P}})\subseteq \mathrm{B}_1(X, \mathbb{R}^{\mathcal{P}})\subseteq (\mathbb{R}^{\mathcal{P}})^X$, the “ambient” space $(\mathbb{R}^{\mathcal{P}})^X$ is quite relevant.
 The product $X\times \mathcal{P}$ will be regarded as either a point set, or as a topological product depending on context.
 We have natural homeomorphic identifications
 \begin{equation*}
@@ -395,11 +396,11 @@ where
 \end{align*}
 Such identifications view $X$ and $\mathcal{P}$ as mere point sets (the topology of~$X$ in particular plays no role).
 
-For $x\in X$, define the ``left projection'' map
+For $x\in X$, define the “left projection” map
 \begin{equation*}
   \lambda_x: \mathbb{R}^{X\times\mathcal{P}}\to \mathbb{R}^{\mathcal{P}}: \varphi\mapsto \lambda_x(\varphi)\coloneqq \hat{}\varphi(x);
 \end{equation*}
-for $P\in \mathcal{P}$, the ``right projection'' map
+for $P\in \mathcal{P}$, the “right projection” map
 \begin{equation*}
   \rho_P: \mathbb{R}^{X\times\mathcal{P}}\to \mathbb{R}^X: \varphi\mapsto \rho_P(\varphi)\coloneqq \varphi\,\hat{}(P).
 \end{equation*}
@@ -408,7 +409,7 @@ For fixed $x\in X$ and $P\in \mathcal{P}$, we also have canonical projection map
   \lambda_x: \mathbb{R}^X\to \mathbb{R}: f\mapsto f(x), &&
   \rho_P: \mathbb{R}^{\mathcal{P}}\to \mathbb{R}: f\mapsto f(P).
 \end{align*}
-When clear from context, rather than using the specific symbols (``$\lambda$'' for left,``$\rho$'' for right) to denote projections, we may use the generic symbol~``$\pi$'';
+When clear from context, rather than using the specific symbols (“$\lambda$” for left,“$\rho$” for right) to denote projections, we may use the generic symbol~“$\pi$”;
 thus, $\pi_x$ may mean $\lambda_x$, and $\pi_P$ may mean $\rho_P$.
 
 The Proposition below reduces the study of $\mathbb{R}^{\mathcal{P}}$-valued continuous or Baire-1 functions on~$X$ to the special case of real-valued ones.
@@ -551,7 +552,7 @@ $A(2^{\mathbb{N}})$.
 \subsection{NIP as a universal dividing line between polynomial and exponential complexity}
 \label{sec:NIP-poly-exp}
 
-The particular case of the BFT dichotomy (Theorem~\ref{thm:BFT}) in which $A$ consists of $\{0,1\}$-valued (i.e., yes/no-valued) functions was discovered independently around 1971--1972 in three foundational contexts, each separating polynomial (``tame'') from exponential (``wild'') complexity:
+The particular case of the BFT dichotomy (Theorem~\ref{thm:BFT}) in which $A$ consists of $\{0,1\}$-valued (i.e., yes/no-valued) functions was discovered independently around 1971--1972 in three foundational contexts, each separating polynomial (“tame”) from exponential (“wild”) complexity:
 in model theory, by Saharon Shelah~\cite{Shelah:1971,Shelah:1990};
 in combinatorics, by Norbert Sauer~\cite{Sauer:1972} and by Shelah~\cite{Shelah:1972,Shelah:1990};
 and in statistical learning, by Vladimir Vapnik and Alexey Chervonenkis~\cite{Vapnik-Chervonenkis:1971,Vapnik-Chervonenkis:1974}.
@@ -564,24 +565,24 @@ A theory $T$ is considered classifiable in Shelah’s sense if the number of non
 In contrast, a theory $T$ is unclassifiable if the number of models of $T$ of a given cardinality is the maximum possible number.
 A key fact is that the number of models of $T$ is directly impacted by the number of \emph{types} over sets of parameters in models of $T$; a controlled number of types is a characteristic of a classifiable theory.
 
-In Shelah’s classification program~\cite{Shelah:1990}, theories \emph{without} the independence property (called NIP theories, or \emph{dependent} theories) have a well-behaved, ``tame'' structure:
+In Shelah’s classification program~\cite{Shelah:1990}, theories \emph{without} the independence property (called NIP theories, or \emph{dependent} theories) have a well-behaved, “tame” structure:
 the number of types over a set of parameters of size $\kappa$ grows slowly (polynomially, or nearly so) in~$\kappa$.
 
-In contrast, theories with the Independence Property (called IP theories) are considered ``intractable'' or ``wild''.
+In contrast, theories with the Independence Property (called IP theories) are considered “intractable” or “wild”.
 A theory with the Independence Property produces the maximum possible number of types over a set of parameters; for a set of parameters of cardinality $\kappa$, the theory will have $2^{2^{\kappa}}$-many distinct types.
 
  \item[In combinatorics]
    Sauer~\cite{Sauer:1972} and Shelah~\cite{Shelah:1972} proved the following independently:
    Let $\mathscr{F}=\{S_i:i\in\mathbb{N}\}$ be a countable collection of subsets of a set $S$.
    Either:
-   for every $n\in\mathbb{N}$ there is a set $A\subseteq S$ with $|A|=n$ such that $|\{S_i\cap A: i\in\mathbb{N}\}|=2^n$ ($\mathscr{F}$ is a collection having ``exponential complexity'');
+   for every $n\in\mathbb{N}$ there is a set $A\subseteq S$ with $|A|=n$ such that $|\{S_i\cap A: i\in\mathbb{N}\}|=2^n$ ($\mathscr{F}$ is a collection having “exponential complexity”);
 or: there exists $N\in\mathbb{N}$ such that for every $A\subseteq S$ with $|A|\ge N$, one has
 \[
 |\{S_i\cap A: i\in\mathbb{N}\}| \le \sum_{i=0}^{N-1} \binom{|A|}{i}.
 \]
-($\mathscr{F}$ is a collection having ``polynomial complexity'').
+($\mathscr{F}$ is a collection having “polynomial complexity”).
 Clearly, any collection $\mathscr{F}$ of subsets of a \emph{finite} set $S$ has polynomial complexity.
-The ``polynomial'' name is justified:
+The “polynomial” name is justified:
 indeed, for fixed $N>0$, as a function of the size $|A| = m > 0$, we have
 \begin{equation*}
   \sum_{i=0}^{N-1} \binom{m}{i}
@@ -597,7 +598,7 @@ The least integer $N$ given by the preceding paragraph, when it exists, is calle
 it is a core concept in machine learning.
 If such an integer $N$ does not exist, we say that the VC-dimension of $\mathscr{F}$ is infinite.
 The lemma provides upper bounds on the number of data points (sample size) needed to learn a concept class of known VC dimension~$d$ up to a given admissible error in the statistical sense.
-The Fundamental Theorem of Statistical Learning states that a hypothesis class is PAC-learnable (PAC stands for ``Probably Approximately Correct'') if and only if its VC dimension is finite.
+The Fundamental Theorem of Statistical Learning states that a hypothesis class is PAC-learnable (PAC stands for “Probably Approximately Correct”) if and only if its VC dimension is finite.
 
 \end{description}
 
@@ -652,12 +653,12 @@ elements $\mathbf{v}\in \mathcal{L}$ are called \emph{state types}.
 Elements $\mathbf{v}\in\mathcal{L}\setminus L$ are \emph{unrealized} state types.
 \end{defn}
 
-Intuitively, state types capture a notion of ``limit state''.
+Intuitively, state types capture a notion of “limit state”.
 For each $P\in \mathcal{P}$, the $P$-th coordinate map (natural projection) $\mathbb{R}^{\mathcal{P}}\to \mathbb{R}: \mathbf{v} = (\mathbf{v}_Q)_{Q\in \mathcal{P}}\mapsto \mathbf{v}_P$, gives a continuous extension to~$\mathcal{L}$ of the predicate $P(\cdot)$ on~$L$;
 abusing notation, the extension will still be denoted~$P(\cdot)$ (or just~$P$).
 
 \begin{rem}\label{rem:poor-mans-ultraprod}
-  One may regard unrealized state types as ``hyper-states''; when such a type is obtained as a sequential limit (or ultralimit) of realized state types, it may be called a ``deep state''.
+  One may regard unrealized state types as “hyper-states”; when such a type is obtained as a sequential limit (or ultralimit) of realized state types, it may be called a “deep state”.
   A comment for readers versed in model theory:
   at least for the purpose of realizing state types (with parameters in the original states space~$L$), the type space $(\mathcal{L}, \mathcal{P})$ serves as a “poor man’s” ultraproduct of~$(L, \mathcal{P})$ wherein,  by the very definition of~$\mathcal{L}$, each type $\mathbf{v}$ is realized.
 \end{rem}
@@ -705,7 +706,7 @@ Elements of the semigroup $\Gamma$ are called the \emph{computations} of the str
 The state space $L$ is implicitly identified with a subset of the type space~$\mathcal{L} \subseteq \mathbb{R}^{\mathcal{P}}$ of~$(L, \mathcal{P})$.
 We also assume that the identity map $\text{id}$ on~$L$ is an element of~$\Gamma$ (which is thus not merely a semigroup but a monoid of transformations of~$L$).
 
-We topologize $\Gamma$ as a subset of the topological product $L^L$, where (as usual) the ``exponent''~$L$ serves merely as an index set, but the ``base''~$L\subseteq \mathbb{R}^{\mathcal{P}}$ has the relative product topology (of pointwise convergence).
+We topologize $\Gamma$ as a subset of the topological product $L^L$, where (as usual) the “exponent”~$L$ serves merely as an index set, but the “base”~$L\subseteq \mathbb{R}^{\mathcal{P}}$ has the relative product topology (of pointwise convergence).
 In this manner, the semigroup $\Gamma$ is identified with a subset of the topological product~$\mathcal{L}^L \subseteq (\mathbb{R}^{\mathcal{P}})^L$, which leads to an inclusion $\overline{\Gamma}\subseteq \mathcal{L}^L$.
 Elements $\xi\in\overline{\Gamma}$ are called (real-valued) \emph{deep computations} or \emph{ultracomputations}.
 
@@ -725,7 +726,7 @@ Intuitively, ultracomputations are “final” or “ultimate”.
   Then $\Delta$ lies in the compact space $\prod_{v\in L}\mathcal{L}[\rb^{(v)}]\subseteq\Lshard^L$, which therefore contains $\overline{\Delta}$.
 \end{proof}
 
-For a CCS $(L,\mathcal{P},\Gamma)$, we regard the elements of $\Gamma$ as ``standard'' finitary computations, and the elements of $\overline{\Gamma}$, i.e., deep computations, as possibly infinitary limits of standard computations.
+For a CCS $(L,\mathcal{P},\Gamma)$, we regard the elements of $\Gamma$ as “standard” finitary computations, and the elements of $\overline{\Gamma}$, i.e., deep computations, as possibly infinitary limits of standard computations.
 
 \begin{rems}(For readers versed in model theory.)%
   \footnote{Refer to~\cite{Keisler:2023} where a general framework for real-valued structures is introduced; see also~\cite[section 6]{Duenez-Iovino:2017} for a basic tutorial.}
@@ -1294,7 +1295,7 @@ We thus have the following remark:
 If $X$ is compact, then a function $f:X\rightarrow\mathbb{R}$ is universally measurable if and only if $f^{-1}(U)$ is $\mu$-measurable for every Radon probability measure $\mu$ on $X$ and every open set $U\subseteq\mathbb{R}$.
 \end{rem}
 
-Intuitively, a function is universally measurable if it is ``measurable no matter which reasonable way you try to measure things on its domain''.
+Intuitively, a function is universally measurable if it is “measurable no matter which reasonable way you try to measure things on its domain”.
 The concept of universal measurability emerged from work of Kallianpur and Sazonov, in the late 1950’s and 1960s --- with later developments by Blackwell, Darst and others ---  building on earlier ideas of Gnedenko and Kolmogorov from the 1950s.
 See~\cite[Chapters 1 and 2]{Pap:2002}.
 
@@ -1354,7 +1355,7 @@ To motivate the definition, let us first recall two facts:
 
 \begin{enumerate}
 \item
-Littlewood’s second principle states that every Lebesgue measurable function is ``nearly continuous''.
+Littlewood’s second principle states that every Lebesgue measurable function is “nearly continuous”.
 The formal statement of this, which is Luzin’s theorem, is that if
  $(X,\Sigma ,\mu )$ a Radon measure space and $Y$ is a second-countable topological space (e.g., $Y=\mathbb{R}^\mathcal{P}$ with $\mathcal{P}$ countable) equipped with the Borel $\sigma$-algebra, then any given $f:X\to Y$ is measurable if and only if for every $E\in\Sigma$ and every $\varepsilon>0$ there exists a closed $F\subseteq E$ such that the restriction $f|_F$ is continuous and $\mu(E\backslash F) < \varepsilon$.
 \item
