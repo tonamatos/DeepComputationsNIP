@@ -872,9 +872,7 @@ it is used in Theorems~\ref{thm:nip-baire1def} and~\ref{thm:NIP-Monte-Carlo}.
 \end{lem}
 \begin{proof}
   Write $f=\mathcal{U}\lim_i\gamma_i$ with $\gamma_i\in\Delta$ and $\mathcal{U}$ an ultrafilter.
-  Each $v\in\Lshard$ lies in some type shard $\mathcal{L}[\rb]$,
-  and by the Extendibility Axiom all the $\tilde\gamma_i(v)$ lie in a compact type shard $\mathcal{L}[s_\bullet]$,
-  so $\tilde f(v)\coloneqq\mathcal{U}\lim_i\tilde\gamma_i(v)$ exists, and $\tilde f$ extends~$f$.
+  Each $v\in\Lshard$ lies in some type shard $\mathcal{L}[\rb]$, and by the Extendibility Axiom all the $\tilde\gamma_i(v)$ lie in a compact type shard $\mathcal{L}[s_\bullet]$, so $\tilde f(v)\coloneqq\mathcal{U}\lim_i\tilde\gamma_i(v)$ exists, and $\tilde f$ extends~$f$.
   If $\rb\in R$, each $\tilde\gamma_i$ maps $L[\rb]$ into itself, hence, by continuity, its closure $\mathcal{L}[\rb]$ into itself;
   so does $\tilde f$, and $\tilde f|_{\mathcal{L}[\rb]}=\mathcal{U}\lim_i\tilde\gamma_i|_{\mathcal{L}[\rb]}$.
 \end{proof}
@@ -882,59 +880,39 @@ it is used in Theorems~\ref{thm:nip-baire1def} and~\ref{thm:NIP-Monte-Carlo}.
 \subsection{Stability and register computations}
 \label{sec:stable-register}
 The computable maps are the continuous ones.
-At the top of the hierarchy of this paper sit the sets of computations all of
-whose deep computations are computable.
+At the top of the hierarchy of this paper sit the sets of computations all of whose deep computations are computable.
 
 \begin{defn}\label{def:stable}
-  A set $\Delta\subseteq\Gamma$ of computations is \emph{stable} if, for every sizer
-  $r_\bullet$, every deep computation in $\overline{\tilde\Delta|_{\mathcal{L}[r_\bullet]}}$
-  is continuous, that is, computable.
+  A set $\Delta\subseteq\Gamma$ of computations is \emph{stable} if, for every sizer $r_\bullet$, every deep computation in $\overline{\tilde\Delta|_{\mathcal{L}[r_\bullet]}}$ is continuous, that is, computable.
 \end{defn}
 
-This is the class studied in~\cite{alva2024approximability}, where it is
-characterized by Grothendieck’s double limit criterion and identified with
-stability in the sense of model theory.
+This is the class studied in~\cite{alva2024approximability}, where it is characterized by Grothendieck’s double limit criterion and identified with stability in the sense of model theory.
 
 Many computations of interest are tests:
-they compute a value from the input
-and store it, without changing the input.
+they compute a value from the input and store it, without changing the input.
 The following construction turns any family of such tests into a CCS.
 
 \begin{defn}\label{def:register}
-  Let $X$ be a compact metrizable space with a countable family $\mathcal{P}_X$ of
-  continuous predicates that separates its points, and let $F$ be a family of
-  continuous functions $X\to[0,1]$.
-  The \emph{register CCS} of $F$ has states $L=X\times[0,1]$, whose points
-  $(x,y)$ are an input $x$ and a register~$y$;
-  its predicates are those of
-  $\mathcal{P}_X$, applied to $x$, together with the register predicate
-  $(x,y)\mapsto y$;
-  and its computations are
+  Let $X$ be a compact metrizable space with a countable family $\mathcal{P}_X$ of continuous predicates that separates its points, and let $F$ be a family of continuous functions $X\to[0,1]$.
+  The \emph{register CCS} of $F$ has states $L=X\times[0,1]$, whose points $(x,y)$ are an input $x$ and a register~$y$;
+  its predicates are those of $\mathcal{P}_X$, applied to $x$, together with the register predicate $(x,y)\mapsto y$;
+  its computations are
   \[
     \Gamma_F=\{\gamma_f:f\in F\}\cup\{\mathrm{id}\},\qquad \gamma_f(x,y)=(x,f(x)).
   \]
 \end{defn}
 
 \begin{lem}\label{lem:register}
-  In the register CCS of $F$, the set $\Gamma_F$ is a semigroup, the space of
-  types is $L$ itself, and the Extendibility Axiom holds.
-  The deep computations of $\{\gamma_f:f\in F\}$ are the maps $(x,y)\mapsto(x,g(x))$
-  with $g$ in the pointwise closure $\overline F$, and $\gamma_g\mapsto g$ is a
-  homeomorphism onto $\overline F$.
+  In the register CCS of $F$, the set $\Gamma_F$ is a semigroup, the space of types is $L$ itself, and the Extendibility Axiom holds.
+  The deep computations of $\{\gamma_f:f\in F\}$ are the maps $(x,y)\mapsto(x,g(x))$ with $g$ in the pointwise closure $\overline F$, and $\gamma_g\mapsto g$ is a homeomorphism onto $\overline F$.
   The set $\{\gamma_f:f\in F\}$ satisfies the $\NIP$ if and only if $F$ does.
 \end{lem}
 
 \begin{proof}
-  We have $\gamma_f\circ\gamma_g=\gamma_f$, so $\Gamma_F$ is closed under
-  composition.
-  The predicates are continuous and separate the points of the compact space
-  $L$, so $v\mapsto\tp(v)$ is a homeomorphism onto the space of types, which
-  is a single shard, and each $\gamma_f$ is its own continuous extension.
-  A net $\gamma_{f_i}$ converges pointwise exactly when $f_i$ does, since the first
-  coordinate is constant.
-  For the last statement, composing $\gamma_f$ with an input predicate gives a
-  function that does not depend on $f$, and composing it with the register
-  predicate gives~$f$.
+  We have $\gamma_f\circ\gamma_g=\gamma_f$, so $\Gamma_F$ is closed under composition.
+  The predicates are continuous and separate the points of the compact space $L$, so $v\mapsto\tp(v)$ is a homeomorphism onto the space of types, which is a single shard, and each $\gamma_f$ is its own continuous extension.
+  A net $\gamma_{f_i}$ converges pointwise exactly when $f_i$ does, since the first coordinate is constant.
+  For the last statement, composing $\gamma_f$ with an input predicate gives a function that does not depend on $f$, and composing it with the register predicate gives~$f$.
 \end{proof}
 
 \subsection{Two motivating examples}
@@ -1109,9 +1087,7 @@ A set $D$ of tests \emph{separates} a set of deep computations if any two of the
   for such compacta, hereditary separability is equivalent to the absence of discrete subspaces of cardinality $2^{\aleph_0}$, by a theorem of Todorčević~\cite{Todorcevic_1999_CompactSubsetsBaire} (see also~\cite[Theorem~0.4]{glasner2022tame}).
 \end{proof}
 
-Thus $\Delta$ is $\NIP_3$ when one countable set of tests decides every deep computation,
-$\NIP_1$ when each deep computation is decided by countably many tests of its own,
-and $\NIP_2$ when no continuum of deep computations can be told apart one by one with finitely many tests.
+Thus $\Delta$ is $\NIP_3$ when one countable set of tests decides every deep computation, $\NIP_1$ when each deep computation is decided by countably many tests of its own, and $\NIP_2$ when no continuum of deep computations can be told apart one by one with finitely many tests.
 
 Section~\ref{sec:iterative} gives computations at each level of the hierarchy, and shows that every implication between the classes stable, $\NIP_3$, $\NIP_2$, $\NIP_1$ and $\NIP$ is strict.
 
@@ -1130,17 +1106,13 @@ real numbers are represented by infinite binary sequences, i.e., branches of the
 
   \begin{enumerate}
   \item
-    If $I$ is countable and $\{f_i:i\in I\}\subseteq\mathbb{R}^X$, $\{g_i:i\in I\}\subseteq\mathbb{R}^X$ are two families indexed by $I$,
-    we say that they are \emph{equivalent} if the map $f_i\mapsto g_i$ extends to a homeomorphism from $\overline{\{f_i:i\in I\}}$ to $\overline{\{g_i:i\in I\}}$.
+    If $I$ is countable and $\{f_i:i\in I\}\subseteq\mathbb{R}^X$, $\{g_i:i\in I\}\subseteq\mathbb{R}^X$ are two families indexed by $I$, we say that they are \emph{equivalent} if the map $f_i\mapsto g_i$ extends to a homeomorphism from $\overline{\{f_i:i\in I\}}$ to $\overline{\{g_i:i\in I\}}$.
   \item
-    If $\{f_t:t\in 2^{<\mathbb{N}}\}$ is a pointwise bounded family, we say that it is \emph{minimal} if
-    for every dyadic subtree $\{s_t:t\in 2^{<\mathbb{N}}\}$ of $2^{<\mathbb{N}}$, $\{f_{s_t}:t\in 2^{<\mathbb{N}}\}$ is equivalent to $\{f_t:t\in 2^{<\mathbb{N}}\}$.
+    If $\{f_t:t\in 2^{<\mathbb{N}}\}$ is a pointwise bounded family, we say that it is \emph{minimal} if for every dyadic subtree $\{s_t:t\in 2^{<\mathbb{N}}\}$ of $2^{<\mathbb{N}}$, $\{f_{s_t}:t\in 2^{<\mathbb{N}}\}$ is equivalent to $\{f_t:t\in 2^{<\mathbb{N}}\}$.
   \end{enumerate}
 \end{defn}
 
-One of the main results in \cite{argyros2008rosenthal} is that, up to equivalence, there are seven minimal families
-and that for every relatively compact $\{f_t:t\in 2^{<\mathbb{N}}\}\subseteq \mathrm{B}_1(X)$ there is a dyadic subtree $\{s_t:t\in 2^{<\mathbb{N}}\}$
-such that $\{f_{s_t}:t\in 2^{<\mathbb{N}}\}$ is equivalent to one of the minimal families.
+One of the main results in \cite{argyros2008rosenthal} is that, up to equivalence, there are seven minimal families and that for every relatively compact $\{f_t:t\in 2^{<\mathbb{N}}\}\subseteq \mathrm{B}_1(X)$ there is a dyadic subtree $\{s_t:t\in 2^{<\mathbb{N}}\}$ such that $\{f_{s_t}:t\in 2^{<\mathbb{N}}\}$ is equivalent to one of the minimal families.
 We shall describe the seven minimal families next.
 We follow the notation of \cite{argyros2008rosenthal}.
 Fix a regular dyadic subtree $T=\{s_t:t\in 2^{<\mathbb{N}}\}$ of $2^{<\mathbb{N}}$ (i.e., a dyadic subtree such that every level of $T$ is contained in a level of $2^{<\mathbb{N}}$)
@@ -1180,16 +1152,12 @@ A pair $(f,g)$ of functions on $2^{\mathbb{N}}$ is regarded as a single function
 \end{thm}
 
 The implication of this result for deep computations is the following:
-the building blocks of the families $D_1,\dots,D_7$ are primitives of binary search on
-$2^{\mathbb{N}}$, the space of binary expansions.
-A node $t\in2^{<\mathbb{N}}$ is a dyadic interval
-$[t^\frown0^\infty,t^\frown1^\infty]$, the set of inputs that round to $t$ at
+the building blocks of the families $D_1,\dots,D_7$ are primitives of binary search on $2^{\mathbb{N}}$, the space of binary expansions.
+A node $t\in2^{<\mathbb{N}}$ is a dyadic interval $[t^\frown0^\infty,t^\frown1^\infty]$, the set of inputs that round to $t$ at
 precision $|t|$.
 The prefix test $v_t$ asks whether the input rounds to $t$;
-the point
-$t^\frown0^\infty$ is the rounded value itself;
-the comparisons
-$\chi_{[t^\frown0^\infty}$ and $\chi_{(t^\frown1^\infty}$ ask whether the input lies
+the point $t^\frown0^\infty$ is the rounded value itself;
+the comparisons $\chi_{[t^\frown0^\infty}$ and $\chi_{(t^\frown1^\infty}$ ask whether the input lies
 to the right of the left endpoint, or strictly to the right of the right
 endpoint, of the interval.
 Table~\ref{tab:hepta-search} reads the seven families accordingly.
@@ -1216,26 +1184,19 @@ Table~\ref{tab:hepta-search} reads the seven families accordingly.
   \label{tab:hepta-search}
 \end{table}
 
-In Section~\ref{sec:ex-NIP1} we define the three-way comparison, one step of a
-binary search with three outcomes, and show that its closure is the closure
-of~$D_7$.
-By the theorem of Argyros, Dodos and Kanellopoulos, every $\NIP$ family of
-computations indexed by the binary tree contains, along a dyadic subtree, one
-of these seven primitives.
+In Section~\ref{sec:ex-NIP1} we define the three-way comparison, one step of a binary search with three outcomes, and show that its closure is the closure of~$D_7$.
+By the theorem of Argyros, Dodos and Kanellopoulos, every $\NIP$ family of computations indexed by the binary tree contains, along a dyadic subtree, one of these seven primitives.
 
 \section{Examples of  Compositional Computation Structures}
 \label{sec:examples}
 We now turn from the general theory to examples, and compute the deep computations of five compositional computation structures explicitly:
 Newton’s method on the Riemann sphere for two cubic polynomials (Sections~\ref{sec:Newton-cubic} and~\ref{sec:Newton-cyclotomic}),
-Newton’s method for square roots on the real line (Section~\ref{exa:square-roots-compute}),
-and threshold classifiers and prefix tests on the Cantor set (Sections~\ref{sec:Cantor-classifiers} and~\ref{sec:prefix-test}).
+Newton’s method for square roots on the real line (Section~\ref{exa:square-roots-compute}), and threshold classifiers and prefix tests on the Cantor set (Sections~\ref{sec:Cantor-classifiers} and~\ref{sec:prefix-test}).
 Section~\ref{sec:iterative} then places these and other computations at each level of the hierarchy of Section~\ref{sec:Classification}.
 
 We begin by formalizing the Newton-Raphson root-finding method as a CCS~\cite{Galantai200025}, \cite[Section~2.3]{Burden2016numerical}.
 Let $\hatC = \mathbb{C}\cup\{\infty\}$ be the extended complex plane (the Alexandroff —one-point— compactification of~$\mathbb{C}$).
-We identify $\hatC$ with the unit sphere $S^2\subseteq \mathbb{R}^3$ (the Riemann sphere)
-through the inverse stereographic projection $z \mapsto (P_1(z), P_2(z), P_3(z))$, a homeomorphism $\hatC\to S^2$,
-where $(P_1(\infty), P_2(\infty), P_3(\infty)) = (0,0,1)$ and, for $z\ne\infty$,
+We identify $\hatC$ with the unit sphere $S^2\subseteq \mathbb{R}^3$ (the Riemann sphere) through the inverse stereographic projection $z \mapsto (P_1(z), P_2(z), P_3(z))$, a homeomorphism $\hatC\to S^2$, where $(P_1(\infty), P_2(\infty), P_3(\infty)) = (0,0,1)$ and, for $z\ne\infty$,
 \begin{align*}
 P_1(z) & = \frac{2\,\Re{z}}{|z|^2+1}, &
 P_2(z) & = \frac{2\,\Im{z}}{|z|^2+1}, &
@@ -1252,8 +1213,7 @@ The \emph{Newton method step} (or \emph{Newton map}) for $p$ is the rational map
 N_p: z \mapsto z-\frac{p(z)}{p'(z)}.
 \end{equation}
 Successive iterations of the Newton-Raphson method (i.e., compositional powers~$N_p^{(n)}$) may be regarded as computations of a CCS whose states space is $L = \hatC$.
-The natural choice of predicates is $\mathcal{P} = (P_1, P_2, P_3)$,
-the inverse stereographic projection coordinates.
+The natural choice of predicates is $\mathcal{P} = (P_1, P_2, P_3)$, the inverse stereographic projection coordinates.
 (The real- and imaginary part maps $z\mapsto\Re{z}$, $z\mapsto\Im{z}$ are not defined at~$z = \infty$.)
 
 Let $\Gamma_p:=\{N_p^{(n)}:n\in\mathbb{N}\}$ be the semigroup of iterates of the Newton map~\eqref{eq:Np}.
@@ -1413,9 +1373,7 @@ Sections~\ref{sec:Classification}--\ref{sec:iterative} studied deep computations
 pointwise limits of computations, of the first Baire class on the type shards, and approximated by sequences of computations.
 That theory rests on the type shards being Polish, and hence on the assumption that the set $\mathcal{P}$ of predicates is countable (it is used in the proof of Theorem~\ref{thm:Generalized-BFT}).
 In this section we drop that assumption and replace topology by measure:
-instead of asking that a deep computation be of the first Baire class, we ask that it be \emph{universally measurable},
-that is, measurable with respect to every Radon probability measure on the type shards,
-so that it can be evaluated almost surely by random sampling.
+instead of asking that a deep computation be of the first Baire class, we ask that it be \emph{universally measurable}, that is, measurable with respect to every Radon probability measure on the type shards, so that it can be evaluated almost surely by random sampling.
 We call such deep computations Monte Carlo computable.
 The role of the Bourgain--Fremlin--Talagrand dichotomy is taken by its measure-theoretic form (Theorem~\ref{thm:BFT-2F}), and that of $\NIP$ is shared with Talagrand stability.
 
@@ -1479,8 +1437,7 @@ The reason for this choice is the following characterization:
 The preceding proposition says that  we can check measurability of a transition just by checking measurability feature by feature.
 This is analogous to the Baire class 1 setting (see Proposition~\ref{prop:Baire-identifications}).
 
-We saw in section \ref{sec:prelim} that, when the set $\mathcal{P}$ of predicates is countable,
-PAC-learning (or NIP) corresponds to relative compactness in the space of Baire class 1 functions (see Theorems~\ref{thm:BFT}, \ref{thm:BFT2}, \ref{thm:Generalized-BFT}).
+We saw in section \ref{sec:prelim} that, when the set $\mathcal{P}$ of predicates is countable, PAC-learning (or NIP) corresponds to relative compactness in the space of Baire class 1 functions (see Theorems~\ref{thm:BFT}, \ref{thm:BFT2}, \ref{thm:Generalized-BFT}).
 The following result (which does not assume countability of $\mathcal{P}$) gives an analogous characterization of the NIP in terms of universal measurability:
 
 \begin{thm}
@@ -1503,11 +1460,8 @@ To motivate the definition, let us first recall two facts:
 
 \begin{enumerate}
 \item
-  Littlewood’s second principle states that every Lebesgue measurable function is “nearly continuous”.
-  The formal statement of this, which is Luzin’s theorem, is that
-  if $(X,\Sigma ,\mu )$ a Radon measure space and $Y$ is a second-countable topological space (e.g., $Y=\mathbb{R}^\mathcal{P}$ with $\mathcal{P}$ countable) equipped with the Borel $\sigma$-algebra,
-  then any given $f:X\to Y$ is measurable if and only if
-  for every $E\in\Sigma$ and every $\varepsilon>0$ there exists a closed $F\subseteq E$ such that the restriction $f|_F$ is continuous and $\mu(E\backslash F) < \varepsilon$.
+  Littlewood’s second principle states that every Lebesgue measurable function is “nearly continuous”, as captured by Luzin’s theorem:
+  if $(X,\Sigma ,\mu )$ a Radon measure space and $Y$ is a second-countable topological space (e.g., $Y=\mathbb{R}^\mathcal{P}$ with $\mathcal{P}$ countable) equipped with the Borel $\sigma$-algebra, then any given $f:X\to Y$ is measurable if and only if for every $E\in\Sigma$ and every $\varepsilon>0$ there exists a closed $F\subseteq E$ such that the restriction $f|_F$ is continuous and $\mu(E\backslash F) < \varepsilon$.
 \item
   Computability of deep computations is characterized in terms of continuous extendibility of computations.
   This is at the core of~\cite{alva2024approximability}.
@@ -1536,9 +1490,7 @@ Note that, since each type-shard $\mathcal{L}[r_\bullet]$ is compact, by Remark~
 \begin{proof}
   Fix $P\in\mathcal{P}$ and $r_\bullet\in R$.
   By the Extendibility Axiom, $\pi_P\circ\tilde\Delta|_{\mathcal{L}[r_\bullet]}$ is a set of pointwise bounded continuous functions on the compact set $\mathcal{L}[r_\bullet]$.
-  By Lemma~\ref{lem:NIP-and-closure}, $\pi_P\circ\tilde\Delta|_{\mathcal{L}[r_\bullet]}$ has the NIP,
-  hence so does its restriction to every compact $K\subseteq\mathcal{L}[r_\bullet]$,
-  and Theorem~\ref{thm:BFT-2F} gives $\overline{\pi_P\circ\tilde\Delta|_{\mathcal{L}[r_\bullet]}}\subseteq M_r(\mathcal{L}[r_\bullet])$.
+  By Lemma~\ref{lem:NIP-and-closure}, $\pi_P\circ\tilde\Delta|_{\mathcal{L}[r_\bullet]}$ has the NIP, hence so does its restriction to every compact $K\subseteq\mathcal{L}[r_\bullet]$, and Theorem~\ref{thm:BFT-2F} gives $\overline{\pi_P\circ\tilde\Delta|_{\mathcal{L}[r_\bullet]}}\subseteq M_r(\mathcal{L}[r_\bullet])$.
   If $f\in\overline{\Delta}$ and $\tilde f$ is the extension of Lemma~\ref{lem:extension}, then $\pi_P\circ\tilde f|_{\mathcal{L}[r_\bullet]}$ belongs to this closure.
 \end{proof}
 
@@ -1550,7 +1502,6 @@ There is another notion closely related to NIP, introduced by Talagrand in \cite
 Suppose that $X$ is a compact Hausdorff space and $A\subseteq \mathbb{R}^X$.
 Let $\mu$ be a Radon probability measure on $X$.
 Given a $\mu$-measurable set $E\subseteq X$, a positive integer $k$ and real numbers $a<b$, let
-
 \[
   D_k(A,E,a,b)=\bigcup_{f\in A}\{x\in E^{2k}:f(x_{2i})\leq a, \hspace{1mm} f(x_{2i+1})\geq b \hspace{1mm}{\text{ for all }i<k} \}.
 \]
