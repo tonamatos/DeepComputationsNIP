@@ -603,9 +603,9 @@ All closures below are taken in the topology of pointwise convergence.
   since, the points $(\delta_a,\chi_{[a})$ form an uncountable discrete subspace, it is not hereditarily separable.
 \end{enumerate}
 
-The same constructions apply with $2^{\mathbb{N}}$ replaced by another compact metric space~$K$;
-we write $A(K)$, $D(K)$, and so on.
-A compactum of size continuum, such as $A([0,1])$, is homeomorphic to~$A(2^{\mathbb{N}})$.
+The constructions of the Alexandroff compactification and duplicate hold with $2^{\mathbb{N}}$ replaced by another compact metric space~$K$;
+these are denoted $A(K)$ and $D(K)$, respectively.
+The Alexandroff compactification of any compactum of size continuum (e.g., $A([0,1])$) is homeomorphic to~$A(2^{\mathbb{N}})$.
 
 \subsection{NIP as a universal dividing line between polynomial and exponential complexity}
 \label{sec:NIP-poly-exp}
@@ -614,24 +614,28 @@ The particular case of the BFT dichotomy (Theorem~\ref{thm:BFT}) in which $A$ co
 was discovered independently around 1971--1972 in three foundational contexts,
 each separating polynomial (“tame”) from exponential (“wild”) complexity:
 in model theory, by Saharon Shelah~\cite{Shelah:1971,Shelah:1990};
-in combinatorics, by Norbert Sauer~\cite{Sauer:1972} and by Shelah~\cite{Shelah:1972,Shelah:1990};
+in combinatorics, by Norbert Sauer~\cite{Sauer:1972} and again by Shelah~\cite{Shelah:1972,Shelah:1990};
 and in statistical learning, by Vladimir Vapnik and Alexey Chervonenkis~\cite{Vapnik-Chervonenkis:1971,Vapnik-Chervonenkis:1974}.
 
 \begin{description}
 
 \item[In model theory]
   Shelah’s classification theory is a foundational program in mathematical logic devised to categorize first-order theories based on the complexity and structure of their models.
-  A theory $T$ is considered classifiable in Shelah’s sense if the number of non-isomorphic models of $T$ of a given cardinality can be described by a bounded number of numerical invariants.
+  A theory $T$ is considered classifiable in Shelah’s sense if the number of non-isomorphic models of $T$ of a given cardinality can be described by a bounded number of numerical invariants. 
   In contrast, a theory $T$ is unclassifiable if the number of models of $T$ of a given cardinality is the maximum possible number.
-  A key fact is that the number of models of $T$ is directly impacted by the number of \emph{types} over sets of parameters in models of $T$;
+  \textbf{(The preceding 2 sentences are so imprecise as to be considered wrong —Eduardo.)}
+A key fact is that the number of models of $T$ is directly impacted by the number of \emph{types} over sets of parameters in models of $T$;
   a controlled number of types is a characteristic of a classifiable theory.
-
+  \textbf{(Ambiguous to confound number of types with number of models. Clarify.)}
+\textbf{(This is so imprecise as to be considered wrong —Eduardo.)})”
   In Shelah’s classification program~\cite{Shelah:1990}, theories \emph{without} the independence property (called NIP theories, or \emph{dependent} theories) have a well-behaved, “tame” structure:
-  the number of types over a set of parameters of size $\kappa$ grows slowly (polynomially, or nearly so) in~$\kappa$.
+  the number of types over a set of parameters of infinite cardinality~$\kappa$ grows “slowly” with the number of parameters.
+  \textbf{(Are full types referred here? I strongly object to using the word “polynomially” in a loose sense sans real context: the statements become vacuous/unfalsifiable.)}
 
   In contrast, theories with the Independence Property (called IP theories) are considered “intractable” or “wild”.
   A theory with the Independence Property produces the maximum possible number of types over a set of parameters;
-  for a set of parameters of cardinality $\kappa$, the theory will have $2^{2^{\kappa}}$-many distinct types.
+  for a set of parameters of cardinality~$\kappa$, the theory will have $2^{2^{\kappa}}$-many distinct types.
+  \textbf{(Without context, discussions of types —\emph{what} types to begin?— over infinite sets of parameters become uninterpretable —“not even wrong”— and reduce to unmathematical verbiage.)}
 
 \item[In combinatorics]
   Sauer~\cite{Sauer:1972} and Shelah~\cite{Shelah:1972} proved the following independently:
@@ -643,8 +647,8 @@ and in statistical learning, by Vladimir Vapnik and Alexey Chervonenkis~\cite{Va
   \[
     |\{S_i\cap A: i\in\mathbb{N}\}| \le \sum_{i=0}^{N-1} \binom{|A|}{i}.
   \]
-  ($\mathscr{F}$ is a collection having “polynomial complexity”).
-  Clearly, any collection $\mathscr{F}$ of subsets of a \emph{finite} set $S$ has polynomial complexity.
+  ($\mathscr{F}$ is a collection having “polynomial complexity”;
+  note that any collection $\mathscr{F}$ of subsets of a \emph{finite} set $S$ has polynomial complexity.)
   The “polynomial” name is justified:
   indeed, for fixed $N>0$, as a function of the size $|A| = m > 0$, we have
   \begin{equation*}
@@ -662,8 +666,8 @@ and in statistical learning, by Vladimir Vapnik and Alexey Chervonenkis~\cite{Va
   The least integer $N$ given by the preceding paragraph, when it exists, is called the \emph{VC-dimension} of $\mathscr{F}$;
   it is a core concept in machine learning.
   If such an integer $N$ does not exist, we say that the VC-dimension of $\mathscr{F}$ is infinite.
-  The lemma provides upper bounds on the number of data points (sample size) needed to learn a concept class of known VC dimension~$d$ up to a given admissible error in the statistical sense.
-  The Fundamental Theorem of Statistical Learning states that a hypothesis class is PAC-learnable (PAC stands for “Probably Approximately Correct”) if and only if its VC dimension is finite.
+  The lemma provides upper bounds on the number of data points (sample size) needed to “learn” (in a statistical sense, up to a preset inference error) a concept class~$\mathcal{F}$ of known VC dimension~$N$.
+  Indeed, the so-called Fundamental Theorem of Statistical Learning states that a hypothesis class is PAC-learnable (PAC stands for “Probably Approximately Correct”) if and only if its VC dimension is finite \textbf{(Reference?)}.
 
 \end{description}
 
