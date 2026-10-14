@@ -258,12 +258,11 @@ and the space $\mathbb{R}^\mathbb{N}$ of sequences of real numbers.
   In particular, closed subsets and open subsets of Polish spaces are also Polish spaces.
 \end{fact}
 
-If $X$ is a topological space and $A$ is a subset of $X$, then $A$ is said to be
-\emph{nowhere dense} if its closure has an empty interior,
+If $X$ is a topological space and $A$ is a subset of $X$,
+then $A$ is said to be \emph{nowhere dense} if its closure has an empty interior,
 and of the \emph{first category} if $A$ is a countable union of closed nowhere dense sets;
 otherwise, $A$ is said to be of the \emph{second category}.
-Sets $A\subseteq X$ of the first category are also called \emph{meager}, and their
-complements $X\setminus A$ are called \emph{comeager}.
+Sets $A\subseteq X$ of the first category are also called \emph{meager}, and their complements $X\setminus A$ are called \emph{comeager}.
 Thus, the set of meager subsets of $X$ is the $\sigma$-ideal generated  by the nowhere  dense subsets of $X$.
 A topological space $X$ is \emph{Baire} if every comeager subset of $X$ is dense.
 Equivalently, $X$ is Baire if any countable intersection of open dense sets remains dense.
@@ -321,8 +320,7 @@ In general, such a characterization of the closure fails in remarkable ways.
 The $n$-th coordinate map $p_n: 2^{\mathbb{N}}\to\{0,1\}$ on the Cantor space $X = 2^\mathbb{N}$ ($= \{0, 1\}^{\mathbb{N}}$) is continuous for each $n\in \mathbb{N}$;
 however,  $(p_n)_{n\in\mathbb{N}}$ has \emph{no} convergent subsequences in $\mathbb{R}^X$ (\cite[Chapter~1.1]{Todorcevic_1997_TopicsTop}).
 In a sense, this example exhibits the worst failure of sequential convergence possible:
-The closure of $\{p_n\}$ in $\{0, 1\}^X$ (or in $\mathbb{R}^X$ for that matter)
-is homeomorphic to the Stone-Čech compactification $\beta\mathbb{N}$ of the (discrete) space of natural numbers.
+The closure of $\{p_n\}$ in $\{0, 1\}^X$ (or in $\mathbb{R}^X$ for that matter) is homeomorphic to the Stone-Čech compactification $\beta\mathbb{N}$ of the (discrete) space of natural numbers.
 The space $\beta \mathbb{N}$ has cardinality $2^{2^{\omega}}$ (largest among all separable topological spaces) and, effectively, is the set of ultrafilters on~$\mathbb{N}$.%
 \footnote{\label{fn:id-ufilters}Our earlier proof~\cite{alva2024approximability} of the existence of deep equilibria in compositional computation structures relies on a classical result on the existence of idempotent elements of~$\beta \mathbb{N}$.}
 
@@ -543,8 +541,7 @@ Let $2^{\mathbb{N}}$ carry the product topology and the lexicographic order~$<$ 
 The length of a finite word $t\in2^{<\mathbb{N}}$ is denoted~$|t|$;
 for $a\in2^{\mathbb{N}}$, we write $a\restr n$ for the word formed by the first $n$ bits of~$a$.
 Two words are \emph{comparable} if one extends the other, and an \emph{antichain} is a set of pairwise incomparable words.
-For a finite word $t\in2^{<\mathbb{N}}$, let $t^\frown0^\infty$ and $t^\frown1^\infty$ be the sequences that begin with $t$ and continue with
-all $0$’s, respectively all $1$’s;
+For a finite word $t\in2^{<\mathbb{N}}$, let $t^\frown0^\infty$ and $t^\frown1^\infty$ be the sequences that begin with $t$ and continue with all $0$’s, respectively all $1$’s;
 the set of sequences extending $t$ is the clopen interval $[t^\frown0^\infty,t^\frown1^\infty]$.
 
 For a statement~$S$, we write $\Brack{S}$ for its truth value:
@@ -559,8 +556,7 @@ We introduce the following functions $2^{\mathbb{N}}\to\{0,1\}$:
   the \emph{threshold tests} $\chi_{[a}\coloneqq\Brack{a\le \cdot}$ and $\chi_{(a}\coloneqq\Brack{a<\cdot}$, the characteristic functions of the final intervals $\{x:a\le x\}$ (closed) and~$\{x:a<x\}$ (open), for fixed~$a\in2^{\mathbb{N}}$;
   the special case $\mathbf{0}\coloneqq \chi_{(1^\infty}$ is the identically zero function.
 \end{itemize}
-Prefix tests are continuous, and so are $\chi_{[t^\frown0^\infty}$ and
-$\chi_{(t^\frown1^\infty}$ —the all depend only on the first $|t|$ bits of its argument in~$2^{\mathbb{N}}$;
+Prefix tests are continuous, and so are $\chi_{[t^\frown0^\infty}$ and $\chi_{(t^\frown1^\infty}$ —the all depend only on the first $|t|$ bits of its argument in~$2^{\mathbb{N}}$;
 equality tests, and threshold tests at other points, are discontinuous Baire class~$1$ functions.
 All closures below are taken in the topology of pointwise convergence.
 
@@ -572,8 +568,7 @@ All closures below are taken in the topology of pointwise convergence.
   Thus, $A(2^{\mathbb{N}})$ is not separable, nor first countable at~$\mathbf{0}$.
 \item
   The \emph{extended Alexandroff compactification}
-  $\hat{A}(2^{\mathbb{N}})=\overline{\{v_t:t\in2^{<\mathbb{N}}\}}=
-    \{v_t:t\in2^{<\mathbb{N}}\}\cup A(2^{\mathbb{N}})$.
+  $\hat{A}(2^{\mathbb{N}})=\overline{\{v_t:t\in2^{<\mathbb{N}}\}}=\{v_t:t\in2^{<\mathbb{N}}\}\cup A(2^{\mathbb{N}})$.
   As $n\to\infty$, the prefix tests $v_{a\restr n}$ converge to $\delta_a$;
   along an antichain they converge to $\mathbf{0}$.
   Thus, $\hat{A}(2^{\mathbb{N}})$ is separable but not first countable.
@@ -588,16 +583,14 @@ All closures below are taken in the topology of pointwise convergence.
   $D(2^{\mathbb{N}})=\{(\mathbf{0},a),(\delta_a,a):a\in2^{\mathbb{N}}\}\subseteq A(2^{\mathbb{N}})\times2^{\mathbb{N}}$.
   The points $(\delta_a,a)$ are isolated, and a neighborhood of $(\mathbf{0},a)$ contains $(\mathbf{0},b)$ and $(\delta_b,b)$ for all $b$ near~$a$ with finitely many exceptions.
   Thus, $D(2^{\mathbb{N}})$ is first countable but not separable;
-  its separable extension is
-  $\hat{D}(2^{\mathbb{N}})=\overline{\{(v_t,t^\frown0^\infty):t\in2^{<\mathbb{N}}\}}=
-    D(2^{\mathbb{N}})\cup\{(v_t,t^\frown0^\infty):t\in2^{<\mathbb{N}}\}$.
+  its separable extension is $\hat{D}(2^{\mathbb{N}})=\overline{\{(v_t,t^\frown0^\infty):t\in2^{<\mathbb{N}}\}}=D(2^{\mathbb{N}})\cup\{(v_t,t^\frown0^\infty):t\in2^{<\mathbb{N}}\}$.
 \item
   The \emph{extended duplicate of the split Cantor set}
   \[
     \hat{D}(S(2^{\mathbb{N}}))=\overline{\{(v_t,\chi_{[t^\frown0^\infty})\}_{t}}\subseteq\hat{A}(2^{\mathbb{N}})\times S(2^{\mathbb{N}}),
   \]
-  which consists of the points $(v_t,\chi_{[t^\frown0^\infty})$ and, for $a\in2^{\mathbb{N}}$, the points $(\delta_a,\chi_{[a})$, $(\mathbf{0},\chi_{[a})$ and
-  $(\mathbf{0},\chi_{(a})$ \cite[4.3.7]{argyros2008rosenthal}.
+  which consists of the points $(v_t,\chi_{[t^\frown0^\infty})$
+  and, for $a\in2^{\mathbb{N}}$, the points $(\delta_a,\chi_{[a})$, $(\mathbf{0},\chi_{[a})$ and $(\mathbf{0},\chi_{(a})$ \cite[4.3.7]{argyros2008rosenthal}.
   Along the words $t=a\restr n$, the thresholds $t^\frown0^\infty$ increase to $a$, which gives the points $(\delta_a,\chi_{[a})$.
   Thus, $\hat{D}(S(2^{\mathbb{N}}))$ is separable and first countable;
   since, the points $(\delta_a,\chi_{[a})$ form an uncountable discrete subspace, it is not hereditarily separable.
@@ -673,8 +666,8 @@ A key fact is that the number of models of $T$ is directly impacted by the numbe
 
 \subsection*{Historical remarks}
 The Baire hierarchy of functions was introduced by René-Louis Baire in his 1899 doctoral thesis, \emph{Sur les fonctions de variables réelles}.
-The field of $\Cp$-theory was pioneered by A.~V.~Arhangel’skiĭ and his students in the 1970s and 1980s~\cite{Arkhangelskii:1992}, and
-it has found many applications in model theory and functional analysis.
+The field of $\Cp$-theory was pioneered by A.~V.~Arhangel’skiĭ and his students in the 1970s and 1980s~\cite{Arkhangelskii:1992},
+and it has found many applications in model theory and functional analysis.
 For a recent survey, see~\cite{tkachuk2011cp}.
 
 \section{Compositional Computation Structures: \\
@@ -960,7 +953,7 @@ Theorem~\ref{thm:nip-baire1def}, the cornerstone of the section, extends the res
 \begin{thm}\label{thm:nip-baire1def}
   Let $(L,\mathcal{P},\Gamma)$ be a compositional computation structure (Definition~\ref{def:CCS}) satisfying the Extendibility Axiom, with $\mathcal{P}$ countable.
   Let $R$ be an exhaustive collection of sizers,
-  and suppose that  $\Delta\subseteq\Gamma$ is $R$-confined.
+  and suppose that $\Delta\subseteq\Gamma$ is $R$-confined.
   Then the following conditions are equivalent:
 
   \begin{enumerate}[(i)]
@@ -1153,13 +1146,10 @@ A pair $(f,g)$ of functions on $2^{\mathbb{N}}$ is regarded as a single function
 
 The implication of this result for deep computations is the following:
 the building blocks of the families $D_1,\dots,D_7$ are primitives of binary search on $2^{\mathbb{N}}$, the space of binary expansions.
-A node $t\in2^{<\mathbb{N}}$ is a dyadic interval $[t^\frown0^\infty,t^\frown1^\infty]$, the set of inputs that round to $t$ at
-precision $|t|$.
+A node $t\in2^{<\mathbb{N}}$ is a dyadic interval $[t^\frown0^\infty,t^\frown1^\infty]$, the set of inputs that round to $t$ at precision $|t|$.
 The prefix test $v_t$ asks whether the input rounds to $t$;
 the point $t^\frown0^\infty$ is the rounded value itself;
-the comparisons $\chi_{[t^\frown0^\infty}$ and $\chi_{(t^\frown1^\infty}$ ask whether the input lies
-to the right of the left endpoint, or strictly to the right of the right
-endpoint, of the interval.
+the comparisons $\chi_{[t^\frown0^\infty}$ and $\chi_{(t^\frown1^\infty}$ ask whether the input lies to the right of the left endpoint, or strictly to the right of the right endpoint, of the interval.
 Table~\ref{tab:hepta-search} reads the seven families accordingly.
 
 \begin{table}[ht]
@@ -1220,8 +1210,8 @@ Let $\Gamma_p:=\{N_p^{(n)}:n\in\mathbb{N}\}$ be the semigroup of iterates of the
 The CCS $(\hatC, (P_1,P_2,P_3), \Gamma_p)$ is \emph{Newton’s method for~$p(z)$} (or the \emph{Newton CCS for~$p(z)$}).
 Note that the states space $\hatC$ is compact and the Newton map $N_p$ is continuous thereon, so the Extendibility Axiom is satisfied by Newton CCSs.
 
-Given an initial estimate $z_0$, one hopes for the sequence of Newton steps applied to~$z_0$ (namely, $N_p^{(\bullet)}(z_0) \coloneqq (z_n)_{n\in \mathbb{N}}$, where $z_n \coloneqq N_p^{(n)}(z_0)$)
-to converge to a root~$r$ of~$p$.
+Given an initial estimate $z_0$, one hopes for the sequence of Newton steps applied to~$z_0$
+(namely, $N_p^{(\bullet)}(z_0) \coloneqq (z_n)_{n\in \mathbb{N}}$, where $z_n \coloneqq N_p^{(n)}(z_0)$) to converge to a root~$r$ of~$p$.
 
 \paragraph{Fatou and Julia sets}
 Recall that the \emph{Fatou set $\mathcal{F}_p$} consists of all points that have a neighborhood on which every sequence of iterates of~$p$ has a uniformly convergent subsequence;
@@ -1430,8 +1420,8 @@ The reason for this choice is the following characterization:
 
 \begin{proof}
   (i)$\Rightarrow$(ii) is clear since the projection maps $\pi_i$ are measurable and the composition of measurable functions is measurable.
-  To prove (ii)$\Rightarrow$(i), note  that if $C=\prod_{i\in I}C_i$ is a measurable cylinder and $J$ is the finite subset of $I$ such that $C_i\neq Y_i$ for $i\in J$,
-  then,  $f^{-1}(C)=\bigcap_{i\in J}(\pi_i\circ f)^{-1}(C_i)$ is universally measurable by assumption.
+  To prove (ii)$\Rightarrow$(i), note that if $C=\prod_{i\in I}C_i$ is a measurable cylinder and $J$ is the finite subset of $I$ such that $C_i\neq Y_i$ for $i\in J$,
+  then, $f^{-1}(C)=\bigcap_{i\in J}(\pi_i\circ f)^{-1}(C_i)$ is universally measurable by assumption.
 \end{proof}
 
 The preceding proposition says that  we can check measurability of a transition just by checking measurability feature by feature.
@@ -1461,7 +1451,7 @@ To motivate the definition, let us first recall two facts:
 \begin{enumerate}
 \item
   Littlewood’s second principle states that every Lebesgue measurable function is “nearly continuous”, as captured by Luzin’s theorem:
-  if $(X,\Sigma ,\mu )$ a Radon measure space and $Y$ is a second-countable topological space (e.g., $Y=\mathbb{R}^\mathcal{P}$ with $\mathcal{P}$ countable) equipped with the Borel $\sigma$-algebra, then any given $f:X\to Y$ is measurable if and only if for every $E\in\Sigma$ and every $\varepsilon>0$ there exists a closed $F\subseteq E$ such that the restriction $f|_F$ is continuous and $\mu(E\backslash F) < \varepsilon$.
+  if $(X,\Sigma ,\mu )$ is a Radon measure space and $Y$ is a second-countable topological space (e.g., $Y=\mathbb{R}^\mathcal{P}$ with $\mathcal{P}$ countable) equipped with the Borel $\sigma$-algebra, then any given $f:X\to Y$ is measurable if and only if for every $E\in\Sigma$ and every $\varepsilon>0$ there exists a closed $F\subseteq E$ such that the restriction $f|_F$ is continuous and $\mu(E\backslash F) < \varepsilon$.
 \item
   Computability of deep computations is characterized in terms of continuous extendibility of computations.
   This is at the core of~\cite{alva2024approximability}.
@@ -1614,8 +1604,7 @@ We first observe that universal Talagrand stability implies NIP:
   This follows directly from Proposition \ref{prop:Talagrand-implies-NIP} and Theorem~\ref{thm:NIP-Monte-Carlo}.
 \end{proof}
 
-In the context of deep computations, we have identified two ways to obtain Monte Carlo computability, namely,
-NIP/PAC and Talagrand stability.
+In the context of deep computations, we have identified two ways to obtain Monte Carlo computability, namely, NIP/PAC and Talagrand stability.
 It is natural to ask whether these two notions are equivalent.
 The following results show that, even in the simple case of countably many computations, this question is sensitive to the set-theoretic axioms.
 On the one hand, it is consistent (with respect to the standard ZFC axioms of set theory) that these two classes are the same:
