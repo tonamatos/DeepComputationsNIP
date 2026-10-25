@@ -120,36 +120,67 @@ tame dynamical systems, infinite Ramsey theory}
 }
 
 \begin{abstract}
-  We use topology of function spaces to study the complexity of deep computations, which arise, for instance, in recurrent neural networks as limits of computations when the depth tends to infinity.
-  The classification of Rosenthal compacta yields new complexity classes of deep computations, and these classes form a strict hierarchy.
-  Each level of the hierarchy is attained by classical computations, among them the power method, Bresenham’s line algorithm and the Euclidean algorithm, while Newton’s method for the square roots of unity on the Riemann sphere lies beyond it.
-  For iterative algorithms, the hierarchy coincides with a hierarchy of tame dynamical systems.
-  The translation between topology and computation is made through the language of model theory, specifically through the \emph{independence property} of Shelah’s classification theory.
-  The same methods give conditions under which deep computations are limits of sequences of computations and, in a measure-theoretic form, conditions under which they can be evaluated almost surely by random sampling.
+  We bring the topology of spaces of functions of the first Baire class, culminating in Todorčević's classification of Rosenthal compacta, together with Shelah's model-theoretic notion of independence, to bear on the complexity of deep computations, that is, of limits of computations.
+  Such limits arise whenever an iterative procedure is carried to its conclusion, from the classical methods of numerical analysis, such as Newton's method and the power method, to the recurrent, equilibrium and continuous-depth architectures of deep learning; yet a deep computation is, in general, a nonconstructive object, an ultrafilter limit of possibly uncountably many computations that need not be the limit of any sequence of them.
+  We show that, when states are observed through countably many real-valued features, a set of computations lacks Shelah's \emph{independence property}, a dividing line of model theory akin to the Vapnik--Chervonenkis dimension of statistical learning, exactly when its deep computations are of the first Baire class on every region of the state space on which the features are bounded;
+  on each such region, every deep computation is then the limit of a sequence of computations.
+  Todorčević's classification then yields a strict hierarchy of complexity classes of deep computations.
+  Its levels are attained, from the top down, by a rotation of the circle, the power method, Bresenham's line algorithm in the plane and in space, and the Euclidean algorithm, while Newton's method for the square roots of unity on the Riemann sphere lies beyond the hierarchy.
+  For algorithms that iterate continuous steps on a compact metrizable space of states, the hierarchy coincides with the hierarchy of tame dynamical systems of Glasner and Megrelishvili.
+  Finally, for any number of features, the absence of the independence property ensures that every deep computation can be evaluated almost surely by random sampling.
 \end{abstract}
 
 \section*{Introduction}
 
-In this paper we use topological methods and concepts inspired by model theory to study the asymptotic behavior of computations as a parameter of the computation tends to a limit: for example, as the depth of a neural network tends to infinity, or as the time interval between the layers of a time-series network tends to zero.
-Particular cases of such limits have recently attracted considerable attention in deep learning research
-(e.g., Neural Ordinary Differential Equations~\cite{Chen:2018}, Physics-Informed Neural Networks~\cite{Raissi-Perdikaris-Karniadakis:2019}, and Deep Equilibrium Models~\cite{Bai:2019}).
-Our results concern classical models of computation, in which real-valued quantities are known and manipulated to a finite degree of precision.
-We work in the framework of compositional computation structures, which was introduced in the first paper of this series~\cite{alva2024approximability} and accommodates all these limits in a single setting.
-In this framework, computations act on states, and each state is observed through the values of real-valued \emph{features}.
+In this paper we study the complexity of deep computations, the limits of computations, by means of the topology of compact spaces of functions of the first Baire class, which culminates in Todorčević's classification of Rosenthal compacta, and of Shelah's model-theoretic notion of independence.
+These theories allow us to determine when a deep computation is the limit of a sequence of computations, and to stratify deep computations into a strict hierarchy of complexity classes.
+The interest of the undertaking lies in the circumstance that a deep computation need not inherit the properties of the computations that converge to it: a pointwise limit of continuous maps need not be continuous, and a limit taken along an ultrafilter over uncountably many computations need not be the limit of any sequence of them, in which case it lies beyond the reach of sequential approximation.
+Deep computations arise whenever an iterative procedure is carried to its conclusion.
+The classical methods of numerical analysis, such as Newton's method for the roots of a polynomial and the power method for the eigenvectors of a matrix, furnish instances whose deep computations we analyze in Sections~\ref{sec:examples} and~\ref{sec:iterative}.
+In deep learning, several architectures are defined as limits of computations.
+A recurrent network applies one layer over and over, and the deep equilibrium models of Bai, Kolter and Koltun~\cite{Bai:2019} compute directly, by root finding, the fixed point that an infinitely deep network of this kind, with the same weights in every layer, would reach.
+A residual network may be regarded as a discretization of a differential equation, and the neural ordinary differential equations of Chen, Rubanova, Bettencourt and Duvenaud~\cite{Chen:2018} replace its discrete sequence of layers by a differential equation for the hidden state, obtained in the limit in which the time step between consecutive layers tends to zero.
+Neural ordinary differential equations belong to a broader effort to bring differential equations into deep learning, which also includes the physics-informed neural networks of Raissi, Perdikaris and Karniadakis~\cite{Raissi-Perdikaris-Karniadakis:2019}, in which the differential equations of a physical system are built into the training of a network.
+In these models, as in the classical methods, the object of interest is a limit of computations rather than a single computation.
 
-In that paper, Alva, Dueñez, Iovino and Walton introduced two closely related notions of limit of computations:
+The framework of this paper is that of compositional computation structures, introduced by Alva, Dueñez, Iovino and Walton in the first paper of this series~\cite{alva2024approximability} to accommodate all these limits in a single setting.
+The framework concerns classical models of computation, in which real-valued quantities are known and manipulated to a finite degree of precision; computations act on states, and each state is observed through the values of real-valued \emph{features}.
+In that paper the authors introduced two closely related notions of limit of computations:
 \emph{ultracomputations}, so called because they arise as ultrafilter limits of standard computations, and \emph{deep computations}, so called after the usage in machine learning~\cite{Bai:2019}.
 The two notions differ in a technical point that plays no role here, and we speak of deep computations throughout.
 A set of computations is \emph{stable} when all its deep computations are continuous on every \emph{shard}, that is, on every set of states on which each feature obeys a prescribed bound.
-Using Grothendieck’s double limit criterion~\cite{Grothendieck:1952}, the same authors characterized the stable sets by an exchange of iterated limits and showed that their deep computations are \emph{polynomially approximable}: on every shard, each feature of their output is a uniform limit of polynomials in the features of the input.
+The analysis of stable sets rests on a theorem proved by Grothendieck in 1952~\cite{Grothendieck:1952}, his double limit criterion: a uniformly bounded set of continuous functions on a compact space has only continuous functions in its pointwise closure if and only if, for every sequence of functions from the set and every sequence of points of the space, the two iterated limits agree whenever both exist.
+Using this criterion, Alva, Dueñez, Iovino and Walton characterized the stable sets by an exchange of iterated limits and showed that their deep computations are \emph{polynomially approximable}: on every shard, each feature of their output is a uniform limit of polynomials in the features of the input.
 Polynomial approximability corresponds to continuous extendibility in topology, and to \emph{stability} and \emph{type definability} in model theory.
 
-In this paper we classify the unstable sets of computations.
+Beyond stability, Shelah's classification theory~\cite{Shelah:1990} singles out the \emph{independence property}, which Shelah isolated in 1971~\cite[Definition~4.1]{Shelah:1971}.
+A formula has the independence property when, for every natural number~$n$, there are $n$ parameters on which every pattern of truth and falsity of the formula is realized by some element of a model;
+a theory none of whose formulas has the independence property is called \emph{NIP}, or \emph{dependent}.
+The same dividing line appeared independently, within a few years, in two other fields, as a dichotomy between polynomial and exponential growth:
+a family of sets either shatters arbitrarily large finite sets, in the sense that it cuts out all their subsets, or leaves on every finite set a number of traces (intersections with members of the family) bounded by a polynomial in the size of the set.
+In statistical learning, Vapnik and Chervonenkis announced this dichotomy in 1968 and published its proof in 1971~\cite{Vapnik-Chervonenkis:1971}, in their study of the uniform convergence of relative frequencies to probabilities;
+in combinatorics, Sauer~\cite{Sauer:1972} and Shelah~\cite{Shelah:1972} proved it in 1972, and it is now known as the Sauer--Shelah lemma.
+The largest size of a finite set shattered by a family is called the \emph{Vapnik--Chervonenkis dimension} of the family.
+
+In analysis, the same combinatorial pattern emerged from the study of Banach spaces.
+Rosenthal's $\ell_1$-theorem of 1974~\cite{Rosenthal:1974} states that every bounded sequence in a Banach space has a subsequence that is either weakly Cauchy or equivalent to the unit vector basis of~$\ell_1$, the space of absolutely summable sequences.
+At the core of the proof of the $\ell_1$-theorem is a dichotomy for bounded sequences of real functions on a set: such a sequence either has a pointwise convergent subsequence or has an \emph{independent} subsequence, one for which there are two thresholds such that, for any two disjoint finite sets of indices, at some point the functions indexed by the first set take values below the lower threshold and those indexed by the second set take values above the upper one.
+Bourgain, Fremlin and Talagrand~\cite{BFT_1978_PCompactBaire} passed in 1978 from sequences to sets, and from convergence to the first Baire class, which consists of the pointwise limits of sequences of continuous functions.
+They characterized, by a condition of the same kind, the pointwise bounded sets of continuous functions on a Polish space, that is, on a separable and completely metrizable space, whose pointwise closures consist of functions of the first Baire class (see Theorem~\ref{thm:BFT});
+on a compact metrizable space, their condition is exactly the absence of the independence property for the set of functions (see Theorem~\ref{thm:BFT2}).
+Compact sets of functions of the first Baire class on Polish spaces, with the topology of pointwise convergence, were named \emph{Rosenthal compacta} by Godefroy~\cite{Godefroy:1980}, and they have since been studied intensively in functional analysis, especially in the theory of Banach spaces.
+
+The classification of Rosenthal compacta took a decisive form in 1999, when Todorčević~\cite{Todorcevic_1999_CompactSubsetsBaire} proved his trichotomy: every separable Rosenthal compactum that is not metrizable contains a copy of one of a few canonical compacta, and which of them occur depends on whether the compactum is hereditarily separable, first countable but not hereditarily separable, or not first countable (see Theorem~\ref{thm:Todorcevic-trichotomy}).
+Todorčević’s proof relies on set-theoretic forcing and infinite Ramsey theory, and his methods continue to be analyzed and exploited~\cite{Todorcevic:2023,horowitz2019compactsetsbaireclass}.
+Glasner and Megrelishvili~\cite{glasner2022tame} used the trichotomy to arrange into a hierarchy the tame dynamical systems on compact metrizable spaces~\cite{Kohler1995,Glasner2006}, those whose enveloping semigroup, the pointwise closure of the set of maps of the system, consists of maps of the first Baire class;
+the levels of their hierarchy are defined by first countability, hereditary separability and metrizability of the enveloping semigroup.
+
+In this paper we classify the unstable sets of computations by means of the theories just recalled.
 An unstable set of computations is either \emph{wild} or \emph{tame}.
 It is wild when it has Shelah’s \emph{independence property} (IP), which means, roughly, that for some feature the computations realize every finite pattern of high and low values on suitable inputs;
 it is tame, or \emph{NIP}, when it does not have the independence property.
 Between stability and NIP we identify three new levels of tameness, $\NIP_3$, $\NIP_2$ and $\NIP_1$, which together with NIP form a hierarchy of four tame classes beyond the stable ones.
-On the topological side, the theory of \emph{Rosenthal compacta}, which we recall below, takes the place of Grothendieck’s criterion;
+On the topological side, the theory of Rosenthal compacta takes the place of Grothendieck’s criterion;
 on the model-theoretic side, NIP, a central notion of the classification beyond stability known as \emph{neostability}, takes the place of stability.
 
 The translation between topology and computation goes through model theory.
@@ -165,15 +196,8 @@ and in statistical learning, the theory of Vapnik--Chervonenkis (VC) dimension a
 In Theorem~\ref{thm:nip-baire1def} we show that, under this translation, NIP sets of computations correspond to spaces of deep computations that are Rosenthal compacta on each shard.
 On the side of learning, finiteness of VC dimension implies NIP, and the two notions coincide for first-order formulas (see Section~\ref{sec:NIP-poly-exp}).
 
-Deep computations arise as topological limits of standard (continuous) computations.
-Pointwise limits of sequences of continuous functions form the \emph{first Baire class}, one rung above the continuous functions;
-intuitively, functions of Baire class~1 have “controlled” discontinuities.
-A \emph{Rosenthal compactum} is a set of Baire class~1 functions on a Polish (i.e., separable and completely metrizable) space, compact in the topology of \emph{pointwise} convergence.
-Since the late 1970s, Rosenthal compacta have been studied intensively in functional analysis, especially in the theory of Banach spaces.
-Todorčević’s trichotomy~\cite{Todorcevic_1999_CompactSubsetsBaire} locates in every nonmetrizable separable Rosenthal compactum a copy of one of a few canonical compacta, and it has been used to organize tame dynamical systems into a hierarchy~\cite{glasner2022tame}.
-Todorčević’s proof relies on set-theoretic forcing and infinite Ramsey theory, and his methods continue to be analyzed and exploited~\cite{Todorcevic:2023,horowitz2019compactsetsbaireclass}.
 
-Refining the trichotomy, Argyros, Dodos and Kanellopoulos~\cite{argyros2008rosenthal} found a heptachotomy, which we also use.
+Refining Todorčević’s trichotomy, Argyros, Dodos and Kanellopoulos~\cite{argyros2008rosenthal} found a heptachotomy, which we also use.
 It concerns families of functions indexed by the binary tree, compared along dyadic subtrees, the copies of the binary tree inside itself;
 two such families are \emph{equivalent} when the bijection between them that respects the indexing extends to a homeomorphism of their closures.
 Argyros, Dodos and Kanellopoulos exhibited seven pairwise nonequivalent families of Baire class~1 functions indexed by the binary tree, each of them \emph{minimal} in the sense that it is equivalent to each of its subfamilies indexed by a dyadic subtree.
@@ -428,7 +452,8 @@ We return to it in Section~\ref{sec:NIP-poly-exp}, where it appears together wit
 
 \subsection{Rosenthal compacta}
 
-The dichotomy of Theorem~\ref{thm:BFT} led Godefroy~\cite{Godefroy:1980} to the following definition.
+By Theorem~\ref{thm:BFT}, if a pointwise bounded set of continuous functions on a Polish space has BFT-NIP, then its pointwise closure is a compact set of functions of the first Baire class.
+Compact sets of this kind had appeared in Rosenthal's work on the $\ell_1$-theorem, and Godefroy~\cite{Godefroy:1980} named them after him in the following definition.
 
 \begin{defn}
   \label{def:Rosenthal-compacta}
@@ -689,6 +714,7 @@ We then recall the stable sets of computations, studied in that paper, and close
 \subsection{Computation States Structures}
 \label{sec:CSS}
 
+The first ingredient of the framework is the set of states on which computations act, together with the real-valued features through which the states are observed.
 A \emph{computation states structure} is a pair $(L,\mathcal{P})$, where $L$ is a set whose elements we call \emph{states} and $\mathcal{P}$ is a collection of real-valued functions on $L$ that we call \emph{predicates} or \emph{features}.
 Intuitively, $L$ is the set of states of a computation, and the predicates are the primitives that are given and accepted as computable;
 for $P\in\mathcal{P}$ and $v\in L$, the number $P(v)$ is the value of the (observable) feature~$P$ at the state~$v$.
@@ -762,6 +788,12 @@ We have $\mathcal{L}_{\sh}\subseteq \mathcal{L}$, and the inclusion may be prope
 equality holds in the important special case when $\mathcal{P}$ is countable (see~\cite{alva2024approximability}).
 
 \subsection{Compositional Computation Structures}
+
+Computations transform states, and two computations performed one after the other form a computation;
+the computations of a system therefore form a semigroup under composition, which we take to contain the identity, the computation that does nothing.
+Deep computations are the limits of computations in the topology of pointwise convergence, taken in the space of types.
+Since an actual computation keeps the magnitudes that it handles within bounds, the shards of Section~\ref{sec:shards} enter the definition through the notion of confinement.
+The following definition, from the first paper of this series~\cite{alva2024approximability}, records these ingredients.
 
 \begin{defn}
   \label{def:CCS}
@@ -1174,6 +1206,8 @@ The extended complex plane $\hatC$ thus carries the real predicates $P_1, P_2, P
 
 \subsubsection*{Newton  CCSs:  steps and fractals}
 \label{sec:Newton-map}
+Newton's method approximates a root of a function by iterating a single step, the Newton map.
+We describe the compositional computation structure generated by this step, and then recall the Fatou and Julia sets, on which its iterates behave regularly and chaotically, respectively.
 Let $p = p(z)$ be a nonconstant rational function with complex coefficients, that is, a nonconstant meromorphic map $\hatC\to\hatC$.
 The \emph{Newton step}, or \emph{Newton map}, of $p$ is the rational map
 \begin{equation}\label{eq:Np}
@@ -1195,6 +1229,8 @@ The Julia set of the Newton map~$N_p$ is called the \emph{Newton fractal} of~$p$
 
 \subsection{Example: The Newton CCS for the cubic ${\rho}(z) = z^3-2z+2$}
 \label{sec:Newton-cubic}
+Our first example is the second motivating example of Section~\ref{sec:preview}, a cubic polynomial whose Newton map has, besides the three roots, an attracting cycle.
+Newton's method therefore fails on an open set of initial estimates, its iterates do not converge, and among its deep computations are two distinct limits, one of the even iterates and one of the odd iterates.
 The polynomial ${\rho}(z) = z^3-2z+2$ has Newton map
 \begin{equation*}
 N_{\rho}: z \mapsto z - \frac{z^3-2z+2}{3z^2-2} = \frac{2z^3-2}{3z^2-2}.
@@ -1591,6 +1627,7 @@ non-sensitive~\cite[Corollary~8.3]{glasner2022tame}.
 
 \subsection{First countable but not hereditarily separable}
 \label{sec:ex-NIP1}
+At the level $\NIP_1$ but not $\NIP_2$, each deep computation is still separated from all the others by countably many tests of its own, but some finitely separated set of deep computations has the cardinality of the continuum (see Proposition~\ref{prop:levels-tests}).
 Running two rounding algorithms side by side moves the computation one level
 down.
 
