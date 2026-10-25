@@ -282,10 +282,9 @@ Relatively compact subsets of $\Cp(X)$ and of $\mathrm{B}_1(X)$ (particularly fo
 A topological space $X$ is \emph{perfectly normal} if it is normal and every closed subset of $X$ is a $G_\delta$ set (equivalently, every open subset of $X$ is an $F_\sigma$ set).
 Every metrizable space (hence, every Polish space) is perfectly normal.
 
-The following characterization of Baire class~1 functions combines the equivalence of (1) and (2), which goes back to Lebesgue and Hausdorff~\cite[Theorem~24.10]{kechris1995cdst}, with the characterization by condition~(3), which Baire proved for functions of real variables in his thesis.
-For a proof, see~\cite[Section 10]{Todorcevic_1997_TopicsTop}.
+The following characterization of Baire class~1 functions is classical; for a proof, see~\cite[Section 10]{Todorcevic_1997_TopicsTop}.
 
-\begin{fact}[Baire]
+\begin{fact}[Lebesgue, Hausdorff, Baire\protect\footnotemark]
   \label{baire}
   If $X$ is perfectly normal, then the following conditions are equivalent for a function $f:X\to \mathbb{R}$:
   \begin{itemize}
@@ -308,6 +307,16 @@ For a proof, see~\cite[Section 10]{Todorcevic_1997_TopicsTop}.
     \overline{D_0}=\overline{D_1}.
   \]
 \end{fact}
+\footnotetext{The implication (1)$\Rightarrow$(2) holds in every topological space: if $f$ is the pointwise limit of a sequence $(f_n)_{n\in\mathbb{N}}$ of continuous functions and $a$ is a real number, then
+\[
+  f^{-1}(a,\infty)=\bigcup_{k\ge1}\bigcup_{m\in\mathbb{N}}\bigcap_{n\ge m}f_n^{-1}[a+1/k,\infty)
+\]
+is a countable union of closed sets; the same is true of $f^{-1}(-\infty,a)$, and condition~(2) follows because every open subset of~$\mathbb{R}$ is a countable union of intervals $(a,b)=(a,\infty)\cap(-\infty,b)$.
+The reverse implication, (2)$\Rightarrow$(1), requires hypotheses on~$X$: the standard argument requires of~$X$ only that it be normal and that each of its open subsets be an $F_\sigma$ set, and these are precisely the defining properties of a perfectly normal space.
+Lebesgue established the implication (2)$\Rightarrow$(1) for real-valued functions of finitely many real variables~\cite{Lebesgue:1904}, and Hausdorff extended it to real-valued functions on metric spaces~\cite[Theorem~24.10]{kechris1995cdst}.
+The implication (1)$\Rightarrow$(3) holds whenever $X$ is Polish: if $f$ satisfies~(1) and $F$ is a nonempty closed subset of~$X$, then the restriction $f|_F$ is of Baire class~1, so its set of points of discontinuity is meager in~$F$, as noted before Fact~\ref{baire}; being closed in a Polish space, $F$ is itself a Polish space and therefore a Baire space, so the set of points of discontinuity of $f|_F$ is not all of~$F$, and $f|_F$ has a point of continuity.
+The reverse implication, (3)$\Rightarrow$(1), is due to Baire, who proved it in his thesis for real-valued functions of real variables~\cite{Baire:1899}; for Polish spaces, see~\cite[Theorem~24.15]{kechris1995cdst}.
+The final assertion of Fact~\ref{baire} follows from the implication (3)$\Rightarrow$(1) and the Baire Category Theorem.}
 
 \subsection{From Rosenthal’s dichotomy to the Bourgain--Fremlin--Talagrand dichotomy to Shelah’s NIP}
 
@@ -1362,6 +1371,8 @@ of finite intersections of sets $P^{-1}(U)$, with $P\in\mathcal{P}$ and
 $U\subseteq\mathbb{R}$ open; by Fact~\ref{baire}, the preimage of every open
 set under $p$ is then an $F_\sigma$ set, and so is the preimage of every open
 set under $f\circ p$, which is therefore of Baire class~$1$, again by Fact~\ref{baire}.
+In general, this definition is less restrictive than the one adopted in Section~\ref{sec:prelim}, according to which a map from~$L$ to~$L$ is of Baire class~$1$ when it is the pointwise limit of a sequence of continuous maps from~$L$ to~$L$ (for example, if $L=[0,1]\cup\{2\}\subseteq\mathbb{R}$, the map that sends $[0,1/2]$ to~$0$ and the rest of~$L$ to~$2$ is of Baire class~$1$ in the sense just defined, but it is not the pointwise limit of a sequence of continuous maps from~$L$ to~$L$, because each such map sends the connected set $[0,1]$ either into $[0,1]$ or to the point~$2$).
+For the deep computations of a dynamical CCS, however, the two definitions agree: if every deep computation is of Baire class~$1$ in the sense just defined, then the CCS is $\NIP$, as we show in Proposition~\ref{prop:cascade-tame} below, and the last assertion of Theorem~\ref{thm:nip-baire1def}, applied to the single sizer~$r_\bullet$ with $L=L[r_\bullet]$, shows that every deep computation is the pointwise limit of a sequence of computations, which are continuous maps from~$L$ to~$L$.
 
 \begin{prop}\label{prop:cascade-tame}
 A dynamical CCS is $\NIP$ if and only if the dynamical system $(L,\Gamma)$ is
