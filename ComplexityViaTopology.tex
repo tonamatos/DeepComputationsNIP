@@ -111,6 +111,7 @@ Todorčević's trichotomy, Argyros--Dodos--Kanellopoulos heptachotomy, Bourgain-
 tame dynamical systems, infinite Ramsey theory}
 
 \begin{document}
+\setlength{\emergencystretch}{1.5em}% avoids overfull lines without changing wording
 
 \maketitle
 
@@ -157,7 +158,7 @@ A formula has the independence property when, for every natural number~$n$, ther
 a theory none of whose formulas has the independence property is called \emph{NIP}, or \emph{dependent}.
 The same dividing line appeared independently, within a few years, in two other fields, as a dichotomy between polynomial and exponential growth:
 a family of sets either shatters arbitrarily large finite sets, in the sense that it cuts out all their subsets, or leaves on every finite set a number of traces (intersections with members of the family) bounded by a polynomial in the size of the set.
-In statistical learning, Vapnik and Chervonenkis announced this dichotomy in 1968 and published its proof in 1971~\cite{Vapnik-Chervonenkis:1971}, in their study of the uniform convergence of relative frequencies to probabilities;
+In statistical learning, Vapnik and Chervonenkis announced this dichotomy in 1968~\cite{Vapnik-Chervonenkis:1968} and published its proof in 1971~\cite{Vapnik-Chervonenkis:1971}, in their study of the uniform convergence of relative frequencies to probabilities;
 in combinatorics, Sauer~\cite{Sauer:1972} and Shelah~\cite{Shelah:1972} proved it in 1972, and it is now known as the Sauer--Shelah lemma.
 The largest size of a finite set shattered by a family is called the \emph{Vapnik--Chervonenkis dimension} of the family.
 
@@ -167,7 +168,7 @@ At the core of the proof of the $\ell_1$-theorem is a dichotomy for bounded sequ
 Bourgain, Fremlin and Talagrand~\cite{BFT_1978_PCompactBaire} passed in 1978 from sequences to sets, and from convergence to the first Baire class, which consists of the pointwise limits of sequences of continuous functions.
 They characterized, by a condition of the same kind, the pointwise bounded sets of continuous functions on a Polish space, that is, on a separable and completely metrizable space, whose pointwise closures consist of functions of the first Baire class (see Theorem~\ref{thm:BFT});
 on a compact metrizable space, their condition is exactly the absence of the independence property for the set of functions (see Theorem~\ref{thm:BFT2}).
-Compact sets of functions of the first Baire class on Polish spaces, with the topology of pointwise convergence, were named \emph{Rosenthal compacta} by Godefroy~\cite{Godefroy:1980}, and they have since been studied intensively in functional analysis, especially in the theory of Banach spaces.
+Compact sets of functions of the first Baire class on Polish spaces, with the topology of pointwise convergence, were investigated by Rosenthal in 1977~\cite{Rosenthal:1977} and named \emph{Rosenthal compacta} after him by Godefroy in 1980~\cite{Godefroy:1980}, and they have since been studied intensively in functional analysis, especially in the theory of Banach spaces.
 
 The classification of Rosenthal compacta took a decisive form in 1999, when Todorčević~\cite{Todorcevic_1999_CompactSubsetsBaire} proved his trichotomy: every separable Rosenthal compactum that is not metrizable contains a copy of one of a few canonical compacta, and which of them occur depends on whether the compactum is hereditarily separable, first countable but not hereditarily separable, or not first countable (see Theorem~\ref{thm:Todorcevic-trichotomy}).
 Todorčević’s proof relies on set-theoretic forcing and infinite Ramsey theory, and his methods continue to be analyzed and exploited~\cite{Todorcevic:2023,horowitz2019compactsetsbaireclass}.
@@ -448,7 +449,7 @@ We return to it in Section~\ref{sec:NIP-poly-exp}, where it appears together wit
 
 The Bourgain--Fremlin--Talagrand dichotomy leads to the Rosenthal compacta, the compact spaces within which the deep computations of this paper are classified, and we recall them here.
 By Theorem~\ref{thm:BFT}, if a pointwise bounded set of continuous functions on a Polish space has BFT-NIP, then its pointwise closure is a compact set of functions of the first Baire class.
-Compact sets of this kind had appeared in Rosenthal's work on the $\ell_1$-theorem, and Godefroy~\cite{Godefroy:1980} named them after him in the following definition.
+Compact sets of this kind had appeared in Rosenthal's work on the $\ell_1$-theorem, and he made them the subject of a study of their own in 1977~\cite{Rosenthal:1977}; Godefroy~\cite{Godefroy:1980} named them after him in the following definition.
 
 \begin{defn}
   \label{def:Rosenthal-compacta}
@@ -521,7 +522,7 @@ for $A\subseteq(\mathbb{R}^{\mathcal{P}})^X$ and $P\in\mathcal{P}$, we write $\p
 The following theorem extends Theorem~\ref{thm:BFT2} to $\mathbb{R}^{\mathcal{P}}$-valued functions.
 
 \begin{thm}\label{thm:Generalized-BFT}
-  Assume that $\mathcal{P}$ is countable, $X$ is a Polish space, and $A\subseteq \Cp(X,\mathbb{R}^\mathcal{P})$ is pointwise bounded in the sense that the set $\pi_P\circ A\subseteq\Cp(X)$ is pointwise bounded for every $P\in\mathcal{P}$.
+  Assume that $\mathcal{P}$ is countable, $X$ is a Polish space, and $A\subseteq\allowbreak \Cp(X,\mathbb{R}^\mathcal{P})$ is pointwise bounded in the sense that the set $\pi_P\circ A\subseteq\Cp(X)$ is pointwise bounded for every $P\in\mathcal{P}$.
   The following are equivalent for every compact $K\subseteq X$:
 
   \begin{enumerate}[(i)]
@@ -568,6 +569,10 @@ The set of finite binary words is denoted $2^{<\mathbb{N}}$, the length of a wor
 Two words are \emph{comparable} if one extends the other, and an \emph{antichain} is a set of pairwise incomparable words.
 For a finite word $t\in2^{<\mathbb{N}}$, let $t^\frown0^\infty$ and $t^\frown1^\infty$ be the sequences that begin with $t$ and continue with all $0$’s and with all $1$’s, respectively;
 the set of sequences extending $t$ is the clopen interval $[t^\frown0^\infty,t^\frown1^\infty]$.
+Copies of the binary tree within itself index the dense subset of the last of the five compacta below, and the families of Section~\ref{sec:heptachotomy} are compared along them:
+a \emph{dyadic subtree} of $2^{<\mathbb{N}}$ is a subset isomorphic to $2^{<\mathbb{N}}$ under the order of extension;
+we write it as $\{w_t:t\in2^{<\mathbb{N}}\}$, indexed through the canonical isomorphism, which preserves extension and the lexicographic order, and we call it \emph{regular} if each of its levels is contained in a level of~$2^{<\mathbb{N}}$.
+A sequence $(u_k)$ of words \emph{converges} to $a\in2^{\mathbb{N}}$ if, for every $n\in\mathbb{N}$, all but finitely many of the words $u_k$ extend $a\restr n$.
 
 For a statement~$S$, we write $\Brack{S}$ for its truth value:
 $1$ if $S$ is true and $0$ if it is false.
@@ -610,15 +615,19 @@ All closures below are taken in the topology of pointwise convergence.
   Consequently, the Alexandroff duplicate is first countable but not separable;
   it is contained in the separable compactum $\hat{D}(2^{\mathbb{N}})=\overline{\{(v_t,t^\frown0^\infty):t\in2^{<\mathbb{N}}\}}=D(2^{\mathbb{N}})\cup\{(v_t,t^\frown0^\infty):t\in2^{<\mathbb{N}}\}$.
 \item
-  The \emph{extended duplicate of the split Cantor set}
+  The \emph{extended duplicate of the split Cantor set}, which we define, as Argyros, Dodos and Kanellopoulos do~\cite[4.3.7]{argyros2008rosenthal}, along a regular dyadic subtree $\{s_t:t\in2^{<\mathbb{N}}\}$ of $2^{<\mathbb{N}}$, fixed once and for all, such that $s_t^\frown0^\infty\neq s_{t'}^\frown0^\infty$ and $s_t^\frown1^\infty\neq s_{t'}^\frown1^\infty$ for all distinct $t,t'\in2^{<\mathbb{N}}$:
   \[
-    \hat{D}(S(2^{\mathbb{N}}))=\overline{\{(v_t,\chi_{[t^\frown0^\infty})\}_{t}}\subseteq\hat{A}(2^{\mathbb{N}})\times S(2^{\mathbb{N}}),
+    \hat{D}(S(2^{\mathbb{N}}))=\overline{\{(v_{s_t},\chi_{[s_t^\frown0^\infty}):t\in2^{<\mathbb{N}}\}}\subseteq\hat{A}(2^{\mathbb{N}})\times S(2^{\mathbb{N}}).
   \]
-  which consists of the points $(v_t,\chi_{[t^\frown0^\infty})$
-  and, for $a\in2^{\mathbb{N}}$, the points $(\delta_a,\chi_{[a})$, $(\mathbf{0},\chi_{[a})$ and $(\mathbf{0},\chi_{(a})$ \cite[4.3.7]{argyros2008rosenthal}.
-  Since the sequences $(a\restr n)^\frown0^\infty$ increase to~$a$, the points $(v_{a\restr n},\chi_{[(a\restr n)^\frown0^\infty})$ converge to $(\delta_a,\chi_{[a})$ as $n\to\infty$.
-  The extended duplicate of the split Cantor set is therefore separable and first countable;
-  since the points $(\delta_a,\chi_{[a})$ form an uncountable discrete subspace, it is not hereditarily separable.
+  Call a sequence $a\in2^{\mathbb{N}}$ a \emph{branch} of the subtree if each of its initial segments $a\restr n$ is extended by some word~$s_t$;
+  the branches form a perfect subset of~$2^{\mathbb{N}}$.
+  The compactum $\hat{D}(S(2^{\mathbb{N}}))$ consists of the isolated points $(v_{s_t},\chi_{[s_t^\frown0^\infty})$ and, for each branch~$a$, of the point $(\delta_a,\chi_{[a})$, of the point $(\mathbf{0},\chi_{[a})$ if some sequence $(u_k)$ of pairwise incomparable words of the subtree converges to~$a$ with $u_k^\frown0^\infty$ increasing in~$k$, and of the point $(\mathbf{0},\chi_{(a})$ if some such sequence converges to~$a$ with $u_k^\frown0^\infty$ decreasing in~$k$~\cite[4.3.7]{argyros2008rosenthal}.
+  The points $(\delta_a,\chi_{[a})$ are reached along the branches:
+  if $a$ is a branch and $u_1,u_2,\dots$ are the words of the subtree that are initial segments of~$a$, listed by increasing length, then the sequences $u_k^\frown0^\infty$ increase strictly to~$a$, and the points $(v_{u_k},\chi_{[u_k^\frown0^\infty})$ converge to $(\delta_a,\chi_{[a})$ as $k\to\infty$.
+  As the closure of a countable set, the extended duplicate of the split Cantor set is separable;
+  it is also first countable, since it embeds into the Helly space of nondecreasing functions from $[0,1]$ into itself, which is first countable~\cite[4.3.7]{argyros2008rosenthal}.
+  Since $(\delta_a,\chi_{[a})$ is the only point $(\delta_b,\chi_{[b})$, with $b$ a branch, whose first coordinate takes the value~$1$ at~$a$, these points form a discrete subspace, which has the cardinality of the continuum because the branches form a perfect set;
+  hence the extended duplicate of the split Cantor set is not hereditarily separable.
 \end{enumerate}
 
 The constructions of the Alexandroff compactification and of the Alexandroff duplicate make sense with $2^{\mathbb{N}}$ replaced by any compact metric space~$K$;
@@ -631,10 +640,10 @@ for instance, $A([0,1])$ is homeomorphic to~$A(2^{\mathbb{N}})$.
 
 We now trace the NIP of Definition~\ref{def:NIP-fns} to its counterparts in model theory, combinatorics and statistical learning, and make precise how it is related to them;
 the relation is used in Section~\ref{sec:iterative}, where a bound on a Vapnik--Chervonenkis dimension yields the NIP of Bresenham’s algorithm.
-For families of $\{0,1\}$-valued functions, that is, of sets, a combinatorial dividing line closely related to the NIP appeared in 1971--1972, some years before Theorem~\ref{thm:BFT}, independently and almost simultaneously in three fields:
+For families of $\{0,1\}$-valued functions, that is, of sets, a combinatorial dividing line closely related to the NIP appeared independently in three fields between 1968 and 1972, some years before Theorem~\ref{thm:BFT}:
 in model theory, in the work of Saharon Shelah~\cite{Shelah:1971,Shelah:1990};
 in combinatorics, in the work of Norbert Sauer~\cite{Sauer:1972} and, again, of Shelah~\cite{Shelah:1972,Shelah:1990};
-and in statistical learning, in the work of Vladimir Vapnik and Alexey Chervonenkis~\cite{Vapnik-Chervonenkis:1971,Vapnik-Chervonenkis:1974}.
+and in statistical learning, in the work of Vladimir Vapnik and Alexey Chervonenkis~\cite{Vapnik-Chervonenkis:1968,Vapnik-Chervonenkis:1971,Vapnik-Chervonenkis:1974}.
 In each of them, the line separates the “tame” families of sets, whose number of traces on an $n$-element set (the intersections of the members of the family with the set) is bounded by a polynomial in~$n$, from the “wild” ones, for which, for every $n\in\mathbb{N}$, some $n$-element set has all $2^n$ possible traces.
 
 \begin{description}
@@ -674,8 +683,7 @@ In each of them, the line separates the “tame” families of sets, whose numbe
   \end{equation*}
 
 \item[In machine learning]
-  The Sauer--Shelah lemma is also the dichotomy that Vapnik and Chervonenkis~\cite{Vapnik-Chervonenkis:1971, Vapnik-Chervonenkis:1974}
-  had discovered and proved slightly earlier, in 1971, in their study of uniform convergence in statistics.
+  The Sauer--Shelah lemma is also the dichotomy that Vapnik and Chervonenkis, in their study of uniform convergence in statistics, had announced in 1968~\cite{Vapnik-Chervonenkis:1968} and whose proof they published in 1971~\cite{Vapnik-Chervonenkis:1971}, a year before the papers of Sauer and Shelah (see also~\cite{Vapnik-Chervonenkis:1974}).
   The largest size of a set $A\subseteq S$ with $2^{|A|}$ traces $S_i\cap A$, that is, the integer $N-1$ for the least integer $N$ as in the Sauer--Shelah lemma, is called the \emph{VC dimension} of $\mathscr{F}$;
   if no such integer $N$ exists, the VC dimension of $\mathscr{F}$ is infinite.
   Through the uniform convergence theorem of Vapnik and Chervonenkis, the lemma bounds the number of data points (the sample size) needed to “learn” a concept class~$\mathscr{F}$ of finite VC dimension in a statistical sense, that is, up to a preset error and with a preset confidence.
@@ -1100,11 +1108,11 @@ whether the three levels admit a finitary, combinatorial characterization, like 
 \subsection{The Argyros--Dodos--Kanellopoulos heptachotomy and binary search}
 \label{sec:heptachotomy}
 
+{\tolerance=2000 % local: avoids an overfull line after the run-in heading
 For families of computations indexed by the binary tree, the heptachotomy of Argyros, Dodos and Kanellopoulos describes their closures more finely than Todorčević’s trichotomy, which concerns arbitrary countable sets of computations, and we refine the classification accordingly, reading the minimal families of the heptachotomy as primitives of binary search.
 The countable dense subsets exhibited in the separable compacta of Section~\ref{sec:five-compacta} are indexed by the binary tree $2^{<\mathbb{N}}$, and this indexing suits our computational emphasis:
 real numbers are represented by infinite binary sequences, which are the branches of the binary tree, and approximated by finite bitstrings, which are its nodes.
-A \emph{dyadic subtree} of $2^{<\mathbb{N}}$ is a subset that is isomorphic to $2^{<\mathbb{N}}$ under the order of extension;
-we write it as $\{s_t:t\in2^{<\mathbb{N}}\}$, indexed through the canonical isomorphism, which preserves extension and the lexicographic order.
+Recall from Section~\ref{sec:five-compacta} that a dyadic subtree of $2^{<\mathbb{N}}$ is written $\{w_t:t\in2^{<\mathbb{N}}\}$, indexed through the canonical isomorphism, which preserves extension and the lexicographic order.\par}
 
 \begin{defn}
   Let $X$ be a Polish space.
@@ -1113,14 +1121,12 @@ we write it as $\{s_t:t\in2^{<\mathbb{N}}\}$, indexed through the canonical isom
   \item
     If $I$ is countable and $\{f_i:i\in I\}\subseteq\mathbb{R}^X$, $\{g_i:i\in I\}\subseteq\mathbb{R}^X$ are two families indexed by $I$, we say that they are \emph{equivalent} if the map $f_i\mapsto g_i$ extends to a homeomorphism from $\overline{\{f_i:i\in I\}}$ to $\overline{\{g_i:i\in I\}}$.
   \item
-    If $\{f_t:t\in 2^{<\mathbb{N}}\}$ is a pointwise bounded family, we say that it is \emph{minimal} if, for every dyadic subtree $\{s_t:t\in 2^{<\mathbb{N}}\}$ of $2^{<\mathbb{N}}$, the family $\{f_{s_t}:t\in 2^{<\mathbb{N}}\}$ is equivalent to $\{f_t:t\in 2^{<\mathbb{N}}\}$.
+    If $\{f_t:t\in 2^{<\mathbb{N}}\}$ is a pointwise bounded family, we say that it is \emph{minimal} if, for every dyadic subtree $\{w_t:t\in 2^{<\mathbb{N}}\}$ of $2^{<\mathbb{N}}$, the family $\{f_{w_t}:t\in 2^{<\mathbb{N}}\}$ is equivalent to $\{f_t:t\in 2^{<\mathbb{N}}\}$.
   \end{enumerate}
 \end{defn}
 
 Argyros, Dodos and Kanellopoulos proved that, up to equivalence, there are exactly seven minimal families $\{f_t:t\in 2^{<\mathbb{N}}\}$ that are relatively compact in~$\mathrm{B}_1(X)$, and that every relatively compact family $\{f_t:t\in 2^{<\mathbb{N}}\}\subseteq \mathrm{B}_1(X)$ contains, along a dyadic subtree, a family equivalent to one of them (see Theorem~\ref{thm:heptachotomy} below).
-We describe the seven minimal families next, in the notation of Argyros, Dodos and Kanellopoulos.
-A dyadic subtree is \emph{regular} if each of its levels is contained in a level of $2^{<\mathbb{N}}$.
-Fix a regular dyadic subtree $T=\{s_t:t\in 2^{<\mathbb{N}}\}$ of $2^{<\mathbb{N}}$ such that $s^\frown 0^{\infty}\neq s'^\frown 0^\infty$ and $s^\frown 1^{\infty}\neq s'^\frown 1^\infty$ for all distinct $s,s'\in T$.
+We describe the seven minimal families next, in the notation of Argyros, Dodos and Kanellopoulos, along the regular dyadic subtree $\{s_t:t\in 2^{<\mathbb{N}}\}$ fixed in Section~\ref{sec:five-compacta} for the definition of the extended duplicate of the split Cantor set, for which $s_t^\frown 0^{\infty}\neq s_{t'}^\frown 0^\infty$ and $s_t^\frown 1^{\infty}\neq s_{t'}^\frown 1^\infty$ whenever $t\neq t'$.
 The families are built from the prefix tests $v_t$ and the threshold tests $\chi_{[a}$, $\chi_{(a}$ of Section~\ref{sec:five-compacta}.
 As in~\cite{argyros2008rosenthal}, a point $\sigma\in2^{\mathbb{N}}$, identified with a point of the Cantor set in~$[0,1]$, is regarded as the constant function on~$2^{\mathbb{N}}$ with value~$\sigma$, and a pair $(f,g)$ of functions on $2^{\mathbb{N}}$ is regarded as a single function on the disjoint union $2^{\mathbb{N}}\sqcup2^{\mathbb{N}}$.
 
@@ -1140,14 +1146,14 @@ As in~\cite{argyros2008rosenthal}, a point $\sigma\in2^{\mathbb{N}}$, identified
 \item
   $D_6=\{(v_t,t^\frown 0^\infty):t\in 2^{<\mathbb{N}}\}$, a discrete subset of its closure $\overline{D_6}=\hat{D}(2^{\mathbb{N}})$.
 \item
-  $D_7=\{(v_{s_t},\chi_{[s_t^\frown 0^\infty}):t\in 2^{<\mathbb{N}}\}$, a discrete subset of its closure $\overline{D_7}$, a closed subspace of~$\hat{D}(S(2^{\mathbb{N}}))$.
+  $D_7=\{(v_{s_t},\chi_{[s_t^\frown 0^\infty}):t\in 2^{<\mathbb{N}}\}$, a discrete subset of its closure $\overline{D_7}=\hat{D}(S(2^{\mathbb{N}}))$.
 \end{enumerate}
 
 \begin{thm}[Heptachotomy of minimal families {\cite[Theorem~2]{argyros2008rosenthal}}]
   \label{thm:heptachotomy}
   Let $X$ be a Polish space.
-  For every relatively compact family $\{f_{t}:t\in 2^{<\mathbb{N}}\}\subseteq \mathrm{B}_1(X)$, there exist $i\in\{1,2,\dots,7\}$ and a regular dyadic subtree $\{s_t:t\in 2^{<\mathbb{N}}\}$ of $2^{<\mathbb{N}}$
-  such that $\{f_{s_t}:t\in 2^{<\mathbb{N}}\}$ is equivalent to $D_i$.
+  For every relatively compact family $\{f_{t}:t\in 2^{<\mathbb{N}}\}\subseteq \mathrm{B}_1(X)$, there exist $i\in\{1,2,\dots,7\}$ and a regular dyadic subtree $\{w_t:t\in 2^{<\mathbb{N}}\}$ of $2^{<\mathbb{N}}$
+  such that $\{f_{w_t}:t\in 2^{<\mathbb{N}}\}$ is equivalent to $D_i$.
   Moreover, the families $D_i$ are minimal and pairwise non-equivalent.
 \end{thm}
 
@@ -1168,8 +1174,8 @@ In Table~\ref{tab:hepta-search} we read the seven families accordingly.
     \hline
     $D_1$  & prefix test weighted by $1/(|t|+1)$         & the test that never succeeds: confidence vanishes with depth \\
     $D_2$  & return the rounded value $t^\frown0^\infty$ & the exact input: successive approximation                    \\
-    $D_3$  & compare with the left endpoint              & comparison with an arbitrary real, ties broken upward        \\
-    $D_4$  & compare with the right endpoint             & comparison with an arbitrary real, ties broken downward      \\
+    $D_3$  & compare with the left endpoint              & comparison with a limit of left endpoints, with ties broken upward and, at limits approached from above, also downward\\
+    $D_4$  & compare with the right endpoint             & comparison with a limit of right endpoints, with ties broken downward and, at limits approached from below, also upward\\
     $D_5$  & prefix test                                 & exact equality, or no match                                  \\
     $D_6$  & prefix test and rounded value               & a dictionary lookup that returns its key                     \\
     $D_7$  & prefix test and comparison                  & a three-way comparison: below, inside or above               \\
@@ -2090,7 +2096,7 @@ The following theorem, valid on every Hausdorff space, characterizes the NIP in 
   \item
     For every compact $K\subseteq X$, $A|_K$ satisfies the NIP.
   \item
-    For every Radon measure $\mu$ on $X$, $A$ is relatively countably compact in $\mathscr{M}^0(X,\mu)$, i.e., every countable subset of $A$ has a limit point in $\mathscr{M}^0(X,\mu)$.
+    For every Radon measure $\mu$ on $X$, $A$ is relatively countably compact in~$\mathscr{M}^0(X,\mu)$, i.e., every countable subset of $A$ has a limit point in $\mathscr{M}^0(X,\mu)$.
   \end{enumerate}
 \end{thm}
 
