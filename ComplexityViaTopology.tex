@@ -104,7 +104,7 @@ Franklin D. Tall$^{2}$
 
 \date{\today}
 \subjclass[2020]{Primary 68Q15, 03C45, 54H30; Secondary 03C98, 03D15, 05D10, 26A21, 37B05, 54C35, 68T07}
-\keywords{Deep computations, limit computations, complexity classes, deep learning, recurrent neural networks, deep equilibrium models, compositional computation structures, independence property, NIP, model theory, Rosenthal compacta, Baire class~1 functions, Todorčević trichotomy, Argyros--Dodos--Kanellopoulos heptachotomy, Bourgain--Fremlin--Talagrand theorem, tame dynamical systems, infinite Ramsey theory}
+\keywords{Deep computations, limit computations, complexity classes, deep learning, recurrent neural networks, deep equilibrium models, compositional computation structures, independence property, NIP, model theory, Rosenthal compacta, Baire class~1 functions, Todorčević's trichotomy, Argyros--Dodos--Kanellopoulos heptachotomy, Bourgain--Fremlin--Talagrand theorem, tame dynamical systems, infinite Ramsey theory}
 
 \begin{document}
 
@@ -118,7 +118,7 @@ $^{2}$Department of Mathematics, University of Toronto\\
 \begin{abstract}
 We use topological methods and a suitable framework to study the complexity of limit computations (such as the “deep computations” arising in recurrent neural networks).
 By using topology of function spaces —specifically, the classification of Rosenthal compacta— we identify new computational complexity classes.
-These classes form a strict hierarchy, each level of which is realized by classical computations such as the power method and Bresenham’s line algorithm, while Newton’s method on the Riemann sphere lies outside it; for iterative algorithms, the hierarchy coincides with a hierarchy of tame dynamical systems.
+These classes form a strict hierarchy, each level of which is realized by classical computations such as the power method, Bresenham’s line algorithm and the Euclidean algorithm, while Newton’s method on the Riemann sphere lies outside it; for iterative algorithms, the hierarchy coincides with a hierarchy of tame dynamical systems.
 The language of model theory, particularly, the concept of \emph{independence} from Shelah’s classification theory, provides a medium to translate between topology and computation.
 Rosenthal compacta, and their measure-theoretic counterpart, give conditions for deep computations to be approximable, deterministically and probabilistically.
 \end{abstract}
@@ -168,16 +168,17 @@ Using Todorčević’s trichotomy, we then define three levels of tameness (Defi
 \text{stable}\Rightarrow\NIP_3\Rightarrow\NIP_2\Rightarrow\NIP_1\Rightarrow\NIP,
 \]
 in which every implication is strict.
-Section~\ref{sec:iterative} realizes each level by a classical algorithm: a rotation is stable; the power method is $\NIP_3$ but not stable; Bresenham’s line algorithm in the plane is $\NIP_2$ but not $\NIP_3$, and in space $\NIP_1$ but not $\NIP_2$; tolerance tests, whose deep computations are exact equality tests, are $\NIP$ but not $\NIP_1$; and Newton’s method on the Riemann sphere is not $\NIP$.
+Section~\ref{sec:iterative} realizes each level by a classical algorithm: a rotation is stable; the power method is $\NIP_3$ but not stable; Bresenham’s line algorithm in the plane is $\NIP_2$ but not $\NIP_3$, and in space $\NIP_1$ but not $\NIP_2$; the Euclidean algorithm, acting on the projective line by the group that its steps generate, is $\NIP$ but not $\NIP_1$, and its deep computations include exact equality tests; and Newton’s method on the Riemann sphere is not $\NIP$.
+At the level $\NIP$ but not $\NIP_1$ the computations form a group with two generators; whether a single iterated map can reach this level is an open question, closely related to a question of Glasner and Megrelishvili (Question~\ref{q:cascade-NIP1}).
 For iterative algorithms the hierarchy coincides with the hierarchy of tame dynamical systems of Glasner and Megrelishvili~\cite{glasner2022tame}.
 The heptachotomy of Argyros, Dodos and Kanellopoulos then shows that every tame family of computations indexed by the binary tree contains, along a dyadic subtree, one of seven minimal families, which we read as primitives of binary search (Section~\ref{sec:heptachotomy}).
 Finally, Theorem~\ref{thm:NIP-Monte-Carlo} and Corollary~\ref{cor:Talagrand-stab-Monte-Carlo} relate $\NIP$ and Talagrand stability to Monte Carlo computability of deep computations.
 
 \subsection*{Organization of the paper}
 In Section~\ref{sec:prelim}, we present the topological and combinatorial preliminaries, including five canonical Rosenthal compacta (Section~\ref{sec:five-compacta}) and the role of $\NIP$ in model theory, combinatorics and learning (Section~\ref{sec:NIP-poly-exp}).
-In Section~\ref{sec:CCS}, we introduce compositional computation structures, the structural and model-theoretic viewpoint (no previous exposure to model theory is needed), together with stability and the register construction; the section ends with two motivating examples, Newton’s method for square roots and Newton’s method on the Riemann sphere, whose different behaviors the classification is designed to separate (Section~\ref{sec:preview}).
+In Section~\ref{sec:CCS}, we introduce compositional computation structures, the structural and model-theoretic viewpoint (no previous exposure to model theory is needed), together with stability; the section ends with two motivating examples, Newton’s method for square roots and Newton’s method on the Riemann sphere, whose different behaviors the classification is designed to separate (Section~\ref{sec:preview}).
 Section~\ref{sec:Classification} is devoted to the classification of deep computations; it contains the main theorems.
-Section~\ref{sec:examples} works out Newton’s method, threshold classifiers and prefix tests in detail, and Section~\ref{sec:iterative} places examples at every level of the hierarchy, including classical iterative algorithms.
+Section~\ref{sec:examples} works out Newton’s method in detail, and Section~\ref{sec:iterative} places classical algorithms at every level of the hierarchy and beyond it.
 Section~\ref{sec:measure-theoretic-NIP} replaces topological limits by a probabilistic viewpoint, which we intend to develop further in future research.
 Section~\ref{sec:open-questions} collects open questions.
 
@@ -253,7 +254,7 @@ For a proof, see~\cite[Section 10]{Todorcevic_1997_TopicsTop}.
     \]
 \end{fact}
 
-\subsection{From Rosenthal’s dichotomy to the Bourgain-Fremlin-Talagrand dichotomy to Shelah’s NIP}
+\subsection{From Rosenthal’s dichotomy to the Bourgain--Fremlin--Talagrand dichotomy to Shelah’s NIP}
 
 In metrizable spaces, the closure of a subset consists of limits of convergent sequences therein.
 In general, such a characterization of the closure fails in remarkable ways.
@@ -262,7 +263,7 @@ The $n$-th coordinate map $p_n: 2^{\mathbb{N}}\to\{0,1\}$ on the Cantor space $X
 however,  $(p_n)_{n\in\mathbb{N}}$ has \emph{no} convergent subsequences in $\mathbb{R}^X$ (\cite[Chapter~1.1]{Todorcevic_1997_TopicsTop}).
 In a sense, this example exhibits the worst failure of sequential convergence possible:
 The closure of $\{p_n\}$ in $\{0, 1\}^X$ (or in $\mathbb{R}^X$ for that matter)
-is homeomorphic to the Stone-Čech compactification $\beta\mathbb{N}$ of the (discrete) space of natural numbers.
+is homeomorphic to the Stone--Čech compactification $\beta\mathbb{N}$ of the (discrete) space of natural numbers.
 The space $\beta \mathbb{N}$ has cardinality $2^{2^{\omega}}$ (largest among all separable topological spaces) and, effectively, is the set of ultrafilters on~$\mathbb{N}$.%
 \footnote{\label{fn:id-ufilters}Our earlier proof~\cite{alva2024approximability} of the existence of deep equilibria in compositional computation structures relies on a classical result on the existence of idempotent elements of~$\beta \mathbb{N}$.}
 
@@ -294,7 +295,7 @@ For any set $A\subseteq \mathbb{R}^X$ and any real $a$, define (by a slight abus
 (In case $A=\emptyset$, we define $X^\emptyset_{\ge a} = X = X^\emptyset_{\le a}$.)
 For any sequence $\{f_n\}\subseteq \mathbb{R}^X$ and $I\subseteq \mathbb{N}$, define $I^{\complement} \coloneqq \mathbb{N}\setminus I$ and $f_I \coloneqq \{f_i: i\in I\}$.
 
-\begin{thm}[``The BFT Dichotomy''. Bourgain-Fremlin-Talagrand {\cite{BFT_1978_PCompactBaire}}]
+\begin{thm}[``The BFT Dichotomy''. Bourgain--Fremlin--Talagrand {\cite{BFT_1978_PCompactBaire}}]
 \label{thm:BFT}
     Let $X$ be a Polish space and $A\subseteq \Cp(X)$ be pointwise bounded.
 The following are equivalent:
@@ -434,7 +435,7 @@ The following are equivalent for every compact $K\subseteq X$:
     \end{enumerate}
 \end{thm}
 \begin{proof}
-  By Proposition~\ref{prop:Baire-identifications} and Tychonoff's theorem, (i) holds if and only if $\pi_P\circ A|_K$ is relatively compact in $\mathrm{B}_1(K)$ for every $P\in\mathcal{P}$.
+  By Proposition~\ref{prop:Baire-identifications} and Tychonov's theorem, (i) holds if and only if $\pi_P\circ A|_K$ is relatively compact in $\mathrm{B}_1(K)$ for every $P\in\mathcal{P}$.
   Since $K$ is compact metrizable, Theorem~\ref{thm:BFT2} shows that this is equivalent to~(ii).
 \end{proof}
 
@@ -458,10 +459,11 @@ The following are equivalent for every $L\subseteq X$:
 
 \subsection{Five canonical Rosenthal compacta}
 \label{sec:five-compacta}
-Five Rosenthal compacta, all built on the Cantor set, recur throughout the
-paper: they are the canonical members of the classes in Todorčević's
-trichotomy (Theorem~\ref{thm:Todorcevic-trichotomy}), and the deep
-computations of our examples are copies of them.
+Five Rosenthal compacta, all built on the Cantor set, are the canonical
+members of the classes in Todorčević's trichotomy
+(Theorem~\ref{thm:Todorcevic-trichotomy}).
+By the trichotomy, the space of deep computations of each non-metrizable
+$\NIP$ example of Section~\ref{sec:iterative} contains a copy of one of them.
 We fix their notation here.
 Recall that a topological space is \emph{separable} if it has a countable dense
 subset, \emph{hereditarily separable} if every subspace is separable, and
@@ -586,7 +588,7 @@ indeed, for fixed $N>0$, as a function of the size $|A| = m > 0$, we have
 which is polynomial in $m$ for fixed~$N$.
 
  \item[In machine learning]
-Readers familiar with statistical learning may recognize the Sauer-Shelah lemma as the dichotomy discovered and proved slightly earlier (1971) by Vapnik and Chervonenkis~\cite{Vapnik-Chervonenkis:1971, Vapnik-Chervonenkis:1974} to address uniform convergence in statistics.
+Readers familiar with statistical learning may recognize the Sauer--Shelah lemma as the dichotomy discovered and proved slightly earlier (1971) by Vapnik and Chervonenkis~\cite{Vapnik-Chervonenkis:1971, Vapnik-Chervonenkis:1974} to address uniform convergence in statistics.
 The least integer $N$ given by the preceding paragraph, when it exists, is called the \emph{VC-dimension} of $\mathscr{F}$;
 it is a core concept in machine learning.
 If such an integer $N$ does not exist, we say that the VC-dimension of $\mathscr{F}$ is infinite.
@@ -783,8 +785,8 @@ The following lemma extends deep computations to the type shards; it is used in 
   If $\rb\in R$, each $\tilde\gamma_i$ maps $L[\rb]$ into itself, hence, by continuity, its closure $\mathcal{L}[\rb]$ into itself; so does $\tilde f$, and $\tilde f|_{\mathcal{L}[\rb]}=\mathcal{U}\lim_i\tilde\gamma_i|_{\mathcal{L}[\rb]}$.
 \end{proof}
 
-\subsection{Stability and register computations}
-\label{sec:stable-register}
+\subsection{Stability}
+\label{sec:stable}
 The computable maps are the continuous ones.
 At the top of the hierarchy of this paper sit the sets of computations all of
 whose deep computations are computable.
@@ -798,45 +800,6 @@ is continuous, that is, computable.
 This is the class studied in~\cite{alva2024approximability}, where it is
 characterized by Grothendieck's double limit criterion and identified with
 stability in the sense of model theory.
-
-Many computations of interest are tests: they compute a value from the input
-and store it, without changing the input.
-The following construction turns any family of such tests into a CCS.
-
-\begin{defn}\label{def:register}
-Let $X$ be a compact metrizable space with a countable family $\mathcal{P}_X$ of
-continuous predicates that separates its points, and let $F$ be a family of
-continuous functions $X\to[0,1]$.
-The \emph{register CCS} of $F$ has states $L=X\times[0,1]$, whose points
-$(x,y)$ are an input $x$ and a register~$y$; its predicates are those of
-$\mathcal{P}_X$, applied to $x$, together with the register predicate
-$(x,y)\mapsto y$; and its computations are
-\[
-\Gamma_F=\{\gamma_f:f\in F\}\cup\{\mathrm{id}\},\qquad \gamma_f(x,y)=(x,f(x)).
-\]
-\end{defn}
-
-\begin{lem}\label{lem:register}
-In the register CCS of $F$, the set $\Gamma_F$ is a semigroup, the space of
-types is $L$ itself, and the Extendibility Axiom holds.
-The deep computations of $\{\gamma_f:f\in F\}$ are the maps $(x,y)\mapsto(x,g(x))$
-with $g$ in the pointwise closure $\overline F$, and $\gamma_g\mapsto g$ is a
-homeomorphism onto $\overline F$.
-The set $\{\gamma_f:f\in F\}$ satisfies the $\NIP$ if and only if $F$ does.
-\end{lem}
-
-\begin{proof}
-We have $\gamma_f\circ\gamma_g=\gamma_f$, so $\Gamma_F$ is closed under
-composition.
-The predicates are continuous and separate the points of the compact space
-$L$, so $v\mapsto\tp(v)$ is a homeomorphism onto the space of types, which
-is a single shard, and each $\gamma_f$ is its own continuous extension.
-A net $\gamma_{f_i}$ converges pointwise exactly when $f_i$ does, since the first
-coordinate is constant.
-For the last statement, composing $\gamma_f$ with an input predicate gives a
-function that does not depend on $f$, and composing it with the register
-predicate gives~$f$.
-\end{proof}
 
 \subsection{Two motivating examples}
 \label{sec:preview}
@@ -903,11 +866,11 @@ Since $\mathcal{P}$ is countable, $\mathcal{L}[r_\bullet]\subseteq\mathbb{R}^\ma
 The Extendibility Axiom implies that $\pi_P\circ \tilde\Delta|_{\mathcal{L}[r_\bullet]}$ is a pointwise bounded set of continuous functions for all $P\in\mathcal{P}$.
 Hence, Theorem \ref{thm:Generalized-BFT} and Lemma \ref{lem:NIP-and-closure} prove the equivalence of (i) and (ii).
 If (i) holds, the extension $\tilde f$ of Lemma~\ref{lem:extension} satisfies $\tilde f|_{\mathcal{L}[r_\bullet]}\in\overline{\tilde\Delta|_{\mathcal{L}[r_\bullet]}}\subseteq \mathrm{B}_1(\mathcal{L}[r_\bullet],\mathcal{L}[r_\bullet])$ for all $r_\bullet\in R$.
-The assertion that every deep computation is a pointwise limit of a countable sequence of computations follows from the fact that for a Polish space $X$, every compact subset of $\mathrm{B}_1(X)$ is Fréchet-Urysohn
+The assertion that every deep computation is a pointwise limit of a countable sequence of computations follows from the fact that for a Polish space $X$, every compact subset of $\mathrm{B}_1(X)$ is Fréchet--Urysohn
 (that is, a space where any point in the closure of  a set $A$ is the limit of a sequence of points in  $A$; see Theorem 3F in \cite{BFT_1978_PCompactBaire} or Theorem 4.1 in \cite{debs2013rosenthal}).
 \end{proof}
 
-\subsection{The Todorčević trichotomy and levels of NIP}
+\subsection{Todorčević’s trichotomy and levels of NIP}
 \label{sec:trichotomy}
 Recall from Section~\ref{sec:five-compacta} the notions of hereditarily separable and first countable spaces.
 Every separable metrizable space is hereditarily separable, and R.~Pol proved that every hereditarily separable Rosenthal compactum is first countable (see section 10 of \cite{debs2013rosenthal}).
@@ -990,8 +953,8 @@ Let $\Delta$ be as in Definition~\ref{def:NIP-levels} and $r_\bullet\in R$.
 \begin{proof}
 (i) If a countable set $D$ of tests separates $K_{r_\bullet}$, restriction to $D$ is a continuous injection of the compact space $K_{r_\bullet}$ into the metrizable space $\mathbb{R}^D$, hence a homeomorphism onto its image.
 Conversely, if $K_{r_\bullet}$ is metrizable, then $K_{r_\bullet}\times K_{r_\bullet}$ is second countable, so the open set $\{(f,g):f\ne g\}$ is Lindel\"of; it is covered by the open sets $\{(f,g):f(t)\ne g(t)\}$, for tests $t$, and a countable subcover gives the required set $D$.
-(ii) If $f$ is countably determined, $\{f\}$ is a countable intersection of open sets, and in a compact Hausdorff space such a point has a countable base of neighbourhoods.
-Conversely, if $(U_k)$ is a countable base at $f$ and each $U_k$ contains a basic neighbourhood defined by a finite set $F_k$ of tests, then $D_f=\bigcup_kF_k$ works.
+(ii) If $f$ is countably determined, $\{f\}$ is a countable intersection of open sets, and in a compact Hausdorff space such a point has a countable base of neighborhoods.
+Conversely, if $(U_k)$ is a countable base at $f$ and each $U_k$ contains a basic neighborhood defined by a finite set $F_k$ of tests, then $D_f=\bigcup_kF_k$ works.
 (iii) A set is finitely separated exactly when it is a discrete subspace, and, by Theorem~\ref{thm:nip-baire1def}, $K_{r_\bullet}$ is a separable Rosenthal compactum; for such compacta, hereditary separability is equivalent to the absence of discrete subspaces of cardinality $2^{\aleph_0}$, by a theorem of Todorčević~\cite{Todorcevic_1999_CompactSubsetsBaire} (see also~\cite[Theorem~0.4]{glasner2022tame}).
 \end{proof}
 
@@ -1067,7 +1030,7 @@ Table~\ref{tab:hepta-search} reads the seven families accordingly.
 \renewcommand{\arraystretch}{1.25}
 \begin{tabular}{>{\raggedright\arraybackslash}p{1.1cm}>{\raggedright\arraybackslash}p{4.3cm}>{\raggedright\arraybackslash}p{5.9cm}}
 \hline
-Family & Computation at node $t$ & Deep computations\\
+Family & Function at node $t$ & Limits\\
 \hline
 $D_1$ & prefix test weighted by $1/(|t|+1)$ & the test that never succeeds: confidence vanishes with depth\\
 $D_2$ & return the rounded value $t^\frown0^\infty$ & the exact input: successive approximation\\
@@ -1083,19 +1046,18 @@ $D_7$ & prefix test and comparison & a three-way comparison: below, inside or ab
 \label{tab:hepta-search}
 \end{table}
 
-In Section~\ref{sec:ex-NIP1} we define the three-way comparison, one step of a
-binary search with three outcomes, and show that its closure is the closure
-of~$D_7$.
-By the theorem of Argyros, Dodos and Kanellopoulos, every $\NIP$ family of
-computations indexed by the binary tree contains, along a dyadic subtree, one
-of these seven primitives.
+By the theorem of Argyros, Dodos and Kanellopoulos, if
+$\{\gamma_t:t\in2^{<\mathbb{N}}\}$ is an $\NIP$ family of computations indexed by
+the binary tree and $P$ is a feature, then, on each shard, the family
+$\{P\circ\gamma_t\}$ contains, along a dyadic subtree, a family equivalent to
+one of these seven.
 
 \section{Examples of  Compositional Computation Structures}
 \label{sec:examples}
-We now turn from the general theory to examples, and compute the deep computations of five compositional computation structures explicitly: Newton’s method on the Riemann sphere for two cubic polynomials (Sections~\ref{sec:Newton-cubic} and~\ref{sec:Newton-cyclotomic}), Newton’s method for square roots on the real line (Section~\ref{exa:square-roots-compute}), and threshold classifiers and prefix tests on the Cantor set (Sections~\ref{sec:Cantor-classifiers} and~\ref{sec:prefix-test}).
+We now turn from the general theory to examples, and compute the deep computations of three compositional computation structures explicitly: Newton’s method on the Riemann sphere for two cubic polynomials (Sections~\ref{sec:Newton-cubic} and~\ref{sec:Newton-cyclotomic}), and Newton’s method for square roots on the real projective line (Section~\ref{exa:square-roots-compute}).
 Section~\ref{sec:iterative} then places these and other computations at each level of the hierarchy of Section~\ref{sec:Classification}.
 
-We begin by formalizing the Newton-Raphson root-finding method as a CCS~\cite{Galantai200025}, \cite[Section~2.3]{Burden2016numerical}.
+We begin by formalizing the Newton--Raphson root-finding method as a CCS~\cite{Galantai200025}, \cite[Section~2.3]{Burden2016numerical}.
 Let $\hatC = \mathbb{C}\cup\{\infty\}$ be the extended complex plane (the Alexandroff —one-point— compactification of~$\mathbb{C}$).
 We identify $\hatC$ with the unit sphere $S^2\subseteq \mathbb{R}^3$ (the Riemann sphere) through the inverse stereographic projection $z \mapsto  (P_1(z), P_2(z), P_3(z))$, a homeomorphism $\hatC\to S^2$, where $(P_1(\infty), P_2(\infty), P_3(\infty)) = (0,0,1)$ and, for $z\ne\infty$,
   \begin{align*}
@@ -1109,11 +1071,11 @@ We identify $\hatC$ with the unit sphere $S^2\subseteq \mathbb{R}^3$ (the Rieman
 \subsubsection*{Newton  CCSs:  steps and fractals}
 \label{sec:Newton-map}
 Let $p = p(z)$ be a non-constant rational function with complex coefficients —i.e., an analytic (meromorphic) map $\hatC\to\hatC$.
-The \emph{Newton method step} (or \emph{Newton map}) for $p$ is the rational map
+The \emph{Newton step} (or \emph{Newton map}) for $p$ is the rational map
 \begin{equation}\label{eq:Np}
   N_p: z \mapsto z-\frac{p(z)}{p'(z)}.
 \end{equation}
-Successive iterations of the Newton-Raphson method (i.e., compositional powers~$N_p^{(n)}$) may be regarded as computations of a CCS whose states space is $L = \hatC$.
+Successive iterations of the Newton--Raphson method (i.e., compositional powers~$N_p^{(n)}$) may be regarded as computations of a CCS whose states space is $L = \hatC$.
 The natural choice of predicates is $\mathcal{P} = (P_1, P_2, P_3)$,
 the inverse stereographic projection coordinates.
 (The real- and imaginary part maps $z\mapsto\Re{z}$, $z\mapsto\Im{z}$ are not defined at~$z = \infty$.)
@@ -1131,7 +1093,7 @@ the \emph{Julia set} $\mathcal{J}_p\coloneqq\hatC\setminus \mathcal{F}_p$ is its
 it is (necessarily closed and) typically a fractal.
 The Julia set of the Newton map~$N_p$ is called the \emph{Newton fractal} of~$p$.
 
-\subsection{Example: Newton’s CCS for the cubic ${\rho}(z) = z^3-2z+2$}
+\subsection{Example: The Newton CCS for the cubic ${\rho}(z) = z^3-2z+2$}
 \label{sec:Newton-cubic}
 The polynomial ${\rho}(z) = z^3-2z+2$ has Newton map
 \begin{equation*}
@@ -1161,7 +1123,7 @@ On the Newton fractal of~$\rho$, the behavior of the iterates is chaotic.
   \label{fig:newton}
 \end{figure}
 
-\subsection{Example: Newton's CCS for $3$-cyclotomic $\kappa(z) = z^{3}-1$}
+\subsection{Example: The Newton CCS for the $3$-cyclotomic polynomial $\kappa(z) = z^{3}-1$}
 \label{sec:Newton-cyclotomic}
 To visualize the iterates themselves, rather than their limits, color each $z_0$ by blending the colors of the roots with relative weights $|z_n-r_i|^{-3}$, where $z_n\coloneqq N_p^{(n)}(z_0)$.
 This coloring is a continuous function of~$z_0$, so at first it is blurred;
@@ -1180,7 +1142,7 @@ Unlike $N_\rho$, the map $N_\kappa$ has no attracting cycle: the Fatou set is th
   \label{fig:newton2}
 \end{figure}
 
-On the Riemann sphere, Newton's method is chaotic on its Julia set, and this chaos is visible to the predicates $P_1,P_2,P_3$: Newton CCSs on the Riemann sphere can fail to be $\NIP$ (Proposition~\ref{prop:Newton-wild}).
+The chaos of Newton's method on its Julia set is visible to the predicates $P_1,P_2,P_3$, and it can make a Newton CCS on the Riemann sphere fail to be $\NIP$ (Proposition~\ref{prop:Newton-wild}).
 
 \subsection{Example: Square roots}\label{exa:square-roots-compute}
 When $p: \hatC\to\hatC$ has real coefficients, it restricts to a map $\RP^1\to\RP^1$ on the real-projective line $\RP^1 = \mathbb{R}\cup\{\infty\}$.
@@ -1218,44 +1180,6 @@ More explicitly, the unique deep equilibrium $\mathfrak{f}: \RP^1\to\RP^1$ of (t
  \]
  Thus, $\mathfrak{f}$ is discontinuous at $x = 0, \infty$ (Figure~\ref{fig:sqrt}).
 
-\subsection{Example: Threshold classifiers on Cantor’s set}\label{sec:Cantor-classifiers}
-The Cantor space $2^{\mathbb{N}}$, with the coordinate predicates $P_n(x)=x_n$, is a computation states structure.
-Since $2^{\mathbb{N}}$ is closed in $\mathbb{R}^{\mathbb{N}}$, it is its own space of types.
-We use the notation of Section~\ref{sec:five-compacta}.
-
-A \emph{finite-precision threshold classifier} decides whether the input lies at or above a dyadic threshold: for $t\in2^{<\mathbb{N}}$, it is the threshold test $f^+_{t^\frown0^\infty}$.
-It depends only on the first $|t|$ bits of the input, so it is continuous, and it is a Boolean combination of the coordinates $x_0,\dots,x_{|t|-1}$.
-We also count the constant $\mathbf 0=f^-_{1^\infty}$, the classifier that never fires, as a finite-precision classifier.
-
-The \emph{threshold ultra-classifiers} are the pointwise limits of finite-precision classifiers.
-By item~(3) of Section~\ref{sec:five-compacta}, they are exactly the threshold tests $f^+_a$ and $f^-_a$ for $a\in2^{\mathbb{N}}$: thresholds increasing to~$a$ give $f^+_a$, and thresholds decreasing to~$a$ give $f^-_a$.
-Thus the space of ultra-classifiers is the split Cantor set $S(2^{\mathbb{N}})$.
-Apart from the thresholds of the form $f^+_{t^\frown0^\infty}$ and $f^-_{t^\frown1^\infty}$, an ultra-classifier is discontinuous at its threshold~$a$, and, unlike a finite-precision classifier, it is not a Boolean combination of finitely many coordinates.
-A countable family of simple Boolean tests thus produces, in the limit, a compactum that is not metrizable.
-
-\subsection{Example: Prefix tests}
-\label{sec:prefix-test}
-On the same computation states structure on the Cantor space, the \emph{prefix test} $v_t$, for $t\in2^{<\mathbb{N}}$, asks whether the input begins with~$t$.
-It is continuous, and it is a Boolean combination of the coordinates $x_0,\dots,x_{|t|-1}$.
-The \emph{ultra-prefix tests} are the pointwise limits of prefix tests.
-
-\begin{prop}\label{prop:ultra-prefixes}
-  The ultra-prefix tests are the prefix tests~$v_t$, the constant~$\mathbf{0}$, and the equality tests~$\delta_a$ for $a\in 2^{\mathbb{N}}$.
-  Each of them is a sequential limit of prefix tests, hence Baire-$1$ on~$2^{\mathbb{N}}$, and the space of ultra-prefix tests is the extended Alexandroff compactification $\hat A(2^{\mathbb{N}})$.
-\end{prop}
-\begin{proof}
-  For $a\in2^{\mathbb{N}}$ we have $v_{a\restr n}(y)=\Brack{y\restr n=a\restr n}\to\Brack{y=a}$, so $v_{a\restr n}\to\delta_a$.
-  The words $1^n0$ ($n\in\mathbb{N}$) are pairwise incomparable, so at most one of the tests $v_{1^n0}$ takes the value $1$ at any given~$y$, and $v_{1^n0}\to\mathbf{0}$.
-
-  Conversely, let $\varphi=\lim_i v_{t_i}$ for a net $(t_i)$ of words.
-  Regard finite and infinite words as elements of the compact space $\{0,1,\ast\}^{\mathbb{N}}$, padding finite words with blanks~$\ast$; passing to a subnet, $t_i\to a$.
-  If $a$ is a finite word, then $t_i=a$ eventually, and $\varphi=v_a$.
-  If $a\in2^{\mathbb{N}}$ and $y\ne a$, let $k$ be the first position where $y$ and $a$ differ; eventually $t_i\restr(k+1)=a\restr(k+1)$, so $t_i$ is not a prefix of~$y$ and $v_{t_i}(y)=0$.
-  Hence $\varphi$ vanishes off~$a$, that is, $\varphi=\delta_a$ or $\varphi=\mathbf{0}$.
-\end{proof}
-Unlike prefix tests, equality tests are discontinuous.
-As noted in Section~\ref{sec:five-compacta}, the space $\hat A(2^{\mathbb{N}})$ is not first countable: every neighborhood of~$\mathbf 0$ contains all but finitely many of the uncountably many tests~$\delta_a$, so no countable family of neighborhoods of~$\mathbf 0$ has intersection~$\{\mathbf 0\}$.
-
 \input{computations_hierarchy}
 
 \section{Randomized versions of NIP and Monte Carlo computability of deep computations}
@@ -1289,7 +1213,7 @@ If $X$ is compact, then a function $f:X\rightarrow\mathbb{R}$ is universally mea
 \end{rem}
 
 Intuitively, a function is universally measurable if it is ``measurable no matter which reasonable way you try to measure things on its domain''.
-The concept of universal measurability emerged from work of Kallianpur and Sazonov, in the late 1950’s and 1960s --- with later developments by Blackwell, Darst and others ---  building on earlier ideas of Gnedenko and Kolmogorov from the 1950s.
+The concept of universal measurability emerged from work of Kallianpur and Sazonov, in the late 1950s and 1960s --- with later developments by Blackwell, Darst and others ---  building on earlier ideas of Gnedenko and Kolmogorov from the 1950s.
 See~\cite[Chapters 1 and 2]{Pap:2002}.
 
 \begin{notn}
@@ -1329,7 +1253,7 @@ We saw in section \ref{sec:prelim}  that, when the set $\mathcal{P}$ of predicat
 The following result (which does not assume countability of $\mathcal{P}$) gives an analogous characterization of the NIP in terms of universal measurability:
 
 \begin{thm}
-[Bourgain-Fremlin-Talagrand, Theorem 2F in \cite{BFT_1978_PCompactBaire}]
+[Bourgain--Fremlin--Talagrand, Theorem 2F in \cite{BFT_1978_PCompactBaire}]
 \label{thm:BFT-2F}
     Let $X$ be a Hausdorff space and $A\subseteq \mathrm{C}(X)$ be pointwise bounded.
 The following are equivalent:
@@ -1528,7 +1452,16 @@ Proposition~\ref{prop:levels-tests} describes the three levels by the number of 
 Is there a finitary, combinatorial characterization of $\NIP_1$, $\NIP_2$ and $\NIP_3$, in the spirit of the characterization of $\NIP$ by finite patterns in Theorem~\ref{thm:nip-baire1def}?
 \end{question}
 
-Theorem~\ref{thm:NIP-Monte-Carlo} shows that $\NIP$ suffices for Monte Carlo computability; we do not know whether it is necessary.
+Theorem~\ref{thm:NIP-Monte-Carlo} shows that $\NIP$ suffices for Monte Carlo computability; whether it is also necessary is the next question.
+
+Section~\ref{sec:iterative} places a single iterated map at every level of the hierarchy except one: at the level $\NIP$ but not $\NIP_1$, both examples are actions of groups with two generators (Section~\ref{sec:ex-NIP}).
+
+\begin{question}\label{q:cascade-NIP1}
+Is there a cascade CCS that is $\NIP$ but not $\NIP_1$?
+Equivalently, is there a continuous map $\gamma$ of a compact metrizable space $L$ such that $(L,\gamma)$ is tame and $E(L,\gamma)$ is not first countable?
+\end{question}
+
+For actions of $\mathbb{Z}$, and more generally of abelian groups, the analogous question is Question~6.8 of Glasner and Megrelishvili~\cite{glasner2022tame}.
 
 \begin{question}\label{q:Monte-Carlo-converse}
 Under the assumptions of Theorem~\ref{thm:NIP-Monte-Carlo}, suppose that every deep computation of $\Delta$ is universally Monte Carlo computable.
