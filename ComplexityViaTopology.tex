@@ -1520,8 +1520,14 @@ The Newton map of~$u$ is
 \begin{equation*}
 N_u: z\mapsto z-\frac{z^3-1}{3z^2}=\frac{2z^3+1}{3z^2}.
 \end{equation*}
-Unlike $N_q$, the map $N_u$ has no attracting cycle other than its three fixed points, the roots of~$u$.
-The Fatou set of~$N_u$ is accordingly the union of the three basins, and on each basin the iterates converge to the corresponding root.
+The critical points of this rational map of degree three are the three roots of~$u$, which are superattracting fixed points, and the point~$0$.
+The map $N_u$ sends the point~$0$ to~$\infty$, a repelling fixed point of multiplier~$3/2$.
+The immediate basin of every attracting or parabolic cycle contains a critical point whose orbit converges to that cycle~\cite[Sections~8 and~10]{Milnor2006}.
+Unlike~$N_q$, the map $N_u$ therefore has no attracting cycle other than its three attracting fixed points, the roots of~$u$, and it has no parabolic cycle.
+The boundary of a Siegel disk or of a Herman ring, moreover, is infinite and lies in the closure of the critical orbits~\cite[Sections~11 and~15]{Milnor2006}.
+Since every critical orbit of~$N_u$ is finite, the map $N_u$ has no such domain.
+Sullivan's theorem excludes wandering domains, and the classification of periodic Fatou components then shows that the Fatou set of~$N_u$ is the union of the basins of the three roots~\cite[Section~16 and Appendix~F]{Milnor2006}.
+On each of these basins, the iterates of~$N_u$ converge to the corresponding root.
 Figure~\ref{fig:newton2} depicts Newton’s method for~$u$.
 To render the iterates themselves, and not merely their limits, we color each point $z_0$ by blending the colors of the three roots with relative weights $|z_n-r|^{-3}$ for $r\in\{r_0,r_+,r_-\}$, where $z_n\coloneqq N_u^n(z_0)$.
 This coloring is a continuous function of~$z_0$, blurred for small~$n$.
