@@ -127,15 +127,15 @@ tame dynamical systems, infinite Ramsey theory}
   Their instances range from the classical methods of numerical analysis, such as Newton's method and the power method, to the recurrent, equilibrium and continuous-depth architectures of deep learning.
   A deep computation, however, is in general a nonconstructive object: it is an ultrafilter limit of possibly uncountably many computations, and it need not be the limit of any sequence of them.
   Shelah's \emph{independence property} is a dividing line of model theory akin to the Vapnik--Chervonenkis dimension of statistical learning.
-  Suppose that states are observed through countably many real-valued features, and consider the regions of the state space on which these features are bounded and which the computations preserve.
-  We show that a set of computations lacks the independence property exactly when its deep computations, extended to the limit states of each such region, are of the first Baire class there.
+  Suppose that states are observed through countably many real-valued features, and consider the regions of the state space on which these features are bounded and which the computations of a given set preserve.
+  We show that the set lacks the independence property exactly when its deep computations, extended to the limit states of each such region, are of the first Baire class there.
   In that case, every deep computation is, on each such region, the limit of a sequence of computations.
   Todorčević's classification then yields a strict hierarchy of complexity classes of deep computations.
   From the top down, its levels are attained by a rotation of the circle, the power method, Bresenham's line algorithm in the plane and in space, and the Euclidean algorithm.
   Newton's method for the square roots of unity on the Riemann sphere, by contrast, lies beyond the hierarchy.
   For algorithms that iterate continuous steps on a compact metrizable space of states, the hierarchy coincides with the Glasner--Megrelishvili hierarchy of tame dynamical systems.
   Finally, for any number of features, the absence of the independence property makes every deep computation, extended to the limit states of each such region, universally measurable there.
-  Consequently, whatever Radon probability measure governs the inputs, each output feature of such a deep computation is a uniform limit of polynomials in the input features outside a set of arbitrarily small probability.
+  Consequently, whatever Radon probability measure governs the inputs, each output feature of such a deep computation is, outside a set of arbitrarily small probability, a uniform limit of polynomials in the input features.
 \end{abstract}
 
 \section*{Introduction}
@@ -679,7 +679,7 @@ All closures below are taken in the topology of pointwise convergence.
 \item
   The \emph{Alexandroff duplicate}
   $D(2^{\mathbb{N}})=\{(\mathbf{0},a),(\delta_a,a):a\in2^{\mathbb{N}}\}\subseteq A(2^{\mathbb{N}})\times2^{\mathbb{N}}$.
-  The points $(\delta_a,a)$ are isolated, whereas every neighborhood of $(\mathbf{0},a)$ contains both the point $(\mathbf{0},b)$ and, with finitely many exceptions, the point $(\delta_b,b)$ for all $b$ in some neighborhood of~$a$.
+  The points $(\delta_a,a)$ are isolated, whereas every neighborhood of $(\mathbf{0},a)$ contains, for all $b$ in some neighborhood of~$a$, the point $(\mathbf{0},b)$ and, with finitely many exceptions, the point $(\delta_b,b)$.
   Consequently, the Alexandroff duplicate is first countable but not separable;
   it is contained in the separable compactum $\hat{D}(2^{\mathbb{N}})=\overline{\{(v_t,t^\frown0^\infty):t\in2^{<\mathbb{N}}\}}=D(2^{\mathbb{N}})\cup\{(v_t,t^\frown0^\infty):t\in2^{<\mathbb{N}}\}$.
 \item
