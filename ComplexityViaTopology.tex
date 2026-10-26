@@ -323,7 +323,7 @@ In Appendix~\ref{app:thue-morse} we prove that the shift on the Thue--Morse subs
 
 In this section we assemble the topology of function spaces on which the rest of the paper rests.
 The two themes of this paper are the approximation of a deep computation by a sequence of computations and the complexity of the set of all deep computations.
-Since deep computations are pointwise limits of continuous maps, both themes belong to the theory of spaces of functions with the topology of pointwise convergence.
+Since deep computations are pointwise limits of continuous maps along ultrafilters, both themes belong to the theory of spaces of functions with the topology of pointwise convergence.
 We first recall Polish spaces, Baire category and the first Baire class;
 we then turn to Rosenthal's dichotomy and the Bourgain--Fremlin--Talagrand dichotomy, from which the NIP emerges.
 The Rosenthal compacta come next, and five of them serve as yardsticks for the classification.
@@ -905,10 +905,10 @@ Tkachuk’s problem book~\cite{tkachuk2011cp} develops the subject systematicall
 The theory of function spaces assembled in Section~\ref{sec:prelim} is brought to bear on computation through the framework of compositional computation structures, to which the present section is devoted.
 Within this framework, deep computations become points of a function space.
 A computation on real-valued data is observed through its features, each known to finite precision.
-A deep computation is a limit of computations in the topology of this observation, namely the topology of pointwise convergence.
+A deep computation is a limit of computations along an ultrafilter in the topology of this observation, namely the topology of pointwise convergence.
 Following the first paper of this series~\cite{alva2024approximability}, we first describe states by their types, the tuples of values of all their features.
 Computations act on these states and are composed;
-deep computations are the pointwise limits of computations, taken in the space of types.
+deep computations are the pointwise limits of computations along ultrafilters, taken in the space of types.
 Finally, we recall the stable sets of computations, studied in that paper, and close the section with two examples that motivate the classification of Section~\ref{sec:Classification}.
 
 \subsection{Computation States Structures}
@@ -996,7 +996,7 @@ equality holds in the important special case when $\mathcal{P}$ is countable (se
 In this subsection we recall the compositional computation structures of the first paper of this series~\cite{alva2024approximability}, within which deep computations are defined, beginning with the ingredients of their definition.
 Computations transform states, and two computations performed one after the other form a computation.
 The computations of a system therefore form a semigroup under composition, which we take to contain the identity, the computation that does nothing.
-Deep computations are the limits of computations in the topology of pointwise convergence, taken in the space of types.
+Deep computations are the limits of computations along ultrafilters in the topology of pointwise convergence, taken in the space of types.
 Since an actual computation keeps the magnitudes that it handles within bounds, the shards of Section~\ref{sec:shards} enter the definition through the notion of confinement.
 The following definition records these ingredients.
 
@@ -1127,13 +1127,13 @@ For the dynamical compositional computation structures of Section~\ref{sec:dynam
 
 \subsection{Stability}
 \label{sec:stable}
-The highest level of the hierarchy studied in this paper is occupied by the stable sets of computations, all of whose deep computations are computable.
+The highest level of the hierarchy studied in this paper is occupied by the stable sets of computations, all of whose deep computations are computable when $\mathcal{P}$ is countable.
 We recall these sets here, before descending to the levels below in Section~\ref{sec:Classification}.
 By the theorem of Alva, Dueñez, Iovino and Walton recalled above, the computable transforms are exactly those that extend to continuous maps on the space of types.
 Accordingly, the stable sets are defined by the continuity of their deep computations on every type shard.
 
 \begin{defn}\label{def:stable}
-  A set $\Delta\subseteq\Gamma$ of computations is \emph{stable} if, for every sizer $r_\bullet$, every deep computation in $\overline{\tilde\Delta|_{\mathcal{L}[r_\bullet]}}$ is continuous (that is, computable).
+  A set $\Delta\subseteq\Gamma$ of computations is \emph{stable} if, for every sizer $r_\bullet$, every deep computation in $\overline{\tilde\Delta|_{\mathcal{L}[r_\bullet]}}$ is continuous (that is, computable if $\mathcal{P}$ is countable).
 \end{defn}
 
 Stable sets of computations, the subject of the first paper of this series~\cite{alva2024approximability}, are characterized there by Grothendieck’s double limit criterion and identified with stability in the sense of model theory.
@@ -1159,7 +1159,7 @@ Finally, on the common boundary of these basins, a fractal set, the iterates are
 For the simpler polynomial $z^2-1$, chaos of this kind produces deep computations that are not even limits of sequences of computations (see Proposition~\ref{prop:Newton-wild} and Theorem~\ref{thm:nip-baire1def}).
 
 The classification of Section~\ref{sec:Classification} is designed to separate such behaviors.
-In Theorem~\ref{thm:nip-baire1def} below we characterize the sets of computations whose deep computations are of the first Baire class on every type shard.
+In Theorem~\ref{thm:nip-baire1def} below we characterize, for countably many features, the sets of computations whose deep computations are of the first Baire class on every type shard.
 For these sets every deep computation is, on each shard, the limit of a sequence of computations, as in the case of square roots.
 Todorčević’s trichotomy, which we recall in Section~\ref{sec:trichotomy}, then measures the complexity of the space of such deep computations.
 
@@ -1183,7 +1183,7 @@ The main topological tool is Todorčević’s trichotomy for Rosenthal compacta~
 \subsection{NIP, Rosenthal compacta, and deep computations}
 
 The classification rests on Theorem~\ref{thm:nip-baire1def}, which we prove in this subsection.
-This theorem characterizes, by a finitary condition, the sets of computations whose deep computations are of the first Baire class on every type shard.
+This theorem characterizes, by a finitary condition and for countably many features, the sets of computations whose deep computations are of the first Baire class on every type shard.
 Analogously, the sets of computations whose deep computations are continuous were characterized in the first paper of this series~\cite{alva2024approximability} by Grothendieck’s double limit criterion.
 
 \begin{thm}\label{thm:nip-baire1def}
@@ -1480,7 +1480,8 @@ The Julia set of the Newton map~$N_p$ is called the \emph{Newton fractal} of~$p$
 \label{sec:Newton-cubic}
 Our first example is the second motivating example of Section~\ref{sec:preview}, a cubic polynomial whose Newton map has, besides the three roots, an attracting cycle.
 Newton's method therefore fails on an open set of initial estimates, and the iterates of the Newton map do not converge.
-For the same reason, among the deep computations of this method are two distinct limits, one of the even iterates and one of the odd iterates.
+For the same reason, two distinct limits of the iterates along ultrafilters are among the deep computations of this method.
+One is taken along an ultrafilter that contains the even numbers, and the other along an ultrafilter that contains the odd numbers.
 The polynomial $q(z) = z^3-2z+2$ has Newton map
 \begin{equation*}
 N_q: z \mapsto z - \frac{z^3-2z+2}{3z^2-2} = \frac{2z^3-2}{3z^2-2}.
@@ -1504,7 +1505,7 @@ Figure~\ref{fig:newton} depicts $f_0$ and $f_1$, together with the Newton fracta
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=\textwidth]{newton_cubic.pdf}
-  \caption{The deep computations of Newton’s method for $q(z)=z^3-2z+2$: the limits of the even iterates $N_q^{2k}$ and of the odd iterates $N_q^{2k+1}$, on the whole plane and near the point~$1$.
+  \caption{The deep computations of Newton’s method for $q(z)=z^3-2z+2$: the limits $f_0$ and $f_1$ of the iterates along $\mathcal{U}_0$ and along $\mathcal{U}_1$, on the whole plane and near the point~$1$.
     Points in the basins of the real root and of the roots in the upper and lower half planes (white circles) are purple, orchid and gold, paler where convergence is slower.
     The remaining open region is the basin of the superattracting cycle $0\mapsto1\mapsto0$ (white squares).
     A point there is lilac if the iterate in question is near~$0$ and plum if it is near~$1$, whence the two colors exchange between even and odd iterates.
@@ -1536,9 +1537,9 @@ As $n$ increases, the coloring sharpens into large regions of nearly constant co
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=\textwidth]{newton_cyclotomic.pdf}
-  \caption{Newton’s method for $u(z)=z^3-1$ after one and three iterations, and its limit.
+  \caption{Newton’s method for $u(z)=z^3-1$ after one and three iterations, and the limit of its iterates on the Fatou set.
     The coloring blends the colors of the three cube roots of unity (white circles) according to the distance of $N_u^n(z)$ to each of them.
-    The limit is constant on each basin and discontinuous across the Newton fractal;
+    This limit is constant on each basin and changes value across the Newton fractal;
     in the right panel, points are paler where convergence is slower.}
   \label{fig:newton2}
 \end{figure}
@@ -2602,7 +2603,8 @@ not $\NIP$ & doubling map of the circle & Prop.~\ref{prop:Newton-wild}\\
 
 Replacing topology by measure, we dispense in this section with the countability of the set $\mathcal{P}$ of predicates, on which the theory of Sections~\ref{sec:Classification}--\ref{sec:iterative} depends.
 In those sections we studied deep computations as \emph{topological} limits of computations.
-There we showed that under the NIP each deep computation is of the first Baire class on the type shards and is, on each shard, the limit of a sequence of computations.
+There we showed that, for countable $\mathcal{P}$ and under the NIP, each deep computation is of the first Baire class on the type shards.
+We also showed that, on each shard, each such deep computation is the limit of a sequence of computations.
 That theory rests on the type shards being Polish, and hence on the countability of~$\mathcal{P}$, which is used in the proof of Theorem~\ref{thm:nip-baire1def}.
 In place of membership in the first Baire class, we ask that a deep computation be \emph{universally measurable}, that is, measurable with respect to every Radon probability measure on the type shards.
 For every such measure, each output feature of a universally measurable deep computation is then, by Luzin's theorem, continuous on a closed subset of the shard whose complement has arbitrarily small measure.
