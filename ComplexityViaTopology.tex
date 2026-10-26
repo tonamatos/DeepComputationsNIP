@@ -121,7 +121,7 @@ tame dynamical systems, infinite Ramsey theory}
 }
 
 \begin{abstract}
-  We bring two theories to bear on the complexity of deep computations, that is, of limits of computations.
+  We bring two theories to bear on the complexity of deep computations, that is, of limits of computations along ultrafilters.
   The first is the topology of spaces of functions of the first Baire class, which culminates in Todorčević's classification of Rosenthal compacta; the second is Shelah's model-theoretic notion of independence.
   Such limits arise whenever an iterative procedure is carried to its conclusion.
   Their instances range from the classical methods of numerical analysis, such as Newton's method and the power method, to the recurrent, equilibrium and continuous-depth architectures of deep learning.
@@ -140,8 +140,8 @@ tame dynamical systems, infinite Ramsey theory}
 
 \section*{Introduction}
 
-This paper brings Shelah's theory of independence and Todorčević's classification of Rosenthal compacta to bear on the complexity of deep computations, the limits of computations; with these tools we determine when a deep computation is the limit of a sequence of computations, and we stratify deep computations into a strict hierarchy of complexity classes.
-The interest of the undertaking lies in the circumstance that a deep computation need not inherit the properties of the computations that converge to it.
+This paper brings Shelah's theory of independence and Todorčević's classification of Rosenthal compacta to bear on the complexity of deep computations, the limits of computations along ultrafilters; with these tools we determine when a deep computation is the limit of a sequence of computations, and we stratify deep computations into a strict hierarchy of complexity classes.
+The interest of the undertaking lies in the fact that a deep computation need not inherit the properties of the computations that converge to it.
 A pointwise limit of continuous maps, for instance, need not be continuous.
 Likewise, a limit taken along an ultrafilter over uncountably many computations need not be the limit of any sequence of them, in which case it lies beyond the reach of sequential approximation.
 Deep computations arise whenever an iterative procedure is carried to its conclusion.
@@ -162,7 +162,7 @@ Alva, Dueñez, Iovino and Walton introduced these structures in the first paper 
 The framework concerns classical models of computation, in which real-valued quantities are known and manipulated to a finite degree of precision.
 In this framework, computations act on states, and each state is observed through the values of real-valued \emph{features}.
 In that paper the authors introduced two closely related notions of limit of computations.
-A \emph{deep computation}, so called after the usage in machine learning~\cite{Bai:2019}, is a pointwise limit of computations evaluated on the states themselves.
+A \emph{deep computation}, so called after the usage in machine learning~\cite{Bai:2019}, is a pointwise limit of computations along an ultrafilter, evaluated on the states themselves.
 An \emph{ultracomputation}, so called because it arises as an ultrafilter limit of computations, is a pointwise limit of the extensions of computations to the ideal limit states, the types described below.
 Every deep computation is the restriction of an ultracomputation to the states, and for the iterative algorithms of Section~\ref{sec:iterative} the two notions coincide.
 The analysis takes place on \emph{shards}, the sets of states on which each feature obeys a prescribed bound, and on \emph{type shards}.
