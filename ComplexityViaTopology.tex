@@ -771,15 +771,7 @@ Figure~\ref{fig:five-compacta} shows the five compacta as patterns of convergenc
       \cpTitle{$\hat{D}(S(2^{\mathbb{N}}))$}
     \end{scope}
   \end{tikzpicture}%
-  \caption{The five compacta of Section~\ref{sec:five-compacta}, drawn on the binary tree $2^{<\mathbb{N}}$.
-    The tree grows upward, and the extension of a word by~$0$ lies to the left of its extension by~$1$.
-    In the first tree, which stands for $A(2^{\mathbb{N}})$, the equality tests $\delta_{a_k}$ of distinct sequences $a_k\in2^{\mathbb{N}}$ converge to the zero function~$\mathbf{0}$.
-    In the other trees, the thick path runs through the initial segments of a sequence $a\in2^{\mathbb{N}}$, here $a=0110\cdots$.
-    The dots on the left of the path mark words~$t$ with $t^\frown0^\infty<a$, and those on the right mark words with $t^\frown0^\infty>a$.
-    Both sequences of words converge to~$a$, and the dashed arrows end at the limits.
-    A word~$t$ stands for the prefix test~$v_t$ in $\hat A(2^{\mathbb{N}})$ and for the threshold test $\chi_{[t^\frown0^\infty}$ in $S(2^{\mathbb{N}})$.
-    In $\hat D(2^{\mathbb{N}})$, which contains the Alexandroff duplicate $D(2^{\mathbb{N}})$, the word~$t$ stands for the pair $(v_t,t^\frown0^\infty)$.
-    In $\hat D(S(2^{\mathbb{N}}))$, the tree is the dyadic subtree of words $s_t$ fixed in Section~\ref{sec:five-compacta}, and the node $s_t$ stands for the pair $(v_{s_t},\chi_{[s_t^\frown0^\infty})$.}
+  \caption{The five compacta of Section~\ref{sec:five-compacta}, drawn as patterns of convergence of words of the binary tree $2^{<\mathbb{N}}$, with the dashed arrows ending at the limits.}
   \label{fig:five-compacta}
 \end{figure}
 
@@ -1136,8 +1128,7 @@ Todorčević’s trichotomy, which we recall in Section~\ref{sec:trichotomy}, th
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.78\textwidth]{sqrt_newton.pdf}
-  \caption{Newton iterates $N_p^n$ for $p(x)=x^2-a$, with $a>0$, on the real projective line, drawn as graphs whose axes run from $\infty$ through~$0$ back to~$\infty$.
-    The continuous maps $N_p^n$ converge pointwise to the deep computation $\mathfrak f$, which sends the positive half line to $\sqrt a$, the negative half line to $-\sqrt a$, and $0$ and $\infty$ to~$\infty$.}
+  \caption{Newton iterates $N_p^n$ for $p(x)=x^2-a$, with $a>0$, on the real projective line (each axis runs from $\infty$ through~$0$ back to~$\infty$), converging pointwise to the deep computation $\mathfrak f$.}
   \label{fig:sqrt}
 \end{figure}
 
@@ -1470,12 +1461,7 @@ Figure~\ref{fig:newton} depicts $f_0$ and $f_1$, together with the Newton fracta
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=\textwidth]{newton_cubic.pdf}
-  \caption{The deep computations of Newton’s method for $q(z)=z^3-2z+2$: the limits $f_0$ and $f_1$ of the iterates along $\mathcal{U}_0$ and along $\mathcal{U}_1$, on the whole plane and near the point~$1$.
-    Points in the basins of the real root and of the roots in the upper and lower half planes (white circles) are purple, orchid and gold, paler where convergence is slower.
-    The remaining open region is the basin of the superattracting cycle $0\mapsto1\mapsto0$ (white squares).
-    A point there is lilac if the iterate in question is near~$0$ and plum if it is near~$1$, whence the two colors exchange between even and odd iterates.
-    Accordingly, the two deep computations agree on the basins of the roots and differ on the basin of the cycle.
-    The boundaries of the colored regions form the Newton fractal of~$q$.}
+  \caption{The deep computations $f_0$ and $f_1$ of Newton’s method for $q(z)=z^3-2z+2$, the limits of the iterates along $\mathcal{U}_0$ and along $\mathcal{U}_1$, on the whole plane and near the point~$1$, with the basins of the real root and of the roots in the upper and lower half planes (white circles) in purple, orchid and gold, and the basin of the superattracting cycle $0\mapsto1\mapsto0$ (white squares) in lilac or plum according as the iterate is near~$0$ or near~$1$.}
   \label{fig:newton}
 \end{figure}
 
@@ -1502,10 +1488,7 @@ As $n$ increases, the coloring sharpens into large regions of nearly constant co
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=\textwidth]{newton_cyclotomic.pdf}
-  \caption{Newton’s method for $u(z)=z^3-1$ after one and three iterations, and the limit of its iterates on the Fatou set.
-    The coloring blends the colors of the three cube roots of unity (white circles) according to the distance of $N_u^n(z)$ to each of them.
-    This limit is constant on each basin and changes value across the Newton fractal;
-    in the right panel, points are paler where convergence is slower.}
+  \caption{Newton’s method for $u(z)=z^3-1$ after one and three iterations, and the limit of its iterates on the Fatou set, colored by blending the colors of the three cube roots of unity (white circles) according to the distance of $N_u^n(z)$ to each of them.}
   \label{fig:newton2}
 \end{figure}
 
@@ -1754,13 +1737,7 @@ $r>1$, so Proposition~\ref{prop:convergent} gives the remaining statements.
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=\textwidth]{logistic_levels.pdf}
-  \caption{The logistic family $f_r(x)=rx(1-x)$.
-    Left: the long-run values of the orbit of~$0.3$ under~$f_r$, for each~$r$.
-    The logistic CCS is stable for $r\le1$.
-    It is $\NIP_3$ but not stable for $1<r\le r_\infty$, and it is not $\NIP$ for $r_\infty<r\le4$ (see Propositions~\ref{prop:logistic} and~\ref{prop:logistic-all} and Remark~\ref{rem:logistic-feigenbaum}).
-    Here $r_\infty\approx3.5699$ is the Feigenbaum parameter, at which the cascade of period doublings ends.
-    Right: for $r=2.8$, two orbits converge to the fixed point $1-1/r$.
-    The deep computation sends $0$ and~$1$ to~$0$ and every other state to $1-1/r$.}
+  \caption{The logistic family $f_r(x)=rx(1-x)$: the long-run values of the orbit of~$0.3$ under~$f_r$ for each~$r$ (left), and two orbits converging to the fixed point $1-1/r$ for $r=2.8$ (right).}
   \label{fig:logistic}
 \end{figure}
 
@@ -1854,8 +1831,7 @@ Figure~\ref{fig:bresenham} shows the two conventions.
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=\textwidth]{bresenham.pdf}
-  \caption{Left: the pixels drawn by Bresenham’s algorithm for $\alpha=(\sqrt5-1)/2$, with the decision bits $b_n$.
-    Right: where the line passes exactly through a pixel corner, the deep computations $R_c^+$ and $R_c^-$ break the tie in opposite directions; they agree on every other pixel.}
+  \caption{The pixels drawn by Bresenham’s algorithm for $\alpha=(\sqrt5-1)/2$, with the decision bits $b_n$ (left), and the opposite tie-breaking of the deep computations $R_c^+$ and $R_c^-$ where the line passes exactly through a pixel corner (right).}
   \label{fig:bresenham}
 \end{figure}
 
@@ -2084,7 +2060,7 @@ $\{c\}$, so $c$ has no countable base of neighborhoods.
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=\textwidth]{euclid_equality.pdf}
-  \caption{The Euclidean algorithm, drawn on the projective line (each axis runs from $\infty$ through $0$ back to $\infty$). Left: the maps $M_k^{-1}$ that the continued fraction algorithm applies to a number $\eta$ whose partial quotients contain longer and longer runs of ones. As $k$ grows along the middles of the runs, these maps send every point other than $\eta$ near $-1/\varphi$, and $\eta$ itself near $\varphi$. Right: the limits, exact equality tests $\delta_\eta$, at several points. Every neighborhood of the constant map $-1/\varphi$ contains all but finitely many of the uncountably many tests $\delta_\eta$, so the space of deep computations is not first countable (see Proposition~\ref{prop:euclid}).}
+  \caption{The Euclidean algorithm on the projective line (each axis runs from $\infty$ through $0$ back to $\infty$): the maps $M_k^{-1}$ that the continued fraction algorithm applies to a number $\eta$ whose partial quotients contain longer and longer runs of ones (left), and their limits, exact equality tests $\delta_\eta$, at several points (right).}
   \label{fig:euclid}
 \end{figure}
 
@@ -2293,20 +2269,7 @@ The two alternatives are drawn side by side in Figure~\ref{fig:trichotomy-ii}.
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=\textwidth]{trichotomy_ii.pdf}
-  \caption{Case~(ii) of Todorčević’s trichotomy, realized in two ways (see Theorem~\ref{thm:Todorcevic-trichotomy}).
-    Left: the three-dimensional Bresenham algorithm, with $\alpha$ the reciprocal of the plastic number and $\beta=\alpha^2$.
-    The small dots are the points $(n\alpha,n\beta)$ modulo~$1$ near $(x_b,-x_b)$, for $b=(1,0,1,0,\dots)$ and $x_b=\frac34$;
-    the inset enlarges the center three times.
-    Iterates $(\sigma\times\sigma)^n$ whose points approach $(x_b,-x_b)$ within one quadrant converge to the pair written there (see Theorem~\ref{thm:Bresenham3}).
-    Each entry $R^\pm$ of a pair is a deep computation of the planar algorithm;
-    it rotates by its subscript and breaks ties upward~($+$) or downward~($-$) (see Theorem~\ref{thm:Bresenham}).
-    The large dots mark the iterates of Remark~\ref{rem:Bresenham3-explicit}, in the three patterns of the family~$D_7$.
-    Right: the Möbius maps $\gamma_t$ of Proposition~\ref{prop:euclid-duplicate} on the projective line, for $\omega=(1,2,1,2,\dots)$.
-    Above, the word~$t$ runs through initial segments of~$\omega$, and the maps converge to~$\tau_\omega$.
-    This limit sends a point $\eta(\omega)$ defined from~$\omega$ to the golden ratio~$\varphi$, and every other point to $-[0;\omega]=1-\sqrt3$.
-    Below, the word~$t$ branches off from~$\omega$ below or above it (colors as on the left), and the maps converge to the constant map~$c_\omega$ with value $-[0;\omega]$.
-    The large dots mark the values at~$\eta(\omega)$.
-    Thus the two sides of~$b$ have distinct limits, while the two sides of~$\omega$ share one.}
+  \caption{Case~(ii) of Todorčević’s trichotomy, realized in two ways (see Theorem~\ref{thm:Todorcevic-trichotomy}): by the three-dimensional Bresenham algorithm (left) and by the Möbius maps $\gamma_t$ of Proposition~\ref{prop:euclid-duplicate} on the projective line (right).}
   \label{fig:trichotomy-ii}
 \end{figure}
 
@@ -2435,7 +2398,7 @@ Choosing the block $(0,1,1)$ for $k\in I$ and $(0,0,0)$ for $k\in J$, and puttin
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=\textwidth]{doubling_independence.pdf}
-  \caption{Independence for the doubling map $x\mapsto2x$ of the circle and for the logistic map $f_4$. Along an orbit of the doubling map, the values of $\sin^2(\pi x)=(1-\cos2\pi x)/2$ form an orbit of~$f_4$. At the times $0,3,6,9$, these values follow any prescribed pattern of high (H, at least $3/4$) and low (L, at most $1/4$) values. For this purpose, the binary digits of the initial state are chosen in blocks $011$ for H and $000$ for L.}
+  \caption{Independence for the doubling map $x\mapsto2x$ of the circle and for the logistic map $f_4$: along an orbit of the doubling map, the values of $\sin^2(\pi x)$ at the times $0,3,6,9$ follow any prescribed pattern of high (H, at least $3/4$) and low (L, at most $1/4$) values.}
   \label{fig:doubling}
 \end{figure}
 
@@ -3035,12 +2998,7 @@ The action is therefore not tame, and, by Proposition~\ref{prop:cascade-tame}, t
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=\textwidth]{thue_morse_correlations.pdf}
-  \caption{The correlations $c(n)$ of the function $\vartheta(x)=(-1)^{x_0}$ on the Thue--Morse subshift.
-    They are computed exactly from the recursions $c(0)=1$, $c(2n)=c(n)$ and $c(2n+1)=-\frac12\bigl(c(n)+c(n+1)\bigr)$, which give $c(1)=-\frac13$.
-    The left panel shows the values $c(n)$ for $0\le n\le128$.
-    The right panel shows, on logarithmic scales, the averages $A(K)/K$ for $K\le2^{14}$, where $A(K)=\sum_{n<K}c(n)^2$.
-    The dots mark the bound $2\bigl(\frac32\bigr)^{k-1}/2^k$ on $A(2^k)/2^k$.
-    The decay of these averages is the key step in the proof of Proposition~\ref{prop:thue-morse}.}
+  \caption{The correlations $c(n)$ of the function $\vartheta(x)=(-1)^{x_0}$ on the Thue--Morse subshift for $0\le n\le128$ (left), and, on logarithmic scales, the averages $A(K)/K$ for $K\le2^{14}$, where $A(K)=\sum_{n<K}c(n)^2$, with dots at the bound $2\bigl(\frac32\bigr)^{k-1}/2^k$ on $A(2^k)/2^k$ (right).}
   \label{fig:thue-morse}
 \end{figure}
 
