@@ -139,7 +139,7 @@ For every Radon probability measure on the inputs, each output feature is then u
 \section*{Introduction}
 
 This paper brings Shelah's theory of independence and Todorčević's classification of Rosenthal compacta to bear on the complexity of deep computations, the limits of computations along ultrafilters.
-With these tools we determine when a deep computation is the limit of a sequence of computations, and we stratify sets of computations, according to the deep computations they generate, into a strict hierarchy of complexity classes.
+With these tools we determine when all the deep computations of a set of computations, extended to limit states, are limits of sequences of computations of the set, and we stratify sets of computations, according to the deep computations they generate, into a strict hierarchy of complexity classes.
 The distinction between tame and wild behavior is a central concern of \emph{classification theory}, the branch of model theory that studies theories through structural dividing lines, and Shelah's independence property supplies the dividing line used here.
 The continuous case was characterized in the first paper of this series~\cite{alva2024approximability}, within a framework for floating-point computation; here we proceed to limits that may be discontinuous.
 A pointwise limit of continuous computations may be discontinuous and yet remain of the first Baire class, that is, remain the pointwise limit of a sequence of continuous maps.
@@ -345,7 +345,7 @@ The following characterization of Baire class~1 functions is classical; for a pr
   \item[(3)]
     For every nonempty closed $F\subseteq X$, the restriction $f|_F$ has a point of continuity.
   \end{itemize}
-  Moreover, if $X$ is Polish and $f\notin \mathrm{B}_1(X)$, then there exist countable $D_0,D_1\subseteq X$ and reals $a<b$ such that
+  Moreover, if $X$ is Polish and $f\notin \mathrm{B}_1(X)$, then there exist nonempty countable $D_0,D_1\subseteq X$ and reals $a<b$ such that
   \[
     D_0\subseteq f^{-1}(-\infty,a],
     \quad
@@ -990,15 +990,18 @@ For a CCS $(L,\mathcal{P},\Gamma)$ we regard the elements of $\Gamma$ as “stan
     \item
       the pair $(L,\mathcal{P})$ is a computation states structure,
     \item
-      the pair $(\Gamma,\circ)$ is a semigroup,
+      the pair $(\Gamma,\circ)$ is a monoid,
     \item
-      the map $\operatorname{ev}: \Gamma\times L\to L: (\gamma,v)\mapsto \operatorname{ev}(\gamma,v)$ is a semigroup action of $\Gamma$ on~$L$
-      (i.e., $\operatorname{ev}(\gamma\circ\delta,v) = \operatorname{ev}(\gamma,\operatorname{ev}(\delta,v))$ for $\gamma,\delta\in\Gamma$ and $v\in L$).
+      the map $\operatorname{ev}: \Gamma\times L\to L: (\gamma,v)\mapsto \operatorname{ev}(\gamma,v)$ is a faithful monoid action of $\Gamma$ on~$L$
+      (i.e., $\operatorname{ev}(\gamma\circ\delta,v) = \operatorname{ev}(\gamma,\operatorname{ev}(\delta,v))$ for $\gamma,\delta\in\Gamma$ and $v\in L$, the identity element of $\Gamma$ fixes every $v\in L$, and distinct members of $\Gamma$ act differently).
     \end{itemize}
     The two definitions are reconciled by identifying each $\gamma\in \Gamma$ with the map $v\mapsto \operatorname{ev}(\gamma,v)$.
 
   \item
-    Regarded as real-valued structures in this sense, the compositional computation structures with a fixed collection~$\mathcal{P}$ of predicate symbols form an elementary class.
+    Regarded as real-valued structures in this sense, the compositional computation structures with a fixed collection~$\mathcal{P}$ of predicate symbols do not form an elementary class, because the requirement that each state be determined by its type is not preserved by ultrapowers.
+    For instance, let $L=\{0,1\}^{\mathbb{N}}$ with the predicates $P_i(v)=v_i$, and let $\Gamma$ consist of the permutations of coordinates with finite support.
+    In an ultrapower along a nonprincipal ultrafilter on~$\mathbb{N}$, the classes of the constant sequence with value~$0$ and of the sequence $(e_n)_{n\in\mathbb{N}}$ of unit vectors have the same type, yet the class of the sequence of transpositions of $0$ and~$n$ sends them to states that differ at~$P_0$.
+    The model-theoretic remarks below concern the structures $(L,\mathcal{P},\Gamma,\circ,\operatorname{ev})$ without that requirement.
     The notion of state type introduced above is essentially that of a quantifier-free type with parameters of sort $L$ only.
     This notion may be enriched by further formulas, for instance with parameters in~$\Gamma$ or with quantifiers, and extended to types of sort~$\Gamma$ (“transform-types”).
     As usual, all types over a structure $\underline{C}=(L,\mathcal{P}, \Gamma, \circ, \operatorname{ev})$
@@ -1191,8 +1194,8 @@ These properties define three levels of NIP.
 \end{defn}
 
 By the chain of properties above, the levels satisfy $\NIP_3 \Rightarrow \NIP_2\Rightarrow \NIP_1\Rightarrow \NIP$.
-Moreover, a countable stable set of computations (see Definition~\ref{def:stable}), which has the NIP by Theorem~\ref{thm:nip-baire1def}, is $\NIP_3$.
-Indeed, on each type shard the deep computations of such a set form a separable compact subset of a countable product of spaces $\Cp(\mathcal{L}[r_\bullet])$, and hence a separable Eberlein compactum.
+Moreover, a countable stable set of computations (see Definition~\ref{def:stable}) that is $\mathscr{R}$-confined, which has the NIP by Theorem~\ref{thm:nip-baire1def}, is $\NIP_3$.
+Indeed, on each type shard $\mathcal{L}[r_\bullet]$ with $r_\bullet\in\mathscr{R}$, confinement makes the deep computations of such a set a compact set and stability makes them continuous, so that they form a separable compact subset of a countable product of spaces $\Cp(\mathcal{L}[r_\bullet])$, and hence a separable Eberlein compactum.
 Separable Eberlein compacta, in turn, are metrizable~\cite{Arkhangelskii:1992}.
 The five compacta of Section~\ref{sec:five-compacta} show that none of the implications between the three topological properties can be reversed for separable Rosenthal compacta.
 Specifically, the extended Alexandroff compactification $\hat{A}(2^{\mathbb{N}})$ is separable but not first countable.
@@ -1921,9 +1924,10 @@ Whether a single iterated map can realize the level with such a copy is Question
 
 \begin{rem}\label{rem:Bresenham3-explicit}
 A copy of $\hat D(S(2^{\mathbb{N}}))$ in~$E$ whose dense set of isolated points consists of iterates can be exhibited explicitly.
-For $t\in2^{<\mathbb{N}}$, let $x_t$ be the right endpoint of the closed interval of length $3^{-|t|}$ indexed by~$t$ in the construction of the middle-thirds Cantor set, and let $y_t=\frac32\,3^{-|t|}-x_t$.
-By Kronecker's theorem, there are pairwise distinct $n_t\in\mathbb{N}$ such that, modulo~$1$, the point $n_t\alpha$ lies in $(x_t,x_t+3^{-|t|-1})$ and the point $n_t\beta$ in $(y_t,y_t+3^{-|t|-1})$.
-For $b\in2^{\mathbb{N}}$, let $x_b$ be the point of the Cantor set coded by~$b$, the limit of the points $x_{b\restr n}$.
+Let $C$ be the affine copy $\frac14+\frac14 C_0$ of the middle-thirds Cantor set $C_0\subseteq[0,1]$.
+For $t\in2^{<\mathbb{N}}$, let $\ell_t=\frac14\,3^{-|t|}$, let $x_t$ be the right endpoint of the interval of length $\ell_t$ indexed by~$t$ in the construction of $C$, and let $y_t=\frac32\ell_t-x_t$.
+By Kronecker's theorem, there are pairwise distinct $n_t\in\mathbb{N}$ such that, modulo~$1$, the point $n_t\alpha$ lies in $(x_t,x_t+\ell_t/3)$ and the point $n_t\beta$ in $(y_t,y_t+\ell_t/3)$.
+For $b\in2^{\mathbb{N}}$, let $x_b$ be the point of $C$ coded by~$b$, the limit of the points $x_{b\restr n}$.
 As $t$ runs through the initial segments of~$b$, the iterates $(\sigma\times\sigma)^{n_t}$ converge to $(R_{x_b}^+,R_{-x_b}^+)$.
 Along words $t$ that converge to~$b$, are not initial segments of~$b$ and satisfy $t^\frown0^\infty<b$, the iterates converge to $(R_{x_b}^-,R_{-x_b}^+)$.
 Finally, along words that converge to~$b$ and satisfy $t^\frown0^\infty>b$, the iterates converge to $(R_{x_b}^+,R_{-x_b}^-)$.
@@ -2140,7 +2144,7 @@ M^{-1}(\infty)=-\frac{q_{k-1}}{q_k},
 where $q_{k-1}/q_k=[0;a_k,a_{k-1},\dots,a_1]$.
 
 \emph{Limits along initial segments.}
-Let $\omega\in\{1,2\}^{\mathbb{N}}$ be given, and put $\eta=\eta(\omega)=[0;a_1,a_2,\dots]$.
+Let $\omega\in\{1,2\}^{\mathbb{N}}$ be given, and write $\eta=\eta(\omega)=[0;a_1,a_2,\dots]$.
 For $m\ge1$, the word $(\omega\restr m)^\sharp$ consists of the first $m^2$ partial quotients of~$\eta$, whence $\gamma_{\omega\restr m}=M_{m^2}^{-1}$.
 The terms $a_{m^2},a_{m^2-1},\dots,a_{m^2-m+1}$ are $\omega_1,\omega_2,\dots,\omega_m$, and $a_{m^2+1}=\dots=a_{m^2+m}=1$.
 By the first fact, as $m\to\infty$, the quotient $q_{m^2-1}/q_{m^2}=[0;a_{m^2},\dots,a_1]$ tends to~$[0;\omega]$ and the complete quotient $\eta_{m^2+1}$ tends to $[1;1,1,\dots]=\varphi$.
@@ -2530,7 +2534,7 @@ The following definition replaces the $F_\sigma$ condition by measurability with
 \begin{defn}
   \label{def:universal-measurability}
   Let $X$ be a Hausdorff space, and let $(Y,\Sigma)$ be a measurable space.
-  A map $f:X\rightarrow Y$ is \emph{universally measurable} (with respect to $\Sigma$) if $f^{-1}(E)$ is $\mu$-measurable for every Radon measure $\mu$ on $X$ and every $E\in\Sigma$.
+  A map $f:X\rightarrow Y$ is \emph{universally measurable} (with respect to $\Sigma$) if $f^{-1}(E)$ is measurable with respect to the completion of $\mu$ for every Radon measure $\mu$ on $X$ and every $E\in\Sigma$.
 \end{defn}
 
 When $Y=\mathbb{R}$, we always take $\Sigma$ to be the Borel $\sigma$-algebra $\mathcal{B}(\mathbb{R})$ of~$\mathbb{R}$.
@@ -2548,8 +2552,8 @@ An account of universally measurable sets and functions may be found in the \emp
 
 \begin{notn}
   Following Bourgain, Fremlin and Talagrand~\cite{BFT_1978_PCompactBaire}, we denote by $M_r(X)$ the collection of all universally measurable real-valued functions on~$X$.
-  For a Radon measure $\mu$ on $X$, we further denote by $\mathscr{M}^0(X,\mu)$ the collection of all $\mu$-measurable real-valued functions on~$X$.
-  A set $A\subseteq\mathbb{R}^X$ is \emph{relatively countably compact} in $\mathscr{M}^0(X,\mu)$ if every countable subset of~$A$ has an accumulation point in $\mathscr{M}^0(X,\mu)$.
+  For a Radon measure $\mu$ on $X$, we further denote by $\mathscr{M}^0(X,\mu)$ the collection of all real-valued functions on~$X$ measurable with respect to the completion of $\mu$.
+  A set $A\subseteq\mathbb{R}^X$ is \emph{relatively countably compact} in $\mathscr{M}^0(X,\mu)$ if every countably infinite subset of~$A$ has an accumulation point in $\mathscr{M}^0(X,\mu)$.
 \end{notn}
 
 The maps that arise in the study of deep computations, transitions and deep computations themselves among them, send a state space $L\subseteq \mathbb{R}^\mathcal{P}$ into $\mathbb{R}^\mathcal{P}$.
@@ -2604,7 +2608,7 @@ Theorem~\ref{thm:BFT-2F} leads to a measure-theoretic counterpart of computabili
 \begin{enumerate}
 \item
   Littlewood’s second principle, that every Lebesgue measurable function is “nearly continuous”, is made precise by Luzin’s theorem.
-  Let $(X,\Sigma ,\mu )$ be a finite Radon measure space, and let $Y$ be a second-countable topological space (e.g., $Y=\mathbb{R}^\mathcal{P}$ with $\mathcal{P}$ countable), equipped with its Borel $\sigma$-algebra.
+  Let $(X,\Sigma ,\mu )$ be a complete finite Radon measure space, and let $Y$ be a second-countable topological space (e.g., $Y=\mathbb{R}^\mathcal{P}$ with $\mathcal{P}$ countable), equipped with its Borel $\sigma$-algebra.
   Then a function $f\colon X\to Y$ is measurable if and only if, for every $E\in\Sigma$ and every $\varepsilon>0$, there is a closed set $F\subseteq E$ such that the restriction $f|_F$ is continuous and $\mu(E\setminus F) < \varepsilon$.
 \item
   Computability of a transform is characterized by the continuous extendibility of the transform to the space of types (see Section~\ref{sec:computability});
@@ -2783,7 +2787,7 @@ For pointwise bounded sets of continuous functions on a compact space, universal
 In the context of deep computations we have thus found two routes to universal Monte Carlo computability, the NIP and universal Talagrand stability, and the second implies the first (see Proposition~\ref{prop:Talagrand-implies-NIP}).
 For countable sets of \emph{continuous} functions on a compact space, the converse also holds: the NIP implies universal Talagrand stability (see Theorem~\ref{thm:NIP-Talagrand-countable} below).
 Consequently, since the Extendibility Axiom makes computations continuous on the type shards, the two routes to universal Monte Carlo computability coincide for countable sets of computations.
-After a reduction to a compact metrizable space, this implication for countable sets of continuous functions can be derived from two results on the Glivenko--Cantelli property of a family of functions.
+After a reduction to a compact metrizable space, and after composition with an increasing homeomorphism of $\mathbb{R}$ onto a bounded interval, which makes the family uniformly bounded and preserves both the NIP and Talagrand stability, this implication for countable sets of continuous functions can be derived from two results on the Glivenko--Cantelli property of a family of functions.
 The Glivenko--Cantelli property is the almost sure convergence of empirical means to expectations, uniformly over the family.
 The first result is a theorem of van Handel~\cite[Theorem~1.3]{vanHandel2013}, which concerns separable, uniformly bounded families of measurable functions on a standard Borel space.
 According to this theorem, such a family has the Glivenko--Cantelli property for every probability measure if and only if the family contains no Boolean $\sigma$-independent sequence.

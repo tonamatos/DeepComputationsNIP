@@ -89,8 +89,11 @@ def fig_euclid(path):
     for j, shift in enumerate([-3, -2, -1, 0, 1, 2]):
         ch = list(rng.integers(1, 3, size=12))
         e = value(digits_S(ch, 12)) + shift
-        ax.plot([ang(e), ang(e)], [ang(-1 / PHI), ang(PHI)], color=ORCHID, lw=0.8)
-        ax.plot([ang(e)], [ang(PHI)], "o", color=PLUM, ms=3)
+        # dotted guide only: the map takes no value strictly between the two
+        ax.plot([ang(e), ang(e)], [ang(-1 / PHI), ang(PHI)], color=ORCHID, lw=0.6, ls=":")
+        # open circle: the background value -1/phi is omitted at eta
+        ax.plot([ang(e)], [ang(-1 / PHI)], "o", mfc=PALE, mec=ORCHID, mew=0.9, ms=3.5, zorder=4)
+        ax.plot([ang(e)], [ang(PHI)], "o", color=PLUM, ms=3, zorder=5)
     ax.text(0.02, 0.04, r"translates $\delta_{\eta+n}$ ($n\in\mathbb{Z}$) are also deep computations", transform=ax.transAxes, fontsize=7, color=GREY)
     ax.set_xlim(-np.pi, np.pi); ax.set_ylim(-np.pi, np.pi)
     ax.set_xticks(ticks); ax.set_xticklabels([r"$\infty$", "$-1$", "$0$", "$1$", r"$\infty$"])
