@@ -160,7 +160,10 @@ These architectures motivate a framework in which limits, as well as finite comp
 Alva, Dueñez, Iovino and Walton introduced compositional computation structures in the first paper of this series~\cite{alva2024approximability}, which is to appear in \emph{Mathematical Structures in Computer Science}.
 Computations act on states whose real-valued \emph{features} are observed and manipulated to finite precision.
 The \emph{type} of a state records the values of all its features; adjoining the limits of these records gives the \emph{space of types}.
-The analysis takes place on \emph{shards}, the sets of states on which each feature obeys a prescribed bound.
+The analysis takes place on \emph{shards}, the sets of states on which each feature obeys a prescribed bound.%
+\footnote{Real-world computations take place in shards because a machine represents every quantity with finitely many digits.
+  The IEEE double-precision format, for instance, stores no number larger in magnitude than about $1.8\cdot10^{308}$, and a computation whose quantities exceed this bound overflows instead of continuing.
+  A computation therefore commits in advance to a bound on the size of each quantity it handles, and the states it can reach lie in the set on which every feature obeys its bound (see Section~\ref{sec:shards}).}
 The closure of a shard in the space of types is its \emph{type shard}, which includes its limit states.
 A \emph{deep computation} is a pointwise limit of computations along an ultrafilter, evaluated on actual states.
 An \emph{ultracomputation} is obtained by taking such a limit after extending the computations to the type shards.
@@ -981,7 +984,10 @@ deep computations are therefore not composable in general.
 For a CCS $(L,\mathcal{P},\Gamma)$ we regard the elements of $\Gamma$ as “standard” finitary computations and the elements of $\overline{\Gamma}$, the deep computations, as possibly infinitary limits of standard computations.
 
 \begin{rems}(For readers versed in model theory.)%
-  \footnote{The real-valued structures used here are those of Keisler’s model theory for real-valued structures~\cite{Keisler:2023}; see also~\cite[Section~6]{Duenez-Iovino:2017} for an introduction.}
+  \footnote{The real-valued structures used here are those of Keisler’s model theory for real-valued structures~\cite{Keisler:2023}; see also~\cite[Section~6]{Duenez-Iovino:2017} for an introduction.
+    In Keisler's structures every predicate comes with an \emph{a priori bound}, a real number $r$ such that the predicate takes values in $[-r,r]$.
+    The features of a computation states structure need not be bounded on all of~$L$, but on a shard $L[r_\bullet]$ each feature $P$ takes values in $[-r_P,r_P]$.
+    The computations that concern us, which are confined to shards, therefore fall within Keisler's framework.}
   \begin{enumerate}
   \item
     Compositional computation structures, as defined above, are not literally real-valued structures, because nothing in the structure itself forces $\Gamma$ to be realized as a subset of the product space $L^L$.
