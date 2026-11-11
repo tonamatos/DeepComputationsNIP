@@ -139,15 +139,15 @@ For every Radon probability measure on the inputs, each output feature is then u
 \section*{Introduction}
 
 This paper brings Shelah's theory of independence and Todorčević's classification of Rosenthal compacta to bear on the complexity of deep computations, the limits of computations along ultrafilters.
-With these tools we determine when a deep computation is the limit of a sequence of computations, and we stratify deep computations into a strict hierarchy of complexity classes.
+With these tools we determine when a deep computation is the limit of a sequence of computations, and we stratify sets of computations, according to the deep computations they generate, into a strict hierarchy of complexity classes.
 The distinction between tame and wild behavior is a central concern of \emph{classification theory}, the branch of model theory that studies theories through structural dividing lines, and Shelah's independence property supplies the dividing line used here.
-The continuous case was characterized in the first paper of this series, within a framework for floating-point computation; here we proceed to limits that may be discontinuous.
+The continuous case was characterized in the first paper of this series~\cite{alva2024approximability}, within a framework for floating-point computation; here we proceed to limits that may be discontinuous.
 A pointwise limit of continuous computations may be discontinuous and yet remain of the first Baire class, that is, remain the pointwise limit of a sequence of continuous maps.
 The Bourgain--Fremlin--Talagrand theorem identifies the regime in which this happens, and Todorčević's structure theory distinguishes levels within the regime.
 
 The illustrations are drawn from familiar algorithms of numerical analysis, computer graphics and arithmetic: Newton's method, the power method, Bresenham's line algorithm and the Euclidean algorithm.
 These classical procedures provide concrete instances of the structural distinctions studied here.
-Newton's method for square roots on the real projective line and the power method have discontinuous limiting maps that are nevertheless attained sequentially.
+Newton's method for square roots on the real projective line and the power method have discontinuous limiting maps that are nevertheless limits of sequences of iterates.
 Newton's method on the Riemann sphere, by contrast, has limits beyond the first Baire class.
 These examples, developed in Sections~\ref{sec:examples} and~\ref{sec:iterative}, place the failure of continuity within a classification of limiting computations.
 
@@ -170,13 +170,13 @@ The first paper treats the \emph{stable} sets of computations, whose limits on t
 The principal tool of the first paper is Grothendieck's double limit criterion~\cite{Grothendieck:1952}.
 For a uniformly bounded family of continuous functions on a compact space, the criterion characterizes continuity of every pointwise limit by the exchange of iterated limits over sequences of functions and points, whenever both iterated limits exist.
 In the computation framework, this criterion yields polynomial approximability: on each shard, every output feature of a limiting computation is a uniform limit of polynomials in the input features.
-Polynomial approximability is the notion of computability established in the first paper.
+Polynomial approximability is the notion of computability introduced in the first paper.
 The passage from continuous to Baire-class-1 limits retains sequential approximation while admitting the discontinuities that arise in natural algorithms, and the analysis of such limits calls for the structure theory of Rosenthal compacta in place of the continuous-function criterion.
 
-Beyond stability, Shelah's classification theory~\cite{Shelah:1990} singles out \emph{Shelah's independence property}, which he isolated in 1971~\cite[Definition~4.1]{Shelah:1971}.
+Beyond stability, Shelah's classification theory~\cite{Shelah:1990} singles out the \emph{independence property}, which Shelah isolated in 1971~\cite[Definition~4.1]{Shelah:1971}.
 A formula has the independence property when, for every natural number~$n$, there are $n$ parameters on which every pattern of truth and falsity of the formula is realized by some element of a model.
 A theory none of whose formulas has the independence property is called \emph{NIP}, or \emph{dependent}.
-Within a few years, the same dividing line appeared independently in two other fields, as a dichotomy between polynomial and exponential growth.
+Between 1968 and 1972 the same dividing line appeared independently in two other fields, as a dichotomy between polynomial and exponential growth.
 A family of sets shatters a finite set when it cuts out all subsets of that set as traces, that is, as intersections of the set with members of the family.
 In these terms, either a family shatters arbitrarily large finite sets, or the number of traces of the family on a finite set is bounded by a polynomial in the size of the set.
 In statistical learning, Vapnik and Chervonenkis announced this dichotomy in 1968~\cite{Vapnik-Chervonenkis:1968} and published its proof in 1971~\cite{Vapnik-Chervonenkis:1971}, in their study of the uniform convergence of relative frequencies to probabilities.
@@ -211,7 +211,7 @@ The absence of the independence property identifies the tame regime, and Todorč
 Model theory provides the connection between these function spaces and computation structures.
 The passage from states to types places computations and their limits in spaces of functions with the topology of pointwise convergence, the setting of \emph{$\Cp$-theory}.
 Shelah's independence property becomes a condition on the finite patterns of high and low output values realized by computations on suitable inputs.
-For countably many features, the absence of the independence property, the NIP, corresponds under the extendibility and confinement hypotheses to first-Baire-class regularity on the type shards.
+For countably many features, the absence of the independence property, the NIP, corresponds, under the hypotheses stated below, to first-Baire-class regularity on the type shards.
 This correspondence links the classification of Rosenthal compacta with the model-theoretic passage beyond stability.
 The correspondence also connects the framework with Vapnik--Chervonenkis (VC) dimension and PAC (probably approximately correct) learning~\cite{Vapnik-Chervonenkis:1971,Vapnik-Chervonenkis:1974,Valiant:1984}: finiteness of VC dimension implies NIP, and the two notions coincide for first-order formulas (see Section~\ref{sec:NIP-poly-exp}).
 
@@ -2320,7 +2320,7 @@ from the freedom to choose those digits.
 
 On the real projective line, by contrast, the same algorithm is tame.
 The Julia set of $N$, the imaginary axis together with $\infty$, meets
-$\RP^1$ only at~$\infty$, and on $\RP^1$ the iterates converge to the deep
+$\RP^1$ only at $0$ and~$\infty$, and on $\RP^1$ the iterates converge to the deep
 computation of Section~\ref{exa:square-roots-compute} for $a=1$.
 By Proposition~\ref{prop:convergent}, the corresponding CCS is therefore $\NIP_3$ (see Section~\ref{sec:ex-NIP3}).
 Whether Newton's method is tame is thus decided by the space of states, and not by the
@@ -2438,7 +2438,7 @@ This residue depends on $x$ and~$m$ but not on~$n$, and the intervals obtained f
 In either case, the points $f^n(x)$ converge along~$\mathcal{U}$ to a limit $\ell^{\varsigma}(x)$ that depends only on~$\varsigma$.
 The map $\ell^{\varsigma}$ is the pointwise limit of the iterates $f^{n_j}$ along any sequence of natural numbers $n_j$ that tends to infinity and converges to~$\varsigma$ in~$\mathbb{Z}_2$.
 Each map $\ell^{\varsigma}$ is therefore of Baire class~$1$, and $E([0,1],f)$ consists of the iterates and the maps $\ell^{\varsigma}$, $\varsigma\in\mathbb{Z}_2$.
-The rational points of $[0,1]$, together with the point~$\frac12$, separate the members of $E([0,1],f)$:
+The rational points of $[0,1]$, among them the point~$\frac12$, separate the members of $E([0,1],f)$:
 distinct iterates are continuous and differ at a rational point.
 Moreover, an iterate $f^n$ and a map $\ell^{\varsigma}$ differ at every rational point $x>0$ so small that $f^n(x)<f^2(\frac12)$, since $\ell^{\varsigma}$ maps $(0,1)$ into $[f^2(\frac12),f(\frac12)]$.
 Finally, two maps $\ell^{\varsigma}$ and $\ell^{\varsigma'}$ with $\varsigma\neq\varsigma'$ differ at~$\frac12$, whose orbit lands on no periodic orbit.
@@ -2781,26 +2781,6 @@ For pointwise bounded sets of continuous functions on a compact space, universal
 \end{proof}
 
 In the context of deep computations we have thus found two routes to universal Monte Carlo computability, the NIP and universal Talagrand stability, and the second implies the first (see Proposition~\ref{prop:Talagrand-implies-NIP}).
-% [Commented out, 4 Nov 2026: the theorems of Talagrand and of Fremlin and Shelah are misquoted (their hypothesis is relative pointwise compactness, not the NIP); pending the authors' decision to rewrite or remove]
-% For countable sets of measurable functions, the following two results show that whether the NIP implies universal Talagrand stability depends on the axioms of set theory.
-% On the one hand, it is consistent with the Zermelo--Fraenkel axioms of set theory with the axiom of choice (ZFC) that, for such sets, the NIP implies universal Talagrand stability.
-%
-% \begin{thm}[Talagrand {\cite[Theorem~9-3-1(a)]{talagrand1984pettis}}]
-%   \label{thm:NIP-implies-Talagrand-stab}
-%   Let $X$ be a compact Hausdorff space, and let $A\subseteq M_r(X)$ be countable and pointwise bounded.
-%   Assume that $[0,1]$ is not the union of fewer than $2^{\aleph_0}$ closed sets of Lebesgue measure zero.
-%   If $A$ satisfies the NIP, then $A$ is universally Talagrand stable.
-% \end{thm}
-%
-% (The hypothesis on $[0,1]$ follows, for example, from the Continuum Hypothesis.)
-%
-% On the other hand, for Lebesgue measure, the failure of this implication is also consistent.
-%
-% \begin{thm}[Fremlin and Shelah~\cite{fremlin1993pointwise}]
-%   It is consistent with ZFC that there exists a countable pointwise bounded set of Lebesgue measurable functions with the NIP that is not Talagrand stable with respect to Lebesgue measure.
-% \end{thm}
-%
-% Both results concern countable sets of measurable functions.
 For countable sets of \emph{continuous} functions on a compact space, the converse also holds: the NIP implies universal Talagrand stability (see Theorem~\ref{thm:NIP-Talagrand-countable} below).
 Consequently, since the Extendibility Axiom makes computations continuous on the type shards, the two routes to universal Monte Carlo computability coincide for countable sets of computations.
 After a reduction to a compact metrizable space, this implication for countable sets of continuous functions can be derived from two results on the Glivenko--Cantelli property of a family of functions.
@@ -2849,9 +2829,6 @@ Conversely, suppose that $\pi_P\circ\Delta|_{L[r_\bullet]}$ has the NIP.
 By Lemma~\ref{lem:NIP-and-closure}, so does the set $\pi_P\circ\tilde\Delta|_{\mathcal{L}[r_\bullet]}$, to which Theorem~\ref{thm:NIP-Talagrand-countable} therefore applies.
 \end{proof}
 
-% [Commented out, 4 Nov 2026: refers to the Talagrand and Fremlin--Shelah theorems commented out above; pending the authors' decision]
-% For countable sets of computations, Theorem~\ref{thm:NIP-Talagrand-countable} thus supersedes Theorem~\ref{thm:NIP-implies-Talagrand-stab} and its set-theoretic hypothesis.
-% Accordingly, the example of Fremlin and Shelah, a set of measurable functions, has no counterpart among countable sets of computations.
 
 \section{Open questions}
 \label{sec:open-questions}
