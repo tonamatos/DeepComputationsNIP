@@ -29,6 +29,14 @@ pdfkeywords={}
  \foreach \k/\p in {1/{(1,0)},2/{(1,-0.7)},5/{(1,-1.4)},3/{(-0.5,-2.25)},4/{(0.5,-2.25)}}
   {\ifnum\k=#1\relax\node[draw=mapHep,fill=mapHep,minimum size=6pt,inner sep=0pt] at \p {};\else\node[draw=black!40,fill=white,minimum size=6pt,inner sep=0pt] at \p {};\fi}
 \end{tikzpicture}}
+% #1 prefix test, #2 rounded value, #3 left comparison, #4 right comparison, #5 faded
+\newcommand{\mapprim}[5]{\begin{tikzpicture}[baseline=-0.5ex,x=1cm,y=1cm]
+ \draw[black!35] (0,0) -- (1.7,0); \draw[black!45] (0.45,-0.07)--(0.45,0.07) (1.25,-0.07)--(1.25,0.07);
+ \ifnum#1=1\relax\ifnum#5=1\relax\draw[line width=3pt,mapHep!35] (0.45,0)--(1.25,0);\else\draw[line width=3pt,mapHep] (0.45,0)--(1.25,0);\fi\fi
+ \ifnum#2=1\relax\fill[mapLev] (0.45,0) circle (2.4pt);\fi
+ \ifnum#3=1\relax\draw[-{Stealth[length=4pt]},thick,mapAlg] (0.45,0.16)--(1.7,0.16);\fill[mapAlg] (0.45,0.16) circle (1.8pt);\fi
+ \ifnum#4=1\relax\draw[-{Stealth[length=4pt]},thick,mapAlg] (1.25,0.16)--(1.7,0.16);\filldraw[fill=white,draw=mapAlg,thick] (1.25,0.16) circle (1.8pt);\fi
+\end{tikzpicture}}
 \newcommand{\mapglyph}[4]{\begin{tikzpicture}[baseline=-0.35cm,x=0.42cm,y=0.42cm]
  \draw[-{Stealth[length=3pt]},black!55] (-1,0) -- (#1,-1.5);
  \draw[-{Stealth[length=3pt]},mapHep,thick] (0,0) -- (#2,-1.5);
@@ -245,7 +253,7 @@ Newton's method and the power method, which underlies the ranking of web pages, 
 \draw[yes] (f.south) -- node[lbl,right]{yes} ++(0,-0.3) -| (L3.north);
 \draw[yes] (f.south) -- ++(0,-0.3) -| (L4.north);
 \end{tikzpicture}
-\caption{Todorčević's trichotomy and its realizations.}
+\caption{Todorčević's trichotomy.}
 \label{fig:map-trichotomy}
 \end{figure}
 
@@ -300,7 +308,7 @@ The first figure sorts algorithms by the topology of the whole space of limits, 
  \node[c] at (8.55,\y) {\mean};
 }
 \end{tikzpicture}}
-\caption{The seven canonical families and their realizations. Arrows: departing below, along the branch, departing above; arrows ending at one dot share a limit, and an open dot is the same for every branch.}
+\caption{The seven canonical families, in which arrows meeting at a dot share a limit and an open dot is the same for every branch.}
 \label{fig:map-routes}
 \end{figure}
 
@@ -795,7 +803,7 @@ Figure~\ref{fig:five-compacta} shows the five compacta as patterns of convergenc
       \cpTitle{$\hat{D}(S(2^{\mathbb{N}}))$}
     \end{scope}
   \end{tikzpicture}%
-  \caption{The five compacta as patterns of convergence in $2^{<\mathbb{N}}$.}
+  \caption{The five compacta.}
   \label{fig:five-compacta}
 \end{figure}
 
@@ -1151,7 +1159,7 @@ Todorčević’s trichotomy, which we recall in Section~\ref{sec:trichotomy}, th
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.78\textwidth]{sqrt_newton.pdf}
-  \caption{Newton iterates for $x^2-a$ on $\RP^1$, converging to~$\mathfrak f$.}
+  \caption{Newton iterates for $x^2-a$.}
   \label{fig:sqrt}
 \end{figure}
 
@@ -1399,25 +1407,28 @@ Likewise, the comparison $\chi_{(t^\frown1^\infty}$ asks whether the input lies 
 The resulting reading of the seven families is recorded in Table~\ref{tab:hepta-search}.
 
 \begin{table}[ht]
-  \centering
-  \small
-  \renewcommand{\arraystretch}{1.25}
-  \begin{tabular}{>{\raggedright\arraybackslash}p{1.1cm}>{\raggedright\arraybackslash}p{4.3cm}>{\raggedright\arraybackslash}p{5.9cm}}
-    \hline
-    Family & Function at node $t$                        & Limits                                                       \\
-    \hline
-    $D_1$  & prefix test weighted by $1/(|t|+1)$         & the test that never succeeds: confidence vanishes with depth \\
-    $D_2$  & return the rounded value $t^\frown0^\infty$ & the exact input: successive approximation                    \\
-    $D_3$  & compare with the left endpoint              & comparison with a limit of left endpoints, with ties broken upward and, at limits approached from above, also downward\\
-    $D_4$  & compare with the right endpoint             & comparison with a limit of right endpoints, with ties broken downward and, at limits approached from below, also upward\\
-    $D_5$  & prefix test                                 & exact equality, or no match                                  \\
-    $D_6$  & prefix test and rounded value               & a dictionary lookup that returns its key                     \\
-    $D_7$  & prefix test and comparison                  & a three-way comparison: below, inside or above               \\
-    \hline
-  \end{tabular}
-  \vspace{6pt}
-  \caption{The minimal families of Argyros, Dodos and Kanellopoulos as primitives of binary search.}
-  \label{tab:hepta-search}
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tikzpicture}[font=\footnotesize,c/.style={anchor=west,align=left,inner sep=0pt}]
+\foreach \t/\x in {Family/0,Primitive/1.15,Function at node~$t$/3.35,Limits/7.75} \node[c,font=\scriptsize\bfseries,text=mapLev] at (\x,0.5) {\t};
+\foreach \i/\y/\pr/\fn/\lim in {
+ 1/0/{\mapprim{1}{0}{0}{0}{1}}/{prefix test, weight $1/(|t|+1)$}/{the test that never succeeds},
+ 2/-0.9/{\mapprim{0}{1}{0}{0}{0}}/{rounded value $t^\frown0^\infty$}/{the exact input},
+ 3/-1.8/{\mapprim{0}{0}{1}{0}{0}}/{compare with left endpoint}/{comparison with a limit point, ties broken\\upward, and downward from above},
+ 4/-2.7/{\mapprim{0}{0}{0}{1}{0}}/{compare with right endpoint}/{comparison with a limit point, ties broken\\downward, and upward from below},
+ 5/-3.6/{\mapprim{1}{0}{0}{0}{0}}/{prefix test}/{exact equality, or no match},
+ 6/-4.5/{\mapprim{1}{1}{0}{0}{0}}/{prefix test and value}/{a lookup that returns its key},
+ 7/-5.4/{\mapprim{1}{0}{1}{0}{0}}/{prefix test and comparison}/{a three-way comparison: below, inside, above}}
+{
+ \fill[mapBg,rounded corners=3pt] (-0.15,\y+0.38) rectangle (13.6,\y-0.42);
+ \node[c] at (0,\y) {\mapD{\i}};
+ \node[anchor=center,inner sep=0pt] at (2.15,\y) {\pr};
+ \node[c] at (3.35,\y) {\fn};
+ \node[c,text=mapAlg] at (7.75,\y) {\lim};
+}
+\end{tikzpicture}}
+\caption{The seven canonical families as primitives of binary search on the interval of a node~$t$.}
+\label{tab:hepta-search}
 \end{table}
 
 The translation to a concrete computation is made after fixing the magnitude bounds specified by the parameters of the computation.
@@ -1667,7 +1678,7 @@ $r>1$, so Proposition~\ref{prop:convergent} gives the remaining statements.
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=\textwidth]{logistic_levels.pdf}
-  \caption{The logistic family: long-run values (left) and two orbits for $r=2.8$ (right).}
+  \caption{The logistic family.}
   \label{fig:logistic}
 \end{figure}
 
@@ -1772,7 +1783,7 @@ Determination by countably many tests does not mean isolation; by Proposition~\r
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=\textwidth]{bresenham.pdf}
-  \caption{Bresenham's algorithm (left) and the two tie-breaking conventions $R_c^\pm$ (right).}
+  \caption{Bresenham's algorithm and the conventions $R_c^\pm$.}
   \label{fig:bresenham}
 \end{figure}
 
@@ -2051,7 +2062,7 @@ $\{c\}$, so $c$ has no countable base of neighborhoods.
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=\textwidth]{euclid_equality.pdf}
-  \caption{The maps $M_k^{-1}$ (left) and their limits, exact equality tests $\delta_\eta$ (right).}
+  \caption{Exact equality tests from the Euclidean algorithm.}
   \label{fig:euclid}
 \end{figure}
 
@@ -2273,7 +2284,7 @@ Two companions for each limit along a branch give the extended duplicate of the 
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=\textwidth]{trichotomy_ii.pdf}
-  \caption{The two alternatives of case~(ii) of the trichotomy: spatial Bresenham (left) and the maps $\gamma_t$ (right).}
+  \caption{The two alternatives of case~(ii).}
   \label{fig:trichotomy-ii}
 \end{figure}
 
@@ -2397,7 +2408,7 @@ For a sequence $b$, the departures below and above are the words $t$, converging
     \hline
   \end{tabular}
   \vspace{6pt}
-  \caption{Limits of the realizations along the three routes.}
+  \caption{Limits along the three routes.}
   \label{tab:hepta-routes}
 \end{table}
 
@@ -2498,7 +2509,7 @@ Figure~\ref{fig:newton} depicts $f_0$ and $f_1$, together with the Newton fracta
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=\textwidth]{newton_cubic.pdf}
-  \caption{The deep computations $f_0$ and $f_1$ of Newton's method for $z^3-2z+2$, colored by basin.}
+  \caption{Newton's method for $z^3-2z+2$.}
   \label{fig:newton}
 \end{figure}
 
@@ -2525,7 +2536,7 @@ As $n$ increases, the coloring sharpens into large regions of nearly constant co
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=\textwidth]{newton_cyclotomic.pdf}
-  \caption{Newton's method for $z^3-1$: one and three iterations, and the limit on the Fatou set.}
+  \caption{Newton's method for $z^3-1$.}
   \label{fig:newton2}
 \end{figure}
 
@@ -2630,7 +2641,7 @@ Choosing the block $(0,1,1)$ for $k\in I$ and $(0,0,0)$ for $k\in J$, and taking
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=\textwidth]{doubling_independence.pdf}
-  \caption{Independence for the doubling map and for~$f_4$.}
+  \caption{Independence for the doubling map and~$f_4$.}
   \label{fig:doubling}
 \end{figure}
 
@@ -2753,7 +2764,7 @@ not $\NIP$ & doubling map of the circle & Prop.~\ref{prop:Newton-wild}\\
 \hline
 \end{tabular}
 \vspace{6pt}
-\caption{Computations at each level of the hierarchy and beyond it, with the cases left open.}
+\caption{The examples by level.}
 \label{tab:hierarchy}
 \end{table}
 
@@ -3120,7 +3131,7 @@ In Section~\ref{sec:iterative} we place a single iterated map at every level of 
 \draw[yes] (f.south) -- node[lbl,right]{yes} ++(0,-0.3) -| (L3.north);
 \draw[yes] (f.south) -- ++(0,-0.3) -| (L4.north);
 \end{tikzpicture}
-\caption{Leaves realized by a single iterated map; dashed leaves are open.}
+\caption{Open leaves, dashed.}
 \label{fig:map-open}
 \end{figure}
 
@@ -3222,7 +3233,7 @@ The action is therefore not tame, and, by Proposition~\ref{prop:cascade-tame}, t
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=\textwidth]{thue_morse_correlations.pdf}
-  \caption{Thue--Morse correlations $c(n)$ (left) and the averages $A(K)/K$ (right).}
+  \caption{Thue--Morse correlations.}
   \label{fig:thue-morse}
 \end{figure}
 
